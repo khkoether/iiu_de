@@ -1,0 +1,174 @@
+Installation in Ubuntu: AsciiDoc 8.4.5
+======================================
+Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;>
+
+:icons:
+:Author Initials: KHK
+:creativecommons-url: http://creativecommons.org/licenses/by-sa/3.0/de/
+:ubuntu-url: http://www.ubuntu.com/
+:asciidoc-url: http://www.methods.co.nz/asciidoc/
+:sourceforge-url: http://sourceforge.net/projects/asciidoc/
+
+Version 0.2, September 2009, <<_changelog,[Changelog]>>
+
+Abstract
+--------
+Der Artikel ist eine Schritt-für-Schritt Anleitung zur Installation 
+des Programms {asciidoc-url}[AsciiDoc] aus dem QuellCode.
+ 
+{asciidoc-url}[AsciiDoc] ist eine einfache Auszeichnungssprache, 
+die dazu dient, Texte in verschiedenen Dokumentenformaten zu 
+veröffentlichen.
+
+Der Artikel ist in {asciidoc-url}[ASCII DOC] erstellt worden.
+
+
+[CAUTION]
+Der Artikel wurde nach bestem Wissen und Gewissen geschrieben 
+und geprüft. Ich übernehme jedoch keinerlei Haftung für Schäden, 
+die durch Ausführung der in diesem Artikel aufgeführten Kommandos 
+entstehen oder entstanden sind.
+
+
+Vorraussetzungen
+----------------
+Die Installation wird für {ubuntu-url}[Ubuntu 9.04 (Jaunty Jackolope)] 
+beschrieben. + 
+Gleichwohl sind die einzelnen Schritte auch für 
+andere Debian-basierte GNU/Linux Distributionen übertragbar.
+
+.Download
+* {sourceforge-url}[AsciiDoc] +    
+  asciidoc-8.4.5-tar.gz  (ca. 1.1 MB) +
+  Last Update: May 26 2009
+  
+[NOTE] 
+====
+Das Kompilieren der Auszeichnungssprache AsciiDoc wird beispielhaft vom Benutzer 'bob' 
+durchgeführt. +
+Die eigentliche Installation von AsciiDoc wird vom  
+Benutzer 'root' für das System durchgeführt.
+----
+$ ls -l 
+-rw-r--r--  1 bob bob 1189280 2009-06-20 18:04 asciidoc-8.4.5.tar.gz
+----
+====
+
+[NOTE] 
+=========================================================
+Vor der eigentlichen Installation müssen die fehlenden 
+Programm-Pakete installiert sind.
+=========================================================
+
+----
+$ sudo apt-get install ...
+               python xmlto source-highlight vim-addon-manager 
+----
+
+== Installation
+
+
+=== AsciiDoc 8.4.5
+
+[IMPORTANT]
+====
+Ohne die Angabe eines Verzeichnisses wird '/usr/local/...' automatisch verwendet.
+Eine bereits vorhandene AsciiDoc-Installation wird überschrieben. +  
+ +
+Beispiel für die Änderung des Installations-Verzeichnisses:
+'./configure --prefix=/opt/wo_auch_immer'
+====
+
+*Step 1:* Auspacken des Source-Code
+----
+$ tar xvzf asciidoc-8.4.5.tar.gz
+$ cd asciidoc-8.4.5
+----
+
+*Step 2:* Konfiguration erstellen und kompilieren
+----
+$ ./configure | tee ../log.asciidoc_configure
+checking for a sed that does not truncate output... /bin/sed
+checking whether ln -s works... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+configure: creating ./config.status
+config.status: creating Makefile
+----
+
+----
+$ make | tee ../log.asciidoc_make
+Fixing CONF_DIR in asciidoc.py
+Fixing CONF_DIR in a2x
+----
+
+*Step 3:* Installation (als Benutzer 'root')
+----
+$ sudo make install | tee ../log.asciidoc_make_install
+Fixing CONF_DIR in asciidoc.py
+Fixing CONF_DIR in a2x
+/usr/bin/install -c -d //usr/local/bin
+[...]
+----
+
+----
+$ sudo make docs | tee ../log.asciidoc_make_docs
+/usr/bin/install -c -d //usr/local/share/doc/asciidoc
+[...]
+----
+
+*Step 4:* Installation verifizieren
+----
+$ cd /usr/local/bin
+$ ls -l
+-rwxr-xr-x  1 root root   18820 2009-06-29 19:57 a2x
+lrwxrwxrwx  1 root root      11 2009-06-29 19:57 asciidoc -> asciidoc.py
+-rwxr-xr-x  1 root root  215299 2009-06-29 19:57 asciidoc.py
+[...]
+----
+
+----
+$ man a2x 
+[...]
+
+$ man asciidoc 
+[...]
+----
+
+----
+$ find /usr -type d -cmin -20
+/usr/local/etc/asciidoc
+/usr/local/etc/asciidoc/dblatex
+/usr/local/etc/asciidoc/javascripts
+/usr/local/etc/asciidoc/stylesheets
+/usr/local/etc/asciidoc/filters/code
+/usr/local/etc/asciidoc/filters/music
+/usr/local/etc/asciidoc/filters/source
+/usr/local/etc/asciidoc/filters/graphviz
+/usr/local/etc/asciidoc/images/icons
+/usr/local/etc/asciidoc/images/icons/callouts
+/usr/local/etc/asciidoc/docbook-xsl
+/usr/local/bin
+/usr/local/share/doc/asciidoc
+/usr/local/share/doc/asciidoc/dblatex
+/usr/local/share/doc/asciidoc/examples/website
+/usr/local/share/doc/asciidoc/javascripts
+/usr/local/share/doc/asciidoc/stylesheets
+/usr/local/share/doc/asciidoc/doc
+/usr/local/share/doc/asciidoc/docbook-xsl
+/usr/local/share/man/man1
+/usr/bin
+/usr/share/doc/lsb-release
+/usr/share/doc/lsb-base
+/usr/share/man/man1
+----
+
+----
+Browser> file:///usr/local/share/doc/asciidoc/examples/website/index.html
+----
+
+
+Changelog
+---------
+
+.Version 0.2
+* Erste öffentliche Version

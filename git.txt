@@ -1,0 +1,238 @@
+Installation in Ubuntu: Git 1.6.4.4
+===================================
+Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;>
+
+:icons:
+:Author Initials: KHK
+:creativecommons-url: http://creativecommons.org/licenses/by-sa/3.0/de/
+:ubuntu-url: http://www.ubuntu.com/
+:asciidoc-url: http://www.methods.co.nz/asciidoc/
+:git-url: http://git-scm.com/
+
+Version 0.2, September 2009, <<_changelog,[Changelog]>>
+
+Abstract
+--------
+Der Artikel ist eine Schritt-für-Schritt Anleitung zur Installation 
+des Programms {git-url}[Git] aus dem QuellCode.
+ 
+{git-url}[Git] ist ein freies verteiltes Versionskontrollsystem 
+(DVCS - Distributed Version Control System).
+
+Der Artikel ist in {asciidoc-url}[ASCII DOC] erstellt worden.
+
+[CAUTION]
+Der Artikel wurde nach bestem Wissen und Gewissen geschrieben 
+und geprüft. Ich übernehme jedoch keinerlei Haftung für Schäden, 
+die durch Ausführung der in diesem Artikel aufgeführten Kommandos 
+entstehen oder entstanden sind.
+
+
+Vorraussetzungen
+----------------
+Die Installation wird für {ubuntu-url}[Ubuntu 9.04 (Jaunty Jackolope)] 
+beschrieben. + 
+Gleichwohl sind die einzelnen Schritte auch für 
+andere Debian-basierte GNU/Linux Distributionen übertragbar.
+
+.Download
+* {git-url}[Git] +    
+  git-1.6.4.4-tar.gz  (ca. 2.6 MB) +
+  2009-09-16
+  
+[NOTE] 
+====
+Das Kompilieren des Versionskontrollsystem wird beispielhaft vom Benutzer 'bob' 
+durchgeführt. +
+Die eigentliche Installation von Git wird vom  
+Benutzer 'root' für das System durchgeführt.
+----
+$ ls -l 
+-rw-r--r--  1 bob  bob  2629908 2009-09-16 12:34 git-1.6.4.4.tar.gz
+----
+====
+
+[NOTE] 
+=========================================================
+Vor der eigentlichen Installation müssen die fehlenden 
+Programm-Pakete installiert sind.
+=========================================================
+
+----
+$ sudo apt-get install ...
+               liberror-perl  libdigest-sha1-perl  libcurl4-openssl-dev
+               comerr-dev  libidn11-dev
+               libkadm55  libkrb5-dev  libldap2-dev
+               tcl8.4  tcl8.4-dev
+               libssl-dev xmlto 
+----
+
+== Installation
+
+
+=== Git 1.6.4.4
+
+[IMPORTANT]
+====
+Ohne die Angabe eines Verzeichnisses wird '/usr/local/...' automatisch verwendet.
+Eine bereits vorhandene Git-Installation wird überschrieben. +  
+ +
+Beispiel für die Änderung des Installations-Verzeichnisses:
+'./configure --prefix=/opt/wo_auch_immer'
+====
+
+*Step 1:* Auspacken des Source-Code
+----
+$ tar xvzf git-1.6.4.4.tar.gz
+$ cd git-1.6.4.4
+----
+
+*Step 2:* Konfiguration erstellen und kompilieren
+----
+$ ./configure | tee ../log.git_configure
+configure: Setting lib to 'lib' (the default)
+configure: Will try -pthread then -lpthread to enable POSIX Threads.
+configure: CHECKS for site configuration
+configure: CHECKS for programs
+checking for cc... cc
+[...]
+checking for asciidoc... asciidoc
+checking for asciidoc version... asciidoc 8.4.5 > 7
+[...]
+checking Checking for POSIX Threads with '-pthread'... yes
+configure: creating ./config.status
+config.status: creating config.mak.autogen
+----
+
+----
+$ make all doc | tee ../log.git_make_all_doc
+GIT_VERSION = 1.6.4.4
+    * new build flags or prefix
+    CC fast-import.o
+[...]
+    ASCIIDOC gitworkflows.xml
+    XMLTO gitworkflows.7
+make[1]: Verlasse Verzeichnis '.../git-1.6.4.4/Documentation'
+----
+
+*Step 3:* Installation (als Benutzer 'root')
+----
+$ sudo make install | tee ../log.git_make_install
+    SUBDIR git-gui
+    SUBDIR gitk-git
+[...]
+----
+
+----
+$ sudo make install-doc | tee ../log.git_make_install-doc
+make -C Documentation install
+[...]
+----
+
+----
+$ sudo make install-html | tee ../log.git_make_install-html
+make -C Documentation install
+[...]
+----
+
+*Step 4:* Installation verifizieren
+----
+$ cd /usr/local/bin
+$ ls -l
+-rwxr-xr-x 95 root root 3201879 2009-09-16 12:34 git
+-rwxr-xr-x  1 root root  116421 2009-09-16 12:34 git-cvsserver
+-rwxr-xr-x  1 root root  310688 2009-09-16 12:34 gitk
+-rwxr-xr-x  1 root root 3201879 2009-09-16 12:34 git-receive-pack
+-rwxr-xr-x  1 root root 1300054 2009-09-16 12:34 git-shell
+-rwxr-xr-x  1 root root 3201879 2009-09-16 12:34 git-upload-archive
+-rwxr-xr-x  1 root root 1335898 2009-09-16 12:34 git-upload-pack
+[...]
+----
+
+----
+$ man git 
+GIT(1)                            Git Manual                            GIT(1)
+
+NAME
+       git - the stupid content tracker
+[...]
+DOCUMENTATION
+       The documentation for git suite was started by David Greaves
+       <david@dgreaves.com[10]>, and later enhanced greatly by the
+       contributors on the git-list <git@vger.kernel.org[9]>.
+
+SEE ALSO
+       gittutorial(7), gittutorial-2(7), Everyday Git[1], gitcvs-migration(7),
+       gitglossary(7), gitcore-tutorial(7), gitcli(7), The Git User’s
+       Manual[2], gitworkflows(7)
+
+GIT
+       Part of the git(1) suite
+
+NOTES
+        1. Everyday Git
+           everyday.html
+
+        2. Git User’s Manual
+           user-manual.html
+
+        3. git concepts chapter of the user-manual
+           user-manual.html#git-concepts
+
+        4. howto
+           howto-index.html
+
+        5. GIT API documentation
+           technical/api-index.html
+[...]
+Git 1.6.4.4                       09/16/2009                            GIT(1)
+
+$ man gitk 
+GITK(1)                           Git Manual                           GITK(1)
+
+NAME
+       gitk - The git repository browser
+[...]
+DESCRIPTION
+       Displays changes in a repository or a selected set of commits. This
+       includes visualizing the commit graph, showing information related to
+       each commit, and the files in the trees of each revision.
+
+       Historically, gitk was the first repository browser. It’s written in
+       tcl/tk and started off in a separate repository but was later merged
+       into the main git repository.
+[...]
+Git 1.6.4.4                       09/16/2009                            GITK(1)
+----
+
+----
+$ find /usr -type d -cmin -20
+/usr/local/bin
+/usr/local/share/gitk/lib/msgs
+/usr/local/share/git-gui/lib
+/usr/local/share/git-gui/lib/msgs
+/usr/local/share/git-core/templates
+/usr/local/share/git-core/templates/hooks
+/usr/local/share/git-core/templates/info
+/usr/local/share/git-core/templates/branches
+/usr/local/share/doc
+/usr/local/share/doc/git-doc
+/usr/local/share/doc/git-doc/technical
+/usr/local/share/doc/git-doc/howto
+/usr/local/share/man/man3
+/usr/local/share/man/man5
+/usr/local/share/man/man1
+/usr/local/share/man/man7
+/usr/local/libexec/git-core
+----
+
+----
+Browser> file:///usr/local/share/doc/git-doc/index.html
+----
+
+
+Changelog
+---------
+
+.Version 0.2
+* Erste öffentliche Version

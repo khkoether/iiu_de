@@ -1,0 +1,1028 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.4.5" />
+<title>Installation in Ubuntu: Ruby 1.9.1, Ruby on Rails 2.3.4</title>
+<style type="text/css">
+/* Debug borders */
+p, li, dt, dd, div, pre, h1, h2, h3, h4, h5, h6 {
+/*
+  border: 1px solid red;
+*/
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+tt {
+  color: navy;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  font-family: sans-serif;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+
+div.sectionbody {
+  font-family: serif;
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+
+pre {
+  padding: 0;
+  margin: 0;
+}
+
+span#author {
+  color: #527bbd;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+span#email {
+}
+span#revnumber, span#revdate, span#revremark {
+  font-family: sans-serif;
+}
+
+div#footer {
+  font-family: sans-serif;
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+div#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+div#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+div#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.tableblock, div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.5em;
+  margin-bottom: 2.5em;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-family: sans-serif;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid silver;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid silver;
+  background: #f4f4f4;
+  padding: 0.5em;
+}
+
+div.quoteblock {
+  padding-left: 2.0em;
+  margin-right: 10%;
+}
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock {
+  padding-left: 2.0em;
+  margin-right: 10%;
+}
+div.verseblock > div.content {
+  white-space: pre;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 2px solid silver;
+}
+
+div.exampleblock > div.content {
+  border-left: 2px solid silver;
+  padding: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead {
+  font-family: sans-serif;
+  font-weight: bold;
+}
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+@media print {
+  div#footer-badges { display: none; }
+}
+
+div#toctitle {
+  color: #527bbd;
+  font-family: sans-serif;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+/* Workarounds for IE6's broken and incomplete CSS2. */
+
+div.sidebar-content {
+  background: #ffffee;
+  border: 1px solid silver;
+  padding: 0.5em;
+}
+div.sidebar-title, div.image-title {
+  color: #527bbd;
+  font-family: sans-serif;
+  font-weight: bold;
+  margin-top: 0.0em;
+  margin-bottom: 0.5em;
+}
+
+div.listingblock div.content {
+  border: 1px solid silver;
+  background: #f4f4f4;
+  padding: 0.5em;
+}
+
+div.quoteblock-attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock-content {
+  white-space: pre;
+}
+div.verseblock-attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+
+div.exampleblock-content {
+  border-left: 2px solid silver;
+  padding-left: 0.5em;
+}
+
+/* IE6 sets dynamically generated links as visited. */
+div#toc a:visited { color: blue; }
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+window.onload = function(){generateToc(2)}
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, October 2006. License: GPL */
+
+function getText(el) {
+  var text = "";
+  for (var i = el.firstChild; i != null; i = i.nextSibling) {
+    if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+      text += i.data;
+    else if (i.firstChild != null)
+      text += getText(i);
+  }
+  return text;
+}
+
+function TocEntry(el, text, toclevel) {
+  this.element = el;
+  this.text = text;
+  this.toclevel = toclevel;
+}
+
+function tocEntries(el, toclevels) {
+  var result = new Array;
+  var re = new RegExp('[hH]([2-'+(toclevels+1)+'])');
+  // Function that scans the DOM tree for header elements (the DOM2
+  // nodeIterator API would be a better technique but not supported by all
+  // browsers).
+  var iterate = function (el) {
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+        var mo = re.exec(i.tagName)
+        if (mo)
+          result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+        iterate(i);
+      }
+    }
+  }
+  iterate(el);
+  return result;
+}
+
+// This function does the work. toclevels = 1..4.
+function generateToc(toclevels) {
+  var toc = document.getElementById("toc");
+  var entries = tocEntries(document.getElementsByTagName("body")[0], toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "toc" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    document.getElementById("header").removeChild(toc);
+}
+/*]]>*/
+</script>
+</head>
+<body>
+<div id="header">
+<h1>Installation in Ubuntu: Ruby 1.9.1, Ruby on Rails 2.3.4</h1>
+<span id="author">Karl-Heinz Köther</span><br />
+<span id="email"><tt>&lt;<a href="mailto:&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;">&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;</a>&gt;</tt></span><br />
+<div id="toc">
+  <div id="toctitle">Table of Contents</div>
+  <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
+</div>
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph"><p>Version 0.2, September 2009, <a href="#_changelog">[Changelog]</a></p></div>
+</div>
+</div>
+<h2 id="_abstract">Abstract</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Dieser Artikel ist eine Schritt-für-Schritt Anleitung zur Installation
+von <a href="http://www.ruby-lang.org/">Ruby 1.9.1</a> unter GNU/Linux.</p></div>
+<div class="paragraph"><p>Die Programmiersprache <a href="http://www.ruby-lang.org/">Ruby</a> ist die Grundlage für das
+Framework <a href="http://www.rubyonrails.org">Ruby on Rails</a>.</p></div>
+<div class="paragraph"><p>Der Artikel ist in <a href="http://www.methods.co.nz/asciidoc/">ASCII DOC</a> erstellt worden.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/caution.png" alt="Caution" />
+</td>
+<td class="content">Der Artikel wurde nach bestem Wissen und Gewissen geschrieben
+und geprüft. Ich übernehme jedoch keinerlei Haftung für Schäden,
+die durch Ausführung der in diesem Artikel aufgeführten Kommandos
+entstehen oder entstanden sind.</td>
+</tr></table>
+</div>
+</div>
+<h2 id="_vorraussetzungen">Vorraussetzungen</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Die Installation wird für <a href="http://www.ubuntu.com/">Ubuntu 9.04 (Jaunty Jackolope)</a>
+beschrieben. Gleichwohl sind die einzelnen Schritte auch für
+andere Distributionen übertragbar.</p></div>
+<div class="ulist"><div class="title">Download</div><ul>
+<li>
+<p>
+<a href="ftp://www.ruby-lang.org/pub/ruby/1.9/ruby-1.9.1-p0.tar.gz">Ruby 1.9.1 Patchlevel 0</a><br />
+  ruby-1.9.1-p0  (ca. 9 MB)
+</p>
+</li>
+<li>
+<p>
+<a href="ftp://www.ruby-lang.org/pub/ruby/1.9/ruby-1.9.1-p129.tar.gz">Ruby 1.9.1 Patchlevel 129</a><br />
+  ruby-1.9.1-p129  (ca. 9 MB)
+</p>
+</li>
+<li>
+<p>
+<a href="ftp://www.ruby-lang.org/pub/ruby/1.9/ruby-1.9.1-p243.tar.gz">Ruby 1.9.1 Patchlevel 243</a><br />
+  ruby-1.9.1-p243  (ca. 9 MB)
+</p>
+</li>
+<li>
+<p>
+<a href="http://rubyforge.org/projects/mysql-ruby/">MySQL-Ruby Adaptor 2.8.1</a><br />
+  mysql-ruby-2.8.1.tar.gz  (ca. 35 KB)
+</p>
+</li>
+</ul></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/note.png" alt="Note" />
+</td>
+<td class="content">
+<div class="paragraph"><p>Das Kompilieren der Programmiersprache Ruby wird vom Benutzer <em>bob</em>
+durchgeführt.<br />
+Die eigentliche Installation von Ruby und Ruby on Rails wird vom
+Benutzer <em>root</em> für das System durchgeführt.</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$ ls -l
+-rw-r--r-- 1 bob bob   34662 2009-02-01 12:34 mysql-ruby-2.8.1.tar.gz
+-rw-r--r-- 1 bob bob 9025004 2009-01-30 11:34 ruby-1.9.1-p0.tar.gz
+-rw-r--r-- 1 bob bob 9034947 2009-05-12 12:34 ruby-1.9.1-p129.tar.gz
+-rw-r--r-- 1 bob bob 9043825 2009-07-18 12:34 ruby-1.9.1-p243.tar.gz</tt></pre>
+</div></div>
+</td>
+</tr></table>
+</div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/note.png" alt="Note" />
+</td>
+<td class="content">
+<div class="paragraph"><p>Vor der eigentlichen Installation müssen die fehlenden
+Programm-Pakete installiert sind.</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$ sudo apt-get install ...
+               libc6-dev  gcc  g++  make  dpkg-dev  build-essential
+               libssl-dev  libreadline5-dev  libncurses5-dev  zlib1g-dev
+               libmysql++-dev  libsqlite3-dev  libmysql++3
+               autoconf  m4</tt></pre>
+</div></div>
+</td>
+</tr></table>
+</div>
+</div>
+<h2 id="_installation">Installation</h2>
+<div class="sectionbody">
+<h3 id="_ruby_1_9_1">Ruby 1.9.1</h3><div style="clear:left"></div>
+<div class="paragraph"><p>Zusätzliche Software-Pakete die nicht über das Paketmanagement
+verwaltet wird, sollte im Verzeichnis <em>/opt</em> (Optional)
+installiert werden.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/important.png" alt="Important" />
+</td>
+<td class="content">
+<div class="paragraph"><p>Ohne die Angabe eines Verzeichnisses wird <em>/usr/local/&#8230;</em> automatisch verwendet.
+Eine bereits vorhandene Ruby-Installation wird überschrieben.<br />
+<br />
+Beispiel für die Änderung des Installations-Verzeichnisses:
+<em>./configure --prefix=/opt/wo_auch_immer</em></p></div>
+</td>
+</tr></table>
+</div>
+<div class="paragraph"><p><strong>Step 1:</strong> Auspacken des Source-Code</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$ tar xvzf ruby-1.9.1-p243.tar.gz
+$ cd ruby-1.9.1-p243</tt></pre>
+</div></div>
+<div class="paragraph"><p><strong>Step 2:</strong> Konfiguration erstellen und kompilieren</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$ sudo mkdir /opt/Ruby/ruby-1.9.1-p243</tt></pre>
+</div></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/note.png" alt="Note" />
+</td>
+<td class="content">
+<div class="paragraph"><p>Die Programm-Option <em>configure --program-suffix=19</em> hilft nicht wirklich. Sie ändert
+die Namen der zu installierenden Binaries bsp. für <em>ruby</em> auf <em>ruby19</em>. Damit könnten die
+Dateien auch in das Verzeichnis <em>/usr/local/bin</em> installiert werden - scheinbar eine gute
+Lösung - bis zu dem Moment wenn Rails installiert wird und die Programme <em>rails</em> und <em>rake</em>
+ohne das Suffix <em>19</em> wiederum vorhandene Dateien überschreibt.</p></div>
+</td>
+</tr></table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$ ./configure --prefix=/opt/Ruby/ruby-1.9.1-p243 | tee ../log.ruby_configure
+checking build system type... i686-pc-linux-gnu
+[...]
+config.status: creating Makefile
+
+$ make | tee ../log.ruby_make
+$ make all | tee ../log.ruby_make_all
+sed 's/{\$([^(){}]*)[^{}]*}//g' common.mk &gt; uncommon.mk
+gcc -O2 -g -Wall -Wno-parentheses  -fPIC  -I. -I.ext/include/i686-linux ...
+[...]
+make[1]: Verlasse Verzeichnis '.../ruby-1.9.1-p243'
+
+$ make test | tee ../log.ruby_make_test
+sample/test.rb:assignment ...............................................
+[...]
+2009-09-17 12:34:56 +0200
+Driver is ruby 1.9.1 (2009-07-16 patchlevel 243) [i686-linux]
+Target is ruby 1.9.1p243 (2009-07-16 revision 24175) [i686-linux]
+
+KNOWNBUGS.rb
+PASS 0 tests</tt></pre>
+</div></div>
+<div class="paragraph"><p><strong>Step 3:</strong> Installation (als Benutzer <em>root</em>)<br />
+(Dokumentation wird mitinstalliert: install-doc entfällt)</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$ sudo make install | tee ../log.ruby_make_install
+./miniruby -I./lib -I.ext/common -I./- -r./ext/purelib.rb  ...
+installing binary commands
+installing command scripts
+installing library scripts
+installing headers
+installing manpages
+installing extension objects
+installing extension scripts
+Generating RDoc documentation
+[...]
+Files:   512
+Classes: 1335
+Modules: 568
+Methods: 7477
+Elapsed: 134.2s
+./miniruby -I./lib -I.ext/common -I./- -r./ext/purelib.rb  [...]
+installing rdoc</tt></pre>
+</div></div>
+<div class="paragraph"><p><strong>Step 4:</strong> Installation verifizieren</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$ cd /opt/Ruby/ruby-1.9.1-p243
+$ ls -l
+drwxr-xr-x 2 root root 4096 2009-09-17 10:33 bin
+drwxr-xr-x 3 root root 4096 2009-09-17 10:33 include
+drwxr-xr-x 3 root root 4096 2009-09-17 10:33 lib
+drwxr-xr-x 4 root root 4096 2009-09-17 10:35 share</tt></pre>
+</div></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$ ls -l bin
+-rwxr-xr-x 1 root root  4423 2009-09-17 10:33 erb
+-rwxr-xr-x 1 root root   803 2009-09-17 10:33 gem
+-rwxr-xr-x 1 root root   335 2009-09-17 10:33 irb
+-rwxr-xr-x 1 root root  1265 2009-09-17 10:33 rake
+-rwxr-xr-x 1 root root   427 2009-09-17 10:33 rdoc
+-rwxr-xr-x 1 root root    90 2009-09-17 10:33 ri
+-rwxr-xr-x 1 root root 10200 2009-09-17 10:32 ruby
+-rwxr-xr-x 1 root root   264 2009-09-17 10:33 testrb</tt></pre>
+</div></div>
+<div class="paragraph"><p><strong>Step 5:</strong> Der Pfad zum Verzeichnis <em>/opt/Ruby/ruby-1.9.1-p243/bin</em> muß gesetzt werden</p></div>
+<div class="listingblock">
+<div class="title">Lokal in der aktuellen Shell</div>
+<div class="content">
+<pre><tt>$ export PATH=/opt/Ruby/ruby-1.9.1-p243/bin:$PATH
+$ echo $PATH
+/opt/Ruby/ruby-1.9.1-p243/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin</tt></pre>
+</div></div>
+<div class="paragraph"><div class="title">Systemweit in der Datei <em>/etc/environment</em></div><p>Der Eintrag funktioniert in Hardy Heron (8.04) nicht für den Benutzer <em>root</em> !?</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$ sudo vim /etc/environment
+PATH="/opt/Ruby/ruby-1.9.1-p243/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"</tt></pre>
+</div></div>
+<div class="paragraph"><div class="title">Systemweit in einer allgemeineren Lösung</div><p>Ein Vorteil ist hierbei, daß für das Einspielen einer neuen Version die <em>PATH</em>-Variable nicht erneut
+angepasst werden müssen.</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$ sudo vim /etc/environment
+PATH="/opt/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+
+$ sudo mkdir /opt/local/bin
+
+$ cd /opt/Ruby/
+$ sudo ln -s ruby-1.9.1-p243 current
+$ ls -l
+lrwxrwxrwx 1 root root   16 2009-09-17 10:49 current -&gt; ruby-1.9.1-p243/
+drwxr-xr-x 6 root root 4096 2009-08-30 12:54 ruby-1.9.1-p129
+drwxr-xr-x 6 root root 4096 2009-09-17 10:33 ruby-1.9.1-p243
+
+$ cd /opt/local/bin
+$ sudo ln -s ../../Ruby/current/bin/erb
+$ sudo ln -s ../../Ruby/current/bin/gem
+$ sudo ln -s ../../Ruby/current/bin/irb
+$ sudo ln -s ../../Ruby/current/bin/rake
+$ sudo ln -s ../../Ruby/current/bin/rdoc
+$ sudo ln -s ../../Ruby/current/bin/ri
+$ sudo ln -s ../../Ruby/current/bin/ruby
+$ sudo ln -s ../../Ruby/current/bin/testrb
+$ ls -l
+lrwxrwxrwx 1 root root 26 2009-07-30 12:34 erb -&gt; ../../Ruby/current/bin/erb
+lrwxrwxrwx 1 root root 26 2009-07-30 12:34 gem -&gt; ../../Ruby/current/bin/gem
+lrwxrwxrwx 1 root root 26 2009-07-30 12:34 irb -&gt; ../../Ruby/current/bin/irb
+lrwxrwxrwx 1 root root 27 2009-07-30 12:34 rake -&gt; ../../Ruby/current/bin/rake
+lrwxrwxrwx 1 root root 27 2009-07-30 12:34 rdoc -&gt; ../../Ruby/current/bin/rdoc
+lrwxrwxrwx 1 root root 25 2009-07-30 12:34 ri -&gt; ../../Ruby/current/bin/ri
+lrwxrwxrwx 1 root root 27 2009-07-30 12:34 ruby -&gt; ../../Ruby/current/bin/ruby
+lrwxrwxrwx 1 root root 29 2009-07-30 12:34 testrb -&gt; ../../Ruby/current/bin/testrb</tt></pre>
+</div></div>
+<div class="paragraph"><p><strong>Step 6:</strong> Check</p></div>
+<div class="listingblock">
+<div class="title">Die Ruby-Version &#8230;</div>
+<div class="content">
+<pre><tt>$ which ruby
+/opt/local/bin/ruby  (1)
+
+$ sudo which ruby    (2)
+/opt/local/bin/ruby
+
+$ ruby -v            (3)
+ruby 1.9.1p243 (2009-07-16 revision 24175) [i686-linux]</tt></pre>
+</div></div>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Das Kommando <em>which</em> wertet den gesetzten <em>PATH</em> für den Benutzer <em>bob</em> aus<br />
+</p>
+</li>
+<li>
+<p>
+Das Kommando <em>which</em> wertet den gesetzten <em>PATH</em> für den Benuzter <em>root</em> aus
+</p>
+</li>
+<li>
+<p>
+Ausgabe der Version des installierten Ruby
+</p>
+</li>
+</ol></div>
+<div class="listingblock">
+<div class="title">Vollständigkeit &#8230;</div>
+<div class="content">
+<pre><tt>$ ruby -ropenssl -rzlib -rreadline -e "puts 'Happy new Ruby'"
+Happy new Ruby</tt></pre>
+</div></div>
+<div class="listingblock">
+<div class="title">Und ein Ruby1.9-Feature &#8230;</div>
+<div class="content">
+<pre><tt>$ irb
+irb(main):001:0&gt; RUBY_VERSION
+=&gt; "1.9.1"
+irb(main):002:0&gt; Time.now.to_s
+=&gt; "2009-09-17 10:54:26 +0200"
+irb(main):003:0&gt; Time.now.tuesday?
+=&gt; false
+irb(main):004:0&gt; Time.now.thursday?
+=&gt; true</tt></pre>
+</div></div>
+<h3 id="_mysql_ruby_adaptor">MySQL-Ruby Adaptor</h3><div style="clear:left"></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$ tar xvzf mysql-ruby-2.8.1.tar.gz
+$ cd mysql-ruby-2.8.1
+$ sudo ruby extconf.rb | tee ../log.mysql_ruby_extconf
+$ make | tee ../log.mysql_ruby_make
+$ sudo make install | tee ../log.mysql_ruby_make_install
+
+$ ls -l /opt/Ruby/ruby-1.9.1-p243/lib/ruby/site_ruby/1.9.1/i686-linux
+-rwxr-xr-x 1 root root 149842 2009-09-17 10:57 mysql.so</tt></pre>
+</div></div>
+<h3 id="_ruby_on_rails">Ruby on Rails</h3><div style="clear:left"></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/note.png" alt="Note" />
+</td>
+<td class="content">
+<div class="paragraph"><p>Ruby 1.9 enthält bereits RubyGems - eine seperate Installation entfällt.</p></div>
+</td>
+</tr></table>
+</div>
+<div class="paragraph"><p><strong>Step 1:</strong> Vorraussetzung für die nächsten Befehle ist ein
+funktionierender <em>PATH</em>-Eintrag für alle Benutzer (einschliesslich <em>root</em>)
+auf die Ruby1.9-Installation:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$ which gem
+/opt/local/bin/gem
+
+$ sudo which gem
+/opt/Ruby/ruby-1.9.1-p243/bin/gem</tt></pre>
+</div></div>
+<div class="paragraph"><p>Dann gehen auch die folgenden Befehle</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$ gem -v
+1.3.1
+
+$ gem list --local
+*** LOCAL GEMS ***</tt></pre>
+</div></div>
+<div class="paragraph"><p><strong>Step 2:</strong> Das Programm <em>gem</em> aktualisieren</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$ sudo gem update --system
+Updating RubyGems
+Updating rubygems-update
+Successfully installed rubygems-update-1.3.5
+:0:Warning: Gem::SourceIndex#search support for String patterns is deprecated
+Updating RubyGems to 1.3.5
+Installing RubyGems 1.3.5
+RubyGems 1.3.5 installed
+
+ === 1.3.5 / 2009-07-21
+[...]
+RubyGems installed the following executables:
+        /opt/Ruby/ruby-1.9.1-p243/bin/gem
+
+
+$ gem -v
+1.3.5
+
+$ gem list --local
+*** LOCAL GEMS ***
+rubygems-update (1.3.5)</tt></pre>
+</div></div>
+<div class="paragraph"><p><strong>Step 3:</strong> Wichtig ist hier die Systemweite Installation von
+Rails 2.3.3 mithilfe von <em>sudo</em>.</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$ sudo gem install rails rake rack sqlite3-ruby</tt></pre>
+</div></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$ gem list --local
+*** LOCAL GEMS ***
+actionmailer (2.3.4)
+actionpack (2.3.4)
+activerecord (2.3.4)
+activeresource (2.3.4)
+activesupport (2.3.4)
+rack (1.0.0)
+rails (2.3.4)
+rake (0.8.7)
+rubygems-update (1.3.5)
+sqlite3-ruby (1.2.5)</tt></pre>
+</div></div>
+<div class="paragraph"><p>Für die in dem Verzeichnis <em>/opt/Ruby/current/bin</em> neu installierten Programme müssen <em>links</em> angelegt werden.</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$ cd /opt/local/bin
+$ sudo ln -s ../../Ruby/current/bin/rackup
+$ sudo ln -s ../../Ruby/current/bin/rails
+$ sudo ln -s ../../Ruby/current/bin/update_rubygems
+
+$ ls -l
+lrwxrwxrwx 1 root root 26 2009-07-30 12:34 erb -&gt; ../../Ruby/current/bin/erb
+lrwxrwxrwx 1 root root 26 2009-07-30 12:34 gem -&gt; ../../Ruby/current/bin/gem
+lrwxrwxrwx 1 root root 26 2009-07-30 12:34 irb -&gt; ../../Ruby/current/bin/irb
+lrwxrwxrwx 1 root root 29 2009-08-01 22:01 rackup -&gt; ../../Ruby/current/bin/rackup  &lt;---
+lrwxrwxrwx 1 root root 28 2009-08-01 22:01 rails -&gt; ../../Ruby/current/bin/rails    &lt;---
+lrwxrwxrwx 1 root root 27 2009-07-30 12:34 rake -&gt; ../../Ruby/current/bin/rake
+lrwxrwxrwx 1 root root 27 2009-07-30 12:34 rdoc -&gt; ../../Ruby/current/bin/rdoc
+lrwxrwxrwx 1 root root 25 2009-07-30 12:34 ri -&gt; ../../Ruby/current/bin/ri
+lrwxrwxrwx 1 root root 27 2009-07-30 12:34 ruby -&gt; ../../Ruby/current/bin/ruby
+lrwxrwxrwx 1 root root 29 2009-07-30 12:34 testrb -&gt; ../../Ruby/current/bin/testrb
+lrwxrwxrwx 1 root root 38 2009-08-01 22:01 update_rubygems -&gt; ../../Ruby/current/bin/update_rubygems  &lt;---</tt></pre>
+</div></div>
+<h3 id="_beispielanwendung_ruby_on_rails">Beispielanwendung: Ruby on Rails</h3><div style="clear:left"></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$ which rails
+/opt/local/bin/rails
+
+$ cd
+$ mkdir RailsDir
+
+$ cd RailsDir
+$ rails myapp --database=mysql
+
+$ cd myapp
+
+$ vi config/database.yml
+development:
+  adapter: mysql
+  encoding: utf8
+  reconnect: false
+  database: myapp_development  &lt;---
+  pool: 5
+  username: bob                &lt;---
+  password: GEHEIM             &lt;---
+  socket: /var/run/mysqld/mysqld.sock
+
+$ mysql -ubob -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 32
+Server version: 5.0.75-0ubuntu10.2 (Ubuntu)
+
+Type 'help;' or '\h' for help. Type '\c' to clear the buffer.
+
+mysql&gt; create database myapp_development;
+Query OK, 1 row affected (0.00 sec)
+
+mysql&gt; exit
+Bye
+
+
+$ ruby script/server
+=&gt; Booting WEBrick
+=&gt; Rails 2.3.4 application starting on http://0.0.0.0:3000
+=&gt; Call with -d to detach
+=&gt; Ctrl-C to shutdown server
+[2009-09-17 11:30:13] INFO  WEBrick 1.3.1
+[2009-09-17 11:30:13] INFO  ruby 1.9.1 (2009-07-16) [i686-linux]
+[2009-09-17 11:30:18] WARN  TCPServer Error: Address already in use - bind(2)
+[2009-09-17 11:30:18] INFO  WEBrick::HTTPServer#start: pid=17129 port=3000</tt></pre>
+</div></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>Browser&gt; http://localhost:3000/</tt></pre>
+</div></div>
+</div>
+<h2 id="_anhang">Anhang</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="title">Script zum Installieren von Ruby v1.9.1 (ohne weitere Erläuterung)</div>
+<div class="content">
+<pre><tt>#!/bin/bash
+#
+ME=make_ruby_1.9.1
+TARGET=/opt/Ruby/ruby-1.9.1-p243
+
+if [ ! -e $TARGET ]
+then
+  echo "Ziel-Verzeichnis '$TARGET' existiert nicht."
+  echo "Abbruch."
+  exit 1
+fi
+echo "Ziel-Verzeichnis:"
+ls -l $TARGET
+
+echo "Ruby 1.9.1-Installation fortsetzen (j/n)"
+read dummy
+case $dummy in
+  j|J|y|Y) echo "Installation wird fortgesetzt."
+           ;;
+  *) echo "Installation wird abgebrochen."
+     exit 1
+     ;;
+esac
+
+echo
+echo "Source auspacken ..."
+tar xvzf ruby-1.9.1-p243.tar.gz
+cd ruby-1.9.1-p243
+
+echo
+echo "Source übersetzen ..."
+mv configure configure.bak
+autoconf
+./configure --prefix=$TARGET --enable-shared| tee ../log.ruby_configure
+make | tee ../log.ruby_make
+make test | tee ../log.ruby_make_test
+
+echo
+echo "Ruby 1.9.1 installieren"
+sudo make install | tee ../log.ruby_make_install
+
+echo
+ls -l $TARGET
+
+echo
+echo "$ME: Ende."</tt></pre>
+</div></div>
+<div class="listingblock">
+<div class="title">Script zum Installieren von MySQL v2.8.1 (ohne weitere Erläuterung)</div>
+<div class="content">
+<pre><tt>#! /bin/bash
+
+TARGET=/opt/Ruby/ruby-1.9.1-p243
+tar xvzf mysql-ruby-2.8.1.tar.gz
+cd mysql-ruby-2.8.1
+sudo $TARGET/bin/ruby extconf.rb | tee ../log.mysql_ruby_extconf
+make | tee ../log.mysql_ruby_make
+sudo make install | tee ../log.mysql_ruby_make_install
+
+ls -l /opt/Ruby/ruby-1.9.1-p243/lib/ruby/site_ruby/1.9.1/i686-linux
+
+echo
+echo "Ende."</tt></pre>
+</div></div>
+</div>
+<h2 id="_changelog">Changelog</h2>
+<div class="sectionbody">
+<div class="ulist"><div class="title">Version 0.2</div><ul>
+<li>
+<p>
+Erste öffentliche Version
+</p>
+</li>
+</ul></div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2009-09-21 20:57:53 CEST
+</div>
+</div>
+</body>
+</html>
