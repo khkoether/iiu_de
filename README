@@ -1,19 +1,29 @@
 Installation in Ubuntu
 
-Die Artikel sind eine Schritt-für-Schritt Anleitung zur Installation verschiedener Programme aus dem QuellCode.
+Die Artikel sind eine Schritt-für-Schritt Anleitung zur Installation 
+verschiedener Programme aus dem QuellCode.
 
-Die Programme sind entsprechend den eigenen Bedürfnissen, Neigungen und Zielen ausgewählt ;-)
-Ich mag Script-Sprachen (Perl, Bash, Ruby), schätze das Framework Ruby on Rails und Git ... und ... Dokumentation ist notwendig.
+Die Programme sind entsprechend den eigenen Bedürfnissen, Neigungen 
+und Zielen ausgewählt ;-)
+Ich mag Script-Sprachen (Perl, Bash, Ruby), schätze das Framework 
+Ruby on Rails und Git ... und ... Dokumentation ist notwendig.
 
- * AsciiDoc ist eine einfache Auszeichnungssprache, die dazu dient, Texte in verschiedenen Dokumentenformaten zu veröffentlichen.
+ * AsciiDoc ist eine einfache Auszeichnungssprache, die dazu dient, 
+   Texte in verschiedenen Dokumentenformaten zu veröffentlichen.
 
- * Git ist ein freies verteiltes Versionskontrollsystem (DVCS - Distributed Version Control System).
+ * Git ist ein freies verteiltes Versionskontrollsystem 
+   (DVCS - Distributed Version Control System).
 
- * Die Programmiersprache Ruby ist die Grundlage für das Framework Ruby on Rails.
+ * Die Programmiersprache Ruby ist die Grundlage für das Framework 
+   Ruby on Rails.
 
- * NetBeans bietet eine Unterstützung für verschiedene Programmiersprachen und -techniken. Wobei die Java-basierten Lösungen ausgezeichnet unterstützt werden.
+ * NetBeans bietet eine Unterstützung für verschiedene Programmier-
+   sprachen und -techniken. Wobei die Java-basierten Lösungen 
+   ausgezeichnet unterstützt werden.
 
- * Die Programmiersprache JRuby ist die Implementation von Ruby in Java, die wiederum die Grundlage für das Framework Ruby on Rails bildet. 
+ * Die Programmiersprache JRuby ist die Implementation von Ruby in 
+   Java, die wiederum die Grundlage für das Framework 
+   Ruby on Rails bildet. 
 
 Die Artikel sind in ASCII DOC erstellt worden.
  * AsciiDoc 8.5.2
@@ -37,5 +47,8 @@ Die erstellten Seiten finden Sie hier:
 http://github.kahweb.de
 
 Hinweis:
-Der Artikel wurde nach bestem Wissen und Gewissen geschrieben und geprüft. Ich übernehme jedoch keinerlei Haftung für Schäden, die durch Ausführung der in diesem Artikel aufgeführten Kommandos entstehen oder entstanden sind.
+Der Artikel wurde nach bestem Wissen geschrieben und geprüft. Ich 
+übernehme jedoch keinerlei Haftung für Schäden, die durch Ausführung 
+der in diesem Artikel aufgeführten Kommandos entstehen oder 
+entstanden sind.
 
