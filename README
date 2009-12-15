@@ -1,32 +1,26 @@
 Installation in Ubuntu
 
-Die folgenden Artikel sind Schritt-für-Schritt Anleitungen für das 
-Betriebssystem Ubuntu 9.04 (Jaunty Jackolope) zur Installation 
-verschiedener Programme aus dem Quellcode. 
+Die Artikel sind eine Schritt-für-Schritt Anleitung zur Installation verschiedener Programme aus dem QuellCode.
 
-Die Programme sind entsprechend der eigenen Bedürfnissen, Neigungen 
-und Zielen ausgewählt :-)   Ich mag Script-Sprachen (Perl, Bash, Ruby), 
-schätze das Framework Ruby on Rails und Git ... und ... Dokumentation 
-ist notwendig.
+Die Programme sind entsprechend den eigenen Bedürfnissen, Neigungen und Zielen ausgewählt ;-)
+Ich mag Script-Sprachen (Perl, Bash, Ruby), schätze das Framework Ruby on Rails und Git ... und ... Dokumentation ist notwendig.
 
- * AsciiDoc ist eine einfache Auszeichnungssprache, die dazu dient, 
-   Texte in verschiedenen Dokumentenformaten zu veröffentlichen.
- * Git ist ein freies verteiltes Versionskontrollsystem 
-   (DVCS - Distributed Version Control System).
- * Die Programmiersprache Ruby ist die Grundlage für das Web Application
-   Framework Ruby on Rails.
- * NetBeans bietet eine Unterstützung für verschiedene Programmiersprachen 
-   und -techniken. Wobei die Java-basierten Lösungen ausgezeichnet 
-   unterstützt werden.
- * Die Programmiersprache JRuby ist die Implementation von Ruby in Java, 
-   die wiederum die Grundlage für das Framework Ruby on Rails bildet. 
+ * AsciiDoc ist eine einfache Auszeichnungssprache, die dazu dient, Texte in verschiedenen Dokumentenformaten zu veröffentlichen.
+
+ * Git ist ein freies verteiltes Versionskontrollsystem (DVCS - Distributed Version Control System).
+
+ * Die Programmiersprache Ruby ist die Grundlage für das Framework Ruby on Rails.
+
+ * NetBeans bietet eine Unterstützung für verschiedene Programmiersprachen und -techniken. Wobei die Java-basierten Lösungen ausgezeichnet unterstützt werden.
+
+ * Die Programmiersprache JRuby ist die Implementation von Ruby in Java, die wiederum die Grundlage für das Framework Ruby on Rails bildet. 
 
 Die Artikel sind in ASCII DOC erstellt worden.
- * AsciiDoc 8.4.5
- * Git 1.6.4.4
+ * AsciiDoc 8.5.2
+ * Git 1.6.5.6
  * Ruby 1.9.1
- * NetBeans 6.7.1
- * JRuby 1.3.1
+ * NetBeans 6.8
+ * JRuby 1.4.0
 
 $ asciidoc -a toc NAME.txt
 
@@ -37,12 +31,11 @@ Verzeichnis-Struktur:
 ./images/icons      <-- Images durch AsciiDoc
 ./images/netbeans   <-- Images des Installationsdialogs
 
-NAME = { asciidoc git netbeans671 ruby19 jruby131 }
+NAME = { asciidoc git netbeans ruby19 jruby }
 
 Die erstellten Seiten finden Sie hier:
-http://mygithub.kahweb.de
+http://github.kahweb.de
 
 Hinweis:
-Die Artikel wurde nach bestem Wissen und Gewissen geschrieben und geprüft. 
-Ich übernehme jedoch keinerlei Haftung für Schäden, die durch Ausführung 
-der in diesen Artikel aufgeführten Kommandos entstehen oder entstanden sind.
+Der Artikel wurde nach bestem Wissen und Gewissen geschrieben und geprüft. Ich übernehme jedoch keinerlei Haftung für Schäden, die durch Ausführung der in diesem Artikel aufgeführten Kommandos entstehen oder entstanden sind.
+

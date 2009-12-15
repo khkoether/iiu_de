@@ -1,4 +1,4 @@
-Installation in Ubuntu: AsciiDoc 8.4.5
+Installation in Ubuntu: AsciiDoc 8.5.2
 ======================================
 Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;>
 
@@ -7,9 +7,9 @@ Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;
 :creativecommons-url: http://creativecommons.org/licenses/by-sa/3.0/de/
 :ubuntu-url: http://www.ubuntu.com/
 :asciidoc-url: http://www.methods.co.nz/asciidoc/
-:sourceforge-url: http://sourceforge.net/projects/asciidoc/
+:sourceforge-url: http://sourceforge.net/projects/asciidoc/files/
 
-Version 0.2, September 2009, <<_changelog,[Changelog]>>
+Version 0.4, Dezember 2009, <<_changelog,[Changelog]>>
 
 Abstract
 --------
@@ -24,23 +24,23 @@ Der Artikel ist in {asciidoc-url}[ASCII DOC] erstellt worden.
 
 
 [CAUTION]
-Der Artikel wurde nach bestem Wissen und Gewissen geschrieben 
-und geprüft. Ich übernehme jedoch keinerlei Haftung für Schäden, 
+Der Artikel wurde nach bestem Wissen geschrieben und geprüft. 
+Ich übernehme jedoch keinerlei Haftung für Schäden, 
 die durch Ausführung der in diesem Artikel aufgeführten Kommandos 
 entstehen oder entstanden sind.
 
 
 Vorraussetzungen
 ----------------
-Die Installation wird für {ubuntu-url}[Ubuntu 9.04 (Jaunty Jackolope)] 
+Die Installation wird für {ubuntu-url}[Ubuntu 9.10 (Karmic Koala)] 
 beschrieben. + 
 Gleichwohl sind die einzelnen Schritte auch für 
 andere Debian-basierte GNU/Linux Distributionen übertragbar.
 
 .Download
 * {sourceforge-url}[AsciiDoc] +    
-  asciidoc-8.4.5-tar.gz  (ca. 1.1 MB) +
-  Last Update: May 26 2009
+  asciidoc-8.5.2-tar.gz  (ca. 1.3 MB) +
+  2009-12-07 (Release date)
   
 [NOTE] 
 ====
@@ -50,25 +50,25 @@ Die eigentliche Installation von AsciiDoc wird vom
 Benutzer 'root' für das System durchgeführt.
 ----
 $ ls -l 
--rw-r--r--  1 bob bob 1189280 2009-06-20 18:04 asciidoc-8.4.5.tar.gz
+-rw-r--r--  1 bob bob 1256406 2009-12-11 15:24 asciidoc-8.5.2.tar.gz
 ----
 ====
 
 [NOTE] 
-=========================================================
+====
 Vor der eigentlichen Installation müssen die fehlenden 
 Programm-Pakete installiert sind.
-=========================================================
-
 ----
-$ sudo apt-get install ...
-               python xmlto source-highlight vim-addon-manager 
+$ sudo apt-get install ... 
+               Benötigt:   python 
+               Empfiehlt:  xmlto source-highlight vim-addon-manager 
 ----
+====
 
 == Installation
 
 
-=== AsciiDoc 8.4.5
+=== AsciiDoc 8.5.2
 
 [IMPORTANT]
 ====
@@ -81,8 +81,8 @@ Beispiel für die Änderung des Installations-Verzeichnisses:
 
 *Step 1:* Auspacken des Source-Code
 ----
-$ tar xvzf asciidoc-8.4.5.tar.gz
-$ cd asciidoc-8.4.5
+$ tar xvzf asciidoc-8.5.2.tar.gz
+$ cd asciidoc-8.5.2
 ----
 
 *Step 2:* Konfiguration erstellen und kompilieren
@@ -120,46 +120,81 @@ $ sudo make docs | tee ../log.asciidoc_make_docs
 ----
 $ cd /usr/local/bin
 $ ls -l
--rwxr-xr-x  1 root root   18820 2009-06-29 19:57 a2x
-lrwxrwxrwx  1 root root      11 2009-06-29 19:57 asciidoc -> asciidoc.py
--rwxr-xr-x  1 root root  215299 2009-06-29 19:57 asciidoc.py
+lrwxrwxrwx  1 root root       6 2009-12-11 15:29 a2x -> a2x.py
+-rwxr-xr-x  1 root root   27851 2009-12-11 15:29 a2x.py
+lrwxrwxrwx  1 root root      11 2009-12-11 15:29 asciidoc -> asciidoc.py
+-rwxr-xr-x  1 root root  220725 2009-12-11 15:29 asciidoc.py
 [...]
 ----
 
 ----
-$ man a2x 
+$ man a2x
+A2X(1)                                                                  A2X(1)
+
+NAME
+       a2x - A toolchain manager for AsciiDoc (converts Asciidoc text files to
+       other file formats)
+
+SYNOPSIS
+       a2x [OPTIONS] FILE
+       
+DESCRIPTION
+       A DocBook toolchain manager that translates an AsciiDoc text file FILE
+       to PDF, EPUB, DVI, PS, LaTeX, XHTML (single page or chunked), man page,
+       HTML Help or plain text formats using asciidoc(1) and other
+       applications (see REQUISITES section). FILE can also be a DocBook file
+       with an .xml extension.       
 [...]
+
 
 $ man asciidoc 
+ASCIIDOC(1)                                                        ASCIIDOC(1)
+
+NAME
+       asciidoc - converts an AsciiDoc text file to HTML or DocBook
+
+SYNOPSIS
+       asciidoc [OPTIONS] FILE
+       
+DESCRIPTION
+       The asciidoc(1) command translates the AsciiDoc text file FILE to a
+       DocBook, HTML or LinuxDoc file. If FILE is - then the standard input is
+       used.       
 [...]
 ----
 
 ----
 $ find /usr -type d -cmin -20
+/usr/local/etc
 /usr/local/etc/asciidoc
-/usr/local/etc/asciidoc/dblatex
-/usr/local/etc/asciidoc/javascripts
-/usr/local/etc/asciidoc/stylesheets
-/usr/local/etc/asciidoc/filters/code
-/usr/local/etc/asciidoc/filters/music
-/usr/local/etc/asciidoc/filters/source
-/usr/local/etc/asciidoc/filters/graphviz
+/usr/local/etc/asciidoc/images
 /usr/local/etc/asciidoc/images/icons
 /usr/local/etc/asciidoc/images/icons/callouts
+/usr/local/etc/asciidoc/dblatex
+/usr/local/etc/asciidoc/stylesheets
 /usr/local/etc/asciidoc/docbook-xsl
-/usr/local/bin
+/usr/local/etc/asciidoc/filters
+/usr/local/etc/asciidoc/filters/code
+/usr/local/etc/asciidoc/filters/source
+/usr/local/etc/asciidoc/filters/music
+/usr/local/etc/asciidoc/filters/graphviz
+/usr/local/etc/asciidoc/javascripts
+/usr/local/share
+/usr/local/share/doc
 /usr/local/share/doc/asciidoc
+/usr/local/share/doc/asciidoc/images
+/usr/local/share/doc/asciidoc/images/icons
+/usr/local/share/doc/asciidoc/images/icons/callouts
 /usr/local/share/doc/asciidoc/dblatex
+/usr/local/share/doc/asciidoc/doc
+/usr/local/share/doc/asciidoc/stylesheets
+/usr/local/share/doc/asciidoc/docbook-xsl
+/usr/local/share/doc/asciidoc/examples
 /usr/local/share/doc/asciidoc/examples/website
 /usr/local/share/doc/asciidoc/javascripts
-/usr/local/share/doc/asciidoc/stylesheets
-/usr/local/share/doc/asciidoc/doc
-/usr/local/share/doc/asciidoc/docbook-xsl
+/usr/local/share/man
 /usr/local/share/man/man1
-/usr/bin
-/usr/share/doc/lsb-release
-/usr/share/doc/lsb-base
-/usr/share/man/man1
+/usr/local/bin
 ----
 
 ----
@@ -172,3 +207,6 @@ Changelog
 
 .Version 0.2
 * Erste öffentliche Version
+
+.Version 0.4
+* Anpassung an Ubuntu 09.10 (Karmic Koala)

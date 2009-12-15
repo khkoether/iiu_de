@@ -3,8 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta name="generator" content="AsciiDoc 8.4.5" />
-<title>Installation in Ubuntu: AsciiDoc 8.4.5</title>
+<meta name="generator" content="AsciiDoc 8.5.2" />
+<title>Installation in Ubuntu: AsciiDoc 8.5.2</title>
 <style type="text/css">
 /* Debug borders */
 p, li, dt, dd, div, pre, h1, h2, h3, h4, h5, h6 {
@@ -118,12 +118,14 @@ div#preamble {
 div.tableblock, div.imageblock, div.exampleblock, div.verseblock,
 div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
 div.admonitionblock {
-  margin-top: 1.5em;
+  margin-top: 1.0em;
   margin-bottom: 1.5em;
 }
 div.admonitionblock {
-  margin-top: 2.5em;
-  margin-bottom: 2.5em;
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
 }
 
 div.content { /* Block element content. */
@@ -165,19 +167,19 @@ div.listingblock > div.content {
   padding: 0.5em;
 }
 
-div.quoteblock {
-  padding-left: 2.0em;
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
   margin-right: 10%;
+  border-left: 5px solid #dddddd;
+  color: #777777;
 }
+
 div.quoteblock > div.attribution {
   padding-top: 0.5em;
   text-align: right;
 }
 
-div.verseblock {
-  padding-left: 2.0em;
-  margin-right: 10%;
-}
 div.verseblock > div.content {
   white-space: pre;
 }
@@ -200,12 +202,12 @@ div.admonitionblock .icon {
 }
 div.admonitionblock td.content {
   padding-left: 0.5em;
-  border-left: 2px solid silver;
+  border-left: 3px solid #dddddd;
 }
 
 div.exampleblock > div.content {
-  border-left: 2px solid silver;
-  padding: 0.5em;
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
 }
 
 div.imageblock div.content { padding-left: 0; }
@@ -255,7 +257,7 @@ div.compact div, div.compact div {
 div.tableblock > table {
   border: 3px solid #527bbd;
 }
-thead {
+thead, p.table.header {
   font-family: sans-serif;
   font-weight: bold;
 }
@@ -310,8 +312,40 @@ div.hdlist.compact tr {
   background: yellow;
 }
 
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+
 @media print {
   div#footer-badges { display: none; }
+}
+
+div#toc {
+  margin-bottom: 2.5em;
 }
 
 div#toctitle {
@@ -374,7 +408,7 @@ div.verseblock-attribution {
 }
 
 div.exampleblock-content {
-  border-left: 2px solid silver;
+  border-left: 3px solid #dddddd;
   padding-left: 0.5em;
 }
 
@@ -383,7 +417,13 @@ div#toc a:visited { color: blue; }
 </style>
 <script type="text/javascript">
 /*<![CDATA[*/
-window.onload = function(){generateToc(2)}
+window.onload = function(){asciidoc.footnotes(); asciidoc.toc(2);}
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
 /* Author: Mihai Bazon, September 2002
  * http://students.infoiasi.ro/~mishoo
  *
@@ -395,53 +435,55 @@ window.onload = function(){generateToc(2)}
  */
 
  /* modified by Troy D. Hanson, September 2006. License: GPL */
- /* modified by Stuart Rackham, October 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
 
-function getText(el) {
-  var text = "";
-  for (var i = el.firstChild; i != null; i = i.nextSibling) {
-    if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
-      text += i.data;
-    else if (i.firstChild != null)
-      text += getText(i);
-  }
-  return text;
-}
+// toclevels = 1..4.
+toc: function (toclevels) {
 
-function TocEntry(el, text, toclevel) {
-  this.element = el;
-  this.text = text;
-  this.toclevel = toclevel;
-}
-
-function tocEntries(el, toclevels) {
-  var result = new Array;
-  var re = new RegExp('[hH]([2-'+(toclevels+1)+'])');
-  // Function that scans the DOM tree for header elements (the DOM2
-  // nodeIterator API would be a better technique but not supported by all
-  // browsers).
-  var iterate = function (el) {
+  function getText(el) {
+    var text = "";
     for (var i = el.firstChild; i != null; i = i.nextSibling) {
-      if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
-        var mo = re.exec(i.tagName)
-        if (mo)
-          result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
-        iterate(i);
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([2-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
       }
     }
+    iterate(el);
+    return result;
   }
-  iterate(el);
-  return result;
-}
 
-// This function does the work. toclevels = 1..4.
-function generateToc(toclevels) {
   var toc = document.getElementById("toc");
-  var entries = tocEntries(document.getElementsByTagName("body")[0], toclevels);
+  var entries = tocEntries(document.getElementById("content"), toclevels);
   for (var i = 0; i < entries.length; ++i) {
     var entry = entries[i];
     if (entry.element.id == "")
-      entry.element.id = "toc" + i;
+      entry.element.id = "_toc_" + i;
     var a = document.createElement("a");
     a.href = "#" + entry.element.id;
     a.appendChild(document.createTextNode(entry.text));
@@ -451,14 +493,65 @@ function generateToc(toclevels) {
     toc.appendChild(div);
   }
   if (entries.length == 0)
-    document.getElementById("header").removeChild(toc);
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  var cont = document.getElementById("content");
+  var noteholder = document.getElementById("footnotes");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      // Use [\s\S] in place of . so multi-line matches work.
+      // Because JavaScript has no s (dotall) regex flag.
+      note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      spans[i].innerHTML =
+        "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+        "' title='View footnote' class='footnote'>" + n + "</a>]";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+}
+
 }
 /*]]>*/
 </script>
 </head>
 <body>
 <div id="header">
-<h1>Installation in Ubuntu: AsciiDoc 8.4.5</h1>
+<h1>Installation in Ubuntu: AsciiDoc 8.5.2</h1>
 <span id="author">Karl-Heinz Köther</span><br />
 <span id="email"><tt>&lt;<a href="mailto:&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;">&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;</a>&gt;</tt></span><br />
 <div id="toc">
@@ -466,9 +559,10 @@ function generateToc(toclevels) {
   <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
 </div>
 </div>
+<div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph"><p>Version 0.2, September 2009, <a href="#_changelog">[Changelog]</a></p></div>
+<div class="paragraph"><p>Version 0.4, Dezember 2009, <a href="#_changelog">[Changelog]</a></p></div>
 </div>
 </div>
 <h2 id="_abstract">Abstract</h2>
@@ -484,8 +578,8 @@ veröffentlichen.</p></div>
 <td class="icon">
 <img src="./images/icons/caution.png" alt="Caution" />
 </td>
-<td class="content">Der Artikel wurde nach bestem Wissen und Gewissen geschrieben
-und geprüft. Ich übernehme jedoch keinerlei Haftung für Schäden,
+<td class="content">Der Artikel wurde nach bestem Wissen geschrieben und geprüft.
+Ich übernehme jedoch keinerlei Haftung für Schäden,
 die durch Ausführung der in diesem Artikel aufgeführten Kommandos
 entstehen oder entstanden sind.</td>
 </tr></table>
@@ -493,16 +587,16 @@ entstehen oder entstanden sind.</td>
 </div>
 <h2 id="_vorraussetzungen">Vorraussetzungen</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>Die Installation wird für <a href="http://www.ubuntu.com/">Ubuntu 9.04 (Jaunty Jackolope)</a>
+<div class="paragraph"><p>Die Installation wird für <a href="http://www.ubuntu.com/">Ubuntu 9.10 (Karmic Koala)</a>
 beschrieben.<br />
 Gleichwohl sind die einzelnen Schritte auch für
 andere Debian-basierte GNU/Linux Distributionen übertragbar.</p></div>
 <div class="ulist"><div class="title">Download</div><ul>
 <li>
 <p>
-<a href="http://sourceforge.net/projects/asciidoc/">AsciiDoc</a><br />
-  asciidoc-8.4.5-tar.gz  (ca. 1.1 MB)<br />
-  Last Update: May 26 2009
+<a href="http://sourceforge.net/projects/asciidoc/files/">AsciiDoc</a><br />
+  asciidoc-8.5.2-tar.gz  (ca. 1.3 MB)<br />
+  2009-12-07 (Release date)
 </p>
 </li>
 </ul></div>
@@ -519,7 +613,7 @@ Benutzer <em>root</em> für das System durchgeführt.</p></div>
 <div class="listingblock">
 <div class="content">
 <pre><tt>$ ls -l
--rw-r--r--  1 bob bob 1189280 2009-06-20 18:04 asciidoc-8.4.5.tar.gz</tt></pre>
+-rw-r--r--  1 bob bob 1256406 2009-12-11 15:24 asciidoc-8.5.2.tar.gz</tt></pre>
 </div></div>
 </td>
 </tr></table>
@@ -532,18 +626,19 @@ Benutzer <em>root</em> für das System durchgeführt.</p></div>
 <td class="content">
 <div class="paragraph"><p>Vor der eigentlichen Installation müssen die fehlenden
 Programm-Pakete installiert sind.</p></div>
-</td>
-</tr></table>
-</div>
 <div class="listingblock">
 <div class="content">
 <pre><tt>$ sudo apt-get install ...
-               python xmlto source-highlight vim-addon-manager</tt></pre>
+               Benötigt:   python
+               Empfiehlt:  xmlto source-highlight vim-addon-manager</tt></pre>
 </div></div>
+</td>
+</tr></table>
+</div>
 </div>
 <h2 id="_installation">Installation</h2>
 <div class="sectionbody">
-<h3 id="_asciidoc_8_4_5">AsciiDoc 8.4.5</h3><div style="clear:left"></div>
+<h3 id="_asciidoc_8_5_2">AsciiDoc 8.5.2</h3><div style="clear:left"></div>
 <div class="admonitionblock">
 <table><tr>
 <td class="icon">
@@ -561,8 +656,8 @@ Beispiel für die Änderung des Installations-Verzeichnisses:
 <div class="paragraph"><p><strong>Step 1:</strong> Auspacken des Source-Code</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt>$ tar xvzf asciidoc-8.4.5.tar.gz
-$ cd asciidoc-8.4.5</tt></pre>
+<pre><tt>$ tar xvzf asciidoc-8.5.2.tar.gz
+$ cd asciidoc-8.5.2</tt></pre>
 </div></div>
 <div class="paragraph"><p><strong>Step 2:</strong> Konfiguration erstellen und kompilieren</p></div>
 <div class="listingblock">
@@ -600,46 +695,81 @@ Fixing CONF_DIR in a2x
 <div class="content">
 <pre><tt>$ cd /usr/local/bin
 $ ls -l
--rwxr-xr-x  1 root root   18820 2009-06-29 19:57 a2x
-lrwxrwxrwx  1 root root      11 2009-06-29 19:57 asciidoc -&gt; asciidoc.py
--rwxr-xr-x  1 root root  215299 2009-06-29 19:57 asciidoc.py
+lrwxrwxrwx  1 root root       6 2009-12-11 15:29 a2x -&gt; a2x.py
+-rwxr-xr-x  1 root root   27851 2009-12-11 15:29 a2x.py
+lrwxrwxrwx  1 root root      11 2009-12-11 15:29 asciidoc -&gt; asciidoc.py
+-rwxr-xr-x  1 root root  220725 2009-12-11 15:29 asciidoc.py
 [...]</tt></pre>
 </div></div>
 <div class="listingblock">
 <div class="content">
 <pre><tt>$ man a2x
+A2X(1)                                                                  A2X(1)
+
+NAME
+       a2x - A toolchain manager for AsciiDoc (converts Asciidoc text files to
+       other file formats)
+
+SYNOPSIS
+       a2x [OPTIONS] FILE
+
+DESCRIPTION
+       A DocBook toolchain manager that translates an AsciiDoc text file FILE
+       to PDF, EPUB, DVI, PS, LaTeX, XHTML (single page or chunked), man page,
+       HTML Help or plain text formats using asciidoc(1) and other
+       applications (see REQUISITES section). FILE can also be a DocBook file
+       with an .xml extension.
 [...]
 
+
 $ man asciidoc
+ASCIIDOC(1)                                                        ASCIIDOC(1)
+
+NAME
+       asciidoc - converts an AsciiDoc text file to HTML or DocBook
+
+SYNOPSIS
+       asciidoc [OPTIONS] FILE
+
+DESCRIPTION
+       The asciidoc(1) command translates the AsciiDoc text file FILE to a
+       DocBook, HTML or LinuxDoc file. If FILE is - then the standard input is
+       used.
 [...]</tt></pre>
 </div></div>
 <div class="listingblock">
 <div class="content">
 <pre><tt>$ find /usr -type d -cmin -20
+/usr/local/etc
 /usr/local/etc/asciidoc
-/usr/local/etc/asciidoc/dblatex
-/usr/local/etc/asciidoc/javascripts
-/usr/local/etc/asciidoc/stylesheets
-/usr/local/etc/asciidoc/filters/code
-/usr/local/etc/asciidoc/filters/music
-/usr/local/etc/asciidoc/filters/source
-/usr/local/etc/asciidoc/filters/graphviz
+/usr/local/etc/asciidoc/images
 /usr/local/etc/asciidoc/images/icons
 /usr/local/etc/asciidoc/images/icons/callouts
+/usr/local/etc/asciidoc/dblatex
+/usr/local/etc/asciidoc/stylesheets
 /usr/local/etc/asciidoc/docbook-xsl
-/usr/local/bin
+/usr/local/etc/asciidoc/filters
+/usr/local/etc/asciidoc/filters/code
+/usr/local/etc/asciidoc/filters/source
+/usr/local/etc/asciidoc/filters/music
+/usr/local/etc/asciidoc/filters/graphviz
+/usr/local/etc/asciidoc/javascripts
+/usr/local/share
+/usr/local/share/doc
 /usr/local/share/doc/asciidoc
+/usr/local/share/doc/asciidoc/images
+/usr/local/share/doc/asciidoc/images/icons
+/usr/local/share/doc/asciidoc/images/icons/callouts
 /usr/local/share/doc/asciidoc/dblatex
+/usr/local/share/doc/asciidoc/doc
+/usr/local/share/doc/asciidoc/stylesheets
+/usr/local/share/doc/asciidoc/docbook-xsl
+/usr/local/share/doc/asciidoc/examples
 /usr/local/share/doc/asciidoc/examples/website
 /usr/local/share/doc/asciidoc/javascripts
-/usr/local/share/doc/asciidoc/stylesheets
-/usr/local/share/doc/asciidoc/doc
-/usr/local/share/doc/asciidoc/docbook-xsl
+/usr/local/share/man
 /usr/local/share/man/man1
-/usr/bin
-/usr/share/doc/lsb-release
-/usr/share/doc/lsb-base
-/usr/share/man/man1</tt></pre>
+/usr/local/bin</tt></pre>
 </div></div>
 <div class="listingblock">
 <div class="content">
@@ -655,10 +785,19 @@ Erste öffentliche Version
 </p>
 </li>
 </ul></div>
+<div class="ulist"><div class="title">Version 0.4</div><ul>
+<li>
+<p>
+Anpassung an Ubuntu 09.10 (Karmic Koala)
+</p>
+</li>
+</ul></div>
 </div>
+</div>
+<div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2009-09-21 20:57:52 CEST
+Last updated 2009-12-12 23:51:21 CEST
 </div>
 </div>
 </body>

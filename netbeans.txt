@@ -1,5 +1,5 @@
-Installation in Ubuntu: Sun Java SDK 6, NetBeans 6.7.1
-======================================================
+Installation in Ubuntu: Sun Java SDK 6, NetBeans 6.8
+====================================================
 Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;>
 
 :icons:
@@ -14,15 +14,15 @@ Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;
 :netbeans-url: http://www.netbeans.org/downloads/index.html
 :plugins-url: about:plugins
 :java-koerper-url: http://www.arndt-bruenner.de/mathe/java/koerper3d.htm
+:sdn-url: https://portal.sun.com/cwplogin/login.jsp?liferayUrl=https://portal.sun.com&cwpIdmUrl=https://identity.sun.com
 
-
-Version 0.2, September 2009, <<_changelog,[Changelog]>>
+Version 0.4, Dezember 2009, <<_changelog,[Changelog]>>
 
 Abstract
 --------
 Dieser Artikel ist eine Schritt-für-Schritt Anleitung zur Installation 
-des {java-url}[Sun Java SDK 6 Update 16] und 
-der {netbeans-url}[NetBeans IDE 6.7.1] unter GNU/Linux.
+des {java-url}[Sun Java SDK 6 Update 17] und 
+der {netbeans-url}[NetBeans IDE 6.8] unter GNU/Linux.
  
 Die NetBeans IDE bietet eine Unterstützung für verschiedene Programmiersprachen 
 und -techniken. Wobei die Java-basierten Lösungen ausgezeichnet unterstützt werden. 
@@ -30,7 +30,7 @@ und -techniken. Wobei die Java-basierten Lösungen ausgezeichnet unterstützt we
 Der Artikel ist in {asciidoc-url}[ASCII DOC] erstellt worden.
 
 [CAUTION]
-Der Artikel wurde nach bestem Wissen und Gewissen geschrieben 
+Der Artikel wurde nach bestem Wissen geschrieben 
 und geprüft. Ich übernehme jedoch keinerlei Haftung für Schäden, 
 die durch Ausführung der in diesem Artikel aufgeführten Kommandos 
 entstehen oder entstanden sind.
@@ -38,15 +38,15 @@ entstehen oder entstanden sind.
 
 Vorraussetzungen
 ----------------
-Die Installation wird für {ubuntu-url}[Ubuntu 9.04 (Jaunty Jackolope)] 
+Die Installation wird für {ubuntu-url}[Ubuntu 9.10 (Karmic Koala)] 
 beschrieben. Gleichwohl sind die einzelnen Schritte auch für 
 andere Distributionen übertragbar.
 
 .Download
-* {java-url}[Sun Java SDK 6 Update 16] +    
-  jdk-6u16-linux-i586.bin (ca. 78 MB)
-* {netbeans-url}[NetBeans 6.7.1] +    
-  netbeans-6.7.1-ml-linux.sh (ca. 248 MB) (IDE-Sprache: Deutsch)
+* {java-url}[Sun Java SDK 6 Update 17] +    
+  jdk-6u16-linux-i586.bin (ca. 79 MB)
+* {netbeans-url}[NetBeans 6.8] +    
+  netbeans-6.8-ml-linux.sh (ca. 246 MB) (IDE-Sprache: Deutsch)
 
 [NOTE] 
 ====
@@ -54,8 +54,8 @@ Die Installation des Sun Java SDK wird vom Benutzer 'root' für das System durch
 Während anschließende Installation der NetBeans IDE für den Benutzer 'bob' ausgeführt wird. 
 ----
 $ ls -l 
--rw-r--r-- 1 bob bob  81790339 2009-08-30 17:20 jdk-6u16-linux-i586.bin
--rw-r--r-- 1 bob bob 259429376 2009-09-17 12:34 netbeans-6.7.1-ml-linux.sh
+-rw-r--r-- 1 bob bob  81792634 2009-12-11 21:26 jdk-6u17-linux-i586.bin
+-rw-r--r-- 1 bob bob 257131520 2009-12-11 22:11 netbeans-6.8-ml-linux.sh
 ----
 ====
 
@@ -63,7 +63,7 @@ $ ls -l
 == Installation
 
 
-=== Sun Java SDK 6 Update 16
+=== Sun Java SDK 6 Update 17
 Zusätzliche Software-Pakete die nicht über das Paketmanagement 
 verwaltet wird, sollte im Verzeichnis '/opt' (Optional) 
 installiert werden. 
@@ -80,9 +80,11 @@ drwxr-xr-x 10 root root 4096 2009-08-30 17:37 jdk1.6.0_16
 *Step 2:* Java-Installation für den Mozilla Firefox einrichten
 ----
 $ cd /usr/lib/firefox-addons/plugins/
-$ sudo ln -s ../../../../opt/Java/jdk1.6.0_16/jre/plugin/i386/ns7/libjavaplugin_oji.so 
+$ ls 
+libflashplayer.so  nppdf.so
+$ sudo ln -s ../../../../opt/Java/jdk1.6.0_17/jre/plugin/i386/ns7/libjavaplugin_oji.so 
 $ ls -l
-lrwxrwxrwx 1 root root     73 2009-08-30 17:44 libjavaplugin_oji.so -> ../../../../opt/Java/jdk1.6.0_16/jre/plugin/i386/ns7/libjavaplugin_oji.so
+lrwxrwxrwx 1 root root     73 2009-12-11 22:18 libjavaplugin_oji.so -> ../../../../opt/Java/jdk1.6.0_17/jre/plugin/i386/ns7/libjavaplugin_oji.so
 [...]
 ----
 
@@ -90,12 +92,12 @@ Browser> about:plugins +
 Browser> {java-koerper-url}[3D-Körper]
 
 
-=== NetBeans IDE 6.7.1
+=== NetBeans IDE 6.8
 *Step 1:* Installation im Verzeichnis '/opt/NetBeans/bob' (mit Benutzer 'bob')
 ----
 $ cd /opt 
 $ mkdir -p NetBeans/bob && cd NetBeans/bob
-$ sh netbeans-6.7.1-ml-linux.sh --javahome /opt/Java/jdk1.6.0_16/
+$ sh netbeans-6.8-ml-linux.sh --javahome /opt/Java/jdk1.6.0_17/
 ----
 
 &nbsp; +
@@ -114,17 +116,16 @@ $ sh netbeans-6.7.1-ml-linux.sh --javahome /opt/Java/jdk1.6.0_16/
 - Groovy
 - PHP
 - Funktionen bei Bedarf
-* Sun GlassFish Enterprise Server v2.1
-* Sun GlassFish Enterprise Server v3 Prelude
+* Sun GlassFish Enterprise Server v3 
 - Apache Tomcat 6.0.18
 
 .Installation
-- /opt/NetBeans/bob/netbeans-6.7.1
-- /opt/Java/jdk1.6.0_16
-- /opt/Tomcat/bob/apache-tomcat-6.0.18  (Optional)
+- /opt/NetBeans/bob/netbeans-6.8
+- /opt/Java/jdk1.6.0_17
+- /opt/Tomcat/bob/apache-tomcat-6.0.20  (Optional)
 
 .Summary 
-- 415.5 MB
+- 480.7 MB
 
 .Setup Complete
 - Tracker
@@ -136,67 +137,105 @@ $ sh netbeans-6.7.1-ml-linux.sh --javahome /opt/Java/jdk1.6.0_16/
 
 
 ++++
-<img src="images/netbeans/netbeans_willkommen.jpg" border="1px"
+<img src="images/netbeans/netbeans_01_willkommen.jpg" border="1px"
  alt="NetBeans: Willkommen" title="NetBeans: Willkommen" />
 ++++
 
 &nbsp; +
 
 ++++
-<img src="images/netbeans/netbeans_anpassen.jpg" border="1px"
+<img src="images/netbeans/netbeans_02_anpassen.jpg" border="1px"
  alt="NetBeans: Anpassen" title="NetBeans: Anpassen" />
 ++++
 
 &nbsp; +
 
 ++++
-<img src="images/netbeans/netbeans_willkommen2.jpg" border="1px"
+<img src="images/netbeans/netbeans_03_willkommen2.jpg" border="1px"
  alt="NetBeans: Willkommen (Angepasst)" title="NetBeans: Willkommen (Angepasst)" />
 ++++
 
 &nbsp; +
 
 ++++
-<img src="images/netbeans/netbeans_lizenz.jpg" border="1px"
+<img src="images/netbeans/netbeans_04_lizenz.jpg" border="1px"
  alt="NetBeans: Lizenzvereinbarung" title="NetBeans: Lizenzvereinbarung" />
 ++++
 
 &nbsp; +
 
 ++++
-<img src="images/netbeans/netbeans_installation.jpg" border="1px"
- alt="NetBeans: Installation" title="NetBeans: Installation" />
+<img src="images/netbeans/netbeans_05_installation.jpg" border="1px"
+ alt="NetBeans: IDE 6.8 Installation" title="NetBeans: IDE 6.8 Installation" />
 ++++
 
 &nbsp; +
 
 ++++
-<img src="images/netbeans/netbeans_zusammenfassung.jpg" border="1px"
+<img src="images/netbeans/netbeans_06_installation2.jpg" border="1px"
+ alt="NetBeans: Apache Tomcat Installation" title="NetBeans: Apache Tomcat Installation" />
+++++
+
+&nbsp; +
+
+++++
+<img src="images/netbeans/netbeans_07_zusammenfassung.jpg" border="1px"
  alt="NetBeans: Zusammenfassung" title="NetBeans: Zusammenfassung" />
 ++++
 
 &nbsp; +
 
 ++++
-<img src="images/netbeans/netbeans_einrichtung.jpg" border="1px"
+<img src="images/netbeans/netbeans_08_fortschritt.jpg" border="1px"
+ alt="NetBeans: Installations-Fortschritt" title="NetBeans: Installations-Fortschritt" />
+++++
+
+&nbsp; +
+
+++++
+<img src="images/netbeans/netbeans_09_einrichtung.jpg" border="1px"
  alt="NetBeans: Einrichtung vollständig" title="NetBeans: Einrichtung vollständig" />
 ++++
 
+&nbsp; +
+
+----
+$ cd
+$ ls -la .netbeans*
+.netbeans:
+insgesamt 12
+-rw-r--r--  1 khk khk   36 2009-12-12 15:47 .superId
+
+.netbeans-registration:
+drwxr-xr-x  2 khk khk 4096 2009-12-12 15:47 6.8
+----
+
+[NOTE] 
+====
+Mit der 'superID' wird die Installation sowohl auf dem Rechner  
+als auch für den SDN Account bei der Fa. SUN eindeutig benannt. 
+
+{sdn-url}[My Sun Connection &middot; Log in]
+
+Nachdem ich genau einmal meine registrierten Produkte mitsamt  
+meinen Rechner-Systeminformationen (i386, linux, hostname, ...) 
+im SUN-Account sah, aber sie (a) nicht l&ouml;schen 
+konnte (die Informationen &uuml;ber zwei durchgef&uuml;hrte Installationen  
+innerhalb von 20 Minuten war mir eine zuviel) und (b) sie jetzt auch 
+nicht mehr wiederfinden kann ... 
+ist mir das SUN-Portal und die Registrierung (tschuldigung) etwas suspekt.
+====  
 
 &nbsp; +
 &nbsp; +
 *Step 3:* NetBeans IDE starten
-
 ----
-$ ls -l .netbeans
-drwxr-xr-x 4 bob bob 4096 2009-08-30 19:11 6.7
-
-$ /bin/sh "/opt/NetBeans/bob/netbeans-6.7.1/bin/netbeans"
+$ /bin/sh "/opt/NetBeans/bob/netbeans-6.8/bin/netbeans"
 ----
 
 ++++
-<img src="images/netbeans/netbeans_start.jpg" border="1px"
- alt="NetBeans: Startseite" title="NetBeans: Startseite" />
+<img src="images/netbeans/netbeans_ide_01_start.jpg" border="1px"
+ alt="NetBeans IDE: Startseite" title="NetBeans IDE: Startseite" />
 ++++
 
 
@@ -205,43 +244,56 @@ $ /bin/sh "/opt/NetBeans/bob/netbeans-6.7.1/bin/netbeans"
 *Step 4:* NetBeans IDE: Aktiviere (bereits installierte) Plugins
 
 ++++
-<img src="images/netbeans/netbeans_aktiviere.jpg" border="1px"
- alt="NetBeans: Aktivieren (bereits installierter) Plugins" 
- title="NetBeans: Aktivieren (bereits installierter) Plugins" 
+<img src="images/netbeans/netbeans_ide_02_aktiviere.jpg" border="1px"
+ alt="NetBeans IDE: Aktivieren (bereits installierter) Plugins" 
+ title="NetBeans IDE: Aktivieren (bereits installierter) Plugins" 
 ++++
 
 &nbsp; +
 &nbsp; +
 *Step 5:* NetBeans IDE: Ruby Platform Manager +
-JRuby 1.2.0 (Built-in) +
-RubyGems 1.3.1
+JRuby 1.4.0 (Built-in) +
+RubyGems 1.3.5
 
 ++++
-<img src="images/netbeans/netbeans_platform.jpg" border="1px"
+<img src="images/netbeans/netbeans_ide_03_platform.jpg" border="1px"
  alt="NetBeans: Ruby Platform Manager" 
  title="NetBeans: Ruby Platform Manager" 
 ++++
 
 [NOTE] 
 ====
-Die Einträge (Platform) 'Ruby 1.8.6-p111' und 'Ruby 1.9.1-p243' sind die
-beiden bereits von mir im Linux-System installierten C-Ruby-Versionen. 
+Der Eintrag (Platform) 'Ruby 1.8.7-p174' ist die
+bereits von mir im Linux-System installierte C-Ruby-Version. 
 Die 'PATH'-Variable wird während der Installation ausgewertet und 
-automatisch in der NetBeans IDE eingetragen.
+vorhandene Ruby-Installationen automatisch in der 
+NetBeans IDE eingetragen.
+
+Der Eintrag (Platform) 'Ruby 1.9.1-p376' muß über den
+Button 'Add Platform' vorgenommen werden. 
 ====
+
+++++
+<img src="images/netbeans/netbeans_ide_04_platform2.jpg" border="1px"
+ alt="NetBeans: Ruby Platform Manager" 
+ title="NetBeans: Ruby Platform Manager" 
+++++
+
 
 &nbsp; +
 &nbsp; +
 *Step 6:* NetBeans IDE: Ruby Gems +
-Ruby on Rails 2.3.2
-JDBC ActiveRecord 0.9.1
+Ruby on Rails 2.3.4 + 
+JDBC ActiveRecord 0.9.2
 
 ++++
-<img src="images/netbeans/netbeans_rubygems.jpg" border="1px"
+<img src="images/netbeans/netbeans_ide_05_rubygems.jpg" border="1px"
  alt="NetBeans: Ruby Gems"
  title="NetBeans: Ruby Gems"
 ++++
 
+&nbsp; +
+Die aktuelle 'Ruby on Rails'-Version ist 2.3.5 !
 &nbsp; +
 
 
@@ -250,3 +302,6 @@ Changelog
 
 .Version 0.2
 * Erste öffentliche Version
+
+.Version 0.4
+* Anpassung an Ubuntu 09.10 (Karmic Koala)
