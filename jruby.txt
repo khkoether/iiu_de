@@ -15,7 +15,7 @@ Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;
 :mysql-ruby-url: http://rubyforge.org/projects/mysql-ruby/
 :netbeans-url: http://www.netbeans.org/downloads/index.html
 
-Version 0.4, Dezember 2009, <<_changelog,[Changelog]>>
+Version 0.6, Januar 2010, <<_changelog,[Changelog]>>
 
 Abstract
 --------
@@ -29,11 +29,15 @@ WebApplication Framework {rubyonrails-url}[Ruby on Rails] bildet.
 Der Artikel ist in {asciidoc-url}[ASCII DOC] erstellt worden.
 
 [CAUTION]
-Der Artikel wurde nach bestem Wissen geschrieben 
-und geprüft. Ich übernehme jedoch keinerlei Haftung für Schäden, 
-die durch Ausführung der in diesem Artikel aufgeführten Kommandos 
-entstehen oder entstanden sind.
+====
+Zu beachten ist, dass so ein Dokument zum Einen nie abschliessend 
+sein kann, und zum Anderen bestimmte Konfigurationen anders, oder 
+auf einem anderem Weg durchgeführt werden können. +
+Gerne nehme ich Verbesserungsvorschläge entgegen.
 
+Keine Haftung für Schäden, die durch die Anwendung der 
+aufgeführten Kommandos entstehen.
+====
 
 Vorraussetzungen
 ----------------
@@ -279,7 +283,7 @@ Installing ri documentation for glassfish-1.0.0-universal-java...
 Installing RDoc documentation for glassfish-1.0.0-universal-java...
 ----
 
-*Step 8:* Erstellen einer WAR-Datei
+*Step 8:* WAR (WAR ist ein Dateiformat und steht für Web Application Archive) 
 ----
 $ jruby -S gem install warbler
 Successfully installed jruby-jars-1.4.0
@@ -453,4 +457,7 @@ Changelog
 
 .Version 0.4
 * Anpassung an Ubuntu 09.10 (Karmic Koala)
+
+.Version 0.6
+* Kleine Korrekturen am Text
 

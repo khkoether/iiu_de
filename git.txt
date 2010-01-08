@@ -1,4 +1,4 @@
-Installation in Ubuntu: Git 1.6.5.6
+Installation in Ubuntu: Git 1.6.6
 ===================================
 Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;>
 
@@ -9,7 +9,7 @@ Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;
 :asciidoc-url: http://www.methods.co.nz/asciidoc/
 :git-url: http://git-scm.com/
 
-Version 0.4, Dezember 2009, <<_changelog,[Changelog]>>
+Version 0.6, Januar 2010, <<_changelog,[Changelog]>>
 
 Abstract
 --------
@@ -22,11 +22,15 @@ des Programms {git-url}[Git] aus dem QuellCode.
 Der Artikel ist in {asciidoc-url}[ASCII DOC] erstellt worden.
 
 [CAUTION]
-Der Artikel wurde nach bestem Wissen geschrieben 
-und geprüft. Ich übernehme jedoch keinerlei Haftung für Schäden, 
-die durch Ausführung der in diesem Artikel aufgeführten Kommandos 
-entstehen oder entstanden sind.
+====
+Zu beachten ist, dass so ein Dokument zum Einen nie abschliessend 
+sein kann, und zum Anderen bestimmte Konfigurationen anders, oder 
+auf einem anderem Weg durchgeführt werden können. +
+Gerne nehme ich Verbesserungsvorschläge entgegen.
 
+Keine Haftung für Schäden, die durch die Anwendung der 
+aufgeführten Kommandos entstehen.
+====
 
 Vorraussetzungen
 ----------------
@@ -37,8 +41,8 @@ andere Debian-basierte GNU/Linux Distributionen übertragbar.
 
 .Download
 * {git-url}[Git] +    
-  git-1.6.5.6-tar.gz  (ca. 2.6 MB) +
-  2009-12-11 (Release date)
+  git-1.6.6.tar.gz  (ca. 2.8 MB) +
+  2009-12-23 (Release date)
   
 [NOTE] 
 ====
@@ -48,7 +52,7 @@ Die eigentliche Installation von Git wird vom
 Benutzer 'root' für das System durchgeführt.
 ----
 $ ls -l 
--rw-r--r--  1 bob  bob  2713734 2009-12-11 15:35 git-1.6.5.6.tar.gz
+-rw-r--r--  1 bob  bob  2835546 2010-01-08 12:35 git-1.6.6.tar.gz
 ----
 ====
 
@@ -68,7 +72,7 @@ $ sudo apt-get install ...
 == Installation
 
 
-=== Git 1.6.5.6
+=== Git 1.6.6
 
 [IMPORTANT]
 ====
@@ -81,8 +85,8 @@ Beispiel für die Änderung des Installations-Verzeichnisses:
 
 *Step 1:* Auspacken des Source-Code
 ----
-$ tar xvzf git-1.6.5.5.tar.gz
-$ cd git-1.6.5.6
+$ tar xvzf git-1.6.6.tar.gz
+$ cd git-1.6.6
 ----
 
 *Step 2:* Konfiguration erstellen und kompilieren
@@ -104,13 +108,13 @@ config.status: creating config.mak.autogen
 
 ----
 $ make all doc | tee ../log.git_make_all_doc
-GIT_VERSION = 1.6.5.6
+GIT_VERSION = 1.6.6
     * new build flags or prefix
     CC fast-import.o
 [...]
     ASCIIDOC gitworkflows.xml
     XMLTO gitworkflows.7
-make[1]: Verlasse Verzeichnis '.../git-1.6.5.6/Documentation'
+make[1]: Verlasse Verzeichnis '.../git-1.6.6/Documentation'
 ----
 
 *Step 3:* Installation (als Benutzer 'root')
@@ -118,6 +122,9 @@ make[1]: Verlasse Verzeichnis '.../git-1.6.5.6/Documentation'
 $ sudo make install | tee ../log.git_make_install
     SUBDIR git-gui
     SUBDIR gitk-git
+make[1]: Für das Ziel »all« ist nichts zu tun.
+    SUBDIR perl
+    SUBDIR templates    
 install -d -m 755 '/usr/local/bin'
 install -d -m 755 '/usr/local/libexec/git-core'
 install   git-fast-import git-hash-object ...
@@ -140,13 +147,13 @@ make -C Documentation install
 ----
 $ cd /usr/local/bin
 $ ls -l git*
--rwxr-xr-x 96 root root 3234180 2009-12-11 16:01 git
--rwxr-xr-x  1 root root  116461 2009-12-11 16:01 git-cvsserver
--rwxr-xr-x  1 root root  312236 2009-12-11 16:01 gitk
--rwxr-xr-x  1 root root 3234180 2009-12-11 16:01 git-receive-pack
--rwxr-xr-x  1 root root 1347878 2009-12-11 16:01 git-shell
--rwxr-xr-x  1 root root 3234180 2009-12-11 16:01 git-upload-archive
--rwxr-xr-x  1 root root 1383484 2009-12-11 16:01 git-upload-pack
+-rwxr-xr-x 95 root root 3285473 2010-01-08 12:58 git
+-rwxr-xr-x  1 root root  116459 2010-01-08 12:58 git-cvsserver
+-rwxr-xr-x  1 root root  321008 2010-01-08 12:58 gitk
+-rwxr-xr-x  1 root root 3285473 2010-01-08 12:58 git-receive-pack
+-rwxr-xr-x  1 root root 1386107 2010-01-08 12:58 git-shell
+-rwxr-xr-x  1 root root 3285473 2010-01-08 12:58 git-upload-archive
+-rwxr-xr-x  1 root root 1422719 2010-01-08 12:58 git-upload-pack
 ----
 
 ----
@@ -208,7 +215,7 @@ NOTES
         5. GIT API documentation
            file:///usr/local/share/doc/git-doc/technical/api-index.html
 [...]
-Git 1.6.5.6                       12/11/2009                            GIT(1)
+Git 1.6.6                         01/08/2010                            GIT(1)
 ----
 
 ----
@@ -230,7 +237,7 @@ DESCRIPTION
        tcl/tk and started off in a separate repository but was later merged
        into the main git repository.
 [...]
-Git 1.6.5.6                       12/11/2009                            GITK(1)
+Git 1.6.6                         01/08/2010                            GIT(1)
 ----
 
 ----
@@ -295,3 +302,5 @@ Changelog
 .Version 0.4
 * Anpassung an Ubuntu 09.10 (Karmic Koala)
 
+.Version 0.6
+* Kleine Korrekturen am Text

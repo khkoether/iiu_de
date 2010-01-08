@@ -16,7 +16,7 @@ Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;
 :java-koerper-url: http://www.arndt-bruenner.de/mathe/java/koerper3d.htm
 :sdn-url: https://portal.sun.com/cwplogin/login.jsp?liferayUrl=https://portal.sun.com&cwpIdmUrl=https://identity.sun.com
 
-Version 0.4, Dezember 2009, <<_changelog,[Changelog]>>
+Version 0.6, Januar 2010, <<_changelog,[Changelog]>>
 
 Abstract
 --------
@@ -30,11 +30,15 @@ und -techniken. Wobei die Java-basierten Lösungen ausgezeichnet unterstützt we
 Der Artikel ist in {asciidoc-url}[ASCII DOC] erstellt worden.
 
 [CAUTION]
-Der Artikel wurde nach bestem Wissen geschrieben 
-und geprüft. Ich übernehme jedoch keinerlei Haftung für Schäden, 
-die durch Ausführung der in diesem Artikel aufgeführten Kommandos 
-entstehen oder entstanden sind.
+====
+Zu beachten ist, dass so ein Dokument zum Einen nie abschliessend 
+sein kann, und zum Anderen bestimmte Konfigurationen anders, oder 
+auf einem anderem Weg durchgeführt werden können. +
+Gerne nehme ich Verbesserungsvorschläge entgegen.
 
+Keine Haftung für Schäden, die durch die Anwendung der 
+aufgeführten Kommandos entstehen.
+====
 
 Vorraussetzungen
 ----------------
@@ -305,3 +309,6 @@ Changelog
 
 .Version 0.4
 * Anpassung an Ubuntu 09.10 (Karmic Koala)
+
+.Version 0.6
+* Kleine Korrekturen am Text
