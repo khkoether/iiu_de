@@ -9,7 +9,7 @@ Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;
 :asciidoc-url: http://www.methods.co.nz/asciidoc/
 :git-url: http://git-scm.com/
 
-Version 0.6, Januar 2010, <<_changelog,[Changelog]>>
+Version 0.8, Januar 2010, <<_changelog,[Changelog]>>
 
 Abstract
 --------
@@ -28,8 +28,7 @@ sein kann, und zum Anderen bestimmte Konfigurationen anders, oder
 auf einem anderem Weg durchgeführt werden können. +
 Gerne nehme ich Verbesserungsvorschläge entgegen.
 
-Keine Haftung für Schäden, die durch die Anwendung der 
-aufgeführten Kommandos entstehen.
+Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr.
 ====
 
 Vorraussetzungen
