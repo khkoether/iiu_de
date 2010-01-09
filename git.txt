@@ -303,3 +303,6 @@ Changelog
 
 .Version 0.6
 * Kleine Korrekturen am Text
+
+.Version 0.8
+* Hinweis zur Verwendung
