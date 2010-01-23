@@ -16,12 +16,12 @@ Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;
 :java-koerper-url: http://www.arndt-bruenner.de/mathe/java/koerper3d.htm
 :sdn-url: https://portal.sun.com/cwplogin/login.jsp?liferayUrl=https://portal.sun.com&cwpIdmUrl=https://identity.sun.com
 
-Version 0.8, Januar 2010, <<_changelog,[Changelog]>>
+Version 0.8.1, Januar 2010, <<_changelog,[Changelog]>>
 
 Abstract
 --------
 Dieser Artikel ist eine Schritt-für-Schritt Anleitung zur Installation 
-des {java-url}[Sun Java SDK 6 Update 17] und 
+des {java-url}[Sun Java SDK 6 Update 18] und 
 der {netbeans-url}[NetBeans IDE 6.8] unter GNU/Linux.
  
 Die NetBeans IDE bietet eine Unterstützung für verschiedene Programmiersprachen 
@@ -46,8 +46,8 @@ beschrieben. Gleichwohl sind die einzelnen Schritte auch für
 andere Distributionen übertragbar.
 
 .Download
-* {java-url}[Sun Java SDK 6 Update 17] +    
-  jdk-6u16-linux-i586.bin (ca. 79 MB)
+* {java-url}[Sun Java SDK 6 Update 18] +    
+  jdk-6u18-linux-i586.bin (ca. 81 MB)
 * {netbeans-url}[NetBeans 6.8] +    
   netbeans-6.8-ml-linux.sh (ca. 246 MB) (IDE-Sprache: Deutsch)
 
@@ -57,8 +57,8 @@ Die Installation des Sun Java SDK wird vom Benutzer 'root' für das System durch
 Während anschließende Installation der NetBeans IDE für den Benutzer 'bob' ausgeführt wird. 
 ----
 $ ls -l 
--rw-r--r-- 1 bob bob  81792634 2009-12-11 21:26 jdk-6u17-linux-i586.bin
--rw-r--r-- 1 bob bob 257131520 2009-12-11 22:11 netbeans-6.8-ml-linux.sh
+-rw-r--r-- 1 bob bob  84738557 2010-01-23 14:56 jdk-6u18-linux-i586.bin
+-rw-r--r-- 1 bob bob 257131520 2010-01-23 15:04 netbeans-6.8-ml-linux.sh
 ----
 ====
 
@@ -66,7 +66,7 @@ $ ls -l
 == Installation
 
 
-=== Sun Java SDK 6 Update 17
+=== Sun Java SDK 6 Update 18
 Zusätzliche Software-Pakete die nicht über das Paketmanagement 
 verwaltet wird, sollte im Verzeichnis '/opt' (Optional) 
 installiert werden. 
@@ -75,9 +75,9 @@ installiert werden.
 ----
 $ cd /opt 
 $ mkdir Java && cd Java
-$ sudo sh jdk-6u16-linux-i586.bin  <--- Lizenbedingungen bestätigen!
+$ sudo sh jdk-6u18-linux-i586.bin  <--- Lizenbedingungen bestätigen!
 $ ls -l
-drwxr-xr-x 10 root root 4096 2009-08-30 17:37 jdk1.6.0_16
+drwxr-xr-x 10 root root 4096 2010-01-23 19:53 jdk1.6.0_18
 ----
 
 *Step 2:* Java-Installation für den Mozilla Firefox einrichten
@@ -85,9 +85,9 @@ drwxr-xr-x 10 root root 4096 2009-08-30 17:37 jdk1.6.0_16
 $ cd /usr/lib/firefox-addons/plugins/
 $ ls 
 libflashplayer.so  nppdf.so
-$ sudo ln -s ../../../../opt/Java/jdk1.6.0_17/jre/plugin/i386/ns7/libjavaplugin_oji.so 
+$ sudo ln -s ../../../../opt/Java/jdk1.6.0_18/jre/plugin/i386/ns7/libjavaplugin_oji.so 
 $ ls -l
-lrwxrwxrwx 1 root root     73 2009-12-11 22:18 libjavaplugin_oji.so -> ../../../../opt/Java/jdk1.6.0_17/jre/plugin/i386/ns7/libjavaplugin_oji.so
+lrwxrwxrwx 1 root root 73 2010-01-23 19:54 libjavaplugin_oji.so -> ../../../../opt/Java/jdk1.6.0_18/jre/plugin/i386/ns7/libjavaplugin_oji.so
 [...]
 ----
 
@@ -100,7 +100,7 @@ Browser> {java-koerper-url}[3D-Körper]
 ----
 $ cd /opt 
 $ mkdir -p NetBeans/bob && cd NetBeans/bob
-$ sh netbeans-6.8-ml-linux.sh --javahome /opt/Java/jdk1.6.0_17/
+$ sh netbeans-6.8-ml-linux.sh --javahome /opt/Java/jdk1.6.0_18/
 ----
 
 &nbsp; +
@@ -120,11 +120,11 @@ $ sh netbeans-6.8-ml-linux.sh --javahome /opt/Java/jdk1.6.0_17/
 - PHP
 - Funktionen bei Bedarf
 * Sun GlassFish Enterprise Server v3 
-- Apache Tomcat 6.0.18
+- Apache Tomcat 6.0.20
 
 .Installation
 - /opt/NetBeans/bob/netbeans-6.8
-- /opt/Java/jdk1.6.0_17
+- /opt/Java/jdk1.6.0_18
 - /opt/Tomcat/bob/apache-tomcat-6.0.20  (Optional)
 
 .Summary 
@@ -205,12 +205,17 @@ $ sh netbeans-6.8-ml-linux.sh --javahome /opt/Java/jdk1.6.0_17/
 ----
 $ cd
 $ ls -la .netbeans*
-.netbeans:
+/home/bob/.netbeans:
 insgesamt 12
--rw-r--r--  1 khk khk   36 2009-12-12 15:47 .superId
+drwxr-xr-x  2 bob bob 4096 2010-01-23 20:04 .
+drwxr-xr-x 10 bob bob 4096 2010-01-23 20:04 ..
+-rw-r--r--  1 bob bob   36 2010-01-23 20:04 .superId
 
-.netbeans-registration:
-drwxr-xr-x  2 khk khk 4096 2009-12-12 15:47 6.8
+/home/bob/.netbeans-registration:
+insgesamt 12
+drwxr-xr-x  3 bob bob 4096 2010-01-23 20:04 .
+drwxr-xr-x 10 bob bob 4096 2010-01-23 20:04 ..
+drwxr-xr-x  2 bob bob 4096 2010-01-23 20:04 6.8
 ----
 
 [NOTE] 
@@ -314,3 +319,6 @@ Changelog
 
 .Version 0.8
 * Hinweis zur Verwendung
+
+.Version 0.8.1
+* Aktualisierung der Installation

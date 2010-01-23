@@ -562,13 +562,13 @@ footnotes: function () {
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph"><p>Version 0.8, Januar 2010, <a href="#_changelog">[Changelog]</a></p></div>
+<div class="paragraph"><p>Version 0.8.1, Januar 2010, <a href="#_changelog">[Changelog]</a></p></div>
 </div>
 </div>
 <h2 id="_abstract">Abstract</h2>
 <div class="sectionbody">
 <div class="paragraph"><p>Dieser Artikel ist eine Schritt-für-Schritt Anleitung zur Installation
-des <a href="http://java.sun.com/javase/downloads/index.jsp">Sun Java SDK 6 Update 17</a> und
+des <a href="http://java.sun.com/javase/downloads/index.jsp">Sun Java SDK 6 Update 18</a> und
 der <a href="http://www.netbeans.org/downloads/index.html">NetBeans IDE 6.8</a> unter GNU/Linux.</p></div>
 <div class="paragraph"><p>Die NetBeans IDE bietet eine Unterstützung für verschiedene Programmiersprachen
 und -techniken. Wobei die Java-basierten Lösungen ausgezeichnet unterstützt werden.</p></div>
@@ -596,8 +596,8 @@ andere Distributionen übertragbar.</p></div>
 <div class="ulist"><div class="title">Download</div><ul>
 <li>
 <p>
-<a href="http://java.sun.com/javase/downloads/index.jsp">Sun Java SDK 6 Update 17</a><br />
-  jdk-6u16-linux-i586.bin (ca. 79 MB)
+<a href="http://java.sun.com/javase/downloads/index.jsp">Sun Java SDK 6 Update 18</a><br />
+  jdk-6u18-linux-i586.bin (ca. 81 MB)
 </p>
 </li>
 <li>
@@ -618,8 +618,8 @@ Während anschließende Installation der NetBeans IDE für den Benutzer <em>bob<
 <div class="listingblock">
 <div class="content">
 <pre><tt>$ ls -l
--rw-r--r-- 1 bob bob  81792634 2009-12-11 21:26 jdk-6u17-linux-i586.bin
--rw-r--r-- 1 bob bob 257131520 2009-12-11 22:11 netbeans-6.8-ml-linux.sh</tt></pre>
+-rw-r--r-- 1 bob bob  84738557 2010-01-23 14:56 jdk-6u18-linux-i586.bin
+-rw-r--r-- 1 bob bob 257131520 2010-01-23 15:04 netbeans-6.8-ml-linux.sh</tt></pre>
 </div></div>
 </td>
 </tr></table>
@@ -627,7 +627,7 @@ Während anschließende Installation der NetBeans IDE für den Benutzer <em>bob<
 </div>
 <h2 id="_installation">Installation</h2>
 <div class="sectionbody">
-<h3 id="_sun_java_sdk_6_update_17">Sun Java SDK 6 Update 17</h3><div style="clear:left"></div>
+<h3 id="_sun_java_sdk_6_update_18">Sun Java SDK 6 Update 18</h3><div style="clear:left"></div>
 <div class="paragraph"><p>Zusätzliche Software-Pakete die nicht über das Paketmanagement
 verwaltet wird, sollte im Verzeichnis <em>/opt</em> (Optional)
 installiert werden.</p></div>
@@ -636,9 +636,9 @@ installiert werden.</p></div>
 <div class="content">
 <pre><tt>$ cd /opt
 $ mkdir Java &amp;&amp; cd Java
-$ sudo sh jdk-6u16-linux-i586.bin  &lt;--- Lizenbedingungen bestätigen!
+$ sudo sh jdk-6u18-linux-i586.bin  &lt;--- Lizenbedingungen bestätigen!
 $ ls -l
-drwxr-xr-x 10 root root 4096 2009-08-30 17:37 jdk1.6.0_16</tt></pre>
+drwxr-xr-x 10 root root 4096 2010-01-23 19:53 jdk1.6.0_18</tt></pre>
 </div></div>
 <div class="paragraph"><p><strong>Step 2:</strong> Java-Installation für den Mozilla Firefox einrichten</p></div>
 <div class="listingblock">
@@ -646,9 +646,9 @@ drwxr-xr-x 10 root root 4096 2009-08-30 17:37 jdk1.6.0_16</tt></pre>
 <pre><tt>$ cd /usr/lib/firefox-addons/plugins/
 $ ls
 libflashplayer.so  nppdf.so
-$ sudo ln -s ../../../../opt/Java/jdk1.6.0_17/jre/plugin/i386/ns7/libjavaplugin_oji.so
+$ sudo ln -s ../../../../opt/Java/jdk1.6.0_18/jre/plugin/i386/ns7/libjavaplugin_oji.so
 $ ls -l
-lrwxrwxrwx 1 root root     73 2009-12-11 22:18 libjavaplugin_oji.so -&gt; ../../../../opt/Java/jdk1.6.0_17/jre/plugin/i386/ns7/libjavaplugin_oji.so
+lrwxrwxrwx 1 root root 73 2010-01-23 19:54 libjavaplugin_oji.so -&gt; ../../../../opt/Java/jdk1.6.0_18/jre/plugin/i386/ns7/libjavaplugin_oji.so
 [...]</tt></pre>
 </div></div>
 <div class="paragraph"><p>Browser&gt; about:plugins<br />
@@ -659,7 +659,7 @@ Browser&gt; <a href="http://www.arndt-bruenner.de/mathe/java/koerper3d.htm">3D-K
 <div class="content">
 <pre><tt>$ cd /opt
 $ mkdir -p NetBeans/bob &amp;&amp; cd NetBeans/bob
-$ sh netbeans-6.8-ml-linux.sh --javahome /opt/Java/jdk1.6.0_17/</tt></pre>
+$ sh netbeans-6.8-ml-linux.sh --javahome /opt/Java/jdk1.6.0_18/</tt></pre>
 </div></div>
 <div class="paragraph"><p>&nbsp;<br />
 &nbsp;<br />
@@ -733,7 +733,7 @@ Sun GlassFish Enterprise Server v3
 </li>
 <li>
 <p>
-Apache Tomcat 6.0.18
+Apache Tomcat 6.0.20
 </p>
 </li>
 </ul></div>
@@ -745,7 +745,7 @@ Apache Tomcat 6.0.18
 </li>
 <li>
 <p>
-/opt/Java/jdk1.6.0_17
+/opt/Java/jdk1.6.0_18
 </p>
 </li>
 <li>
@@ -807,12 +807,17 @@ Registration
 <div class="content">
 <pre><tt>$ cd
 $ ls -la .netbeans*
-.netbeans:
+/home/bob/.netbeans:
 insgesamt 12
--rw-r--r--  1 khk khk   36 2009-12-12 15:47 .superId
+drwxr-xr-x  2 bob bob 4096 2010-01-23 20:04 .
+drwxr-xr-x 10 bob bob 4096 2010-01-23 20:04 ..
+-rw-r--r--  1 bob bob   36 2010-01-23 20:04 .superId
 
-.netbeans-registration:
-drwxr-xr-x  2 khk khk 4096 2009-12-12 15:47 6.8</tt></pre>
+/home/bob/.netbeans-registration:
+insgesamt 12
+drwxr-xr-x  3 bob bob 4096 2010-01-23 20:04 .
+drwxr-xr-x 10 bob bob 4096 2010-01-23 20:04 ..
+drwxr-xr-x  2 bob bob 4096 2010-01-23 20:04 6.8</tt></pre>
 </div></div>
 <div class="admonitionblock">
 <table><tr>
@@ -917,12 +922,19 @@ Hinweis zur Verwendung
 </p>
 </li>
 </ul></div>
+<div class="ulist"><div class="title">Version 0.8.1</div><ul>
+<li>
+<p>
+Aktualisierung der Installation
+</p>
+</li>
+</ul></div>
 </div>
 </div>
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2010-01-09 21:21:26 CEST
+Last updated 2010-01-23 21:18:16 CEST
 </div>
 </div>
 </body>

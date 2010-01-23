@@ -562,7 +562,7 @@ footnotes: function () {
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph"><p>Version 0.8, Januar 2010, <a href="#_changelog">[Changelog]</a></p></div>
+<div class="paragraph"><p>Version 0.8.1, Januar 2010, <a href="#_changelog">[Changelog]</a></p></div>
 </div>
 </div>
 <h2 id="_abstract">Abstract</h2>
@@ -642,11 +642,11 @@ Benutzer <em>root</em> für das System durchgeführt.</p></div>
 <div class="listingblock">
 <div class="content">
 <pre><tt>$ ls -l
--rw-r--r-- 1 bob bob   34662 2009-02-01 12:34 mysql-ruby-2.8.1.tar.gz
--rw-r--r-- 1 bob bob 9025004 2009-01-30 11:34 ruby-1.9.1-p0.tar.gz
+-rw-r--r-- 1 bob bob   34662 2010-01-23 14:52 mysql-ruby-2.8.1.tar.gz
+-rw-r--r-- 1 bob bob 9025004 2009-01-30 12:34 ruby-1.9.1-p0.tar.gz
 -rw-r--r-- 1 bob bob 9034947 2009-05-12 12:34 ruby-1.9.1-p129.tar.gz
--rw-r--r-- 1 bob bob 9043825 2009-12-06 12:25 ruby-1.9.1-p243.tar.gz
--rw-r--r-- 1 bob bob 9073007 2009-12-11 16:11 ruby-1.9.1-p376.tar.gz</tt></pre>
+-rw-r--r-- 1 bob bob 9043825 2009-12-06 12:34 ruby-1.9.1-p243.tar.gz
+-rw-r--r-- 1 bob bob 9073007 2010-01-23 14:53 ruby-1.9.1-p376.tar.gz</tt></pre>
 </div></div>
 </td>
 </tr></table>
@@ -663,8 +663,8 @@ Programm-Pakete installiert sind.</p></div>
 <div class="content">
 <pre><tt>$ sudo apt-get install ...
                Benötigt:   build-essential libc6-dev  g++  make  dpkg-dev
-               Benötigt:   libssl-dev libmysqlclient-dev libsqlite3-dev libreadline5-dev libncurses5-dev
-               Benötigt:   autoconf zlib1g-dev</tt></pre>
+               Benötigt:   libssl-dev libmysqlclient-dev libsqlite3-dev
+               Benötigt:   libreadline5-dev libncurses5-dev zlib1g-dev</tt></pre>
 </div></div>
 </td>
 </tr></table>
@@ -699,7 +699,7 @@ $ cd ruby-1.9.1-p376</tt></pre>
 <div class="paragraph"><p><strong>Step 2:</strong> Konfiguration erstellen und kompilieren</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt>$ sudo mkdir /opt/Ruby/ruby-1.9.1-p376</tt></pre>
+<pre><tt>$ sudo mkdir -p /opt/Ruby/ruby-1.9.1-p376</tt></pre>
 </div></div>
 <div class="admonitionblock">
 <table><tr>
@@ -717,8 +717,7 @@ ohne das Suffix <em>19</em> wiederum vorhandene Dateien überschreibt.</p></div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre><tt>$ autoconf
-$ ./configure --prefix=/opt/Ruby/ruby-1.9.1-p376 | tee ../log.ruby_configure
+<pre><tt>$ ./configure --prefix=/opt/Ruby/ruby-1.9.1-p376 | tee ../log.ruby_configure
 checking build system type... i686-pc-linux-gnu
 checking host system type... i686-pc-linux-gnu
 checking target system type... i686-pc-linux-gnu
@@ -738,7 +737,7 @@ sample/test.rb:assignment ...............................................
 [...]
 PASS 945 tests
 ./miniruby -I./lib -I.ext/common -I./- -r./ext/purelib.rb  "./bootstraptest/runner.rb" --ruby="ruby"  ./KNOWNBUGS.rb
-2009-12-11 18:15:38 +0100
+2010-01-23 18:09:46 +0100
 Driver is ruby 1.9.1 (2009-12-07 patchlevel 376) [i686-linux]
 
 KNOWNBUGS.rb
@@ -761,10 +760,10 @@ installing extension scripts
 Generating RDoc documentation
 [...]
 Files:   512
-Classes: 1354
+Classes: 1352
 Modules: 567
 Methods: 7486
-Elapsed: 121.1s
+Elapsed: 57.8ss
 ./miniruby -I./lib -I.ext/common -I./- -r./ext/purelib.rb  ./instruby.rb --make="make" --dest-dir="" --extout=".ext" --mflags="" --make-flags="" --data-mode=0644 --prog-mode=0755 --installed-list .installed.list --install=rdoc --rdoc-output=".ext/rdoc"
 installing rdoc</tt></pre>
 </div></div>
@@ -773,30 +772,31 @@ installing rdoc</tt></pre>
 <div class="content">
 <pre><tt>$ cd /opt/Ruby/ruby-1.9.1-p376
 $ ls -l
-drwxr-xr-x 2 root root 4096 2009-12-11 18:17 bin
-drwxr-xr-x 3 root root 4096 2009-12-11 18:17 include
-drwxr-xr-x 3 root root 4096 2009-12-11 18:17 lib
-drwxr-xr-x 4 root root 4096 2009-12-11 18:19 share</tt></pre>
+drwxr-xr-x 2 root root 4096 2010-01-23 18:11 bin
+drwxr-xr-x 3 root root 4096 2010-01-23 18:11 include
+drwxr-xr-x 3 root root 4096 2010-01-23 18:11 lib
+drwxr-xr-x 4 root root 4096 2010-01-23 18:12 share</tt></pre>
 </div></div>
 <div class="listingblock">
 <div class="content">
 <pre><tt>$ ls -l bin
--rwxr-xr-x 1 root root  4423 2009-12-11 18:17 erb
--rwxr-xr-x 1 root root   803 2009-12-11 18:17 gem
--rwxr-xr-x 1 root root   335 2009-12-11 18:17 irb
--rwxr-xr-x 1 root root  1265 2009-12-11 18:17 rake
--rwxr-xr-x 1 root root   427 2009-12-11 18:17 rdoc
--rwxr-xr-x 1 root root    90 2009-12-11 18:17 ri
--rwxr-xr-x 1 root root 11008 2009-12-11 18:16 ruby
--rwxr-xr-x 1 root root   264 2009-12-11 18:17 testrb</tt></pre>
+-rwxr-xr-x 1 root root    4423 2010-01-23 18:11 erb
+-rwxr-xr-x 1 root root     803 2010-01-23 18:11 gem
+-rwxr-xr-x 1 root root     335 2010-01-23 18:11 irb
+-rwxr-xr-x 1 root root    1265 2010-01-23 18:11 rake
+-rwxr-xr-x 1 root root     427 2010-01-23 18:11 rdoc
+-rwxr-xr-x 1 root root      90 2010-01-23 18:11 ri
+-rwxr-xr-x 1 root root 3852466 2010-01-23 18:08 ruby
+-rwxr-xr-x 1 root root     264 2010-01-23 18:11 testrb</tt></pre>
 </div></div>
 <div class="paragraph"><p><strong>Step 5:</strong> Der Pfad zum Verzeichnis <em>/opt/Ruby/ruby-1.9.1-p376/bin</em> muß gesetzt werden</p></div>
 <div class="listingblock">
 <div class="title">Lokal in der aktuellen Shell (1)</div>
 <div class="content">
-<pre><tt>$ export PATH=/opt/Ruby/ruby-1.9.1-p376/bin:$PATH
-$ echo $PATH
-/opt/Ruby/ruby-1.9.1-p376/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin</tt></pre>
+<pre><tt>$ vim /opt/Ruby/ruby19.path.sh
+PATH=/opt/Ruby/ruby-1.9.1-p376/bin:$PATH
+export PATH
+$ . ruby19.path.sh</tt></pre>
 </div></div>
 <div class="listingblock">
 <div class="title">Systemweit in der Datei <em>/etc/environment</em></div>
@@ -811,14 +811,14 @@ angepasst werden müssen.</p></div>
 <pre><tt>$ sudo vim /etc/environment
 PATH="/opt/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 
-$ sudo mkdir /opt/local/bin
+$ sudo mkdir -p /opt/local/bin
 
 $ cd /opt/Ruby/
 $ sudo ln -s ruby-1.9.1-p376 current
 $ ls -l
-lrwxrwxrwx 1 root root   16 2009-12-11 18:05 current -&gt; ruby-1.9.1-p376/
-drwxr-xr-x 6 root root 4096 2009-12-11 18:23 ruby-1.9.1-p376
--rw-r--r-- 1 root root   38 2009-12-11 18:25 ruby19.path.sh
+lrwxrwxrwx 1 root root   16 2010-01-23 18:15 current -&gt; ruby-1.9.1-p376/
+drwxr-xr-x 6 root root 4096 2010-01-23 18:11 ruby-1.9.1-p376
+-rw-r--r-- 1 root root   39 2010-01-23 18:16 ruby19.path.sh
 
 $ cd /opt/local/bin
 $ sudo ln -s ../../Ruby/current/bin/erb
@@ -830,19 +830,19 @@ $ sudo ln -s ../../Ruby/current/bin/ri
 $ sudo ln -s ../../Ruby/current/bin/ruby
 $ sudo ln -s ../../Ruby/current/bin/testrb
 $ ls -l
-lrwxrwxrwx 1 root root 26 2009-12-11 18:32 erb -&gt; ../../Ruby/current/bin/erb
-lrwxrwxrwx 1 root root 26 2009-12-11 18:32 gem -&gt; ../../Ruby/current/bin/gem
-lrwxrwxrwx 1 root root 26 2009-12-11 18:32 irb -&gt; ../../Ruby/current/bin/irb
-lrwxrwxrwx 1 root root 27 2009-12-11 18:32 rake -&gt; ../../Ruby/current/bin/rake
-lrwxrwxrwx 1 root root 27 2009-12-11 18:32 rdoc -&gt; ../../Ruby/current/bin/rdoc
-lrwxrwxrwx 1 root root 25 2009-12-11 18:32 ri -&gt; ../../Ruby/current/bin/ri
-lrwxrwxrwx 1 root root 27 2009-12-11 18:32 ruby -&gt; ../../Ruby/current/bin/ruby
-lrwxrwxrwx 1 root root 29 2009-12-11 18:32 testrb -&gt; ../../Ruby/current/bin/testrb</tt></pre>
+lrwxrwxrwx 1 root root 26 2010-01-23 18:25 erb -&gt; ../../Ruby/current/bin/erb
+lrwxrwxrwx 1 root root 26 2010-01-23 18:25 gem -&gt; ../../Ruby/current/bin/gem
+lrwxrwxrwx 1 root root 26 2010-01-23 18:25 irb -&gt; ../../Ruby/current/bin/irb
+lrwxrwxrwx 1 root root 27 2010-01-23 18:25 rake -&gt; ../../Ruby/current/bin/rake
+lrwxrwxrwx 1 root root 27 2010-01-23 18:25 rdoc -&gt; ../../Ruby/current/bin/rdoc
+lrwxrwxrwx 1 root root 25 2010-01-23 18:25 ri -&gt; ../../Ruby/current/bin/ri
+lrwxrwxrwx 1 root root 27 2010-01-23 18:25 ruby -&gt; ../../Ruby/current/bin/ruby
+lrwxrwxrwx 1 root root 29 2010-01-23 18:25 testrb -&gt; ../../Ruby/current/bin/testrb</tt></pre>
 </div></div>
 <div class="listingblock">
 <div class="title">Lokal in der aktuellen Shell (2)</div>
 <div class="content">
-<pre><tt>$ less ruby19.path.sh
+<pre><tt>$ vim /opt/Ruby/ruby19.path.sh
 PATH=/opt/local/bin:$PATH
 export PATH
 $ . ruby19.path.sh</tt></pre>
@@ -908,7 +908,7 @@ $ sudo make install | tee ../log.mysql_ruby_make_install
 
 $ cd /opt/Ruby/ruby-1.9.1-p376/lib/ruby/site_ruby/1.9.1/i686-linux
 $ ls -l
--rwxr-xr-x 1 root root 155423 2009-12-11 18:38 mysql.so</tt></pre>
+-rwxr-xr-x 1 root root 155423 2010-01-23 18:31 mysql.so</tt></pre>
 </div></div>
 <h3 id="_ruby_on_rails_2_3_5">Ruby on Rails 2.3.5</h3><div style="clear:left"></div>
 <div class="admonitionblock">
@@ -930,9 +930,9 @@ auf die Ruby1.9-Installation:</p></div>
 /opt/local/bin/gem
 
 $ sudo su -
-# export PATH=/opt/Ruby/ruby-1.9.1-p376/bin:$PATH
+# . /opt/Ruby/ruby19.path.sh
 # which gem
-/opt/Ruby/ruby-1.9.1-p376/bin/gem</tt></pre>
+/opt/local/bin/gem</tt></pre>
 </div></div>
 <div class="paragraph"><p>Dann gehen auch die folgenden Befehle</p></div>
 <div class="listingblock">
@@ -998,17 +998,17 @@ $ sudo ln -s ../../Ruby/current/bin/rails
 $ sudo ln -s ../../Ruby/current/bin/update_rubygems
 
 $ ls -l
-lrwxrwxrwx 1 root root 26 2009-12-06 14:37 erb -&gt; ../../Ruby/current/bin/erb
-lrwxrwxrwx 1 root root 26 2009-12-06 14:37 gem -&gt; ../../Ruby/current/bin/gem
-lrwxrwxrwx 1 root root 26 2009-12-06 14:37 irb -&gt; ../../Ruby/current/bin/irb
-lrwxrwxrwx 1 root root 29 2009-12-06 14:58 rackup -&gt; ../../Ruby/current/bin/rackup
-lrwxrwxrwx 1 root root 28 2009-12-06 14:58 rails -&gt; ../../Ruby/current/bin/rails
-lrwxrwxrwx 1 root root 27 2009-12-06 14:37 rake -&gt; ../../Ruby/current/bin/rake
-lrwxrwxrwx 1 root root 27 2009-12-06 14:37 rdoc -&gt; ../../Ruby/current/bin/rdoc
-lrwxrwxrwx 1 root root 25 2009-12-06 14:37 ri -&gt; ../../Ruby/current/bin/ri
-lrwxrwxrwx 1 root root 27 2009-12-06 14:38 ruby -&gt; ../../Ruby/current/bin/ruby
-lrwxrwxrwx 1 root root 29 2009-12-06 14:38 testrb -&gt; ../../Ruby/current/bin/testrb
-lrwxrwxrwx 1 root root 38 2009-12-06 14:58 update_rubygems -&gt; ../../Ruby/current/bin/update_rubygems</tt></pre>
+lrwxrwxrwx 1 root root 26 2010-01-23 18:25 erb -&gt; ../../Ruby/current/bin/erb
+lrwxrwxrwx 1 root root 26 2010-01-23 18:25 gem -&gt; ../../Ruby/current/bin/gem
+lrwxrwxrwx 1 root root 26 2010-01-23 18:25 irb -&gt; ../../Ruby/current/bin/irb
+lrwxrwxrwx 1 root root 29 2010-01-23 19:35 rackup -&gt; ../../Ruby/current/bin/rackup
+lrwxrwxrwx 1 root root 28 2010-01-23 19:35 rails -&gt; ../../Ruby/current/bin/rails
+lrwxrwxrwx 1 root root 27 2010-01-23 18:25 rake -&gt; ../../Ruby/current/bin/rake
+lrwxrwxrwx 1 root root 27 2010-01-23 18:25 rdoc -&gt; ../../Ruby/current/bin/rdoc
+lrwxrwxrwx 1 root root 25 2010-01-23 18:25 ri -&gt; ../../Ruby/current/bin/ri
+lrwxrwxrwx 1 root root 27 2010-01-23 18:25 ruby -&gt; ../../Ruby/current/bin/ruby
+lrwxrwxrwx 1 root root 29 2010-01-23 18:25 testrb -&gt; ../../Ruby/current/bin/testrb
+lrwxrwxrwx 1 root root 38 2010-01-23 19:35 update_rubygems -&gt; ../../Ruby/current/bin/update_rubygems</tt></pre>
 </div></div>
 <h3 id="_beispielanwendung_ruby_on_rails">Beispielanwendung: Ruby on Rails</h3><div style="clear:left"></div>
 <div class="listingblock">
@@ -1058,9 +1058,9 @@ $ ruby script/server
 =&gt; Rails 2.3.5 application starting on http://0.0.0.0:3000
 =&gt; Call with -d to detach
 =&gt; Ctrl-C to shutdown server
-[2009-12-11 19:03:45] INFO  WEBrick 1.3.1
-[2009-12-11 19:03:45] INFO  ruby 1.9.1 (2009-12-07) [i686-linux]
-[2009-12-11 19:03:50] INFO  WEBrick::HTTPServer#start: pid=24612 port=3000</tt></pre>
+[2010-01-23 19:43:11] INFO  WEBrick 1.3.1
+[2010-01-23 19:43:11] INFO  ruby 1.9.1 (2009-12-07) [i686-linux]
+[2010-01-23 19:43:16] INFO  WEBrick::HTTPServer#start: pid=17592 port=3000</tt></pre>
 </div></div>
 <div class="listingblock">
 <div class="content">
@@ -1103,8 +1103,6 @@ cd ruby-1.9.1-p376
 
 echo
 echo "Source übersetzen ..."
-mv configure configure.bak
-autoconf
 ./configure --prefix=$TARGET --enable-shared| tee ../log.ruby_configure
 make | tee ../log.ruby_make
 make test | tee ../log.ruby_make_test
@@ -1123,8 +1121,9 @@ echo "$ME: Ende."</tt></pre>
 <div class="title">Script zum Installieren von MySQL v2.8.1 (ohne weitere Erläuterung)</div>
 <div class="content">
 <pre><tt>#! /bin/bash
-
+ME=make_mysql_2.8.1
 TARGET=/opt/Ruby/ruby-1.9.1-p376
+
 tar xvzf mysql-ruby-2.8.1.tar.gz
 cd mysql-ruby-2.8.1
 sudo $TARGET/bin/ruby extconf.rb | tee ../log.mysql_ruby_extconf
@@ -1134,7 +1133,7 @@ sudo make install | tee ../log.mysql_ruby_make_install
 ls -l /opt/Ruby/ruby-1.9.1-p376/lib/ruby/site_ruby/1.9.1/i686-linux
 
 echo
-echo "Ende."</tt></pre>
+echo "$ME: Ende."</tt></pre>
 </div></div>
 </div>
 <h2 id="_changelog">Changelog</h2>
@@ -1167,12 +1166,19 @@ Hinweis zur Verwendung
 </p>
 </li>
 </ul></div>
+<div class="ulist"><div class="title">Version 0.8.1</div><ul>
+<li>
+<p>
+Aktualisierung der Installation
+</p>
+</li>
+</ul></div>
 </div>
 </div>
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2010-01-09 21:21:26 CEST
+Last updated 2010-01-23 21:30:49 CEST
 </div>
 </div>
 </body>

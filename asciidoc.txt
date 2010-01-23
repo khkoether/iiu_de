@@ -9,7 +9,7 @@ Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;
 :asciidoc-url: http://www.methods.co.nz/asciidoc/
 :sourceforge-url: http://sourceforge.net/projects/asciidoc/files/
 
-Version 0.8, Januar 2010, <<_changelog,[Changelog]>>
+Version 0.8.1, Januar 2010, <<_changelog,[Changelog]>>
 
 Abstract
 --------
@@ -42,7 +42,7 @@ andere Debian-basierte GNU/Linux Distributionen übertragbar.
 
 .Download
 * {sourceforge-url}[AsciiDoc] +    
-  asciidoc-8.5.2-tar.gz  (ca. 1.3 MB) +
+  asciidoc-8.5.2-tar.gz  (ca. 1.2 MB) +
   2009-12-07 (Release date)
   
 [NOTE] 
@@ -53,7 +53,7 @@ Die eigentliche Installation von AsciiDoc wird vom
 Benutzer 'root' für das System durchgeführt.
 ----
 $ ls -l 
--rw-r--r--  1 bob bob 1256406 2009-12-11 15:24 asciidoc-8.5.2.tar.gz
+-rw-r--r-- 1 bob bob 1256406 2010-01-23 14:51 asciidoc-8.5.2.tar.gz
 ----
 ====
 
@@ -123,10 +123,10 @@ $ sudo make docs | tee ../log.asciidoc_make_docs
 ----
 $ cd /usr/local/bin
 $ ls -l
-lrwxrwxrwx  1 root root       6 2009-12-11 15:29 a2x -> a2x.py
--rwxr-xr-x  1 root root   27851 2009-12-11 15:29 a2x.py
-lrwxrwxrwx  1 root root      11 2009-12-11 15:29 asciidoc -> asciidoc.py
--rwxr-xr-x  1 root root  220725 2009-12-11 15:29 asciidoc.py
+lrwxrwxrwx 1 root root      6 2010-01-23 17:17 a2x -> a2x.py
+-rwxr-xr-x 1 root root  27851 2010-01-23 17:17 a2x.py
+lrwxrwxrwx 1 root root     11 2010-01-23 17:17 asciidoc -> asciidoc.py
+-rwxr-xr-x 1 root root 220725 2010-01-23 17:17 asciidoc.py
 [...]
 ----
 
@@ -167,37 +167,37 @@ DESCRIPTION
 ----
 
 ----
-$ find /usr -type d -cmin -20
+$ find /usr -type d -cmin -5
 /usr/local/etc
 /usr/local/etc/asciidoc
+/usr/local/etc/asciidoc/filters
+/usr/local/etc/asciidoc/filters/graphviz
+/usr/local/etc/asciidoc/filters/code
+/usr/local/etc/asciidoc/filters/music
+/usr/local/etc/asciidoc/filters/source
+/usr/local/etc/asciidoc/javascripts
+/usr/local/etc/asciidoc/stylesheets
 /usr/local/etc/asciidoc/images
 /usr/local/etc/asciidoc/images/icons
 /usr/local/etc/asciidoc/images/icons/callouts
 /usr/local/etc/asciidoc/dblatex
-/usr/local/etc/asciidoc/stylesheets
 /usr/local/etc/asciidoc/docbook-xsl
-/usr/local/etc/asciidoc/filters
-/usr/local/etc/asciidoc/filters/code
-/usr/local/etc/asciidoc/filters/source
-/usr/local/etc/asciidoc/filters/music
-/usr/local/etc/asciidoc/filters/graphviz
-/usr/local/etc/asciidoc/javascripts
+/usr/local/bin
 /usr/local/share
+/usr/local/share/man
+/usr/local/share/man/man1
 /usr/local/share/doc
 /usr/local/share/doc/asciidoc
+/usr/local/share/doc/asciidoc/javascripts
+/usr/local/share/doc/asciidoc/examples
+/usr/local/share/doc/asciidoc/examples/website
+/usr/local/share/doc/asciidoc/stylesheets
 /usr/local/share/doc/asciidoc/images
 /usr/local/share/doc/asciidoc/images/icons
 /usr/local/share/doc/asciidoc/images/icons/callouts
 /usr/local/share/doc/asciidoc/dblatex
 /usr/local/share/doc/asciidoc/doc
-/usr/local/share/doc/asciidoc/stylesheets
 /usr/local/share/doc/asciidoc/docbook-xsl
-/usr/local/share/doc/asciidoc/examples
-/usr/local/share/doc/asciidoc/examples/website
-/usr/local/share/doc/asciidoc/javascripts
-/usr/local/share/man
-/usr/local/share/man/man1
-/usr/local/bin
 ----
 
 ----
@@ -219,3 +219,6 @@ Changelog
 
 .Version 0.8
 * Hinweis zur Verwendung
+
+.Version 0.8.1
+* Aktualisierung der Installation
