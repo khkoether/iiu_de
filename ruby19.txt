@@ -13,11 +13,12 @@ Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;
 :ruby-ftp-p129: ftp://www.ruby-lang.org/pub/ruby/1.9/ruby-1.9.1-p129.tar.gz
 :ruby-ftp-p243: ftp://www.ruby-lang.org/pub/ruby/1.9/ruby-1.9.1-p243.tar.gz
 :ruby-ftp-p376: ftp://www.ruby-lang.org/pub/ruby/1.9/ruby-1.9.1-p376.tar.gz
+:ruby-ftp-p378: ftp://www.ruby-lang.org/pub/ruby/1.9/ruby-1.9.1-p378.tar.gz
 :rubyonrails-url: http://www.rubyonrails.org
 :mysql-ruby-url: http://rubyforge.org/projects/mysql-ruby/
 :netbeans-url: http://www.netbeans.org/downloads/index.html
 
-Version 0.8.1, Januar 2010, <<_changelog,[Changelog]>>
+Version 0.8.2, Februar 2010, <<_changelog,[Changelog]>>
 
 Abstract
 --------
@@ -58,6 +59,9 @@ andere Distributionen übertragbar.
 * {ruby-ftp-p376}[Ruby 1.9.1 Patchlevel 376] +    
   ruby-1.9.1-p376  (ca. 9 MB) +
   2009-07-11 (Release date)
+* {ruby-ftp-p378}[Ruby 1.9.1 Patchlevel 378] +    
+  ruby-1.9.1-p378  (ca. 9 MB) +
+  2010-01-10 (Release date)
 * {mysql-ruby-url}[MySQL-Ruby Adaptor 2.8.1] + 
   mysql-ruby-2.8.1.tar.gz  (ca. 35 KB) +
   2009-02-01 (Release date)  
@@ -75,6 +79,7 @@ $ ls -l
 -rw-r--r-- 1 bob bob 9034947 2009-05-12 12:34 ruby-1.9.1-p129.tar.gz
 -rw-r--r-- 1 bob bob 9043825 2009-12-06 12:34 ruby-1.9.1-p243.tar.gz
 -rw-r--r-- 1 bob bob 9073007 2010-01-23 14:53 ruby-1.9.1-p376.tar.gz
+-rw-r--r-- 1 bob bob 9074768 2010-02-09 21:13 ruby-1.9.1-p378.tar.gz
 ----
 ====
 
@@ -110,13 +115,13 @@ Beispiel für die Änderung des Installations-Verzeichnisses:
 
 *Step 1:* Auspacken des Source-Code
 ----
-$ tar xvzf ruby-1.9.1-p376.tar.gz
-$ cd ruby-1.9.1-p376
+$ tar xvzf ruby-1.9.1-p378.tar.gz
+$ cd ruby-1.9.1-p378
 ----
 
 *Step 2:* Konfiguration erstellen und kompilieren
 ----
-$ sudo mkdir -p /opt/Ruby/ruby-1.9.1-p376
+$ sudo mkdir -p /opt/Ruby/ruby-1.9.1-p378
 ----
 
 [NOTE]
@@ -128,7 +133,7 @@ Lösung - bis zu dem Moment wenn Rails installiert wird und die Programme 'rails
 ohne das Suffix '19' wiederum vorhandene Dateien überschreibt.
 ====
 ----
-$ ./configure --prefix=/opt/Ruby/ruby-1.9.1-p376 | tee ../log.ruby_configure
+$ ./configure --prefix=/opt/Ruby/ruby-1.9.1-p378 | tee ../log.ruby_configure
 checking build system type... i686-pc-linux-gnu
 checking host system type... i686-pc-linux-gnu
 checking target system type... i686-pc-linux-gnu
@@ -141,19 +146,17 @@ $ make all | tee ../log.ruby_make_all
 sed 's/{\$([^(){}]*)[^{}]*}//g' common.mk > uncommon.mk
 gcc -O2 -g -Wall -Wno-parentheses  -fPIC  -I. -I.ext/include/i686-linux ...
 [...]
-make[1]: Verlasse Verzeichnis '.../ruby-1.9.1-p376'
+make[1]: Verlasse Verzeichnis '.../ruby-1.9.1-p378'
  
 $ make test | tee ../log.ruby_make_test
 sample/test.rb:assignment ...............................................
 [...]
 PASS 945 tests
 ./miniruby -I./lib -I.ext/common -I./- -r./ext/purelib.rb  "./bootstraptest/runner.rb" --ruby="ruby"  ./KNOWNBUGS.rb
-2010-01-23 18:09:46 +0100
-Driver is ruby 1.9.1 (2009-12-07 patchlevel 376) [i686-linux]
-
-KNOWNBUGS.rb 
+2010-02-13 12:46:36 +0100
+Driver is ruby 1.9.1 (2010-01-10 patchlevel 378) [i686-linux]
+KNOWNBUGS.rb Target is ruby 1.9.1p378 (2010-01-10 revision 26273) [i686-linux]
 PASS 0 tests
-Target is ruby 1.9.1p376 (2009-12-07 revision 26041) [i686-linux]
 ----
 
 *Step 3:* Installation (als Benutzer 'root') + 
@@ -181,32 +184,32 @@ installing rdoc
 
 *Step 4:* Installation verifizieren
 ----
-$ cd /opt/Ruby/ruby-1.9.1-p376
+$ cd /opt/Ruby/ruby-1.9.1-p378
 $ ls -l
-drwxr-xr-x 2 root root 4096 2010-01-23 18:11 bin
-drwxr-xr-x 3 root root 4096 2010-01-23 18:11 include
-drwxr-xr-x 3 root root 4096 2010-01-23 18:11 lib
-drwxr-xr-x 4 root root 4096 2010-01-23 18:12 share
+drwxr-xr-x 2 root root 4096 2010-02-13 12:57 bin
+drwxr-xr-x 3 root root 4096 2010-02-13 12:57 include
+drwxr-xr-x 3 root root 4096 2010-02-13 12:57 lib
+drwxr-xr-x 4 root root 4096 2010-02-13 13:00 share
 ----
 
 ----
 $ ls -l bin
--rwxr-xr-x 1 root root    4423 2010-01-23 18:11 erb
--rwxr-xr-x 1 root root     803 2010-01-23 18:11 gem
--rwxr-xr-x 1 root root     335 2010-01-23 18:11 irb
--rwxr-xr-x 1 root root    1265 2010-01-23 18:11 rake
--rwxr-xr-x 1 root root     427 2010-01-23 18:11 rdoc
--rwxr-xr-x 1 root root      90 2010-01-23 18:11 ri
--rwxr-xr-x 1 root root 3852466 2010-01-23 18:08 ruby
--rwxr-xr-x 1 root root     264 2010-01-23 18:11 testrb
+-rwxr-xr-x 1 root root    4423 2010-02-13 12:57 erb
+-rwxr-xr-x 1 root root     803 2010-02-13 12:57 gem
+-rwxr-xr-x 1 root root     335 2010-02-13 12:57 irb
+-rwxr-xr-x 1 root root    1265 2010-02-13 12:57 rake
+-rwxr-xr-x 1 root root     427 2010-02-13 12:57 rdoc
+-rwxr-xr-x 1 root root      90 2010-02-13 12:57 ri
+-rwxr-xr-x 1 root root 3852466 2010-02-13 12:44 ruby
+-rwxr-xr-x 1 root root     264 2010-02-13 12:57 testrb
 ----
 
-*Step 5:* Der Pfad zum Verzeichnis '/opt/Ruby/ruby-1.9.1-p376/bin' muß gesetzt werden 
+*Step 5:* Der Pfad zum Verzeichnis '/opt/Ruby/ruby-1.9.1-p378/bin' muß gesetzt werden 
 
 .Lokal in der aktuellen Shell (1) 
 ----
 $ vim /opt/Ruby/ruby19.path.sh
-PATH=/opt/Ruby/ruby-1.9.1-p376/bin:$PATH
+PATH=/opt/Ruby/ruby-1.9.1-p378/bin:$PATH
 export PATH
 $ . ruby19.path.sh
 ----
@@ -214,7 +217,7 @@ $ . ruby19.path.sh
 .Systemweit in der Datei '/etc/environment' 
 ----
 $ sudo vim /etc/environment
-PATH="/opt/Ruby/ruby-1.9.1-p376/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+PATH="/opt/Ruby/ruby-1.9.1-p378/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 ----
 
 .Systemweit in einer allgemeineren Lösung 
@@ -227,11 +230,12 @@ PATH="/opt/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bi
 $ sudo mkdir -p /opt/local/bin
 
 $ cd /opt/Ruby/
-$ sudo ln -s ruby-1.9.1-p376 current
+$ sudo ln -s ruby-1.9.1-p378 current
 $ ls -l
-lrwxrwxrwx 1 root root   16 2010-01-23 18:15 current -> ruby-1.9.1-p376/
-drwxr-xr-x 6 root root 4096 2010-01-23 18:11 ruby-1.9.1-p376
--rw-r--r-- 1 root root   39 2010-01-23 18:16 ruby19.path.sh
+lrwxrwxrwx 1 root root   16 2010-02-13 13:06 current -> ruby-1.9.1-p378/
+drwxr-xr-x 6 root root 4096 2009-12-11 18:23 ruby-1.9.1-p376
+drwxr-xr-x 6 root root 4096 2010-02-13 12:57 ruby-1.9.1-p378
+-rw-r--r-- 1 root root   38 2009-10-06 23:15 ruby19.path.sh
 
 $ cd /opt/local/bin
 $ sudo ln -s ../../Ruby/current/bin/erb
@@ -272,7 +276,7 @@ $ sudo which ruby    (2)
 /opt/local/bin/ruby
 
 $ ruby -v            (3) 
-ruby 1.9.1p376 (2009-12-07 revision 26041) [i686-linux]
+ruby 1.9.1p378 (2010-01-10 revision 26273) [i686-linux]
 ----
 
 . Das Kommando 'which' wertet den gesetzten 'PATH' für den Benutzer 'bob' aus +
@@ -292,10 +296,10 @@ $ irb
 irb(main):001:0> RUBY_VERSION
 => "1.9.1"
 irb(main):002:0> Time.now.to_s
-=> "2009-12-11 18:36:37 +0100"
+=> "2010-02-13 13:11:56 +0100"
 irb(main):003:0> Time.now.tuesday?
 => false
-irb(main):004:0> Time.now.friday?
+irb(main):004:0> Time.now.saturday?
 => true
 irb(main):005:0> exit
 ----
@@ -308,9 +312,9 @@ $ sudo ruby extconf.rb | tee ../log.mysql_ruby_extconf
 $ make | tee ../log.mysql_ruby_make
 $ sudo make install | tee ../log.mysql_ruby_make_install
 
-$ cd /opt/Ruby/ruby-1.9.1-p376/lib/ruby/site_ruby/1.9.1/i686-linux
+$ cd /opt/Ruby/ruby-1.9.1-p378/lib/ruby/site_ruby/1.9.1/i686-linux
 $ ls -l 
--rwxr-xr-x 1 root root 155423 2010-01-23 18:31 mysql.so
+-rwxr-xr-x 1 root root 155423 2010-02-13 13:17 mysql.so
 ----
 
 
@@ -357,7 +361,7 @@ RubyGems 1.3.5 installed
  === 1.3.5 / 2009-07-21
 [...]
 RubyGems installed the following executables:
-	/opt/Ruby/ruby-1.9.1-p376/bin/gem
+	/opt/Ruby/ruby-1.9.1-p378/bin/gem
 
 
 $ gem -v
@@ -457,9 +461,9 @@ $ ruby script/server
 => Rails 2.3.5 application starting on http://0.0.0.0:3000
 => Call with -d to detach
 => Ctrl-C to shutdown server
-[2010-01-23 19:43:11] INFO  WEBrick 1.3.1
-[2010-01-23 19:43:11] INFO  ruby 1.9.1 (2009-12-07) [i686-linux]
-[2010-01-23 19:43:16] INFO  WEBrick::HTTPServer#start: pid=17592 port=3000
+[2010-02-13 15:14:11] INFO  WEBrick 1.3.1
+[2010-02-13 15:14:11] INFO  ruby 1.9.1 (2010-01-10) [i686-linux]
+[2010-02-13 15:14:11] INFO  WEBrick::HTTPServer#start: pid=8747 port=3000
 ----
 
 ----
@@ -474,7 +478,7 @@ Anhang
 #!/bin/bash
 #
 ME=make_ruby_1.9.1
-TARGET=/opt/Ruby/ruby-1.9.1-p376
+TARGET=/opt/Ruby/ruby-1.9.1-p378
 
 if [ ! -e $TARGET ] 
 then
@@ -497,8 +501,8 @@ esac
 
 echo 
 echo "Source auspacken ..."
-tar xvzf ruby-1.9.1-p376.tar.gz
-cd ruby-1.9.1-p376
+tar xvzf ruby-1.9.1-p378.tar.gz
+cd ruby-1.9.1-p378
 
 echo 
 echo "Source übersetzen ..."
@@ -521,7 +525,7 @@ echo "$ME: Ende."
 ----
 #! /bin/bash
 ME=make_mysql_2.8.1
-TARGET=/opt/Ruby/ruby-1.9.1-p376
+TARGET=/opt/Ruby/ruby-1.9.1-p378
 
 tar xvzf mysql-ruby-2.8.1.tar.gz
 cd mysql-ruby-2.8.1
@@ -529,7 +533,7 @@ sudo $TARGET/bin/ruby extconf.rb | tee ../log.mysql_ruby_extconf
 make | tee ../log.mysql_ruby_make
 sudo make install | tee ../log.mysql_ruby_make_install
 
-ls -l /opt/Ruby/ruby-1.9.1-p376/lib/ruby/site_ruby/1.9.1/i686-linux
+ls -l /opt/Ruby/ruby-1.9.1-p378/lib/ruby/site_ruby/1.9.1/i686-linux
 
 echo
 echo "$ME: Ende."
@@ -552,3 +556,6 @@ Changelog
 
 .Version 0.8.1
 * Aktualisierung der Installation
+
+.Version 0.8.2
+* Aktualisierung von Git und Ruby

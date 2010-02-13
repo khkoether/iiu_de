@@ -14,3 +14,6 @@
 
 .Version 0.8.1
 * Aktualisierung der Installation
+
+.Version 0.8.2
+* Aktualisierung von Git und Ruby

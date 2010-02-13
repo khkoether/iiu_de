@@ -1,4 +1,4 @@
-Installation in Ubuntu: Git 1.6.6.1
+Installation in Ubuntu: Git 1.6.6.2
 ===================================
 Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;>
 
@@ -9,7 +9,7 @@ Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;
 :asciidoc-url: http://www.methods.co.nz/asciidoc/
 :git-url: http://git-scm.com/
 
-Version 0.8.1, Januar 2010, <<_changelog,[Changelog]>>
+Version 0.8.2, Februar 2010, <<_changelog,[Changelog]>>
 
 Abstract
 --------
@@ -40,8 +40,8 @@ andere Debian-basierte GNU/Linux Distributionen übertragbar.
 
 .Download
 * {git-url}[Git] +    
-  git-1.6.6.1.tar.gz  (ca. 2.8 MB) +
-  2010-01-20 (Release date)
+  git-1.6.6.2.tar.gz  (ca. 2.8 MB) +
+  2010-02-10 (Release date)
   
 [NOTE] 
 ====
@@ -51,7 +51,7 @@ Die eigentliche Installation von Git wird vom
 Benutzer 'root' für das System durchgeführt.
 ----
 $ ls -l 
--rw-r--r-- 1 bob bob 2838577 2010-01-23 14:51 git-1.6.6.1.tar.gz
+-rw-r--r-- 1 bob bob 2841821 2010-02-13 12:07 git-1.6.6.2.tar.gz
 ----
 ====
 
@@ -71,7 +71,7 @@ $ sudo apt-get install ...
 == Installation
 
 
-=== Git 1.6.6.1
+=== Git 1.6.6.2
 
 [IMPORTANT]
 ====
@@ -84,8 +84,8 @@ Beispiel für die Änderung des Installations-Verzeichnisses:
 
 *Step 1:* Auspacken des Source-Code
 ----
-$ tar xvzf git-1.6.6.1.tar.gz
-$ cd git-1.6.6.1
+$ tar xvzf git-1.6.6.2.tar.gz
+$ cd git-1.6.6.2
 ----
 
 *Step 2:* Konfiguration erstellen und kompilieren
@@ -107,13 +107,13 @@ config.status: creating config.mak.autogen
 
 ----
 $ make all doc | tee ../log.git_make_all_doc
-GIT_VERSION = 1.6.6.1
+GIT_VERSION = 1.6.6.2
     * new build flags or prefix
     CC fast-import.o
 [...]
     ASCIIDOC gitworkflows.xml
     XMLTO gitworkflows.7
-make[1]: Verlasse Verzeichnis '.../git-1.6.6.1/Documentation'
+make[1]: Verlasse Verzeichnis '.../git-1.6.6.2/Documentation'
 ----
 
 *Step 3:* Installation (als Benutzer 'root')
@@ -146,13 +146,13 @@ make -C Documentation install
 ----
 $ cd /usr/local/bin
 $ ls -l git*
--rwxr-xr-x 95 root root 3285481 2010-01-23 17:45 git
--rwxr-xr-x  1 root root  116461 2010-01-23 17:45 git-cvsserver
--rwxr-xr-x  1 root root  321008 2010-01-23 17:45 gitk
--rwxr-xr-x  1 root root 3285481 2010-01-23 17:45 git-receive-pack
--rwxr-xr-x  1 root root 1386003 2010-01-23 17:45 git-shell
--rwxr-xr-x  1 root root 3285481 2010-01-23 17:45 git-upload-archive
--rwxr-xr-x  1 root root 1422615 2010-01-23 17:45 git-upload-pack
+-rwxr-xr-x 95 root root 3288612 2010-02-13 12:58 git
+-rwxr-xr-x  1 root root  116465 2010-02-13 12:58 git-cvsserver
+-rwxr-xr-x  1 root root  321008 2010-02-13 12:58 gitk
+-rwxr-xr-x  1 root root 3288612 2010-02-13 12:58 git-receive-pack
+-rwxr-xr-x  1 root root 1387265 2010-02-13 12:58 git-shell
+-rwxr-xr-x  1 root root 3288612 2010-02-13 12:58 git-upload-archive
+-rwxr-xr-x  1 root root 1423977 2010-02-13 12:58 git-upload-pack
 ----
 
 ----
@@ -214,7 +214,7 @@ NOTES
         5. GIT API documentation
            file:///usr/local/share/doc/git-doc/technical/api-index.html
 [...]
-Git 1.6.6.1                       01/23/2010                            GIT(1)
+Git 1.6.6.2                       02/13/2010                            GIT(1)
 ----
 
 ----
@@ -236,43 +236,23 @@ DESCRIPTION
        tcl/tk and started off in a separate repository but was later merged
        into the main git repository.
 [...]
-Git 1.6.6.1                       01/23/2010                            GIT(1)
+Git 1.6.6.2                       02/13/2010                           GITK(1)
 ----
 
 ----
 $ find /usr -type d -cmin -5
-/usr/local
-/usr/local/bin
-/usr/local/libexec
-/usr/local/libexec/git-core
-/usr/local/lib
-/usr/local/lib/perl
-/usr/local/lib/perl/5.10.0
-/usr/local/lib/perl/5.10.0/auto
-/usr/local/lib/perl/5.10.0/auto/Git
-/usr/local/share
-/usr/local/share/git-core
-/usr/local/share/git-core/templates
-/usr/local/share/git-core/templates/info
-/usr/local/share/git-core/templates/hooks
-/usr/local/share/git-core/templates/branches
-/usr/local/share/man
-/usr/local/share/man/man7
-/usr/local/share/man/man5
-/usr/local/share/man/man3
-/usr/local/share/man/man1
-/usr/local/share/git-gui
-/usr/local/share/git-gui/lib
-/usr/local/share/git-gui/lib/msgs
-/usr/local/share/doc
 /usr/local/share/doc/git-doc
 /usr/local/share/doc/git-doc/howto
 /usr/local/share/doc/git-doc/technical
-/usr/local/share/gitk
-/usr/local/share/gitk/lib
+/usr/local/share/man/man1
+/usr/local/share/man/man3
+/usr/local/share/man/man7
+/usr/local/share/man/man5
+/usr/local/share/git-gui/lib
+/usr/local/share/git-gui/lib/msgs
 /usr/local/share/gitk/lib/msgs
-/usr/local/share/perl
-/usr/local/share/perl/5.10.0
+/usr/local/libexec/git-core
+/usr/local/bin
 ----
 
 *Step 5:* Dokumentation (local)
@@ -325,3 +305,6 @@ Changelog
 
 .Version 0.8.1
 * Aktualisierung der Installation
+
+.Version 0.8.2
+* Aktualisierung von Git und Ruby
