@@ -1,7 +1,7 @@
-# ChangeLog für iiu_de
+# ChangeLog für iiu_de (20. September 2009)
 
-* iiu_de (20. September 2009)
-  Erste öffentliche Version
+. Version 0.2
+* Erste öffentliche Version
 
 .Version 0.4
 * Anpassung an Ubuntu 09.10 (Karmic Koala)
@@ -17,3 +17,7 @@
 
 .Version 0.8.2
 * Aktualisierung von Git und Ruby
+
+.Version 1.0.0
+* Anpassung an Ubuntu 10.04 (Lucid Lynx)
+  Neue Programmversionen

@@ -1,5 +1,5 @@
-Installation in Ubuntu: Git 1.6.6.2
-===================================
+Installation in Ubuntu: Git 1.7.1
+=================================
 Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;>
 
 :icons:
@@ -9,7 +9,7 @@ Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;
 :asciidoc-url: http://www.methods.co.nz/asciidoc/
 :git-url: http://git-scm.com/
 
-Version 0.8.2, Februar 2010, <<_changelog,[Changelog]>>
+Version 1.0.0, Juni 2010, <<_changelog,[Changelog]>>
 
 Abstract
 --------
@@ -33,15 +33,15 @@ Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr.
 
 Vorraussetzungen
 ----------------
-Die Installation wird für {ubuntu-url}[Ubuntu 9.10 (Karmic Koala)] 
+Die Installation wird für {ubuntu-url}[Ubuntu 10.04 (Lucid Lynx)] 
 beschrieben. + 
 Gleichwohl sind die einzelnen Schritte auch für 
 andere Debian-basierte GNU/Linux Distributionen übertragbar.
 
 .Download
 * {git-url}[Git] +    
-  git-1.6.6.2.tar.gz  (ca. 2.8 MB) +
-  2010-02-10 (Release date)
+  git-1.7.1.tar.gz  (ca. 2.9 MB) +
+  2010-04-24 (Release date)
   
 [NOTE] 
 ====
@@ -51,7 +51,7 @@ Die eigentliche Installation von Git wird vom
 Benutzer 'root' für das System durchgeführt.
 ----
 $ ls -l 
--rw-r--r-- 1 bob bob 2841821 2010-02-13 12:07 git-1.6.6.2.tar.gz
+-rw-r--r-- 1 bob bob 2999589 2010-06-14 21:01 git-1.7.1.tar.gz
 ----
 ====
 
@@ -61,7 +61,7 @@ Vor der eigentlichen Installation müssen die fehlenden
 Programm-Pakete installiert sind.
 ----
 $ sudo apt-get install ...
-               Benötigt:   libc6 libcurl3-gnutls libexpat1 libexpat1-dev 
+               Benötigt:   build-essential libc6 libcurl3-gnutls libexpat1 libexpat1-dev 
                            zlib1g perl-modules liberror-perl libdigest-sha1-perl 
                            libcurl4-openssl-dev libssl-dev tcl8.4  tcl8.4-dev xmlto
                Empfiehlt:  patch less rsync openssh-client
@@ -71,7 +71,7 @@ $ sudo apt-get install ...
 == Installation
 
 
-=== Git 1.6.6.2
+=== Git 1.7.1
 
 [IMPORTANT]
 ====
@@ -84,8 +84,8 @@ Beispiel für die Änderung des Installations-Verzeichnisses:
 
 *Step 1:* Auspacken des Source-Code
 ----
-$ tar xvzf git-1.6.6.2.tar.gz
-$ cd git-1.6.6.2
+$ tar xvzf git-1.7.1.tar.gz
+$ cd git-1.7.1
 ----
 
 *Step 2:* Konfiguration erstellen und kompilieren
@@ -98,7 +98,7 @@ configure: CHECKS for programs
 checking for cc... cc
 [...]
 checking for asciidoc... asciidoc
-checking for asciidoc version... asciidoc 8.5.2 > 7
+checking for asciidoc version... asciidoc 8.5.3 > 7
 [...]
 checking Checking for POSIX Threads with '-pthread'... yes
 configure: creating ./config.status
@@ -107,13 +107,13 @@ config.status: creating config.mak.autogen
 
 ----
 $ make all doc | tee ../log.git_make_all_doc
-GIT_VERSION = 1.6.6.2
+GIT_VERSION = 1.7.1
     * new build flags or prefix
     CC fast-import.o
 [...]
     ASCIIDOC gitworkflows.xml
     XMLTO gitworkflows.7
-make[1]: Verlasse Verzeichnis '.../git-1.6.6.2/Documentation'
+make[1]: Verlasse Verzeichnis '.../git-1.7.1/Documentation'
 ----
 
 *Step 3:* Installation (als Benutzer 'root')
@@ -146,13 +146,13 @@ make -C Documentation install
 ----
 $ cd /usr/local/bin
 $ ls -l git*
--rwxr-xr-x 95 root root 3288612 2010-02-13 12:58 git
--rwxr-xr-x  1 root root  116465 2010-02-13 12:58 git-cvsserver
--rwxr-xr-x  1 root root  321008 2010-02-13 12:58 gitk
--rwxr-xr-x  1 root root 3288612 2010-02-13 12:58 git-receive-pack
--rwxr-xr-x  1 root root 1387265 2010-02-13 12:58 git-shell
--rwxr-xr-x  1 root root 3288612 2010-02-13 12:58 git-upload-archive
--rwxr-xr-x  1 root root 1423977 2010-02-13 12:58 git-upload-pack
+-rwxr-xr-x 105 root root 3602002 2010-06-14 21:35 /usr/local/bin/git
+-rwxr-xr-x   1 root root  117756 2010-06-14 21:35 /usr/local/bin/git-cvsserver
+-rwxr-xr-x   1 root root  321995 2010-06-14 21:35 /usr/local/bin/gitk
+-rwxr-xr-x   1 root root 3602002 2010-06-14 21:35 /usr/local/bin/git-receive-pack
+-rwxr-xr-x   1 root root 1475457 2010-06-14 21:35 /usr/local/bin/git-shell
+-rwxr-xr-x   1 root root 3602002 2010-06-14 21:35 /usr/local/bin/git-upload-archive
+-rwxr-xr-x   1 root root 1512903 2010-06-14 21:35 /usr/local/bin/git-upload-pack
 ----
 
 ----
@@ -214,7 +214,7 @@ NOTES
         5. GIT API documentation
            file:///usr/local/share/doc/git-doc/technical/api-index.html
 [...]
-Git 1.6.6.2                       02/13/2010                            GIT(1)
+Git 1.7.1                         06/14/2010                            GIT(1)
 ----
 
 ----
@@ -236,22 +236,45 @@ DESCRIPTION
        tcl/tk and started off in a separate repository but was later merged
        into the main git repository.
 [...]
-Git 1.6.6.2                       02/13/2010                           GITK(1)
+Git 1.7.1                         06/14/2010                           GITK(1)
 ----
 
 ----
 $ find /usr -type d -cmin -5
+/usr/local
+/usr/local/libexec
+/usr/local/libexec/git-core
+/usr/local/share
+/usr/local/share/perl
+/usr/local/share/perl/5.10.1
+/usr/local/share/man
+/usr/local/share/man/man5
+/usr/local/share/man/man3
+/usr/local/share/man/man1
+/usr/local/share/man/man7
+/usr/local/share/git-gui
+/usr/local/share/git-gui/lib
+/usr/local/share/git-gui/lib/msgs
+/usr/local/share/git-core
+/usr/local/share/git-core/templates
+/usr/local/share/git-core/templates/branches
+/usr/local/share/git-core/templates/hooks
+/usr/local/share/git-core/templates/info
+/usr/local/share/gitk
+/usr/local/share/gitk/lib
+/usr/local/share/gitk/lib/msgs
+/usr/local/share/doc
 /usr/local/share/doc/git-doc
 /usr/local/share/doc/git-doc/howto
 /usr/local/share/doc/git-doc/technical
-/usr/local/share/man/man1
-/usr/local/share/man/man3
-/usr/local/share/man/man7
-/usr/local/share/man/man5
-/usr/local/share/git-gui/lib
-/usr/local/share/git-gui/lib/msgs
-/usr/local/share/gitk/lib/msgs
-/usr/local/libexec/git-core
+/usr/local/lib
+/usr/local/lib/perl
+/usr/local/lib/perl/5.10.1
+/usr/local/lib/perl/5.10.1/auto
+/usr/local/lib/perl/5.10.1/auto/Git
+/usr/local/lib/python2.6/dist-packages
+/usr/local/lib/python2.6/dist-packages/git_remote_helpers
+/usr/local/lib/python2.6/dist-packages/git_remote_helpers/git
 /usr/local/bin
 ----
 
@@ -308,3 +331,7 @@ Changelog
 
 .Version 0.8.2
 * Aktualisierung von Git und Ruby
+
+.Version 1.0.0
+* Anpassung an Ubuntu 10.04 (Lucid Lynx) +
+  Neue Programmversion

@@ -1,5 +1,5 @@
-Installation in Ubuntu: JRuby 1.4.0, Ruby on Rails 2.3.5
-========================================================
+Installation in Ubuntu: JRuby 1.5.1, Ruby on Rails 3.0.0 Beta4
+==============================================================
 Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;>
 
 :icons:
@@ -15,12 +15,12 @@ Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;
 :mysql-ruby-url: http://rubyforge.org/projects/mysql-ruby/
 :netbeans-url: http://www.netbeans.org/downloads/index.html
 
-Version 0.8.1, Januar 2010, <<_changelog,[Changelog]>>
+Version 1.0.0, Juni 2010, <<_changelog,[Changelog]>>
 
 Abstract
 --------
 Dieser Artikel ist eine Schritt-für-Schritt Anleitung zur Installation 
-von {jruby-url}[JRuby 1.4.0] unter GNU/Linux.
+von {jruby-url}[JRuby 1.5.1] unter GNU/Linux.
  
 Die Programmiersprache {ruby-url}[JRuby] ist die Implementation 
 von {ruby-url}[Ruby] in Java, die wiederum die Grundlage für das 
@@ -45,9 +45,9 @@ beschrieben. Gleichwohl sind die einzelnen Schritte auch für
 andere Distributionen übertragbar.
 
 .Download
-* {jruby-download-url}[JRuby 1.4.0] +    
-  jruby-1.4.0  (ca. 12 MB) +
-  2009-11-02 (Release date)  
+* {jruby-download-url}[JRuby 1.5.1] +    
+  jruby-1.5.1  (ca. 12 MB) +
+  2009-06-07 (Release date)  
 
 [NOTE] 
 ====
@@ -55,7 +55,7 @@ Die Installation von JRuby und Ruby on Rails wird für den
 Benutzer 'bob' durchgeführt. +
 ----
 $ ls -l 
--rw-r--r-- 1 bob bob 12525478 2010-01-23 14:57 jruby-bin-1.4.0.tar.gz
+-rw-r--r-- 1 bob bob 12072742 2010-06-15 21:48 jruby-bin-1.5.1.tar.gz
 ----
 ====
 
@@ -68,52 +68,40 @@ Das Sun Java SDK mu&szlig; bereits für das System installiert sein.
 == Installation
 
 
-=== JRuby 1.4.0
+=== JRuby 1.5.1
 Zusätzliche Software-Pakete die nicht über das Paketmanagement 
 verwaltet wird, +
 sollte im Verzeichnis '/opt' (Optional) installiert werden. 
 
 *Step 1:* Installation im Verzeichnis '/opt/JRuby' (mit Benutzer 'bob')
 ----
+$ sudo mkdir -p /opt/JRuby/bob && chown bob.bob /opt/JRuby/bob
 $ cd /opt/JRuby/bob
 $ mkdir tmp && cd tmp
-$ tar xvzf jruby-1.4.0.tar.gz
-$ mv jruby-1.4.0 ../jruby-1.4.0-23
+$ tar xvzf jruby-1.5.1.tar.gz
+$ mv jruby-1.5.1 ../jruby-1.5.1-3beta4
 $ cd .. && rm -r tmp
 $ ls -l
-drwxr-xr-x 8 bob bob 4096 2010-01-23 20:13 jruby-1.4.0-23
+drwxr-xr-x 8 bob bob 4096 2010-06-15 22:02 jruby-1.5.1-3beta4
 ----
 
 *Step 2:* JRuby-Pfad setzen (von au&szlig;en)
-Erstellen Sie eine Datei jruby.path.140-23.sh (siehe <<_anhang,[Anhang]>>). 
+Erstellen Sie eine Datei jruby.path.151-3beta4.sh (siehe <<_anhang,[Anhang]>>). 
 [NOTE] 
 =========================================================
 Achtung: Ausführen der Datei mit dem Punkt-Operator!
 ----
-$ . jruby.path.140-23.sh
+$ . jruby.path.151-3beta4.sh
 ---- 
 =========================================================
 
 *Step 3:* Installation verifizieren
 ----
 $ jruby --version
-jruby 1.4.0 (ruby 1.8.7 patchlevel 174) (2009-11-02 69fbfa3) (Java HotSpot(TM) Client VM 1.6.0_18) [i386-java]
+jruby 1.5.1 (ruby 1.8.7 patchlevel 249) (2010-06-06 f3a3480) (Java HotSpot(TM) Client VM 1.6.0_20) [i386-java]
 
 $ jruby --version --1.9
-jruby 1.4.0 (ruby 1.9.2dev trunk 24787) (2009-11-02 69fbfa3) (Java HotSpot(TM) Client VM 1.6.0_18) [i386-java]
-----
-
-.Vollständigkeit (jruby-openssl wird später installiert)
-----
-$ jruby -ropenssl -rzlib -rreadline -e "puts 'Happy new JRuby'"
-JRuby limited openssl loaded. gem install jruby-openssl for full support.
-http://jruby.kenai.com/pages/JRuby_Builtin_OpenSSL
-Happy new JRuby
-
-$ jruby --1.9 -ropenssl -rzlib -rreadline -e "puts 'Happy new JRuby'"
-JRuby limited openssl loaded. gem install jruby-openssl for full support.
-http://jruby.kenai.com/pages/JRuby_Builtin_OpenSSL
-Happy new JRuby
+jruby 1.5.1 (ruby 1.9.2dev trunk 24787) (2010-06-06 f3a3480) (Java HotSpot(TM) Client VM 1.6.0_20) [i386-java]
 ----
 
 . Interactive Ruby: jirb
@@ -132,19 +120,22 @@ irb(main):002:0> exit
 .Ruby Gems
 ----
 $ jruby -S gem -v
-1.3.5
+1.3.6
 
 $ jruby -S gem list --local
 *** LOCAL GEMS ***
+columnize (0.3.1)
 rake (0.8.7)
-rspec (1.2.9)
+rspec (1.3.0)
+ruby-debug (0.10.3)
+ruby-debug-base (0.10.3.2)
 sources (0.0.1)
 
 $ jruby -S gem search rails --remote
 *** REMOTE GEMS ***
 activerecord_authorails (1.0.0)
 ...
-rails (2.3.5)
+rails (2.3.8)
 ...
 ----
 [NOTE]
@@ -154,129 +145,121 @@ das Verzeichnis JRUBY_HOME/bin geprüft wird - und
 dann der PATH.
 ====
 
+.Vollständigkeit (jruby-openssl wird später installiert)
+----
+$ jruby -ropenssl -rzlib -rreadline -e "puts 'Happy new JRuby'"
+JRuby limited openssl loaded. http://jruby.org/openssl
+gem install jruby-openssl for full support.
+Happy new JRuby
 
-=== Ruby on Rails 2.3.5
+$ jruby --1.9 -ropenssl -rzlib -rreadline -e "puts 'Happy new JRuby'"
+JRuby limited openssl loaded. http://jruby.org/openssl
+gem install jruby-openssl for full support.
+Happy new JRuby
+----
+
+
+=== Ruby on Rails 3.0.0 Beta 4
 
 *Step 1:* Das Programm 'gem' aktualisieren
 ----
 $ jruby -S gem update --system
-JRuby limited openssl loaded. gem install jruby-openssl for full support.
-http://jruby.kenai.com/pages/JRuby_Builtin_OpenSSL
+JRuby limited openssl loaded. http://jruby.org/openssl
+gem install jruby-openssl for full support.
 Updating RubyGems
-Nothing to update
+Updating rubygems-update
+Successfully installed rubygems-update-1.3.7
+Updating RubyGems to 1.3.7
+Installing RubyGems 1.3.7
+RubyGems 1.3.7 installed
+
+=== 1.3.7 / 2010-05-13
+
+NOTE:
+
+http://rubygems.org is now the default source for downloading gems.
+
+You may have sources set via ~/.gemrc, so you should replace
+http://gems.rubyforge.org with http://rubygems.org
+
+http://gems.rubyforge.org will continue to work for the forseeable future.
+
+New features:
+
+* `gem` commands
+[...]
+RubyGems installed the following executables:
+	/opt/JRuby/bob/jruby-1.5.1-3beta4/bin/jgem
 ----
 
 ----
 $ jruby -S gem -v
-1.3.5
+1.3.7
 
 $ jruby -S gem list --local
 *** LOCAL GEMS ***
+columnize (0.3.1)
 rake (0.8.7)
-rspec (1.2.9)
+rspec (1.3.0)
+ruby-debug (0.10.3)
+ruby-debug-base (0.10.3.2 java)
+rubygems-update (1.3.7)
 sources (0.0.1)
 ----
 
 *Step 2:* Die bereits installierten RubyGems aktualisieren (update)
 ----
 $ jruby -S gem update
-JRuby limited openssl loaded. gem install jruby-openssl for full support.
-http://jruby.kenai.com/pages/JRuby_Builtin_OpenSSL
+JRuby limited openssl loaded. http://jruby.org/openssl
+gem install jruby-openssl for full support.
 Updating installed gems
-Updating rspec
-**************************************************
-
-  Thank you for installing rspec-1.3.0
-
-  Please be sure to read History.rdoc and Upgrade.rdoc
-  for useful information about this release.
-
-**************************************************
-Successfully installed rspec-1.3.0
-Gems updated: rspec
-Installing ri documentation for rspec-1.3.0...
-Installing RDoc documentation for rspec-1.3.0...
-Could not find main page README.rdoc
-Could not find main page README.rdoc
-Could not find main page README.rdoc
-Could not find main page README.rdoc
+Nothing to update
 ----
-
-----
-$ jruby -S gem list --local
-*** LOCAL GEMS ***
-rake (0.8.7)
-rspec (1.3.0, 1.2.9)
-sources (0.0.1)
-----
-
 
 *Step 3:* Das RubyGem 'jruby-openssl' installieren
 ----
 $ jruby -S gem install jruby-openssl
-JRuby limited openssl loaded. gem install jruby-openssl for full support.
-http://jruby.kenai.com/pages/JRuby_Builtin_OpenSSL
-Successfully installed jruby-openssl-0.6
+JRuby limited openssl loaded. http://jruby.org/openssl
+gem install jruby-openssl for full support.
+Successfully installed jruby-openssl-0.7
 1 gem installed
-Installing ri documentation for jruby-openssl-0.6...
-Installing RDoc documentation for jruby-openssl-0.6...
+Installing ri documentation for jruby-openssl-0.7...
+Installing RDoc documentation for jruby-openssl-0.7...
 ----
 
 ----
 $ gem list --local
 *** LOCAL GEMS ***
-jruby-openssl (0.6)
+columnize (0.3.1)
+jruby-openssl (0.7)
 rake (0.8.7)
-rspec (1.3.0, 1.2.9)
+rspec (1.3.0)
+ruby-debug (0.10.3)
+ruby-debug-base (0.10.3.2 java)
+rubygems-update (1.3.7)
 sources (0.0.1)
 ----
 
 *Step 4:* Grundinstallation von 'Ruby on Rails'
 ----
 $ jruby -S gem install rails
-Successfully installed activesupport-2.3.5
-Successfully installed activerecord-2.3.5
-Successfully installed rack-1.0.1
-Successfully installed actionpack-2.3.5
-Successfully installed actionmailer-2.3.5
-Successfully installed activeresource-2.3.5
-Successfully installed rails-2.3.5
-7 gems installed
-Installing ri documentation for activesupport-2.3.5...
-Installing ri documentation for activerecord-2.3.5...
-Installing ri documentation for rack-1.0.1...
-Installing ri documentation for actionpack-2.3.5...
-Installing ri documentation for actionmailer-2.3.5...
-Installing ri documentation for activeresource-2.3.5...
-Installing ri documentation for rails-2.3.5...
-Installing RDoc documentation for activesupport-2.3.5...
-Installing RDoc documentation for activerecord-2.3.5...
-Installing RDoc documentation for rack-1.0.1...
-Installing RDoc documentation for actionpack-2.3.5...
-Installing RDoc documentation for actionmailer-2.3.5...
-Installing RDoc documentation for activeresource-2.3.5...
-Installing RDoc documentation for rails-2.3.5...
+Successfully installed activesupport-3.0.0.beta4
+[...]
+Successfully installed rails-3.0.0.beta4
+23 gems installed
+[...]
 ----
 
 *Step 5:* Datenbankzugriff
 ----
 $ jruby -S gem install activerecord-jdbc-adapter activerecord-jdbcmysql-adapter activerecord-jdbcsqlite3-adapter
-Successfully installed activerecord-jdbc-adapter-0.9.2
+Successfully installed activerecord-jdbc-adapter-0.9.7-java
 Successfully installed jdbc-mysql-5.0.4
-Successfully installed activerecord-jdbcmysql-adapter-0.9.2
+Successfully installed activerecord-jdbcmysql-adapter-0.9.7-java
 Successfully installed jdbc-sqlite3-3.6.3.054
-Successfully installed activerecord-jdbcsqlite3-adapter-0.9.2
+Successfully installed activerecord-jdbcsqlite3-adapter-0.9.7-java
 5 gems installed
-Installing ri documentation for activerecord-jdbc-adapter-0.9.2...
-Installing ri documentation for jdbc-mysql-5.0.4...
-Installing ri documentation for activerecord-jdbcmysql-adapter-0.9.2...
-Installing ri documentation for jdbc-sqlite3-3.6.3.054...
-Installing ri documentation for activerecord-jdbcsqlite3-adapter-0.9.2...
-Installing RDoc documentation for activerecord-jdbc-adapter-0.9.2...
-Installing RDoc documentation for jdbc-mysql-5.0.4...
-Installing RDoc documentation for activerecord-jdbcmysql-adapter-0.9.2...
-Installing RDoc documentation for jdbc-sqlite3-3.6.3.054...
-Installing RDoc documentation for activerecord-jdbcsqlite3-adapter-0.9.2...
+[...]
 ----
 
 *Step 6:* WebServer I
@@ -285,10 +268,7 @@ $ jruby -S gem install mongrel
 Successfully installed gem_plugin-0.2.3
 Successfully installed mongrel-1.1.5-java
 2 gems installed
-Installing ri documentation for gem_plugin-0.2.3...
-Installing ri documentation for mongrel-1.1.5-java...
-Installing RDoc documentation for gem_plugin-0.2.3...
-Installing RDoc documentation for mongrel-1.1.5-java...
+[...]
 ----
 
 *Step 7:* WebServer II
@@ -296,38 +276,47 @@ Installing RDoc documentation for mongrel-1.1.5-java...
 $ jruby -S gem install glassfish
 Successfully installed glassfish-1.0.2-universal-java
 1 gem installed
-Installing ri documentation for glassfish-1.0.2-universal-java...
-Installing RDoc documentation for glassfish-1.0.2-universal-java...
+[...]
 ----
 
 *Step 8:* WAR (WAR ist ein Dateiformat und steht für Web Application Archive) 
 ----
 $ jruby -S gem install warbler
-Successfully installed jruby-jars-1.4.0
-Successfully installed warbler-0.9.14
-2 gems installed
-Installing ri documentation for jruby-jars-1.4.0...
-Installing ri documentation for warbler-0.9.14...
-Installing RDoc documentation for jruby-jars-1.4.0...
-Installing RDoc documentation for warbler-0.9.14...
+Successfully installed jruby-jars-1.5.1
+Successfully installed jruby-rack-1.0.1
+Successfully installed rubyzip-0.9.4
+Successfully installed warbler-1.1.0
+4 gems installed
+Installing ri documentation for jruby-jars-1.5.1...
+Installing ri documentation for jruby-rack-1.0.1...
+Installing ri documentation for rubyzip-0.9.4...
+Installing ri documentation for warbler-1.1.0...
+
+Invalid output formatter                            <--?--
+
+For help on options, try 'rdoc --help'
 ----
 
 *Step 9:* Erweiterungen
 ----
 $ jruby -S gem install fastercsv
-Successfully installed fastercsv-1.5.0
+Successfully installed fastercsv-1.5.3
 1 gem installed
-Installing ri documentation for fastercsv-1.5.0...
-Installing RDoc documentation for fastercsv-1.5.0...
+Installing ri documentation for fastercsv-1.5.3...
+Installing RDoc documentation for fastercsv-1.5.3...
+
+$ jruby -S gem install mime-types
+Successfully installed mime-types-1.16
+1 gem installed
+Installing ri documentation for mime-types-1.16...
+Installing RDoc documentation for mime-types-1.16...
 
 $ jruby -S gem install rest-client
-Successfully installed mime-types-1.16
-Successfully installed rest-client-1.2.0
-2 gems installed
-Installing ri documentation for mime-types-1.16...
-Installing ri documentation for rest-client-1.2.0...
-Installing RDoc documentation for mime-types-1.16...
-Installing RDoc documentation for rest-client-1.2.0...
+Successfully installed rest-client-1.5.1
+1 gem installed
+Installing ri documentation for rest-client-1.5.1...
+Installing RDoc documentation for rest-client-1.5.1...
+
 
 $ jruby -S gem install rmagick4j
 Successfully installed rmagick4j-0.3.7
@@ -340,46 +329,78 @@ Installing RDoc documentation for rmagick4j-0.3.7...
 ----
 $ jruby -S gem list --local
 *** LOCAL GEMS ***
-actionmailer (2.3.5)
-actionpack (2.3.5)
-activerecord (2.3.5)
-activerecord-jdbc-adapter (0.9.2)
-activerecord-jdbcmysql-adapter (0.9.2)
-activerecord-jdbcsqlite3-adapter (0.9.2)
-activeresource (2.3.5)
-activesupport (2.3.5)
-fastercsv (1.5.0)
+abstract (1.0.0)
+actionmailer (3.0.0.beta4)
+actionpack (3.0.0.beta4)
+activemodel (3.0.0.beta4)
+activerecord (3.0.0.beta4)
+activerecord-jdbc-adapter (0.9.7 java)
+activerecord-jdbcmysql-adapter (0.9.7 java)
+activerecord-jdbcsqlite3-adapter (0.9.7 java)
+activeresource (3.0.0.beta4)
+activesupport (3.0.0.beta4)
+arel (0.4.0)
+builder (2.1.2)
+bundler (0.9.26)
+columnize (0.3.1)
+erubis (2.6.5)
+fastercsv (1.5.3)
 gem_plugin (0.2.3)
-glassfish (1.0.2)
+glassfish (1.0.2 universal-java)
+i18n (0.4.1)
 jdbc-mysql (5.0.4)
 jdbc-sqlite3 (3.6.3.054)
-jruby-jars (1.4.0)
-jruby-openssl (0.6)
+jruby-jars (1.5.1)
+jruby-openssl (0.7)
+jruby-rack (1.0.1)
+mail (2.2.4)
 mime-types (1.16)
-mongrel (1.1.5)
-rack (1.0.1)
-rails (2.3.5)
+mongrel (1.1.5 java)
+polyglot (0.3.1)
+rack (1.1.0)
+rack-mount (0.6.4)
+rack-test (0.5.4)
+rails (3.0.0.beta4)
+railties (3.0.0.beta4)
 rake (0.8.7)
-rest-client (1.2.0)
+rest-client (1.5.1)
 rmagick4j (0.3.7)
-rspec (1.3.0, 1.2.9)
+rspec (1.3.0)
+ruby-debug (0.10.3)
+ruby-debug-base (0.10.3.2 java)
+rubygems-update (1.3.7)
+rubyzip (0.9.4)
 sources (0.0.1)
-warbler (0.9.14)
+thor (0.13.6)
+treetop (1.4.8)
+tzinfo (0.3.22)
+warbler (1.1.0)
 ----
 
 
 === Beispielanwendung: Ruby on Rails
 ----
 $ which jruby
-/opt/JRuby/khk/jruby-1.4.0-23/bin/jruby
+/opt/JRuby/bob/jruby-1.5.1-3beta4/bin/jruby
 
 $ cd
 $ mkdir RailsDir
 
 $ cd RailsDir
-$ $ jruby -S rails jmyapp --database=mysql
+$ $ jruby -S rails new jmyapp --database=mysql
 
 $ cd jmyapp
+
+$ vi Gemfile
+source 'http://rubygems.org'
+
+gem 'rails', '3.0.0.beta4'
+
+# Bundle edge Rails instead:
+# gem 'rails', :git => 'git://github.com/rails/rails.git'
+
+gem 'jdbcmysql'                <---
+[...]
 
 $ vi config/database.yml
 development:
@@ -391,6 +412,7 @@ development:
   username: bob                <---
   password: GEHEIM             <---
   socket: /var/run/mysqld/mysqld.sock
+[...]
 
 $ jruby -S script/generate jdbc
       exists  config/initializers
@@ -401,8 +423,8 @@ $ jruby -S script/generate jdbc
 $ mysql -ubob -p
 Enter password: 
 Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 63
-Server version: 5.1.37-1ubuntu5 (Ubuntu)
+Your MySQL connection id is 69
+Server version: 5.1.41-3ubuntu12.3 (Ubuntu)
 
 Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
@@ -412,35 +434,43 @@ Query OK, 1 row affected (0.00 sec)
 mysql> exit
 Bye
 
-
-$ jruby -S script/server 
-=> Booting Mongrel
-=> Rails 2.3.5 application starting on http://0.0.0.0:3000
+$ jruby -S rails s
+=> Booting WEBrick
+=> Rails 3.0.0.beta4 application starting in development on http://0.0.0.0:3000
 => Call with -d to detach
 => Ctrl-C to shutdown server
+[2010-06-15 22:17:01] INFO  WEBrick 1.3.1
+[2010-06-15 22:17:01] INFO  ruby 1.8.7 (2010-06-06) [java]
+[2010-06-15 22:17:06] INFO  WEBrick::HTTPServer#start: pid=3500 port=3000
 ----
 
 ----
 Browser> http://localhost:3000/
 ----
 
-=== NetBeans IDE 6.8
-Der Eintrag (Platform) 'JRuby 1.4.0' muß über den
+++++
+<img src="images/welcome_aboard.gif" border="1px"
+ alt="Ruby on Rails: Welcome aboard" 
+ title="Ruby on Rails: Welcome aboard" 
+++++
+
+=== NetBeans IDE 6.9
+Der Eintrag (Platform) 'JRuby 1.5.1' muß über den
 Button 'Add Platform' vorgenommen werden. 
 
 ++++
-<img src="images/netbeans/netbeans_ide_06_platform3.jpg" border="1px"
+<img src="images/netbeans/netbeans_ide_06_platform2.jpg" border="1px"
  alt="NetBeans: Ruby Platform Manager" 
  title="NetBeans: Ruby Platform Manager" 
 ++++
 
 &nbsp; +
 &nbsp; +
-NetBeans IDE: JRuby 1.4.0 +
-Ruby Gems &middot; Ruby on Rails 2.3.5 &middot; JDBC ActiveRecord 0.9.2
+NetBeans IDE: JRuby 1.5.1 +
+Ruby Gems &middot; Ruby on Rails 3.0.0 Beta4 &middot; JDBC ActiveRecord 0.9.7
 
 ++++
-<img src="images/netbeans/netbeans_ide_07_rubygems.jpg" border="1px"
+<img src="images/netbeans/netbeans_ide_07_rubygems3002.jpg" border="1px"
  alt="NetBeans: Ruby Gems"
  title="NetBeans: Ruby Gems"
 ++++
@@ -449,15 +479,16 @@ Ruby Gems &middot; Ruby on Rails 2.3.5 &middot; JDBC ActiveRecord 0.9.2
 Anhang
 ------
 
-.Script zum Setzen der Umgebung von JRuby v1.4.0 (ohne weitere Erläuterung)
+.Script zum Setzen der Umgebung von JRuby 1.5.1 (ohne weitere Erläuterung)
 ----
-JAVA_BINDIR=/opt/Java/jdk1.6.0_18/bin
-JAVA_HOME=/opt/Java/jdk1.6.0_18
-JDK_HOME=/opt/Java/jdk1.6.0_18
-JRE_HOME=/opt/Java/jdk1.6.0_18
+JAVA_BINDIR=/opt/Java/jdk1.6.0_20/bin
+JAVA_HOME=/opt/Java/jdk1.6.0_20
+JDK_HOME=/opt/Java/jdk1.6.0_20
+JRE_HOME=/opt/Java/jdk1.6.0_20
 
-JRUBY_HOME=/opt/JRuby/bob/jruby-1.4.0-23
+JRUBY_HOME=/opt/JRuby/bob/jruby-1.5.1-3beta4
 CATALINA_OPTS='-server -Xms512m -Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=512m'
+
 PATH=$JAVA_BINDIR:$JRUBY_HOME/bin:$PATH
 
 export JAVA_BINDIR
@@ -487,3 +518,8 @@ Changelog
 
 .Version 0.8.1
 * Aktualisierung der Installation
+
+.Version 1.0.0
+* Anpassung an Ubuntu 10.04 (Lucid Lynx) +
+  Neue Programmversion
+

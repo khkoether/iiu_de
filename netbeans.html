@@ -3,8 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta name="generator" content="AsciiDoc 8.5.2" />
-<title>Installation in Ubuntu: Sun Java SDK 6, NetBeans 6.8</title>
+<meta name="generator" content="AsciiDoc 8.5.3" />
+<title>Installation in Ubuntu: Sun Java SDK 6, NetBeans 6.9 RC2</title>
 <style type="text/css">
 /* Debug borders */
 p, li, dt, dd, div, pre, h1, h2, h3, h4, h5, h6 {
@@ -180,8 +180,8 @@ div.quoteblock > div.attribution {
   text-align: right;
 }
 
-div.verseblock > div.content {
-  white-space: pre;
+div.verseblock > pre.content {
+  font-family: inherit;
 }
 div.verseblock > div.attribution {
   padding-top: 0.75em;
@@ -399,8 +399,8 @@ div.quoteblock-attribution {
   text-align: right;
 }
 
-div.verseblock-content {
-  white-space: pre;
+pre.verseblock-content {
+  font-family: inherit;
 }
 div.verseblock-attribution {
   padding-top: 0.75em;
@@ -551,7 +551,7 @@ footnotes: function () {
 </head>
 <body>
 <div id="header">
-<h1>Installation in Ubuntu: Sun Java SDK 6, NetBeans 6.8</h1>
+<h1>Installation in Ubuntu: Sun Java SDK 6, NetBeans 6.9 RC2</h1>
 <span id="author">Karl-Heinz Köther</span><br />
 <span id="email"><tt>&lt;<a href="mailto:&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;">&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;</a>&gt;</tt></span><br />
 <div id="toc">
@@ -562,14 +562,14 @@ footnotes: function () {
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph"><p>Version 0.8.1, Januar 2010, <a href="#_changelog">[Changelog]</a></p></div>
+<div class="paragraph"><p>Version 1.0.0, Juni 2010, <a href="#_changelog">[Changelog]</a></p></div>
 </div>
 </div>
 <h2 id="_abstract">Abstract</h2>
 <div class="sectionbody">
 <div class="paragraph"><p>Dieser Artikel ist eine Schritt-für-Schritt Anleitung zur Installation
-des <a href="http://java.sun.com/javase/downloads/index.jsp">Sun Java SDK 6 Update 18</a> und
-der <a href="http://www.netbeans.org/downloads/index.html">NetBeans IDE 6.8</a> unter GNU/Linux.</p></div>
+des <a href="http://java.sun.com/javase/downloads/index.jsp">Sun Java SDK 6 Update 20</a> und
+der <a href="http://www.netbeans.org/downloads/index.html">NetBeans IDE 6.9 RC2</a> unter GNU/Linux.</p></div>
 <div class="paragraph"><p>Die NetBeans IDE bietet eine Unterstützung für verschiedene Programmiersprachen
 und -techniken. Wobei die Java-basierten Lösungen ausgezeichnet unterstützt werden.</p></div>
 <div class="paragraph"><p>Der Artikel ist in <a href="http://www.methods.co.nz/asciidoc/">ASCII DOC</a> erstellt worden.</p></div>
@@ -590,20 +590,20 @@ Gerne nehme ich Verbesserungsvorschläge entgegen.</p></div>
 </div>
 <h2 id="_vorraussetzungen">Vorraussetzungen</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>Die Installation wird für <a href="http://www.ubuntu.com/">Ubuntu 9.10 (Karmic Koala)</a>
+<div class="paragraph"><p>Die Installation wird für <a href="http://www.ubuntu.com/">Ubuntu 10.04 (Lucid Lynx)</a>
 beschrieben. Gleichwohl sind die einzelnen Schritte auch für
 andere Distributionen übertragbar.</p></div>
 <div class="ulist"><div class="title">Download</div><ul>
 <li>
 <p>
-<a href="http://java.sun.com/javase/downloads/index.jsp">Sun Java SDK 6 Update 18</a><br />
+<a href="http://java.sun.com/javase/downloads/index.jsp">Sun Java SDK 6 Update 20</a><br />
   jdk-6u18-linux-i586.bin (ca. 81 MB)
 </p>
 </li>
 <li>
 <p>
-<a href="http://www.netbeans.org/downloads/index.html">NetBeans 6.8</a><br />
-  netbeans-6.8-ml-linux.sh (ca. 246 MB) (IDE-Sprache: Deutsch)
+<a href="http://www.netbeans.org/downloads/index.html">NetBeans 6.9 RC2</a><br />
+  netbeans-6.9rc2-ml-linux.sh (ca. 249 MB) (IDE-Sprache: Deutsch)
 </p>
 </li>
 </ul></div>
@@ -618,8 +618,8 @@ Während anschließende Installation der NetBeans IDE für den Benutzer <em>bob<
 <div class="listingblock">
 <div class="content">
 <pre><tt>$ ls -l
--rw-r--r-- 1 bob bob  84738557 2010-01-23 14:56 jdk-6u18-linux-i586.bin
--rw-r--r-- 1 bob bob 257131520 2010-01-23 15:04 netbeans-6.8-ml-linux.sh</tt></pre>
+-rw-r--r-- 1 bob bob  84796967 2010-06-15 18:58 jdk-6u20-linux-i586.bin
+-rw-r--r-- 1 bob bob 260273152 2010-06-15 19:04 netbeans-6.9rc2-ml-linux.sh</tt></pre>
 </div></div>
 </td>
 </tr></table>
@@ -627,43 +627,44 @@ Während anschließende Installation der NetBeans IDE für den Benutzer <em>bob<
 </div>
 <h2 id="_installation">Installation</h2>
 <div class="sectionbody">
-<h3 id="_sun_java_sdk_6_update_18">Sun Java SDK 6 Update 18</h3><div style="clear:left"></div>
+<h3 id="_sun_java_sdk_6_update_20">Sun Java SDK 6 Update 20</h3><div style="clear:left"></div>
 <div class="paragraph"><p>Zusätzliche Software-Pakete die nicht über das Paketmanagement
-verwaltet wird, sollte im Verzeichnis <em>/opt</em> (Optional)
+verwaltet wird, sollten im Verzeichnis <em>/opt</em> (Optional)
 installiert werden.</p></div>
 <div class="paragraph"><p><strong>Step 1:</strong> Installation im Verzeichnis <em>/opt/Java</em> (mit Benutzer <em>root</em>)</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt>$ cd /opt
-$ mkdir Java &amp;&amp; cd Java
+<pre><tt>$ sudo mkdir /opt/Java &amp;&amp; cd /opt/Java
 $ sudo sh jdk-6u18-linux-i586.bin  &lt;--- Lizenbedingungen bestätigen!
 $ ls -l
-drwxr-xr-x 10 root root 4096 2010-01-23 19:53 jdk1.6.0_18</tt></pre>
+drwxr-xr-x 10 root root 4096 2010-06-15 19:08 jdk1.6.0_20</tt></pre>
 </div></div>
 <div class="paragraph"><p><strong>Step 2:</strong> Java-Installation für den Mozilla Firefox einrichten</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt>$ cd /usr/lib/firefox-addons/plugins/
-$ ls
-libflashplayer.so  nppdf.so
-$ sudo ln -s ../../../../opt/Java/jdk1.6.0_18/jre/plugin/i386/ns7/libjavaplugin_oji.so
+<pre><tt>$ cd /etc/alternatives
+$ sudo ln -s /opt/Java/jdk1.6.0_18/jre/plugin/i386/ns7/libjavaplugin_oji.so mozilla-javaplugin.so
+$ cd /usr/lib/mozilla/plugins
+$ sudo ln -s /etc/alternatives/mozilla-javaplugin.so libjavaplugin.so
 $ ls -l
-lrwxrwxrwx 1 root root 73 2010-01-23 19:54 libjavaplugin_oji.so -&gt; ../../../../opt/Java/jdk1.6.0_18/jre/plugin/i386/ns7/libjavaplugin_oji.so
+lrwxrwxrwx 1 root root     39 2010-06-15 19:36 libjavaplugin.so -&gt; /etc/alternatives/mozilla-javaplugin.so
 [...]</tt></pre>
 </div></div>
 <div class="paragraph"><p>Browser&gt; about:plugins<br />
 Browser&gt; <a href="http://www.arndt-bruenner.de/mathe/java/koerper3d.htm">3D-Körper</a></p></div>
-<h3 id="_netbeans_ide_6_8">NetBeans IDE 6.8</h3><div style="clear:left"></div>
+<h3 id="_netbeans_ide_6_9_rc2">NetBeans IDE 6.9 RC2</h3><div style="clear:left"></div>
 <div class="paragraph"><p><strong>Step 1:</strong> Installation im Verzeichnis <em>/opt/NetBeans/bob</em> (mit Benutzer <em>bob</em>)</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt>$ cd /opt
-$ mkdir -p NetBeans/bob &amp;&amp; cd NetBeans/bob
-$ sh netbeans-6.8-ml-linux.sh --javahome /opt/Java/jdk1.6.0_18/</tt></pre>
+<pre><tt>$ sudo mkdir -p /opt/NetBeans/bob &amp;&amp; chown bob.bob /opt/NetBeans/bob
+$ sudo mkdir -p /opt/Tomcat/bob   &amp;&amp; chown bob.bob /opt/Tomcat/bob    (Optional)
+
+$ cd /opt/NetBeans/bob
+$ sh netbeans-6.9rc2-ml-linux.sh --javahome /opt/Java/jdk1.6.0_20/</tt></pre>
 </div></div>
 <div class="paragraph"><p>&nbsp;<br />
 &nbsp;<br />
-<strong>Step 2a:</strong> Installationsschritte als Text</p></div>
+<strong>Step 2:</strong> Installationsschritte als Text</p></div>
 <div class="ulist"><div class="title">Anpassen</div><ul>
 <li>
 <p>
@@ -733,91 +734,53 @@ Sun GlassFish Enterprise Server v3
 </li>
 <li>
 <p>
-Apache Tomcat 6.0.20
+Apache Tomcat 6.0.26                  (Optional)
 </p>
 </li>
 </ul></div>
 <div class="ulist"><div class="title">Installation</div><ul>
 <li>
 <p>
-/opt/NetBeans/bob/netbeans-6.8
+/opt/NetBeans/bob/netbeans-6.9rc2
 </p>
 </li>
 <li>
 <p>
-/opt/Java/jdk1.6.0_18
+/opt/Java/jdk1.6.0_20
 </p>
 </li>
 <li>
 <p>
-/opt/Tomcat/bob/apache-tomcat-6.0.20  (Optional)
+/opt/Tomcat/bob/apache-tomcat-6.0.26  (Optional)
 </p>
 </li>
 </ul></div>
 <div class="ulist"><div class="title">Summary</div><ul>
 <li>
 <p>
-480.7 MB
-</p>
-</li>
-</ul></div>
-<div class="ulist"><div class="title">Setup Complete</div><ul>
-<li>
-<p>
-Tracker
-</p>
-</li>
-<li>
-<p>
-Registration
+530.8 MB
 </p>
 </li>
 </ul></div>
 <div class="paragraph"><p>&nbsp;<br />
 &nbsp;<br />
-<strong>Step 2b:</strong> Installationsschritte in Bildern</p></div>
-<img src="images/netbeans/netbeans_01_willkommen.jpg" border="1px"
- alt="NetBeans: Willkommen" title="NetBeans: Willkommen" />
-<div class="paragraph"><p>&nbsp;<br /></p></div>
-<img src="images/netbeans/netbeans_02_anpassen.jpg" border="1px"
- alt="NetBeans: Anpassen" title="NetBeans: Anpassen" />
-<div class="paragraph"><p>&nbsp;<br /></p></div>
-<img src="images/netbeans/netbeans_03_willkommen2.jpg" border="1px"
- alt="NetBeans: Willkommen (Angepasst)" title="NetBeans: Willkommen (Angepasst)" />
-<div class="paragraph"><p>&nbsp;<br /></p></div>
-<img src="images/netbeans/netbeans_04_lizenz.jpg" border="1px"
- alt="NetBeans: Lizenzvereinbarung" title="NetBeans: Lizenzvereinbarung" />
-<div class="paragraph"><p>&nbsp;<br /></p></div>
-<img src="images/netbeans/netbeans_05_installation.jpg" border="1px"
- alt="NetBeans: IDE 6.8 Installation" title="NetBeans: IDE 6.8 Installation" />
-<div class="paragraph"><p>&nbsp;<br /></p></div>
-<img src="images/netbeans/netbeans_06_installation2.jpg" border="1px"
- alt="NetBeans: Apache Tomcat Installation" title="NetBeans: Apache Tomcat Installation" />
-<div class="paragraph"><p>&nbsp;<br /></p></div>
-<img src="images/netbeans/netbeans_07_zusammenfassung.jpg" border="1px"
- alt="NetBeans: Zusammenfassung" title="NetBeans: Zusammenfassung" />
-<div class="paragraph"><p>&nbsp;<br /></p></div>
-<img src="images/netbeans/netbeans_08_fortschritt.jpg" border="1px"
- alt="NetBeans: Installations-Fortschritt" title="NetBeans: Installations-Fortschritt" />
-<div class="paragraph"><p>&nbsp;<br /></p></div>
-<img src="images/netbeans/netbeans_09_einrichtung.jpg" border="1px"
- alt="NetBeans: Einrichtung vollständig" title="NetBeans: Einrichtung vollständig" />
-<div class="paragraph"><p>&nbsp;<br /></p></div>
+<strong>Step 3:</strong> <em>Versteckte</em> Dateien</p></div>
 <div class="listingblock">
 <div class="content">
 <pre><tt>$ cd
 $ ls -la .netbeans*
-/home/bob/.netbeans:
-insgesamt 12
-drwxr-xr-x  2 bob bob 4096 2010-01-23 20:04 .
-drwxr-xr-x 10 bob bob 4096 2010-01-23 20:04 ..
--rw-r--r--  1 bob bob   36 2010-01-23 20:04 .superId
+.netbeans:
+insgesamt 16
+drwxr-xr-x  3 bob bob 4096 2010-06-15 20:09 .
+drwxr-xr-x 53 bob bob 4096 2010-06-15 20:08 ..
+drwxr-xr-x  4 bob bob 4096 2010-06-15 20:09 6.9rc2
+-rw-r--r--  1 bob bob   36 2010-06-15 20:08 .superId
 
-/home/bob/.netbeans-registration:
+.netbeans-registration:
 insgesamt 12
-drwxr-xr-x  3 bob bob 4096 2010-01-23 20:04 .
-drwxr-xr-x 10 bob bob 4096 2010-01-23 20:04 ..
-drwxr-xr-x  2 bob bob 4096 2010-01-23 20:04 6.8</tt></pre>
+drwxr-xr-x  3 bob bob 4096 2010-06-15 20:08 .
+drwxr-xr-x 53 bob bob 4096 2010-06-15 20:08 ..
+drwxr-xr-x  2 bob bob 4096 2010-06-15 20:08 6.9</tt></pre>
 </div></div>
 <div class="admonitionblock">
 <table><tr>
@@ -827,37 +790,30 @@ drwxr-xr-x  2 bob bob 4096 2010-01-23 20:04 6.8</tt></pre>
 <td class="content">
 <div class="paragraph"><p>Mit der <em>superID</em> wird die Installation sowohl auf dem Rechner
 als auch für den SDN Account bei der Fa. SUN eindeutig benannt.</p></div>
-<div class="paragraph"><p><a href="https://portal.sun.com/cwplogin/login.jsp?liferayUrl=https://portal.sun.com&amp;cwpIdmUrl=https://identity.sun.com">My Sun Connection &middot; Log in</a></p></div>
-<div class="paragraph"><p>Nachdem ich genau einmal meine registrierten Produkte mitsamt
-meinen Rechner-Systeminformationen (i386, linux, hostname, &#8230;)
-im SUN-Account sah, aber sie (a) nicht l&ouml;schen
-konnte (die Informationen &uuml;ber zwei durchgef&uuml;hrte Installationen
-innerhalb von 20 Minuten war mir eine zuviel) und (b) sie jetzt auch
-nicht mehr wiederfinden kann &#8230;
-ist mir das SUN-Portal und die Registrierung (tschuldigung) etwas suspekt.</p></div>
+<div class="paragraph"><p>Keine Registrierung für RC2!</p></div>
 </td>
 </tr></table>
 </div>
 <div class="paragraph"><p>&nbsp;<br />
 &nbsp;<br />
-<strong>Step 3:</strong> NetBeans IDE starten</p></div>
+<strong>Step 4:</strong> NetBeans IDE starten</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt>$ /bin/sh "/opt/NetBeans/bob/netbeans-6.8/bin/netbeans"</tt></pre>
+<pre><tt>$ /bin/sh "/opt/NetBeans/bob/netbeans-6.9rc2/bin/netbeans"</tt></pre>
 </div></div>
 <img src="images/netbeans/netbeans_ide_01_start.jpg" border="1px"
  alt="NetBeans IDE: Startseite" title="NetBeans IDE: Startseite" />
 <div class="paragraph"><p>&nbsp;<br />
 &nbsp;<br />
-<strong>Step 4:</strong> NetBeans IDE: Aktiviere (bereits installierte) Plugins</p></div>
+<strong>Step 5:</strong> NetBeans IDE: Aktiviere (bereits installierte) Plugins</p></div>
 <img src="images/netbeans/netbeans_ide_02_aktiviere.jpg" border="1px"
  alt="NetBeans IDE: Aktivieren (bereits installierter) Plugins"
  title="NetBeans IDE: Aktivieren (bereits installierter) Plugins"
 <div class="paragraph"><p>&nbsp;<br />
 &nbsp;<br />
-<strong>Step 5:</strong> NetBeans IDE: Ruby Platform Manager<br />
-JRuby 1.4.0 (Built-in)<br />
-RubyGems 1.3.5</p></div>
+<strong>Step 6:</strong> NetBeans IDE: Ruby Platform Manager<br />
+JRuby 1.5.0 (Built-in)<br />
+RubyGems 1.3.6</p></div>
 <img src="images/netbeans/netbeans_ide_03_platform.jpg" border="1px"
  alt="NetBeans: Ruby Platform Manager"
  title="NetBeans: Ruby Platform Manager"
@@ -867,30 +823,56 @@ RubyGems 1.3.5</p></div>
 <img src="./images/icons/note.png" alt="Note" />
 </td>
 <td class="content">
-<div class="paragraph"><p>Der Eintrag (Platform) <em>Ruby 1.8.7-p174</em> ist die
+<div class="paragraph"><p>Der Eintrag (Platform) <em>Ruby 1.8.7-p249</em> ist die
 bereits von mir im Linux-System installierte C-Ruby-Version.
 Die <em>PATH</em>-Variable wird während der Installation ausgewertet und
 vorhandene Ruby-Installationen automatisch in der
 NetBeans IDE eingetragen.</p></div>
-<div class="paragraph"><p>Der Eintrag (Platform) <em>Ruby 1.9.1-p376</em> muß über den
-Button <em>Add Platform</em> vorgenommen werden.</p></div>
 </td>
 </tr></table>
 </div>
-<img src="images/netbeans/netbeans_ide_04_platform2.jpg" border="1px"
- alt="NetBeans: Ruby Platform Manager"
- title="NetBeans: Ruby Platform Manager"
 <div class="paragraph"><p>&nbsp;<br />
 &nbsp;<br />
-<strong>Step 6:</strong> NetBeans IDE: Ruby Gems<br />
+<strong>Step 7:</strong> NetBeans IDE: Ruby Gems<br />
 Ruby on Rails 2.3.4<br />
 JDBC ActiveRecord 0.9.2</p></div>
-<img src="images/netbeans/netbeans_ide_05_rubygems.jpg" border="1px"
+<img src="images/netbeans/netbeans_ide_04_rubygems234.jpg" border="1px"
  alt="NetBeans: Ruby Gems"
  title="NetBeans: Ruby Gems"
 <div class="paragraph"><p>&nbsp;<br />
-Die aktuelle <em>Ruby on Rails</em>-Version ist 2.3.5 !
+Die aktuelle <em>Ruby on Rails</em>-Version ist 2.3.8 !
 &nbsp;<br /></p></div>
+<div class="paragraph"><p>&nbsp;<br />
+&nbsp;<br />
+<strong>Step 7:</strong> NetBeans IDE: Ruby Gems<br />
+Ruby on Rails 3.0.0 Beta4</p></div>
+<img src="images/netbeans/netbeans_ide_05_rubygems300.jpg" border="1px"
+ alt="NetBeans: Ruby Gems"
+ title="NetBeans: Ruby Gems"
+</div>
+<h2 id="_anhang">Anhang</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="title">Script zum Setzen der Umgebung für das Built-in JRuby 1.5.0 (ohne weitere Erläuterung)</div>
+<div class="content">
+<pre><tt>JAVA_BINDIR=/opt/Java/jdk1.6.0_20/bin
+JAVA_HOME=/opt/Java/jdk1.6.0_20
+JDK_HOME=/opt/Java/jdk1.6.0_20
+JRE_HOME=/opt/Java/jdk1.6.0_20
+
+JRUBY_HOME=/opt/NetBeans/bob/netbeans-6.9rc2/ruby/jruby-1.5.0/bin
+CATALINA_OPTS='-server -Xms512m -Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=512m'
+
+PATH=$JAVA_BINDIR:$JRUBY_HOME/bin:$PATH
+
+export JAVA_BINDIR
+export JAVA_HOME
+export JDK_HOME
+export JRE_HOME
+export JRUBY_HOME
+export CATALINA_OPTS
+export PATH</tt></pre>
+</div></div>
 </div>
 <h2 id="_changelog">Changelog</h2>
 <div class="sectionbody">
@@ -929,12 +911,20 @@ Aktualisierung der Installation
 </p>
 </li>
 </ul></div>
+<div class="ulist"><div class="title">Version 1.0.0</div><ul>
+<li>
+<p>
+Anpassung an Ubuntu 10.04 (Lucid Lynx)<br />
+  Neue Programmversion
+</p>
+</li>
+</ul></div>
 </div>
 </div>
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2010-01-23 21:18:16 CEST
+Last updated 2010-06-19 19:49:42 CEST
 </div>
 </div>
 </body>
