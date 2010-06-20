@@ -280,5 +280,8 @@ Changelog
   Neue Programmversion
 
 .Version 1.0.1
-* g
+* Veröffentlichung von NetBeans 6.9   
+
+.Version 1.0.2
+* Korrektur für AsciiDoc
   
