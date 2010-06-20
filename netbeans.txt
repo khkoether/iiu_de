@@ -1,5 +1,5 @@
-Installation in Ubuntu: Sun Java SDK 6, NetBeans 6.9 RC2
-========================================================
+Installation in Ubuntu: Sun Java SDK 6, NetBeans 6.9
+====================================================
 Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;>
 
 :icons:
@@ -11,7 +11,7 @@ Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;
 :rubyonrails-url: http://www.rubyonrails.org
 :mysql-ruby-url: http://rubyforge.org/projects/mysql-ruby/
 :java-url: http://java.sun.com/javase/downloads/index.jsp
-:netbeans-url: http://www.netbeans.org/downloads/index.html
+:netbeans-url: http://netbeans.org/downloads/index.html
 :plugins-url: about:plugins
 :java-koerper-url: http://www.arndt-bruenner.de/mathe/java/koerper3d.htm
 :sdn-url: https://portal.sun.com/cwplogin/login.jsp?liferayUrl=https://portal.sun.com&cwpIdmUrl=https://identity.sun.com
@@ -21,8 +21,8 @@ Version 1.0.0, Juni 2010, <<_changelog,[Changelog]>>
 Abstract
 --------
 Dieser Artikel ist eine Schritt-für-Schritt Anleitung zur Installation 
-des {java-url}[Sun Java SDK 6 Update 20] und 
-der {netbeans-url}[NetBeans IDE 6.9 RC2] unter GNU/Linux.
+des {java-url}[Sun Java SDK 6] und 
+der {netbeans-url}[NetBeans IDE 6.9] unter GNU/Linux.
  
 Die NetBeans IDE bietet eine Unterstützung für verschiedene Programmiersprachen 
 und -techniken. Wobei die Java-basierten Lösungen ausgezeichnet unterstützt werden. 
@@ -48,8 +48,8 @@ andere Distributionen übertragbar.
 .Download
 * {java-url}[Sun Java SDK 6 Update 20] +    
   jdk-6u18-linux-i586.bin (ca. 81 MB)
-* {netbeans-url}[NetBeans 6.9 RC2] +    
-  netbeans-6.9rc2-ml-linux.sh (ca. 249 MB) (IDE-Sprache: Deutsch)
+* {netbeans-url}[NetBeans 6.9] +    
+  netbeans-6.9-ml-linux.sh (ca. 250 MB) (IDE-Sprache: Deutsch)
 
 [NOTE] 
 ====
@@ -58,7 +58,7 @@ Während anschließende Installation der NetBeans IDE für den Benutzer 'bob' au
 ----
 $ ls -l 
 -rw-r--r-- 1 bob bob  84796967 2010-06-15 18:58 jdk-6u20-linux-i586.bin
--rw-r--r-- 1 bob bob 260273152 2010-06-15 19:04 netbeans-6.9rc2-ml-linux.sh
+-rw-r--r-- 1 khk khk 261880832 2010-06-20 09:52 netbeans-6.9-ml-linux.sh
 ----
 ====
 
@@ -94,14 +94,14 @@ Browser> about:plugins +
 Browser> {java-koerper-url}[3D-Körper]
 
 
-=== NetBeans IDE 6.9 RC2
+=== NetBeans IDE 6.9
 *Step 1:* Installation im Verzeichnis '/opt/NetBeans/bob' (mit Benutzer 'bob')
 ----
 $ sudo mkdir -p /opt/NetBeans/bob && chown bob.bob /opt/NetBeans/bob
 $ sudo mkdir -p /opt/Tomcat/bob   && chown bob.bob /opt/Tomcat/bob    (Optional)
 
 $ cd /opt/NetBeans/bob
-$ sh netbeans-6.9rc2-ml-linux.sh --javahome /opt/Java/jdk1.6.0_20/
+$ sh netbeans-6.9-ml-linux.sh --javahome /opt/Java/jdk1.6.0_20/
 ----
 
 &nbsp; +
@@ -124,12 +124,16 @@ $ sh netbeans-6.9rc2-ml-linux.sh --javahome /opt/Java/jdk1.6.0_20/
 - Apache Tomcat 6.0.26                  (Optional)
 
 .Installation
-- /opt/NetBeans/bob/netbeans-6.9rc2
+- /opt/NetBeans/bob/netbeans-6.9
 - /opt/Java/jdk1.6.0_20
 - /opt/Tomcat/bob/apache-tomcat-6.0.26  (Optional)
 
 .Summary 
-- 530.8 MB
+- 523.5 MB
+
+. Installation abgeschlossen
+Zum Ende der Installation werden Sie gebeten 'Anonyme Nutzungsdaten' freizugeben, 
+als auch sich bei der Fa. SUN zu registrieren. Beides ist freiwillig.
 
   
 &nbsp; +
@@ -138,33 +142,28 @@ $ sh netbeans-6.9rc2-ml-linux.sh --javahome /opt/Java/jdk1.6.0_20/
 ----
 $ cd
 $ ls -la .netbeans*
-.netbeans:
-insgesamt 16
-drwxr-xr-x  3 bob bob 4096 2010-06-15 20:09 .
-drwxr-xr-x 53 bob bob 4096 2010-06-15 20:08 ..
-drwxr-xr-x  4 bob bob 4096 2010-06-15 20:09 6.9rc2
+drwxr-xr-x  2 bob bob 4096 2010-06-20 11:03 .
+drwxr-xr-x 55 bob bob 4096 2010-06-20 10:38 ..
 -rw-r--r--  1 bob bob   36 2010-06-15 20:08 .superId
 
 .netbeans-registration:
 insgesamt 12
 drwxr-xr-x  3 bob bob 4096 2010-06-15 20:08 .
-drwxr-xr-x 53 bob bob 4096 2010-06-15 20:08 ..
+drwxr-xr-x 55 bob bob 4096 2010-06-20 10:38 ..
 drwxr-xr-x  2 bob bob 4096 2010-06-15 20:08 6.9
 ----
 
 [NOTE] 
 ====
 Mit der 'superID' wird die Installation sowohl auf dem Rechner  
-als auch für den SDN Account bei der Fa. SUN eindeutig benannt.
-
-Keine Registrierung für RC2! 
+als auch für den SDN Account bei der Fa. SUN eindeutig benannt. 
 ====  
 
 &nbsp; +
 &nbsp; +
 *Step 4:* NetBeans IDE starten
 ----
-$ /bin/sh "/opt/NetBeans/bob/netbeans-6.9rc2/bin/netbeans"
+$ /bin/sh "/opt/NetBeans/bob/netbeans-6.9/bin/netbeans"
 ----
 
 ++++
@@ -242,7 +241,7 @@ JAVA_HOME=/opt/Java/jdk1.6.0_20
 JDK_HOME=/opt/Java/jdk1.6.0_20
 JRE_HOME=/opt/Java/jdk1.6.0_20
 
-JRUBY_HOME=/opt/NetBeans/bob/netbeans-6.9rc2/ruby/jruby-1.5.0/bin
+JRUBY_HOME=/opt/NetBeans/bob/netbeans-6.9/ruby/jruby-1.5.0/bin
 CATALINA_OPTS='-server -Xms512m -Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=512m'
 
 PATH=$JAVA_BINDIR:$JRUBY_HOME/bin:$PATH
@@ -278,3 +277,7 @@ Changelog
 .Version 1.0.0
 * Anpassung an Ubuntu 10.04 (Lucid Lynx) +
   Neue Programmversion
+
+.Version 1.0.1
+* Veröffentlichung von NetBeans 6.9   
+  

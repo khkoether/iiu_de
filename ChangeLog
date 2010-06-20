@@ -21,3 +21,6 @@
 .Version 1.0.0
 * Anpassung an Ubuntu 10.04 (Lucid Lynx)
   Neue Programmversionen
+  
+.Version 1.0.1
+* Veröffentlichung von NetBeans 6.9   

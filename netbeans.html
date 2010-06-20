@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="generator" content="AsciiDoc 8.5.3" />
-<title>Installation in Ubuntu: Sun Java SDK 6, NetBeans 6.9 RC2</title>
+<title>Installation in Ubuntu: Sun Java SDK 6, NetBeans 6.9</title>
 <style type="text/css">
 /* Debug borders */
 p, li, dt, dd, div, pre, h1, h2, h3, h4, h5, h6 {
@@ -551,7 +551,7 @@ footnotes: function () {
 </head>
 <body>
 <div id="header">
-<h1>Installation in Ubuntu: Sun Java SDK 6, NetBeans 6.9 RC2</h1>
+<h1>Installation in Ubuntu: Sun Java SDK 6, NetBeans 6.9</h1>
 <span id="author">Karl-Heinz Köther</span><br />
 <span id="email"><tt>&lt;<a href="mailto:&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;">&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;</a>&gt;</tt></span><br />
 <div id="toc">
@@ -568,8 +568,8 @@ footnotes: function () {
 <h2 id="_abstract">Abstract</h2>
 <div class="sectionbody">
 <div class="paragraph"><p>Dieser Artikel ist eine Schritt-für-Schritt Anleitung zur Installation
-des <a href="http://java.sun.com/javase/downloads/index.jsp">Sun Java SDK 6 Update 20</a> und
-der <a href="http://www.netbeans.org/downloads/index.html">NetBeans IDE 6.9 RC2</a> unter GNU/Linux.</p></div>
+des <a href="http://java.sun.com/javase/downloads/index.jsp">Sun Java SDK 6</a> und
+der <a href="http://netbeans.org/downloads/index.html">NetBeans IDE 6.9</a> unter GNU/Linux.</p></div>
 <div class="paragraph"><p>Die NetBeans IDE bietet eine Unterstützung für verschiedene Programmiersprachen
 und -techniken. Wobei die Java-basierten Lösungen ausgezeichnet unterstützt werden.</p></div>
 <div class="paragraph"><p>Der Artikel ist in <a href="http://www.methods.co.nz/asciidoc/">ASCII DOC</a> erstellt worden.</p></div>
@@ -602,8 +602,8 @@ andere Distributionen übertragbar.</p></div>
 </li>
 <li>
 <p>
-<a href="http://www.netbeans.org/downloads/index.html">NetBeans 6.9 RC2</a><br />
-  netbeans-6.9rc2-ml-linux.sh (ca. 249 MB) (IDE-Sprache: Deutsch)
+<a href="http://netbeans.org/downloads/index.html">NetBeans 6.9</a><br />
+  netbeans-6.9-ml-linux.sh (ca. 250 MB) (IDE-Sprache: Deutsch)
 </p>
 </li>
 </ul></div>
@@ -619,7 +619,7 @@ Während anschließende Installation der NetBeans IDE für den Benutzer <em>bob<
 <div class="content">
 <pre><tt>$ ls -l
 -rw-r--r-- 1 bob bob  84796967 2010-06-15 18:58 jdk-6u20-linux-i586.bin
--rw-r--r-- 1 bob bob 260273152 2010-06-15 19:04 netbeans-6.9rc2-ml-linux.sh</tt></pre>
+-rw-r--r-- 1 khk khk 261880832 2010-06-20 09:52 netbeans-6.9-ml-linux.sh</tt></pre>
 </div></div>
 </td>
 </tr></table>
@@ -652,7 +652,7 @@ lrwxrwxrwx 1 root root     39 2010-06-15 19:36 libjavaplugin.so -&gt; /etc/alter
 </div></div>
 <div class="paragraph"><p>Browser&gt; about:plugins<br />
 Browser&gt; <a href="http://www.arndt-bruenner.de/mathe/java/koerper3d.htm">3D-Körper</a></p></div>
-<h3 id="_netbeans_ide_6_9_rc2">NetBeans IDE 6.9 RC2</h3><div style="clear:left"></div>
+<h3 id="_netbeans_ide_6_9">NetBeans IDE 6.9</h3><div style="clear:left"></div>
 <div class="paragraph"><p><strong>Step 1:</strong> Installation im Verzeichnis <em>/opt/NetBeans/bob</em> (mit Benutzer <em>bob</em>)</p></div>
 <div class="listingblock">
 <div class="content">
@@ -660,7 +660,7 @@ Browser&gt; <a href="http://www.arndt-bruenner.de/mathe/java/koerper3d.htm">3D-K
 $ sudo mkdir -p /opt/Tomcat/bob   &amp;&amp; chown bob.bob /opt/Tomcat/bob    (Optional)
 
 $ cd /opt/NetBeans/bob
-$ sh netbeans-6.9rc2-ml-linux.sh --javahome /opt/Java/jdk1.6.0_20/</tt></pre>
+$ sh netbeans-6.9-ml-linux.sh --javahome /opt/Java/jdk1.6.0_20/</tt></pre>
 </div></div>
 <div class="paragraph"><p>&nbsp;<br />
 &nbsp;<br />
@@ -741,7 +741,7 @@ Apache Tomcat 6.0.26                  (Optional)
 <div class="ulist"><div class="title">Installation</div><ul>
 <li>
 <p>
-/opt/NetBeans/bob/netbeans-6.9rc2
+/opt/NetBeans/bob/netbeans-6.9
 </p>
 </li>
 <li>
@@ -758,8 +758,17 @@ Apache Tomcat 6.0.26                  (Optional)
 <div class="ulist"><div class="title">Summary</div><ul>
 <li>
 <p>
-530.8 MB
+523.5 MB
 </p>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Installation abgeschlossen
+Zum Ende der Installation werden Sie gebeten <em>Anonyme Nutzungsdaten</em> freizugeben,
+als auch sich bei der Fa. SUN zu registrieren. Beides ist freiwillig.
+</p>
+</li>
+</ol></div>
 </li>
 </ul></div>
 <div class="paragraph"><p>&nbsp;<br />
@@ -769,17 +778,14 @@ Apache Tomcat 6.0.26                  (Optional)
 <div class="content">
 <pre><tt>$ cd
 $ ls -la .netbeans*
-.netbeans:
-insgesamt 16
-drwxr-xr-x  3 bob bob 4096 2010-06-15 20:09 .
-drwxr-xr-x 53 bob bob 4096 2010-06-15 20:08 ..
-drwxr-xr-x  4 bob bob 4096 2010-06-15 20:09 6.9rc2
+drwxr-xr-x  2 bob bob 4096 2010-06-20 11:03 .
+drwxr-xr-x 55 bob bob 4096 2010-06-20 10:38 ..
 -rw-r--r--  1 bob bob   36 2010-06-15 20:08 .superId
 
 .netbeans-registration:
 insgesamt 12
 drwxr-xr-x  3 bob bob 4096 2010-06-15 20:08 .
-drwxr-xr-x 53 bob bob 4096 2010-06-15 20:08 ..
+drwxr-xr-x 55 bob bob 4096 2010-06-20 10:38 ..
 drwxr-xr-x  2 bob bob 4096 2010-06-15 20:08 6.9</tt></pre>
 </div></div>
 <div class="admonitionblock">
@@ -790,7 +796,6 @@ drwxr-xr-x  2 bob bob 4096 2010-06-15 20:08 6.9</tt></pre>
 <td class="content">
 <div class="paragraph"><p>Mit der <em>superID</em> wird die Installation sowohl auf dem Rechner
 als auch für den SDN Account bei der Fa. SUN eindeutig benannt.</p></div>
-<div class="paragraph"><p>Keine Registrierung für RC2!</p></div>
 </td>
 </tr></table>
 </div>
@@ -799,7 +804,7 @@ als auch für den SDN Account bei der Fa. SUN eindeutig benannt.</p></div>
 <strong>Step 4:</strong> NetBeans IDE starten</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt>$ /bin/sh "/opt/NetBeans/bob/netbeans-6.9rc2/bin/netbeans"</tt></pre>
+<pre><tt>$ /bin/sh "/opt/NetBeans/bob/netbeans-6.9/bin/netbeans"</tt></pre>
 </div></div>
 <img src="images/netbeans/netbeans_ide_01_start.jpg" border="1px"
  alt="NetBeans IDE: Startseite" title="NetBeans IDE: Startseite" />
@@ -860,7 +865,7 @@ JAVA_HOME=/opt/Java/jdk1.6.0_20
 JDK_HOME=/opt/Java/jdk1.6.0_20
 JRE_HOME=/opt/Java/jdk1.6.0_20
 
-JRUBY_HOME=/opt/NetBeans/bob/netbeans-6.9rc2/ruby/jruby-1.5.0/bin
+JRUBY_HOME=/opt/NetBeans/bob/netbeans-6.9/ruby/jruby-1.5.0/bin
 CATALINA_OPTS='-server -Xms512m -Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=512m'
 
 PATH=$JAVA_BINDIR:$JRUBY_HOME/bin:$PATH
@@ -919,12 +924,19 @@ Anpassung an Ubuntu 10.04 (Lucid Lynx)<br />
 </p>
 </li>
 </ul></div>
+<div class="ulist"><div class="title">Version 1.0.1</div><ul>
+<li>
+<p>
+Veröffentlichung von NetBeans 6.9
+</p>
+</li>
+</ul></div>
 </div>
 </div>
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2010-06-19 19:49:42 CEST
+Last updated 2010-06-20 11:13:28 CEST
 </div>
 </div>
 </body>
