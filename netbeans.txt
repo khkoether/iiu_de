@@ -131,9 +131,10 @@ $ sh netbeans-6.9-ml-linux.sh --javahome /opt/Java/jdk1.6.0_20/
 .Summary 
 - 523.5 MB
 
-. Installation abgeschlossen
-Zum Ende der Installation werden Sie gebeten 'Anonyme Nutzungsdaten' freizugeben, 
-als auch sich bei der Fa. SUN zu registrieren. Beides ist freiwillig.
+.Installation abgeschlossen
+Zum Ende der Installation werden Sie zum Einen gebeten 'Anonyme Nutzungsdaten' 
+freizugeben, und zum Anderen sich bei der Fa. SUN zu 'registrieren'. 
+Beides ist freiwillig.
 
   
 &nbsp; +
@@ -279,5 +280,5 @@ Changelog
   Neue Programmversion
 
 .Version 1.0.1
-* Veröffentlichung von NetBeans 6.9   
+* g
   
