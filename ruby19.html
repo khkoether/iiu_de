@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="generator" content="AsciiDoc 8.5.3" />
-<title>Installation in Ubuntu: Ruby 1.9.2 Preview3, Ruby on Rails 3.0 Beta4</title>
+<title>Installation in Ubuntu: Ruby 1.9.2 RC1, Ruby on Rails 3.0 Beta4</title>
 <style type="text/css">
 /* Debug borders */
 p, li, dt, dd, div, pre, h1, h2, h3, h4, h5, h6 {
@@ -551,7 +551,7 @@ footnotes: function () {
 </head>
 <body>
 <div id="header">
-<h1>Installation in Ubuntu: Ruby 1.9.2 Preview3, Ruby on Rails 3.0 Beta4</h1>
+<h1>Installation in Ubuntu: Ruby 1.9.2 RC1, Ruby on Rails 3.0 Beta4</h1>
 <span id="author">Karl-Heinz Köther</span><br />
 <span id="email"><tt>&lt;<a href="mailto:&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;">&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;</a>&gt;</tt></span><br />
 <div id="toc">
@@ -562,13 +562,13 @@ footnotes: function () {
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph"><p>Version 1.0.0, Juni 2010, <a href="#_changelog">[Changelog]</a></p></div>
+<div class="paragraph"><p>Version 1.1.1, Juli 2010, <a href="#_changelog">[Changelog]</a></p></div>
 </div>
 </div>
 <h2 id="_abstract">Abstract</h2>
 <div class="sectionbody">
 <div class="paragraph"><p>Dieser Artikel ist eine Schritt-für-Schritt Anleitung zur Installation
-von <a href="http://www.ruby-lang.org/">Ruby 1.9.2 Preview3</a> aus dem QuellCode.</p></div>
+von <a href="http://www.ruby-lang.org/">Ruby 1.9.2 RC1</a> aus dem QuellCode.</p></div>
 <div class="paragraph"><p>Die Programmiersprache <a href="http://www.ruby-lang.org/">Ruby</a> ist die Grundlage für das
 Framework <a href="http://www.rubyonrails.org">Ruby on Rails</a>.</p></div>
 <div class="paragraph"><p>Der Artikel ist in <a href="http://www.methods.co.nz/asciidoc/">ASCII DOC</a> erstellt worden.</p></div>
@@ -595,9 +595,9 @@ andere Distributionen übertragbar.</p></div>
 <div class="ulist"><div class="title">Download</div><ul>
 <li>
 <p>
-<a href="ftp://www.ruby-lang.org/pub/ruby/1.9/ruby-1.9.2-preview3.tar.gz">Ruby 1.9.2 Preview 3</a><br />
-  ruby-1.9.2-preview3.tar.gz  (ca. 10.5 MB)<br />
-  2010-05-31 (Release date)
+<a href="ftp://www.ruby-lang.org/pub/ruby/1.9/">Ruby 1.9.2 RC1</a><br />
+  ruby-1.9.2-rc1.tar.gz  (ca. 10.5 MB)<br />
+  2010-07-02 (Release date)
 </p>
 </li>
 </ul></div>
@@ -627,7 +627,7 @@ Benutzer <em>root</em> für das System durchgeführt.</p></div>
 <div class="listingblock">
 <div class="content">
 <pre><tt>$ ls -l
--rw-r--r-- 1 bob bob 10763908 2010-06-14 21:41 ruby-1.9.2-preview3.tar.gz</tt></pre>
+-rw-r--r--  1 bob  bob  10779309 2010-07-09 13:41 ruby-1.9.2-rc1.tar.gz</tt></pre>
 </div></div>
 </td>
 </tr></table>
@@ -653,7 +653,7 @@ Programm-Pakete installiert sind.</p></div>
 </div>
 <h2 id="_installation">Installation</h2>
 <div class="sectionbody">
-<h3 id="_ruby_1_9_2_preview3">Ruby 1.9.2 Preview3</h3><div style="clear:left"></div>
+<h3 id="_ruby_1_9_2_rc1">Ruby 1.9.2 RC1</h3><div style="clear:left"></div>
 <div class="paragraph"><p>Zusätzliche Software-Pakete die nicht über das Paketmanagement
 verwaltet wird, sollte im Verzeichnis <em>/opt</em> (Optional)
 installiert werden.</p></div>
@@ -674,13 +674,13 @@ Beispiel für die Änderung des Installations-Verzeichnisses:
 <div class="paragraph"><p><strong>Step 1:</strong> Auspacken des Source-Code</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt>$ tar xvzf ruby-1.9.2-preview3.tar.gz
-$ cd ruby-1.9.2-preview3</tt></pre>
+<pre><tt>$ tar xvzf ruby-1.9.2-rc1.tar.gz
+$ cd ruby-1.9.2-rc1</tt></pre>
 </div></div>
 <div class="paragraph"><p><strong>Step 2:</strong> Konfiguration erstellen und kompilieren</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt>$ sudo mkdir -p /opt/Ruby/ruby-1.9.2-preview3</tt></pre>
+<pre><tt>$ sudo mkdir -p /opt/Ruby/ruby-1.9.2-rc1</tt></pre>
 </div></div>
 <div class="admonitionblock">
 <table><tr>
@@ -698,7 +698,7 @@ ohne das Suffix <em>19</em> wiederum vorhandene Dateien überschreibt.</p></div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre><tt>$ ./configure --prefix=/opt/Ruby/ruby-1.9.2-preview3 | tee ../log.ruby_configure
+<pre><tt>$ ./configure --prefix=/opt/Ruby/ruby-1.9.2-rc1 | tee ../log.ruby_configure
 checking build system type... i686-pc-linux-gnu
 checking host system type... i686-pc-linux-gnu
 checking target system type... i686-pc-linux-gnu
@@ -715,6 +715,14 @@ gcc -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wpointer-arith -Ww
 rite-strings -Wno-missing-field-initializers -Wno-long-long -I. -I.ext/include/i
 686-linux -I./include -I. -DRUBY_EXPORT   -o main.o -c main.c
 [...]
+ 99% [511/515]   ext/socket/lib/socket.rb
+ 99% [512/515]   ext/stringio/stringio.c
+No definition for rb_io_addstr
+No definition for rb_io_print
+No definition for rb_io_printf
+No definition for rb_io_puts
+ 99% [513/515]   ext/strscan/strscan.c
+ 99% [514/515]   ext/zlib/zlib.c
 100% [515/515]   doc/re.rdoc
 
 Generating RI...
@@ -724,8 +732,8 @@ Files:       515
 Classes:    1086 (  653 undocumented)
 Constants:  1364 ( 1141 undocumented)
 Modules:     251 (  148 undocumented)
-Methods:    7641 ( 2872 undocumented)
- 53.45% documented
+Methods:    7645 ( 2873 undocumented)
+ 53.46% documented
 
 Elapsed: 84.4s
 
@@ -733,12 +741,12 @@ Elapsed: 84.4s
 $ make test | tee ../log.ruby_make_test
 sample/test.rb:assignment ...............................................
 [...]
-PASS all 932 tests
+PASS all 933 tests
 ./miniruby -I./lib -I.ext/common -I./- -r./ext/purelib.rb  ./tool/runruby.rb --extout=.ext  -- "./bootstraptest/runner.rb" --ruby="ruby"  ./KNOWNBUGS.rb
-2010-06-14 22:32:58 +0200
-Driver is ruby 1.9.2dev (2010-05-31 revision 28117) [i686-linux]
+2010-07-09 13:59:49 +0200
+Driver is ruby 1.9.2dev (2010-07-02 revision 28524) [i686-linux]
 
-KNOWNBUGS.rb Target is ruby 1.9.2dev (2010-05-31 revision 28117) [i686-linux]
+KNOWNBUGS.rb Target is ruby 1.9.2dev (2010-07-02 revision 28524) [i686-linux]
 
 .
 PASS all 1 tests</tt></pre>
@@ -751,13 +759,14 @@ PASS all 1 tests</tt></pre>
 ./miniruby -I./lib -I.ext/common -I./- -r./ext/purelib.rb  ./tool/generic_erb.rb -c -o encdb.h ./template/encdb.h.tmpl ./enc enc
 encdb.h unchanged
 [...]
-installing rdoc:              /opt/Ruby/ruby-1.9.2-preview3/share/ri/1.9.1/system
-installing capi-docs:         /opt/Ruby/ruby-1.9.2-preview3/share/doc/ruby
-installing command scripts:   /opt/Ruby/ruby-1.9.2-preview3/bin
-installing library scripts:   /opt/Ruby/ruby-1.9.2-preview3/lib/ruby/1.9.1
-installing common headers:    /opt/Ruby/ruby-1.9.2-preview3/include/ruby-1.9.1
-installing manpages:          /opt/Ruby/ruby-1.9.2-preview3/share/man/man1
-installing default gems:      /opt/Ruby/ruby-1.9.2-preview3/lib/ruby/gems/1.9.1 (cache, doc, gems, specifications)
+installing extension headers: /opt/Ruby/ruby-1.9.2-rc1/include/ruby-1.9.1/ruby
+installing rdoc:              /opt/Ruby/ruby-1.9.2-rc1/share/ri/1.9.1/system
+installing capi-docs:         /opt/Ruby/ruby-1.9.2-rc1/share/doc/ruby
+installing command scripts:   /opt/Ruby/ruby-1.9.2-rc1/bin
+installing library scripts:   /opt/Ruby/ruby-1.9.2-rc1/lib/ruby/1.9.1
+installing common headers:    /opt/Ruby/ruby-1.9.2-rc1/include/ruby-1.9.1
+installing manpages:          /opt/Ruby/ruby-1.9.2-rc1/share/man/man1
+installing default gems:      /opt/Ruby/ruby-1.9.2-rc1/lib/ruby/gems/1.9.1 (cache, doc, gems, specifications)
                               rake 0.8.7
                               rdoc 2.5.8
                               minitest 1.6.0</tt></pre>
@@ -765,31 +774,31 @@ installing default gems:      /opt/Ruby/ruby-1.9.2-preview3/lib/ruby/gems/1.9.1 
 <div class="paragraph"><p><strong>Step 4:</strong> Installation verifizieren</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt>$ cd /opt/Ruby/ruby-1.9.2-preview
+<pre><tt>$ cd /opt/Ruby/ruby-1.9.2-rc1
 $ ls -l
-drwxr-xr-x 2 root root 4096 2010-06-14 22:35 bin
-drwxr-xr-x 3 root root 4096 2010-06-14 22:35 include
-drwxr-xr-x 3 root root 4096 2010-06-14 22:35 lib
-drwxr-xr-x 5 root root 4096 2010-06-14 22:35 share</tt></pre>
+drwxr-xr-x 2 root root 4096 2010-07-09 15:49 bin
+drwxr-xr-x 3 root root 4096 2010-07-09 15:49 include
+drwxr-xr-x 3 root root 4096 2010-07-09 15:49 lib
+drwxr-xr-x 5 root root 4096 2010-07-09 15:49 share</tt></pre>
 </div></div>
 <div class="listingblock">
 <div class="content">
 <pre><tt>$ ls -l bin
--rwxr-xr-x 1 root root    4418 2010-06-14 22:35 erb
--rwxr-xr-x 1 root root     567 2010-06-14 22:35 gem
--rwxr-xr-x 1 root root     339 2010-06-14 22:35 irb
--rwxr-xr-x 1 root root    1269 2010-06-14 22:35 rake
--rwxr-xr-x 1 root root     718 2010-06-14 22:35 rdoc
--rwxr-xr-x 1 root root      94 2010-06-14 22:35 ri
--rwxr-xr-x 1 root root 5134929 2010-06-14 22:19 ruby
--rwxr-xr-x 1 root root     268 2010-06-14 22:35 testrb</tt></pre>
+-rwxr-xr-x 1 root root    4413 2010-07-09 15:49 erb
+-rwxr-xr-x 1 root root     562 2010-07-09 15:49 gem
+-rwxr-xr-x 1 root root     334 2010-07-09 15:49 irb
+-rwxr-xr-x 1 root root    1264 2010-07-09 15:49 rake
+-rwxr-xr-x 1 root root     713 2010-07-09 15:49 rdoc
+-rwxr-xr-x 1 root root      89 2010-07-09 15:49 ri
+-rwxr-xr-x 1 root root 5143971 2010-07-09 13:55 ruby
+-rwxr-xr-x 1 root root     263 2010-07-09 15:49 testrb</tt></pre>
 </div></div>
-<div class="paragraph"><p><strong>Step 5:</strong> Der Pfad zum Verzeichnis <em>/opt/Ruby/ruby-1.9.2-preview3/bin</em> muß gesetzt werden</p></div>
+<div class="paragraph"><p><strong>Step 5:</strong> Der Pfad zum Verzeichnis <em>/opt/Ruby/ruby-1.9.2-rc1/bin</em> muß gesetzt werden</p></div>
 <div class="listingblock">
 <div class="title">Lokal in der aktuellen Shell (1)</div>
 <div class="content">
 <pre><tt>$ vim /opt/Ruby/ruby19.path.sh
-PATH=/opt/Ruby/ruby-1.9.2-preview3/bin:$PATH
+PATH=/opt/Ruby/ruby-1.9.2-rc1/bin:$PATH
 export PATH
 $ . ruby19.path.sh</tt></pre>
 </div></div>
@@ -797,7 +806,7 @@ $ . ruby19.path.sh</tt></pre>
 <div class="title">Systemweit in der Datei <em>/etc/environment</em></div>
 <div class="content">
 <pre><tt>$ sudo vim /etc/environment
-PATH="/opt/Ruby/ruby-1.9.2-preview3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"</tt></pre>
+PATH="/opt/Ruby/ruby-1.9.2-rc1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"</tt></pre>
 </div></div>
 <div class="paragraph"><div class="title">Systemweit in einer allgemeineren Lösung</div><p>Ein Vorteil ist hierbei, daß für das Einspielen einer neuen Version die <em>PATH</em>-Variable nicht erneut
 angepasst werden müssen.</p></div>
@@ -809,11 +818,10 @@ PATH="/opt/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bi
 $ sudo mkdir -p /opt/local/bin
 
 $ cd /opt/Ruby/
-$ sudo ln -s ruby-1.9.2-preview3 current
+$ sudo ln -s ruby-1.9.2-rc1 current
 $ ls -l
-lrwxrwxrwx 1 root root   20 2010-06-14 22:40 current -&gt; ruby-1.9.2-preview3/
-drwxr-xr-x 6 root root 4096 2010-06-14 22:35 ruby-1.9.2-preview3
-
+lrwxrwxrwx 1 root root   15 2010-07-09 15:53 current -&gt; ruby-1.9.2-rc1/
+drwxr-xr-x 6 root root 4096 2010-07-09 15:49 ruby-1.9.2-rc1
 
 $ cd /opt/local/bin
 $ sudo ln -s ../../Ruby/current/bin/erb
@@ -853,7 +861,7 @@ $ sudo which ruby    (2)
 /opt/local/bin/ruby
 
 $ ruby -v            (3)
-ruby 1.9.2dev (2010-05-31 revision 28117) [i686-linux]</tt></pre>
+ruby 1.9.2dev (2010-07-02 revision 28524) [i686-linux]</tt></pre>
 </div></div>
 <div class="olist arabic"><ol class="arabic">
 <li>
@@ -885,11 +893,13 @@ Happy new Ruby</tt></pre>
 irb(main):001:0&gt; RUBY_VERSION
 =&gt; "1.9.2"
 irb(main):002:0&gt; Time.now.to_s
-=&gt; "2010-06-14 22:46:30 +0200"
+=&gt; "2010-07-09 15:58:31 +0200"
+irb(main):002:0&gt; Time.now.to_s
+=&gt; "2010-07-09 15:58:31 +0200"
 irb(main):003:0&gt; Time.now.monday?
-=&gt; true
-irb(main):004:0&gt; Time.now.tuesday?
 =&gt; false
+irb(main):004:0&gt; Time.now.friday?
+=&gt; true
 irb(main):005:0&gt; exit</tt></pre>
 </div></div>
 <h3 id="_ruby_on_rails_3_0_beta_4">Ruby on Rails 3.0 Beta 4</h3><div style="clear:left"></div>
@@ -899,7 +909,7 @@ irb(main):005:0&gt; exit</tt></pre>
 <img src="./images/icons/note.png" alt="Note" />
 </td>
 <td class="content">
-<div class="paragraph"><p>Ruby 1.9 enthält bereits RubyGems - eine seperate Installation entfällt.</p></div>
+<div class="paragraph"><p>Ruby 1.9 enthält bereits RubyGems - eine früher notwendige separate Installation entfällt.</p></div>
 </td>
 </tr></table>
 </div>
@@ -923,7 +933,10 @@ $ sudo su -
 1.3.7
 
 $ gem list --local
-*** LOCAL GEMS ***</tt></pre>
+*** LOCAL GEMS ***
+minitest (1.6.0)
+rake (0.8.7)
+rdoc (2.5.8)</tt></pre>
 </div></div>
 <div class="paragraph"><p><strong>Step 2:</strong> Das Programm <em>gem</em> aktualisieren</p></div>
 <div class="listingblock">
@@ -945,7 +958,37 @@ rdoc (2.5.8)</tt></pre>
 Rails 3.0.0 mit dem Benutzer <em>root</em>.</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt># gem install rails --pre</tt></pre>
+<pre><tt># gem install rails --pre
+Successfully installed activesupport-3.0.0.beta4
+Successfully installed builder-2.1.2
+Successfully installed i18n-0.4.1
+Successfully installed activemodel-3.0.0.beta4
+Successfully installed rack-1.1.0
+Successfully installed rack-test-0.5.4
+Successfully installed rack-mount-0.6.6
+Successfully installed tzinfo-0.3.22
+Successfully installed abstract-1.0.0
+Successfully installed erubis-2.6.6
+Successfully installed actionpack-3.0.0.beta4
+Successfully installed arel-0.4.0
+Successfully installed activerecord-3.0.0.beta4
+Successfully installed activeresource-3.0.0.beta4
+Successfully installed mime-types-1.16
+Successfully installed polyglot-0.3.1
+Successfully installed treetop-1.4.8
+Successfully installed mail-2.2.5
+Successfully installed actionmailer-3.0.0.beta4
+Successfully installed thor-0.13.7
+Successfully installed railties-3.0.0.beta4
+Successfully installed bundler-0.9.26
+Successfully installed rails-3.0.0.beta4
+23 gems installed
+Installing ri documentation for activesupport-3.0.0.beta4...
+[...]
+Installing ri documentation for rails-3.0.0.beta4...
+Installing RDoc documentation for activesupport-3.0.0.beta4...
+[...]
+Installing RDoc documentation for rails-3.0.0.beta4...</tt></pre>
 </div></div>
 <div class="listingblock">
 <div class="content">
@@ -961,20 +1004,20 @@ activesupport (3.0.0.beta4)
 arel (0.4.0)
 builder (2.1.2)
 bundler (0.9.26)
-erubis (2.6.5)
+erubis (2.6.6)
 i18n (0.4.1)
-mail (2.2.4)
+mail (2.2.5)
 mime-types (1.16)
 minitest (1.6.0)
 polyglot (0.3.1)
 rack (1.1.0)
-rack-mount (0.6.4)
+rack-mount (0.6.6)
 rack-test (0.5.4)
 rails (3.0.0.beta4)
 railties (3.0.0.beta4)
 rake (0.8.7)
 rdoc (2.5.8)
-thor (0.13.6)
+thor (0.13.7)
 treetop (1.4.8)
 tzinfo (0.3.22)</tt></pre>
 </div></div>
@@ -991,27 +1034,38 @@ $ sudo ln -s ../../Ruby/current/bin/thor
 $ sudo ln -s ../../Ruby/current/bin/tt
 
 $ ls -l
-lrwxrwxrwx 1 root root 29 2010-06-14 23:01 bundle -&gt; ../../Ruby/current/bin/bundle
-lrwxrwxrwx 1 root root 26 2010-06-14 22:41 erb -&gt; ../../Ruby/current/bin/erb
-lrwxrwxrwx 1 root root 29 2010-06-14 23:01 erubis -&gt; ../../Ruby/current/bin/erubis
-lrwxrwxrwx 1 root root 26 2010-06-14 22:41 gem -&gt; ../../Ruby/current/bin/gem
-lrwxrwxrwx 1 root root 26 2010-06-14 22:41 irb -&gt; ../../Ruby/current/bin/irb
-lrwxrwxrwx 1 root root 29 2010-06-14 23:01 rackup -&gt; ../../Ruby/current/bin/rackup
-lrwxrwxrwx 1 root root 28 2010-06-14 23:02 rails -&gt; ../../Ruby/current/bin/rails
-lrwxrwxrwx 1 root root 27 2010-06-14 22:41 rake -&gt; ../../Ruby/current/bin/rake
-lrwxrwxrwx 1 root root 32 2010-06-14 23:02 rake2thor -&gt; ../../Ruby/current/bin/rake2thor
-lrwxrwxrwx 1 root root 27 2010-06-14 22:42 rdoc -&gt; ../../Ruby/current/bin/rdoc
-lrwxrwxrwx 1 root root 25 2010-06-14 22:42 ri -&gt; ../../Ruby/current/bin/ri
-lrwxrwxrwx 1 root root 27 2010-06-14 22:42 ruby -&gt; ../../Ruby/current/bin/ruby
-lrwxrwxrwx 1 root root 29 2010-06-14 22:42 testrb -&gt; ../../Ruby/current/bin/testrb
-lrwxrwxrwx 1 root root 27 2010-06-14 23:02 thor -&gt; ../../Ruby/current/bin/thor
-lrwxrwxrwx 1 root root 25 2010-06-14 23:02 tt -&gt; ../../Ruby/current/bin/tt</tt></pre>
+lrwxrwxrwx 1 root root 29 2010-07-09 16:06 bundle -&gt; ../../Ruby/current/bin/bundle
+lrwxrwxrwx 1 root root 26 2010-07-09 15:55 erb -&gt; ../../Ruby/current/bin/erb
+lrwxrwxrwx 1 root root 29 2010-07-09 16:06 erubis -&gt; ../../Ruby/current/bin/erubis
+lrwxrwxrwx 1 root root 26 2010-07-09 15:55 gem -&gt; ../../Ruby/current/bin/gem
+lrwxrwxrwx 1 root root 26 2010-07-09 15:55 irb -&gt; ../../Ruby/current/bin/irb
+lrwxrwxrwx 1 root root 29 2010-07-09 16:06 rackup -&gt; ../../Ruby/current/bin/rackup
+lrwxrwxrwx 1 root root 28 2010-07-09 16:06 rails -&gt; ../../Ruby/current/bin/rails
+lrwxrwxrwx 1 root root 27 2010-07-09 15:55 rake -&gt; ../../Ruby/current/bin/rake
+lrwxrwxrwx 1 root root 32 2010-07-09 16:07 rake2thor -&gt; ../../Ruby/current/bin/rake2thor
+lrwxrwxrwx 1 root root 27 2010-07-09 15:55 rdoc -&gt; ../../Ruby/current/bin/rdoc
+lrwxrwxrwx 1 root root 25 2010-07-09 15:55 ri -&gt; ../../Ruby/current/bin/ri
+lrwxrwxrwx 1 root root 27 2010-07-09 15:56 ruby -&gt; ../../Ruby/current/bin/ruby
+lrwxrwxrwx 1 root root 29 2010-07-09 15:56 testrb -&gt; ../../Ruby/current/bin/testrb
+lrwxrwxrwx 1 root root 27 2010-07-09 16:07 thor -&gt; ../../Ruby/current/bin/thor
+lrwxrwxrwx 1 root root 25 2010-07-09 16:07 tt -&gt; ../../Ruby/current/bin/tt</tt></pre>
 </div></div>
 <div class="paragraph"><p><strong>Step 4:</strong> Installation der Datenbank-Treiber mit dem Benutzer <em>root</em>.</p></div>
 <div class="listingblock">
 <div class="content">
 <pre><tt># gem install mysql
-# gem install sqlite3</tt></pre>
+Building native extensions.  This could take a while...
+Successfully installed mysql-2.8.1
+1 gem installed
+Installing ri documentation for mysql-2.8.1...
+Installing RDoc documentation for mysql-2.8.1...
+
+# gem install sqlite3-ruby
+Building native extensions.  This could take a while...
+Successfully installed sqlite3-ruby-1.3.0
+1 gem installed
+Installing ri documentation for sqlite3-ruby-1.3.0...
+Installing RDoc documentation for sqlite3-ruby-1.3.0...</tt></pre>
 </div></div>
 <h3 id="_beispielanwendung_ruby_on_rails">Beispielanwendung: Ruby on Rails</h3><div style="clear:left"></div>
 <div class="listingblock">
@@ -1061,9 +1115,9 @@ $ rails s
 =&gt; Rails 3.0.0.beta4 application starting in development on http://0.0.0.0:3000
 =&gt; Call with -d to detach
 =&gt; Ctrl-C to shutdown server
-[2010-06-15 18:47:12] INFO  WEBrick 1.3.1
-[2010-06-15 18:47:12] INFO  ruby 1.9.2 (2010-05-31) [i686-linux]
-[2010-06-15 18:47:12] INFO  WEBrick::HTTPServer#start: pid=5921 port=3000</tt></pre>
+[2010-07-09 16:12:31] INFO  WEBrick 1.3.1
+[2010-07-09 16:12:31] INFO  ruby 1.9.2 (2010-07-02) [i686-linux]
+[2010-07-09 16:12:31] INFO  WEBrick::HTTPServer#start: pid=32478 port=3000</tt></pre>
 </div></div>
 <div class="listingblock">
 <div class="content">
@@ -1073,12 +1127,12 @@ $ rails s
 <h2 id="_anhang">Anhang</h2>
 <div class="sectionbody">
 <div class="listingblock">
-<div class="title">Script zum Installieren von Ruby v1.9.2 (ohne weitere Erläuterung)</div>
+<div class="title">Script zum Installieren von Ruby 1.9.2 RC1 (ohne weitere Erläuterung)</div>
 <div class="content">
 <pre><tt>#!/bin/bash
 #
 ME=make_ruby_1.9.2
-TARGET=/opt/Ruby/ruby-1.9.2-preview3
+TARGET=/opt/Ruby/ruby-1.9.2-rc1
 
 if [ ! -e $TARGET ]
 then
@@ -1101,8 +1155,8 @@ esac
 
 echo
 echo "Source auspacken ..."
-tar xvzf ruby-1.9.2-preview3.tar.gz
-cd ruby-1.9.2-preview3
+tar xvzf ruby-1.9.2-rc1.tar.gz
+cd ruby-1.9.2-rc1
 
 echo
 echo "Source übersetzen ..."
@@ -1173,12 +1227,19 @@ Anpassung an Ubuntu 10.04 (Lucid Lynx)<br />
 </p>
 </li>
 </ul></div>
+<div class="ulist"><div class="title">Version 1.1.1</div><ul>
+<li>
+<p>
+Neue Programmversion: Ruby
+</p>
+</li>
+</ul></div>
 </div>
 </div>
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2010-06-19 19:49:39 CEST
+Last updated 2010-07-10 15:23:21 CEST
 </div>
 </div>
 </body>

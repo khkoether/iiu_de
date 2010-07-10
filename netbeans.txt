@@ -16,7 +16,7 @@ Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;
 :java-koerper-url: http://www.arndt-bruenner.de/mathe/java/koerper3d.htm
 :sdn-url: https://portal.sun.com/cwplogin/login.jsp?liferayUrl=https://portal.sun.com&cwpIdmUrl=https://identity.sun.com
 
-Version 1.0.0, Juni 2010, <<_changelog,[Changelog]>>
+Version 1.1.1, Juli 2010, <<_changelog,[Changelog]>>
 
 Abstract
 --------
@@ -46,7 +46,7 @@ beschrieben. Gleichwohl sind die einzelnen Schritte auch für
 andere Distributionen übertragbar.
 
 .Download
-* {java-url}[Sun Java SDK 6 Update 20] +    
+* {java-url}[Sun Java SDK 6 Update 21] +    
   jdk-6u18-linux-i586.bin (ca. 81 MB)
 * {netbeans-url}[NetBeans 6.9] +    
   netbeans-6.9-ml-linux.sh (ca. 250 MB) (IDE-Sprache: Deutsch)
@@ -57,8 +57,8 @@ Die Installation des Sun Java SDK wird vom Benutzer 'root' für das System durch
 Während anschließende Installation der NetBeans IDE für den Benutzer 'bob' ausgeführt wird. 
 ----
 $ ls -l 
--rw-r--r-- 1 bob bob  84796967 2010-06-15 18:58 jdk-6u20-linux-i586.bin
--rw-r--r-- 1 khk khk 261880832 2010-06-20 09:52 netbeans-6.9-ml-linux.sh
+-rw-r--r-- 1 bob bob 83854743 2010-07-09 18:31 jdk-6u21-linux-i586.bin
+-rw-r--r-- 1 bob bob 261880832 2010-06-20 09:52 netbeans-6.9-ml-linux.sh
 ----
 ====
 
@@ -66,7 +66,7 @@ $ ls -l
 == Installation
 
 
-=== Sun Java SDK 6 Update 20
+=== Sun Java SDK 6 Update 21
 Zusätzliche Software-Pakete die nicht über das Paketmanagement 
 verwaltet wird, sollten im Verzeichnis '/opt' (Optional) 
 installiert werden. 
@@ -74,19 +74,19 @@ installiert werden.
 *Step 1:* Installation im Verzeichnis '/opt/Java' (mit Benutzer 'root')
 ----
 $ sudo mkdir /opt/Java && cd /opt/Java 
-$ sudo sh jdk-6u18-linux-i586.bin  <--- Lizenbedingungen bestätigen!
+$ sudo sh jdk-6u21-linux-i586.bin  <--- Lizenbedingungen bestätigen!
 $ ls -l
-drwxr-xr-x 10 root root 4096 2010-06-15 19:08 jdk1.6.0_20
+drwxr-xr-x 10 root root 4096 2010-06-15 19:08 jdk1.6.0_21
 ----
 
 *Step 2:* Java-Installation für den Mozilla Firefox einrichten
 ----
 $ cd /etc/alternatives
-$ sudo ln -s /opt/Java/jdk1.6.0_18/jre/plugin/i386/ns7/libjavaplugin_oji.so mozilla-javaplugin.so
+$ sudo ln -s /opt/Java/jdk1.6.0_21/jre/plugin/i386/ns7/libjavaplugin_oji.so mozilla-javaplugin.so
 $ cd /usr/lib/mozilla/plugins
 $ sudo ln -s /etc/alternatives/mozilla-javaplugin.so libjavaplugin.so
 $ ls -l
-lrwxrwxrwx 1 root root     39 2010-06-15 19:36 libjavaplugin.so -> /etc/alternatives/mozilla-javaplugin.so
+lrwxrwxrwx 1 root root     39 2010-07-09 18:44 libjavaplugin.so -> /etc/alternatives/mozilla-javaplugin.so
 [...]
 ----
 
@@ -101,7 +101,7 @@ $ sudo mkdir -p /opt/NetBeans/bob && chown bob.bob /opt/NetBeans/bob
 $ sudo mkdir -p /opt/Tomcat/bob   && chown bob.bob /opt/Tomcat/bob    (Optional)
 
 $ cd /opt/NetBeans/bob
-$ sh netbeans-6.9-ml-linux.sh --javahome /opt/Java/jdk1.6.0_20/
+$ sh netbeans-6.9-ml-linux.sh --javahome /opt/Java/jdk1.6.0_21/
 ----
 
 &nbsp; +
@@ -125,7 +125,7 @@ $ sh netbeans-6.9-ml-linux.sh --javahome /opt/Java/jdk1.6.0_20/
 
 .Installation
 - /opt/NetBeans/bob/netbeans-6.9
-- /opt/Java/jdk1.6.0_20
+- /opt/Java/jdk1.6.0_21
 - /opt/Tomcat/bob/apache-tomcat-6.0.26  (Optional)
 
 .Summary 
@@ -237,10 +237,10 @@ Anhang
 
 .Script zum Setzen der Umgebung für das Built-in JRuby 1.5.0 (ohne weitere Erläuterung)
 ----
-JAVA_BINDIR=/opt/Java/jdk1.6.0_20/bin
-JAVA_HOME=/opt/Java/jdk1.6.0_20
-JDK_HOME=/opt/Java/jdk1.6.0_20
-JRE_HOME=/opt/Java/jdk1.6.0_20
+JAVA_BINDIR=/opt/Java/jdk1.6.0_21/bin
+JAVA_HOME=/opt/Java/jdk1.6.0_21
+JDK_HOME=/opt/Java/jdk1.6.0_21
+JRE_HOME=/opt/Java/jdk1.6.0_21
 
 JRUBY_HOME=/opt/NetBeans/bob/netbeans-6.9/ruby/jruby-1.5.0/bin
 CATALINA_OPTS='-server -Xms512m -Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=512m'
@@ -284,4 +284,8 @@ Changelog
 
 .Version 1.0.2
 * Korrektur für AsciiDoc
+
+.Version 1.1.1
+* Neue Programmversionen: JDK
+
   

@@ -27,3 +27,6 @@
 
 .Version 1.0.2
 * Korrektur für AsciiDoc
+
+.Version 1.1.1
+* Neue Programmversionen: Git, Ruby, JDK, JRuby

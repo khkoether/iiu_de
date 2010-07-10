@@ -1,5 +1,5 @@
-Installation in Ubuntu: Ruby 1.9.2 Preview3, Ruby on Rails 3.0 Beta4
-====================================================================
+Installation in Ubuntu: Ruby 1.9.2 RC1, Ruby on Rails 3.0 Beta4
+===============================================================
 Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;>
 
 :icons:
@@ -9,16 +9,16 @@ Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;
 :asciidoc-url: http://www.methods.co.nz/asciidoc/
 :ruby-url: http://www.ruby-lang.org/
 :ruby-download-url: http://www.ruby-lang.org/de/downloads/
-:ruby-ftp-preview3: ftp://www.ruby-lang.org/pub/ruby/1.9/ruby-1.9.2-preview3.tar.gz
+:ruby-ftp-preview3: ftp://www.ruby-lang.org/pub/ruby/1.9/
 :rubyonrails-url: http://www.rubyonrails.org
 :netbeans-url: http://www.netbeans.org/downloads/index.html
 
-Version 1.0.0, Juni 2010, <<_changelog,[Changelog]>>
+Version 1.1.1, Juli 2010, <<_changelog,[Changelog]>>
 
 Abstract
 --------
 Dieser Artikel ist eine Schritt-für-Schritt Anleitung zur Installation 
-von {ruby-url}[Ruby 1.9.2 Preview3] aus dem QuellCode.
+von {ruby-url}[Ruby 1.9.2 RC1] aus dem QuellCode.
  
 Die Programmiersprache {ruby-url}[Ruby] ist die Grundlage für das 
 Framework {rubyonrails-url}[Ruby on Rails].
@@ -42,9 +42,9 @@ beschrieben. Gleichwohl sind die einzelnen Schritte auch für
 andere Distributionen übertragbar.
 
 .Download
-* {ruby-ftp-preview3}[Ruby 1.9.2 Preview 3] +    
-  ruby-1.9.2-preview3.tar.gz  (ca. 10.5 MB) +
-  2010-05-31 (Release date)  
+* {ruby-ftp-preview3}[Ruby 1.9.2 RC1] +    
+  ruby-1.9.2-rc1.tar.gz  (ca. 10.5 MB) +
+  2010-07-02 (Release date)  
 
 [NOTE] 
 ====
@@ -62,7 +62,7 @@ Die eigentliche Installation von Ruby und Ruby on Rails wird vom
 Benutzer 'root' für das System durchgeführt.
 ----
 $ ls -l 
--rw-r--r-- 1 bob bob 10763908 2010-06-14 21:41 ruby-1.9.2-preview3.tar.gz
+-rw-r--r--  1 bob  bob  10779309 2010-07-09 13:41 ruby-1.9.2-rc1.tar.gz
 ----
 ====
 
@@ -82,7 +82,7 @@ $ sudo apt-get install ...
 == Installation
 
 
-=== Ruby 1.9.2 Preview3
+=== Ruby 1.9.2 RC1
 Zusätzliche Software-Pakete die nicht über das Paketmanagement 
 verwaltet wird, sollte im Verzeichnis '/opt' (Optional) 
 installiert werden. 
@@ -98,13 +98,13 @@ Beispiel für die Änderung des Installations-Verzeichnisses:
 
 *Step 1:* Auspacken des Source-Code
 ----
-$ tar xvzf ruby-1.9.2-preview3.tar.gz
-$ cd ruby-1.9.2-preview3
+$ tar xvzf ruby-1.9.2-rc1.tar.gz
+$ cd ruby-1.9.2-rc1
 ----
 
 *Step 2:* Konfiguration erstellen und kompilieren
 ----
-$ sudo mkdir -p /opt/Ruby/ruby-1.9.2-preview3
+$ sudo mkdir -p /opt/Ruby/ruby-1.9.2-rc1
 ----
 
 [NOTE]
@@ -116,7 +116,7 @@ Lösung - bis zu dem Moment wenn Rails installiert wird und die Programme 'rails
 ohne das Suffix '19' wiederum vorhandene Dateien überschreibt.
 ====
 ----
-$ ./configure --prefix=/opt/Ruby/ruby-1.9.2-preview3 | tee ../log.ruby_configure
+$ ./configure --prefix=/opt/Ruby/ruby-1.9.2-rc1 | tee ../log.ruby_configure
 checking build system type... i686-pc-linux-gnu
 checking host system type... i686-pc-linux-gnu
 checking target system type... i686-pc-linux-gnu
@@ -133,6 +133,14 @@ gcc -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wpointer-arith -Ww
 rite-strings -Wno-missing-field-initializers -Wno-long-long -I. -I.ext/include/i
 686-linux -I./include -I. -DRUBY_EXPORT   -o main.o -c main.c
 [...]
+ 99% [511/515]   ext/socket/lib/socket.rb
+ 99% [512/515]   ext/stringio/stringio.c
+No definition for rb_io_addstr
+No definition for rb_io_print
+No definition for rb_io_printf
+No definition for rb_io_puts
+ 99% [513/515]   ext/strscan/strscan.c
+ 99% [514/515]   ext/zlib/zlib.c
 100% [515/515]   doc/re.rdoc
 
 Generating RI...
@@ -142,8 +150,8 @@ Files:       515
 Classes:    1086 (  653 undocumented)
 Constants:  1364 ( 1141 undocumented)
 Modules:     251 (  148 undocumented)
-Methods:    7641 ( 2872 undocumented)
- 53.45% documented
+Methods:    7645 ( 2873 undocumented)
+ 53.46% documented
 
 Elapsed: 84.4s
 
@@ -151,12 +159,12 @@ Elapsed: 84.4s
 $ make test | tee ../log.ruby_make_test
 sample/test.rb:assignment ...............................................
 [...]
-PASS all 932 tests
+PASS all 933 tests
 ./miniruby -I./lib -I.ext/common -I./- -r./ext/purelib.rb  ./tool/runruby.rb --extout=.ext  -- "./bootstraptest/runner.rb" --ruby="ruby"  ./KNOWNBUGS.rb
-2010-06-14 22:32:58 +0200
-Driver is ruby 1.9.2dev (2010-05-31 revision 28117) [i686-linux]
+2010-07-09 13:59:49 +0200
+Driver is ruby 1.9.2dev (2010-07-02 revision 28524) [i686-linux]
 
-KNOWNBUGS.rb Target is ruby 1.9.2dev (2010-05-31 revision 28117) [i686-linux]
+KNOWNBUGS.rb Target is ruby 1.9.2dev (2010-07-02 revision 28524) [i686-linux]
 
 .
 PASS all 1 tests
@@ -169,13 +177,14 @@ $ sudo make install | tee ../log.ruby_make_install
 ./miniruby -I./lib -I.ext/common -I./- -r./ext/purelib.rb  ./tool/generic_erb.rb -c -o encdb.h ./template/encdb.h.tmpl ./enc enc
 encdb.h unchanged
 [...]
-installing rdoc:              /opt/Ruby/ruby-1.9.2-preview3/share/ri/1.9.1/system
-installing capi-docs:         /opt/Ruby/ruby-1.9.2-preview3/share/doc/ruby
-installing command scripts:   /opt/Ruby/ruby-1.9.2-preview3/bin
-installing library scripts:   /opt/Ruby/ruby-1.9.2-preview3/lib/ruby/1.9.1
-installing common headers:    /opt/Ruby/ruby-1.9.2-preview3/include/ruby-1.9.1
-installing manpages:          /opt/Ruby/ruby-1.9.2-preview3/share/man/man1
-installing default gems:      /opt/Ruby/ruby-1.9.2-preview3/lib/ruby/gems/1.9.1 (cache, doc, gems, specifications)
+installing extension headers: /opt/Ruby/ruby-1.9.2-rc1/include/ruby-1.9.1/ruby
+installing rdoc:              /opt/Ruby/ruby-1.9.2-rc1/share/ri/1.9.1/system
+installing capi-docs:         /opt/Ruby/ruby-1.9.2-rc1/share/doc/ruby
+installing command scripts:   /opt/Ruby/ruby-1.9.2-rc1/bin
+installing library scripts:   /opt/Ruby/ruby-1.9.2-rc1/lib/ruby/1.9.1
+installing common headers:    /opt/Ruby/ruby-1.9.2-rc1/include/ruby-1.9.1
+installing manpages:          /opt/Ruby/ruby-1.9.2-rc1/share/man/man1
+installing default gems:      /opt/Ruby/ruby-1.9.2-rc1/lib/ruby/gems/1.9.1 (cache, doc, gems, specifications)
                               rake 0.8.7
                               rdoc 2.5.8
                               minitest 1.6.0
@@ -183,32 +192,32 @@ installing default gems:      /opt/Ruby/ruby-1.9.2-preview3/lib/ruby/gems/1.9.1 
 
 *Step 4:* Installation verifizieren
 ----
-$ cd /opt/Ruby/ruby-1.9.2-preview
+$ cd /opt/Ruby/ruby-1.9.2-rc1
 $ ls -l
-drwxr-xr-x 2 root root 4096 2010-06-14 22:35 bin
-drwxr-xr-x 3 root root 4096 2010-06-14 22:35 include
-drwxr-xr-x 3 root root 4096 2010-06-14 22:35 lib
-drwxr-xr-x 5 root root 4096 2010-06-14 22:35 share
+drwxr-xr-x 2 root root 4096 2010-07-09 15:49 bin
+drwxr-xr-x 3 root root 4096 2010-07-09 15:49 include
+drwxr-xr-x 3 root root 4096 2010-07-09 15:49 lib
+drwxr-xr-x 5 root root 4096 2010-07-09 15:49 share
 ----
 
 ----
 $ ls -l bin
--rwxr-xr-x 1 root root    4418 2010-06-14 22:35 erb
--rwxr-xr-x 1 root root     567 2010-06-14 22:35 gem
--rwxr-xr-x 1 root root     339 2010-06-14 22:35 irb
--rwxr-xr-x 1 root root    1269 2010-06-14 22:35 rake
--rwxr-xr-x 1 root root     718 2010-06-14 22:35 rdoc
--rwxr-xr-x 1 root root      94 2010-06-14 22:35 ri
--rwxr-xr-x 1 root root 5134929 2010-06-14 22:19 ruby
--rwxr-xr-x 1 root root     268 2010-06-14 22:35 testrb
+-rwxr-xr-x 1 root root    4413 2010-07-09 15:49 erb
+-rwxr-xr-x 1 root root     562 2010-07-09 15:49 gem
+-rwxr-xr-x 1 root root     334 2010-07-09 15:49 irb
+-rwxr-xr-x 1 root root    1264 2010-07-09 15:49 rake
+-rwxr-xr-x 1 root root     713 2010-07-09 15:49 rdoc
+-rwxr-xr-x 1 root root      89 2010-07-09 15:49 ri
+-rwxr-xr-x 1 root root 5143971 2010-07-09 13:55 ruby
+-rwxr-xr-x 1 root root     263 2010-07-09 15:49 testrb
 ----
 
-*Step 5:* Der Pfad zum Verzeichnis '/opt/Ruby/ruby-1.9.2-preview3/bin' muß gesetzt werden 
+*Step 5:* Der Pfad zum Verzeichnis '/opt/Ruby/ruby-1.9.2-rc1/bin' muß gesetzt werden 
 
 .Lokal in der aktuellen Shell (1) 
 ----
 $ vim /opt/Ruby/ruby19.path.sh
-PATH=/opt/Ruby/ruby-1.9.2-preview3/bin:$PATH
+PATH=/opt/Ruby/ruby-1.9.2-rc1/bin:$PATH
 export PATH
 $ . ruby19.path.sh
 ----
@@ -216,7 +225,7 @@ $ . ruby19.path.sh
 .Systemweit in der Datei '/etc/environment' 
 ----
 $ sudo vim /etc/environment
-PATH="/opt/Ruby/ruby-1.9.2-preview3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+PATH="/opt/Ruby/ruby-1.9.2-rc1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 ----
 
 .Systemweit in einer allgemeineren Lösung 
@@ -229,11 +238,10 @@ PATH="/opt/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bi
 $ sudo mkdir -p /opt/local/bin
 
 $ cd /opt/Ruby/
-$ sudo ln -s ruby-1.9.2-preview3 current
+$ sudo ln -s ruby-1.9.2-rc1 current
 $ ls -l
-lrwxrwxrwx 1 root root   20 2010-06-14 22:40 current -> ruby-1.9.2-preview3/
-drwxr-xr-x 6 root root 4096 2010-06-14 22:35 ruby-1.9.2-preview3
-
+lrwxrwxrwx 1 root root   15 2010-07-09 15:53 current -> ruby-1.9.2-rc1/
+drwxr-xr-x 6 root root 4096 2010-07-09 15:49 ruby-1.9.2-rc1
 
 $ cd /opt/local/bin
 $ sudo ln -s ../../Ruby/current/bin/erb
@@ -274,7 +282,7 @@ $ sudo which ruby    (2)
 /opt/local/bin/ruby
 
 $ ruby -v            (3) 
-ruby 1.9.2dev (2010-05-31 revision 28117) [i686-linux]
+ruby 1.9.2dev (2010-07-02 revision 28524) [i686-linux]
 ----
 
 . Das Kommando 'which' wertet den gesetzten 'PATH' für den Benutzer 'bob' aus +
@@ -294,11 +302,13 @@ $ irb
 irb(main):001:0> RUBY_VERSION
 => "1.9.2"
 irb(main):002:0> Time.now.to_s
-=> "2010-06-14 22:46:30 +0200"
+=> "2010-07-09 15:58:31 +0200"
+irb(main):002:0> Time.now.to_s
+=> "2010-07-09 15:58:31 +0200"
 irb(main):003:0> Time.now.monday?
-=> true
-irb(main):004:0> Time.now.tuesday?
 => false
+irb(main):004:0> Time.now.friday?
+=> true
 irb(main):005:0> exit
 ----
 
@@ -307,7 +317,7 @@ irb(main):005:0> exit
 
 [NOTE]
 ====
-Ruby 1.9 enthält bereits RubyGems - eine seperate Installation entfällt.
+Ruby 1.9 enthält bereits RubyGems - eine früher notwendige separate Installation entfällt.
 ====
 
 *Step 1:* Vorraussetzung für die nächsten Befehle ist ein 
@@ -330,6 +340,9 @@ $ gem -v
 
 $ gem list --local
 *** LOCAL GEMS ***
+minitest (1.6.0)
+rake (0.8.7)
+rdoc (2.5.8)
 ----
 
 *Step 2:* Das Programm 'gem' aktualisieren
@@ -352,6 +365,36 @@ rdoc (2.5.8)
 Rails 3.0.0 mit dem Benutzer 'root'.
 ---- 
 # gem install rails --pre
+Successfully installed activesupport-3.0.0.beta4
+Successfully installed builder-2.1.2
+Successfully installed i18n-0.4.1
+Successfully installed activemodel-3.0.0.beta4
+Successfully installed rack-1.1.0
+Successfully installed rack-test-0.5.4
+Successfully installed rack-mount-0.6.6
+Successfully installed tzinfo-0.3.22
+Successfully installed abstract-1.0.0
+Successfully installed erubis-2.6.6
+Successfully installed actionpack-3.0.0.beta4
+Successfully installed arel-0.4.0
+Successfully installed activerecord-3.0.0.beta4
+Successfully installed activeresource-3.0.0.beta4
+Successfully installed mime-types-1.16
+Successfully installed polyglot-0.3.1
+Successfully installed treetop-1.4.8
+Successfully installed mail-2.2.5
+Successfully installed actionmailer-3.0.0.beta4
+Successfully installed thor-0.13.7
+Successfully installed railties-3.0.0.beta4
+Successfully installed bundler-0.9.26
+Successfully installed rails-3.0.0.beta4
+23 gems installed
+Installing ri documentation for activesupport-3.0.0.beta4...
+[...]
+Installing ri documentation for rails-3.0.0.beta4...
+Installing RDoc documentation for activesupport-3.0.0.beta4...
+[...]
+Installing RDoc documentation for rails-3.0.0.beta4...
 ----
 
 ----
@@ -367,20 +410,20 @@ activesupport (3.0.0.beta4)
 arel (0.4.0)
 builder (2.1.2)
 bundler (0.9.26)
-erubis (2.6.5)
+erubis (2.6.6)
 i18n (0.4.1)
-mail (2.2.4)
+mail (2.2.5)
 mime-types (1.16)
 minitest (1.6.0)
 polyglot (0.3.1)
 rack (1.1.0)
-rack-mount (0.6.4)
+rack-mount (0.6.6)
 rack-test (0.5.4)
 rails (3.0.0.beta4)
 railties (3.0.0.beta4)
 rake (0.8.7)
 rdoc (2.5.8)
-thor (0.13.6)
+thor (0.13.7)
 treetop (1.4.8)
 tzinfo (0.3.22)
 ----
@@ -397,27 +440,38 @@ $ sudo ln -s ../../Ruby/current/bin/thor
 $ sudo ln -s ../../Ruby/current/bin/tt
 
 $ ls -l
-lrwxrwxrwx 1 root root 29 2010-06-14 23:01 bundle -> ../../Ruby/current/bin/bundle
-lrwxrwxrwx 1 root root 26 2010-06-14 22:41 erb -> ../../Ruby/current/bin/erb
-lrwxrwxrwx 1 root root 29 2010-06-14 23:01 erubis -> ../../Ruby/current/bin/erubis
-lrwxrwxrwx 1 root root 26 2010-06-14 22:41 gem -> ../../Ruby/current/bin/gem
-lrwxrwxrwx 1 root root 26 2010-06-14 22:41 irb -> ../../Ruby/current/bin/irb
-lrwxrwxrwx 1 root root 29 2010-06-14 23:01 rackup -> ../../Ruby/current/bin/rackup
-lrwxrwxrwx 1 root root 28 2010-06-14 23:02 rails -> ../../Ruby/current/bin/rails
-lrwxrwxrwx 1 root root 27 2010-06-14 22:41 rake -> ../../Ruby/current/bin/rake
-lrwxrwxrwx 1 root root 32 2010-06-14 23:02 rake2thor -> ../../Ruby/current/bin/rake2thor
-lrwxrwxrwx 1 root root 27 2010-06-14 22:42 rdoc -> ../../Ruby/current/bin/rdoc
-lrwxrwxrwx 1 root root 25 2010-06-14 22:42 ri -> ../../Ruby/current/bin/ri
-lrwxrwxrwx 1 root root 27 2010-06-14 22:42 ruby -> ../../Ruby/current/bin/ruby
-lrwxrwxrwx 1 root root 29 2010-06-14 22:42 testrb -> ../../Ruby/current/bin/testrb
-lrwxrwxrwx 1 root root 27 2010-06-14 23:02 thor -> ../../Ruby/current/bin/thor
-lrwxrwxrwx 1 root root 25 2010-06-14 23:02 tt -> ../../Ruby/current/bin/tt
+lrwxrwxrwx 1 root root 29 2010-07-09 16:06 bundle -> ../../Ruby/current/bin/bundle
+lrwxrwxrwx 1 root root 26 2010-07-09 15:55 erb -> ../../Ruby/current/bin/erb
+lrwxrwxrwx 1 root root 29 2010-07-09 16:06 erubis -> ../../Ruby/current/bin/erubis
+lrwxrwxrwx 1 root root 26 2010-07-09 15:55 gem -> ../../Ruby/current/bin/gem
+lrwxrwxrwx 1 root root 26 2010-07-09 15:55 irb -> ../../Ruby/current/bin/irb
+lrwxrwxrwx 1 root root 29 2010-07-09 16:06 rackup -> ../../Ruby/current/bin/rackup
+lrwxrwxrwx 1 root root 28 2010-07-09 16:06 rails -> ../../Ruby/current/bin/rails
+lrwxrwxrwx 1 root root 27 2010-07-09 15:55 rake -> ../../Ruby/current/bin/rake
+lrwxrwxrwx 1 root root 32 2010-07-09 16:07 rake2thor -> ../../Ruby/current/bin/rake2thor
+lrwxrwxrwx 1 root root 27 2010-07-09 15:55 rdoc -> ../../Ruby/current/bin/rdoc
+lrwxrwxrwx 1 root root 25 2010-07-09 15:55 ri -> ../../Ruby/current/bin/ri
+lrwxrwxrwx 1 root root 27 2010-07-09 15:56 ruby -> ../../Ruby/current/bin/ruby
+lrwxrwxrwx 1 root root 29 2010-07-09 15:56 testrb -> ../../Ruby/current/bin/testrb
+lrwxrwxrwx 1 root root 27 2010-07-09 16:07 thor -> ../../Ruby/current/bin/thor
+lrwxrwxrwx 1 root root 25 2010-07-09 16:07 tt -> ../../Ruby/current/bin/tt
 ----
 
 *Step 4:* Installation der Datenbank-Treiber mit dem Benutzer 'root'.
 ---- 
 # gem install mysql
-# gem install sqlite3
+Building native extensions.  This could take a while...
+Successfully installed mysql-2.8.1
+1 gem installed
+Installing ri documentation for mysql-2.8.1...
+Installing RDoc documentation for mysql-2.8.1...
+
+# gem install sqlite3-ruby
+Building native extensions.  This could take a while...
+Successfully installed sqlite3-ruby-1.3.0
+1 gem installed
+Installing ri documentation for sqlite3-ruby-1.3.0...
+Installing RDoc documentation for sqlite3-ruby-1.3.0...
 ----
 
 
@@ -468,9 +522,9 @@ $ rails s
 => Rails 3.0.0.beta4 application starting in development on http://0.0.0.0:3000
 => Call with -d to detach
 => Ctrl-C to shutdown server
-[2010-06-15 18:47:12] INFO  WEBrick 1.3.1
-[2010-06-15 18:47:12] INFO  ruby 1.9.2 (2010-05-31) [i686-linux]
-[2010-06-15 18:47:12] INFO  WEBrick::HTTPServer#start: pid=5921 port=3000
+[2010-07-09 16:12:31] INFO  WEBrick 1.3.1
+[2010-07-09 16:12:31] INFO  ruby 1.9.2 (2010-07-02) [i686-linux]
+[2010-07-09 16:12:31] INFO  WEBrick::HTTPServer#start: pid=32478 port=3000
 ----
 
 ----
@@ -480,12 +534,12 @@ Browser> http://localhost:3000/
 Anhang
 ------
 
-.Script zum Installieren von Ruby v1.9.2 (ohne weitere Erläuterung)
+.Script zum Installieren von Ruby 1.9.2 RC1 (ohne weitere Erläuterung)
 ----
 #!/bin/bash
 #
 ME=make_ruby_1.9.2
-TARGET=/opt/Ruby/ruby-1.9.2-preview3
+TARGET=/opt/Ruby/ruby-1.9.2-rc1
 
 if [ ! -e $TARGET ] 
 then
@@ -508,8 +562,8 @@ esac
 
 echo 
 echo "Source auspacken ..."
-tar xvzf ruby-1.9.2-preview3.tar.gz
-cd ruby-1.9.2-preview3
+tar xvzf ruby-1.9.2-rc1.tar.gz
+cd ruby-1.9.2-rc1
 
 echo 
 echo "Source übersetzen ..."
@@ -553,3 +607,7 @@ Changelog
 .Version 1.0.0
 * Anpassung an Ubuntu 10.04 (Lucid Lynx) +
   Neue Programmversion
+
+.Version 1.1.1
+* Neue Programmversion: Ruby
+  

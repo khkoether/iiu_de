@@ -9,7 +9,7 @@ Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;
 :asciidoc-url: http://www.methods.co.nz/asciidoc/
 :sourceforge-url: http://sourceforge.net/projects/asciidoc/files/
 
-Version 1.0.0, Juni 2010, <<_changelog,[Changelog]>>
+Version 1.1.0, Juli 2010, <<_changelog,[Changelog]>>
 
 Abstract
 --------
@@ -226,3 +226,7 @@ Changelog
 .Version 1.0.0
 * Anpassung an Ubuntu 10.04 (Lucid Lynx) + 
   Neue Programmversion
+  
+.Version 1.1.0
+* Version 8.5.3 ist weiterhin aktuell
+  

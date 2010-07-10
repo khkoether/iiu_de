@@ -1,5 +1,5 @@
-Installation in Ubuntu: Git 1.7.1
-=================================
+Installation in Ubuntu: Git 1.7.1.1
+===================================
 Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;>
 
 :icons:
@@ -9,7 +9,7 @@ Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;
 :asciidoc-url: http://www.methods.co.nz/asciidoc/
 :git-url: http://git-scm.com/
 
-Version 1.0.0, Juni 2010, <<_changelog,[Changelog]>>
+Version 1.1.1, Juli 2010, <<_changelog,[Changelog]>>
 
 Abstract
 --------
@@ -40,8 +40,8 @@ andere Debian-basierte GNU/Linux Distributionen übertragbar.
 
 .Download
 * {git-url}[Git] +    
-  git-1.7.1.tar.gz  (ca. 2.9 MB) +
-  2010-04-24 (Release date)
+  git-1.7.1.1.tar.gz  (ca. 2.9 MB) +
+  2010-06-29 (Release date)
   
 [NOTE] 
 ====
@@ -51,7 +51,7 @@ Die eigentliche Installation von Git wird vom
 Benutzer 'root' für das System durchgeführt.
 ----
 $ ls -l 
--rw-r--r-- 1 bob bob 2999589 2010-06-14 21:01 git-1.7.1.tar.gz
+-rw-r--r-- 1 bob bob 3014619 2010-07-09 12:50 git-1.7.1.1.tar.gz
 ----
 ====
 
@@ -71,7 +71,7 @@ $ sudo apt-get install ...
 == Installation
 
 
-=== Git 1.7.1
+=== Git 1.7.1.1
 
 [IMPORTANT]
 ====
@@ -84,8 +84,8 @@ Beispiel für die Änderung des Installations-Verzeichnisses:
 
 *Step 1:* Auspacken des Source-Code
 ----
-$ tar xvzf git-1.7.1.tar.gz
-$ cd git-1.7.1
+$ tar xvzf git-1.7.1.1.tar.gz
+$ cd git-1.7.1.1
 ----
 
 *Step 2:* Konfiguration erstellen und kompilieren
@@ -146,13 +146,13 @@ make -C Documentation install
 ----
 $ cd /usr/local/bin
 $ ls -l git*
--rwxr-xr-x 105 root root 3602002 2010-06-14 21:35 /usr/local/bin/git
--rwxr-xr-x   1 root root  117756 2010-06-14 21:35 /usr/local/bin/git-cvsserver
--rwxr-xr-x   1 root root  321995 2010-06-14 21:35 /usr/local/bin/gitk
--rwxr-xr-x   1 root root 3602002 2010-06-14 21:35 /usr/local/bin/git-receive-pack
--rwxr-xr-x   1 root root 1475457 2010-06-14 21:35 /usr/local/bin/git-shell
--rwxr-xr-x   1 root root 3602002 2010-06-14 21:35 /usr/local/bin/git-upload-archive
--rwxr-xr-x   1 root root 1512903 2010-06-14 21:35 /usr/local/bin/git-upload-pack
+-rwxr-xr-x 105 root root 3611156 2010-07-09 13:18 git
+-rwxr-xr-x   1 root root  117758 2010-07-09 13:18 git-cvsserver
+-rwxr-xr-x   1 root root  321995 2010-07-09 13:18 gitk
+-rwxr-xr-x   1 root root 3611156 2010-07-09 13:18 git-receive-pack
+-rwxr-xr-x   1 root root 1477328 2010-07-09 13:18 git-shell
+-rwxr-xr-x   1 root root 3611156 2010-07-09 13:18 git-upload-archive
+-rwxr-xr-x   1 root root 1514774 2010-07-09 13:18 git-upload-pack
 ----
 
 ----
@@ -214,7 +214,7 @@ NOTES
         5. GIT API documentation
            file:///usr/local/share/doc/git-doc/technical/api-index.html
 [...]
-Git 1.7.1                         06/14/2010                            GIT(1)
+Git 1.7.1.1                       07/09/2010                            GIT(1)
 ----
 
 ----
@@ -236,7 +236,7 @@ DESCRIPTION
        tcl/tk and started off in a separate repository but was later merged
        into the main git repository.
 [...]
-Git 1.7.1                         06/14/2010                           GITK(1)
+Git 1.7.1.1                       07/09/2010                           GITK(1)
 ----
 
 ----
@@ -335,3 +335,6 @@ Changelog
 .Version 1.0.0
 * Anpassung an Ubuntu 10.04 (Lucid Lynx) +
   Neue Programmversion
+
+.Version 1.1.1
+* Neue Programmversion: Git

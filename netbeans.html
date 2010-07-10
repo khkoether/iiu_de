@@ -562,7 +562,7 @@ footnotes: function () {
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph"><p>Version 1.0.0, Juni 2010, <a href="#_changelog">[Changelog]</a></p></div>
+<div class="paragraph"><p>Version 1.1.1, Juli 2010, <a href="#_changelog">[Changelog]</a></p></div>
 </div>
 </div>
 <h2 id="_abstract">Abstract</h2>
@@ -596,7 +596,7 @@ andere Distributionen übertragbar.</p></div>
 <div class="ulist"><div class="title">Download</div><ul>
 <li>
 <p>
-<a href="http://java.sun.com/javase/downloads/index.jsp">Sun Java SDK 6 Update 20</a><br />
+<a href="http://java.sun.com/javase/downloads/index.jsp">Sun Java SDK 6 Update 21</a><br />
   jdk-6u18-linux-i586.bin (ca. 81 MB)
 </p>
 </li>
@@ -618,8 +618,8 @@ Während anschließende Installation der NetBeans IDE für den Benutzer <em>bob<
 <div class="listingblock">
 <div class="content">
 <pre><tt>$ ls -l
--rw-r--r-- 1 bob bob  84796967 2010-06-15 18:58 jdk-6u20-linux-i586.bin
--rw-r--r-- 1 khk khk 261880832 2010-06-20 09:52 netbeans-6.9-ml-linux.sh</tt></pre>
+-rw-r--r-- 1 bob bob 83854743 2010-07-09 18:31 jdk-6u21-linux-i586.bin
+-rw-r--r-- 1 bob bob 261880832 2010-06-20 09:52 netbeans-6.9-ml-linux.sh</tt></pre>
 </div></div>
 </td>
 </tr></table>
@@ -627,7 +627,7 @@ Während anschließende Installation der NetBeans IDE für den Benutzer <em>bob<
 </div>
 <h2 id="_installation">Installation</h2>
 <div class="sectionbody">
-<h3 id="_sun_java_sdk_6_update_20">Sun Java SDK 6 Update 20</h3><div style="clear:left"></div>
+<h3 id="_sun_java_sdk_6_update_21">Sun Java SDK 6 Update 21</h3><div style="clear:left"></div>
 <div class="paragraph"><p>Zusätzliche Software-Pakete die nicht über das Paketmanagement
 verwaltet wird, sollten im Verzeichnis <em>/opt</em> (Optional)
 installiert werden.</p></div>
@@ -635,19 +635,19 @@ installiert werden.</p></div>
 <div class="listingblock">
 <div class="content">
 <pre><tt>$ sudo mkdir /opt/Java &amp;&amp; cd /opt/Java
-$ sudo sh jdk-6u18-linux-i586.bin  &lt;--- Lizenbedingungen bestätigen!
+$ sudo sh jdk-6u21-linux-i586.bin  &lt;--- Lizenbedingungen bestätigen!
 $ ls -l
-drwxr-xr-x 10 root root 4096 2010-06-15 19:08 jdk1.6.0_20</tt></pre>
+drwxr-xr-x 10 root root 4096 2010-06-15 19:08 jdk1.6.0_21</tt></pre>
 </div></div>
 <div class="paragraph"><p><strong>Step 2:</strong> Java-Installation für den Mozilla Firefox einrichten</p></div>
 <div class="listingblock">
 <div class="content">
 <pre><tt>$ cd /etc/alternatives
-$ sudo ln -s /opt/Java/jdk1.6.0_18/jre/plugin/i386/ns7/libjavaplugin_oji.so mozilla-javaplugin.so
+$ sudo ln -s /opt/Java/jdk1.6.0_21/jre/plugin/i386/ns7/libjavaplugin_oji.so mozilla-javaplugin.so
 $ cd /usr/lib/mozilla/plugins
 $ sudo ln -s /etc/alternatives/mozilla-javaplugin.so libjavaplugin.so
 $ ls -l
-lrwxrwxrwx 1 root root     39 2010-06-15 19:36 libjavaplugin.so -&gt; /etc/alternatives/mozilla-javaplugin.so
+lrwxrwxrwx 1 root root     39 2010-07-09 18:44 libjavaplugin.so -&gt; /etc/alternatives/mozilla-javaplugin.so
 [...]</tt></pre>
 </div></div>
 <div class="paragraph"><p>Browser&gt; about:plugins<br />
@@ -660,7 +660,7 @@ Browser&gt; <a href="http://www.arndt-bruenner.de/mathe/java/koerper3d.htm">3D-K
 $ sudo mkdir -p /opt/Tomcat/bob   &amp;&amp; chown bob.bob /opt/Tomcat/bob    (Optional)
 
 $ cd /opt/NetBeans/bob
-$ sh netbeans-6.9-ml-linux.sh --javahome /opt/Java/jdk1.6.0_20/</tt></pre>
+$ sh netbeans-6.9-ml-linux.sh --javahome /opt/Java/jdk1.6.0_21/</tt></pre>
 </div></div>
 <div class="paragraph"><p>&nbsp;<br />
 &nbsp;<br />
@@ -746,7 +746,7 @@ Apache Tomcat 6.0.26                  (Optional)
 </li>
 <li>
 <p>
-/opt/Java/jdk1.6.0_20
+/opt/Java/jdk1.6.0_21
 </p>
 </li>
 <li>
@@ -854,10 +854,10 @@ Ruby on Rails 3.0.0 Beta4</p></div>
 <div class="listingblock">
 <div class="title">Script zum Setzen der Umgebung für das Built-in JRuby 1.5.0 (ohne weitere Erläuterung)</div>
 <div class="content">
-<pre><tt>JAVA_BINDIR=/opt/Java/jdk1.6.0_20/bin
-JAVA_HOME=/opt/Java/jdk1.6.0_20
-JDK_HOME=/opt/Java/jdk1.6.0_20
-JRE_HOME=/opt/Java/jdk1.6.0_20
+<pre><tt>JAVA_BINDIR=/opt/Java/jdk1.6.0_21/bin
+JAVA_HOME=/opt/Java/jdk1.6.0_21
+JDK_HOME=/opt/Java/jdk1.6.0_21
+JRE_HOME=/opt/Java/jdk1.6.0_21
 
 JRUBY_HOME=/opt/NetBeans/bob/netbeans-6.9/ruby/jruby-1.5.0/bin
 CATALINA_OPTS='-server -Xms512m -Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=512m'
@@ -932,12 +932,19 @@ Korrektur für AsciiDoc
 </p>
 </li>
 </ul></div>
+<div class="ulist"><div class="title">Version 1.1.1</div><ul>
+<li>
+<p>
+Neue Programmversionen: JDK
+</p>
+</li>
+</ul></div>
 </div>
 </div>
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2010-06-20 11:36:53 CEST
+Last updated 2010-07-10 15:17:03 CEST
 </div>
 </div>
 </body>
