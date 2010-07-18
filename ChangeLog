@@ -30,3 +30,6 @@
 
 .Version 1.1.1
 * Neue Programmversionen: Git, Ruby, JDK, JRuby
+
+.Version 1.1.2
+* Neue Programmversionen: Ruby RC2
