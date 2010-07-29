@@ -47,7 +47,7 @@ andere Distributionen übertragbar.
 
 .Download
 * {java-url}[Sun Java SDK 6 Update 21] +    
-  jdk-6u18-linux-i586.bin (ca. 81 MB)
+  jdk-6u21-linux-i586.bin (ca. 81 MB)
 * {netbeans-url}[NetBeans 6.9] +    
   netbeans-6.9-ml-linux.sh (ca. 250 MB) (IDE-Sprache: Deutsch)
 
@@ -57,7 +57,7 @@ Die Installation des Sun Java SDK wird vom Benutzer 'root' für das System durch
 Während anschließende Installation der NetBeans IDE für den Benutzer 'bob' ausgeführt wird. 
 ----
 $ ls -l 
--rw-r--r-- 1 bob bob 83854743 2010-07-09 18:31 jdk-6u21-linux-i586.bin
+-rw-r--r-- 1 bob bob  83854743 2010-07-09 18:31 jdk-6u21-linux-i586.bin
 -rw-r--r-- 1 bob bob 261880832 2010-06-20 09:52 netbeans-6.9-ml-linux.sh
 ----
 ====

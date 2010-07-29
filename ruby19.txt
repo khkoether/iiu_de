@@ -1,5 +1,5 @@
-Installation in Ubuntu: Ruby 1.9.2 RC2, Ruby on Rails 3.0 Beta4
-===============================================================
+Installation in Ubuntu: Ruby 1.9.2 RC2, Ruby on Rails 3.0 RC
+============================================================
 Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;>
 
 :icons:
@@ -13,7 +13,7 @@ Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;
 :rubyonrails-url: http://www.rubyonrails.org
 :netbeans-url: http://www.netbeans.org/downloads/index.html
 
-Version 1.1.2, Juli 2010, <<_changelog,[Changelog]>>
+Version 1.2.0, Juli 2010, <<_changelog,[Changelog]>>
 
 Abstract
 --------
@@ -244,8 +244,8 @@ $ sudo mkdir -p /opt/local/bin
 $ cd /opt/Ruby/
 $ sudo ln -s ruby-1.9.2-rc2 current
 $ ls -l
-lrwxrwxrwx 1 root root   15 2010-07-09 15:53 current -> ruby-1.9.2-rc2/
-drwxr-xr-x 6 root root 4096 2010-07-09 15:49 ruby-1.9.2-rc2
+lrwxrwxrwx 1 root root   15 2010-07-18 21:50 current -> ruby-1.9.2-rc2/
+drwxr-xr-x 6 root root 4096 2010-07-18 21:47 ruby-1.9.2-rc2
 
 $ cd /opt/local/bin
 $ sudo ln -s ../../Ruby/current/bin/erb
@@ -315,7 +315,7 @@ irb(main):005:0> exit
 ----
 
 
-=== Ruby on Rails 3.0 Beta 4
+=== Ruby on Rails 3.0 RC
 
 [NOTE]
 ====
@@ -353,79 +353,112 @@ rdoc (2.5.8)
 Updating RubyGems
 Nothing to update
 
-$ gem -v
+# gem -v
 1.3.7
-
-$ gem list --local
-*** LOCAL GEMS ***
-minitest (1.6.0)
-rake (0.8.7)
-rdoc (2.5.8)
 ----
 
-*Step 3:* Wichtig ist hier die Systemweite Installation von 
+*Step 3:* Installierte RubyGems aktualisieren
+----
+# gem update
+Updating installed gems
+Updating minitest
+Successfully installed minitest-1.7.0
+Updating rdoc
+RDoc 2.5 did not save method parameters, so you should upgrade your rdoc-data
+gem to a version >= 2.5.3.
+
+To have ri data for core and stdlib you'll need to:
+
+  gem install rdoc-data
+
+then run:
+
+  rdoc-data --install
+
+To have ri data for you gems you'll also need to run:
+
+  gem rdoc --all --overwrite
+
+If you don't want to rebuild the rdoc for `gem server`, add --no-rdoc.
+Successfully installed rdoc-2.5.9
+Gems updated: minitest, rdoc
+Installing ri documentation for minitest-1.7.0...
+Installing ri documentation for rdoc-2.5.9...
+Installing RDoc documentation for minitest-1.7.0...
+Installing RDoc documentation for rdoc-2.5.9...
+----
+
+----
+# gem list --local
+*** LOCAL GEMS ***
+minitest (1.7.0, 1.6.0)
+rake (0.8.7)
+rdoc (2.5.9, 2.5.8)
+----
+
+*Step 4:* Wichtig ist hier die Systemweite Installation von 
 Rails 3.0.0 mit dem Benutzer 'root'.
 ---- 
 # gem install rails --pre
-Successfully installed activesupport-3.0.0.beta4
+Successfully installed activesupport-3.0.0.rc
 Successfully installed builder-2.1.2
 Successfully installed i18n-0.4.1
-Successfully installed activemodel-3.0.0.beta4
-Successfully installed rack-1.1.0
+Successfully installed activemodel-3.0.0.rc
+Successfully installed rack-1.2.1
 Successfully installed rack-test-0.5.4
 Successfully installed rack-mount-0.6.9
 Successfully installed tzinfo-0.3.22
 Successfully installed abstract-1.0.0
 Successfully installed erubis-2.6.6
-Successfully installed actionpack-3.0.0.beta4
+Successfully installed actionpack-3.0.0.rc
 Successfully installed arel-0.4.0
-Successfully installed activerecord-3.0.0.beta4
-Successfully installed activeresource-3.0.0.beta4
+Successfully installed activerecord-3.0.0.rc
+Successfully installed activeresource-3.0.0.rc
 Successfully installed mime-types-1.16
 Successfully installed polyglot-0.3.1
 Successfully installed treetop-1.4.8
 Successfully installed mail-2.2.5
-Successfully installed actionmailer-3.0.0.beta4
-Successfully installed thor-0.13.8
-Successfully installed railties-3.0.0.beta4
-Successfully installed bundler-0.9.26
-Successfully installed rails-3.0.0.beta4
+Successfully installed actionmailer-3.0.0.rc
+Successfully installed thor-0.14.0
+Successfully installed railties-3.0.0.rc
+Successfully installed bundler-1.0.0.rc.1
+Successfully installed rails-3.0.0.rc
 23 gems installed
-Installing ri documentation for activesupport-3.0.0.beta4...
+Installing ri documentation for activesupport-3.0.0.rc...
 [...]
-Installing ri documentation for rails-3.0.0.beta4...
-Installing RDoc documentation for activesupport-3.0.0.beta4...
+Installing ri documentation for rails-3.0.0.rc...
+Installing RDoc documentation for activesupport-3.0.0.rc...
 [...]
-Installing RDoc documentation for rails-3.0.0.beta4...
+Installing RDoc documentation for rails-3.0.0.rc...
 ----
 
 ----
 $ gem list --local
 *** LOCAL GEMS ***
 abstract (1.0.0)
-actionmailer (3.0.0.beta4)
-actionpack (3.0.0.beta4)
-activemodel (3.0.0.beta4)
-activerecord (3.0.0.beta4)
-activeresource (3.0.0.beta4)
-activesupport (3.0.0.beta4)
+actionmailer (3.0.0.rc)
+actionpack (3.0.0.rc)
+activemodel (3.0.0.rc)
+activerecord (3.0.0.rc)
+activeresource (3.0.0.rc)
+activesupport (3.0.0.rc)
 arel (0.4.0)
 builder (2.1.2)
-bundler (0.9.26)
+bundler (1.0.0.rc.1)
 erubis (2.6.6)
 i18n (0.4.1)
 mail (2.2.5)
 mime-types (1.16)
-minitest (1.6.0)
+minitest (1.7.0, 1.6.0)
 polyglot (0.3.1)
-rack (1.1.0)
+rack (1.2.1)
 rack-mount (0.6.9)
 rack-test (0.5.4)
-rails (3.0.0.beta4)
-railties (3.0.0.beta4)
+rails (3.0.0.rc)
+railties (3.0.0.rc)
 rake (0.8.7)
-rdoc (2.5.8)
-thor (0.13.8)
+rdoc (2.5.9, 2.5.8)
+thor (0.14.0)
 treetop (1.4.8)
 tzinfo (0.3.22)
 ----
@@ -442,21 +475,21 @@ $ sudo ln -s ../../Ruby/current/bin/thor
 $ sudo ln -s ../../Ruby/current/bin/tt
 
 $ ls -l
-lrwxrwxrwx 1 root root 29 2010-07-18 22:00 bundle -> ../../Ruby/current/bin/bundle
-lrwxrwxrwx 1 root root 26 2010-07-18 21:51 erb -> ../../Ruby/current/bin/erb
-lrwxrwxrwx 1 root root 29 2010-07-18 22:00 erubis -> ../../Ruby/current/bin/erubis
-lrwxrwxrwx 1 root root 26 2010-07-18 21:51 gem -> ../../Ruby/current/bin/gem
-lrwxrwxrwx 1 root root 26 2010-07-18 21:51 irb -> ../../Ruby/current/bin/irb
-lrwxrwxrwx 1 root root 29 2010-07-18 22:00 rackup -> ../../Ruby/current/bin/rackup
-lrwxrwxrwx 1 root root 28 2010-07-18 22:00 rails -> ../../Ruby/current/bin/rails
-lrwxrwxrwx 1 root root 27 2010-07-18 21:51 rake -> ../../Ruby/current/bin/rake
-lrwxrwxrwx 1 root root 32 2010-07-18 22:00 rake2thor -> ../../Ruby/current/bin/rake2thor
-lrwxrwxrwx 1 root root 27 2010-07-18 21:51 rdoc -> ../../Ruby/current/bin/rdoc
-lrwxrwxrwx 1 root root 25 2010-07-18 21:51 ri -> ../../Ruby/current/bin/ri
-lrwxrwxrwx 1 root root 27 2010-07-18 21:51 ruby -> ../../Ruby/current/bin/ruby
-lrwxrwxrwx 1 root root 29 2010-07-18 21:51 testrb -> ../../Ruby/current/bin/testrb
-lrwxrwxrwx 1 root root 27 2010-07-18 22:00 thor -> ../../Ruby/current/bin/thor
-lrwxrwxrwx 1 root root 25 2010-07-18 22:01 tt -> ../../Ruby/current/bin/tt
+lrwxrwxrwx 1 root root 29 2010-07-29 22:00 bundle -> ../../Ruby/current/bin/bundle
+lrwxrwxrwx 1 root root 26 2010-07-29 21:51 erb -> ../../Ruby/current/bin/erb
+lrwxrwxrwx 1 root root 29 2010-07-29 22:00 erubis -> ../../Ruby/current/bin/erubis
+lrwxrwxrwx 1 root root 26 2010-07-29 21:51 gem -> ../../Ruby/current/bin/gem
+lrwxrwxrwx 1 root root 26 2010-07-29 21:51 irb -> ../../Ruby/current/bin/irb
+lrwxrwxrwx 1 root root 29 2010-07-29 22:00 rackup -> ../../Ruby/current/bin/rackup
+lrwxrwxrwx 1 root root 28 2010-07-29 22:00 rails -> ../../Ruby/current/bin/rails
+lrwxrwxrwx 1 root root 27 2010-07-29 21:51 rake -> ../../Ruby/current/bin/rake
+lrwxrwxrwx 1 root root 32 2010-07-29 22:00 rake2thor -> ../../Ruby/current/bin/rake2thor
+lrwxrwxrwx 1 root root 27 2010-07-29 21:51 rdoc -> ../../Ruby/current/bin/rdoc
+lrwxrwxrwx 1 root root 25 2010-07-29 21:51 ri -> ../../Ruby/current/bin/ri
+lrwxrwxrwx 1 root root 27 2010-07-29 21:51 ruby -> ../../Ruby/current/bin/ruby
+lrwxrwxrwx 1 root root 29 2010-07-29 21:51 testrb -> ../../Ruby/current/bin/testrb
+lrwxrwxrwx 1 root root 27 2010-07-29 22:00 thor -> ../../Ruby/current/bin/thor
+lrwxrwxrwx 1 root root 25 2010-07-29 22:01 tt -> ../../Ruby/current/bin/tt
 ----
 
 *Step 4:* Installation der Datenbank-Treiber mit dem Benutzer 'root'.
@@ -483,7 +516,7 @@ $ which rails
 /opt/local/bin/rails
 
 $ rails -v
-Rails 3.0.0.beta4
+Rails 3.0.0.rc
 
 $ cd
 $ mkdir RailsDir
@@ -521,17 +554,24 @@ Bye
 
 $ rails s
 => Booting WEBrick
-=> Rails 3.0.0.beta4 application starting in development on http://0.0.0.0:3000
+=> Rails 3.0.0.rc application starting in development on http://0.0.0.0:3000
 => Call with -d to detach
 => Ctrl-C to shutdown server
-[2010-07-18 22:04:41] INFO  WEBrick 1.3.1
-[2010-07-18 22:04:41] INFO  ruby 1.9.2 (2010-07-11) [i686-linux]
-[2010-07-18 22:04:41] INFO  WEBrick::HTTPServer#start: pid=18769 port=3000
+[2010-07-29 20:58:08] INFO  WEBrick 1.3.1
+[2010-07-29 20:58:08] INFO  ruby 1.9.2 (2010-07-11) [i686-linux]
+[2010-07-29 20:58:08] INFO  WEBrick::HTTPServer#start: pid=18683 port=3000
 ----
 
 ----
 Browser> http://localhost:3000/
+         About your application’s environment         
 ----
+
+++++
+<img src="images/welcome_aboard_ruby19_rails3.gif" border="1px"
+ alt="Ruby on Rails: Welcome aboard" 
+ title="Ruby on Rails: Welcome aboard" 
+++++
 
 Anhang
 ------
@@ -615,3 +655,7 @@ Changelog
   
 .Version 1.1.2
 * Neue Programmversion: Ruby RC2  
+
+.Version 1.2.0
+* Neue Programmversion: Ruby RC2 -> Rails RC
+

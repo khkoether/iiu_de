@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="generator" content="AsciiDoc 8.5.3" />
-<title>Installation in Ubuntu: Git 1.7.1.1</title>
+<title>Installation in Ubuntu: Git 1.7.2.1</title>
 <style type="text/css">
 /* Debug borders */
 p, li, dt, dd, div, pre, h1, h2, h3, h4, h5, h6 {
@@ -551,7 +551,7 @@ footnotes: function () {
 </head>
 <body>
 <div id="header">
-<h1>Installation in Ubuntu: Git 1.7.1.1</h1>
+<h1>Installation in Ubuntu: Git 1.7.2.1</h1>
 <span id="author">Karl-Heinz Köther</span><br />
 <span id="email"><tt>&lt;<a href="mailto:&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;">&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;</a>&gt;</tt></span><br />
 <div id="toc">
@@ -562,7 +562,7 @@ footnotes: function () {
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph"><p>Version 1.1.1, Juli 2010, <a href="#_changelog">[Changelog]</a></p></div>
+<div class="paragraph"><p>Version 1.2.0, Juli 2010, <a href="#_changelog">[Changelog]</a></p></div>
 </div>
 </div>
 <h2 id="_abstract">Abstract</h2>
@@ -597,8 +597,8 @@ andere Debian-basierte GNU/Linux Distributionen übertragbar.</p></div>
 <li>
 <p>
 <a href="http://git-scm.com/">Git</a><br />
-  git-1.7.1.1.tar.gz  (ca. 2.9 MB)<br />
-  2010-06-29 (Release date)
+  git-1.7.2.1.tar.gz  (ca. 3.0 MB)<br />
+  2010-07-27 (Release date)
 </p>
 </li>
 </ul></div>
@@ -615,7 +615,7 @@ Benutzer <em>root</em> für das System durchgeführt.</p></div>
 <div class="listingblock">
 <div class="content">
 <pre><tt>$ ls -l
--rw-r--r-- 1 bob bob 3014619 2010-07-09 12:50 git-1.7.1.1.tar.gz</tt></pre>
+-rw-r--r-- 1 bob bob 3076039 2010-07-29 20:02 git-1.7.2.1.tar.gz</tt></pre>
 </div></div>
 </td>
 </tr></table>
@@ -642,7 +642,7 @@ Programm-Pakete installiert sind.</p></div>
 </div>
 <h2 id="_installation">Installation</h2>
 <div class="sectionbody">
-<h3 id="_git_1_7_1_1">Git 1.7.1.1</h3><div style="clear:left"></div>
+<h3 id="_git_1_7_2_1">Git 1.7.2.1</h3><div style="clear:left"></div>
 <div class="admonitionblock">
 <table><tr>
 <td class="icon">
@@ -660,8 +660,8 @@ Beispiel für die Änderung des Installations-Verzeichnisses:
 <div class="paragraph"><p><strong>Step 1:</strong> Auspacken des Source-Code</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt>$ tar xvzf git-1.7.1.1.tar.gz
-$ cd git-1.7.1.1</tt></pre>
+<pre><tt>$ tar xvzf git-1.7.2.1.tar.gz
+$ cd git-1.7.2.1</tt></pre>
 </div></div>
 <div class="paragraph"><p><strong>Step 2:</strong> Konfiguration erstellen und kompilieren</p></div>
 <div class="listingblock">
@@ -683,13 +683,13 @@ config.status: creating config.mak.autogen</tt></pre>
 <div class="listingblock">
 <div class="content">
 <pre><tt>$ make all doc | tee ../log.git_make_all_doc
-GIT_VERSION = 1.7.1
+GIT_VERSION = 1.7.2.1
     * new build flags or prefix
     CC fast-import.o
 [...]
     ASCIIDOC gitworkflows.xml
     XMLTO gitworkflows.7
-make[1]: Verlasse Verzeichnis '.../git-1.7.1/Documentation'</tt></pre>
+make[1]: Verlasse Verzeichnis '.../git-1.7.2.1/Documentation'</tt></pre>
 </div></div>
 <div class="paragraph"><p><strong>Step 3:</strong> Installation (als Benutzer <em>root</em>)</p></div>
 <div class="listingblock">
@@ -722,13 +722,13 @@ make -C Documentation install
 <div class="content">
 <pre><tt>$ cd /usr/local/bin
 $ ls -l git*
--rwxr-xr-x 105 root root 3611156 2010-07-09 13:18 git
--rwxr-xr-x   1 root root  117758 2010-07-09 13:18 git-cvsserver
--rwxr-xr-x   1 root root  321995 2010-07-09 13:18 gitk
--rwxr-xr-x   1 root root 3611156 2010-07-09 13:18 git-receive-pack
--rwxr-xr-x   1 root root 1477328 2010-07-09 13:18 git-shell
--rwxr-xr-x   1 root root 3611156 2010-07-09 13:18 git-upload-archive
--rwxr-xr-x   1 root root 1514774 2010-07-09 13:18 git-upload-pack</tt></pre>
+-rwxr-xr-x 105 root root 3703442 2010-07-29 20:25 git
+-rwxr-xr-x   1 root root  120937 2010-07-29 20:25 git-cvsserver
+-rwxr-xr-x   1 root root  321995 2010-07-29 20:25 gitk
+-rwxr-xr-x   1 root root 3703442 2010-07-29 20:25 git-receive-pack
+-rwxr-xr-x   1 root root 1522547 2010-07-29 20:25 git-shell
+-rwxr-xr-x   1 root root 3703442 2010-07-29 20:25 git-upload-archive
+-rwxr-xr-x   1 root root 1564665 2010-07-29 20:25 git-upload-pack</tt></pre>
 </div></div>
 <div class="listingblock">
 <div class="content">
@@ -790,7 +790,7 @@ NOTES
         5. GIT API documentation
            file:///usr/local/share/doc/git-doc/technical/api-index.html
 [...]
-Git 1.7.1.1                       07/09/2010                            GIT(1)</tt></pre>
+Git 1.7.2.1                       07/29/2010                            GIT(1)</tt></pre>
 </div></div>
 <div class="listingblock">
 <div class="content">
@@ -812,7 +812,7 @@ DESCRIPTION
        tcl/tk and started off in a separate repository but was later merged
        into the main git repository.
 [...]
-Git 1.7.1.1                       07/09/2010                           GITK(1)</tt></pre>
+Git 1.7.2.1                       07/29/2010                           GITK(1)</tt></pre>
 </div></div>
 <div class="listingblock">
 <div class="content">
@@ -924,12 +924,19 @@ Neue Programmversion: Git
 </p>
 </li>
 </ul></div>
+<div class="ulist"><div class="title">Version 1.2.0</div><ul>
+<li>
+<p>
+Neue Programmversion: Git
+</p>
+</li>
+</ul></div>
 </div>
 </div>
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2010-07-10 15:16:43 CEST
+Last updated 2010-07-29 20:29:08 CEST
 </div>
 </div>
 </body>

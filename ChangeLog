@@ -33,3 +33,6 @@
 
 .Version 1.1.2
 * Neue Programmversionen: Ruby RC2
+
+.Version 1.2.0
+* Neue Programmversionen: Git, Ruby -> Rails RC, JRuby -> Rails RC
