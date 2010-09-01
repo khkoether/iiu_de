@@ -1,4 +1,4 @@
-Installation in Ubuntu: AsciiDoc 8.5.3
+Installation in Ubuntu: AsciiDoc 8.6.1
 ======================================
 Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;>
 
@@ -9,7 +9,7 @@ Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;
 :asciidoc-url: http://www.methods.co.nz/asciidoc/
 :sourceforge-url: http://sourceforge.net/projects/asciidoc/files/
 
-Version 1.1.0, Juli 2010, <<_changelog,[Changelog]>>
+Version 1.3.0, August 2010, <<_changelog,[Changelog]>>
 
 Abstract
 --------
@@ -42,8 +42,8 @@ andere Debian-basierte GNU/Linux Distributionen übertragbar.
 
 .Download
 * {sourceforge-url}[AsciiDoc] +    
-  asciidoc-8.5.3.tar.gz  (ca. 1.3 MB) +
-  2010-01-17 (Release date)
+  asciidoc-8.6.1.tar.gz  (ca. 732 KB) +
+  2010-08-21 (Release date)
   
 [NOTE] 
 ====
@@ -53,7 +53,7 @@ Die eigentliche Installation von AsciiDoc wird vom
 Benutzer 'root' für das System durchgeführt.
 ----
 $ ls -l 
--rw-r--r-- 1 bob bob 1254979 2010-06-14 20:41 asciidoc-8.5.3.tar.gz
+-rw-r--r-- 1 bob bob   749502 2010-08-29 20:07 asciidoc-8.6.1.tar.gz
 ----
 ====
 
@@ -71,7 +71,7 @@ $ sudo apt-get install ...
 == Installation
 
 
-=== AsciiDoc 8.5.3
+=== AsciiDoc 8.6.1
 
 [IMPORTANT]
 ====
@@ -84,8 +84,8 @@ Beispiel für die Änderung des Installations-Verzeichnisses:
 
 *Step 1:* Auspacken des Source-Code
 ----
-$ tar xvzf asciidoc-8.5.3.tar.gz
-$ cd asciidoc-8.5.3
+$ tar xvzf asciidoc-8.6.1.tar.gz
+$ cd asciidoc-8.6.1
 ----
 
 *Step 2:* Konfiguration erstellen und kompilieren
@@ -113,6 +113,13 @@ Fixing CONF_DIR in a2x
 [...]
 ----
 
+Neuerdings wird die HTML-Dokumentation nicht mehr erstellt!?
+----
+$ cd examples/website 
+$ ./build-website.sh
+$ cd -
+----
+
 ----
 $ sudo make docs | tee ../log.asciidoc_make_docs
 /usr/bin/install -c -d //usr/local/share/doc/asciidoc
@@ -123,10 +130,10 @@ $ sudo make docs | tee ../log.asciidoc_make_docs
 ----
 $ cd /usr/local/bin
 $ ls -l
-lrwxrwxrwx   1 root root       6 2010-06-14 20:44 a2x -> a2x.py
--rwxr-xr-x   1 root root   28208 2010-06-14 20:44 a2x.py
-lrwxrwxrwx   1 root root      11 2010-06-14 20:44 asciidoc -> asciidoc.py
--rwxr-xr-x   1 root root  220707 2010-06-14 20:44 asciidoc.py
+lrwxrwxrwx   1 root root       6 2010-08-29 20:11 a2x -> a2x.py
+-rwxr-xr-x   1 root root   30793 2010-08-29 20:11 a2x.py
+lrwxrwxrwx   1 root root      11 2010-08-29 20:11 asciidoc -> asciidoc.py
+-rwxr-xr-x   1 root root  224077 2010-08-29 20:11 asciidoc.py
 [...]
 ----
 
@@ -230,3 +237,5 @@ Changelog
 .Version 1.1.0
 * Version 8.5.3 ist weiterhin aktuell
   
+.Version 1.3.0
+* Neue Programmversion 8.6.1

@@ -1,4 +1,4 @@
-Installation in Ubuntu: Git 1.7.2.1
+Installation in Ubuntu: Git 1.7.2.2
 ===================================
 Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;>
 
@@ -9,7 +9,7 @@ Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;
 :asciidoc-url: http://www.methods.co.nz/asciidoc/
 :git-url: http://git-scm.com/
 
-Version 1.2.0, Juli 2010, <<_changelog,[Changelog]>>
+Version 1.3.0, August 2010, <<_changelog,[Changelog]>>
 
 Abstract
 --------
@@ -40,8 +40,8 @@ andere Debian-basierte GNU/Linux Distributionen übertragbar.
 
 .Download
 * {git-url}[Git] +    
-  git-1.7.2.1.tar.gz  (ca. 3.0 MB) +
-  2010-07-27 (Release date)
+  git-1.7.2.2.tar.gz  (ca. 3.0 MB) +
+  2010-08-19 (Release date)
   
 [NOTE] 
 ====
@@ -51,7 +51,7 @@ Die eigentliche Installation von Git wird vom
 Benutzer 'root' für das System durchgeführt.
 ----
 $ ls -l 
--rw-r--r-- 1 bob bob 3076039 2010-07-29 20:02 git-1.7.2.1.tar.gz
+-rw-r--r-- 1 bob bob  3078612 2010-08-20 22:29 git-1.7.2.2.tar.gz
 ----
 ====
 
@@ -71,7 +71,7 @@ $ sudo apt-get install ...
 == Installation
 
 
-=== Git 1.7.2.1
+=== Git 1.7.2.2
 
 [IMPORTANT]
 ====
@@ -84,8 +84,8 @@ Beispiel für die Änderung des Installations-Verzeichnisses:
 
 *Step 1:* Auspacken des Source-Code
 ----
-$ tar xvzf git-1.7.2.1.tar.gz
-$ cd git-1.7.2.1
+$ tar xvzf git-1.7.2.2.tar.gz
+$ cd git-1.7.2.2
 ----
 
 *Step 2:* Konfiguration erstellen und kompilieren
@@ -98,7 +98,7 @@ configure: CHECKS for programs
 checking for cc... cc
 [...]
 checking for asciidoc... asciidoc
-checking for asciidoc version... asciidoc 8.5.3 > 7
+checking for asciidoc version... asciidoc 8.6.0 > 7
 [...]
 checking Checking for POSIX Threads with '-pthread'... yes
 configure: creating ./config.status
@@ -107,13 +107,13 @@ config.status: creating config.mak.autogen
 
 ----
 $ make all doc | tee ../log.git_make_all_doc
-GIT_VERSION = 1.7.2.1
+GIT_VERSION = 1.7.2.2
     * new build flags or prefix
     CC fast-import.o
 [...]
     ASCIIDOC gitworkflows.xml
     XMLTO gitworkflows.7
-make[1]: Verlasse Verzeichnis '.../git-1.7.2.1/Documentation'
+make[1]: Verlasse Verzeichnis '.../git-1.7.2.2/Documentation'
 ----
 
 *Step 3:* Installation (als Benutzer 'root')
@@ -146,13 +146,13 @@ make -C Documentation install
 ----
 $ cd /usr/local/bin
 $ ls -l git*
--rwxr-xr-x 105 root root 3703442 2010-07-29 20:25 git
--rwxr-xr-x   1 root root  120937 2010-07-29 20:25 git-cvsserver
--rwxr-xr-x   1 root root  321995 2010-07-29 20:25 gitk
--rwxr-xr-x   1 root root 3703442 2010-07-29 20:25 git-receive-pack
--rwxr-xr-x   1 root root 1522547 2010-07-29 20:25 git-shell
--rwxr-xr-x   1 root root 3703442 2010-07-29 20:25 git-upload-archive
--rwxr-xr-x   1 root root 1564665 2010-07-29 20:25 git-upload-pack
+-rwxr-xr-x 105 root root 3708859 2010-08-20 22:54 git
+-rwxr-xr-x   1 root root  120937 2010-08-20 22:54 git-cvsserver
+-rwxr-xr-x   1 root root  321995 2010-08-20 22:54 gitk
+-rwxr-xr-x   1 root root 3708859 2010-08-20 22:54 git-receive-pack
+-rwxr-xr-x   1 root root 1523464 2010-08-20 22:54 git-shell
+-rwxr-xr-x   1 root root 3708859 2010-08-20 22:54 git-upload-archive
+-rwxr-xr-x   1 root root 1565582 2010-08-20 22:54 git-upload-pack
 ----
 
 ----
@@ -214,7 +214,7 @@ NOTES
         5. GIT API documentation
            file:///usr/local/share/doc/git-doc/technical/api-index.html
 [...]
-Git 1.7.2.1                       07/29/2010                            GIT(1)
+Git 1.7.2.2                       08/20/2010                            GIT(1)
 ----
 
 ----
@@ -236,7 +236,7 @@ DESCRIPTION
        tcl/tk and started off in a separate repository but was later merged
        into the main git repository.
 [...]
-Git 1.7.2.1                       07/29/2010                           GITK(1)
+Git 1.7.2.2                       08/20/2010                           GITK(1)
 ----
 
 ----
@@ -341,3 +341,6 @@ Changelog
 
 .Version 1.2.0
 * Neue Programmversion: Git
+
+.Version 1.3.0
+* Neue Programmversion 1.7.2.2

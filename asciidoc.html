@@ -2,9 +2,9 @@
     "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta name="generator" content="AsciiDoc 8.5.3" />
-<title>Installation in Ubuntu: AsciiDoc 8.5.3</title>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.6.1" />
+<title>Installation in Ubuntu: AsciiDoc 8.6.1</title>
 <style type="text/css">
 /* Debug borders */
 p, li, dt, dd, div, pre, h1, h2, h3, h4, h5, h6 {
@@ -260,6 +260,7 @@ div.tableblock > table {
 thead, p.table.header {
   font-family: sans-serif;
   font-weight: bold;
+  color: #527bbd;
 }
 tfoot {
   font-weight: bold;
@@ -339,6 +340,14 @@ span.footnote, span.footnoteref {
   min-width: 100px;
 }
 
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
 
 @media print {
   div#footer-badges { display: none; }
@@ -373,47 +382,7 @@ div.toclevel4 {
   margin-left: 6em;
   font-size: 0.9em;
 }
-/* Workarounds for IE6's broken and incomplete CSS2. */
 
-div.sidebar-content {
-  background: #ffffee;
-  border: 1px solid silver;
-  padding: 0.5em;
-}
-div.sidebar-title, div.image-title {
-  color: #527bbd;
-  font-family: sans-serif;
-  font-weight: bold;
-  margin-top: 0.0em;
-  margin-bottom: 0.5em;
-}
-
-div.listingblock div.content {
-  border: 1px solid silver;
-  background: #f4f4f4;
-  padding: 0.5em;
-}
-
-div.quoteblock-attribution {
-  padding-top: 0.5em;
-  text-align: right;
-}
-
-pre.verseblock-content {
-  font-family: inherit;
-}
-div.verseblock-attribution {
-  padding-top: 0.75em;
-  text-align: left;
-}
-
-div.exampleblock-content {
-  border-left: 3px solid #dddddd;
-  padding-left: 0.5em;
-}
-
-/* IE6 sets dynamically generated links as visited. */
-div#toc a:visited { color: blue; }
 </style>
 <script type="text/javascript">
 /*<![CDATA[*/
@@ -549,9 +518,9 @@ footnotes: function () {
 /*]]>*/
 </script>
 </head>
-<body>
+<body class="article">
 <div id="header">
-<h1>Installation in Ubuntu: AsciiDoc 8.5.3</h1>
+<h1>Installation in Ubuntu: AsciiDoc 8.6.1</h1>
 <span id="author">Karl-Heinz Köther</span><br />
 <span id="email"><tt>&lt;<a href="mailto:&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;">&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;</a>&gt;</tt></span><br />
 <div id="toc">
@@ -562,9 +531,10 @@ footnotes: function () {
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph"><p>Version 1.1.0, Juli 2010, <a href="#_changelog">[Changelog]</a></p></div>
+<div class="paragraph"><p>Version 1.3.0, August 2010, <a href="#_changelog">[Changelog]</a></p></div>
 </div>
 </div>
+<div class="sect1">
 <h2 id="_abstract">Abstract</h2>
 <div class="sectionbody">
 <div class="paragraph"><p>Der Artikel ist eine Schritt-für-Schritt Anleitung zur Installation
@@ -588,6 +558,8 @@ Gerne nehme ich Verbesserungsvorschläge entgegen.</p></div>
 </tr></table>
 </div>
 </div>
+</div>
+<div class="sect1">
 <h2 id="_vorraussetzungen">Vorraussetzungen</h2>
 <div class="sectionbody">
 <div class="paragraph"><p>Die Installation wird für <a href="http://www.ubuntu.com/">Ubuntu 10.04 (Lucid Lynx)</a>
@@ -598,8 +570,8 @@ andere Debian-basierte GNU/Linux Distributionen übertragbar.</p></div>
 <li>
 <p>
 <a href="http://sourceforge.net/projects/asciidoc/files/">AsciiDoc</a><br />
-  asciidoc-8.5.3.tar.gz  (ca. 1.3 MB)<br />
-  2010-01-17 (Release date)
+  asciidoc-8.6.1.tar.gz  (ca. 732 KB)<br />
+  2010-08-21 (Release date)
 </p>
 </li>
 </ul></div>
@@ -616,7 +588,7 @@ Benutzer <em>root</em> für das System durchgeführt.</p></div>
 <div class="listingblock">
 <div class="content">
 <pre><tt>$ ls -l
--rw-r--r-- 1 bob bob 1254979 2010-06-14 20:41 asciidoc-8.5.3.tar.gz</tt></pre>
+-rw-r--r-- 1 bob bob   749502 2010-08-29 20:07 asciidoc-8.6.1.tar.gz</tt></pre>
 </div></div>
 </td>
 </tr></table>
@@ -639,9 +611,12 @@ Programm-Pakete installiert sind.</p></div>
 </tr></table>
 </div>
 </div>
+</div>
+<div class="sect1">
 <h2 id="_installation">Installation</h2>
 <div class="sectionbody">
-<h3 id="_asciidoc_8_5_3">AsciiDoc 8.5.3</h3><div style="clear:left"></div>
+<div class="sect2">
+<h3 id="_asciidoc_8_6_1">AsciiDoc 8.6.1</h3>
 <div class="admonitionblock">
 <table><tr>
 <td class="icon">
@@ -659,8 +634,8 @@ Beispiel für die Änderung des Installations-Verzeichnisses:
 <div class="paragraph"><p><strong>Step 1:</strong> Auspacken des Source-Code</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt>$ tar xvzf asciidoc-8.5.3.tar.gz
-$ cd asciidoc-8.5.3</tt></pre>
+<pre><tt>$ tar xvzf asciidoc-8.6.1.tar.gz
+$ cd asciidoc-8.6.1</tt></pre>
 </div></div>
 <div class="paragraph"><p><strong>Step 2:</strong> Konfiguration erstellen und kompilieren</p></div>
 <div class="listingblock">
@@ -687,6 +662,13 @@ Fixing CONF_DIR in a2x
 /usr/bin/install -c -d //usr/local/bin
 [...]</tt></pre>
 </div></div>
+<div class="paragraph"><p>Neuerdings wird die HTML-Dokumentation nicht mehr erstellt!?</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$ cd examples/website
+$ ./build-website.sh
+$ cd -</tt></pre>
+</div></div>
 <div class="listingblock">
 <div class="content">
 <pre><tt>$ sudo make docs | tee ../log.asciidoc_make_docs
@@ -698,10 +680,10 @@ Fixing CONF_DIR in a2x
 <div class="content">
 <pre><tt>$ cd /usr/local/bin
 $ ls -l
-lrwxrwxrwx   1 root root       6 2010-06-14 20:44 a2x -&gt; a2x.py
--rwxr-xr-x   1 root root   28208 2010-06-14 20:44 a2x.py
-lrwxrwxrwx   1 root root      11 2010-06-14 20:44 asciidoc -&gt; asciidoc.py
--rwxr-xr-x   1 root root  220707 2010-06-14 20:44 asciidoc.py
+lrwxrwxrwx   1 root root       6 2010-08-29 20:11 a2x -&gt; a2x.py
+-rwxr-xr-x   1 root root   30793 2010-08-29 20:11 a2x.py
+lrwxrwxrwx   1 root root      11 2010-08-29 20:11 asciidoc -&gt; asciidoc.py
+-rwxr-xr-x   1 root root  224077 2010-08-29 20:11 asciidoc.py
 [...]</tt></pre>
 </div></div>
 <div class="listingblock">
@@ -779,6 +761,9 @@ DESCRIPTION
 <pre><tt>Browser&gt; file:///usr/local/share/doc/asciidoc/examples/website/index.html</tt></pre>
 </div></div>
 </div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_changelog">Changelog</h2>
 <div class="sectionbody">
 <div class="ulist"><div class="title">Version 0.2</div><ul>
@@ -831,12 +816,20 @@ Version 8.5.3 ist weiterhin aktuell
 </p>
 </li>
 </ul></div>
+<div class="ulist"><div class="title">Version 1.3.0</div><ul>
+<li>
+<p>
+Neue Programmversion 8.6.1
+</p>
+</li>
+</ul></div>
+</div>
 </div>
 </div>
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2010-07-10 14:45:54 CEST
+Last updated 2010-08-29 20:34:16 CEST
 </div>
 </div>
 </body>

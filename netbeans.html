@@ -2,9 +2,9 @@
     "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta name="generator" content="AsciiDoc 8.5.3" />
-<title>Installation in Ubuntu: Sun Java SDK 6, NetBeans 6.9</title>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.6.1" />
+<title>Installation in Ubuntu: Sun Java SDK 6, NetBeans 6.9.1</title>
 <style type="text/css">
 /* Debug borders */
 p, li, dt, dd, div, pre, h1, h2, h3, h4, h5, h6 {
@@ -260,6 +260,7 @@ div.tableblock > table {
 thead, p.table.header {
   font-family: sans-serif;
   font-weight: bold;
+  color: #527bbd;
 }
 tfoot {
   font-weight: bold;
@@ -339,6 +340,14 @@ span.footnote, span.footnoteref {
   min-width: 100px;
 }
 
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
 
 @media print {
   div#footer-badges { display: none; }
@@ -373,47 +382,7 @@ div.toclevel4 {
   margin-left: 6em;
   font-size: 0.9em;
 }
-/* Workarounds for IE6's broken and incomplete CSS2. */
 
-div.sidebar-content {
-  background: #ffffee;
-  border: 1px solid silver;
-  padding: 0.5em;
-}
-div.sidebar-title, div.image-title {
-  color: #527bbd;
-  font-family: sans-serif;
-  font-weight: bold;
-  margin-top: 0.0em;
-  margin-bottom: 0.5em;
-}
-
-div.listingblock div.content {
-  border: 1px solid silver;
-  background: #f4f4f4;
-  padding: 0.5em;
-}
-
-div.quoteblock-attribution {
-  padding-top: 0.5em;
-  text-align: right;
-}
-
-pre.verseblock-content {
-  font-family: inherit;
-}
-div.verseblock-attribution {
-  padding-top: 0.75em;
-  text-align: left;
-}
-
-div.exampleblock-content {
-  border-left: 3px solid #dddddd;
-  padding-left: 0.5em;
-}
-
-/* IE6 sets dynamically generated links as visited. */
-div#toc a:visited { color: blue; }
 </style>
 <script type="text/javascript">
 /*<![CDATA[*/
@@ -549,9 +518,9 @@ footnotes: function () {
 /*]]>*/
 </script>
 </head>
-<body>
+<body class="article">
 <div id="header">
-<h1>Installation in Ubuntu: Sun Java SDK 6, NetBeans 6.9</h1>
+<h1>Installation in Ubuntu: Sun Java SDK 6, NetBeans 6.9.1</h1>
 <span id="author">Karl-Heinz Köther</span><br />
 <span id="email"><tt>&lt;<a href="mailto:&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;">&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;</a>&gt;</tt></span><br />
 <div id="toc">
@@ -562,14 +531,15 @@ footnotes: function () {
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph"><p>Version 1.1.1, Juli 2010, <a href="#_changelog">[Changelog]</a></p></div>
+<div class="paragraph"><p>Version 1.3.0, August 2010, <a href="#_changelog">[Changelog]</a></p></div>
 </div>
 </div>
+<div class="sect1">
 <h2 id="_abstract">Abstract</h2>
 <div class="sectionbody">
 <div class="paragraph"><p>Dieser Artikel ist eine Schritt-für-Schritt Anleitung zur Installation
 des <a href="http://java.sun.com/javase/downloads/index.jsp">Sun Java SDK 6</a> und
-der <a href="http://netbeans.org/downloads/index.html">NetBeans IDE 6.9</a> unter GNU/Linux.</p></div>
+der <a href="http://netbeans.org/downloads/index.html">NetBeans IDE 6.9.1</a> unter GNU/Linux.</p></div>
 <div class="paragraph"><p>Die NetBeans IDE bietet eine Unterstützung für verschiedene Programmiersprachen
 und -techniken. Wobei die Java-basierten Lösungen ausgezeichnet unterstützt werden.</p></div>
 <div class="paragraph"><p>Der Artikel ist in <a href="http://www.methods.co.nz/asciidoc/">ASCII DOC</a> erstellt worden.</p></div>
@@ -588,6 +558,8 @@ Gerne nehme ich Verbesserungsvorschläge entgegen.</p></div>
 </tr></table>
 </div>
 </div>
+</div>
+<div class="sect1">
 <h2 id="_vorraussetzungen">Vorraussetzungen</h2>
 <div class="sectionbody">
 <div class="paragraph"><p>Die Installation wird für <a href="http://www.ubuntu.com/">Ubuntu 10.04 (Lucid Lynx)</a>
@@ -602,8 +574,8 @@ andere Distributionen übertragbar.</p></div>
 </li>
 <li>
 <p>
-<a href="http://netbeans.org/downloads/index.html">NetBeans 6.9</a><br />
-  netbeans-6.9-ml-linux.sh (ca. 250 MB) (IDE-Sprache: Deutsch)
+<a href="http://netbeans.org/downloads/index.html">NetBeans 6.9.1</a><br />
+  netbeans-6.9.1-ml-linux.sh (ca. 266 MB) (IDE-Sprache: Deutsch)
 </p>
 </li>
 </ul></div>
@@ -619,15 +591,18 @@ Während anschließende Installation der NetBeans IDE für den Benutzer <em>bob<
 <div class="content">
 <pre><tt>$ ls -l
 -rw-r--r-- 1 bob bob  83854743 2010-07-09 18:31 jdk-6u21-linux-i586.bin
--rw-r--r-- 1 bob bob 261880832 2010-06-20 09:52 netbeans-6.9-ml-linux.sh</tt></pre>
+-rw-r--r-- 1 bob bob 291147776 2010-08-29 20:33 netbeans-6.9.1-ml-linux.sh</tt></pre>
 </div></div>
 </td>
 </tr></table>
 </div>
 </div>
+</div>
+<div class="sect1">
 <h2 id="_installation">Installation</h2>
 <div class="sectionbody">
-<h3 id="_sun_java_sdk_6_update_21">Sun Java SDK 6 Update 21</h3><div style="clear:left"></div>
+<div class="sect2">
+<h3 id="_sun_java_sdk_6_update_21">Sun Java SDK 6 Update 21</h3>
 <div class="paragraph"><p>Zusätzliche Software-Pakete die nicht über das Paketmanagement
 verwaltet wird, sollten im Verzeichnis <em>/opt</em> (Optional)
 installiert werden.</p></div>
@@ -652,7 +627,9 @@ lrwxrwxrwx 1 root root     39 2010-07-09 18:44 libjavaplugin.so -&gt; /etc/alter
 </div></div>
 <div class="paragraph"><p>Browser&gt; about:plugins<br />
 Browser&gt; <a href="http://www.arndt-bruenner.de/mathe/java/koerper3d.htm">3D-Körper</a></p></div>
-<h3 id="_netbeans_ide_6_9">NetBeans IDE 6.9</h3><div style="clear:left"></div>
+</div>
+<div class="sect2">
+<h3 id="_netbeans_ide_6_9_1">NetBeans IDE 6.9.1</h3>
 <div class="paragraph"><p><strong>Step 1:</strong> Installation im Verzeichnis <em>/opt/NetBeans/bob</em> (mit Benutzer <em>bob</em>)</p></div>
 <div class="listingblock">
 <div class="content">
@@ -660,7 +637,7 @@ Browser&gt; <a href="http://www.arndt-bruenner.de/mathe/java/koerper3d.htm">3D-K
 $ sudo mkdir -p /opt/Tomcat/bob   &amp;&amp; chown bob.bob /opt/Tomcat/bob    (Optional)
 
 $ cd /opt/NetBeans/bob
-$ sh netbeans-6.9-ml-linux.sh --javahome /opt/Java/jdk1.6.0_21/</tt></pre>
+$ sh netbeans-6.9.1-ml-linux.sh --javahome /opt/Java/jdk1.6.0_21/</tt></pre>
 </div></div>
 <div class="paragraph"><p>&nbsp;<br />
 &nbsp;<br />
@@ -741,7 +718,7 @@ Apache Tomcat 6.0.26                  (Optional)
 <div class="ulist"><div class="title">Installation</div><ul>
 <li>
 <p>
-/opt/NetBeans/bob/netbeans-6.9
+/opt/NetBeans/bob/netbeans-6.9.1
 </p>
 </li>
 <li>
@@ -758,7 +735,7 @@ Apache Tomcat 6.0.26                  (Optional)
 <div class="ulist"><div class="title">Summary</div><ul>
 <li>
 <p>
-523.5 MB
+590 MB
 </p>
 </li>
 </ul></div>
@@ -772,15 +749,17 @@ Beides ist freiwillig.</p></div>
 <div class="content">
 <pre><tt>$ cd
 $ ls -la .netbeans*
-drwxr-xr-x  2 bob bob 4096 2010-06-20 11:03 .
-drwxr-xr-x 55 bob bob 4096 2010-06-20 10:38 ..
--rw-r--r--  1 bob bob   36 2010-06-15 20:08 .superId
+.netbeans:
+insgesamt 12
+drwxr-xr-x 2 bob bob 4096 2010-08-31 17:22 .
+drwxr-xr-x 9 bob bob 4096 2010-08-31 17:22 ..
+-rw-r--r-- 1 bob bob   36 2010-08-31 17:22 .superId
 
 .netbeans-registration:
 insgesamt 12
-drwxr-xr-x  3 bob bob 4096 2010-06-15 20:08 .
-drwxr-xr-x 55 bob bob 4096 2010-06-20 10:38 ..
-drwxr-xr-x  2 bob bob 4096 2010-06-15 20:08 6.9</tt></pre>
+drwxr-xr-x 3 bob bob 4096 2010-08-31 17:22 .
+drwxr-xr-x 9 bob bob 4096 2010-08-31 17:22 ..
+drwxr-xr-x 2 bob bob 4096 2010-08-31 17:22 6.9</tt></pre>
 </div></div>
 <div class="admonitionblock">
 <table><tr>
@@ -798,20 +777,22 @@ als auch für den SDN Account bei der Fa. SUN eindeutig benannt.</p></div>
 <strong>Step 4:</strong> NetBeans IDE starten</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt>$ /bin/sh "/opt/NetBeans/bob/netbeans-6.9/bin/netbeans"</tt></pre>
+<pre><tt>$ /bin/sh "/opt/NetBeans/bob/netbeans-6.9.1/bin/netbeans"</tt></pre>
 </div></div>
 <img src="images/netbeans/netbeans_ide_01_start.jpg" border="1px"
  alt="NetBeans IDE: Startseite" title="NetBeans IDE: Startseite" />
 <div class="paragraph"><p>&nbsp;<br />
 &nbsp;<br />
-<strong>Step 5:</strong> NetBeans IDE: Aktiviere (bereits installierte) Plugins</p></div>
+<strong>Step 5:</strong> NetBeans IDE: Aktiviere (bereits installierte) Plugins<br />
+NetBeans IDE &#8594; Extras &#8594; Plugins</p></div>
 <img src="images/netbeans/netbeans_ide_02_aktiviere.jpg" border="1px"
  alt="NetBeans IDE: Aktivieren (bereits installierter) Plugins"
  title="NetBeans IDE: Aktivieren (bereits installierter) Plugins"
 <div class="paragraph"><p>&nbsp;<br />
 &nbsp;<br />
 <strong>Step 6:</strong> NetBeans IDE: Ruby Platform Manager<br />
-JRuby 1.5.0 (Built-in)<br />
+NetBeans IDE &#8594; Extras &#8594; Ruby Platform
+JRuby 1.5.1 (Built-in)<br />
 RubyGems 1.3.6</p></div>
 <img src="images/netbeans/netbeans_ide_03_platform.jpg" border="1px"
  alt="NetBeans: Ruby Platform Manager"
@@ -832,34 +813,47 @@ NetBeans IDE eingetragen.</p></div>
 </div>
 <div class="paragraph"><p>&nbsp;<br />
 &nbsp;<br />
-<strong>Step 7:</strong> NetBeans IDE: Ruby Gems<br />
-Ruby on Rails 2.3.4<br />
-JDBC ActiveRecord 0.9.2</p></div>
-<img src="images/netbeans/netbeans_ide_04_rubygems234.jpg" border="1px"
- alt="NetBeans: Ruby Gems"
- title="NetBeans: Ruby Gems"
+<strong>Step 7:</strong> NetBeans IDE: Built-in JRuby 1.5.1
+NetBeans IDE &#8594; Extras &#8594; Ruby Gems
+Ruby on Rails 2.3.8<br />
+JDBC ActiveRecord 0.9.6</p></div>
+<img src="images/netbeans/netbeans_ide_04_rubygems238.jpg" border="1px"
+ alt="NetBeans: Ruby Gems Built-in JRuby 1.5.1"
+ title="NetBeans: Ruby Gems 'Built-in JRuby 1.5.1'"
 <div class="paragraph"><p>&nbsp;<br />
-Die aktuelle <em>Ruby on Rails</em>-Version ist 2.3.8 !
+Die aktuelle <em>Ruby on Rails</em>-Version ist 3.0.0 !
 &nbsp;<br /></p></div>
 <div class="paragraph"><p>&nbsp;<br />
 &nbsp;<br />
-<strong>Step 7:</strong> NetBeans IDE: Ruby Gems<br />
-Ruby on Rails 3.0.0 Beta4</p></div>
-<img src="images/netbeans/netbeans_ide_05_rubygems300.jpg" border="1px"
- alt="NetBeans: Ruby Gems"
- title="NetBeans: Ruby Gems"
+<strong>Step 8:</strong> NetBeans IDE: Ruby 1.9.2, Ruby on Rails 3.0.0
+NetBeans IDE &#8594; Extras &#8594; Ruby Platforms
+Der Eintrag <em>Ruby 1.9.2</em> muß über den Button <em>Add Platform</em> vorgenommen werden.</p></div>
+<img src="images/netbeans/netbeans_ide_05_platform2.jpg" border="1px"
+ alt="NetBeans: Ruby Platform Manager"
+ title="NetBeans: Ruby Platform Manager"
+<div class="paragraph"><p>&nbsp;<br />
+&nbsp;<br />
+<strong>Step 9:</strong> NetBeans IDE: Ruby Gems 1.9.2-p0
+NetBeans IDE &#8594; Extras &#8594; Ruby Gems
+Ruby on Rails 3.0.0</p></div>
+<img src="images/netbeans/netbeans_ide_06_rubygems300_192.jpg" border="1px"
+ alt="NetBeans: Ruby Gems 'Ruby 1.9.2-p0'"
+ title="NetBeans: Ruby Gems 'Ruby 1.9.2-p0'"
 </div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_anhang">Anhang</h2>
 <div class="sectionbody">
 <div class="listingblock">
-<div class="title">Script zum Setzen der Umgebung für das Built-in JRuby 1.5.0 (ohne weitere Erläuterung)</div>
+<div class="title">Script zum Setzen der Umgebung für das Built-in JRuby 1.5.1 (ohne weitere Erläuterung)</div>
 <div class="content">
 <pre><tt>JAVA_BINDIR=/opt/Java/jdk1.6.0_21/bin
 JAVA_HOME=/opt/Java/jdk1.6.0_21
 JDK_HOME=/opt/Java/jdk1.6.0_21
 JRE_HOME=/opt/Java/jdk1.6.0_21
 
-JRUBY_HOME=/opt/NetBeans/bob/netbeans-6.9/ruby/jruby-1.5.0/bin
+JRUBY_HOME=/opt/NetBeans/bob/netbeans-6.9.1/ruby/jruby-1.5.1/bin
 CATALINA_OPTS='-server -Xms512m -Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=512m'
 
 PATH=$JAVA_BINDIR:$JRUBY_HOME/bin:$PATH
@@ -873,6 +867,8 @@ export CATALINA_OPTS
 export PATH</tt></pre>
 </div></div>
 </div>
+</div>
+<div class="sect1">
 <h2 id="_changelog">Changelog</h2>
 <div class="sectionbody">
 <div class="ulist"><div class="title">Version 0.2</div><ul>
@@ -939,12 +935,21 @@ Neue Programmversionen: JDK
 </p>
 </li>
 </ul></div>
+<div class="ulist"><div class="title">Version 1.3.0</div><ul>
+<li>
+<p>
+Version JDK 1.6.0 Update 21 ist weiterhin aktuell<br />
+  Veröffentlichung von NetBeans 6.9.1
+</p>
+</li>
+</ul></div>
+</div>
 </div>
 </div>
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2010-07-19 21:07:56 CEST
+Last updated 2010-09-01 18:12:48 CEST
 </div>
 </div>
 </body>
