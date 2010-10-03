@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
 <meta name="generator" content="AsciiDoc 8.6.1" />
-<title>Installation in Ubuntu: JRuby 1.5.2, Ruby on Rails 3.0.0</title>
+<title>Installation in Ubuntu: JRuby 1.5.3, Ruby on Rails 3.0.0</title>
 <style type="text/css">
 /* Debug borders */
 p, li, dt, dd, div, pre, h1, h2, h3, h4, h5, h6 {
@@ -520,7 +520,7 @@ footnotes: function () {
 </head>
 <body class="article">
 <div id="header">
-<h1>Installation in Ubuntu: JRuby 1.5.2, Ruby on Rails 3.0.0</h1>
+<h1>Installation in Ubuntu: JRuby 1.5.3, Ruby on Rails 3.0.0</h1>
 <span id="author">Karl-Heinz Köther</span><br />
 <span id="email"><tt>&lt;<a href="mailto:&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;">&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;</a>&gt;</tt></span><br />
 <div id="toc">
@@ -531,14 +531,14 @@ footnotes: function () {
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph"><p>Version 1.3.0, August 2010, <a href="#_changelog">[Changelog]</a></p></div>
+<div class="paragraph"><p>Version 1.3.1, Oktober 2010, <a href="#_changelog">[Changelog]</a></p></div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_abstract">Abstract</h2>
 <div class="sectionbody">
 <div class="paragraph"><p>Dieser Artikel ist eine Schritt-für-Schritt Anleitung zur Installation
-von <a href="http://jruby.org/">JRuby 1.5.2</a> unter GNU/Linux.</p></div>
+von <a href="http://jruby.org/">JRuby 1.5.3</a> unter GNU/Linux.</p></div>
 <div class="paragraph"><p>Die Programmiersprache <a href="http://www.ruby-lang.org/">JRuby</a> ist die Implementation
 von <a href="http://www.ruby-lang.org/">Ruby</a> in Java, die wiederum die Grundlage für das
 WebApplication Framework <a href="http://www.rubyonrails.org">Ruby on Rails</a> bildet.</p></div>
@@ -562,15 +562,15 @@ Gerne nehme ich Verbesserungsvorschläge entgegen.</p></div>
 <div class="sect1">
 <h2 id="_vorraussetzungen">Vorraussetzungen</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>Die Installation wird für <a href="http://www.ubuntu.com/">Ubuntu 9.10 (Karmic Koala)</a>
+<div class="paragraph"><p>Die Installation wird für <a href="http://www.ubuntu.com/">Ubuntu 10.04 (Lucid Lynx)</a>
 beschrieben. Gleichwohl sind die einzelnen Schritte auch für
 andere Distributionen übertragbar.</p></div>
 <div class="ulist"><div class="title">Download</div><ul>
 <li>
 <p>
-<a href="http://jruby.org/download">JRuby 1.5.2</a><br />
-  jruby-1.5.2  (ca. 12 MB)<br />
-  2009-08-20 (Release date)
+<a href="http://jruby.org/download">JRuby 1.5.3</a><br />
+  jruby-1.5.3  (ca. 12 MB)<br />
+  2009-09-28 (Release date)
 </p>
 </li>
 </ul></div>
@@ -585,7 +585,7 @@ Benutzer <em>bob</em> durchgeführt.<br /></p></div>
 <div class="listingblock">
 <div class="content">
 <pre><tt>$ ls -l
--rw-r--r-- 1 bob bob 11609552 2010-08-31 18:07 jruby-bin-1.5.2.tar.gz</tt></pre>
+-rw-r--r-- 1 bob bob 11612224 2010-10-03 12:26 jruby-bin-1.5.3.tar.gz</tt></pre>
 </div></div>
 </td>
 </tr></table>
@@ -606,7 +606,7 @@ Benutzer <em>bob</em> durchgeführt.<br /></p></div>
 <h2 id="_installation">Installation</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_jruby_1_5_2">JRuby 1.5.2</h3>
+<h3 id="_jruby_1_5_3">JRuby 1.5.3</h3>
 <div class="paragraph"><p>Zusätzliche Software-Pakete die nicht über das Paketmanagement
 verwaltet wird,<br />
 sollten im Verzeichnis <em>/opt</em> (Optional) installiert werden.</p></div>
@@ -616,14 +616,14 @@ sollten im Verzeichnis <em>/opt</em> (Optional) installiert werden.</p></div>
 <pre><tt>$ sudo mkdir -p /opt/JRuby/bob &amp;&amp; chown bob.bob /opt/JRuby/bob
 $ cd /opt/JRuby/bob
 $ mkdir tmp &amp;&amp; cd tmp
-$ tar xvzf jruby-1.5.2.tar.gz
-$ mv jruby-1.5.2 ../jruby-1.5.2-300
+$ tar xvzf jruby-1.5.3.tar.gz
+$ mv jruby-1.5.3 ../jruby-1.5.3-300
 $ cd .. &amp;&amp; rm -r tmp
 $ ls -l
-drwxr-xr-x 8 bob bob 4096 2010-08-31 18:21 jruby-1.5.2-300</tt></pre>
+drwxr-xr-x 8 bob bob 4096 2010-10-03 13:10 jruby-1.5.3-300</tt></pre>
 </div></div>
 <div class="paragraph"><p><strong>Step 2:</strong> JRuby-Pfad setzen (von au&szlig;en)
-Erstellen Sie eine Datei jruby.path.152-300.sh (siehe <a href="#_anhang">[Anhang]</a>).</p></div>
+Erstellen Sie eine Datei jruby.path.153-300.sh (siehe <a href="#_anhang">[Anhang]</a>).</p></div>
 <div class="admonitionblock">
 <table><tr>
 <td class="icon">
@@ -642,10 +642,10 @@ Erstellen Sie eine Datei jruby.path.152-300.sh (siehe <a href="#_anhang">[Anhang
 <div class="listingblock">
 <div class="content">
 <pre><tt>$ jruby --version
-jruby 1.5.2 (ruby 1.8.7 patchlevel 249) (2010-08-20 1c5e29d) (Java HotSpot(TM) Client VM 1.6.0_21) [i386-java]
+jruby 1.5.3 (ruby 1.8.7 patchlevel 249) (2010-09-28 7ca06d7) (Java HotSpot(TM) Client VM 1.6.0_21) [i386-java]
 
 $ jruby --version --1.9
-jruby 1.5.2 (ruby 1.9.2dev trunk 24787) (2010-08-20 1c5e29d) (Java HotSpot(TM) Client VM 1.6.0_21) [i386-java]</tt></pre>
+jruby 1.5.3 (ruby 1.9.2dev trunk 24787) (2010-09-28 7ca06d7) (Java HotSpot(TM) Client VM 1.6.0_21) [i386-java]</tt></pre>
 </div></div>
 <div class="olist arabic"><ol class="arabic">
 <li>
@@ -749,7 +749,7 @@ Bug fixes:
 [...]
 
 RubyGems installed the following executables:
-        /opt/JRuby/bob/jruby-1.5.2-300/bin/jgem</tt></pre>
+        /opt/JRuby/bob/jruby-1.5.3-300/bin/jgem</tt></pre>
 </div></div>
 <div class="admonitionblock">
 <table><tr>
@@ -811,7 +811,7 @@ Installing RDoc documentation for jruby-openssl-0.7.1...</tt></pre>
 </div></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt>$ gem list --local
+<pre><tt>$ jruby -S gem list --local
 *** LOCAL GEMS ***
 bouncy-castle-java (1.5.0145.2)
 columnize (0.3.1)
@@ -832,7 +832,7 @@ Successfully installed builder-2.1.2
 Successfully installed i18n-0.4.1
 Successfully installed activemodel-3.0.0
 Successfully installed rack-1.2.1
-Successfully installed rack-test-0.5.4
+Successfully installed rack-test-0.5.6
 Successfully installed rack-mount-0.6.13
 Successfully installed tzinfo-0.3.23
 Successfully installed abstract-1.0.0
@@ -844,23 +844,23 @@ Successfully installed activeresource-3.0.0
 Successfully installed mime-types-1.16
 Successfully installed polyglot-0.3.1
 Successfully installed treetop-1.4.8
-Successfully installed mail-2.2.5
+Successfully installed mail-2.2.6.1
 Successfully installed actionmailer-3.0.0
-Successfully installed thor-0.14.0
+Successfully installed thor-0.14.2
 Successfully installed railties-3.0.0
-Successfully installed bundler-1.0.0
+Successfully installed bundler-1.0.2
 Successfully installed rails-3.0.0
 23 gems installed
 Installing ri documentation for activesupport-3.0.0...
 Installing ri documentation for builder-2.1.2...
 ERROR:  While generating documentation for builder-2.1.2
 ... MESSAGE:   Unhandled special: Special: type=17, text="&lt;!-- HI --&gt;"
-... RDOC args: --ri --op /opt/JRuby/bob/jruby-1.5.2-300/lib/ruby/gems/1.8/doc/builder-2.1.2/ri --title Builder -- Easy XML Building --main README --line-numbers --quiet lib CHANGES Rakefile README doc/releases/builder-1.2.4.rdoc doc/releases/builder-2.0.0.rdoc doc/releases/builder-2.1.1.rdoc --title builder-2.1.2 Documentation
+... RDOC args: --ri --op /opt/JRuby/khk/jruby-1.5.3-300/lib/ruby/gems/1.8/doc/builder-2.1.2/ri --title Builder -- Easy XML Building --main README --line-numbers --quiet lib CHANGES Rakefile README doc/releases/builder-1.2.4.rdoc doc/releases/builder-2.0.0.rdoc doc/releases/builder-2.1.1.rdoc --title builder-2.1.2 Documentation
 (continuing with the rest of the installation)
 Installing ri documentation for i18n-0.4.1...
 Installing ri documentation for activemodel-3.0.0...
 Installing ri documentation for rack-1.2.1...
-Installing ri documentation for rack-test-0.5.4...
+Installing ri documentation for rack-test-0.5.6...
 Installing ri documentation for rack-mount-0.6.13...
 Installing ri documentation for tzinfo-0.3.23...
 Installing ri documentation for abstract-1.0.0...
@@ -872,11 +872,11 @@ Installing ri documentation for activeresource-3.0.0...
 Installing ri documentation for mime-types-1.16...
 Installing ri documentation for polyglot-0.3.1...
 Installing ri documentation for treetop-1.4.8...
-Installing ri documentation for mail-2.2.5...
+Installing ri documentation for mail-2.2.6.1...
 Installing ri documentation for actionmailer-3.0.0...
-Installing ri documentation for thor-0.14.0...
+Installing ri documentation for thor-0.14.2...
 Installing ri documentation for railties-3.0.0...
-Installing ri documentation for bundler-1.0.0...
+Installing ri documentation for bundler-1.0.2...
 Installing ri documentation for rails-3.0.0...
 File not found: lib</tt></pre>
 </div></div>
@@ -939,12 +939,12 @@ Installing RDoc documentation for glassfish-1.0.2-universal-java...</tt></pre>
 <div class="listingblock">
 <div class="content">
 <pre><tt>$ jruby -S gem install warbler
-Successfully installed jruby-jars-1.5.2
+Successfully installed jruby-jars-1.5.3
 Successfully installed jruby-rack-1.0.3
 Successfully installed rubyzip-0.9.4
 Successfully installed warbler-1.2.1
 4 gems installed
-Installing ri documentation for jruby-jars-1.5.2...
+Installing ri documentation for jruby-jars-1.5.3...
 Installing ri documentation for jruby-rack-1.0.3...
 Installing ri documentation for rubyzip-0.9.4...
 Installing ri documentation for warbler-1.2.1...
@@ -998,7 +998,7 @@ activesupport (3.0.0)
 arel (1.0.1)
 bouncy-castle-java (1.5.0145.2)
 builder (2.1.2)
-bundler (1.0.0)
+bundler (1.0.2)
 columnize (0.3.1)
 erubis (2.6.6)
 fastercsv (1.5.3)
@@ -1007,16 +1007,16 @@ glassfish (1.0.2 universal-java)
 i18n (0.4.1)
 jdbc-mysql (5.0.4)
 jdbc-sqlite3 (3.6.3.054)
-jruby-jars (1.5.2)
+jruby-jars (1.5.3)
 jruby-openssl (0.7.1)
 jruby-rack (1.0.3)
-mail (2.2.5)
+mail (2.2.6.1)
 mime-types (1.16)
 mongrel (1.1.5 java)
 polyglot (0.3.1)
 rack (1.2.1)
 rack-mount (0.6.13)
-rack-test (0.5.4)
+rack-test (0.5.6)
 rails (3.0.0)
 railties (3.0.0)
 rake (0.8.7)
@@ -1028,7 +1028,7 @@ ruby-debug-base (0.10.3.2 java)
 rubygems-update (1.3.7)
 rubyzip (0.9.4)
 sources (0.0.1)
-thor (0.14.0)
+thor (0.14.2)
 treetop (1.4.8)
 tzinfo (0.3.23)
 warbler (1.2.1)</tt></pre>
@@ -1039,7 +1039,7 @@ warbler (1.2.1)</tt></pre>
 <div class="listingblock">
 <div class="content">
 <pre><tt>$ which jruby
-/opt/JRuby/bob/jruby-1.5.2-300/bin/jruby
+/opt/JRuby/bob/jruby-1.5.3-300/bin/jruby
 
 $ cd
 $ mkdir RailsDir
@@ -1057,6 +1057,7 @@ gem 'rails', '3.0.0'
 # Bundle edge Rails instead:
 # gem 'rails', :git =&gt; 'git://github.com/rails/rails.git'
 
+#gem 'mysql2'                                       &lt;---
 gem 'activerecord-jdbcmysql-adapter'                &lt;---
 [...]
 
@@ -1091,9 +1092,9 @@ $ jruby -S rails s
 =&gt; Rails 3.0.0 application starting in development on http://0.0.0.0:3000
 =&gt; Call with -d to detach
 =&gt; Ctrl-C to shutdown server
-[2010-08-31 21:53:00] INFO  WEBrick 1.3.1
-[2010-08-31 21:53:00] INFO  ruby 1.8.7 (2010-08-20) [java]
-[2010-08-31 21:53:05] INFO  WEBrick::HTTPServer#start: pid=19463 port=3000</tt></pre>
+[2010-10-03 13:40:06] INFO  WEBrick 1.3.1
+[2010-10-03 13:40:06] INFO  ruby 1.8.7 (2010-09-28) [java]
+[2010-10-03 13:40:11] INFO  WEBrick::HTTPServer#start: pid=20188 port=3000</tt></pre>
 </div></div>
 <div class="listingblock">
 <div class="content">
@@ -1105,19 +1106,19 @@ $ jruby -S rails s
  title="Ruby on Rails: Welcome aboard"
 </div>
 <div class="sect2">
-<h3 id="_netbeans_ide_6_9_1_jruby_1_5_2_ruby_on_rails_3_0_0">NetBeans IDE 6.9.1: JRuby 1.5.2, Ruby on Rails 3.0.0</h3>
+<h3 id="_netbeans_ide_6_9_1_jruby_1_5_3_ruby_on_rails_3_0_0">NetBeans IDE 6.9.1: JRuby 1.5.3, Ruby on Rails 3.0.0</h3>
 <div class="paragraph"><p>NetBeans IDE &#8594; Extras &#8594; Ruby Platforms
-Der Eintrag <em>JRuby 1.5.2</em> muß über den Button <em>Add Platform</em> vorgenommen werden.</p></div>
+Der Eintrag <em>JRuby 1.5.3</em> muß über den Button <em>Add Platform</em> vorgenommen werden.</p></div>
 <img src="images/netbeans/netbeans_ide_07_platform3.jpg" border="1px"
  alt="NetBeans: Ruby Platform Manager"
  title="NetBeans: Ruby Platform Manager"
 <div class="paragraph"><p>&nbsp;<br />
 &nbsp;<br />
-NetBeans IDE: JRuby 1.5.2<br />
+NetBeans IDE: JRuby 1.5.3<br />
 Ruby Gems &middot; Ruby on Rails 3.0.0 &middot; JDBC ActiveRecord 0.9.7</p></div>
-<img src="images/netbeans/netbeans_ide_08_rubygems300_152.jpg" border="1px"
- alt="NetBeans: Ruby Gems 'JRuby 1.5.2'"
- title="NetBeans: Ruby Gems 'JRuby 1.5.2'"
+<img src="images/netbeans/netbeans_ide_08_rubygems300_153.jpg" border="1px"
+ alt="NetBeans: Ruby Gems 'JRuby 1.5.3'"
+ title="NetBeans: Ruby Gems 'JRuby 1.5.3'"
 </div>
 </div>
 </div>
@@ -1125,14 +1126,14 @@ Ruby Gems &middot; Ruby on Rails 3.0.0 &middot; JDBC ActiveRecord 0.9.7</p></div
 <h2 id="_anhang">Anhang</h2>
 <div class="sectionbody">
 <div class="listingblock">
-<div class="title">Script zum Setzen der Umgebung von JRuby 1.5.2 (ohne weitere Erläuterung)</div>
+<div class="title">Script zum Setzen der Umgebung von JRuby 1.5.3 (ohne weitere Erläuterung)</div>
 <div class="content">
 <pre><tt>JAVA_BINDIR=/opt/Java/jdk1.6.0_21/bin
 JAVA_HOME=/opt/Java/jdk1.6.0_21
 JDK_HOME=/opt/Java/jdk1.6.0_21
 JRE_HOME=/opt/Java/jdk1.6.0_21
 
-JRUBY_HOME=/opt/JRuby/bob/jruby-1.5.2-300
+JRUBY_HOME=/opt/JRuby/bob/jruby-1.5.3-300
 CATALINA_OPTS='-server -Xms512m -Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=512m'
 
 PATH=$JAVA_BINDIR:$JRUBY_HOME/bin:$PATH
@@ -1214,13 +1215,20 @@ Neue Programmversion 1.5.2 - Rails 3.0.0
 </p>
 </li>
 </ul></div>
+<div class="ulist"><div class="title">Version 1.3.1</div><ul>
+<li>
+<p>
+Neue Programmversion 1.5.3 - Rails 3.0.0
+</p>
+</li>
+</ul></div>
 </div>
 </div>
 </div>
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2010-08-31 22:24:28 CEST
+Last updated 2010-10-03 14:11:23 CEST
 </div>
 </div>
 </body>
