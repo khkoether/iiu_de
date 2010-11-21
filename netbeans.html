@@ -3,14 +3,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
-<meta name="generator" content="AsciiDoc 8.6.1" />
-<title>Installation in Ubuntu: Sun Java SDK 6, NetBeans 6.9.1</title>
+<meta name="generator" content="AsciiDoc 8.6.3" />
+<title>Installation in Ubuntu: Sun Java SDK 6 Update 22, NetBeans 6.9.1</title>
 <style type="text/css">
-/* Debug borders */
-p, li, dt, dd, div, pre, h1, h2, h3, h4, h5, h6 {
-/*
-  border: 1px solid red;
-*/
+/* Sans-serif font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+div#toctitle,
+span#author, span#revnumber, span#revdate, span#revremark,
+div#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+/* Serif font. */
+div.sectionbody {
+  font-family: Georgia,"Times New Roman",Times,serif;
+}
+
+/* Monospace font. */
+tt {
+  font-size: inherit;
 }
 
 body {
@@ -36,12 +49,12 @@ strong {
 }
 
 tt {
+  font-size: inherit;
   color: navy;
 }
 
 h1, h2, h3, h4, h5, h6 {
   color: #527bbd;
-  font-family: sans-serif;
   margin-top: 1.2em;
   margin-bottom: 0.5em;
   line-height: 1.3;
@@ -61,7 +74,6 @@ h3 + * {
 }
 
 div.sectionbody {
-  font-family: serif;
   margin-left: 0;
 }
 
@@ -77,6 +89,8 @@ p {
 ul, ol, li > p {
   margin-top: 0;
 }
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
 
 pre {
   padding: 0;
@@ -85,18 +99,15 @@ pre {
 
 span#author {
   color: #527bbd;
-  font-family: sans-serif;
   font-weight: bold;
   font-size: 1.1em;
 }
 span#email {
 }
 span#revnumber, span#revdate, span#revremark {
-  font-family: sans-serif;
 }
 
 div#footer {
-  font-family: sans-serif;
   font-size: small;
   border-top: 2px solid silver;
   padding-top: 0.5em;
@@ -135,7 +146,6 @@ div.content { /* Block element content. */
 /* Block element titles. */
 div.title, caption.title {
   color: #527bbd;
-  font-family: sans-serif;
   font-weight: bold;
   text-align: left;
   margin-top: 1.0em;
@@ -157,13 +167,15 @@ div.content + div.title {
 
 div.sidebarblock > div.content {
   background: #ffffee;
-  border: 1px solid silver;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
   padding: 0.5em;
 }
 
 div.listingblock > div.content {
-  border: 1px solid silver;
-  background: #f4f4f4;
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
   padding: 0.5em;
 }
 
@@ -171,7 +183,7 @@ div.quoteblock, div.verseblock {
   padding-left: 1.0em;
   margin-left: 1.0em;
   margin-right: 10%;
-  border-left: 5px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
   color: #777777;
 }
 
@@ -182,6 +194,7 @@ div.quoteblock > div.attribution {
 
 div.verseblock > pre.content {
   font-family: inherit;
+  font-size: inherit;
 }
 div.verseblock > div.attribution {
   padding-top: 0.75em;
@@ -258,7 +271,6 @@ div.tableblock > table {
   border: 3px solid #527bbd;
 }
 thead, p.table.header {
-  font-family: sans-serif;
   font-weight: bold;
   color: #527bbd;
 }
@@ -359,7 +371,6 @@ div#toc {
 
 div#toctitle {
   color: #527bbd;
-  font-family: sans-serif;
   font-size: 1.1em;
   font-weight: bold;
   margin-top: 1.0em;
@@ -520,7 +531,7 @@ footnotes: function () {
 </head>
 <body class="article">
 <div id="header">
-<h1>Installation in Ubuntu: Sun Java SDK 6, NetBeans 6.9.1</h1>
+<h1>Installation in Ubuntu: Sun Java SDK 6 Update 22, NetBeans 6.9.1</h1>
 <span id="author">Karl-Heinz Köther</span><br />
 <span id="email"><tt>&lt;<a href="mailto:&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;">&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;</a>&gt;</tt></span><br />
 <div id="toc">
@@ -531,7 +542,7 @@ footnotes: function () {
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph"><p>Version 1.3.0, August 2010, <a href="#_changelog">[Changelog]</a></p></div>
+<div class="paragraph"><p>Version 1.4.0, November 2010, <a href="#_changelog">[Changelog]</a></p></div>
 </div>
 </div>
 <div class="sect1">
@@ -568,8 +579,8 @@ andere Distributionen übertragbar.</p></div>
 <div class="ulist"><div class="title">Download</div><ul>
 <li>
 <p>
-<a href="http://java.sun.com/javase/downloads/index.jsp">Sun Java SDK 6 Update 21</a><br />
-  jdk-6u21-linux-i586.bin (ca. 81 MB)
+<a href="http://java.sun.com/javase/downloads/index.jsp">Sun Java SDK 6 Update 22</a><br />
+  jdk-6u22-linux-i586.bin (ca. 80 MB)
 </p>
 </li>
 <li>
@@ -590,7 +601,7 @@ Während anschließende Installation der NetBeans IDE für den Benutzer <em>bob<
 <div class="listingblock">
 <div class="content">
 <pre><tt>$ ls -l
--rw-r--r-- 1 bob bob  83854743 2010-07-09 18:31 jdk-6u21-linux-i586.bin
+-rw-r--r-- 1 bob bob  83761756 2010-11-20 18:38 jdk-6u22-linux-i586.bin
 -rw-r--r-- 1 bob bob 291147776 2010-08-29 20:33 netbeans-6.9.1-ml-linux.sh</tt></pre>
 </div></div>
 </td>
@@ -602,7 +613,7 @@ Während anschließende Installation der NetBeans IDE für den Benutzer <em>bob<
 <h2 id="_installation">Installation</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_sun_java_sdk_6_update_21">Sun Java SDK 6 Update 21</h3>
+<h3 id="_sun_java_sdk_6_update_22">Sun Java SDK 6 Update 22</h3>
 <div class="paragraph"><p>Zusätzliche Software-Pakete die nicht über das Paketmanagement
 verwaltet wird, sollten im Verzeichnis <em>/opt</em> (Optional)
 installiert werden.</p></div>
@@ -610,20 +621,18 @@ installiert werden.</p></div>
 <div class="listingblock">
 <div class="content">
 <pre><tt>$ sudo mkdir /opt/Java &amp;&amp; cd /opt/Java
-$ sudo sh jdk-6u21-linux-i586.bin  &lt;--- Lizenbedingungen bestätigen!
+$ sudo sh jdk-6u22-linux-i586.bin  &lt;--- Lizenbedingungen bestätigen!
 $ ls -l
-drwxr-xr-x 10 root root 4096 2010-06-15 19:08 jdk1.6.0_21</tt></pre>
+drwxr-xr-x 10 root root 4096 2010-11-20 18:45 jdk1.6.0_22</tt></pre>
 </div></div>
 <div class="paragraph"><p><strong>Step 2:</strong> Java-Installation für den Mozilla Firefox einrichten</p></div>
 <div class="listingblock">
 <div class="content">
 <pre><tt>$ cd /etc/alternatives
-$ sudo ln -s /opt/Java/jdk1.6.0_21/jre/plugin/i386/ns7/libjavaplugin_oji.so mozilla-javaplugin.so
+$ sudo ln -s /opt/Java/jdk1.6.0_22/jre/plugin/i386/ns7/libjavaplugin_oji.so mozilla-javaplugin.so
+$
 $ cd /usr/lib/mozilla/plugins
-$ sudo ln -s /etc/alternatives/mozilla-javaplugin.so libjavaplugin.so
-$ ls -l
-lrwxrwxrwx 1 root root     39 2010-07-09 18:44 libjavaplugin.so -&gt; /etc/alternatives/mozilla-javaplugin.so
-[...]</tt></pre>
+$ sudo ln -s /etc/alternatives/mozilla-javaplugin.so libjavaplugin.so</tt></pre>
 </div></div>
 <div class="paragraph"><p>Browser&gt; about:plugins<br />
 Browser&gt; <a href="http://www.arndt-bruenner.de/mathe/java/koerper3d.htm">3D-Körper</a></p></div>
@@ -637,7 +646,7 @@ Browser&gt; <a href="http://www.arndt-bruenner.de/mathe/java/koerper3d.htm">3D-K
 $ sudo mkdir -p /opt/Tomcat/bob   &amp;&amp; chown bob.bob /opt/Tomcat/bob    (Optional)
 
 $ cd /opt/NetBeans/bob
-$ sh netbeans-6.9.1-ml-linux.sh --javahome /opt/Java/jdk1.6.0_21/</tt></pre>
+$ sh netbeans-6.9.1-ml-linux.sh --javahome /opt/Java/jdk1.6.0_22/</tt></pre>
 </div></div>
 <div class="paragraph"><p>&nbsp;<br />
 &nbsp;<br />
@@ -651,11 +660,6 @@ Basis-IDE
 <li>
 <p>
 JavaSE
-</p>
-</li>
-<li>
-<p>
-JavaScript-Debugger
 </p>
 </li>
 <li>
@@ -723,7 +727,7 @@ Apache Tomcat 6.0.26                  (Optional)
 </li>
 <li>
 <p>
-/opt/Java/jdk1.6.0_21
+/opt/Java/jdk1.6.0_22
 </p>
 </li>
 <li>
@@ -735,7 +739,7 @@ Apache Tomcat 6.0.26                  (Optional)
 <div class="ulist"><div class="title">Summary</div><ul>
 <li>
 <p>
-590 MB
+605.4 MB
 </p>
 </li>
 </ul></div>
@@ -821,11 +825,11 @@ JDBC ActiveRecord 0.9.6</p></div>
  alt="NetBeans: Ruby Gems Built-in JRuby 1.5.1"
  title="NetBeans: Ruby Gems 'Built-in JRuby 1.5.1'"
 <div class="paragraph"><p>&nbsp;<br />
-Die aktuelle <em>Ruby on Rails</em>-Version ist 3.0.0 !
+Die aktuelle <em>Ruby on Rails</em>-Version ist 3.0.3 !
 &nbsp;<br /></p></div>
 <div class="paragraph"><p>&nbsp;<br />
 &nbsp;<br />
-<strong>Step 8:</strong> NetBeans IDE: Ruby 1.9.2, Ruby on Rails 3.0.0
+<strong>Step 8:</strong> NetBeans IDE: Ruby 1.9.2, Ruby on Rails 3.0.3
 NetBeans IDE &#8594; Extras &#8594; Ruby Platforms
 Der Eintrag <em>Ruby 1.9.2</em> muß über den Button <em>Add Platform</em> vorgenommen werden.</p></div>
 <img src="images/netbeans/netbeans_ide_05_platform2.jpg" border="1px"
@@ -836,7 +840,7 @@ Der Eintrag <em>Ruby 1.9.2</em> muß über den Button <em>Add Platform</em> vorg
 <strong>Step 9:</strong> NetBeans IDE: Ruby Gems 1.9.2-p0
 NetBeans IDE &#8594; Extras &#8594; Ruby Gems
 Ruby on Rails 3.0.0</p></div>
-<img src="images/netbeans/netbeans_ide_06_rubygems300_192.jpg" border="1px"
+<img src="images/netbeans/netbeans_ide_06_rubygems_192.jpg" border="1px"
  alt="NetBeans: Ruby Gems 'Ruby 1.9.2-p0'"
  title="NetBeans: Ruby Gems 'Ruby 1.9.2-p0'"
 </div>
@@ -848,10 +852,10 @@ Ruby on Rails 3.0.0</p></div>
 <div class="listingblock">
 <div class="title">Script zum Setzen der Umgebung für das Built-in JRuby 1.5.1 (ohne weitere Erläuterung)</div>
 <div class="content">
-<pre><tt>JAVA_BINDIR=/opt/Java/jdk1.6.0_21/bin
-JAVA_HOME=/opt/Java/jdk1.6.0_21
-JDK_HOME=/opt/Java/jdk1.6.0_21
-JRE_HOME=/opt/Java/jdk1.6.0_21
+<pre><tt>JAVA_BINDIR=/opt/Java/jdk1.6.0_22/bin
+JAVA_HOME=/opt/Java/jdk1.6.0_22
+JDK_HOME=/opt/Java/jdk1.6.0_22
+JRE_HOME=/opt/Java/jdk1.6.0_22
 
 JRUBY_HOME=/opt/NetBeans/bob/netbeans-6.9.1/ruby/jruby-1.5.1/bin
 CATALINA_OPTS='-server -Xms512m -Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=512m'
@@ -943,13 +947,21 @@ Version JDK 1.6.0 Update 21 ist weiterhin aktuell<br />
 </p>
 </li>
 </ul></div>
+<div class="ulist"><div class="title">Version 1.4.0</div><ul>
+<li>
+<p>
+Neue Programmversion: JDK 6U22<br />
+  Version NetBeans 6.9.1 ist weiterhin aktuell
+</p>
+</li>
+</ul></div>
 </div>
 </div>
 </div>
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2010-09-01 18:12:48 CEST
+Last updated 2010-11-21 11:47:31 CET
 </div>
 </div>
 </body>

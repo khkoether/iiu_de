@@ -26,13 +26,13 @@ Ruby on Rails und Git ... und ... Dokumentation ist notwendig.
    Ruby on Rails bildet. 
 
 Die Artikel sind in ASCII DOC erstellt worden.
- * AsciiDoc 8.6.1
- * Git 1.7.3.1
- * Ruby 1.9.2 - Rails 3.0.0
- * NetBeans 6.9.1
- * JRuby 1.5.3 - Rails 3.0.0
+ * AsciiDoc 8.6.3
+ * Git 1.7.3.2
+ * Ruby 1.9.2 - Rails 3.0.3
+ * JDK 6U22 - NetBeans 6.9.1
+ * JRuby 1.5.5 - Rails 3.0.3
 
-$ asciidoc -a toc NAME.txt
+$ asciidoc -a toc NAME.txt 
 
 Verzeichnis-Struktur:
 ./iiu_de.sh         <-- Script zum Erstellen aller HTML-Dateien
@@ -52,4 +52,4 @@ sein kann, und zum Anderen bestimmte Konfigurationen anders, oder
 auf einem anderem Weg durchgeführt werden können.
 Gerne nehme ich Verbesserungsvorschläge entgegen.
 
-Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr.
+Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr. 

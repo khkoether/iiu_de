@@ -3,14 +3,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
-<meta name="generator" content="AsciiDoc 8.6.1" />
-<title>Installation in Ubuntu: Ruby 1.9.2, Ruby on Rails 3.0.0</title>
+<meta name="generator" content="AsciiDoc 8.6.3" />
+<title>Installation in Ubuntu: Ruby 1.9.2, Ruby on Rails 3.0.3</title>
 <style type="text/css">
-/* Debug borders */
-p, li, dt, dd, div, pre, h1, h2, h3, h4, h5, h6 {
-/*
-  border: 1px solid red;
-*/
+/* Sans-serif font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+div#toctitle,
+span#author, span#revnumber, span#revdate, span#revremark,
+div#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+/* Serif font. */
+div.sectionbody {
+  font-family: Georgia,"Times New Roman",Times,serif;
+}
+
+/* Monospace font. */
+tt {
+  font-size: inherit;
 }
 
 body {
@@ -36,12 +49,12 @@ strong {
 }
 
 tt {
+  font-size: inherit;
   color: navy;
 }
 
 h1, h2, h3, h4, h5, h6 {
   color: #527bbd;
-  font-family: sans-serif;
   margin-top: 1.2em;
   margin-bottom: 0.5em;
   line-height: 1.3;
@@ -61,7 +74,6 @@ h3 + * {
 }
 
 div.sectionbody {
-  font-family: serif;
   margin-left: 0;
 }
 
@@ -77,6 +89,8 @@ p {
 ul, ol, li > p {
   margin-top: 0;
 }
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
 
 pre {
   padding: 0;
@@ -85,18 +99,15 @@ pre {
 
 span#author {
   color: #527bbd;
-  font-family: sans-serif;
   font-weight: bold;
   font-size: 1.1em;
 }
 span#email {
 }
 span#revnumber, span#revdate, span#revremark {
-  font-family: sans-serif;
 }
 
 div#footer {
-  font-family: sans-serif;
   font-size: small;
   border-top: 2px solid silver;
   padding-top: 0.5em;
@@ -135,7 +146,6 @@ div.content { /* Block element content. */
 /* Block element titles. */
 div.title, caption.title {
   color: #527bbd;
-  font-family: sans-serif;
   font-weight: bold;
   text-align: left;
   margin-top: 1.0em;
@@ -157,13 +167,15 @@ div.content + div.title {
 
 div.sidebarblock > div.content {
   background: #ffffee;
-  border: 1px solid silver;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
   padding: 0.5em;
 }
 
 div.listingblock > div.content {
-  border: 1px solid silver;
-  background: #f4f4f4;
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
   padding: 0.5em;
 }
 
@@ -171,7 +183,7 @@ div.quoteblock, div.verseblock {
   padding-left: 1.0em;
   margin-left: 1.0em;
   margin-right: 10%;
-  border-left: 5px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
   color: #777777;
 }
 
@@ -182,6 +194,7 @@ div.quoteblock > div.attribution {
 
 div.verseblock > pre.content {
   font-family: inherit;
+  font-size: inherit;
 }
 div.verseblock > div.attribution {
   padding-top: 0.75em;
@@ -258,7 +271,6 @@ div.tableblock > table {
   border: 3px solid #527bbd;
 }
 thead, p.table.header {
-  font-family: sans-serif;
   font-weight: bold;
   color: #527bbd;
 }
@@ -359,7 +371,6 @@ div#toc {
 
 div#toctitle {
   color: #527bbd;
-  font-family: sans-serif;
   font-size: 1.1em;
   font-weight: bold;
   margin-top: 1.0em;
@@ -520,7 +531,7 @@ footnotes: function () {
 </head>
 <body class="article">
 <div id="header">
-<h1>Installation in Ubuntu: Ruby 1.9.2, Ruby on Rails 3.0.0</h1>
+<h1>Installation in Ubuntu: Ruby 1.9.2, Ruby on Rails 3.0.3</h1>
 <span id="author">Karl-Heinz Köther</span><br />
 <span id="email"><tt>&lt;<a href="mailto:&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;">&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;</a>&gt;</tt></span><br />
 <div id="toc">
@@ -531,7 +542,7 @@ footnotes: function () {
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph"><p>Version 1.3.0, August 2010, <a href="#_changelog">[Changelog]</a></p></div>
+<div class="paragraph"><p>Version 1.4.0, November 2010, <a href="#_changelog">[Changelog]</a></p></div>
 </div>
 </div>
 <div class="sect1">
@@ -719,10 +730,9 @@ PASS all 933 tests
 ./miniruby -I./lib -I.ext/common -I./- -r./ext/purelib.rb  ./tool/runruby.rb --extout=.ext  -- "./bootstraptest/runner.rb" --ruby="ruby"  ./KNOWNBUGS.rb
 2010-08-19 20:16:27 +0200
 Driver is ruby 1.9.2p0 (2010-08-18 revision 29036) [i686-linux]
+Target is ruby 1.9.2p0 (2010-08-18 revision 29036) [i686-linux]
 
-KNOWNBUGS.rb Target is ruby 1.9.2p0 (2010-08-18 revision 29036) [i686-linux]
-
-.
+KNOWNBUGS.rb .
 PASS all 1 tests</tt></pre>
 </div></div>
 <div class="paragraph"><p><strong>Step 3:</strong> Installation (als Benutzer <em>root</em>)<br />
@@ -790,40 +800,19 @@ angepasst werden müssen.</p></div>
 <div class="listingblock">
 <div class="content">
 <pre><tt>$ sudo vim /etc/environment
-PATH="/opt/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-
-$ sudo mkdir -p /opt/local/bin
+PATH="/opt/Ruby/current/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 
 $ cd /opt/Ruby/
 $ sudo ln -s ruby-1.9.2-p0 current
 $ ls -l
 lrwxrwxrwx 1 root root   13 2010-08-30 21:28 current -&gt; ruby-1.9.2-p0
-drwxr-xr-x 6 root root 4096 2010-08-30 21:25 ruby-1.9.2-p0
-
-$ cd /opt/local/bin
-$ sudo ln -s ../../Ruby/current/bin/erb
-$ sudo ln -s ../../Ruby/current/bin/gem
-$ sudo ln -s ../../Ruby/current/bin/irb
-$ sudo ln -s ../../Ruby/current/bin/rake
-$ sudo ln -s ../../Ruby/current/bin/rdoc
-$ sudo ln -s ../../Ruby/current/bin/ri
-$ sudo ln -s ../../Ruby/current/bin/ruby
-$ sudo ln -s ../../Ruby/current/bin/testrb
-$ ls -l
-lrwxrwxrwx 1 root root 26 2010-08-30 21:29 erb -&gt; ../../Ruby/current/bin/erb
-lrwxrwxrwx 1 root root 26 2010-08-30 21:29 gem -&gt; ../../Ruby/current/bin/gem
-lrwxrwxrwx 1 root root 26 2010-08-30 21:29 irb -&gt; ../../Ruby/current/bin/irb
-lrwxrwxrwx 1 root root 27 2010-08-30 21:29 rake -&gt; ../../Ruby/current/bin/rake
-lrwxrwxrwx 1 root root 27 2010-08-30 21:29 rdoc -&gt; ../../Ruby/current/bin/rdoc
-lrwxrwxrwx 1 root root 25 2010-08-30 21:29 ri -&gt; ../../Ruby/current/bin/ri
-lrwxrwxrwx 1 root root 27 2010-08-30 21:29 ruby -&gt; ../../Ruby/current/bin/ruby
-lrwxrwxrwx 1 root root 29 2010-08-30 21:30 testrb -&gt; ../../Ruby/current/bin/testrb</tt></pre>
+drwxr-xr-x 6 root root 4096 2010-08-30 21:25 ruby-1.9.2-p0</tt></pre>
 </div></div>
 <div class="listingblock">
 <div class="title">Lokal in der aktuellen Shell (2)</div>
 <div class="content">
 <pre><tt>$ vim /opt/Ruby/ruby19.path.sh
-PATH=/opt/local/bin:$PATH
+PATH=/opt/Ruby/current/bin:$PATH
 export PATH
 $ . ruby19.path.sh</tt></pre>
 </div></div>
@@ -832,10 +821,10 @@ $ . ruby19.path.sh</tt></pre>
 <div class="title">Die Ruby-Version &#8230;</div>
 <div class="content">
 <pre><tt>$ which ruby
-/opt/local/bin/ruby  (1)
+/opt/Ruby/current/bin/ruby  (1)
 
 $ sudo which ruby    (2)
-/opt/local/bin/ruby
+/opt/Ruby/current/bin/ruby
 
 $ ruby -v            (3)
 ruby 1.9.2p0 (2010-08-18 revision 29036) [i686-linux]</tt></pre>
@@ -879,7 +868,7 @@ irb(main):005:0&gt; exit</tt></pre>
 </div></div>
 </div>
 <div class="sect2">
-<h3 id="_ruby_on_rails_3_0_0">Ruby on Rails 3.0.0</h3>
+<h3 id="_ruby_on_rails_3_0_3">Ruby on Rails 3.0.3</h3>
 <div class="admonitionblock">
 <table><tr>
 <td class="icon">
@@ -896,12 +885,12 @@ auf die Ruby1.9-Installation:</p></div>
 <div class="listingblock">
 <div class="content">
 <pre><tt>$ which gem
-/opt/local/bin/gem
+/opt/Ruby/current/bin/gem
 
 $ sudo su -
 # . /opt/Ruby/ruby19.path.sh
 # which gem
-/opt/local/bin/gem</tt></pre>
+/opt/Ruby/current/bin/gem</tt></pre>
 </div></div>
 <div class="paragraph"><p>Dann gehen auch die folgenden Befehle</p></div>
 <div class="listingblock">
@@ -934,7 +923,7 @@ Nothing to update
 root@duisburg:/opt/Ruby# gem update
 Updating installed gems
 Updating minitest
-Successfully installed minitest-1.7.0
+Successfully installed minitest-2.0.0
 Updating rdoc
 RDoc 2.5 did not save method parameters, so you should upgrade your rdoc-data
 gem to a version &gt;= 2.5.3.
@@ -954,135 +943,139 @@ To have ri data for you gems you'll also need to run:
 If you don't want to rebuild the rdoc for `gem server`, add --no-rdoc.
 Successfully installed rdoc-2.5.11
 Gems updated: minitest, rdoc
-Installing ri documentation for minitest-1.7.0...
+Installing ri documentation for minitest-2.0.0...
 Installing ri documentation for rdoc-2.5.11...
-Installing RDoc documentation for minitest-1.7.0...
+Installing RDoc documentation for minitest-2.0.0...
 Installing RDoc documentation for rdoc-2.5.11...</tt></pre>
 </div></div>
 <div class="listingblock">
 <div class="content">
 <pre><tt># gem list --local
 *** LOCAL GEMS ***
-minitest (1.7.0, 1.6.0)
+minitest (2.0.0, 1.6.0)
 rake (0.8.7)
 rdoc (2.5.11, 2.5.8)</tt></pre>
 </div></div>
 <div class="paragraph"><p><strong>Step 4:</strong> Wichtig ist hier die Systemweite Installation von
-Rails 3.0.0 mit dem Benutzer <em>root</em>.</p></div>
+Rails 3.0.3 mit dem Benutzer <em>root</em>.</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt># gem install rails --version 3.0.0
-Successfully installed activesupport-3.0.0
+<pre><tt># gem install rails
+Successfully installed activesupport-3.0.3
 Successfully installed builder-2.1.2
-Successfully installed i18n-0.4.1
-Successfully installed activemodel-3.0.0
+Successfully installed i18n-0.4.2
+Successfully installed activemodel-3.0.3
 Successfully installed rack-1.2.1
-Successfully installed rack-test-0.5.4
-Successfully installed rack-mount-0.6.12
+Successfully installed rack-test-0.5.6
+Successfully installed rack-mount-0.6.13
 Successfully installed tzinfo-0.3.23
 Successfully installed abstract-1.0.0
 Successfully installed erubis-2.6.6
-Successfully installed actionpack-3.0.0
-Successfully installed arel-1.0.1
-Successfully installed activerecord-3.0.0
-Successfully installed activeresource-3.0.0
+Successfully installed actionpack-3.0.3
+Successfully installed arel-2.0.3
+Successfully installed activerecord-3.0.3
+Successfully installed activeresource-3.0.3
 Successfully installed mime-types-1.16
 Successfully installed polyglot-0.3.1
-Successfully installed treetop-1.4.8
-Successfully installed mail-2.2.5
-Successfully installed actionmailer-3.0.0
-Successfully installed thor-0.14.0
-Successfully installed railties-3.0.0
-Successfully installed bundler-1.0.0
-Successfully installed rails-3.0.0
+Successfully installed treetop-1.4.9
+Successfully installed mail-2.2.10
+Successfully installed actionmailer-3.0.3
+Successfully installed thor-0.14.4
+Successfully installed railties-3.0.3
+Successfully installed bundler-1.0.6
+Successfully installed rails-3.0.3
 23 gems installed
-Installing ri documentation for activesupport-3.0.0...
+Installing ri documentation for activesupport-3.0.3...
 [...]
-Installing ri documentation for rails-3.0.0...
-Installing RDoc documentation for activesupport-3.0.0...
+Installing ri documentation for rails-3.0.3...
+Installing RDoc documentation for activesupport-3.0.3...
 [...]
-Installing RDoc documentation for rails-3.0.0...</tt></pre>
+Installing RDoc documentation for rails-3.0.3...</tt></pre>
 </div></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/note.png" alt="Note" />
+</td>
+<td class="content">
+<div class="paragraph"><p>Alternativ mit Angabe der zu installierenden Version</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt># gem install rails --version 3.0.3</tt></pre>
+</div></div>
+</td>
+</tr></table>
+</div>
 <div class="listingblock">
 <div class="content">
 <pre><tt>$ gem list --local
 *** LOCAL GEMS ***
 abstract (1.0.0)
-actionmailer (3.0.0)
-actionpack (3.0.0)
-activemodel (3.0.0)
-activerecord (3.0.0)
-activeresource (3.0.0)
-activesupport (3.0.0)
-arel (1.0.1)
+actionmailer (3.0.3)
+actionpack (3.0.3)
+activemodel (3.0.3)
+activerecord (3.0.3)
+activeresource (3.0.3)
+activesupport (3.0.3)
+arel (2.0.3)
 builder (2.1.2)
-bundler (1.0.0)
+bundler (1.0.6)
 erubis (2.6.6)
-i18n (0.4.1)
-mail (2.2.5)
+i18n (0.4.2)
+mail (2.2.10)
 mime-types (1.16)
-minitest (1.7.0, 1.6.0)
+minitest (2.0.0, 1.6.0)
 polyglot (0.3.1)
 rack (1.2.1)
-rack-mount (0.6.12)
-rack-test (0.5.4)
-rails (3.0.0)
-railties (3.0.0)
+rack-mount (0.6.13)
+rack-test (0.5.6)
+rails (3.0.3)
+railties (3.0.3)
 rake (0.8.7)
 rdoc (2.5.11, 2.5.8)
-thor (0.14.0)
-treetop (1.4.8)
+thor (0.14.4)
+treetop (1.4.9)
 tzinfo (0.3.23)</tt></pre>
 </div></div>
-<div class="paragraph"><p>Für die in dem Verzeichnis <em>/opt/Ruby/current/bin</em> neu installierten Programme müssen <em>links</em> angelegt werden.</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt>$ cd /opt/local/bin
-$ sudo ln -s ../../Ruby/current/bin/bundle
-$ sudo ln -s ../../Ruby/current/bin/erubis
-$ sudo ln -s ../../Ruby/current/bin/rackup
-$ sudo ln -s ../../Ruby/current/bin/rails
-$ sudo ln -s ../../Ruby/current/bin/rake2thor
-$ sudo ln -s ../../Ruby/current/bin/thor
-$ sudo ln -s ../../Ruby/current/bin/tt
-
-$ ls -l
-lrwxrwxrwx 1 root root 29 2010-08-30 21:41 bundle -&gt; ../../Ruby/current/bin/bundle
-lrwxrwxrwx 1 root root 26 2010-08-30 21:29 erb -&gt; ../../Ruby/current/bin/erb
-lrwxrwxrwx 1 root root 29 2010-08-30 21:41 erubis -&gt; ../../Ruby/current/bin/erubis
-lrwxrwxrwx 1 root root 26 2010-08-30 21:29 gem -&gt; ../../Ruby/current/bin/gem
-lrwxrwxrwx 1 root root 26 2010-08-30 21:29 irb -&gt; ../../Ruby/current/bin/irb
-lrwxrwxrwx 1 root root 29 2010-08-30 21:41 rackup -&gt; ../../Ruby/current/bin/rackup
-lrwxrwxrwx 1 root root 28 2010-08-30 21:41 rails -&gt; ../../Ruby/current/bin/rails
-lrwxrwxrwx 1 root root 27 2010-08-30 21:29 rake -&gt; ../../Ruby/current/bin/rake
-lrwxrwxrwx 1 root root 32 2010-08-30 21:41 rake2thor -&gt; ../../Ruby/current/bin/rake2thor
-lrwxrwxrwx 1 root root 27 2010-08-30 21:29 rdoc -&gt; ../../Ruby/current/bin/rdoc
-lrwxrwxrwx 1 root root 25 2010-08-30 21:29 ri -&gt; ../../Ruby/current/bin/ri
-lrwxrwxrwx 1 root root 27 2010-08-30 21:29 ruby -&gt; ../../Ruby/current/bin/ruby
-lrwxrwxrwx 1 root root 29 2010-08-30 21:30 testrb -&gt; ../../Ruby/current/bin/testrb
-lrwxrwxrwx 1 root root 27 2010-08-30 21:42 thor -&gt; ../../Ruby/current/bin/thor
-lrwxrwxrwx 1 root root 25 2010-08-30 21:42 tt -&gt; ../../Ruby/current/bin/tt</tt></pre>
+<pre><tt>$ ls -l bin
+-rwxr-xr-x 1 root root     394 2010-11-20 17:27 bundle
+-rwxr-xr-x 1 root root    4412 2010-08-30 21:25 erb
+-rwxr-xr-x 1 root root     391 2010-11-20 17:27 erubis
+-rwxr-xr-x 1 root root     561 2010-08-30 21:25 gem
+-rwxr-xr-x 1 root root     333 2010-08-30 21:25 irb
+-rwxr-xr-x 1 root root     385 2010-11-20 17:27 rackup
+-rwxr-xr-x 1 root root     387 2010-11-20 17:27 rails
+-rwxr-xr-x 1 root root    1263 2010-08-30 21:25 rake
+-rwxr-xr-x 1 root root     388 2010-11-20 17:27 rake2thor
+-rwxr-xr-x 1 root root     712 2010-08-30 21:25 rdoc
+-rwxr-xr-x 1 root root      88 2010-08-30 21:25 ri
+-rwxr-xr-x 1 root root 5146120 2010-08-19 20:13 ruby
+-rwxr-xr-x 1 root root     262 2010-08-30 21:25 testrb
+-rwxr-xr-x 1 root root     383 2010-11-20 17:27 thor
+-rwxr-xr-x 1 root root     390 2010-11-20 17:27 tt</tt></pre>
 </div></div>
 <div class="paragraph"><p><strong>Step 4:</strong> Installation der Datenbank-Treiber mit dem Benutzer <em>root</em>.</p></div>
 <div class="listingblock">
 <div class="content">
 <pre><tt># gem install mysql2
 Building native extensions.  This could take a while...
-Successfully installed mysql2-0.2.3
+Successfully installed mysql2-0.2.6
 1 gem installed
-Installing ri documentation for mysql2-0.2.3...
+Installing ri documentation for mysql2-0.2.6...
 Enclosing class/module 'mMysql2' for class Client not known
 Enclosing class/module 'mMysql2' for class Result not known
-Installing RDoc documentation for mysql2-0.2.3...
+Installing RDoc documentation for mysql2-0.2.6...
 Enclosing class/module 'mMysql2' for class Client not known
 Enclosing class/module 'mMysql2' for class Result not known
 
 # gem install sqlite3-ruby
 Building native extensions.  This could take a while...
-Successfully installed sqlite3-ruby-1.3.1
+Successfully installed sqlite3-ruby-1.3.2
 1 gem installed
-Installing ri documentation for sqlite3-ruby-1.3.1...
-Installing RDoc documentation for sqlite3-ruby-1.3.1...</tt></pre>
+Installing ri documentation for sqlite3-ruby-1.3.2...
+Installing RDoc documentation for sqlite3-ruby-1.3.2...</tt></pre>
 </div></div>
 </div>
 <div class="sect2">
@@ -1090,10 +1083,10 @@ Installing RDoc documentation for sqlite3-ruby-1.3.1...</tt></pre>
 <div class="listingblock">
 <div class="content">
 <pre><tt>$ which rails
-/opt/local/bin/rails
+/opt/Ruby/current/bin/rails
 
 $ rails -v
-Rails 3.0.0
+Rails 3.0.3
 
 $ cd
 $ mkdir RailsDir
@@ -1131,12 +1124,12 @@ Bye
 
 $ rails s
 =&gt; Booting WEBrick
-=&gt; Rails 3.0.0 application starting in development on http://0.0.0.0:3000
+=&gt; Rails 3.0.3 application starting in development on http://0.0.0.0:3000
 =&gt; Call with -d to detach
 =&gt; Ctrl-C to shutdown server
-[2010-08-30 21:54:03] INFO  WEBrick 1.3.1
-[2010-08-30 21:54:03] INFO  ruby 1.9.2 (2010-08-18) [i686-linux]
-[2010-08-30 21:54:03] INFO  WEBrick::HTTPServer#start: pid=6882 port=3000</tt></pre>
+[2010-11-20 17:42:55] INFO  WEBrick 1.3.1
+[2010-11-20 17:42:55] INFO  ruby 1.9.2 (2010-08-18) [i686-linux]
+[2010-11-20 17:42:55] INFO  WEBrick::HTTPServer#start: pid=20022 port=3000</tt></pre>
 </div></div>
 <div class="listingblock">
 <div class="content">
@@ -1283,13 +1276,21 @@ Neue Programmversion 1.9.2 - Rails 3.0.0
 </p>
 </li>
 </ul></div>
+<div class="ulist"><div class="title">Version 1.4.0</div><ul>
+<li>
+<p>
+Veröffentlichung von Rails 3.0.3<br />
+  Version NetBeans 1.9.2p0 ist weiterhin aktuell
+</p>
+</li>
+</ul></div>
 </div>
 </div>
 </div>
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2010-08-31 18:45:59 CEST
+Last updated 2010-11-21 11:47:31 CET
 </div>
 </div>
 </body>

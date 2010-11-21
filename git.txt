@@ -1,4 +1,4 @@
-Installation in Ubuntu: Git 1.7.3.1
+Installation in Ubuntu: Git 1.7.3.2 
 ===================================
 Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;>
 
@@ -9,7 +9,7 @@ Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;
 :asciidoc-url: http://www.methods.co.nz/asciidoc/
 :git-url: http://git-scm.com/
 
-Version 1.3.1, Oktober 2010, <<_changelog,[Changelog]>>
+Version 1.4.0, November 2010, <<_changelog,[Changelog]>>
 
 Abstract
 --------
@@ -40,8 +40,8 @@ andere Debian-basierte GNU/Linux Distributionen übertragbar.
 
 .Download
 * {git-url}[Git] +    
-  git-1.7.3.1.tar.bz2  (ca. 2.6 MB) +
-  2010-09-29 (Release date)
+  git-1.7.3.2.tar.bz2  (ca. 2.6 MB) +
+  2010-10-22 (Release date)
   
 [NOTE] 
 ====
@@ -51,7 +51,7 @@ Die eigentliche Installation von Git wird vom
 Benutzer 'root' für das System durchgeführt.
 ----
 $ ls -l 
--rw-r--r--  1 bob  bob  2629723 2010-10-03 12:36 git-1.7.3.1.tar.bz2
+-rw-r--r--  1 bob  bob  2630629 2010-11-20 15:58 git-1.7.3.2.tar.bz2
 ----
 ====
 
@@ -71,7 +71,7 @@ $ sudo apt-get install ...
 == Installation
 
 
-=== Git 1.7.3.1
+=== Git 1.7.3.2
 
 [IMPORTANT]
 ====
@@ -84,8 +84,8 @@ Beispiel für die Änderung des Installations-Verzeichnisses:
 
 *Step 1:* Auspacken des Source-Code
 ----
-$ tar xvjf git-1.7.3.1.tar.bz2
-$ cd git-1.7.3.1
+$ tar xvjf git-1.7.3.2.tar.bz2
+$ cd git-1.7.3.2
 ----
 
 *Step 2:* Konfiguration erstellen und kompilieren
@@ -98,7 +98,7 @@ configure: CHECKS for programs
 checking for cc... cc
 [...]
 checking for asciidoc... asciidoc
-checking for asciidoc version... asciidoc 8.6.1 > 7
+checking for asciidoc version... asciidoc 8.6.3 > 7
 [...]
 checking Checking for POSIX Threads with '-pthread'... yes
 configure: creating ./config.status
@@ -107,13 +107,13 @@ config.status: creating config.mak.autogen
 
 ----
 $ make all doc | tee ../log.git_make_all_doc
-GIT_VERSION = 1.7.3.1
+GIT_VERSION = 1.7.3.2
     * new build flags or prefix
     CC fast-import.o
 [...]
     ASCIIDOC gitworkflows.xml
     XMLTO gitworkflows.7
-make[1]: Verlasse Verzeichnis '.../git-1.7.3.1/Documentation'
+make[1]: Verlasse Verzeichnis '.../git-1.7.3.2/Documentation'
 ----
 
 *Step 3:* Installation (als Benutzer 'root')
@@ -146,13 +146,13 @@ make -C Documentation install
 ----
 $ cd /usr/local/bin
 $ ls -l git*
--rwxr-xr-x 107 root root 3751313 2010-10-03 13:01 git
--rwxr-xr-x   2 root root  120937 2010-10-03 13:01 git-cvsserver
--rwxr-xr-x   1 root root  321995 2010-10-03 13:01 gitk
--rwxr-xr-x 107 root root 3751313 2010-10-03 13:01 git-receive-pack
--rwxr-xr-x   2 root root 1547860 2010-10-03 13:01 git-shell
--rwxr-xr-x 107 root root 3751313 2010-10-03 13:01 git-upload-archive
--rwxr-xr-x   2 root root 1589874 2010-10-03 13:01 git-upload-pack
+-rwxr-xr-x 107 root root 3752609 2010-11-20 16:26 git
+-rwxr-xr-x   2 root root  120937 2010-11-20 16:26 git-cvsserver
+-rwxr-xr-x   1 root root  321995 2010-11-20 16:26 gitk
+-rwxr-xr-x 107 root root 3752609 2010-11-20 16:26 git-receive-pack
+-rwxr-xr-x   2 root root 1548295 2010-11-20 16:26 git-shell
+-rwxr-xr-x 107 root root 3752609 2010-11-20 16:26 git-upload-archive
+-rwxr-xr-x   2 root root 1590313 2010-11-20 16:26 git-upload-pack
 ----
 
 ----
@@ -214,7 +214,7 @@ NOTES
         5. GIT API documentation
            file:///usr/local/share/doc/git-doc/technical/api-index.html
 [...]
-                                  10/03/2010                            GIT(1)
+Git 1.7.3.2                       11/20/2010                            GIT(1)
 ----
 
 ----
@@ -236,46 +236,40 @@ DESCRIPTION
        tcl/tk and started off in a separate repository but was later merged
        into the main git repository.
 [...]
-                                  10/03/2010                            GIT(1)
+Git 1.7.3.2                       11/20/2010                           GITK(1)
 ----
 
 ----
 $ find /usr -type d -cmin -5
-/usr/local
+/usr/local/bin
+/usr/local/lib/python2.6/dist-packages
+/usr/local/lib/python2.6/dist-packages/git_remote_helpers
+/usr/local/lib/python2.6/dist-packages/git_remote_helpers/git
 /usr/local/libexec
 /usr/local/libexec/git-core
-/usr/local/share
-/usr/local/share/perl
-/usr/local/share/perl/5.10.1
-/usr/local/share/man
-/usr/local/share/man/man5
-/usr/local/share/man/man3
-/usr/local/share/man/man1
-/usr/local/share/man/man7
-/usr/local/share/git-gui
-/usr/local/share/git-gui/lib
-/usr/local/share/git-gui/lib/msgs
+/usr/local/share/gitweb
+/usr/local/share/gitweb/static
 /usr/local/share/git-core
 /usr/local/share/git-core/templates
 /usr/local/share/git-core/templates/branches
 /usr/local/share/git-core/templates/hooks
 /usr/local/share/git-core/templates/info
+/usr/local/share/man
+/usr/local/share/man/man5
+/usr/local/share/man/man3
+/usr/local/share/man/man1
+/usr/local/share/man/man7
 /usr/local/share/gitk
 /usr/local/share/gitk/lib
 /usr/local/share/gitk/lib/msgs
+/usr/local/share/git-gui
+/usr/local/share/git-gui/lib
+/usr/local/share/git-gui/lib/msgs
 /usr/local/share/doc
 /usr/local/share/doc/git-doc
 /usr/local/share/doc/git-doc/howto
 /usr/local/share/doc/git-doc/technical
-/usr/local/lib
-/usr/local/lib/perl
-/usr/local/lib/perl/5.10.1
-/usr/local/lib/perl/5.10.1/auto
-/usr/local/lib/perl/5.10.1/auto/Git
-/usr/local/lib/python2.6/dist-packages
-/usr/local/lib/python2.6/dist-packages/git_remote_helpers
-/usr/local/lib/python2.6/dist-packages/git_remote_helpers/git
-/usr/local/bin
+/usr/local/share/doc/git-doc/RelNotes
 ----
 
 *Step 5:* Dokumentation (local)
@@ -347,3 +341,6 @@ Changelog
 
 .Version 1.3.1
 * Neue Programmversion 1.7.3.1
+
+.Version 1.4.0
+* Neue Programmversion 1.7.3.2

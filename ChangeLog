@@ -1,4 +1,4 @@
-# ChangeLog für iiu_de (20. September 2009)
+# ChangeLog für iiu_de (21. November 2010)
 
 . Version 0.2
 * Erste öffentliche Version
@@ -43,3 +43,7 @@
  
 .Version 1.3.1
 * Neue Programmversionen: Git, JRuby
+
+.Version 1.4.0
+* Neue Programmversionen: AsciiDoc, Git, JDK 6U22, JRuby
+  Veröffentlichung von Rails 3.0.3 
