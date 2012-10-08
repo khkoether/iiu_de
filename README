@@ -42,7 +42,7 @@ Verzeichnis-Struktur:
 ./images/icons      <-- Images durch AsciiDoc
 ./images/netbeans   <-- Images des Installationsdialogs
 
-NAME = { asciidoc git netbeans ruby19 jruby }
+NAME = { asciidoc git ruby19 ruby19ror jdk jruby jrubyror netbeans }
 
 Die erstellten Seiten finden Sie hier:
 http://www.mygithub.kahweb.de
