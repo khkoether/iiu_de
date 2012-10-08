@@ -1,0 +1,196 @@
+Installation in Ubuntu: OpenJDK 6, Oracle JDK 7
+===============================================
+Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;>
+
+:icons:
+:Author Initials: KHK
+:creativecommons-url: http://creativecommons.org/licenses/by-sa/3.0/de/
+:ubuntu-url: http://www.ubuntu.com/
+:asciidoc-url: http://www.methods.co.nz/asciidoc/
+:ruby-url: http://www.ruby-lang.org/
+:ruby-download-url: http://www.ruby-lang.org/de/downloads/
+:ruby-ftp: ftp://www.ruby-lang.org/pub/ruby/1.9/
+:rubyonrails-url: http://www.rubyonrails.org
+:java-url: http://www.oracle.com/technetwork/java/javase/downloads/index.html
+
+:plugins-url: about:plugins
+:java-koerper-url: http://www.arndt-bruenner.de/mathe/java/koerper3d.htm
+
+
+Version 1.5.0, Oktober 2012, <<_changelog,[Changelog]>>
+
+
+Abstract
+--------
+Dieser Artikel ist eine Sammlung von Hinweisen zur Installation 
+eines Java Development Kit unter GNU/Linux.
+ 
+Der Artikel ist in {asciidoc-url}[ASCII DOC] erstellt worden.
+
+[CAUTION]
+====
+Zu beachten ist, dass so ein Dokument zum Einen nie abschliessend 
+sein kann, und zum Anderen bestimmte Konfigurationen anders, oder 
+auf einem anderem Weg durchgeführt werden können. +
+Gerne nehme ich Verbesserungsvorschläge entgegen.
+
+Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr.
+====
+
+
+Vorraussetzungen
+----------------
+Die Installation wird für {ubuntu-url}[Ubuntu 12.04 LTS (Precise Pangolin)] 
+beschrieben. +
+Gleichwohl sind die einzelnen Schritte auch für 
+andere Distributionen übertragbar.
+
+[TIP]
+====
+In Ubuntu 12.04 LTS (Precise Pangolin) kann über bestehende Abhängigkeiten 
+zu anderen Ubuntu-Paketen bereits das _OpenJDK 6_ installiert sein.
+
+----
+$ dpkg --list | grep openjdk  
+ii  openjdk-6-jdk              6b24-1.11.4-1ubuntu0.12.04.1   OpenJDK Development Kit (JDK)
+ii  openjdk-6-jre              6b24-1.11.4-1ubuntu0.12.04.1   OpenJDK Java runtime, ...
+ii  openjdk-6-jre-headless     6b24-1.11.4-1ubuntu0.12.04.1   OpenJDK Java runtime, ...
+ii  openjdk-6-jre-lib          6b24-1.11.4-1ubuntu0.12.04.1   OpenJDK Java runtime (...)
+----
+====
+
+
+Installation
+------------
+.Primäre Auswahl: OpenJDK 6 und nicht Oracle (Sun) Java
+Für Java steht eine gute OpenSource-Anwendung zur Verfügung: das _OpenJDK 6_ und
+das _IcedTea-Plugin_ für den Browser. Sie sind erhältlich in den regulären 
+Ubuntu-Repositories und erhalten regelmäßig Sicherheits-Updates.
+Für viele Menschen ist dieses Java ausreichend.
+
+Das ist mit ein Grund warum das ClosedSource Oracle Java von den offiziellen
+Software-Repositories entfernt wurde. 
+
+Und nicht zu vergessen, Oracle hat die 
+_Operating System Distributor License for Java (DLJ)_ zurückgezogen.
+
+[NOTE]
+====
+Installieren Sie (zu diesem Zeitpunkt) nicht _OpenJDK 7_, es ist zu früh ... und 
+es hat auch nicht viel Mehr-Nutzen für Sie. _OpenJDK 6_ (Standard in Ubuntu)
+ist noch immer die bevorzugte Wahl.
+====
+
+&rarr; link:http://sites.google.com/site/easylinuxtipsproject/java#TOC-Primary-choice:-OpenJDK-6-and-not-Oracle-Sun-Java[Oracle (Sun) Java JRE for Ubuntu, Linux Mint and Debian]
+
+&rarr; link:http://wiki.ubuntuusers.de/Java[ubunutusers.de: Java]
+
+[NOTE]
+====
+Unabhängig davon, das die Firma _Oracle_ das freie _JDK_ unterstützt und auch
+vorantreibt ... gibt es durchaus Bugs, die in den offiziellen Paketen nicht 
+vorhanden sind. +
+Es gilt, Bugs zu melden, damit _OpenJDK_ so gut wird wie die proprietäre Version.
+====
+
+
+OpenJDK
+~~~~~~~ 
+----
+$ sudo apt-get install openjdk-6-jdk 
+Abhängigkeitsbaum wird aufgebaut
+[...]
+Die folgenden NEUEN Pakete werden installiert:   <1>
+  ca-certificates-java icedtea-6-jre-cacao icedtea-6-jre-jamvm icedtea-netx
+  icedtea-netx-common java-common libatk-wrapper-java libatk-wrapper-java-jni
+  libgif4 libice-dev libpthread-stubs0 libpthread-stubs0-dev libsm-dev
+  libx11-dev libx11-doc libxau-dev libxcb1-dev libxdmcp-dev libxt-dev
+  openjdk-6-jdk openjdk-6-jre openjdk-6-jre-headless openjdk-6-jre-lib
+  ttf-dejavu-extra tzdata-java x11proto-core-dev x11proto-input-dev
+  x11proto-kb-dev xorg-sgml-doctools xtrans-dev
+0 aktualisiert, 30 neu installiert, 0 zu entfernen und 0 nicht aktualisiert.
+[...]
+----
+<1> Zu den 30 neu zu installierenden Ubuntu-Pakete gehören unter anderem: +
+    _icedtea_plugin_, _openjdk-6-jre_ und _openjdk-6-jre-headless_
+    
+    
+Oracle JDK
+~~~~~~~~~~ 
+Wie auch immer, einige Ubuntu-Anwender benötigen das Oracle JDK. +
+Empfohlen wird die Version 7 Update 7
+
+Zusätzliche Software-Pakete die nicht über das Paketmanagement verwaltet wird, 
+sollten im Verzeichnis '/opt' (Optional) installiert werden. 
+
+*Step 0:* Download JDK 7u7
+
+&rarr; {java-url}[Oracle: Java SE Downloads]
+
+[NOTE]
+====
+You must accept the Oracle Binary Code License Agreement 
+for Java SE to download this software.
+====
+
+*Step 1:* Installation im Verzeichnis '/opt/Java' (mit Benutzer 'root')
+----
+$ sudo mkdir /opt/Java && cd /opt/Java 
+
+$ ls -l
+-rw-rw-r-- 1 sid sid 96039818 Okt  4 18:02 jdk-7u7-linux-x64.tar.gz
+
+$ sudo tar xvzf jdk-7u4-linux-x64.tar.gz
+[...]
+----
+
+Ein Vorteil bei der gezeigten Lösung ist, daß für das Einspielen einer neuen Version 
+weder die Konfigurations-Datei noch die 'PATH'-Variable angepasst werden müssen.  
+----
+$ cd /opt/Java
+$ sudo chown -R root.root jdk1.7.0_07
+$ sudo ln -s jdk1.7.0_07 current
+$ ls -l
+lrwxrwxrwx  1 root root   11 Okt  4 18:05 current -> jdk1.7.0_07
+drwxr-xr-x  8 root root 4096 Aug 29 03:12 jdk1.7.0_07
+----
+
+*Step 2:* Java-Pfad setzen (von au&szlig;en)
+Erstellen Sie eine Datei java.path.sh (siehe <<_anhang,[Anhang]>>). 
+[NOTE] 
+=========================================================
+Achtung: Ausführen der Datei mit dem Punkt-Operator!
+----
+$ . jruby.path.sh
+---- 
+=========================================================
+
+*Step 3:* Installation verifizieren
+---- 
+$ which java
+/opt/Java/current/bin/java
+
+$ java -version
+java version "1.7.0_07"
+Java(TM) SE Runtime Environment (build 1.7.0_07-b10)
+Java HotSpot(TM) 64-Bit Server VM (build 23.3-b01, mixed mode)
+----
+
+
+Anhang
+------
+.Script zum Setzen der Umgebung für das JDK (ohne weitere Erläuterung)
+----
+JAVA_BINDIR=/opt/Java/current/bin
+JAVA_HOME=/opt/Java/current
+JDK_HOME=/opt/Java/current
+JRE_HOME=/opt/Java/current
+
+PATH=$JAVA_BINDIR:$PATH
+
+export JAVA_BINDIR
+export JAVA_HOME
+export JDK_HOME
+export JRE_HOME
+export PATH
+----

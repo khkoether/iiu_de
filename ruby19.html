@@ -1,29 +1,25 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
-    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
-<meta name="generator" content="AsciiDoc 8.6.3" />
-<title>Installation in Ubuntu: Ruby 1.9.2, Ruby on Rails 3.0.3</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="AsciiDoc 8.6.8">
+<title>Installation in Ubuntu: Ruby 1.9.3, Ruby on Rails 3.2.8</title>
 <style type="text/css">
-/* Sans-serif font. */
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
 h1, h2, h3, h4, h5, h6,
 div.title, caption.title,
 thead, p.table.header,
-div#toctitle,
-span#author, span#revnumber, span#revdate, span#revremark,
-div#footer {
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
   font-family: Arial,Helvetica,sans-serif;
-}
-
-/* Serif font. */
-div.sectionbody {
-  font-family: Georgia,"Times New Roman",Times,serif;
-}
-
-/* Monospace font. */
-tt {
-  font-size: inherit;
 }
 
 body {
@@ -48,11 +44,6 @@ strong {
   color: #083194;
 }
 
-tt {
-  font-size: inherit;
-  color: navy;
-}
-
 h1, h2, h3, h4, h5, h6 {
   color: #527bbd;
   margin-top: 1.2em;
@@ -71,6 +62,9 @@ h3 {
 }
 h3 + * {
   clear: left;
+}
+h5 {
+  font-size: 1.0em;
 }
 
 div.sectionbody {
@@ -92,41 +86,45 @@ ul, ol, li > p {
 ul > li     { color: #aaa; }
 ul > li > * { color: black; }
 
-pre {
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
   padding: 0;
   margin: 0;
 }
 
-span#author {
+
+#author {
   color: #527bbd;
   font-weight: bold;
   font-size: 1.1em;
 }
-span#email {
+#email {
 }
-span#revnumber, span#revdate, span#revremark {
+#revnumber, #revdate, #revremark {
 }
 
-div#footer {
+#footer {
   font-size: small;
   border-top: 2px solid silver;
   padding-top: 0.5em;
   margin-top: 4.0em;
 }
-div#footer-text {
+#footer-text {
   float: left;
   padding-bottom: 0.5em;
 }
-div#footer-badges {
+#footer-badges {
   float: right;
   padding-bottom: 0.5em;
 }
 
-div#preamble {
+#preamble {
   margin-top: 1.5em;
   margin-bottom: 1.5em;
 }
-div.tableblock, div.imageblock, div.exampleblock, div.verseblock,
+div.imageblock, div.exampleblock, div.verseblock,
 div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
 div.admonitionblock {
   margin-top: 1.0em;
@@ -184,7 +182,7 @@ div.quoteblock, div.verseblock {
   margin-left: 1.0em;
   margin-right: 10%;
   border-left: 5px solid #f0f0f0;
-  color: #777777;
+  color: #888;
 }
 
 div.quoteblock > div.attribution {
@@ -267,35 +265,12 @@ div.compact div, div.compact div {
   margin-bottom: 0.1em;
 }
 
-div.tableblock > table {
-  border: 3px solid #527bbd;
-}
-thead, p.table.header {
-  font-weight: bold;
-  color: #527bbd;
-}
 tfoot {
   font-weight: bold;
 }
 td > div.verse {
   white-space: pre;
 }
-p.table {
-  margin-top: 0;
-}
-/* Because the table frame attribute is overriden by CSS in most browsers. */
-div.tableblock > table[frame="void"] {
-  border-style: none;
-}
-div.tableblock > table[frame="hsides"] {
-  border-left-style: none;
-  border-right-style: none;
-}
-div.tableblock > table[frame="vsides"] {
-  border-top-style: none;
-  border-bottom-style: none;
-}
-
 
 div.hdlist {
   margin-top: 0.8em;
@@ -362,14 +337,14 @@ div.colist td img {
 }
 
 @media print {
-  div#footer-badges { display: none; }
+  #footer-badges { display: none; }
 }
 
-div#toc {
+#toc {
   margin-bottom: 2.5em;
 }
 
-div#toctitle {
+#toctitle {
   color: #527bbd;
   font-size: 1.1em;
   font-weight: bold;
@@ -377,7 +352,7 @@ div#toctitle {
   margin-bottom: 0.1em;
 }
 
-div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
   margin-top: 0;
   margin-bottom: 0;
 }
@@ -394,10 +369,172 @@ div.toclevel4 {
   font-size: 0.9em;
 }
 
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+
+
 </style>
 <script type="text/javascript">
 /*<![CDATA[*/
-window.onload = function(){asciidoc.footnotes(); asciidoc.toc(2);}
 var asciidoc = {  // Namespace.
 
 /////////////////////////////////////////////////////////////////////
@@ -439,7 +576,7 @@ toc: function (toclevels) {
 
   function tocEntries(el, toclevels) {
     var result = new Array;
-    var re = new RegExp('[hH]([2-'+(toclevels+1)+'])');
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
     // Function that scans the DOM tree for header elements (the DOM2
     // nodeIterator API would be a better technique but not supported by all
     // browsers).
@@ -459,6 +596,25 @@ toc: function (toclevels) {
   }
 
   var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
   var entries = tocEntries(document.getElementById("content"), toclevels);
   for (var i = 0; i < entries.length; ++i) {
     var entry = entries[i];
@@ -486,24 +642,44 @@ toc: function (toclevels) {
  */
 
 footnotes: function () {
-  var cont = document.getElementById("content");
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
   var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
   var spans = cont.getElementsByTagName("span");
   var refs = {};
   var n = 0;
   for (i=0; i<spans.length; i++) {
     if (spans[i].className == "footnote") {
       n++;
-      // Use [\s\S] in place of . so multi-line matches work.
-      // Because JavaScript has no s (dotall) regex flag.
-      note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
       noteholder.innerHTML +=
         "<div class='footnote' id='_footnote_" + n + "'>" +
         "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
         n + "</a>. " + note + "</div>";
-      spans[i].innerHTML =
-        "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
-        "' title='View footnote' class='footnote'>" + n + "</a>]";
       var id =spans[i].getAttribute("id");
       if (id != null) refs["#"+id] = n;
     }
@@ -523,17 +699,40 @@ footnotes: function () {
       }
     }
   }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
 }
 
 }
+asciidoc.install(2);
 /*]]>*/
 </script>
 </head>
 <body class="article">
 <div id="header">
-<h1>Installation in Ubuntu: Ruby 1.9.2, Ruby on Rails 3.0.3</h1>
-<span id="author">Karl-Heinz Köther</span><br />
-<span id="email"><tt>&lt;<a href="mailto:&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;">&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;</a>&gt;</tt></span><br />
+<h1>Installation in Ubuntu: Ruby 1.9.3, Ruby on Rails 3.2.8</h1>
+<span id="author">Karl-Heinz Köther</span><br>
+<span id="email" class="monospaced">&lt;<a href="mailto:&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;">&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;</a>&gt;</span><br>
 <div id="toc">
   <div id="toctitle">Table of Contents</div>
   <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
@@ -542,26 +741,26 @@ footnotes: function () {
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph"><p>Version 1.4.0, November 2010, <a href="#_changelog">[Changelog]</a></p></div>
+<div class="paragraph"><p>Version 1.5.0, Okotber 2012, <a href="#_changelog">[Changelog]</a></p></div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_abstract">Abstract</h2>
 <div class="sectionbody">
 <div class="paragraph"><p>Dieser Artikel ist eine Schritt-für-Schritt Anleitung zur Installation
-von <a href="http://www.ruby-lang.org/">Ruby 1.9.2</a> aus dem QuellCode.</p></div>
+von <a href="http://www.ruby-lang.org/">Ruby 1.9.3</a> aus dem QuellCode.</p></div>
 <div class="paragraph"><p>Die Programmiersprache <a href="http://www.ruby-lang.org/">Ruby</a> ist die Grundlage für das
 Framework <a href="http://www.rubyonrails.org">Ruby on Rails</a>.</p></div>
-<div class="paragraph"><p>Der Artikel ist in <a href="http://www.methods.co.nz/asciidoc/">ASCII DOC</a> erstellt worden.</p></div>
+<div class="paragraph"><p>Der Artikel ist in <a href="http://www.methods.co.nz/asciidoc/">AsciiDoc</a> erstellt worden.</p></div>
 <div class="admonitionblock">
 <table><tr>
 <td class="icon">
-<img src="./images/icons/caution.png" alt="Caution" />
+<img src="./images/icons/caution.png" alt="Caution">
 </td>
 <td class="content">
 <div class="paragraph"><p>Zu beachten ist, dass so ein Dokument zum Einen nie abschliessend
 sein kann, und zum Anderen bestimmte Konfigurationen anders, oder
-auf einem anderem Weg durchgeführt werden können.<br />
+auf einem anderem Weg durchgeführt werden können.<br>
 Gerne nehme ich Verbesserungsvorschläge entgegen.</p></div>
 <div class="paragraph"><p>Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr.</p></div>
 </td>
@@ -572,45 +771,64 @@ Gerne nehme ich Verbesserungsvorschläge entgegen.</p></div>
 <div class="sect1">
 <h2 id="_vorraussetzungen">Vorraussetzungen</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>Die Installation wird für <a href="http://www.ubuntu.com/">Ubuntu 10.04 (Lucid Lynx)</a>
-beschrieben. Gleichwohl sind die einzelnen Schritte auch für
+<div class="paragraph"><p>Die Installation wird für <a href="http://www.ubuntu.com/">Ubuntu 12.04 LTS (Precise Pangolin)</a>
+beschrieben.<br>
+Gleichwohl sind die einzelnen Schritte auch für
 andere Distributionen übertragbar.</p></div>
-<div class="ulist"><div class="title">Download</div><ul>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip">
+</td>
+<td class="content">
+<div class="paragraph"><p>Ubuntu 12.04 LTS (Precise Pangolin) enthält das Paket <em>ruby1.9.3_1.9.3.0-1ubuntu1_all</em>
+(entspricht: Ruby 1.9.3p0). Das Paket <em>ruby1.8_1.8.7.352-2ubuntu1</em>
+(entspricht: Ruby 1.8.7p352) ist in der Regel (über bestehende Abhängigkeiten zu
+anderen Ubuntu-Paketen) bereits installiert.</p></div>
+</td>
+</tr></table>
+</div>
+<div class="sect2">
+<h3 id="_download">Download</h3>
+<div class="ulist"><ul>
 <li>
 <p>
-<a href="ftp://www.ruby-lang.org/pub/ruby/1.9/">Ruby 1.9.2</a><br />
-  ruby-1.9.2-p0.tar.gz  (ca. 10.5 MB)<br />
-  2010-08-18 (Release date)
+<a href="ftp://www.ruby-lang.org/pub/ruby/1.9/">Ruby 1.9.3</a><br>
+  ruby-1.9.3-p194.tar.gz  (ca. 12M)<br>
+  2012-04-20 (Release date)
 </p>
 </li>
 </ul></div>
 <div class="admonitionblock">
 <table><tr>
 <td class="icon">
-<img src="./images/icons/note.png" alt="Note" />
+<img src="./images/icons/note.png" alt="Note">
 </td>
 <td class="content">
-<div class="paragraph"><p>Nach Aussage von Yehuda Katz auf RailsWay Con in Berlin enthalten
+<div class="paragraph"><p>Nach Aussage von Yehuda Katz auf der RailsWay Con in Berlin, enthalten
 die Versionen Ruby 1.9.1 (Patch xxx) zuviele Fehler im
-Zusammenspiel mit Ruby on Rails.<br />
-Daher sollte man tunlichst darauf verzichten sie zu installieren.</p></div>
+Zusammenspiel mit Ruby on Rails.<br>
+Daher sollte man tunlichst darauf verzichten sie zu installieren.<br>
+Minimum ist die Version 1.9.2 von Ruby!
+Stand der Dinge ist <strong>2012</strong> die Version Ruby 1.9.3!
+Für jedes neu aufzusetzende Projekt sollte diese Version verwendet werden.</p></div>
 </td>
 </tr></table>
 </div>
 <div class="admonitionblock">
 <table><tr>
 <td class="icon">
-<img src="./images/icons/note.png" alt="Note" />
+<img src="./images/icons/note.png" alt="Note">
 </td>
 <td class="content">
-<div class="paragraph"><p>Das Kompilieren der Programmiersprache Ruby wird vom Benutzer <em>bob</em>
-durchgeführt.<br />
+<div class="paragraph"><p>Das Kompilieren der Programmiersprache Ruby wird vom Benutzer <em>sid</em>
+durchgeführt.<br>
 Die eigentliche Installation von Ruby und Ruby on Rails wird vom
 Benutzer <em>root</em> für das System durchgeführt.</p></div>
 <div class="listingblock">
-<div class="content">
-<pre><tt>$ ls -l
--rw-r--r--  1 bob  bob  10787899 2010-08-19 19:59 ruby-1.9.2-p0.tar.gz</tt></pre>
+<div class="content monospaced">
+<pre>$ ls -l
+-rw-rw-r-- 1 sid sid 12432239 Okt  4 12:20 ruby-1.9.3-p194.tar.gz</pre>
 </div></div>
 </td>
 </tr></table>
@@ -618,20 +836,22 @@ Benutzer <em>root</em> für das System durchgeführt.</p></div>
 <div class="admonitionblock">
 <table><tr>
 <td class="icon">
-<img src="./images/icons/note.png" alt="Note" />
+<img src="./images/icons/note.png" alt="Note">
 </td>
 <td class="content">
 <div class="paragraph"><p>Vor der eigentlichen Installation müssen die fehlenden
 Programm-Pakete installiert sind.</p></div>
 <div class="listingblock">
-<div class="content">
-<pre><tt>$ sudo apt-get install ...
+<div class="content monospaced">
+<pre>$ sudo apt-get install ...
                Benötigt:   build-essential libc6-dev  g++  make  dpkg-dev
                Benötigt:   libssl-dev libmysqlclient-dev libsqlite3-dev
-               Benötigt:   libreadline5-dev libncurses5-dev zlib1g-dev</tt></pre>
+               Benötigt:   libreadline6-dev libyaml-dev zlib1g-dev
+               Benötigt:   libltdl-dev libtool</pre>
 </div></div>
 </td>
 </tr></table>
+</div>
 </div>
 </div>
 </div>
@@ -639,19 +859,19 @@ Programm-Pakete installiert sind.</p></div>
 <h2 id="_installation">Installation</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_ruby_1_9_2">Ruby 1.9.2</h3>
+<h3 id="_ruby_1_9_3_p194">Ruby 1.9.3-p194</h3>
 <div class="paragraph"><p>Zusätzliche Software-Pakete die nicht über das Paketmanagement
 verwaltet wird, sollten im Verzeichnis <em>/opt</em> (Optional)
 installiert werden.</p></div>
 <div class="admonitionblock">
 <table><tr>
 <td class="icon">
-<img src="./images/icons/important.png" alt="Important" />
+<img src="./images/icons/important.png" alt="Important">
 </td>
 <td class="content">
 <div class="paragraph"><p>Ohne die Angabe eines Verzeichnisses wird <em>/usr/local/&#8230;</em> automatisch verwendet.
-Eine bereits vorhandene Ruby-Installation wird überschrieben.<br />
-<br />
+Eine bereits vorhandene Ruby-Installation wird überschrieben.<br>
+<br>
 Beispiel für die Änderung des Installations-Verzeichnisses:
 <em>./configure --prefix=/opt/wo_auch_immer</em></p></div>
 </td>
@@ -659,19 +879,19 @@ Beispiel für die Änderung des Installations-Verzeichnisses:
 </div>
 <div class="paragraph"><p><strong>Step 1:</strong> Auspacken des Source-Code</p></div>
 <div class="listingblock">
-<div class="content">
-<pre><tt>$ tar xvzf ruby-1.9.2-p0.tar.gz
-$ cd ruby-1.9.2-p0</tt></pre>
+<div class="content monospaced">
+<pre>$ tar xvzf ruby-1.9.3-p194.tar.gz
+$ cd ruby-1.9.3-p194</pre>
 </div></div>
 <div class="paragraph"><p><strong>Step 2:</strong> Konfiguration erstellen und kompilieren</p></div>
 <div class="listingblock">
-<div class="content">
-<pre><tt>$ sudo mkdir -p /opt/Ruby/ruby-1.9.2-p0</tt></pre>
+<div class="content monospaced">
+<pre>$ sudo mkdir -p /opt/Ruby/ruby-1.9.3-p194</pre>
 </div></div>
 <div class="admonitionblock">
 <table><tr>
 <td class="icon">
-<img src="./images/icons/note.png" alt="Note" />
+<img src="./images/icons/note.png" alt="Note">
 </td>
 <td class="content">
 <div class="paragraph"><p>Die Programm-Option <em>configure --program-suffix=19</em> hilft nicht wirklich. Sie ändert
@@ -683,199 +903,269 @@ ohne das Suffix <em>19</em> wiederum vorhandene Dateien überschreibt.</p></div>
 </tr></table>
 </div>
 <div class="listingblock">
-<div class="content">
-<pre><tt>$ ./configure --prefix=/opt/Ruby/ruby-1.9.2-p0 | tee ../log.ruby_configure
-checking build system type... i686-pc-linux-gnu
-checking host system type... i686-pc-linux-gnu
-checking target system type... i686-pc-linux-gnu
+<div class="content monospaced">
+<pre>$ ./configure --prefix=/opt/Ruby/ruby-1.9.3-p194 | tee ../log.ruby_configure
+checking build system type... x86_64-unknown-linux-gnu
+checking host system type... x86_64-unknown-linux-gnu
+checking target system type... x86_64-unknown-linux-gnu
 checking for gcc... gcc
+checking whether the C compiler works... yes
 [...]
 checking for nroff... /usr/bin/nroff
-.ext/include/i686-linux/ruby/config.h updated
+.ext/include/x86_64-linux/ruby/config.h updated
 ruby library version = 1.9.1
 configure: creating ./config.status
 config.status: creating Makefile
-
-$ make all | tee ../log.ruby_make_all
-gcc -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wpointer-arith -Ww
-rite-strings -Wno-missing-field-initializers -Wno-long-long -I. -I.ext/include/i
-686-linux -I./include -I. -DRUBY_EXPORT   -o main.o -c main.c
+config.status: creating ruby-1.9.pc</pre>
+</div></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>$ make all | tee ../log.ruby_make_all
+        CC = gcc
+        LD = ld
+        LDSHARED = gcc -shared
+        CFLAGS = -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Werror=pointer-arith -Werror=write-strings -Werror=declaration-after-statement -Werror=implicit-function-declaration
+        XCFLAGS = -include ruby/config.h -include ruby/missing.h -fvisibility=hidden -DRUBY_EXPORT
+        CPPFLAGS =   -I. -I.ext/include/x86_64-linux -I./include -I.
+        DLDFLAGS =
+        SOLIBS =
+compiling main.c
 [...]
- 99% [511/515]   ext/socket/lib/socket.rb
- 99% [512/515]   ext/stringio/stringio.c
-No definition for rb_io_addstr
-No definition for rb_io_print
-No definition for rb_io_printf
-No definition for rb_io_puts
- 99% [513/515]   ext/strscan/strscan.c
- 99% [514/515]   ext/zlib/zlib.c
-100% [515/515]   doc/re.rdoc
+Generating RDoc documentation   <img src="./images/icons/callouts/1.png" alt="1">
+lib/irb/inspector.rb:36:36: Couldn't find INSPECTORS. Assuming it's a module
+lib/mkmf.rb:1117:29: Couldn't find STRING_OR_FAILED_FORMAT. Assuming it's a module
+Enclosing class/module 'mDigest' for class MD5 not known
+Enclosing class/module 'mDigest' for class RMD160 not known
+Enclosing class/module 'mDigest' for class SHA1 not known
+Enclosing class/module "cASN1ObjectId" for alias short_name sn not known
+Enclosing class/module "cASN1ObjectId" for alias long_name ln not known
 
-Generating RI...
+Generating RI format into /yggdrasil/PrecisePangolin/Ruby19/ruby-1.9.3-p194/.ext/rdoc...
 
+Files:        772
 
-Files:       515
-Classes:    1086 (  653 undocumented)
-Constants:  1364 ( 1141 undocumented)
-Modules:     251 (  148 undocumented)
-Methods:    7645 ( 2873 undocumented)
- 53.46% documented
+Classes:     1373 ( 708 undocumented)
+Modules:      306 ( 152 undocumented)
+Constants:   2254 ( 828 undocumented)
+Attributes:  1017 ( 438 undocumented)
+Methods:    10469 (3098 undocumented)
 
-Elapsed: 96.0s
+Total:      15419 (5224 undocumented)
+ 66.12% documented
 
-$ make test | tee ../log.ruby_make_test
-sample/test.rb:assignment ...............................................
+Elapsed: 117.1s</pre>
+</div></div>
+<div class="colist arabic"><table>
+<tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
+Beim Erzeugen der <em>Ruby Documentation (RDoc)</em> kommt es zu Fehlern!
+</td></tr>
+</table></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>$ make test | tee ../log.ruby_make_test
+sample/test.rb:assignment ...................[...viele...]   <img src="./images/icons/callouts/1.png" alt="1">
+sample/test.rb:condition ..
+sample/test.rb:if/unless ...
+sample/test.rb:case .....
 [...]
-PASS all 933 tests
-./miniruby -I./lib -I.ext/common -I./- -r./ext/purelib.rb  ./tool/runruby.rb --extout=.ext  -- "./bootstraptest/runner.rb" --ruby="ruby"  ./KNOWNBUGS.rb
-2010-08-19 20:16:27 +0200
-Driver is ruby 1.9.2p0 (2010-08-18 revision 29036) [i686-linux]
-Target is ruby 1.9.2p0 (2010-08-18 revision 29036) [i686-linux]
+test_thread.rb ..................................................
+PASS all 943 tests
+./miniruby -I./lib -I. -I.ext/common  ./tool/runruby.rb --extout=.ext  -- --disable-gems "./bootstraptest/runner.rb" --ruby="ruby"  ./KNOWNBUGS.rb
+2012-10-04 12:36:34 +0200
+Driver is ruby 1.9.3p194 (2012-04-20 revision 35410) [x86_64-linux]
+Target is ruby 1.9.3p194 (2012-04-20 revision 35410) [x86_64-linux]
+
 
 KNOWNBUGS.rb .
-PASS all 1 tests</tt></pre>
+PASS all 1 tests</pre>
 </div></div>
-<div class="paragraph"><p><strong>Step 3:</strong> Installation (als Benutzer <em>root</em>)<br />
+<div class="colist arabic"><table>
+<tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
+Jeder ausgegebene <em>.</em> (Punkt) ist ein ausgeführter Test.
+</td></tr>
+</table></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/note.png" alt="Note">
+</td>
+<td class="content">
+<div class="paragraph"><p>Auf die folgenden Teile des Ruby-Interpreters verzichte ich in meiner
+Installation. Sollten Sie sie benötigen, müssen die entsprechenden
+Entwickler-Bibliotheken (lib&#8230;-dev) zusätzlich installiert werden.<br>
+Führen Sie anschließend die obigen Befehle (make &#8230;) erneut aus.</p></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>$ grep Failed ../log.*
+../log.ruby_make_all:Failed to configure -test-/win32/dln. It will not be installed.
+../log.ruby_make_all:Failed to configure dbm. It will not be installed.
+../log.ruby_make_all:Failed to configure dl/win32. It will not be installed.
+../log.ruby_make_all:Failed to configure fiddle. It will not be installed.
+../log.ruby_make_all:Failed to configure gdbm. It will not be installed.
+../log.ruby_make_all:Failed to configure tk. It will not be installed.
+../log.ruby_make_all:Failed to configure tk/tkutil. It will not be installed.
+../log.ruby_make_all:Failed to configure win32ole. It will not be installed.</pre>
+</div></div>
+</td>
+</tr></table>
+</div>
+<div class="paragraph"><p><strong>Step 3:</strong> Installation (als Benutzer <em>root</em>)<br>
 (Dokumentation wird mitinstalliert: install-doc entfällt)</p></div>
 <div class="listingblock">
-<div class="content">
-<pre><tt>$ sudo make install | tee ../log.ruby_make_install
-./miniruby -I./lib -I.ext/common -I./- -r./ext/purelib.rb  ./tool/generic_erb.rb -c -o encdb.h ./template/encdb.h.tmpl ./enc enc
-encdb.h unchanged
+<div class="content monospaced">
+<pre>$ sudo make install | tee ../log.ruby_make_install
 [...]
-installing extension scripts: /opt/Ruby/ruby-1.9.2-p0/lib/ruby/1.9.1
-installing extension scripts: /opt/Ruby/ruby-1.9.2-p0/lib/ruby/site_ruby/1.9.1
-installing extension scripts: /opt/Ruby/ruby-1.9.2-p0/lib/ruby/vendor_ruby/1.9.1
-installing extension headers: /opt/Ruby/ruby-1.9.2-p0/include/ruby-1.9.1/ruby
-installing rdoc:              /opt/Ruby/ruby-1.9.2-p0/share/ri/1.9.1/system
-installing capi-docs:         /opt/Ruby/ruby-1.9.2-p0/share/doc/ruby
-installing command scripts:   /opt/Ruby/ruby-1.9.2-p0/bin
-installing library scripts:   /opt/Ruby/ruby-1.9.2-p0/lib/ruby/1.9.1
-installing common headers:    /opt/Ruby/ruby-1.9.2-p0/include/ruby-1.9.1
-installing manpages:          /opt/Ruby/ruby-1.9.2-p0/share/man/man1
-installing default gems:      /opt/Ruby/ruby-1.9.2-p0/lib/ruby/gems/1.9.1 (cache, doc, gems, specifications)
-                              rake 0.8.7
-                              rdoc 2.5.8
-                              minitest 1.6.0</tt></pre>
+Elapsed: 0.0s
+./miniruby -I./lib -I. -I.ext/common  ./tool/rbinstall.rb --make="make" --dest-dir="" --extout=".ext" --mflags="" --make-flags="" --data-mode=0644 --prog-mode=0755 --installed-list .installed.list --mantype="doc" --install=all --rdoc-output=".ext/rdoc"
+installing binary commands:   /opt/Ruby/ruby-1.9.3-p194/bin
+installing base libraries:    /opt/Ruby/ruby-1.9.3-p194/lib
+installing arch files:        /opt/Ruby/ruby-1.9.3-p194/lib/ruby/1.9.1/x86_64-linux
+installing extension objects: /opt/Ruby/ruby-1.9.3-p194/lib/ruby/1.9.1/x86_64-linux
+installing extension objects: /opt/Ruby/ruby-1.9.3-p194/lib/ruby/site_ruby/1.9.1/x86_64-linux
+installing extension objects: /opt/Ruby/ruby-1.9.3-p194/lib/ruby/vendor_ruby/1.9.1/x86_64-linux
+installing extension headers: /opt/Ruby/ruby-1.9.3-p194/include/ruby-1.9.1/x86_64-linux
+installing extension scripts: /opt/Ruby/ruby-1.9.3-p194/lib/ruby/1.9.1
+installing extension scripts: /opt/Ruby/ruby-1.9.3-p194/lib/ruby/site_ruby/1.9.1
+installing extension scripts: /opt/Ruby/ruby-1.9.3-p194/lib/ruby/vendor_ruby/1.9.1
+installing extension headers: /opt/Ruby/ruby-1.9.3-p194/include/ruby-1.9.1/ruby
+installing rdoc:              /opt/Ruby/ruby-1.9.3-p194/share/ri/1.9.1/system
+installing capi-docs:         /opt/Ruby/ruby-1.9.3-p194/share/doc/ruby
+installing command scripts:   /opt/Ruby/ruby-1.9.3-p194/bin
+installing library scripts:   /opt/Ruby/ruby-1.9.3-p194/lib/ruby/1.9.1
+installing common headers:    /opt/Ruby/ruby-1.9.3-p194/include/ruby-1.9.1
+installing manpages:          /opt/Ruby/ruby-1.9.3-p194/share/man/man1
+installing default gems:      /opt/Ruby/ruby-1.9.3-p194/lib/ruby/gems/1.9.1 (cache, doc, gems, specifications)
+                              rake 0.9.2.2
+                              rdoc 3.9.4
+                              minitest 2.5.1
+                              json 1.5.4
+                              io-console 0.3
+                              bigdecimal 1.1.0</pre>
 </div></div>
 <div class="paragraph"><p><strong>Step 4:</strong> Installation verifizieren</p></div>
 <div class="listingblock">
-<div class="content">
-<pre><tt>$ cd /opt/Ruby/ruby-1.9.2-p0
+<div class="content monospaced">
+<pre>$ cd /opt/Ruby/ruby-1.9.3-p194
 $ ls -l
-drwxr-xr-x 2 root root 4096 2010-08-30 21:25 bin
-drwxr-xr-x 3 root root 4096 2010-08-30 21:25 include
-drwxr-xr-x 3 root root 4096 2010-08-30 21:25 lib
-drwxr-xr-x 5 root root 4096 2010-08-30 21:25 share</tt></pre>
+drwxr-xr-x 2 root root 4096 Okt  4 12:39 bin
+drwxr-xr-x 3 root root 4096 Okt  4 12:39 include
+drwxr-xr-x 4 root root 4096 Okt  4 12:39 lib
+drwxr-xr-x 5 root root 4096 Okt  4 12:39 share</pre>
 </div></div>
 <div class="listingblock">
-<div class="content">
-<pre><tt>$ ls -l bin
--rwxr-xr-x 1 root root    4412 2010-08-30 21:25 erb
--rwxr-xr-x 1 root root     561 2010-08-30 21:25 gem
--rwxr-xr-x 1 root root     333 2010-08-30 21:25 irb
--rwxr-xr-x 1 root root    1263 2010-08-30 21:25 rake
--rwxr-xr-x 1 root root     712 2010-08-30 21:25 rdoc
--rwxr-xr-x 1 root root      88 2010-08-30 21:25 ri
--rwxr-xr-x 1 root root 5146120 2010-08-19 20:13 ruby
--rwxr-xr-x 1 root root     262 2010-08-30 21:25 testrb</tt></pre>
+<div class="content monospaced">
+<pre>$ ls -l bin
+-rwxr-xr-x 1 root root    4414 Okt  4 12:39 erb
+-rwxr-xr-x 1 root root     563 Okt  4 12:39 gem
+-rwxr-xr-x 1 root root     335 Okt  4 12:39 irb
+-rwxr-xr-x 1 root root    1248 Okt  4 12:39 rake
+-rwxr-xr-x 1 root root     805 Okt  4 12:39 rdoc
+-rwxr-xr-x 1 root root     205 Okt  4 12:39 ri
+-rwxr-xr-x 1 root root 8550861 Okt  4 12:27 ruby
+-rwxr-xr-x 1 root root     315 Okt  4 12:39 testrb</pre>
 </div></div>
-<div class="paragraph"><p><strong>Step 5:</strong> Der Pfad zum Verzeichnis <em>/opt/Ruby/ruby-1.9.2-p0/bin</em> muß gesetzt werden</p></div>
+<div class="paragraph"><p><strong>Step 5:</strong> Der Pfad zum Verzeichnis <em>/opt/Ruby/ruby-1.9.3-p194/bin</em> muß gesetzt werden.</p></div>
 <div class="listingblock">
-<div class="title">Lokal in der aktuellen Shell (1)</div>
-<div class="content">
-<pre><tt>$ vim /opt/Ruby/ruby19.path.sh
-PATH=/opt/Ruby/ruby-1.9.2-p0/bin:$PATH
-export PATH
-$ . ruby19.path.sh</tt></pre>
-</div></div>
-<div class="listingblock">
-<div class="title">Systemweit in der Datei <em>/etc/environment</em></div>
-<div class="content">
-<pre><tt>$ sudo vim /etc/environment
-PATH="/opt/Ruby/ruby-1.9.2-p0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"</tt></pre>
-</div></div>
-<div class="paragraph"><div class="title">Systemweit in einer allgemeineren Lösung</div><p>Ein Vorteil ist hierbei, daß für das Einspielen einer neuen Version die <em>PATH</em>-Variable nicht erneut
-angepasst werden müssen.</p></div>
-<div class="listingblock">
-<div class="content">
-<pre><tt>$ sudo vim /etc/environment
-PATH="/opt/Ruby/current/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+<div class="content monospaced">
+<pre>$ cd /opt/Ruby/
+$ sudo ln -s ruby-1.9.3-p194 current
 
-$ cd /opt/Ruby/
-$ sudo ln -s ruby-1.9.2-p0 current
 $ ls -l
-lrwxrwxrwx 1 root root   13 2010-08-30 21:28 current -&gt; ruby-1.9.2-p0
-drwxr-xr-x 6 root root 4096 2010-08-30 21:25 ruby-1.9.2-p0</tt></pre>
+lrwxrwxrwx 1 root root   15 Okt  4 12:41 current -&gt; ruby-1.9.3-p194
+drwxr-xr-x 6 root root 4096 Okt  4 12:39 ruby-1.9.3-p194</pre>
 </div></div>
+<div class="paragraph"><div class="title">Lokal in der aktuellen Shell (1)</div><p>Erstellen Sie eine Datei <em>ruby19.path.sh</em>.</p></div>
 <div class="listingblock">
-<div class="title">Lokal in der aktuellen Shell (2)</div>
-<div class="content">
-<pre><tt>$ vim /opt/Ruby/ruby19.path.sh
+<div class="content monospaced">
+<pre>$ sudo vim ruby19.path.sh
 PATH=/opt/Ruby/current/bin:$PATH
-export PATH
-$ . ruby19.path.sh</tt></pre>
+export PATH</pre>
+</div></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/note.png" alt="Note">
+</td>
+<td class="content">
+<div class="paragraph"><p>Achtung: Ausführen der Datei mit dem Punkt-Operator!</p></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>$ . ruby19.path.sh   <img src="./images/icons/callouts/1.png" alt="1"></pre>
+</div></div>
+<div class="colist arabic"><table>
+<tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
+Oder mit dem Bash-Builtin Kommando: <em>source ruby19.path.sh</em>
+</td></tr>
+</table></div>
+</td>
+</tr></table>
+</div>
+<div class="listingblock">
+<div class="title">Systemweit in der Datei <em>/etc/environment</em> (2)</div>
+<div class="content monospaced">
+<pre>$ sudo vim /etc/environment
+PATH="/opt/Ruby/current/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"</pre>
 </div></div>
 <div class="paragraph"><p><strong>Step 6:</strong> Check</p></div>
 <div class="listingblock">
 <div class="title">Die Ruby-Version &#8230;</div>
-<div class="content">
-<pre><tt>$ which ruby
-/opt/Ruby/current/bin/ruby  (1)
+<div class="content monospaced">
+<pre>$ which ruby
+/opt/Ruby/current/bin/ruby   <img src="./images/icons/callouts/1.png" alt="1">
 
-$ sudo which ruby    (2)
+$ sudo which ruby            <img src="./images/icons/callouts/2.png" alt="2">
 /opt/Ruby/current/bin/ruby
 
-$ ruby -v            (3)
-ruby 1.9.2p0 (2010-08-18 revision 29036) [i686-linux]</tt></pre>
+$ ruby -v                    <img src="./images/icons/callouts/3.png" alt="3">
+ruby 1.9.3p194 (2012-04-20 revision 35410) [x86_64-linux]</pre>
 </div></div>
-<div class="olist arabic"><ol class="arabic">
-<li>
-<p>
-Das Kommando <em>which</em> wertet den gesetzten <em>PATH</em> für den Benutzer <em>bob</em> aus<br />
-</p>
-</li>
-<li>
-<p>
+<div class="colist arabic"><table>
+<tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
+Das Kommando <em>which</em> wertet den gesetzten <em>PATH</em> für den Benutzer <em>sid</em> aus<br>
+</td></tr>
+<tr><td><img src="./images/icons/callouts/2.png" alt="2"></td><td>
 Das Kommando <em>which</em> wertet den gesetzten <em>PATH</em> für den Benuzter <em>root</em> aus
-</p>
-</li>
-<li>
-<p>
+</td></tr>
+<tr><td><img src="./images/icons/callouts/3.png" alt="3"></td><td>
 Ausgabe der Version des installierten Ruby
-</p>
-</li>
-</ol></div>
+</td></tr>
+</table></div>
 <div class="listingblock">
 <div class="title">Vollständigkeit &#8230;</div>
-<div class="content">
-<pre><tt>$ ruby -ropenssl -rzlib -rreadline -e "puts 'Happy new Ruby'"
-Happy new Ruby</tt></pre>
+<div class="content monospaced">
+<pre>$ ruby -ropenssl -rzlib -rreadline -e "puts 'Happy new Ruby'"
+Happy new Ruby</pre>
 </div></div>
 <div class="listingblock">
 <div class="title">Und ein Ruby1.9-Feature &#8230;</div>
-<div class="content">
-<pre><tt>$ irb
-irb(main):001:0&gt; RUBY_VERSION
-=&gt; "1.9.2"
+<div class="content monospaced">
+<pre>irb(main):001:0&gt; RUBY_VERSION
+=&gt; "1.9.3"
 irb(main):002:0&gt; Time.now.to_s
-=&gt; "2010-08-19 20:23:44 +0200"
-irb(main):003:0&gt; Time.now.wednesday?
+=&gt; "2012-10-04 12:47:10 +0200"
+irb(main):003:0&gt; Time.now.sunday?
 =&gt; false
 irb(main):004:0&gt; Time.now.thursday?
 =&gt; true
-irb(main):005:0&gt; exit</tt></pre>
+irb(main):005:0&gt; exit</pre>
 </div></div>
 </div>
 <div class="sect2">
-<h3 id="_ruby_on_rails_3_0_3">Ruby on Rails 3.0.3</h3>
+<h3 id="_rubygems">Rubygems</h3>
+<div class="paragraph"><p><em>RubyGems</em> (oder kurz Gems) ist das offizielle Paketsystem für die
+Programmiersprache Ruby. Mit ihm hat der Anwender die Möglichkeit,
+mehrere (zum Beispiel ältere oder jüngere) Versionen eines Programmes,
+Programmteiles oder einer Bibliothek gesteuert nach Bedarf einzurichten,
+zu verwalten oder auch wieder zu entfernen.<br>
+<a href="http://de.wikipedia.org/wiki/RubyGems">Wikipedia: RubyGems</a></p></div>
 <div class="admonitionblock">
 <table><tr>
 <td class="icon">
-<img src="./images/icons/note.png" alt="Note" />
+<img src="./images/icons/note.png" alt="Note">
 </td>
 <td class="content">
-<div class="paragraph"><p>Ruby 1.9 enthält bereits RubyGems - eine früher notwendige separate Installation entfällt.</p></div>
+<div class="paragraph"><p>Ruby 1.9 enthält bereits RubyGems - eine früher notwendige
+separate Installation entfällt.</p></div>
 </td>
 </tr></table>
 </div>
@@ -883,262 +1173,366 @@ irb(main):005:0&gt; exit</tt></pre>
 funktionierender <em>PATH</em>-Eintrag für alle Benutzer (einschliesslich <em>root</em>)
 auf die Ruby1.9-Installation:</p></div>
 <div class="listingblock">
-<div class="content">
-<pre><tt>$ which gem
+<div class="content monospaced">
+<pre>$ which gem
 /opt/Ruby/current/bin/gem
 
 $ sudo su -
 # . /opt/Ruby/ruby19.path.sh
 # which gem
-/opt/Ruby/current/bin/gem</tt></pre>
+/opt/Ruby/current/bin/gem</pre>
 </div></div>
 <div class="paragraph"><p>Dann gehen auch die folgenden Befehle</p></div>
 <div class="listingblock">
-<div class="content">
-<pre><tt>$ gem -v
-1.3.7
+<div class="content monospaced">
+<pre>$ gem -v
+1.8.23
 
 $ gem list --local
 *** LOCAL GEMS ***
-minitest (1.6.0)
-rake (0.8.7)
-rdoc (2.5.8)</tt></pre>
+bigdecimal (1.1.0)
+io-console (0.3)
+json (1.5.4)
+minitest (2.5.1)
+rake (0.9.2.2)
+rdoc (3.9.4)</pre>
 </div></div>
-<div class="paragraph"><p><strong>Step 2:</strong> Das Programm <em>gem</em> aktualisieren</p></div>
+<div class="paragraph"><p><strong>Step 2:</strong> Das Programm <em>gem</em> aktualisieren &#8230;</p></div>
 <div class="listingblock">
-<div class="content">
-<pre><tt># gem update --system
-Updating RubyGems
-Nothing to update
+<div class="content monospaced">
+<pre># gem update --system
+Updating rubygems-update
+Fetching: rubygems-update-1.8.24.gem (100%)
+Successfully installed rubygems-update-1.8.24
+Installing RubyGems 1.8.24
+RubyGems 1.8.24 installed
 
-# gem -v
-1.3.7</tt></pre>
+== 1.8.24 / 2012-04-27
+
+* 1 bug fix:
+
+  * Install the .pem files properly. Fixes #320
+  * Remove OpenSSL dependency from the http code path
+
+
+ -----------------------------------------------------------------------------
+
+RubyGems installed the following executables:
+        /opt/Ruby/ruby-1.9.3-p194/bin/gem
+
+RubyGems system software updated</pre>
 </div></div>
 <div class="paragraph"><p><strong>Step 3:</strong> Installierte RubyGems aktualisieren</p></div>
 <div class="listingblock">
-<div class="content">
-<pre><tt># gem update
-Updating RubyGems
-Nothing to update
-root@duisburg:/opt/Ruby# gem update
+<div class="content monospaced">
+<pre># gem update
 Updating installed gems
+Updating json
+Fetching: json-1.7.5.gem (100%)
+Building native extensions.  This could take a while...
+Successfully installed json-1.7.5
 Updating minitest
-Successfully installed minitest-2.0.0
+Fetching: minitest-4.0.0.gem (100%)
+Successfully installed minitest-4.0.0
 Updating rdoc
-RDoc 2.5 did not save method parameters, so you should upgrade your rdoc-data
-gem to a version &gt;= 2.5.3.
+Fetching: rdoc-3.12.gem (100%)
+Depending on your version of ruby, you may need to install ruby rdoc/ri data:
 
-To have ri data for core and stdlib you'll need to:
-
-  gem install rdoc-data
-
-then run:
-
-  rdoc-data --install
-
-To have ri data for you gems you'll also need to run:
-
-  gem rdoc --all --overwrite
-
-If you don't want to rebuild the rdoc for `gem server`, add --no-rdoc.
-Successfully installed rdoc-2.5.11
-Gems updated: minitest, rdoc
-Installing ri documentation for minitest-2.0.0...
-Installing ri documentation for rdoc-2.5.11...
-Installing RDoc documentation for minitest-2.0.0...
-Installing RDoc documentation for rdoc-2.5.11...</tt></pre>
+&lt;= 1.8.6 : unsupported
+ = 1.8.7 : gem install rdoc-data; rdoc-data --install
+ = 1.9.1 : gem install rdoc-data; rdoc-data --install
+&gt;= 1.9.2 : nothing to do! Yay!
+Successfully installed rdoc-3.12
+Gems updated: json, minitest, rdoc
+Installing ri documentation for json-1.7.5...
+Installing ri documentation for minitest-4.0.0...
+Installing ri documentation for rdoc-3.12...
+Installing RDoc documentation for json-1.7.5...
+Installing RDoc documentation for minitest-4.0.0...
+Installing RDoc documentation for rdoc-3.12...</pre>
 </div></div>
 <div class="listingblock">
-<div class="content">
-<pre><tt># gem list --local
+<div class="content monospaced">
+<pre># gem list --local
 *** LOCAL GEMS ***
-minitest (2.0.0, 1.6.0)
-rake (0.8.7)
-rdoc (2.5.11, 2.5.8)</tt></pre>
+bigdecimal (1.1.0)
+io-console (0.3)
+json (1.7.5, 1.5.4)
+minitest (4.0.0, 2.5.1)
+rake (0.9.2.2)
+rdoc (3.12, 3.9.4)
+rubygems-update (1.8.24)</pre>
 </div></div>
-<div class="paragraph"><p><strong>Step 4:</strong> Wichtig ist hier die Systemweite Installation von
-Rails 3.0.3 mit dem Benutzer <em>root</em>.</p></div>
+<div class="paragraph"><p><strong>Step 4:</strong> Dokumentation zu den installierten RubyGems aktualisieren</p></div>
 <div class="listingblock">
-<div class="content">
-<pre><tt># gem install rails
-Successfully installed activesupport-3.0.3
-Successfully installed builder-2.1.2
-Successfully installed i18n-0.4.2
-Successfully installed activemodel-3.0.3
-Successfully installed rack-1.2.1
-Successfully installed rack-test-0.5.6
-Successfully installed rack-mount-0.6.13
-Successfully installed tzinfo-0.3.23
-Successfully installed abstract-1.0.0
-Successfully installed erubis-2.6.6
-Successfully installed actionpack-3.0.3
-Successfully installed arel-2.0.3
-Successfully installed activerecord-3.0.3
-Successfully installed activeresource-3.0.3
-Successfully installed mime-types-1.16
-Successfully installed polyglot-0.3.1
-Successfully installed treetop-1.4.9
-Successfully installed mail-2.2.10
-Successfully installed actionmailer-3.0.3
-Successfully installed thor-0.14.4
-Successfully installed railties-3.0.3
-Successfully installed bundler-1.0.6
-Successfully installed rails-3.0.3
-23 gems installed
-Installing ri documentation for activesupport-3.0.3...
-[...]
-Installing ri documentation for rails-3.0.3...
-Installing RDoc documentation for activesupport-3.0.3...
-[...]
-Installing RDoc documentation for rails-3.0.3...</tt></pre>
+<div class="content monospaced">
+<pre># cd /opt/Ruby/current   <img src="./images/icons/callouts/1.png" alt="1">
+# rdoc .
+Parsing sources...
+Couldn't find file to include 'README.txt' from ruby-1.9.3-p194/lib/ruby/gems/1.9.1/gems/minitest-4.0.0/lib/minitest/unit.rb
+unable to convert "\xF1" from ASCII-8BIT to UTF-8 for ruby-1.9.3-p194/lib/ruby/gems/1.9.1/gems/builder-3.1.3/test/performance.rb, skipping
+unable to convert "\x89" from ASCII-8BIT to UTF-8 for ruby-1.9.3-p194/lib/ruby/gems/1.9.1/gems/rack-1.4.1/test/multipart/binary, skipping
+unable to convert "\xF1" from ASCII-8BIT to UTF-8 for ruby-1.9.3-p194/lib/ruby/gems/1.9.1/gems/builder-3.0.3/test/performance.rb, skipping
+Couldn't find file to include 'README.txt' from ruby-1.9.3-p194/lib/ruby/1.9.1/minitest/unit.rb
+unable to convert "\xC0" from ASCII-8BIT to UTF-8 for ruby-1.9.3-p194/bin/ruby, skipping
+100% [3570/3570]  ruby-1.9.3-p194/bin/update_rubygems
+
+Generating Darkfish format into /opt/Ruby/ruby-1.9.3-p194/doc...
+
+Files:       3570
+
+Classes:     2428 ( 1499 undocumented)
+Modules:     1804 ( 1493 undocumented)
+Constants:   1571 ( 1177 undocumented)
+Attributes:  1811 ( 1105 undocumented)
+Methods:    16041 ( 8693 undocumented)
+
+Total:      23655 (13967 undocumented)
+ 40.96% documented
+
+Elapsed: 2056.0s</pre>
 </div></div>
+<div class="colist arabic"><table>
+<tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
+Entspricht: <em>/opt/Ruby/ruby-1.9.3-p194</em>
+</td></tr>
+</table></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre># ls -l
+insgesamt 44
+drwxr-xr-x   3 root root  4096 Okt  4 13:39 bin
+drwxr-xr-x 163 root root 24576 Okt  4 14:58 doc    <img src="./images/icons/callouts/1.png" alt="1">
+drwxr-xr-x   3 root root  4096 Okt  4 12:39 include
+drwxr-xr-x   4 root root  4096 Okt  4 12:39 lib
+drwxr-xr-x   5 root root  4096 Okt  4 12:39 share</pre>
+</div></div>
+<div class="colist arabic"><table>
+<tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
+Das Dokumentations-Verzeichnis enthält die Datei <em>index.html</em>.
+</td></tr>
+</table></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>Browser&gt; file:///opt/Ruby/current/doc/index.html</pre>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="_ruby_on_rails_3_2_8">Ruby on Rails 3.2.8</h3>
+<div class="paragraph"><p><strong>Step 1:</strong> Wichtig ist hier die Systemweite Installation von
+Rails 3.2.8 mit dem Benutzer <em>root</em>.</p></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre># gem install rails
+Fetching: i18n-0.6.1.gem (100%)
+[...]
+Fetching: rails-3.2.8.gem (100%)
+Successfully installed i18n-0.6.1
+Successfully installed multi_json-1.3.6
+Successfully installed activesupport-3.2.8
+Successfully installed builder-3.0.3
+Successfully installed activemodel-3.2.8
+Successfully installed rack-1.4.1
+Successfully installed rack-cache-1.2
+Successfully installed rack-test-0.6.2
+Successfully installed journey-1.0.4
+Successfully installed hike-1.2.1
+Successfully installed tilt-1.3.3
+Successfully installed sprockets-2.1.3
+Successfully installed erubis-2.7.0
+Successfully installed actionpack-3.2.8
+Successfully installed arel-3.0.2
+Successfully installed tzinfo-0.3.33
+Successfully installed activerecord-3.2.8
+Successfully installed activeresource-3.2.8
+Successfully installed mime-types-1.19
+Successfully installed polyglot-0.3.3
+Successfully installed treetop-1.4.10
+Successfully installed mail-2.4.4
+Successfully installed actionmailer-3.2.8
+Successfully installed rack-ssl-1.3.2
+Successfully installed thor-0.16.0
+Successfully installed railties-3.2.8
+Successfully installed bundler-1.2.1
+Successfully installed rails-3.2.8
+28 gems installed                                        <img src="./images/icons/callouts/1.png" alt="1">
+Installing ri documentation for i18n-0.6.1...
+[...]
+Installing ri documentation for rails-3.2.8...
+Installing RDoc documentation for i18n-0.6.1...
+[...]
+Installing RDoc documentation for rails-3.2.8...</pre>
+</div></div>
+<div class="colist arabic"><table>
+<tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
+Für das Framework <em>Ruby on Rails</em> wurden 28 RubyGems installiert.
+</td></tr>
+</table></div>
 <div class="admonitionblock">
 <table><tr>
 <td class="icon">
-<img src="./images/icons/note.png" alt="Note" />
+<img src="./images/icons/note.png" alt="Note">
 </td>
 <td class="content">
-<div class="paragraph"><p>Alternativ mit Angabe der zu installierenden Version</p></div>
+<div class="paragraph"><p>Alternativ kann Rails mit der Angabe einer Version installiert werden.</p></div>
 <div class="listingblock">
-<div class="content">
-<pre><tt># gem install rails --version 3.0.3</tt></pre>
+<div class="content monospaced">
+<pre># gem install rails --version 3.2.8
+
+# gem install rails --version '~&gt; 3.2.0'   <img src="./images/icons/callouts/1.png" alt="1"></pre>
 </div></div>
+<div class="colist arabic"><table>
+<tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
+Twiddle Wakka: <em>~&gt; 3.2.0</em> bedeutet, das die höchste Gem-Version von Rails
+    im Bereich von &gt;= 3.2.0 und &lt; 3.3 installiert wird.
+</td></tr>
+</table></div>
 </td>
 </tr></table>
 </div>
 <div class="listingblock">
-<div class="content">
-<pre><tt>$ gem list --local
+<div class="content monospaced">
+<pre># gem update
+Updating installed gems
+Updating builder
+Fetching: builder-3.1.3.gem (100%)
+Successfully installed builder-3.1.3
+Updating sprockets
+Fetching: sprockets-2.6.0.gem (100%)
+Successfully installed sprockets-2.6.0
+Gems updated: builder, sprockets
+Installing ri documentation for builder-3.1.3...
+Installing ri documentation for sprockets-2.6.0...
+Installing RDoc documentation for builder-3.1.3...
+Installing RDoc documentation for sprockets-2.6.0...</pre>
+</div></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>$ gem list --local
 *** LOCAL GEMS ***
-abstract (1.0.0)
-actionmailer (3.0.3)
-actionpack (3.0.3)
-activemodel (3.0.3)
-activerecord (3.0.3)
-activeresource (3.0.3)
-activesupport (3.0.3)
-arel (2.0.3)
-builder (2.1.2)
-bundler (1.0.6)
-erubis (2.6.6)
-i18n (0.4.2)
-mail (2.2.10)
-mime-types (1.16)
-minitest (2.0.0, 1.6.0)
-polyglot (0.3.1)
-rack (1.2.1)
-rack-mount (0.6.13)
-rack-test (0.5.6)
-rails (3.0.3)
-railties (3.0.3)
-rake (0.8.7)
-rdoc (2.5.11, 2.5.8)
-thor (0.14.4)
-treetop (1.4.9)
-tzinfo (0.3.23)</tt></pre>
+actionmailer (3.2.8)
+actionpack (3.2.8)
+activemodel (3.2.8)
+activerecord (3.2.8)
+activeresource (3.2.8)
+activesupport (3.2.8)
+arel (3.0.2)
+bigdecimal (1.1.0)
+builder (3.1.3, 3.0.3)
+bundler (1.2.1)
+erubis (2.7.0)
+hike (1.2.1)
+i18n (0.6.1)
+io-console (0.3)
+journey (1.0.4)
+json (1.7.5, 1.5.4)
+mail (2.4.4)
+mime-types (1.19)
+minitest (4.0.0, 2.5.1)
+multi_json (1.3.6)
+polyglot (0.3.3)
+rack (1.4.1)
+rack-cache (1.2)
+rack-ssl (1.3.2)
+rack-test (0.6.2)
+rails (3.2.8)
+railties (3.2.8)
+rake (0.9.2.2)
+rdoc (3.12, 3.9.4)
+rubygems-update (1.8.24)
+sprockets (2.6.0, 2.1.3)
+thor (0.16.0)
+tilt (1.3.3)
+treetop (1.4.10)
+tzinfo (0.3.33)</pre>
 </div></div>
 <div class="listingblock">
-<div class="content">
-<pre><tt>$ ls -l bin
--rwxr-xr-x 1 root root     394 2010-11-20 17:27 bundle
--rwxr-xr-x 1 root root    4412 2010-08-30 21:25 erb
--rwxr-xr-x 1 root root     391 2010-11-20 17:27 erubis
--rwxr-xr-x 1 root root     561 2010-08-30 21:25 gem
--rwxr-xr-x 1 root root     333 2010-08-30 21:25 irb
--rwxr-xr-x 1 root root     385 2010-11-20 17:27 rackup
--rwxr-xr-x 1 root root     387 2010-11-20 17:27 rails
--rwxr-xr-x 1 root root    1263 2010-08-30 21:25 rake
--rwxr-xr-x 1 root root     388 2010-11-20 17:27 rake2thor
--rwxr-xr-x 1 root root     712 2010-08-30 21:25 rdoc
--rwxr-xr-x 1 root root      88 2010-08-30 21:25 ri
--rwxr-xr-x 1 root root 5146120 2010-08-19 20:13 ruby
--rwxr-xr-x 1 root root     262 2010-08-30 21:25 testrb
--rwxr-xr-x 1 root root     383 2010-11-20 17:27 thor
--rwxr-xr-x 1 root root     390 2010-11-20 17:27 tt</tt></pre>
+<div class="content monospaced">
+<pre>$ cd /opt/Ruby/current
+$ ls -l bin
+-rwxr-xr-x 1 root root     478 Okt  4 13:35 bundle
+-rwxr-xr-x 1 root root    4414 Okt  4 12:39 erb
+-rwxr-xr-x 1 root root     475 Okt  4 13:35 erubis
+-rwxr-xr-x 1 root root     904 Okt  4 12:48 gem
+-rwxr-xr-x 1 root root     335 Okt  4 12:39 irb
+-rwxr-xr-x 1 root root     469 Okt  4 13:35 rackup
+-rwxr-xr-x 1 root root     480 Okt  4 13:35 rails
+-rwxr-xr-x 1 root root    1248 Okt  4 12:39 rake
+-rwxr-xr-x 1 root root     472 Okt  4 13:35 rake2thor
+-rwxr-xr-x 1 root root     467 Okt  4 12:49 rdoc
+-rwxr-xr-x 1 root root     465 Okt  4 12:49 ri
+-rwxr-xr-x 1 root root 8550861 Okt  4 12:27 ruby
+-rwxr-xr-x 1 root root     487 Okt  4 13:39 sprockets
+-rwxr-xr-x 1 root root     315 Okt  4 12:39 testrb
+-rwxr-xr-x 1 root root     467 Okt  4 13:35 thor
+-rwxr-xr-x 1 root root     467 Okt  4 13:35 tilt
+-rwxr-xr-x 1 root root     474 Okt  4 13:35 tt
+-rwxr-xr-x 1 root root     511 Okt  4 12:48 update_rubygems</pre>
 </div></div>
-<div class="paragraph"><p><strong>Step 4:</strong> Installation der Datenbank-Treiber mit dem Benutzer <em>root</em>.</p></div>
+<div class="paragraph"><p><strong>Step 2:</strong> Installation der Datenbank-Treiber mit dem Benutzer <em>root</em>.</p></div>
 <div class="listingblock">
-<div class="content">
-<pre><tt># gem install mysql2
+<div class="content monospaced">
+<pre># gem install mysql2
+Fetching: mysql2-0.3.11.gem (100%)
 Building native extensions.  This could take a while...
-Successfully installed mysql2-0.2.6
+Successfully installed mysql2-0.3.11
 1 gem installed
-Installing ri documentation for mysql2-0.2.6...
-Enclosing class/module 'mMysql2' for class Client not known
-Enclosing class/module 'mMysql2' for class Result not known
-Installing RDoc documentation for mysql2-0.2.6...
-Enclosing class/module 'mMysql2' for class Client not known
-Enclosing class/module 'mMysql2' for class Result not known
-
-# gem install sqlite3-ruby
-Building native extensions.  This could take a while...
-Successfully installed sqlite3-ruby-1.3.2
-1 gem installed
-Installing ri documentation for sqlite3-ruby-1.3.2...
-Installing RDoc documentation for sqlite3-ruby-1.3.2...</tt></pre>
+Installing ri documentation for mysql2-0.3.11...
+Installing RDoc documentation for mysql2-0.3.11...</pre>
 </div></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/caution.png" alt="Caution">
+</td>
+<td class="content">
+<div class="paragraph"><p><em>mysql2</em> in der Version 0.3.x arbeitet nicht mit <em>Rails 3.0.x</em> zusammen.</p></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre># gem install mysql2   <img src="./images/icons/callouts/1.png" alt="1">
+Fetching: mysql2-0.3.11.gem (100%)
+Building native extensions.  This could take a while...
+Successfully installed mysql2-0.3.11
+1 gem installed
+Installing ri documentation for mysql2-0.3.11...
+Installing RDoc documentation for mysql2-0.3.11...</pre>
+</div></div>
+<div class="colist arabic"><table>
+<tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
+Rails 3.0.x: gem install mysql2 --version 0.2.11
+</td></tr>
+</table></div>
+</td>
+</tr></table>
+</div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre># gem install sqlite3
+Fetching: sqlite3-1.3.6.gem (100%)
+Building native extensions.  This could take a while...
+Successfully installed sqlite3-1.3.6
+1 gem installed
+Installing ri documentation for sqlite3-1.3.6...
+Installing RDoc documentation for sqlite3-1.3.6...</pre>
+</div></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/note.png" alt="Note">
+</td>
+<td class="content">
+<div class="paragraph"><p>Hello! The sqlite3-ruby gem has changed it&#8217;s name to just sqlite3.  Rather than
+installing <span class="monospaced">sqlite3-ruby</span>, you should install <span class="monospaced">sqlite3</span>.  Please update your
+dependencies accordingly.</p></div>
+<div class="paragraph"><p>Thanks from the Ruby sqlite3 team!</p></div>
+<div class="paragraph"><p>&lt;3 &lt;3 &lt;3 &lt;3</p></div>
+</td>
+</tr></table>
+</div>
 </div>
 <div class="sect2">
-<h3 id="_beispielanwendung_ruby_on_rails">Beispielanwendung: Ruby on Rails</h3>
-<div class="listingblock">
-<div class="content">
-<pre><tt>$ which rails
-/opt/Ruby/current/bin/rails
-
-$ rails -v
-Rails 3.0.3
-
-$ cd
-$ mkdir RailsDir
-
-$ cd RailsDir
-$ rails new myapp --database=mysql
-
-$ cd myapp
-
-$ vi config/database.yml
-development:
-  adapter: mysql2
-  encoding: utf8
-  reconnect: false
-  database: myapp_development  &lt;---
-  pool: 5
-  username: bob                &lt;---
-  password: GEHEIM             &lt;---
-  socket: /var/run/mysqld/mysqld.sock
-
-$ mysql -ubob -p
-Enter password:
-Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 67
-Server version: 5.1.41-3ubuntu12.3 (Ubuntu)
-
-Type 'help;' or '\h' for help. Type '\c' to clear the buffer.
-
-mysql&gt; create database myapp_development;
-Query OK, 1 row affected (0.00 sec)
-
-mysql&gt; exit
-Bye
-
-
-$ rails s
-=&gt; Booting WEBrick
-=&gt; Rails 3.0.3 application starting in development on http://0.0.0.0:3000
-=&gt; Call with -d to detach
-=&gt; Ctrl-C to shutdown server
-[2010-11-20 17:42:55] INFO  WEBrick 1.3.1
-[2010-11-20 17:42:55] INFO  ruby 1.9.2 (2010-08-18) [i686-linux]
-[2010-11-20 17:42:55] INFO  WEBrick::HTTPServer#start: pid=20022 port=3000</tt></pre>
-</div></div>
-<div class="listingblock">
-<div class="content">
-<pre><tt>Browser&gt; http://localhost:3000/
-         About your application’s environment</tt></pre>
-</div></div>
-<img src="images/welcome_aboard_ruby19_rails3.gif" border="1px"
- alt="Ruby on Rails: Welcome aboard"
- title="Ruby on Rails: Welcome aboard"
+<h3 id="_beipiel">Beipiel</h3>
+<div class="paragraph"><p><a href="ruby19ror.html">Ruby on Rails: Erste Schritte</a></p></div>
 </div>
 </div>
 </div>
@@ -1146,12 +1540,13 @@ $ rails s
 <h2 id="_anhang">Anhang</h2>
 <div class="sectionbody">
 <div class="listingblock">
-<div class="title">Script zum Installieren von Ruby 1.9.2-p0 (ohne weitere Erläuterung)</div>
-<div class="content">
-<pre><tt>#!/bin/bash
+<div class="title">Script zum Installieren von Ruby 1.9.3-p194 (ohne weitere Erläuterung)</div>
+<div class="content monospaced">
+<pre>#!/bin/bash
 #
-ME=make_ruby_1.9.2
-TARGET=/opt/Ruby/ruby-1.9.2-p0
+ME=make_ruby_1.9.3
+NAME=ruby-1.9.3-p194
+TARGET=/opt/Ruby/${NAME}
 
 if [ ! -e $TARGET ]
 then
@@ -1162,7 +1557,7 @@ fi
 echo "Ziel-Verzeichnis:"
 ls -l $TARGET
 
-echo "Ruby 1.9.2-Installation fortsetzen (j/n)"
+echo "Ruby 1.9.3-Installation fortsetzen (j/n)"
 read dummy
 case $dummy in
   j|J|y|Y) echo "Installation wird fortgesetzt."
@@ -1174,123 +1569,32 @@ esac
 
 echo
 echo "Source auspacken ..."
-tar xvzf ruby-1.9.2-p0.tar.gz
-cd ruby-1.9.2-p0
+tar xvzf ${NAME}.tar.gz
+cd ${NAME}
 
 echo
 echo "Source übersetzen ..."
-./configure --prefix=$TARGET --enable-shared| tee ../log.ruby_configure
-make | tee ../log.ruby_make
+./configure --prefix=$TARGET --enable-shared | tee ../log.ruby_configure
+make all  | tee ../log.ruby_make_all
 make test | tee ../log.ruby_make_test
 
 echo
-echo "Ruby 1.9.2 installieren"
+echo "Ruby 1.9.3 installieren"
 sudo make install | tee ../log.ruby_make_install
 
 echo
 ls -l $TARGET
 
 echo
-echo "$ME: Ende."</tt></pre>
+echo "$ME: Ende."</pre>
 </div></div>
 </div>
 </div>
-<div class="sect1">
-<h2 id="_changelog">Changelog</h2>
-<div class="sectionbody">
-<div class="ulist"><div class="title">Version 0.2</div><ul>
-<li>
-<p>
-Erste öffentliche Version
-</p>
-</li>
-</ul></div>
-<div class="ulist"><div class="title">Version 0.4</div><ul>
-<li>
-<p>
-Anpassung an Ubuntu 09.10 (Karmic Koala)
-</p>
-</li>
-</ul></div>
-<div class="ulist"><div class="title">Version 0.6</div><ul>
-<li>
-<p>
-Kleine Korrekturen am Text
-</p>
-</li>
-</ul></div>
-<div class="ulist"><div class="title">Version 0.8</div><ul>
-<li>
-<p>
-Hinweis zur Verwendung
-</p>
-</li>
-</ul></div>
-<div class="ulist"><div class="title">Version 0.8.1</div><ul>
-<li>
-<p>
-Aktualisierung der Installation
-</p>
-</li>
-</ul></div>
-<div class="ulist"><div class="title">Version 0.8.2</div><ul>
-<li>
-<p>
-Aktualisierung von Git und Ruby
-</p>
-</li>
-</ul></div>
-<div class="ulist"><div class="title">Version 1.0.0</div><ul>
-<li>
-<p>
-Anpassung an Ubuntu 10.04 (Lucid Lynx)<br />
-  Neue Programmversion
-</p>
-</li>
-</ul></div>
-<div class="ulist"><div class="title">Version 1.1.1</div><ul>
-<li>
-<p>
-Neue Programmversion: Ruby
-</p>
-</li>
-</ul></div>
-<div class="ulist"><div class="title">Version 1.1.2</div><ul>
-<li>
-<p>
-Neue Programmversion: Ruby RC2
-</p>
-</li>
-</ul></div>
-<div class="ulist"><div class="title">Version 1.2.0</div><ul>
-<li>
-<p>
-Neue Programmversion: Ruby RC2 &#8594; Rails 3 RC
-</p>
-</li>
-</ul></div>
-<div class="ulist"><div class="title">Version 1.3.0</div><ul>
-<li>
-<p>
-Neue Programmversion 1.9.2 - Rails 3.0.0
-</p>
-</li>
-</ul></div>
-<div class="ulist"><div class="title">Version 1.4.0</div><ul>
-<li>
-<p>
-Veröffentlichung von Rails 3.0.3<br />
-  Version NetBeans 1.9.2p0 ist weiterhin aktuell
-</p>
-</li>
-</ul></div>
 </div>
-</div>
-</div>
-<div id="footnotes"><hr /></div>
+<div id="footnotes"><hr></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2010-11-21 11:47:31 CET
+Last updated 2012-10-04 21:31:46 CEST
 </div>
 </div>
 </body>

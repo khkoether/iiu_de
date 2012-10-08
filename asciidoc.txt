@@ -1,4 +1,4 @@
-Installation in Ubuntu: AsciiDoc 8.6.3 
+Installation in Ubuntu: AsciiDoc 8.6.8 
 ======================================
 Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;>
 
@@ -9,7 +9,8 @@ Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;
 :asciidoc-url: http://www.methods.co.nz/asciidoc/
 :sourceforge-url: http://sourceforge.net/projects/asciidoc/files/
 
-Version 1.4.0, November 2010, <<_changelog,[Changelog]>>
+Version 1.5.0, Oktober 2012, <<_changelog,[Changelog]>>
+
 
 Abstract
 --------
@@ -20,8 +21,7 @@ des Programms {asciidoc-url}[AsciiDoc] aus dem QuellCode.
 die dazu dient, Texte in verschiedenen Dokumentenformaten zu 
 veröffentlichen.
 
-Der Artikel ist in {asciidoc-url}[ASCII DOC] erstellt worden.
-
+Der Artikel ist in {asciidoc-url}[AsciiDoc] erstellt worden.
 
 [CAUTION]
 ====
@@ -33,27 +33,35 @@ Gerne nehme ich Verbesserungsvorschläge entgegen.
 Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr.
 ====
 
+
 Vorraussetzungen
 ----------------
-Die Installation wird für {ubuntu-url}[Ubuntu 10.04 (Lucid Lynx)] 
+Die Installation wird für {ubuntu-url}[Ubuntu 12.04 LTS (Precise Pangolin)] 
 beschrieben. + 
 Gleichwohl sind die einzelnen Schritte auch für 
 andere Debian-basierte GNU/Linux Distributionen übertragbar.
 
-.Download
+[TIP]
+====
+Ubuntu 12.04 LTS (Precise Pangolin) enthält das Paket _asciidoc_8.6.6-1ubuntu1_all_.
+====
+
+
+Download
+~~~~~~~~
 * {sourceforge-url}[AsciiDoc] +    
-  asciidoc-8.6.3.tar.gz  (ca. 771 KB) +
-  2010-11-14 (Release date)
+  asciidoc-8.6.8.tar.gz  (ca. 880K) +
+  2012-07-16 (Release date)
   
 [NOTE] 
 ====
-Das Kompilieren der Auszeichnungssprache AsciiDoc wird beispielhaft vom Benutzer 'bob' 
+Das Kompilieren der Auszeichnungssprache AsciiDoc wird beispielhaft vom Benutzer 'sid' 
 durchgeführt. +
 Die eigentliche Installation von AsciiDoc wird vom  
 Benutzer 'root' für das System durchgeführt.
 ----
 $ ls -l 
--rw-r--r-- 1 bob bob   788543 2010-11-20 15:28 asciidoc-8.6.3.tar.gz
+-rw-r--r--  1 sid  sid    900422 Okt  4 10:34 asciidoc-8.6.8.tar.gz
 ----
 ====
 
@@ -68,10 +76,11 @@ $ sudo apt-get install ...
 ----
 ====
 
-== Installation
 
-
-=== AsciiDoc 8.6.3
+Installation
+------------
+AsciiDoc 8.6.8
+~~~~~~~~~~~~~~
 
 [IMPORTANT]
 ====
@@ -84,8 +93,8 @@ Beispiel für die Änderung des Installations-Verzeichnisses:
 
 *Step 1:* Auspacken des Source-Code
 ----
-$ tar xvzf asciidoc-8.6.3.tar.gz
-$ cd asciidoc-8.6.3
+$ tar xvzf asciidoc-8.6.8.tar.gz
+$ cd asciidoc-8.6.8
 ----
 
 *Step 2:* Konfiguration erstellen und kompilieren
@@ -123,10 +132,10 @@ $ sudo make docs | tee ../log.asciidoc_make_docs
 ----
 $ cd /usr/local/bin
 $ ls -l
-lrwxrwxrwx   1 root root       6 2010-11-20 15:46 a2x -> a2x.py
--rwxr-xr-x   1 root root   32210 2010-11-20 15:46 a2x.py
-lrwxrwxrwx   1 root root      11 2010-11-20 15:46 asciidoc -> asciidoc.py
--rwxr-xr-x   1 root root  230481 2010-11-20 15:46 asciidoc.py
+lrwxrwxrwx 1 root root      6 Okt  4 10:38 a2x -> a2x.py
+-rwxr-xr-x 1 root root  36839 Okt  4 10:38 a2x.py
+lrwxrwxrwx 1 root root     11 Okt  4 10:38 asciidoc -> asciidoc.py
+-rwxr-xr-x 1 root root 253830 Okt  4 10:38 asciidoc.py
 [...]
 ----
 
@@ -139,14 +148,14 @@ NAME
        other file formats)
 
 SYNOPSIS
-       a2x [OPTIONS] FILE
-       
+       a2x [OPTIONS] SOURCE_FILE
+
 DESCRIPTION
-       A DocBook toolchain manager that translates an AsciiDoc text file FILE
-       to PDF, EPUB, DVI, PS, LaTeX, XHTML (single page or chunked), man page,
-       HTML Help or plain text formats using asciidoc(1) and other
-       applications (see REQUISITES section). FILE can also be a DocBook file
-       with an .xml extension.       
+       A DocBook toolchain manager that translates an AsciiDoc text file
+       SOURCE_FILE to PDF, EPUB, DVI, PS, LaTeX, XHTML (single page or
+       chunked), man page, HTML Help or plain text formats using asciidoc(1)
+       and other applications (see REQUISITES section). SOURCE_FILE can also
+       be a DocBook file with an .xml extension.
 [...]
 
 
@@ -158,37 +167,96 @@ NAME
 
 SYNOPSIS
        asciidoc [OPTIONS] FILE
-       
+
 DESCRIPTION
-       The asciidoc(1) command translates the AsciiDoc text file FILE to a
-       DocBook, HTML or LinuxDoc file. If FILE is - then the standard input is
-       used.       
+       The asciidoc(1) command translates the AsciiDoc text file FILE to
+       DocBook or HTML. If FILE is - then the standard input is used.
 [...]
 ----
 
 ----
-$ find /usr -type d -cmin -5
-/usr/local/share/man/man1
-/usr/local/share/doc/asciidoc
-/usr/local/share/doc/asciidoc/docbook-xsl
-/usr/local/share/doc/asciidoc/dblatex
-/usr/local/share/doc/asciidoc/examples/website
-/usr/local/share/doc/asciidoc/stylesheets
-/usr/local/share/doc/asciidoc/javascripts
-/usr/local/share/doc/asciidoc/doc
-/usr/local/bin
+$ find /usr/local -type d -cmin -5
+/usr/local/etc
 /usr/local/etc/asciidoc
-/usr/local/etc/asciidoc/docbook-xsl
 /usr/local/etc/asciidoc/dblatex
+/usr/local/etc/asciidoc/javascripts
+/usr/local/etc/asciidoc/stylesheets
+/usr/local/etc/asciidoc/docbook-xsl
+/usr/local/etc/asciidoc/themes
+/usr/local/etc/asciidoc/themes/flask
+/usr/local/etc/asciidoc/themes/volnitsky
+/usr/local/etc/asciidoc/images
 /usr/local/etc/asciidoc/images/icons
 /usr/local/etc/asciidoc/images/icons/callouts
-/usr/local/etc/asciidoc/stylesheets
+/usr/local/etc/asciidoc/filters
 /usr/local/etc/asciidoc/filters/music
 /usr/local/etc/asciidoc/filters/latex
-/usr/local/etc/asciidoc/filters/code
 /usr/local/etc/asciidoc/filters/source
+/usr/local/etc/asciidoc/filters/code
 /usr/local/etc/asciidoc/filters/graphviz
-/usr/local/etc/asciidoc/javascripts
+/usr/local/share
+/usr/local/share/doc
+/usr/local/share/doc/asciidoc
+/usr/local/share/doc/asciidoc/dblatex
+/usr/local/share/doc/asciidoc/javascripts
+/usr/local/share/doc/asciidoc/stylesheets
+/usr/local/share/doc/asciidoc/docbook-xsl
+/usr/local/share/doc/asciidoc/images
+/usr/local/share/doc/asciidoc/images/icons
+/usr/local/share/doc/asciidoc/images/icons/callouts
+/usr/local/share/doc/asciidoc/examples
+/usr/local/share/doc/asciidoc/examples/website
+/usr/local/share/doc/asciidoc/doc
+/usr/local/share/man
+/usr/local/share/man/man1
+/usr/local/bin
+----
+
+----
+# cd /usr/local/share/doc/asciidoc/examples/website
+# vi build-website.sh
+----
+
+----
+#!/bin/sh
+
+VERS="8.6.8"                                            <--- aktualisieren
+DATE="2012-07-16"                                       <--- aktualisieren
+
+# Leave the desired layout uncommented.
+LAYOUT=layout1      # Tables based layout.
+#LAYOUT=layout2     # CSS based simulated frames layout.
+
+ASCIIDOC_HTML="python /usr/local/bin/asciidoc.py [...]  <--- Pfad zum Programm eintragen
+
+$ASCIIDOC_HTML -a index-only index.txt
+$ASCIIDOC_HTML -a toc -a numbered userguide.txt
+$ASCIIDOC_HTML -d manpage manpage.txt
+#$ASCIIDOC_HTML downloads.txt                           <--- nicht mehr vorhanden
+[...]
+$ASCIIDOC_HTML asciimathml.txt                          <--- Name anpassen
+
+# Nachtraeglich einfuegen          <1>
+$ASCIIDOC_HTML asciidocapi.txt
+$ASCIIDOC_HTML epub-notes.txt
+$ASCIIDOC_HTML faq.txt
+$ASCIIDOC_HTML music-filter.txt    <2>
+$ASCIIDOC_HTML newlists.txt
+$ASCIIDOC_HTML newtables.txt
+$ASCIIDOC_HTML plugins.txt
+$ASCIIDOC_HTML publishing-ebooks-with-asciidoc.txt
+$ASCIIDOC_HTML slidy-example.txt   <3>
+$ASCIIDOC_HTML slidy.txt
+$ASCIIDOC_HTML testasciidoc.txt
+$ASCIIDOC_HTML userguide.txt
+$ASCIIDOC_HTML version83.txt
+----
+<1> Einige Links auf der generierten Index-Seite führen trotz alledem weiter ins Leere.
+<2> Die Datei _music-filter.txt_ benötigt das Debian/Ubuntu-Paket _LilyPond_.
+<3> Die Datei _slidy-example.txt_ benötigt das Debian/Ubuntu-Paket _ImageMagick_.
+    
+----
+# ./build-website.sh
 ----
 
 ----
@@ -196,33 +264,57 @@ Browser> file:///usr/local/share/doc/asciidoc/examples/website/index.html
 ----
 
 
-Changelog
----------
+Beispiel: AsciiDoc
+~~~~~~~~~~~~~~~~~~
+Erstellen Sie eine Datei beispiel.txt (siehe <<_anhang,[Anhang]>>). 
+----
+$ asciidoc -a toc beispiel.txt
+---- 
 
-.Version 0.2
-* Erste öffentliche Version
 
-.Version 0.4
-* Anpassung an Ubuntu 09.10 (Karmic Koala)
+Anhang
+------
 
-.Version 0.6
-* Kleine Korrekturen am Text
+.Text-Datei: beispiel.txt 
+----
+= Lorem ipsum
+Sid <&#115;&#105;&#100;&#64;&#101;&#120;&#97;&#109;&#112;&#108;&#101;&#46;&#111;&#114;&#103;>
+Version 0.0.1
 
-.Version 0.8
-* Hinweis zur Verwendung
+:icons:
+:Author Initials: sid
+:creativecommons-url: http://creativecommons.org/licenses/by-sa/3.0/de/
+:asciidoc-url: http://www.methods.co.nz/asciidoc/
 
-.Version 0.8.1
-* Aktualisierung der Installation
 
-.Version 1.0.0
-* Anpassung an Ubuntu 10.04 (Lucid Lynx) + 
-  Neue Programmversion
-  
-.Version 1.1.0
-* Version 8.5.3 ist weiterhin aktuell
-  
-.Version 1.3.0
-* Neue Programmversion 8.6.1
+== Abstract
+Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse 
+molestie consequat, vel illum dolore eu feugiat nulla facilisis.
 
-.Version 1.4.0
-* Neue Programmversion 8.6.3
+
+== Opera sine nomine scripta
+Lorem ipsum dolor sit amet, consectetur adipisici elit, 
+sed eiusmod tempor incidunt ut labore et dolore magna aliqua. 
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit 
+in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+
+
+=== Scripta
+Excepteur sint obcaecat cupiditat non proident, sunt in culpa 
+qui officia deserunt mollit anim id est laborum.
+
+
+=== Nomine 
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+
+.Est laborum
+- cupiditat
+- proident
+- deseunt
+
+.Links
+* {asciidoc-url}[AsciiDoc]
+* link:http://la.wikisource.org/wiki/Lorem_ipsum[Lorem ipsum]
+* {creativecommons-url}[Creative Commens]
+----

@@ -1,29 +1,25 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
-    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
-<meta name="generator" content="AsciiDoc 8.6.3" />
-<title>Installation in Ubuntu: Sun Java SDK 6 Update 22, NetBeans 6.9.1</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="AsciiDoc 8.6.8">
+<title>Installation in Ubuntu: NetBeans IDE 7.2</title>
 <style type="text/css">
-/* Sans-serif font. */
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
 h1, h2, h3, h4, h5, h6,
 div.title, caption.title,
 thead, p.table.header,
-div#toctitle,
-span#author, span#revnumber, span#revdate, span#revremark,
-div#footer {
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
   font-family: Arial,Helvetica,sans-serif;
-}
-
-/* Serif font. */
-div.sectionbody {
-  font-family: Georgia,"Times New Roman",Times,serif;
-}
-
-/* Monospace font. */
-tt {
-  font-size: inherit;
 }
 
 body {
@@ -48,11 +44,6 @@ strong {
   color: #083194;
 }
 
-tt {
-  font-size: inherit;
-  color: navy;
-}
-
 h1, h2, h3, h4, h5, h6 {
   color: #527bbd;
   margin-top: 1.2em;
@@ -71,6 +62,9 @@ h3 {
 }
 h3 + * {
   clear: left;
+}
+h5 {
+  font-size: 1.0em;
 }
 
 div.sectionbody {
@@ -92,41 +86,45 @@ ul, ol, li > p {
 ul > li     { color: #aaa; }
 ul > li > * { color: black; }
 
-pre {
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
   padding: 0;
   margin: 0;
 }
 
-span#author {
+
+#author {
   color: #527bbd;
   font-weight: bold;
   font-size: 1.1em;
 }
-span#email {
+#email {
 }
-span#revnumber, span#revdate, span#revremark {
+#revnumber, #revdate, #revremark {
 }
 
-div#footer {
+#footer {
   font-size: small;
   border-top: 2px solid silver;
   padding-top: 0.5em;
   margin-top: 4.0em;
 }
-div#footer-text {
+#footer-text {
   float: left;
   padding-bottom: 0.5em;
 }
-div#footer-badges {
+#footer-badges {
   float: right;
   padding-bottom: 0.5em;
 }
 
-div#preamble {
+#preamble {
   margin-top: 1.5em;
   margin-bottom: 1.5em;
 }
-div.tableblock, div.imageblock, div.exampleblock, div.verseblock,
+div.imageblock, div.exampleblock, div.verseblock,
 div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
 div.admonitionblock {
   margin-top: 1.0em;
@@ -184,7 +182,7 @@ div.quoteblock, div.verseblock {
   margin-left: 1.0em;
   margin-right: 10%;
   border-left: 5px solid #f0f0f0;
-  color: #777777;
+  color: #888;
 }
 
 div.quoteblock > div.attribution {
@@ -267,35 +265,12 @@ div.compact div, div.compact div {
   margin-bottom: 0.1em;
 }
 
-div.tableblock > table {
-  border: 3px solid #527bbd;
-}
-thead, p.table.header {
-  font-weight: bold;
-  color: #527bbd;
-}
 tfoot {
   font-weight: bold;
 }
 td > div.verse {
   white-space: pre;
 }
-p.table {
-  margin-top: 0;
-}
-/* Because the table frame attribute is overriden by CSS in most browsers. */
-div.tableblock > table[frame="void"] {
-  border-style: none;
-}
-div.tableblock > table[frame="hsides"] {
-  border-left-style: none;
-  border-right-style: none;
-}
-div.tableblock > table[frame="vsides"] {
-  border-top-style: none;
-  border-bottom-style: none;
-}
-
 
 div.hdlist {
   margin-top: 0.8em;
@@ -362,14 +337,14 @@ div.colist td img {
 }
 
 @media print {
-  div#footer-badges { display: none; }
+  #footer-badges { display: none; }
 }
 
-div#toc {
+#toc {
   margin-bottom: 2.5em;
 }
 
-div#toctitle {
+#toctitle {
   color: #527bbd;
   font-size: 1.1em;
   font-weight: bold;
@@ -377,7 +352,7 @@ div#toctitle {
   margin-bottom: 0.1em;
 }
 
-div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
   margin-top: 0;
   margin-bottom: 0;
 }
@@ -394,10 +369,172 @@ div.toclevel4 {
   font-size: 0.9em;
 }
 
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+
+
 </style>
 <script type="text/javascript">
 /*<![CDATA[*/
-window.onload = function(){asciidoc.footnotes(); asciidoc.toc(2);}
 var asciidoc = {  // Namespace.
 
 /////////////////////////////////////////////////////////////////////
@@ -439,7 +576,7 @@ toc: function (toclevels) {
 
   function tocEntries(el, toclevels) {
     var result = new Array;
-    var re = new RegExp('[hH]([2-'+(toclevels+1)+'])');
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
     // Function that scans the DOM tree for header elements (the DOM2
     // nodeIterator API would be a better technique but not supported by all
     // browsers).
@@ -459,6 +596,25 @@ toc: function (toclevels) {
   }
 
   var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
   var entries = tocEntries(document.getElementById("content"), toclevels);
   for (var i = 0; i < entries.length; ++i) {
     var entry = entries[i];
@@ -486,24 +642,44 @@ toc: function (toclevels) {
  */
 
 footnotes: function () {
-  var cont = document.getElementById("content");
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
   var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
   var spans = cont.getElementsByTagName("span");
   var refs = {};
   var n = 0;
   for (i=0; i<spans.length; i++) {
     if (spans[i].className == "footnote") {
       n++;
-      // Use [\s\S] in place of . so multi-line matches work.
-      // Because JavaScript has no s (dotall) regex flag.
-      note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
       noteholder.innerHTML +=
         "<div class='footnote' id='_footnote_" + n + "'>" +
         "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
         n + "</a>. " + note + "</div>";
-      spans[i].innerHTML =
-        "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
-        "' title='View footnote' class='footnote'>" + n + "</a>]";
       var id =spans[i].getAttribute("id");
       if (id != null) refs["#"+id] = n;
     }
@@ -523,17 +699,40 @@ footnotes: function () {
       }
     }
   }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
 }
 
 }
+asciidoc.install(2);
 /*]]>*/
 </script>
 </head>
 <body class="article">
 <div id="header">
-<h1>Installation in Ubuntu: Sun Java SDK 6 Update 22, NetBeans 6.9.1</h1>
-<span id="author">Karl-Heinz Köther</span><br />
-<span id="email"><tt>&lt;<a href="mailto:&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;">&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;</a>&gt;</tt></span><br />
+<h1>Installation in Ubuntu: NetBeans IDE 7.2</h1>
+<span id="author">Karl-Heinz Köther</span><br>
+<span id="email" class="monospaced">&lt;<a href="mailto:&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;">&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;</a>&gt;</span><br>
 <div id="toc">
   <div id="toctitle">Table of Contents</div>
   <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
@@ -542,27 +741,27 @@ footnotes: function () {
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph"><p>Version 1.4.0, November 2010, <a href="#_changelog">[Changelog]</a></p></div>
+<div class="paragraph"><p>Version 1.5.0, Oktober 2012, <a href="#_changelog">[Changelog]</a></p></div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_abstract">Abstract</h2>
 <div class="sectionbody">
 <div class="paragraph"><p>Dieser Artikel ist eine Schritt-für-Schritt Anleitung zur Installation
-des <a href="http://java.sun.com/javase/downloads/index.jsp">Sun Java SDK 6</a> und
-der <a href="http://netbeans.org/downloads/index.html">NetBeans IDE 6.9.1</a> unter GNU/Linux.</p></div>
-<div class="paragraph"><p>Die NetBeans IDE bietet eine Unterstützung für verschiedene Programmiersprachen
-und -techniken. Wobei die Java-basierten Lösungen ausgezeichnet unterstützt werden.</p></div>
-<div class="paragraph"><p>Der Artikel ist in <a href="http://www.methods.co.nz/asciidoc/">ASCII DOC</a> erstellt worden.</p></div>
+der <a href="http://netbeans.org/">NetBeans IDE 7</a> unter GNU/Linux.</p></div>
+<div class="paragraph"><p>Die <a href="http://netbeans.org/">NetBeans IDE 7</a> bietet eine Unterstützung für verschiedene
+Programmiersprachen und -techniken.
+Wobei die Java-basierten Lösungen ausgezeichnet unterstützt werden.</p></div>
+<div class="paragraph"><p>Der Artikel ist in <a href="http://www.methods.co.nz/asciidoc/">AsciiDoc</a> erstellt worden.</p></div>
 <div class="admonitionblock">
 <table><tr>
 <td class="icon">
-<img src="./images/icons/caution.png" alt="Caution" />
+<img src="./images/icons/caution.png" alt="Caution">
 </td>
 <td class="content">
 <div class="paragraph"><p>Zu beachten ist, dass so ein Dokument zum Einen nie abschliessend
 sein kann, und zum Anderen bestimmte Konfigurationen anders, oder
-auf einem anderem Weg durchgeführt werden können.<br />
+auf einem anderem Weg durchgeführt werden können.<br>
 Gerne nehme ich Verbesserungsvorschläge entgegen.</p></div>
 <div class="paragraph"><p>Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr.</p></div>
 </td>
@@ -573,395 +772,460 @@ Gerne nehme ich Verbesserungsvorschläge entgegen.</p></div>
 <div class="sect1">
 <h2 id="_vorraussetzungen">Vorraussetzungen</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>Die Installation wird für <a href="http://www.ubuntu.com/">Ubuntu 10.04 (Lucid Lynx)</a>
-beschrieben. Gleichwohl sind die einzelnen Schritte auch für
+<div class="paragraph"><p>Die Installation wird für <a href="http://www.ubuntu.com/">Ubuntu 12.04 LTS (Precise Pangolin)</a>
+beschrieben.<br>
+Gleichwohl sind die einzelnen Schritte auch für
 andere Distributionen übertragbar.</p></div>
-<div class="ulist"><div class="title">Download</div><ul>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip">
+</td>
+<td class="content">
+<div class="paragraph"><p>Ubuntu 12.04 LTS (Precise Pangolin) enthält das Paket <em>netbeans_7.0.1+dfsg1-4_all</em>.</p></div>
+</td>
+</tr></table>
+</div>
+<div class="sect2">
+<h3 id="_download">Download</h3>
+<div class="ulist"><ul>
 <li>
 <p>
-<a href="http://java.sun.com/javase/downloads/index.jsp">Sun Java SDK 6 Update 22</a><br />
-  jdk-6u22-linux-i586.bin (ca. 80 MB)
-</p>
-</li>
-<li>
-<p>
-<a href="http://netbeans.org/downloads/index.html">NetBeans 6.9.1</a><br />
-  netbeans-6.9.1-ml-linux.sh (ca. 266 MB) (IDE-Sprache: Deutsch)
+<a href="http://netbeans.org/downloads/">NetBeans 7.0</a><br>
+  netbeans-7.2-ml-linux.sh (ca. 214 MB) (IDE-Sprache: Englisch)
 </p>
 </li>
 </ul></div>
 <div class="admonitionblock">
 <table><tr>
 <td class="icon">
-<img src="./images/icons/note.png" alt="Note" />
+<img src="./images/icons/note.png" alt="Note">
 </td>
 <td class="content">
-<div class="paragraph"><p>Die Installation des Sun Java SDK wird vom Benutzer <em>root</em> für das System durchgeführt.<br />
-Während anschließende Installation der NetBeans IDE für den Benutzer <em>bob</em> ausgeführt wird.</p></div>
+<div class="paragraph"><p>Die Installation des OpenJDK oder des Oracle JDK wurde vom Benutzer <em>root</em> für das System durchgeführt.<br>
+Während die anschließende Installation der NetBeans IDE für den Benutzer <em>sid</em> ausgeführt wird.</p></div>
 <div class="listingblock">
-<div class="content">
-<pre><tt>$ ls -l
--rw-r--r-- 1 bob bob  83761756 2010-11-20 18:38 jdk-6u22-linux-i586.bin
--rw-r--r-- 1 bob bob 291147776 2010-08-29 20:33 netbeans-6.9.1-ml-linux.sh</tt></pre>
+<div class="content monospaced">
+<pre>$ ls -l
+-rw-rw-r-- 1 sid sid 229447680 Okt  5 17:13 netbeans-7.2-ml-linux.sh</pre>
 </div></div>
 </td>
 </tr></table>
+</div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/caution.png" alt="Caution">
+</td>
+<td class="content">
+<div class="paragraph"><p>Am 27.01.2011 wurde der offizielle Support für Ruby on Rails aus
+der in der Entwicklung befindlichen NetBeans IDE 7.0 gestrichen.<br></p></div>
+<div class="paragraph"><p><a href="http://wiki.netbeans.org/RubySupport">NetBeans-Wiki: RubySupport</a></p></div>
+<div class="paragraph"><p><a href="http://www.heise.de/developer/meldung/NetBeans-7-Rails-Unterstuetzung-faellt-raus-1179098.html">heise Developer: NetBeans 7.2: Rails-Unterstützung fällt raus</a></p></div>
+<div class="paragraph"><p>Knapp drei Wochen später wurde die Übernahme des Supports durch die
+Community von Thomas Enebro (und Freunden und Kollegen) angekündigt.</p></div>
+<div class="paragraph"><p><a href="http://it-republik.de/jaxenter/news/Rettung-naht-Ruby-auf-NetBeans-geht-weiter-058404.html">it republik: Rettung naht: Ruby auf NetBeans geht weiter</a></p></div>
+<div class="paragraph"><p><a href="http://java.dzone.com/news/ruby-netbeans-lives">DZone: Ruby On NetBeans Lives!</a></p></div>
+<div class="paragraph"><p>Im <a href="http://plugins.netbeans.org/PluginPortal/">NetBeans Plugin Portal</a> gibt es die Erweiterung der IDE
+für <em>Ruby on Rails</em> für die Version <em>7.0</em> vom 16.04.2012.</p></div>
+</td>
+</tr></table>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_installation">Installation</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="_sun_java_sdk_6_update_22">Sun Java SDK 6 Update 22</h3>
+<div class="paragraph"><p>Vor der Installation von <em>NetBeans 7</em> muß das OpenJDK oder das Oracle JDK
+bereits installiert sein.</p></div>
 <div class="paragraph"><p>Zusätzliche Software-Pakete die nicht über das Paketmanagement
 verwaltet wird, sollten im Verzeichnis <em>/opt</em> (Optional)
 installiert werden.</p></div>
-<div class="paragraph"><p><strong>Step 1:</strong> Installation im Verzeichnis <em>/opt/Java</em> (mit Benutzer <em>root</em>)</p></div>
+<div class="sect2">
+<h3 id="_netbeans_ide_7_2_graphical_installer">NetBeans IDE 7.2: Graphical Installer</h3>
+<div class="paragraph"><p>Installation im Verzeichnis <em>/opt/NetBeans/sid</em> (mit Benutzer <em>sid</em>)</p></div>
 <div class="listingblock">
-<div class="content">
-<pre><tt>$ sudo mkdir /opt/Java &amp;&amp; cd /opt/Java
-$ sudo sh jdk-6u22-linux-i586.bin  &lt;--- Lizenbedingungen bestätigen!
-$ ls -l
-drwxr-xr-x 10 root root 4096 2010-11-20 18:45 jdk1.6.0_22</tt></pre>
+<div class="content monospaced">
+<pre>$ sudo mkdir -p /opt/NetBeans/sid &amp;&amp; chown sid.sid /opt/NetBeans/sid
+$ sudo mkdir -p /opt/Tomcat/sid   &amp;&amp; chown sid.sid /opt/Tomcat/sid    (Optional)</pre>
 </div></div>
-<div class="paragraph"><p><strong>Step 2:</strong> Java-Installation für den Mozilla Firefox einrichten</p></div>
 <div class="listingblock">
-<div class="content">
-<pre><tt>$ cd /etc/alternatives
-$ sudo ln -s /opt/Java/jdk1.6.0_22/jre/plugin/i386/ns7/libjavaplugin_oji.so mozilla-javaplugin.so
-$
-$ cd /usr/lib/mozilla/plugins
-$ sudo ln -s /etc/alternatives/mozilla-javaplugin.so libjavaplugin.so</tt></pre>
+<div class="title">OpenJDK</div>
+<div class="content monospaced">
+<pre>$ cd /opt/NetBeans/sid
+$ sh netbeans-7.2-ml-linux.sh
+Konfiguriere Installation...
+Suche verfügbare JVM auf dem System...
+Extrahiere Installationsdaten...
+Starte Installationassistent...</pre>
 </div></div>
-<div class="paragraph"><p>Browser&gt; about:plugins<br />
-Browser&gt; <a href="http://www.arndt-bruenner.de/mathe/java/koerper3d.htm">3D-Körper</a></p></div>
+<div class="listingblock">
+<div class="title">Oracle JDK</div>
+<div class="content monospaced">
+<pre>$ cd /opt/NetBeans/sid
+$ sh netbeans-7.2-ml-linux.sh --javahome /opt/Java/current/
+Konfiguriere Installation...
+Suche verfügbare JVM auf dem System...
+Extrahiere Installationsdaten...
+Starte Installationassistent...</pre>
+</div></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans/nb00_Installationssystem.jpeg" alt="NetBeans-IDE Installationssystem">
+</div>
+</div>
 </div>
 <div class="sect2">
-<h3 id="_netbeans_ide_6_9_1">NetBeans IDE 6.9.1</h3>
-<div class="paragraph"><p><strong>Step 1:</strong> Installation im Verzeichnis <em>/opt/NetBeans/bob</em> (mit Benutzer <em>bob</em>)</p></div>
-<div class="listingblock">
-<div class="content">
-<pre><tt>$ sudo mkdir -p /opt/NetBeans/bob &amp;&amp; chown bob.bob /opt/NetBeans/bob
-$ sudo mkdir -p /opt/Tomcat/bob   &amp;&amp; chown bob.bob /opt/Tomcat/bob    (Optional)
-
-$ cd /opt/NetBeans/bob
-$ sh netbeans-6.9.1-ml-linux.sh --javahome /opt/Java/jdk1.6.0_22/</tt></pre>
-</div></div>
-<div class="paragraph"><p>&nbsp;<br />
-&nbsp;<br />
-<strong>Step 2:</strong> Installationsschritte als Text</p></div>
+<h3 id="_netbeans_ide_7_2_installation">NetBeans IDE 7.2: Installation</h3>
+<div class="paragraph"><p>Installationsschritte (in Textform)</p></div>
 <div class="ulist"><div class="title">Anpassen</div><ul>
 <li>
 <p>
-Basis-IDE
+Basis IDE
 </p>
 </li>
 <li>
 <p>
-JavaSE
+Java SE
 </p>
 </li>
 <li>
 <p>
-JavaFX
-</p>
-</li>
-<li>
-<p>
-Java Web and EE
-</p>
-<div class="ulist"><ul>
-<li>
-<p>
-Java ME
-</p>
-</li>
-</ul></div>
-</li>
-<li>
-<p>
-Ruby
-</p>
-<div class="ulist"><ul>
-<li>
-<p>
-C/C++
-</p>
-</li>
-</ul></div>
-</li>
-<li>
-<p>
-Groovy
-</p>
-</li>
-<li>
-<p>
-PHP
+JavaScript-Debugger
 </p>
 </li>
 <li>
 <p>
 Funktionen bei Bedarf
 </p>
-<div class="ulist"><ul>
+</li>
 <li>
 <p>
-Sun GlassFish Enterprise Server v3
+Apache Tomcat 7.0.27                  (Optional)
+Installationsgröße: 307,7MB
 </p>
 </li>
 </ul></div>
-</li>
+<div class="ulist"><div class="title">Lizenzvereinbarung</div><ul>
 <li>
 <p>
-Apache Tomcat 6.0.26                  (Optional)
+Ich akzeptiere die Bedingungen des Lizenzabkommens
 </p>
 </li>
 </ul></div>
-<div class="ulist"><div class="title">Installation</div><ul>
+<div class="ulist"><div class="title">JUnit-Lizenzvereinbarung</div><ul>
 <li>
 <p>
-/opt/NetBeans/bob/netbeans-6.9.1
-</p>
-</li>
-<li>
-<p>
-/opt/Java/jdk1.6.0_22
-</p>
-</li>
-<li>
-<p>
-/opt/Tomcat/bob/apache-tomcat-6.0.26  (Optional)
+Ich akzeptiere die Bedingungen des Lizenzvereinbarung JUnit installieren
 </p>
 </li>
 </ul></div>
-<div class="ulist"><div class="title">Summary</div><ul>
+<div class="ulist"><div class="title">NetBeans-IDE 7.2 Installation</div><ul>
 <li>
 <p>
-605.4 MB
+/opt/NetBeans/sid/netbeans-7.2
+</p>
+</li>
+<li>
+<p>
+/usr/lib/jvm/java-6-openjdk-amd64   &#8592;- OpenJDK
+</p>
+</li>
+<li>
+<p>
+/opt/Java/current                   &#8592;- Oracle JDK
 </p>
 </li>
 </ul></div>
-<div class="paragraph"><div class="title">Installation abgeschlossen</div><p>Zum Ende der Installation werden Sie zum Einen gebeten <em>Anonyme Nutzungsdaten</em>
-freizugeben, und zum Anderen sich bei der Fa. SUN zu <em>registrieren</em>.
-Beides ist freiwillig.</p></div>
-<div class="paragraph"><p>&nbsp;<br />
-&nbsp;<br />
-<strong>Step 3:</strong> <em>Versteckte</em> Dateien</p></div>
+<div class="ulist"><div class="title">Apache Tomcat 7.0.27 Installation</div><ul>
+<li>
+<p>
+/opt/Tomcat/sid/apache-tomcat-7.0.27  (Optional)
+</p>
+</li>
+</ul></div>
+<div class="ulist"><div class="title">Zusammenfassung</div><ul>
+<li>
+<p>
+NetBeans-Installationsverzeichnis:<br>
+  /opt/NetBeans/sid/netbeans-7.2
+</p>
+</li>
+<li>
+<p>
+Apache Tomcat 7.0.27 Installationsverzeichnis:<br>
+  /opt/Tomcat/sid/apache-tomcat-7.0.22
+</p>
+</li>
+<li>
+<p>
+JUnit wird beim ersten Start der NetBeans IDE heruntergeladen und installiert.
+</p>
+</li>
+<li>
+<p>
+Installationsgröße (gesamt):<br>
+  307,7MB
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><div class="title">Einrichtung vollständig</div><p>Zum Ende der Installation werden Sie gebeten <em>Anonyme Nutzungsdaten</em> freizugeben.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_netbeans_ide_7_2_nbi">NetBeans IDE 7.2: ~/.nbi</h3>
+<div class="paragraph"><p>Das <em>NetBeans Installer</em>-Verzeichnis enthält Informationen zur durchgeführten Installation.</p></div>
 <div class="listingblock">
-<div class="content">
-<pre><tt>$ cd
-$ ls -la .netbeans*
-.netbeans:
-insgesamt 12
-drwxr-xr-x 2 bob bob 4096 2010-08-31 17:22 .
-drwxr-xr-x 9 bob bob 4096 2010-08-31 17:22 ..
--rw-r--r-- 1 bob bob   36 2010-08-31 17:22 .superId
-
-.netbeans-registration:
-insgesamt 12
-drwxr-xr-x 3 bob bob 4096 2010-08-31 17:22 .
-drwxr-xr-x 9 bob bob 4096 2010-08-31 17:22 ..
-drwxr-xr-x 2 bob bob 4096 2010-08-31 17:22 6.9</tt></pre>
+<div class="title">~/.nbi</div>
+<div class="content monospaced">
+<pre>$ ls -la ~/.nbi
+insgesamt 60
+drwxrwxr-x  7 sid sid  4096 Okt  7 14:45 .
+drwxr-xr-x 18 sid sid  4096 Okt  7 14:40 ..
+drwxrwxr-x  2 sid sid  4096 Okt  7 14:40 downloads
+drwxrwxr-x  2 sid sid  4096 Okt  7 14:40 log
+drwxrwxr-x  7 sid sid  4096 Okt  7 14:44 product-cache
+-rw-rw-r--  1 sid sid 36397 Okt  7 14:45 registry.xml
+drwxrwxr-x  2 sid sid  4096 Okt  7 14:45 tmp
+drwxrwxr-x  2 sid sid  4096 Okt  7 14:40 wd</pre>
 </div></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_start_und_konfiguration">Start und Konfiguration</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_netbeans_ide_7_2">NetBeans IDE 7.2</h3>
+<div class="paragraph"><p><strong>Step 1:</strong> <em>netbeans</em> ausführen &#8230;</p></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>$ /opt/NetBeans/sid/netbeans-7.2/bin/netbeans</pre>
+</div></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans/nb01_NetBeans_IDE_7.2.jpeg" alt="NetBeans IDE 7.2: Startseite">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_netbeans_ide_7_2_plug_ins">NetBeans IDE 7.2: Plug-ins</h3>
+<div class="paragraph"><p><strong>Step 2:</strong> NB IDE &#8594; Extras &#8594; Plug-ins</p></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans/nb02_NetBeans_IDE_7.2.jpeg" alt="NetBeans IDE 7.2: Plug-ins">
+</div>
+</div>
+<div class="paragraph"><p>&nbsp;<br>
+<strong>Step 3:</strong> Plug-ins <em>Updates(1)</em></p></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans/nb03_Plug-ins.jpeg" alt="NetBeans IDE 7.2: Plug-ins [Updates]">
+</div>
+</div>
+<div class="paragraph"><p>&nbsp;<br>
+<strong>Step 4:</strong> Plug-ins <em>Einstellungen</em> &#8594; Hinzufügen</p></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans/nb04_Plug-ins.jpeg" alt="NetBeans IDE 7.2: Plug-ins [Einstellungen]">
+</div>
+</div>
+<div class="paragraph"><p>&nbsp;<br>
+<strong>Step 5:</strong> Customizer für Updatecenter<br>
+Name: <em>NB 7.2 Community Ruby</em><br>
+URL: <em>https://blogs.oracle.com/geertjan/resource/nb-72-community-ruby.xml</em></p></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans/nb05_Customizer_fuer_Updatecenter.jpeg" alt="NetBeans IDE 7.2: Customizer für Updatecenter">
+</div>
+</div>
+<div class="paragraph"><p>&rarr; <a href="http://plugins.netbeans.org/PluginPortal/">NetBeans IDE 7.2: Welcome to the NetBeans Plugin Portal</a></p></div>
+<div class="paragraph"><p>&nbsp;<br>
+<strong>Step 6:</strong> Plug-ins <em>Verfügbare Plug-ins (87)</em> &#8594; Nach Updates suchen (Reload)<br>
+Installation: Ruby and Rails<br>
+Installieren: 1 Plug-in gewählt, 27MB</p></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans/nb06_Plug-ins.jpeg" alt="NetBeans IDE 7.2: Plug-ins [Verfügbare Plug-ins (87))]">
+</div>
+</div>
+<div class="paragraph"><p>&nbsp;</p></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans/nb07_NetBeans_IDE_Installer.jpeg" alt="NetBeans IDE 7.2: NetBeans IDE Installer (Willkommen ...)">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans/nb08_NetBeans_IDE_Installer.jpeg" alt="NetBeans IDE 7.2: NetBeans IDE Installer (Lizenzvereinbarung ...)">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans/nb09_NetBeans_IDE_Installer.jpeg" alt="NetBeans IDE 7.2: NetBeans IDE Installer (Herunterladen)">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans/nb10_Validierungswarnung.jpeg" alt="NetBeans IDE 7.2: Validierungswarnung">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans/nb11_NetBeans_IDE_Installer.jpeg" alt="NetBeans IDE 7.2: NetBeans IDE Installer (IDE jetzt neu start ...)">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_netbeans_ide_7_2_neustart">NetBeans IDE 7.2: Neustart</h3>
+<div class="paragraph"><p><strong>Step 7:</strong> <em>Mein NetBeans</em></p></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans/nb12_Mein_NetBeans.jpeg" alt="NetBeans IDE 7.2: Mein NetBeans">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_netbeans_ide_7_2_ruby_platforms">NetBeans IDE 7.2: Ruby Platforms</h3>
+<div class="paragraph"><p><strong>Step 8:</strong> NB IDE &#8594; Extras &#8594; Ruby Platforms</p></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans/nb13_NetBeans_IDE_7.2_Extras.jpeg" alt="NetBeans IDE 7.2: NetBeans IDE 7.2 - Extras">
+</div>
+</div>
+<div class="paragraph"><p>&nbsp;<br>
+<strong>Step 9:</strong> <em>Ruby Platform Manager</em> &#8594; Add Platform</p></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans/nb14_Ruby_Platform_Manager.jpeg" alt="NetBeans IDE 7.2: Ruby Platform Manager">
+</div>
+</div>
 <div class="admonitionblock">
 <table><tr>
 <td class="icon">
-<img src="./images/icons/note.png" alt="Note" />
+<img src="./images/icons/note.png" alt="Note">
 </td>
 <td class="content">
-<div class="paragraph"><p>Mit der <em>superID</em> wird die Installation sowohl auf dem Rechner
-als auch für den SDN Account bei der Fa. SUN eindeutig benannt.</p></div>
+<div class="paragraph"><p>Der Eintrag (Platform) <em>Built-in JRuby 1.6.6</em> ist Teil der Installation
+des Plug-ins <em>Ruby on Rails</em>.</p></div>
 </td>
 </tr></table>
 </div>
-<div class="paragraph"><p>&nbsp;<br />
-&nbsp;<br />
-<strong>Step 4:</strong> NetBeans IDE starten</p></div>
-<div class="listingblock">
-<div class="content">
-<pre><tt>$ /bin/sh "/opt/NetBeans/bob/netbeans-6.9.1/bin/netbeans"</tt></pre>
-</div></div>
-<img src="images/netbeans/netbeans_ide_01_start.jpg" border="1px"
- alt="NetBeans IDE: Startseite" title="NetBeans IDE: Startseite" />
-<div class="paragraph"><p>&nbsp;<br />
-&nbsp;<br />
-<strong>Step 5:</strong> NetBeans IDE: Aktiviere (bereits installierte) Plugins<br />
-NetBeans IDE &#8594; Extras &#8594; Plugins</p></div>
-<img src="images/netbeans/netbeans_ide_02_aktiviere.jpg" border="1px"
- alt="NetBeans IDE: Aktivieren (bereits installierter) Plugins"
- title="NetBeans IDE: Aktivieren (bereits installierter) Plugins"
-<div class="paragraph"><p>&nbsp;<br />
-&nbsp;<br />
-<strong>Step 6:</strong> NetBeans IDE: Ruby Platform Manager<br />
-NetBeans IDE &#8594; Extras &#8594; Ruby Platform
-JRuby 1.5.1 (Built-in)<br />
-RubyGems 1.3.6</p></div>
-<img src="images/netbeans/netbeans_ide_03_platform.jpg" border="1px"
- alt="NetBeans: Ruby Platform Manager"
- title="NetBeans: Ruby Platform Manager"
 <div class="admonitionblock">
 <table><tr>
 <td class="icon">
-<img src="./images/icons/note.png" alt="Note" />
+<img src="./images/icons/note.png" alt="Note">
 </td>
 <td class="content">
-<div class="paragraph"><p>Der Eintrag (Platform) <em>Ruby 1.8.7-p249</em> ist die
-bereits von mir im Linux-System installierte C-Ruby-Version.
+<div class="paragraph"><p>Der Eintrag (Platform) <em>Ruby 1.8.7-p352</em> ist die
+bereits von mir als Ubuntu-Paket installierte C-Ruby-Version.
 Die <em>PATH</em>-Variable wird während der Installation ausgewertet und
 vorhandene Ruby-Installationen automatisch in der
-NetBeans IDE eingetragen.</p></div>
+NetBeans IDE 7 eingetragen.</p></div>
 </td>
 </tr></table>
 </div>
-<div class="paragraph"><p>&nbsp;<br />
-&nbsp;<br />
-<strong>Step 7:</strong> NetBeans IDE: Built-in JRuby 1.5.1
-NetBeans IDE &#8594; Extras &#8594; Ruby Gems
-Ruby on Rails 2.3.8<br />
-JDBC ActiveRecord 0.9.6</p></div>
-<img src="images/netbeans/netbeans_ide_04_rubygems238.jpg" border="1px"
- alt="NetBeans: Ruby Gems Built-in JRuby 1.5.1"
- title="NetBeans: Ruby Gems 'Built-in JRuby 1.5.1'"
-<div class="paragraph"><p>&nbsp;<br />
-Die aktuelle <em>Ruby on Rails</em>-Version ist 3.0.3 !
-&nbsp;<br /></p></div>
-<div class="paragraph"><p>&nbsp;<br />
-&nbsp;<br />
-<strong>Step 8:</strong> NetBeans IDE: Ruby 1.9.2, Ruby on Rails 3.0.3
-NetBeans IDE &#8594; Extras &#8594; Ruby Platforms
-Der Eintrag <em>Ruby 1.9.2</em> muß über den Button <em>Add Platform</em> vorgenommen werden.</p></div>
-<img src="images/netbeans/netbeans_ide_05_platform2.jpg" border="1px"
- alt="NetBeans: Ruby Platform Manager"
- title="NetBeans: Ruby Platform Manager"
-<div class="paragraph"><p>&nbsp;<br />
-&nbsp;<br />
-<strong>Step 9:</strong> NetBeans IDE: Ruby Gems 1.9.2-p0
-NetBeans IDE &#8594; Extras &#8594; Ruby Gems
-Ruby on Rails 3.0.0</p></div>
-<img src="images/netbeans/netbeans_ide_06_rubygems_192.jpg" border="1px"
- alt="NetBeans: Ruby Gems 'Ruby 1.9.2-p0'"
- title="NetBeans: Ruby Gems 'Ruby 1.9.2-p0'"
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_anhang">Anhang</h2>
-<div class="sectionbody">
-<div class="listingblock">
-<div class="title">Script zum Setzen der Umgebung für das Built-in JRuby 1.5.1 (ohne weitere Erläuterung)</div>
+<div class="imageblock">
 <div class="content">
-<pre><tt>JAVA_BINDIR=/opt/Java/jdk1.6.0_22/bin
-JAVA_HOME=/opt/Java/jdk1.6.0_22
-JDK_HOME=/opt/Java/jdk1.6.0_22
-JRE_HOME=/opt/Java/jdk1.6.0_22
-
-JRUBY_HOME=/opt/NetBeans/bob/netbeans-6.9.1/ruby/jruby-1.5.1/bin
-CATALINA_OPTS='-server -Xms512m -Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=512m'
-
-PATH=$JAVA_BINDIR:$JRUBY_HOME/bin:$PATH
-
-export JAVA_BINDIR
-export JAVA_HOME
-export JDK_HOME
-export JRE_HOME
-export JRUBY_HOME
-export CATALINA_OPTS
-export PATH</tt></pre>
+<img src="images/netbeans/nb15_Oeffnen.jpeg" alt="NetBeans IDE 7.2: &Ouml;ffnen">
+</div>
+<div class="title">Figure 1. Ruby 1.9.3-p194</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans/nb16_Oeffnen.jpeg" alt="NetBeans IDE 7.2: &Ouml;ffnen: Ruby 1.9.3-p194">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans/nb17_Ruby_Platform_Manager.jpeg" alt="NetBeans IDE 7.2: Ruby Platform Manager">
+</div>
+</div>
+<div class="paragraph"><p>&nbsp;<br>
+<strong>Step 10:</strong> <em>Ruby Platform Manager</em> &#8594; Add Platform</p></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans/nb18_Ruby_Platform_Manager.jpeg" alt="NetBeans IDE 7.2: Ruby Platform Manager">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans/nb15_Oeffnen.jpeg" alt="NetBeans IDE 7.2: &Ouml;ffnen">
+</div>
+<div class="title">Figure 2. JRuby 1.6.8</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans/nb19_Oeffnen.jpeg" alt="NetBeans IDE 7.2: &Ouml;ffnen: JRuby 1.6.8">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans/nb20_Ruby_Platform_Manager.jpeg" alt="NetBeans IDE 7.2: Ruby Platform Manager">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_netbeans_ide_7_2_jruby_gems">NetBeans IDE 7.2: JRuby Gems</h3>
+<div class="paragraph"><p><strong>Step 11:</strong> <em>Ruby Platform Manager</em> &#8594; Gem Manager</p></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans/nb21_Ruby_Gems.jpeg" alt="NetBeans IDE 7.2: Ruby Gems: JRuby 1.6.8">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_netbeans_ide_7_2_jruby_ruby_version_1_9">NetBeans IDE 7.2: JRuby-(Ruby)-Version 1.9</h3>
+<div class="paragraph"><p><strong>Step 12:</strong> NB IDE &#8594; Ausführen &#8594; Projektkonfiguration festlegen &#8594; &lt;default&gt; anpassen</p></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans/nb22_JRuby_Ruby_Version.jpeg" alt="NetBeans IDE 7.2: JRuby 1.6.8">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans/nb23_JRuby_Ruby_Version.jpeg" alt="NetBeans IDE 7.2: JRuby 1.6.8">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_netbeans_ide_7_2_netbeans">NetBeans IDE 7.2: ~/.netbeans</h3>
+<div class="paragraph"><p>Das <em>NetBeans</em>-Verzeichnis enthält Informationen zur aktuellen Konfiguration.</p></div>
+<div class="listingblock">
+<div class="title">~/.netbeans</div>
+<div class="content monospaced">
+<pre>$ ls -la ~/.netbeans
+drwxrwxr-x 10 sid sid 4096 Okt  7 16:05 7.2
+-rw-rw-r--  1 sid sid   36 Okt  7 14:48 .superId</pre>
+</div></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>$ ls -l ../.netbeans/7.2
+-rw-rw-r--  1 sid sid 1584 Okt  7 16:01 build.properties
+drwxrwxr-x  6 sid sid 4096 Okt  7 15:35 config
+drwxrwxr-x  8 sid sid 4096 Okt  7 15:35 jruby
+-rw-rw-r--  1 sid sid    0 Okt  7 15:35 .lastModified
+drwxrwxr-x  2 sid sid 4096 Okt  7 14:48 .metadata
+drwxrwxr-x  4 sid sid 4096 Okt  7 15:35 modules
+-rw-rw-r--  1 sid sid 1406 Okt  7 15:35 platform_info.rb
+-rw-rw-r--  1 sid sid 3220 Okt  7 15:35 plugin.rb
+-rw-rw-r--  1 sid sid  524 Okt  7 15:35 rake
+-rw-rw-r--  1 sid sid  614 Okt  7 15:35 rake_tasks_info.rb
+drwxrwxr-x  3 sid sid 4096 Okt  7 15:35 ruby
+drwxrwxr-x  3 sid sid 4096 Okt  7 15:35 rubystubs
+-rw-rw-r--  1 sid sid  220 Okt  7 15:35 sync-stdio.rb
+drwxrwxr-x  2 sid sid 4096 Okt  7 15:35 update_tracking
+drwxrwxr-x  3 sid sid 4096 Okt  7 14:48 var
+-rw-rw-r--  1 sid sid   41 Okt  7 15:35 VERSION.txt</pre>
 </div></div>
 </div>
 </div>
-<div class="sect1">
-<h2 id="_changelog">Changelog</h2>
-<div class="sectionbody">
-<div class="ulist"><div class="title">Version 0.2</div><ul>
-<li>
-<p>
-Erste öffentliche Version
-</p>
-</li>
-</ul></div>
-<div class="ulist"><div class="title">Version 0.4</div><ul>
-<li>
-<p>
-Anpassung an Ubuntu 09.10 (Karmic Koala)
-</p>
-</li>
-</ul></div>
-<div class="ulist"><div class="title">Version 0.6</div><ul>
-<li>
-<p>
-Kleine Korrekturen am Text
-</p>
-</li>
-</ul></div>
-<div class="ulist"><div class="title">Version 0.8</div><ul>
-<li>
-<p>
-Hinweis zur Verwendung
-</p>
-</li>
-</ul></div>
-<div class="ulist"><div class="title">Version 0.8.1</div><ul>
-<li>
-<p>
-Aktualisierung der Installation
-</p>
-</li>
-</ul></div>
-<div class="ulist"><div class="title">Version 1.0.0</div><ul>
-<li>
-<p>
-Anpassung an Ubuntu 10.04 (Lucid Lynx)<br />
-  Neue Programmversion
-</p>
-</li>
-</ul></div>
-<div class="ulist"><div class="title">Version 1.0.1</div><ul>
-<li>
-<p>
-Veröffentlichung von NetBeans 6.9
-</p>
-</li>
-</ul></div>
-<div class="ulist"><div class="title">Version 1.0.2</div><ul>
-<li>
-<p>
-Korrektur für AsciiDoc
-</p>
-</li>
-</ul></div>
-<div class="ulist"><div class="title">Version 1.1.1</div><ul>
-<li>
-<p>
-Neue Programmversionen: JDK
-</p>
-</li>
-</ul></div>
-<div class="ulist"><div class="title">Version 1.3.0</div><ul>
-<li>
-<p>
-Version JDK 1.6.0 Update 21 ist weiterhin aktuell<br />
-  Veröffentlichung von NetBeans 6.9.1
-</p>
-</li>
-</ul></div>
-<div class="ulist"><div class="title">Version 1.4.0</div><ul>
-<li>
-<p>
-Neue Programmversion: JDK 6U22<br />
-  Version NetBeans 6.9.1 ist weiterhin aktuell
-</p>
-</li>
-</ul></div>
 </div>
 </div>
-</div>
-<div id="footnotes"><hr /></div>
+<div id="footnotes"><hr></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2010-11-21 11:47:31 CET
+Last updated 2012-10-08 13:35:45 CEST
 </div>
 </div>
 </body>

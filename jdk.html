@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="generator" content="AsciiDoc 8.6.8">
-<title>Installation in Ubuntu: Git 1.7.12.2</title>
+<title>Installation in Ubuntu: OpenJDK 6, Oracle JDK 7</title>
 <style type="text/css">
 /* Shared CSS for AsciiDoc xhtml11 and html5 backends */
 
@@ -730,7 +730,7 @@ asciidoc.install(2);
 </head>
 <body class="article">
 <div id="header">
-<h1>Installation in Ubuntu: Git 1.7.12.2</h1>
+<h1>Installation in Ubuntu: OpenJDK 6, Oracle JDK 7</h1>
 <span id="author">Karl-Heinz Köther</span><br>
 <span id="email" class="monospaced">&lt;<a href="mailto:&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;">&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;</a>&gt;</span><br>
 <div id="toc">
@@ -747,11 +747,9 @@ asciidoc.install(2);
 <div class="sect1">
 <h2 id="_abstract">Abstract</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>Der Artikel ist eine Schritt-für-Schritt Anleitung zur Installation
-des Programms <a href="http://git-scm.com/">Git</a> aus dem QuellCode.</p></div>
-<div class="paragraph"><p><a href="http://git-scm.com/">Git</a> ist ein freies verteiltes Versionskontrollsystem
-(DVCS - Distributed Version Control System).</p></div>
-<div class="paragraph"><p>Der Artikel ist in <a href="http://www.methods.co.nz/asciidoc/">AsciiDoc</a> erstellt worden.</p></div>
+<div class="paragraph"><p>Dieser Artikel ist eine Sammlung von Hinweisen zur Installation
+eines Java Development Kit unter GNU/Linux.</p></div>
+<div class="paragraph"><p>Der Artikel ist in <a href="http://www.methods.co.nz/asciidoc/">ASCII DOC</a> erstellt worden.</p></div>
 <div class="admonitionblock">
 <table><tr>
 <td class="icon">
@@ -774,410 +772,159 @@ Gerne nehme ich Verbesserungsvorschläge entgegen.</p></div>
 <div class="paragraph"><p>Die Installation wird für <a href="http://www.ubuntu.com/">Ubuntu 12.04 LTS (Precise Pangolin)</a>
 beschrieben.<br>
 Gleichwohl sind die einzelnen Schritte auch für
-andere Debian-basierte GNU/Linux Distributionen übertragbar.</p></div>
+andere Distributionen übertragbar.</p></div>
 <div class="admonitionblock">
 <table><tr>
 <td class="icon">
 <img src="./images/icons/tip.png" alt="Tip">
 </td>
 <td class="content">
-<div class="paragraph"><p>Ubuntu 12.04 LTS (Precise Pangolin) enthält das Paket <em>git-core_1.7.9.5-1_all</em>.</p></div>
-</td>
-</tr></table>
-</div>
-<div class="sect2">
-<h3 id="_download">Download</h3>
-<div class="ulist"><ul>
-<li>
-<p>
-<a href="http://code.google.com/p/git-core/downloads/list">Git</a><br>
-  git-1.7.12.2.tar.gz  (ca. 3.9M)<br>
-  git-htmldocs-1.7.12.2.tar.gz  (ca. 1.7M)<br>
-  git-manpages-1.7.12.2.tar.gz  (ca. 508K)<br>
-  2012-09-30 (Release date)
-</p>
-</li>
-</ul></div>
-<div class="admonitionblock">
-<table><tr>
-<td class="icon">
-<img src="./images/icons/note.png" alt="Note">
-</td>
-<td class="content">
-<div class="paragraph"><p>Das Kompilieren des Versionskontrollsystem wird beispielhaft vom Benutzer <em>sid</em>
-durchgeführt.<br>
-Die eigentliche Installation von Git wird vom
-Benutzer <em>root</em> für das System durchgeführt.</p></div>
+<div class="paragraph"><p>In Ubuntu 12.04 LTS (Precise Pangolin) kann über bestehende Abhängigkeiten
+zu anderen Ubuntu-Paketen bereits das <em>OpenJDK 6</em> installiert sein.</p></div>
 <div class="listingblock">
 <div class="content monospaced">
-<pre>$ ls -l
--rw-r--r-- 1 sid sid 4106910 Okt  4 11:03 git-1.7.12.2.tar.gz
--rw-rw-r-- 1 sid sid 1795768 Okt  4 11:03 git-htmldocs-1.7.12.2.tar.gz
--rw-rw-r-- 1 sid sid  520877 Okt  4 11:04 git-manpages-1.7.12.2.tar.gz</pre>
+<pre>$ dpkg --list | grep openjdk
+ii  openjdk-6-jdk              6b24-1.11.4-1ubuntu0.12.04.1   OpenJDK Development Kit (JDK)
+ii  openjdk-6-jre              6b24-1.11.4-1ubuntu0.12.04.1   OpenJDK Java runtime, ...
+ii  openjdk-6-jre-headless     6b24-1.11.4-1ubuntu0.12.04.1   OpenJDK Java runtime, ...
+ii  openjdk-6-jre-lib          6b24-1.11.4-1ubuntu0.12.04.1   OpenJDK Java runtime (...)</pre>
 </div></div>
 </td>
 </tr></table>
-</div>
-<div class="admonitionblock">
-<table><tr>
-<td class="icon">
-<img src="./images/icons/note.png" alt="Note">
-</td>
-<td class="content">
-<div class="paragraph"><p>Vor der eigentlichen Installation müssen die fehlenden
-Programm-Pakete installiert sind.</p></div>
-<div class="listingblock">
-<div class="content monospaced">
-<pre>$ sudo apt-get install ...
-               Benötigt:   build-essential libc6 libcurl3-gnutls libexpat1 libexpat1-dev
-                           autoconf zlib1g perl-modules liberror-perl libdigest-sha-perl
-                           libcurl4-openssl-dev libssl-dev tcl8.4  tcl8.4-dev xmlto</pre>
-</div></div>
-</td>
-</tr></table>
-</div>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_installation">Installation</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="_git_1_7_12_2">Git 1.7.12.2</h3>
+<div class="paragraph"><div class="title">Primäre Auswahl: OpenJDK 6 und nicht Oracle (Sun) Java</div><p>Für Java steht eine gute OpenSource-Anwendung zur Verfügung: das <em>OpenJDK 6</em> und
+das <em>IcedTea-Plugin</em> für den Browser. Sie sind erhältlich in den regulären
+Ubuntu-Repositories und erhalten regelmäßig Sicherheits-Updates.
+Für viele Menschen ist dieses Java ausreichend.</p></div>
+<div class="paragraph"><p>Das ist mit ein Grund warum das ClosedSource Oracle Java von den offiziellen
+Software-Repositories entfernt wurde.</p></div>
+<div class="paragraph"><p>Und nicht zu vergessen, Oracle hat die
+<em>Operating System Distributor License for Java (DLJ)</em> zurückgezogen.</p></div>
 <div class="admonitionblock">
 <table><tr>
 <td class="icon">
-<img src="./images/icons/important.png" alt="Important">
+<img src="./images/icons/note.png" alt="Note">
 </td>
 <td class="content">
-<div class="paragraph"><p>Ohne die Angabe eines Verzeichnisses wird <em>/usr/local/&#8230;</em> automatisch verwendet.
-Eine bereits vorhandene Git-Installation wird überschrieben.<br>
-<br>
-Beispiel für die Änderung des Installations-Verzeichnisses:
-<em>./configure --prefix=/opt/wo_auch_immer</em></p></div>
+<div class="paragraph"><p>Installieren Sie (zu diesem Zeitpunkt) nicht <em>OpenJDK 7</em>, es ist zu früh &#8230; und
+es hat auch nicht viel Mehr-Nutzen für Sie. <em>OpenJDK 6</em> (Standard in Ubuntu)
+ist noch immer die bevorzugte Wahl.</p></div>
 </td>
 </tr></table>
 </div>
-<div class="paragraph"><p><strong>Step 1:</strong> Auspacken des Source-Code</p></div>
+<div class="paragraph"><p>&rarr; <a href="http://sites.google.com/site/easylinuxtipsproject/java#TOC-Primary-choice:-OpenJDK-6-and-not-Oracle-Sun-Java">Oracle (Sun) Java JRE for Ubuntu, Linux Mint and Debian</a></p></div>
+<div class="paragraph"><p>&rarr; <a href="http://wiki.ubuntuusers.de/Java">ubunutusers.de: Java</a></p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/note.png" alt="Note">
+</td>
+<td class="content">
+<div class="paragraph"><p>Unabhängig davon, das die Firma <em>Oracle</em> das freie <em>JDK</em> unterstützt und auch
+vorantreibt &#8230; gibt es durchaus Bugs, die in den offiziellen Paketen nicht
+vorhanden sind.<br>
+Es gilt, Bugs zu melden, damit <em>OpenJDK</em> so gut wird wie die proprietäre Version.</p></div>
+</td>
+</tr></table>
+</div>
+<div class="sect2">
+<h3 id="_openjdk">OpenJDK</h3>
 <div class="listingblock">
 <div class="content monospaced">
-<pre>$ tar xvzf git-1.7.12.2.tar.gz
-$ cd git-1.7.12.2</pre>
-</div></div>
-<div class="paragraph"><p><strong>Step 2:</strong> Konfiguration erstellen und kompilieren</p></div>
-<div class="listingblock">
-<div class="content monospaced">
-<pre>$ make configure
-GIT_VERSION = 1.7.12.2
-    GEN configure
-
-$ ./configure | tee ../log.git_configure
-configure: Setting lib to 'lib' (the default)
-configure: Will try -pthread then -lpthread to enable POSIX Threads.
-configure: CHECKS for site configuration
-configure: CHECKS for programs
-checking for cc... cc
+<pre>$ sudo apt-get install openjdk-6-jdk
+Abhängigkeitsbaum wird aufgebaut
 [...]
-checking for asciidoc... asciidoc
-checking for asciidoc version... asciidoc 8.6.8
-[...]
-checking Checking for POSIX Threads with '-mt'... no
-checking Checking for POSIX Threads with '-pthread'... yes
-configure: creating ./config.status
-config.status: creating config.mak.autogen
-config.status: executing config.mak.autogen commands</pre>
-</div></div>
-<div class="listingblock">
-<div class="content monospaced">
-<pre>$ make | tee ../log.git_make
-    * new build flags
-    CC credential-store.o
-    * new link flags
-    CC abspath.o
-    CC advice.o
-    CC alias.o
-[...]
-    GEN git-web--browse
-    GEN perl/PM.stamp
-    SUBDIR perl
-/usr/bin/perl Makefile.PL PREFIX='/usr/local' INSTALL_BASE='' --localedir='/usr/local/share/locale'
-Writing perl.mak for Git
-Writing MYMETA.yml
-    GEN git-add--interactive
-    GEN git-difftool
-    GEN git-archimport
-    GEN git-cvsexportcommit
-    GEN git-cvsimport
-    GEN git-cvsserver
-    GEN git-relink
-    GEN git-send-email
-    GEN git-svn
-    GEN git-remote-testgit
-    GEN git-p4
-    SUBDIR gitweb
-    SUBDIR ../
-make[2]: »GIT-VERSION-FILE« ist bereits aktualisiert.
-    GEN gitweb.cgi
-    GEN static/gitweb.js
-[...]
-    GEN bin-wrappers/test-subprocess
-    GEN bin-wrappers/test-svn-fe</pre>
-</div></div>
-<div class="paragraph"><p><strong>Step 3:</strong> Installation (als Benutzer <em>root</em>)</p></div>
-<div class="listingblock">
-<div class="content monospaced">
-<pre>$ sudo make install | tee ../log.git_make_install
-    GEN perl/PM.stamp
-    SUBDIR perl
-/usr/bin/perl Makefile.PL PREFIX='/usr/local' INSTALL_BASE='' --localedir='/usr/local/share/locale'
-Writing perl.mak for Git
-Writing MYMETA.yml
-    GEN git-add--interactive
-    GEN git-difftool
-    GEN git-archimport
-    GEN git-cvsexportcommit
-    GEN git-cvsimport
-    GEN git-cvsserver
-    GEN git-relink
-    GEN git-send-email
-    GEN git-svn
-    SUBDIR gitweb
-    SUBDIR ../
-make[2]: »GIT-VERSION-FILE« ist bereits aktualisiert.
-    GEN git-instaweb
-    SUBDIR git-gui
-    SUBDIR gitk-git
-make[1]: Für das Ziel »all« ist nichts zu tun.
-    SUBDIR perl
+Die folgenden NEUEN Pakete werden installiert:   <img src="./images/icons/callouts/1.png" alt="1">
+  ca-certificates-java icedtea-6-jre-cacao icedtea-6-jre-jamvm icedtea-netx
+  icedtea-netx-common java-common libatk-wrapper-java libatk-wrapper-java-jni
+  libgif4 libice-dev libpthread-stubs0 libpthread-stubs0-dev libsm-dev
+  libx11-dev libx11-doc libxau-dev libxcb1-dev libxdmcp-dev libxt-dev
+  openjdk-6-jdk openjdk-6-jre openjdk-6-jre-headless openjdk-6-jre-lib
+  ttf-dejavu-extra tzdata-java x11proto-core-dev x11proto-input-dev
+  x11proto-kb-dev xorg-sgml-doctools xtrans-dev
+0 aktualisiert, 30 neu installiert, 0 zu entfernen und 0 nicht aktualisiert.
 [...]</pre>
-</div></div>
-<div class="listingblock">
-<div class="title">Documentation: web-pages</div>
-<div class="content monospaced">
-<pre>$ cd /usr/local/share/doc
-$ sudo mkdir git-doc
-$ cd git-doc
-$ sudo tar xvzf git-htmldocs-1.7.12.2.tar.gz
-[...]</pre>
-</div></div>
-<div class="listingblock">
-<div class="title">Documentation: man-pages</div>
-<div class="content monospaced">
-<pre>$ cd /usr/local/man
-$ sudo tar xvzf git-manpages-1.7.12.2.tar.gz
-[...]
-$ sudo chown -R root.root man?   <img src="./images/icons/callouts/1.png" alt="1">
-$ sudo chmod g-s man?
-$ sudo chmod 755 man?
-$ ls -l
-drwxr-xr-x 2 root root 4096 Sep 30 10:12 man1
-drwxr-xr-x 2 root root 4096 Sep 30 10:12 man5
-drwxr-xr-x 2 root root 4096 Sep 30 10:12 man7</pre>
 </div></div>
 <div class="colist arabic"><table>
 <tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
-Unbedingt die Rechte an den Dateien und den Ordnern anpassen!
+Zu den 30 neu zu installierenden Ubuntu-Pakete gehören unter anderem:<br>
+    <em>icedtea_plugin</em>, <em>openjdk-6-jre</em> und <em>openjdk-6-jre-headless</em>
 </td></tr>
 </table></div>
-<div class="paragraph"><p><strong>Step 4:</strong> Installation verifizieren</p></div>
+</div>
+<div class="sect2">
+<h3 id="_oracle_jdk">Oracle JDK</h3>
+<div class="paragraph"><p>Wie auch immer, einige Ubuntu-Anwender benötigen das Oracle JDK.<br>
+Empfohlen wird die Version 7 Update 7</p></div>
+<div class="paragraph"><p>Zusätzliche Software-Pakete die nicht über das Paketmanagement verwaltet wird,
+sollten im Verzeichnis <em>/opt</em> (Optional) installiert werden.</p></div>
+<div class="paragraph"><p><strong>Step 0:</strong> Download JDK 7u7</p></div>
+<div class="paragraph"><p>&rarr; <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Oracle: Java SE Downloads</a></p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/note.png" alt="Note">
+</td>
+<td class="content">
+<div class="paragraph"><p>You must accept the Oracle Binary Code License Agreement
+for Java SE to download this software.</p></div>
+</td>
+</tr></table>
+</div>
+<div class="paragraph"><p><strong>Step 1:</strong> Installation im Verzeichnis <em>/opt/Java</em> (mit Benutzer <em>root</em>)</p></div>
 <div class="listingblock">
 <div class="content monospaced">
-<pre>$ cd /usr/local/bin
-$ ls -l git*
--rwxr-xr-x 111 root root 6537809 Okt  4 11:42 git
--rwxr-xr-x   2 root root  120929 Okt  4 11:42 git-cvsserver
--rwxr-xr-x   1 root root  329682 Okt  4 11:42 gitk
--rwxr-xr-x 111 root root 6537809 Okt  4 11:42 git-receive-pack
--rwxr-xr-x   2 root root 2774217 Okt  4 11:42 git-shell
--rwxr-xr-x 111 root root 6537809 Okt  4 11:42 git-upload-archive
--rwxr-xr-x   2 root root 2873559 Okt  4 11:42 git-upload-pack</pre>
+<pre>$ sudo mkdir /opt/Java &amp;&amp; cd /opt/Java
+
+$ ls -l
+-rw-rw-r-- 1 sid sid 96039818 Okt  4 18:02 jdk-7u7-linux-x64.tar.gz
+
+$ sudo tar xvzf jdk-7u4-linux-x64.tar.gz
+[...]</pre>
 </div></div>
+<div class="paragraph"><p>Ein Vorteil bei der gezeigten Lösung ist, daß für das Einspielen einer neuen Version
+weder die Konfigurations-Datei noch die <em>PATH</em>-Variable angepasst werden müssen.</p></div>
 <div class="listingblock">
 <div class="content monospaced">
-<pre>$ man git
-GIT(1)                            Git Manual                            GIT(1)
-
-NAME
-       git - the stupid content tracker
-
-SYNOPSIS
-       git [--version] [--help] [-c &lt;name&gt;=&lt;value&gt;]
-           [--exec-path[=&lt;path&gt;]] [--html-path] [--man-path] [--info-path]
-           [-p|--paginate|--no-pager] [--no-replace-objects] [--bare]
-           [--git-dir=&lt;path&gt;] [--work-tree=&lt;path&gt;] [--namespace=&lt;name&gt;]
-           &lt;command&gt; [&lt;args&gt;]
-
-DESCRIPTION
-       Git is a fast, scalable, distributed revision control system with an
-       unusually rich command set that provides both high-level operations and
-       full access to internals.
-
-       See gittutorial(7) to get started, then see Everyday Git[1] for a
-       useful minimum set of commands, and "man git-commandname" for
-       documentation of each command. CVS users may also want to read gitcvs-
-       migration(7). See the Git User’s Manual[2] for a more in-depth
-       introduction.
-
-       The &lt;command&gt; is either a name of a Git command (see below) or an alias
-       as defined in the configuration file (see git-config(1)).
-
-       Formatted and hyperlinked version of the latest git documentation can
-       be viewed at http://www.kernel.org/pub/software/scm/git/docs/.
-
-[...]
-
-AUTHORS
-       Git was started by Linus Torvalds, and is currently maintained by Junio
-       C Hamano. Numerous contributions have come from the git mailing list
-       &lt;git@vger.kernel.org[6]&gt;. For a more complete list of contributors, see
-       http://git-scm.com/about. If you have a clone of git.git itself, the
-       output of git-shortlog(1) and git-blame(1) can show you the authors for
-       specific parts of the project.
-
-REPORTING BUGS
-       Report bugs to the Git mailing list &lt;git@vger.kernel.org[6]&gt; where the
-       development and maintenance is primarily done. You do not have to be
-       subscribed to the list to send a message there.
-
-SEE ALSO
-       gittutorial(7), gittutorial-2(7), Everyday Git[1], gitcvs-migration(7),
-       gitglossary(7), gitcore-tutorial(7), gitcli(7), The Git User’s
-       Manual[2], gitworkflows(7)
-
-GIT
-       Part of the git(1) suite
-
-NOTES
-        1. Everyday Git
-           file:///usr/local/share/doc/git-doc/everyday.html
-
-        2. Git User’s Manual
-           file:///usr/local/share/doc/git-doc/user-manual.html
-
-        3. git concepts chapter of the user-manual
-           file:///usr/local/share/doc/git-doc/user-manual.html#git-concepts
-
-        4. howto
-           file:///usr/local/share/doc/git-doc/howto-index.html
-
-        5. GIT API documentation
-           file:///usr/local/share/doc/git-doc/technical/api-index.html
-
-        6. git@vger.kernel.org
-           mailto:git@vger.kernel.org
-
-Git 1.7.12.2                      09/30/2012                            GIT(1)</pre>
+<pre>$ cd /opt/Java
+$ sudo chown -R root.root jdk1.7.0_07
+$ sudo ln -s jdk1.7.0_07 current
+$ ls -l
+lrwxrwxrwx  1 root root   11 Okt  4 18:05 current -&gt; jdk1.7.0_07
+drwxr-xr-x  8 root root 4096 Aug 29 03:12 jdk1.7.0_07</pre>
 </div></div>
+<div class="paragraph"><p><strong>Step 2:</strong> Java-Pfad setzen (von au&szlig;en)
+Erstellen Sie eine Datei java.path.sh (siehe <a href="#_anhang">[Anhang]</a>).</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/note.png" alt="Note">
+</td>
+<td class="content">
+<div class="paragraph"><p>Achtung: Ausführen der Datei mit dem Punkt-Operator!</p></div>
 <div class="listingblock">
 <div class="content monospaced">
-<pre>$ man gitk
-GITK(1)                           Git Manual                           GITK(1)
-
-NAME
-       gitk - The git repository browser
-
-SYNOPSIS
-       gitk [&lt;option&gt;...] [&lt;revs&gt;] [--] [&lt;path&gt;...]
-
-DESCRIPTION
-       Displays changes in a repository or a selected set of commits. This
-       includes visualizing the commit graph, showing information related to
-       each commit, and the files in the trees of each revision.
-
-       Historically, gitk was the first repository browser. It’s written in
-       tcl/tk and started off in a separate repository but was later merged
-       into the main git repository.
-
-[...]
-
-EXAMPLES
-       gitk v2.6.12.. include/scsi drivers/scsi
-           Show the changes since version v2.6.12 that changed any file in the
-           include/scsi or drivers/scsi subdirectories
-
-       gitk --since="2 weeks ago" -- gitk
-           Show the changes during the last two weeks to the file gitk. The
-           "--" is necessary to avoid confusion with the branch named gitk
-
-       gitk --max-count=100 --all -- Makefile
-           Show at most 100 changes made to the file Makefile. Instead of only
-           looking for changes in the current branch look in all branches.
-
-FILES
-       Gitk creates the .gitk file in your $HOME directory to store
-       preferences such as display options, font, and colors.
-
-SEE ALSO
-       qgit(1)
-           A repository browser written in C++ using Qt.
-
-       gitview(1)
-           A repository browser written in Python using Gtk. It’s based on
-           bzrk(1) and distributed in the contrib area of the git repository.
-
-       tig(1)
-           A minimal repository browser and git tool output highlighter
-           written in C using Ncurses.
-
-GIT
-       Part of the git(1) suite
-
-Git 1.7.12.2                      09/30/2012                           GITK(1)</pre>
+<pre>$ . jruby.path.sh</pre>
 </div></div>
+</td>
+</tr></table>
+</div>
+<div class="paragraph"><p><strong>Step 3:</strong> Installation verifizieren</p></div>
 <div class="listingblock">
 <div class="content monospaced">
-<pre>$ find /usr/local -type d -cmin -5
-/usr/local/share/git-core/templates
-/usr/local/share/git-core/templates/hooks
-/usr/local/share/git-core/templates/branches
-/usr/local/share/git-core/templates/info
-/usr/local/share/git-gui/lib
-/usr/local/share/git-gui/lib/msgs
-/usr/local/share/doc/git-doc
-/usr/local/share/doc/git-doc/howto
-/usr/local/share/doc/git-doc/technical
-/usr/local/share/doc/git-doc/RelNotes
-/usr/local/share/man
-/usr/local/share/man/man7
-/usr/local/share/man/man5
-/usr/local/share/man/man1
-/usr/local/share/gitweb
-/usr/local/share/gitweb/static
-/usr/local/share/gitk/lib/msgs
-/usr/local/share/locale
-/usr/local/share/locale/is
-/usr/local/share/locale/is/LC_MESSAGES
-/usr/local/share/locale/da
-/usr/local/share/locale/da/LC_MESSAGES
-/usr/local/share/locale/it
-/usr/local/share/locale/it/LC_MESSAGES
-/usr/local/share/locale/nl
-/usr/local/share/locale/nl/LC_MESSAGES
-/usr/local/share/locale/sv
-/usr/local/share/locale/sv/LC_MESSAGES
-/usr/local/share/locale/pt_PT
-/usr/local/share/locale/pt_PT/LC_MESSAGES
-/usr/local/share/locale/vi
-/usr/local/share/locale/vi/LC_MESSAGES
-/usr/local/share/locale/de
-/usr/local/share/locale/de/LC_MESSAGES
-/usr/local/share/locale/zh_CN
-/usr/local/share/locale/zh_CN/LC_MESSAGES
-/usr/local/bin
-/usr/local/libexec/git-core
-/usr/local/libexec/git-core/mergetools</pre>
+<pre>$ which java
+/opt/Java/current/bin/java
+
+$ java -version
+java version "1.7.0_07"
+Java(TM) SE Runtime Environment (build 1.7.0_07-b10)
+Java HotSpot(TM) 64-Bit Server VM (build 23.3-b01, mixed mode)</pre>
 </div></div>
-<div class="paragraph"><p><strong>Step 5:</strong> Dokumentation (local)</p></div>
-<div class="paragraph"><div class="title">git(1) Manual Page</div><p>Browser&gt; <a href="file:///usr/local/share/doc/git-doc/index.html">file:///usr/local/share/doc/git-doc/index.html</a></p></div>
-<div class="paragraph"><div class="title">gittutorial(7) Manual Page</div><p>Browser&gt; <a href="file:///usr/local/share/doc/git-doc/gittutorial.html">file:///usr/local/share/doc/git-doc/gittutorial.html</a></p></div>
-<div class="paragraph"><div class="title">gittutorial-2(7) Manual Page</div><p>Browser&gt; <a href="file:///usr/local/share/doc/git-doc/gittutorial-2.html">file:///usr/local/share/doc/git-doc/gittutorial-2.html</a></p></div>
-<div class="paragraph"><div class="title">Everyday GIT With 20 Commands Or So</div><p>Browser&gt; <a href="file:///usr/local/share/doc/git-doc/everyday.html">file:///usr/local/share/doc/git-doc/everyday.html</a></p></div>
-<div class="paragraph"><div class="title">gitglossary(7) Manual Page</div><p>Browser&gt; <a href="file:///usr/local/share/doc/git-doc/gitglossary.html">file:///usr/local/share/doc/git-doc/gitglossary.html</a></p></div>
-<div class="paragraph"><div class="title">gitcore-tutorial(7) Manual Page</div><p>Browser&gt; <a href="file:///usr/local/share/doc/git-doc/gitcore-tutorial.html">file:///usr/local/share/doc/git-doc/gitcore-tutorial.html</a></p></div>
-<div class="paragraph"><div class="title">gitcli(7) Manual Page</div><p>Browser&gt; <a href="file:///usr/local/share/doc/git-doc/gitcli.html">file:///usr/local/share/doc/git-doc/gitcli.html</a></p></div>
-<div class="paragraph"><div class="title">Git User’s Manual (for version 1.5.3 or newer)</div><p>Browser&gt; <a href="file:///usr/local/share/doc/git-doc/user-manual.html">file:///usr/local/share/doc/git-doc/user-manual.html</a></p></div>
-<div class="paragraph"><div class="title">gitworkflows(7) Manual Page</div><p>Browser&gt; <a href="file:///usr/local/share/doc/git-doc/gitworkflows.html">file:///usr/local/share/doc/git-doc/gitworkflows.html</a></p></div>
-<div class="paragraph"><div class="title">git-config(1) Manual Page</div><p>Browser&gt; <a href="file:///usr/local/share/doc/git-doc/git-config.html">file:///usr/local/share/doc/git-doc/git-config.html</a></p></div>
 </div>
 </div>
 </div>
@@ -1185,49 +932,20 @@ Git 1.7.12.2                      09/30/2012                           GITK(1)</
 <h2 id="_anhang">Anhang</h2>
 <div class="sectionbody">
 <div class="listingblock">
-<div class="title">Script zum Installieren von Git 1.7.12.2 (ohne Dokumentation, ohne weitere Erläuterung)</div>
+<div class="title">Script zum Setzen der Umgebung für das JDK (ohne weitere Erläuterung)</div>
 <div class="content monospaced">
-<pre>#!/bin/bash
-#
-ME=make_git
-NAME=git-1.7.12.2
+<pre>JAVA_BINDIR=/opt/Java/current/bin
+JAVA_HOME=/opt/Java/current
+JDK_HOME=/opt/Java/current
+JRE_HOME=/opt/Java/current
 
-ls -l git*.tar.gz
-echo
+PATH=$JAVA_BINDIR:$PATH
 
-echo "Git-Installation fortsetzen (j/n)"
-read dummy
-case $dummy in
-  j|J|y|Y) echo "Installation wird fortgesetzt."
-           ;;
-  *) echo "Installation wird abgebrochen."
-     exit 1
-     ;;
-esac
-
-echo
-echo "Source auspacken ..."
-tar xvzf ${NAME}.tar.gz
-cd ${NAME}
-
-echo
-echo "Source übersetzen ..."
-make configure | tee ../log.make_configure
-./configure | tee ../log.git_configure
-make | tee ../log.git_make
-
-echo
-echo "Git installieren"
-sudo make install | tee ../log.git_make_install
-
-echo "Dokumentation fehlt!"
-
-echo
-cd /usr/local/bin
-ls -l git*
-
-echo
-echo "$ME: Ende."</pre>
+export JAVA_BINDIR
+export JAVA_HOME
+export JDK_HOME
+export JRE_HOME
+export PATH</pre>
 </div></div>
 </div>
 </div>
@@ -1235,7 +953,7 @@ echo "$ME: Ende."</pre>
 <div id="footnotes"><hr></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2012-10-04 12:36:54 CEST
+Last updated 2012-10-04 18:08:24 CEST
 </div>
 </div>
 </body>

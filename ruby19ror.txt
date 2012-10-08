@@ -1,0 +1,439 @@
+Ruby on Rails: Erste Schritte (mit Ruby)
+========================================
+Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;>
+
+:icons:
+:Author Initials: KHK
+:creativecommons-url: http://creativecommons.org/licenses/by-sa/3.0/de/
+:ubuntu-url: http://www.ubuntu.com/
+:ruby19-url: link:ruby19.html
+
+Version 1.5.0, Oktober 2012, <<_changelog,[Changelog]>>
+
+
+Abstract
+--------
+Die folgenden Schritte stellen die Funktionsfähigkeit der Installation 
+von _Ruby_ und _Ruby on Rails_ (kurz: _Rails_) sicher. 
+
+Der Artikel ist in {asciidoc-url}[AsciiDoc] erstellt worden.
+
+[CAUTION]
+====
+Zu beachten ist, dass so ein Dokument zum Einen nie abschliessend 
+sein kann, und zum Anderen bestimmte Konfigurationen anders, oder 
+auf einem anderem Weg durchgeführt werden können. +
+Gerne nehme ich Verbesserungsvorschläge entgegen.
+
+Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr.
+====
+
+
+Vorraussetzungen
+----------------
+_Ruby_ und _Ruby on Rails_ sind wie 
+in {ruby19-url}[Installation in Ubuntu: Ruby 1.9.3, Ruby on Rails 3.2.8 ] 
+beschrieben durchgeführt worden.
+
+----
+$ which ruby
+/opt/Ruby/current/bin/ruby
+
+$ ruby -v 
+ruby 1.9.3p194 (2012-04-20 revision 35410) [x86_64-linux]
+
+$ which rails
+/opt/Ruby/current/bin/rails
+
+$ rails -v
+Rails 3.2.8
+----
+   
+   
+Erste Schritte
+--------------
+Die notwendigen Schritte werden auf der Kommandozeile durchgeführt.
+
+.Vorgehensweise 
+- Datenbanksystem wählen 
+- Datenbank erstellen
+- Projektverzeichnis erstellen 
+- Datenbankadapter konfigurieren
+- JavaScript-Runtime installieren
+- Aufruf der Webanwendung im Browser
+
+
+Datenbanksystem wählen
+~~~~~~~~~~~~~~~~~~~~~~
+Für _Ruby on Rails_ sind drei Datenbanksysteme zumindest erste Wahl für
+die Entwicklung eines neuen Rails-Projektes:
+
+- _SqLite3_ + 
+  Ist in _Ruby on Rails_ die Default-Datenbank.
+- _MySQL_ +
+  Gut und schnell und überhaupt ... überall verfügbar.
+- _PostgreSQL_ +
+  Lupenreine OpenSource-Datenbanksystem für professionelle Anforderungen. +
+  (Ähnliches Vorgehen wie mit MySQL.)
+
+Für die Datenbanken _SqLite3_ und _MySQL_ sind die notwendigen Datenbankadapter
+bereits installiert worden.
+
+
+Datenbank erstellen
+~~~~~~~~~~~~~~~~~~~
+_SQLite3_ ist eine Programmbibliothek, die ein relationales Datenbanksystem enthält.
+Das bedeutet, der notwendige Aufwand an Administration für ein Datenbanksystem, sowie
+für das Anlegen von Benutzern, einer Datenbank und dem Zuweisen von Rechten entfällt. 
+
+_MySQL_ hat für die Administration des Datenbanksystems 
+verschiedene Programm-Angebote, unter anderem _phpMyAdmin_ ... aber eben auch
+die Kommandozeile.
+
+_PostgreSQL_ hat für die Administration des Datenbanksystems 
+verschiedene Programm-Angebote, unter anderem _pgAdmin_ ... aber eben auch
+die Kommandozeile.
+
+.Anlegen eines Benutzer: _sid_ (in MySQL)
+----
+# mysql -uroot -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 41
+Server version: 5.5.22-0ubuntu1 (Ubuntu)
+
+Copyright (c) 2000, 2011, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> GRANT ALL PRIVILEGES ON *.* to 'sid'@'localhost'
+    -> IDENTIFIED BY 'GEHEIM';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> exit  
+----
+
+.Erstellen einer Datenbank: _myapp_development_ (in MySQL)
+----
+$ mysql -usid -p 
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 44
+Server version: 5.5.22-0ubuntu1 (Ubuntu)
+
+Copyright (c) 2000, 2011, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> CREATE DATABASE myapp_development;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> exit
+Bye
+----
+
+
+Projektverzeichnis erstellen 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----
+$ cd
+$ mkdir RailsDir
+
+$ cd RailsDir
+$ rails new myapp --database=mysql   <1>
+      create  
+      create  README.rdoc
+      create  Rakefile
+      create  config.ru
+      create  .gitignore
+      create  Gemfile      <2>
+      create  app
+      create  app/assets/images/rails.png
+ [...]
+      create  config/database.yml   <3>
+ [...]
+      create  vendor/plugins
+      create  vendor/plugins/.gitkeep
+         run  bundle install
+Enter your password to install the bundled RubyGems to your system:   <4> 
+----
+<1> Für das Datenbanksystem _sqLite3_ verkürzt sich der Aufruf: +
+    _rails new myapp_
+<2> Die zu diesem Zeitpunkt benötigten RubyGems und deren Abhängigkeiten
+    untereinander entnehmen Sie der Datei _Gemfile_.
+<3> Konfigurationsdatei mit den Einstellungen für den 
+    Datenbankzugriff (Datenbankadapter).        
+<4> Wenn Sie nicht berechtigt sind RubyGems zu installieren, müssen Sie 
+    die benötigten RubyGems installieren lassen!
+
+.Gemfile
+----
+source 'https://rubygems.org'
+
+gem 'rails', '3.2.8'
+
+# Bundle edge Rails instead:
+# gem 'rails', :git => 'git://github.com/rails/rails.git'
+
+gem 'mysql2'
+
+
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
+  gem 'sass-rails',   '~> 3.2.3'   <1>
+  gem 'coffee-rails', '~> 3.2.1'   <2>
+
+  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+  # gem 'therubyracer', :platforms => :ruby
+
+  gem 'uglifier', '>= 1.0.3'
+end
+
+gem 'jquery-rails'
+q[...]
+----
+<1> Der Spezifizierer '~> 3.2.3' ist identisch mit 
+    den Bedingungen '>= 3.2.3' und '< 3.3'.  
+<2> Der Spezifizierer '~> 3.2.1' ist identisch mit 
+    den Bedingungen '>= 3.2.1' und '< 3.3'.    
+
+.Installation zusätzlicher Gems: 
+_sass-rails_, _coffee-rails_, _uglifier_ und _jquery-rails_
+----
+# gem install sass-rails coffee-rails uglifier jquery-rails
+Fetching: sass-rails-3.2.5.gem (100%)
+Successfully installed sass-rails-3.2.5
+Fetching: coffee-script-source-1.3.3.gem (100%)
+Fetching: execjs-1.4.0.gem (100%)
+Fetching: coffee-script-2.2.0.gem (100%)
+Fetching: coffee-rails-3.2.2.gem (100%)
+Successfully installed coffee-script-source-1.3.3
+Successfully installed execjs-1.4.0
+Successfully installed coffee-script-2.2.0
+Successfully installed coffee-rails-3.2.2
+Fetching: uglifier-1.3.0.gem (100%)
+Successfully installed uglifier-1.3.0
+Fetching: jquery-rails-2.1.3.gem (100%)
+Successfully installed jquery-rails-2.1.3
+7 gems installed
+Installing ri documentation for sass-rails-3.2.5...
+Installing ri documentation for coffee-script-source-1.3.3...
+Installing ri documentation for execjs-1.4.0...
+Installing ri documentation for coffee-script-2.2.0...
+Installing ri documentation for coffee-rails-3.2.2...
+Installing ri documentation for uglifier-1.3.0...
+Installing ri documentation for jquery-rails-2.1.3...
+Installing RDoc documentation for sass-rails-3.2.5...
+Installing RDoc documentation for coffee-script-source-1.3.3...
+Installing RDoc documentation for execjs-1.4.0...
+Installing RDoc documentation for coffee-script-2.2.0...
+Installing RDoc documentation for coffee-rails-3.2.2...
+Installing RDoc documentation for uglifier-1.3.0...
+Installing RDoc documentation for jquery-rails-2.1.3...
+----
+ 
+.Prüfen der Abhängigkeiten im _Gemfile_
+----
+$ cd myapp
+$ bundle check
+The Gemfile's dependencies are satisfied
+----
+
+[NOTE]
+====
+_CoffeeScript_ ist seit _Ruby on Rails_ v3.1 Standard.
+====
+
+
+Datenbankadapter konfigurieren
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.config/database.yml: sqlite3
+----
+[...]
+development:
+  adapter: sqlite3
+  database: db/development.sqlite3   <1>
+  pool: 5
+  timeout: 5000
+[...]
+----
+<1> Die Datenbank-Datei wird mit dem ersten Aufruf automatisch angelegt. +
+    Keine Angabe für Benutzer und Passwort!
+
+.config/database.yml: mysql 
+----
+[...]
+development:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: myapp_development   <1>
+  pool: 5
+  username: sid                 <---          
+  password: GEHEIM              <---
+  socket: /var/run/mysqld/mysqld.sock
+[...]  
+----
+<1> Der hier vorgeschlagene Datenbank-Name wird von _Ruby on Rails_
+    automatisch aus dem Namen der Applikation und dem Zusatz '_development'
+    gebildet.
+
+
+JavaScript-Runtime installieren
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Für die erzeugte _Ruby on Rails_-Anwendung ist eine JavaScript-Runtime erforderlich.
+
+.Möglichkeit 1: Das RubyGem _therubyracer_
+----
+# gem install therubyracer   <1>
+Fetching: libv8-3.3.10.4-x86_64-linux.gem (100%)
+Fetching: therubyracer-0.10.2.gem (100%)
+Building native extensions.  This could take a while...
+Successfully installed libv8-3.3.10.4-x86_64-linux
+Successfully installed therubyracer-0.10.2
+2 gems installed
+Installing ri documentation for libv8-3.3.10.4-x86_64-linux...
+Installing ri documentation for therubyracer-0.10.2...
+Installing RDoc documentation for libv8-3.3.10.4-x86_64-linux...
+Installing RDoc documentation for therubyracer-0.10.2...
+----
+<1> link:http://rubygems.org/gems/therubyracer[RubyGems.org: therubyracer] +
+    Call javascript code and manipulate javascript objects from ruby. +
+    Call ruby code and manipulate ruby objects from javascript.
+
+.Gemfile
+----
+source 'https://rubygems.org'
+
+gem 'rails', '3.2.8'
+
+# Bundle edge Rails instead:
+# gem 'rails', :git => 'git://github.com/rails/rails.git'
+
+gem 'mysql2'
+
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
+  gem 'sass-rails',   '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
+
+  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+  gem 'therubyracer', :platform => :ruby   <1>
+
+  gem 'uglifier', '>= 1.0.3'
+end
+
+gem 'jquery-rails'
+[...]
+----
+<1> Entfernen Sie das Kommentar-Zeichen '#'.
+
+----
+$ bundle check
+The Gemfile's dependencies are satisfied
+----
+
+.Möglichkeit 2: Das Ubuntu-Paket 'nodejs' installieren
+----
+$ sudo apt-get install nodejs
+Abhängigkeitsbaum wird aufgebaut       
+Statusinformationen werden eingelesen... Fertig
+Die folgenden zusätzlichen Pakete werden installiert:
+  libc-ares2 libev4 libv8-3.7.12.22
+Die folgenden NEUEN Pakete werden installiert:
+  libc-ares2 libev4 libv8-3.7.12.22 nodejs
+0 aktualisiert, 4 neu installiert, 0 zu entfernen und 0 nicht aktualisiert.
+Es müssen 2.099 kB an Archiven heruntergeladen werden.
+Nach dieser Operation werden 6.400 kB Plattenplatz zusätzlich benutzt.
+Möchten Sie fortfahren [J/n]? 
+[...]
+nodejs (0.6.12~dfsg1-1ubuntu1) wird eingerichtet ...
+update-alternatives: /usr/bin/node wird verwendet, um /usr/bin/js (js) im Auto-Modus bereitzustellen.
+Trigger für libc-bin werden verarbeitet ...
+ldconfig deferred processing now taking place
+----
+
+
+Aufruf der Webanwendung im Browser
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+WEBrick wird in _Ruby on Rails_ default-mäßig als Testserver für die 
+Entwicklungs-Umgebung verwendet.
+----
+$ rails s
+=> Booting WEBrick
+=> Rails 3.2.8 application starting in development on http://0.0.0.0:3000   <1>
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+[2012-10-04 17:50:15] INFO  WEBrick 1.3.1
+[2012-10-04 17:50:15] INFO  ruby 1.9.3 (2012-04-20) [x86_64-linux]
+[2012-10-04 17:50:15] INFO  WEBrick::HTTPServer#start: pid=27773 port=3000
+----
+<1> Der Webserver läuft ohne Port-Angabe (_--port_) auf Port 3000.
+
+----
+Browser> http://localhost:3000/   <1>
+         About your application’s environment   <2>       
+----
+<1> Grundsätzlicher Test der Verbindung!
+<2> Link zu weiteren Informationen...
+
+oder
+
+----
+Browser> http://localhost:3000/rails/info/properties/   <1>
+----
+<1> Informationen zur ausgeführten Applikation _MyApp_: + 
+   (Ruby-Version, RubyGems, Verzeichnis, Umgebung, Datenbank, Datenbank-Schema)
+
+----
+Ruby version            1.9.3 (x86_64-linux)    <1>
+RubyGems version        1.8.24
+Rack version            1.4
+Rails version           3.2.8
+JavaScript Runtime therubyracer (V8)
+Active Record version   3.2.9
+Action Pack version     3.2.8
+Active Resource version 3.2.8
+Action Mailer version   3.2.8
+Active Support version  3.2.8
+Middleware
+         • ActionDispatch::Static
+         • Rack::Lock
+         • #<ActiveSupport::Cache::Strategy::LocalCache::Middleware:0x00000002c27688>
+         • Rack::Runtime
+         • Rack::MethodOverride
+         • ActionDispatch::RequestId
+         • Rails::Rack::Logger
+         • ActionDispatch::ShowExceptions
+         • ActionDispatch::DebugExceptions
+         • ActionDispatch::RemoteIp
+         • ActionDispatch::Reloader
+         • ActionDispatch::Callbacks
+         • ActiveRecord::ConnectionAdapters::ConnectionManagement
+         • ActiveRecord::QueryCache
+         • ActionDispatch::Cookies
+         • ActionDispatch::Session::CookieStore
+         • ActionDispatch::Flash
+         • ActionDispatch::ParamsParser
+         • ActionDispatch::Head
+         • Rack::ConditionalGet
+         • Rack::ETag
+         • ActionDispatch::BestStandardsSupport
+
+Application root          /home/sid/RailsDir/myapp
+Environment               development
+Database adapter          mysql2
+Database schema version   0
+version
+----
+<1> Ruby Version 1.9.3

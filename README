@@ -26,11 +26,12 @@ Ruby on Rails und Git ... und ... Dokumentation ist notwendig.
    Ruby on Rails bildet. 
 
 Die Artikel sind in ASCII DOC erstellt worden.
- * AsciiDoc 8.6.3
- * Git 1.7.3.2
- * Ruby 1.9.2 - Rails 3.0.3
- * JDK 6U22 - NetBeans 6.9.1
- * JRuby 1.5.5 - Rails 3.0.3
+ * AsciiDoc 8.6.8
+ * Git 1.7.10.4
+ * Ruby 1.9.3 - Rails 3.2.8
+ * OpenJDK 6, Oracle JDK 7 
+ * JRuby 1.6.8 - Rails 3.2.8
+ * NetBeans 7.1.2
 
 $ asciidoc -a toc NAME.txt 
 

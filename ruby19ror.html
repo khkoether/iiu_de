@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="generator" content="AsciiDoc 8.6.8">
-<title>Installation in Ubuntu: Git 1.7.12.2</title>
+<title>Ruby on Rails: Erste Schritte (mit Ruby)</title>
 <style type="text/css">
 /* Shared CSS for AsciiDoc xhtml11 and html5 backends */
 
@@ -730,7 +730,7 @@ asciidoc.install(2);
 </head>
 <body class="article">
 <div id="header">
-<h1>Installation in Ubuntu: Git 1.7.12.2</h1>
+<h1>Ruby on Rails: Erste Schritte (mit Ruby)</h1>
 <span id="author">Karl-Heinz Köther</span><br>
 <span id="email" class="monospaced">&lt;<a href="mailto:&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;">&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;</a>&gt;</span><br>
 <div id="toc">
@@ -747,11 +747,9 @@ asciidoc.install(2);
 <div class="sect1">
 <h2 id="_abstract">Abstract</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>Der Artikel ist eine Schritt-für-Schritt Anleitung zur Installation
-des Programms <a href="http://git-scm.com/">Git</a> aus dem QuellCode.</p></div>
-<div class="paragraph"><p><a href="http://git-scm.com/">Git</a> ist ein freies verteiltes Versionskontrollsystem
-(DVCS - Distributed Version Control System).</p></div>
-<div class="paragraph"><p>Der Artikel ist in <a href="http://www.methods.co.nz/asciidoc/">AsciiDoc</a> erstellt worden.</p></div>
+<div class="paragraph"><p>Die folgenden Schritte stellen die Funktionsfähigkeit der Installation
+von <em>Ruby</em> und <em>Ruby on Rails</em> (kurz: <em>Rails</em>) sicher.</p></div>
+<div class="paragraph"><p></p></div>
 <div class="admonitionblock">
 <table><tr>
 <td class="icon">
@@ -771,471 +769,504 @@ Gerne nehme ich Verbesserungsvorschläge entgegen.</p></div>
 <div class="sect1">
 <h2 id="_vorraussetzungen">Vorraussetzungen</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>Die Installation wird für <a href="http://www.ubuntu.com/">Ubuntu 12.04 LTS (Precise Pangolin)</a>
-beschrieben.<br>
-Gleichwohl sind die einzelnen Schritte auch für
-andere Debian-basierte GNU/Linux Distributionen übertragbar.</p></div>
-<div class="admonitionblock">
-<table><tr>
-<td class="icon">
-<img src="./images/icons/tip.png" alt="Tip">
-</td>
-<td class="content">
-<div class="paragraph"><p>Ubuntu 12.04 LTS (Precise Pangolin) enthält das Paket <em>git-core_1.7.9.5-1_all</em>.</p></div>
-</td>
-</tr></table>
+<div class="paragraph"><p><em>Ruby</em> und <em>Ruby on Rails</em> sind wie
+in <a href="ruby19.html">Installation in Ubuntu: Ruby 1.9.3, Ruby on Rails 3.2.8 </a>
+beschrieben durchgeführt worden.</p></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>$ which ruby
+/opt/Ruby/current/bin/ruby
+
+$ ruby -v
+ruby 1.9.3p194 (2012-04-20 revision 35410) [x86_64-linux]
+
+$ which rails
+/opt/Ruby/current/bin/rails
+
+$ rails -v
+Rails 3.2.8</pre>
+</div></div>
 </div>
-<div class="sect2">
-<h3 id="_download">Download</h3>
-<div class="ulist"><ul>
+</div>
+<div class="sect1">
+<h2 id="_erste_schritte">Erste Schritte</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Die notwendigen Schritte werden auf der Kommandozeile durchgeführt.</p></div>
+<div class="ulist"><div class="title">Vorgehensweise</div><ul>
 <li>
 <p>
-<a href="http://code.google.com/p/git-core/downloads/list">Git</a><br>
-  git-1.7.12.2.tar.gz  (ca. 3.9M)<br>
-  git-htmldocs-1.7.12.2.tar.gz  (ca. 1.7M)<br>
-  git-manpages-1.7.12.2.tar.gz  (ca. 508K)<br>
-  2012-09-30 (Release date)
+Datenbanksystem wählen
+</p>
+</li>
+<li>
+<p>
+Datenbank erstellen
+</p>
+</li>
+<li>
+<p>
+Projektverzeichnis erstellen
+</p>
+</li>
+<li>
+<p>
+Datenbankadapter konfigurieren
+</p>
+</li>
+<li>
+<p>
+JavaScript-Runtime installieren
+</p>
+</li>
+<li>
+<p>
+Aufruf der Webanwendung im Browser
 </p>
 </li>
 </ul></div>
-<div class="admonitionblock">
-<table><tr>
-<td class="icon">
-<img src="./images/icons/note.png" alt="Note">
-</td>
-<td class="content">
-<div class="paragraph"><p>Das Kompilieren des Versionskontrollsystem wird beispielhaft vom Benutzer <em>sid</em>
-durchgeführt.<br>
-Die eigentliche Installation von Git wird vom
-Benutzer <em>root</em> für das System durchgeführt.</p></div>
-<div class="listingblock">
-<div class="content monospaced">
-<pre>$ ls -l
--rw-r--r-- 1 sid sid 4106910 Okt  4 11:03 git-1.7.12.2.tar.gz
--rw-rw-r-- 1 sid sid 1795768 Okt  4 11:03 git-htmldocs-1.7.12.2.tar.gz
--rw-rw-r-- 1 sid sid  520877 Okt  4 11:04 git-manpages-1.7.12.2.tar.gz</pre>
-</div></div>
-</td>
-</tr></table>
-</div>
-<div class="admonitionblock">
-<table><tr>
-<td class="icon">
-<img src="./images/icons/note.png" alt="Note">
-</td>
-<td class="content">
-<div class="paragraph"><p>Vor der eigentlichen Installation müssen die fehlenden
-Programm-Pakete installiert sind.</p></div>
-<div class="listingblock">
-<div class="content monospaced">
-<pre>$ sudo apt-get install ...
-               Benötigt:   build-essential libc6 libcurl3-gnutls libexpat1 libexpat1-dev
-                           autoconf zlib1g perl-modules liberror-perl libdigest-sha-perl
-                           libcurl4-openssl-dev libssl-dev tcl8.4  tcl8.4-dev xmlto</pre>
-</div></div>
-</td>
-</tr></table>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_installation">Installation</h2>
-<div class="sectionbody">
 <div class="sect2">
-<h3 id="_git_1_7_12_2">Git 1.7.12.2</h3>
-<div class="admonitionblock">
-<table><tr>
-<td class="icon">
-<img src="./images/icons/important.png" alt="Important">
-</td>
-<td class="content">
-<div class="paragraph"><p>Ohne die Angabe eines Verzeichnisses wird <em>/usr/local/&#8230;</em> automatisch verwendet.
-Eine bereits vorhandene Git-Installation wird überschrieben.<br>
-<br>
-Beispiel für die Änderung des Installations-Verzeichnisses:
-<em>./configure --prefix=/opt/wo_auch_immer</em></p></div>
-</td>
-</tr></table>
+<h3 id="_datenbanksystem_wählen">Datenbanksystem wählen</h3>
+<div class="paragraph"><p>Für <em>Ruby on Rails</em> sind drei Datenbanksysteme zumindest erste Wahl für
+die Entwicklung eines neuen Rails-Projektes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<em>SqLite3</em><br>
+  Ist in <em>Ruby on Rails</em> die Default-Datenbank.
+</p>
+</li>
+<li>
+<p>
+<em>MySQL</em><br>
+  Gut und schnell und überhaupt &#8230; überall verfügbar.
+</p>
+</li>
+<li>
+<p>
+<em>PostgreSQL</em><br>
+  Lupenreine OpenSource-Datenbanksystem für professionelle Anforderungen.<br>
+  (Ähnliches Vorgehen wie mit MySQL.)
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Für die Datenbanken <em>SqLite3</em> und <em>MySQL</em> sind die notwendigen Datenbankadapter
+bereits installiert worden.</p></div>
 </div>
-<div class="paragraph"><p><strong>Step 1:</strong> Auspacken des Source-Code</p></div>
+<div class="sect2">
+<h3 id="_datenbank_erstellen">Datenbank erstellen</h3>
+<div class="paragraph"><p><em>SQLite3</em> ist eine Programmbibliothek, die ein relationales Datenbanksystem enthält.
+Das bedeutet, der notwendige Aufwand an Administration für ein Datenbanksystem, sowie
+für das Anlegen von Benutzern, einer Datenbank und dem Zuweisen von Rechten entfällt.</p></div>
+<div class="paragraph"><p><em>MySQL</em> hat für die Administration des Datenbanksystems
+verschiedene Programm-Angebote, unter anderem <em>phpMyAdmin</em> &#8230; aber eben auch
+die Kommandozeile.</p></div>
+<div class="paragraph"><p><em>PostgreSQL</em> hat für die Administration des Datenbanksystems
+verschiedene Programm-Angebote, unter anderem <em>pgAdmin</em> &#8230; aber eben auch
+die Kommandozeile.</p></div>
 <div class="listingblock">
+<div class="title">Anlegen eines Benutzer: <em>sid</em> (in MySQL)</div>
 <div class="content monospaced">
-<pre>$ tar xvzf git-1.7.12.2.tar.gz
-$ cd git-1.7.12.2</pre>
-</div></div>
-<div class="paragraph"><p><strong>Step 2:</strong> Konfiguration erstellen und kompilieren</p></div>
-<div class="listingblock">
-<div class="content monospaced">
-<pre>$ make configure
-GIT_VERSION = 1.7.12.2
-    GEN configure
+<pre># mysql -uroot -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 41
+Server version: 5.5.22-0ubuntu1 (Ubuntu)
 
-$ ./configure | tee ../log.git_configure
-configure: Setting lib to 'lib' (the default)
-configure: Will try -pthread then -lpthread to enable POSIX Threads.
-configure: CHECKS for site configuration
-configure: CHECKS for programs
-checking for cc... cc
-[...]
-checking for asciidoc... asciidoc
-checking for asciidoc version... asciidoc 8.6.8
-[...]
-checking Checking for POSIX Threads with '-mt'... no
-checking Checking for POSIX Threads with '-pthread'... yes
-configure: creating ./config.status
-config.status: creating config.mak.autogen
-config.status: executing config.mak.autogen commands</pre>
+Copyright (c) 2000, 2011, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql&gt; GRANT ALL PRIVILEGES ON *.* to 'sid'@'localhost'
+    -&gt; IDENTIFIED BY 'GEHEIM';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql&gt; exit</pre>
 </div></div>
 <div class="listingblock">
+<div class="title">Erstellen einer Datenbank: <em>myapp_development</em> (in MySQL)</div>
 <div class="content monospaced">
-<pre>$ make | tee ../log.git_make
-    * new build flags
-    CC credential-store.o
-    * new link flags
-    CC abspath.o
-    CC advice.o
-    CC alias.o
-[...]
-    GEN git-web--browse
-    GEN perl/PM.stamp
-    SUBDIR perl
-/usr/bin/perl Makefile.PL PREFIX='/usr/local' INSTALL_BASE='' --localedir='/usr/local/share/locale'
-Writing perl.mak for Git
-Writing MYMETA.yml
-    GEN git-add--interactive
-    GEN git-difftool
-    GEN git-archimport
-    GEN git-cvsexportcommit
-    GEN git-cvsimport
-    GEN git-cvsserver
-    GEN git-relink
-    GEN git-send-email
-    GEN git-svn
-    GEN git-remote-testgit
-    GEN git-p4
-    SUBDIR gitweb
-    SUBDIR ../
-make[2]: »GIT-VERSION-FILE« ist bereits aktualisiert.
-    GEN gitweb.cgi
-    GEN static/gitweb.js
-[...]
-    GEN bin-wrappers/test-subprocess
-    GEN bin-wrappers/test-svn-fe</pre>
+<pre>$ mysql -usid -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 44
+Server version: 5.5.22-0ubuntu1 (Ubuntu)
+
+Copyright (c) 2000, 2011, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql&gt; CREATE DATABASE myapp_development;
+Query OK, 1 row affected (0.00 sec)
+
+mysql&gt; exit
+Bye</pre>
 </div></div>
-<div class="paragraph"><p><strong>Step 3:</strong> Installation (als Benutzer <em>root</em>)</p></div>
+</div>
+<div class="sect2">
+<h3 id="_projektverzeichnis_erstellen">Projektverzeichnis erstellen</h3>
 <div class="listingblock">
 <div class="content monospaced">
-<pre>$ sudo make install | tee ../log.git_make_install
-    GEN perl/PM.stamp
-    SUBDIR perl
-/usr/bin/perl Makefile.PL PREFIX='/usr/local' INSTALL_BASE='' --localedir='/usr/local/share/locale'
-Writing perl.mak for Git
-Writing MYMETA.yml
-    GEN git-add--interactive
-    GEN git-difftool
-    GEN git-archimport
-    GEN git-cvsexportcommit
-    GEN git-cvsimport
-    GEN git-cvsserver
-    GEN git-relink
-    GEN git-send-email
-    GEN git-svn
-    SUBDIR gitweb
-    SUBDIR ../
-make[2]: »GIT-VERSION-FILE« ist bereits aktualisiert.
-    GEN git-instaweb
-    SUBDIR git-gui
-    SUBDIR gitk-git
-make[1]: Für das Ziel »all« ist nichts zu tun.
-    SUBDIR perl
-[...]</pre>
-</div></div>
-<div class="listingblock">
-<div class="title">Documentation: web-pages</div>
-<div class="content monospaced">
-<pre>$ cd /usr/local/share/doc
-$ sudo mkdir git-doc
-$ cd git-doc
-$ sudo tar xvzf git-htmldocs-1.7.12.2.tar.gz
-[...]</pre>
-</div></div>
-<div class="listingblock">
-<div class="title">Documentation: man-pages</div>
-<div class="content monospaced">
-<pre>$ cd /usr/local/man
-$ sudo tar xvzf git-manpages-1.7.12.2.tar.gz
-[...]
-$ sudo chown -R root.root man?   <img src="./images/icons/callouts/1.png" alt="1">
-$ sudo chmod g-s man?
-$ sudo chmod 755 man?
-$ ls -l
-drwxr-xr-x 2 root root 4096 Sep 30 10:12 man1
-drwxr-xr-x 2 root root 4096 Sep 30 10:12 man5
-drwxr-xr-x 2 root root 4096 Sep 30 10:12 man7</pre>
+<pre>$ cd
+$ mkdir RailsDir
+
+$ cd RailsDir
+$ rails new myapp --database=mysql   <img src="./images/icons/callouts/1.png" alt="1">
+      create
+      create  README.rdoc
+      create  Rakefile
+      create  config.ru
+      create  .gitignore
+      create  Gemfile      <img src="./images/icons/callouts/2.png" alt="2">
+      create  app
+      create  app/assets/images/rails.png
+ [...]
+      create  config/database.yml   <img src="./images/icons/callouts/3.png" alt="3">
+ [...]
+      create  vendor/plugins
+      create  vendor/plugins/.gitkeep
+         run  bundle install
+Enter your password to install the bundled RubyGems to your system:   <img src="./images/icons/callouts/4.png" alt="4"></pre>
 </div></div>
 <div class="colist arabic"><table>
 <tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
-Unbedingt die Rechte an den Dateien und den Ordnern anpassen!
+Für das Datenbanksystem <em>sqLite3</em> verkürzt sich der Aufruf:<br>
+    <em>rails new myapp</em>
+</td></tr>
+<tr><td><img src="./images/icons/callouts/2.png" alt="2"></td><td>
+Die zu diesem Zeitpunkt benötigten RubyGems und deren Abhängigkeiten
+    untereinander entnehmen Sie der Datei <em>Gemfile</em>.
+</td></tr>
+<tr><td><img src="./images/icons/callouts/3.png" alt="3"></td><td>
+Konfigurationsdatei mit den Einstellungen für den
+    Datenbankzugriff (Datenbankadapter).
+</td></tr>
+<tr><td><img src="./images/icons/callouts/4.png" alt="4"></td><td>
+Wenn Sie nicht berechtigt sind RubyGems zu installieren, müssen Sie
+    die benötigten RubyGems installieren lassen!
 </td></tr>
 </table></div>
-<div class="paragraph"><p><strong>Step 4:</strong> Installation verifizieren</p></div>
+<div class="listingblock">
+<div class="title">Gemfile</div>
+<div class="content monospaced">
+<pre>source 'https://rubygems.org'
+
+gem 'rails', '3.2.8'
+
+# Bundle edge Rails instead:
+# gem 'rails', :git =&gt; 'git://github.com/rails/rails.git'
+
+gem 'mysql2'
+
+
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
+  gem 'sass-rails',   '~&gt; 3.2.3'   <img src="./images/icons/callouts/1.png" alt="1">
+  gem 'coffee-rails', '~&gt; 3.2.1'   <img src="./images/icons/callouts/2.png" alt="2">
+
+  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+  # gem 'therubyracer', :platforms =&gt; :ruby
+
+  gem 'uglifier', '&gt;= 1.0.3'
+end
+
+gem 'jquery-rails'
+q[...]</pre>
+</div></div>
+<div class="colist arabic"><table>
+<tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
+Der Spezifizierer <em>~&gt; 3.2.3</em> ist identisch mit
+    den Bedingungen <em>&gt;= 3.2.3</em> und <em>&lt; 3.3</em>.
+</td></tr>
+<tr><td><img src="./images/icons/callouts/2.png" alt="2"></td><td>
+Der Spezifizierer <em>~&gt; 3.2.1</em> ist identisch mit
+    den Bedingungen <em>&gt;= 3.2.1</em> und <em>&lt; 3.3</em>.
+</td></tr>
+</table></div>
+<div class="paragraph"><div class="title">Installation zusätzlicher Gems:</div><p><em>sass-rails</em>, <em>coffee-rails</em>, <em>uglifier</em> und <em>jquery-rails</em></p></div>
 <div class="listingblock">
 <div class="content monospaced">
-<pre>$ cd /usr/local/bin
-$ ls -l git*
--rwxr-xr-x 111 root root 6537809 Okt  4 11:42 git
--rwxr-xr-x   2 root root  120929 Okt  4 11:42 git-cvsserver
--rwxr-xr-x   1 root root  329682 Okt  4 11:42 gitk
--rwxr-xr-x 111 root root 6537809 Okt  4 11:42 git-receive-pack
--rwxr-xr-x   2 root root 2774217 Okt  4 11:42 git-shell
--rwxr-xr-x 111 root root 6537809 Okt  4 11:42 git-upload-archive
--rwxr-xr-x   2 root root 2873559 Okt  4 11:42 git-upload-pack</pre>
+<pre># gem install sass-rails coffee-rails uglifier jquery-rails
+Fetching: sass-rails-3.2.5.gem (100%)
+Successfully installed sass-rails-3.2.5
+Fetching: coffee-script-source-1.3.3.gem (100%)
+Fetching: execjs-1.4.0.gem (100%)
+Fetching: coffee-script-2.2.0.gem (100%)
+Fetching: coffee-rails-3.2.2.gem (100%)
+Successfully installed coffee-script-source-1.3.3
+Successfully installed execjs-1.4.0
+Successfully installed coffee-script-2.2.0
+Successfully installed coffee-rails-3.2.2
+Fetching: uglifier-1.3.0.gem (100%)
+Successfully installed uglifier-1.3.0
+Fetching: jquery-rails-2.1.3.gem (100%)
+Successfully installed jquery-rails-2.1.3
+7 gems installed
+Installing ri documentation for sass-rails-3.2.5...
+Installing ri documentation for coffee-script-source-1.3.3...
+Installing ri documentation for execjs-1.4.0...
+Installing ri documentation for coffee-script-2.2.0...
+Installing ri documentation for coffee-rails-3.2.2...
+Installing ri documentation for uglifier-1.3.0...
+Installing ri documentation for jquery-rails-2.1.3...
+Installing RDoc documentation for sass-rails-3.2.5...
+Installing RDoc documentation for coffee-script-source-1.3.3...
+Installing RDoc documentation for execjs-1.4.0...
+Installing RDoc documentation for coffee-script-2.2.0...
+Installing RDoc documentation for coffee-rails-3.2.2...
+Installing RDoc documentation for uglifier-1.3.0...
+Installing RDoc documentation for jquery-rails-2.1.3...</pre>
 </div></div>
 <div class="listingblock">
+<div class="title">Prüfen der Abhängigkeiten im <em>Gemfile</em></div>
 <div class="content monospaced">
-<pre>$ man git
-GIT(1)                            Git Manual                            GIT(1)
+<pre>$ cd myapp
+$ bundle check
+The Gemfile's dependencies are satisfied</pre>
+</div></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/note.png" alt="Note">
+</td>
+<td class="content">
+<div class="paragraph"><p><em>CoffeeScript</em> ist seit <em>Ruby on Rails</em> v3.1 Standard.</p></div>
+</td>
+</tr></table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_datenbankadapter_konfigurieren">Datenbankadapter konfigurieren</h3>
+<div class="listingblock">
+<div class="title">config/database.yml: sqlite3</div>
+<div class="content monospaced">
+<pre>[...]
+development:
+  adapter: sqlite3
+  database: db/development.sqlite3   <img src="./images/icons/callouts/1.png" alt="1">
+  pool: 5
+  timeout: 5000
+[...]</pre>
+</div></div>
+<div class="colist arabic"><table>
+<tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
+Die Datenbank-Datei wird mit dem ersten Aufruf automatisch angelegt.<br>
+    Keine Angabe für Benutzer und Passwort!
+</td></tr>
+</table></div>
+<div class="listingblock">
+<div class="title">config/database.yml: mysql</div>
+<div class="content monospaced">
+<pre>[...]
+development:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: myapp_development   <img src="./images/icons/callouts/1.png" alt="1">
+  pool: 5
+  username: sid                 &lt;---
+  password: GEHEIM              &lt;---
+  socket: /var/run/mysqld/mysqld.sock
+[...]</pre>
+</div></div>
+<div class="colist arabic"><table>
+<tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
+Der hier vorgeschlagene Datenbank-Name wird von <em>Ruby on Rails</em>
+    automatisch aus dem Namen der Applikation und dem Zusatz <em>_development</em>
+    gebildet.
+</td></tr>
+</table></div>
+</div>
+<div class="sect2">
+<h3 id="_javascript_runtime_installieren">JavaScript-Runtime installieren</h3>
+<div class="paragraph"><p>Für die erzeugte <em>Ruby on Rails</em>-Anwendung ist eine JavaScript-Runtime erforderlich.</p></div>
+<div class="listingblock">
+<div class="title">Möglichkeit 1: Das RubyGem <em>therubyracer</em></div>
+<div class="content monospaced">
+<pre># gem install therubyracer   <img src="./images/icons/callouts/1.png" alt="1">
+Fetching: libv8-3.3.10.4-x86_64-linux.gem (100%)
+Fetching: therubyracer-0.10.2.gem (100%)
+Building native extensions.  This could take a while...
+Successfully installed libv8-3.3.10.4-x86_64-linux
+Successfully installed therubyracer-0.10.2
+2 gems installed
+Installing ri documentation for libv8-3.3.10.4-x86_64-linux...
+Installing ri documentation for therubyracer-0.10.2...
+Installing RDoc documentation for libv8-3.3.10.4-x86_64-linux...
+Installing RDoc documentation for therubyracer-0.10.2...</pre>
+</div></div>
+<div class="colist arabic"><table>
+<tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
+<a href="http://rubygems.org/gems/therubyracer">RubyGems.org: therubyracer</a><br>
+    Call javascript code and manipulate javascript objects from ruby.<br>
+    Call ruby code and manipulate ruby objects from javascript.
+</td></tr>
+</table></div>
+<div class="listingblock">
+<div class="title">Gemfile</div>
+<div class="content monospaced">
+<pre>source 'https://rubygems.org'
 
-NAME
-       git - the stupid content tracker
+gem 'rails', '3.2.8'
 
-SYNOPSIS
-       git [--version] [--help] [-c &lt;name&gt;=&lt;value&gt;]
-           [--exec-path[=&lt;path&gt;]] [--html-path] [--man-path] [--info-path]
-           [-p|--paginate|--no-pager] [--no-replace-objects] [--bare]
-           [--git-dir=&lt;path&gt;] [--work-tree=&lt;path&gt;] [--namespace=&lt;name&gt;]
-           &lt;command&gt; [&lt;args&gt;]
+# Bundle edge Rails instead:
+# gem 'rails', :git =&gt; 'git://github.com/rails/rails.git'
 
-DESCRIPTION
-       Git is a fast, scalable, distributed revision control system with an
-       unusually rich command set that provides both high-level operations and
-       full access to internals.
+gem 'mysql2'
 
-       See gittutorial(7) to get started, then see Everyday Git[1] for a
-       useful minimum set of commands, and "man git-commandname" for
-       documentation of each command. CVS users may also want to read gitcvs-
-       migration(7). See the Git User’s Manual[2] for a more in-depth
-       introduction.
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
+  gem 'sass-rails',   '~&gt; 3.2.3'
+  gem 'coffee-rails', '~&gt; 3.2.1'
 
-       The &lt;command&gt; is either a name of a Git command (see below) or an alias
-       as defined in the configuration file (see git-config(1)).
+  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+  gem 'therubyracer', :platform =&gt; :ruby   <img src="./images/icons/callouts/1.png" alt="1">
 
-       Formatted and hyperlinked version of the latest git documentation can
-       be viewed at http://www.kernel.org/pub/software/scm/git/docs/.
+  gem 'uglifier', '&gt;= 1.0.3'
+end
 
+gem 'jquery-rails'
+[...]</pre>
+</div></div>
+<div class="colist arabic"><table>
+<tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
+Entfernen Sie das Kommentar-Zeichen <em>#</em>.
+</td></tr>
+</table></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>$ bundle check
+The Gemfile's dependencies are satisfied</pre>
+</div></div>
+<div class="listingblock">
+<div class="title">Möglichkeit 2: Das Ubuntu-Paket <em>nodejs</em> installieren</div>
+<div class="content monospaced">
+<pre>$ sudo apt-get install nodejs
+Abhängigkeitsbaum wird aufgebaut
+Statusinformationen werden eingelesen... Fertig
+Die folgenden zusätzlichen Pakete werden installiert:
+  libc-ares2 libev4 libv8-3.7.12.22
+Die folgenden NEUEN Pakete werden installiert:
+  libc-ares2 libev4 libv8-3.7.12.22 nodejs
+0 aktualisiert, 4 neu installiert, 0 zu entfernen und 0 nicht aktualisiert.
+Es müssen 2.099 kB an Archiven heruntergeladen werden.
+Nach dieser Operation werden 6.400 kB Plattenplatz zusätzlich benutzt.
+Möchten Sie fortfahren [J/n]?
 [...]
-
-AUTHORS
-       Git was started by Linus Torvalds, and is currently maintained by Junio
-       C Hamano. Numerous contributions have come from the git mailing list
-       &lt;git@vger.kernel.org[6]&gt;. For a more complete list of contributors, see
-       http://git-scm.com/about. If you have a clone of git.git itself, the
-       output of git-shortlog(1) and git-blame(1) can show you the authors for
-       specific parts of the project.
-
-REPORTING BUGS
-       Report bugs to the Git mailing list &lt;git@vger.kernel.org[6]&gt; where the
-       development and maintenance is primarily done. You do not have to be
-       subscribed to the list to send a message there.
-
-SEE ALSO
-       gittutorial(7), gittutorial-2(7), Everyday Git[1], gitcvs-migration(7),
-       gitglossary(7), gitcore-tutorial(7), gitcli(7), The Git User’s
-       Manual[2], gitworkflows(7)
-
-GIT
-       Part of the git(1) suite
-
-NOTES
-        1. Everyday Git
-           file:///usr/local/share/doc/git-doc/everyday.html
-
-        2. Git User’s Manual
-           file:///usr/local/share/doc/git-doc/user-manual.html
-
-        3. git concepts chapter of the user-manual
-           file:///usr/local/share/doc/git-doc/user-manual.html#git-concepts
-
-        4. howto
-           file:///usr/local/share/doc/git-doc/howto-index.html
-
-        5. GIT API documentation
-           file:///usr/local/share/doc/git-doc/technical/api-index.html
-
-        6. git@vger.kernel.org
-           mailto:git@vger.kernel.org
-
-Git 1.7.12.2                      09/30/2012                            GIT(1)</pre>
+nodejs (0.6.12~dfsg1-1ubuntu1) wird eingerichtet ...
+update-alternatives: /usr/bin/node wird verwendet, um /usr/bin/js (js) im Auto-Modus bereitzustellen.
+Trigger für libc-bin werden verarbeitet ...
+ldconfig deferred processing now taking place</pre>
 </div></div>
+</div>
+<div class="sect2">
+<h3 id="_aufruf_der_webanwendung_im_browser">Aufruf der Webanwendung im Browser</h3>
+<div class="paragraph"><p>WEBrick wird in <em>Ruby on Rails</em> default-mäßig als Testserver für die
+Entwicklungs-Umgebung verwendet.</p></div>
 <div class="listingblock">
 <div class="content monospaced">
-<pre>$ man gitk
-GITK(1)                           Git Manual                           GITK(1)
-
-NAME
-       gitk - The git repository browser
-
-SYNOPSIS
-       gitk [&lt;option&gt;...] [&lt;revs&gt;] [--] [&lt;path&gt;...]
-
-DESCRIPTION
-       Displays changes in a repository or a selected set of commits. This
-       includes visualizing the commit graph, showing information related to
-       each commit, and the files in the trees of each revision.
-
-       Historically, gitk was the first repository browser. It’s written in
-       tcl/tk and started off in a separate repository but was later merged
-       into the main git repository.
-
-[...]
-
-EXAMPLES
-       gitk v2.6.12.. include/scsi drivers/scsi
-           Show the changes since version v2.6.12 that changed any file in the
-           include/scsi or drivers/scsi subdirectories
-
-       gitk --since="2 weeks ago" -- gitk
-           Show the changes during the last two weeks to the file gitk. The
-           "--" is necessary to avoid confusion with the branch named gitk
-
-       gitk --max-count=100 --all -- Makefile
-           Show at most 100 changes made to the file Makefile. Instead of only
-           looking for changes in the current branch look in all branches.
-
-FILES
-       Gitk creates the .gitk file in your $HOME directory to store
-       preferences such as display options, font, and colors.
-
-SEE ALSO
-       qgit(1)
-           A repository browser written in C++ using Qt.
-
-       gitview(1)
-           A repository browser written in Python using Gtk. It’s based on
-           bzrk(1) and distributed in the contrib area of the git repository.
-
-       tig(1)
-           A minimal repository browser and git tool output highlighter
-           written in C using Ncurses.
-
-GIT
-       Part of the git(1) suite
-
-Git 1.7.12.2                      09/30/2012                           GITK(1)</pre>
+<pre>$ rails s
+=&gt; Booting WEBrick
+=&gt; Rails 3.2.8 application starting in development on http://0.0.0.0:3000   <img src="./images/icons/callouts/1.png" alt="1">
+=&gt; Call with -d to detach
+=&gt; Ctrl-C to shutdown server
+[2012-10-04 17:50:15] INFO  WEBrick 1.3.1
+[2012-10-04 17:50:15] INFO  ruby 1.9.3 (2012-04-20) [x86_64-linux]
+[2012-10-04 17:50:15] INFO  WEBrick::HTTPServer#start: pid=27773 port=3000</pre>
 </div></div>
+<div class="colist arabic"><table>
+<tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
+Der Webserver läuft ohne Port-Angabe (<em>--port</em>) auf Port 3000.
+</td></tr>
+</table></div>
 <div class="listingblock">
 <div class="content monospaced">
-<pre>$ find /usr/local -type d -cmin -5
-/usr/local/share/git-core/templates
-/usr/local/share/git-core/templates/hooks
-/usr/local/share/git-core/templates/branches
-/usr/local/share/git-core/templates/info
-/usr/local/share/git-gui/lib
-/usr/local/share/git-gui/lib/msgs
-/usr/local/share/doc/git-doc
-/usr/local/share/doc/git-doc/howto
-/usr/local/share/doc/git-doc/technical
-/usr/local/share/doc/git-doc/RelNotes
-/usr/local/share/man
-/usr/local/share/man/man7
-/usr/local/share/man/man5
-/usr/local/share/man/man1
-/usr/local/share/gitweb
-/usr/local/share/gitweb/static
-/usr/local/share/gitk/lib/msgs
-/usr/local/share/locale
-/usr/local/share/locale/is
-/usr/local/share/locale/is/LC_MESSAGES
-/usr/local/share/locale/da
-/usr/local/share/locale/da/LC_MESSAGES
-/usr/local/share/locale/it
-/usr/local/share/locale/it/LC_MESSAGES
-/usr/local/share/locale/nl
-/usr/local/share/locale/nl/LC_MESSAGES
-/usr/local/share/locale/sv
-/usr/local/share/locale/sv/LC_MESSAGES
-/usr/local/share/locale/pt_PT
-/usr/local/share/locale/pt_PT/LC_MESSAGES
-/usr/local/share/locale/vi
-/usr/local/share/locale/vi/LC_MESSAGES
-/usr/local/share/locale/de
-/usr/local/share/locale/de/LC_MESSAGES
-/usr/local/share/locale/zh_CN
-/usr/local/share/locale/zh_CN/LC_MESSAGES
-/usr/local/bin
-/usr/local/libexec/git-core
-/usr/local/libexec/git-core/mergetools</pre>
+<pre>Browser&gt; http://localhost:3000/   <img src="./images/icons/callouts/1.png" alt="1">
+         About your application’s environment   <img src="./images/icons/callouts/2.png" alt="2"></pre>
 </div></div>
-<div class="paragraph"><p><strong>Step 5:</strong> Dokumentation (local)</p></div>
-<div class="paragraph"><div class="title">git(1) Manual Page</div><p>Browser&gt; <a href="file:///usr/local/share/doc/git-doc/index.html">file:///usr/local/share/doc/git-doc/index.html</a></p></div>
-<div class="paragraph"><div class="title">gittutorial(7) Manual Page</div><p>Browser&gt; <a href="file:///usr/local/share/doc/git-doc/gittutorial.html">file:///usr/local/share/doc/git-doc/gittutorial.html</a></p></div>
-<div class="paragraph"><div class="title">gittutorial-2(7) Manual Page</div><p>Browser&gt; <a href="file:///usr/local/share/doc/git-doc/gittutorial-2.html">file:///usr/local/share/doc/git-doc/gittutorial-2.html</a></p></div>
-<div class="paragraph"><div class="title">Everyday GIT With 20 Commands Or So</div><p>Browser&gt; <a href="file:///usr/local/share/doc/git-doc/everyday.html">file:///usr/local/share/doc/git-doc/everyday.html</a></p></div>
-<div class="paragraph"><div class="title">gitglossary(7) Manual Page</div><p>Browser&gt; <a href="file:///usr/local/share/doc/git-doc/gitglossary.html">file:///usr/local/share/doc/git-doc/gitglossary.html</a></p></div>
-<div class="paragraph"><div class="title">gitcore-tutorial(7) Manual Page</div><p>Browser&gt; <a href="file:///usr/local/share/doc/git-doc/gitcore-tutorial.html">file:///usr/local/share/doc/git-doc/gitcore-tutorial.html</a></p></div>
-<div class="paragraph"><div class="title">gitcli(7) Manual Page</div><p>Browser&gt; <a href="file:///usr/local/share/doc/git-doc/gitcli.html">file:///usr/local/share/doc/git-doc/gitcli.html</a></p></div>
-<div class="paragraph"><div class="title">Git User’s Manual (for version 1.5.3 or newer)</div><p>Browser&gt; <a href="file:///usr/local/share/doc/git-doc/user-manual.html">file:///usr/local/share/doc/git-doc/user-manual.html</a></p></div>
-<div class="paragraph"><div class="title">gitworkflows(7) Manual Page</div><p>Browser&gt; <a href="file:///usr/local/share/doc/git-doc/gitworkflows.html">file:///usr/local/share/doc/git-doc/gitworkflows.html</a></p></div>
-<div class="paragraph"><div class="title">git-config(1) Manual Page</div><p>Browser&gt; <a href="file:///usr/local/share/doc/git-doc/git-config.html">file:///usr/local/share/doc/git-doc/git-config.html</a></p></div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_anhang">Anhang</h2>
-<div class="sectionbody">
+<div class="colist arabic"><table>
+<tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
+Grundsätzlicher Test der Verbindung!
+</td></tr>
+<tr><td><img src="./images/icons/callouts/2.png" alt="2"></td><td>
+Link zu weiteren Informationen&#8230;
+</td></tr>
+</table></div>
+<div class="paragraph"><p>oder</p></div>
 <div class="listingblock">
-<div class="title">Script zum Installieren von Git 1.7.12.2 (ohne Dokumentation, ohne weitere Erläuterung)</div>
 <div class="content monospaced">
-<pre>#!/bin/bash
-#
-ME=make_git
-NAME=git-1.7.12.2
-
-ls -l git*.tar.gz
-echo
-
-echo "Git-Installation fortsetzen (j/n)"
-read dummy
-case $dummy in
-  j|J|y|Y) echo "Installation wird fortgesetzt."
-           ;;
-  *) echo "Installation wird abgebrochen."
-     exit 1
-     ;;
-esac
-
-echo
-echo "Source auspacken ..."
-tar xvzf ${NAME}.tar.gz
-cd ${NAME}
-
-echo
-echo "Source übersetzen ..."
-make configure | tee ../log.make_configure
-./configure | tee ../log.git_configure
-make | tee ../log.git_make
-
-echo
-echo "Git installieren"
-sudo make install | tee ../log.git_make_install
-
-echo "Dokumentation fehlt!"
-
-echo
-cd /usr/local/bin
-ls -l git*
-
-echo
-echo "$ME: Ende."</pre>
+<pre>Browser&gt; http://localhost:3000/rails/info/properties/   <img src="./images/icons/callouts/1.png" alt="1"></pre>
 </div></div>
+<div class="colist arabic"><table>
+<tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
+Informationen zur ausgeführten Applikation <em>MyApp</em>:<br>
+   (Ruby-Version, RubyGems, Verzeichnis, Umgebung, Datenbank, Datenbank-Schema)
+</td></tr>
+</table></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>Ruby version            1.9.3 (x86_64-linux)    <img src="./images/icons/callouts/1.png" alt="1">
+RubyGems version        1.8.24
+Rack version            1.4
+Rails version           3.2.8
+JavaScript Runtime therubyracer (V8)
+Active Record version   3.2.9
+Action Pack version     3.2.8
+Active Resource version 3.2.8
+Action Mailer version   3.2.8
+Active Support version  3.2.8
+Middleware
+         • ActionDispatch::Static
+         • Rack::Lock
+         • #&lt;ActiveSupport::Cache::Strategy::LocalCache::Middleware:0x00000002c27688&gt;
+         • Rack::Runtime
+         • Rack::MethodOverride
+         • ActionDispatch::RequestId
+         • Rails::Rack::Logger
+         • ActionDispatch::ShowExceptions
+         • ActionDispatch::DebugExceptions
+         • ActionDispatch::RemoteIp
+         • ActionDispatch::Reloader
+         • ActionDispatch::Callbacks
+         • ActiveRecord::ConnectionAdapters::ConnectionManagement
+         • ActiveRecord::QueryCache
+         • ActionDispatch::Cookies
+         • ActionDispatch::Session::CookieStore
+         • ActionDispatch::Flash
+         • ActionDispatch::ParamsParser
+         • ActionDispatch::Head
+         • Rack::ConditionalGet
+         • Rack::ETag
+         • ActionDispatch::BestStandardsSupport
+
+Application root          /home/sid/RailsDir/myapp
+Environment               development
+Database adapter          mysql2
+Database schema version   0
+version</pre>
+</div></div>
+<div class="colist arabic"><table>
+<tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
+Ruby Version 1.9.3
+</td></tr>
+</table></div>
+</div>
 </div>
 </div>
 </div>
 <div id="footnotes"><hr></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2012-10-04 12:36:54 CEST
+Last updated 2012-10-07 16:09:59 CEST
 </div>
 </div>
 </body>

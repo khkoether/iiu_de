@@ -47,3 +47,15 @@
 .Version 1.4.0
 * Neue Programmversionen: AsciiDoc, Git, JDK 6U22, JRuby
   Veröffentlichung von Rails 3.0.3 
+  
+.Version 1.4.2
+* Neue Programmversionen: Git, Ruby, JDK 6U22, JRuby   
+
+.Version 1.5.0
+* Neue Programmversion: AsciiDoc, Ruby, OpenJDK 7, Oracle JDK 7, JRuby
+  Veröffentlichung von Rails 3.2.8
+  Die Beschreibung der Installation des JDK und NetBeans wird getrennt.
+  Neue Dateien für die Beispiele zu Ruby on Rails:
+  Ruby on Rails: Erste Schritte (mit Ruby)  
+  Ruby on Rails: Erste Schritte (mit JRuby)  
+  Das Changelog in den einzelnen Dateien wurde entfernt.

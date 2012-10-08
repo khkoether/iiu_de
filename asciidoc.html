@@ -1,29 +1,25 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
-    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
-<meta name="generator" content="AsciiDoc 8.6.3" />
-<title>Installation in Ubuntu: AsciiDoc 8.6.3</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="AsciiDoc 8.6.8">
+<title>Installation in Ubuntu: AsciiDoc 8.6.8</title>
 <style type="text/css">
-/* Sans-serif font. */
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
 h1, h2, h3, h4, h5, h6,
 div.title, caption.title,
 thead, p.table.header,
-div#toctitle,
-span#author, span#revnumber, span#revdate, span#revremark,
-div#footer {
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
   font-family: Arial,Helvetica,sans-serif;
-}
-
-/* Serif font. */
-div.sectionbody {
-  font-family: Georgia,"Times New Roman",Times,serif;
-}
-
-/* Monospace font. */
-tt {
-  font-size: inherit;
 }
 
 body {
@@ -48,11 +44,6 @@ strong {
   color: #083194;
 }
 
-tt {
-  font-size: inherit;
-  color: navy;
-}
-
 h1, h2, h3, h4, h5, h6 {
   color: #527bbd;
   margin-top: 1.2em;
@@ -71,6 +62,9 @@ h3 {
 }
 h3 + * {
   clear: left;
+}
+h5 {
+  font-size: 1.0em;
 }
 
 div.sectionbody {
@@ -92,41 +86,45 @@ ul, ol, li > p {
 ul > li     { color: #aaa; }
 ul > li > * { color: black; }
 
-pre {
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
   padding: 0;
   margin: 0;
 }
 
-span#author {
+
+#author {
   color: #527bbd;
   font-weight: bold;
   font-size: 1.1em;
 }
-span#email {
+#email {
 }
-span#revnumber, span#revdate, span#revremark {
+#revnumber, #revdate, #revremark {
 }
 
-div#footer {
+#footer {
   font-size: small;
   border-top: 2px solid silver;
   padding-top: 0.5em;
   margin-top: 4.0em;
 }
-div#footer-text {
+#footer-text {
   float: left;
   padding-bottom: 0.5em;
 }
-div#footer-badges {
+#footer-badges {
   float: right;
   padding-bottom: 0.5em;
 }
 
-div#preamble {
+#preamble {
   margin-top: 1.5em;
   margin-bottom: 1.5em;
 }
-div.tableblock, div.imageblock, div.exampleblock, div.verseblock,
+div.imageblock, div.exampleblock, div.verseblock,
 div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
 div.admonitionblock {
   margin-top: 1.0em;
@@ -184,7 +182,7 @@ div.quoteblock, div.verseblock {
   margin-left: 1.0em;
   margin-right: 10%;
   border-left: 5px solid #f0f0f0;
-  color: #777777;
+  color: #888;
 }
 
 div.quoteblock > div.attribution {
@@ -267,35 +265,12 @@ div.compact div, div.compact div {
   margin-bottom: 0.1em;
 }
 
-div.tableblock > table {
-  border: 3px solid #527bbd;
-}
-thead, p.table.header {
-  font-weight: bold;
-  color: #527bbd;
-}
 tfoot {
   font-weight: bold;
 }
 td > div.verse {
   white-space: pre;
 }
-p.table {
-  margin-top: 0;
-}
-/* Because the table frame attribute is overriden by CSS in most browsers. */
-div.tableblock > table[frame="void"] {
-  border-style: none;
-}
-div.tableblock > table[frame="hsides"] {
-  border-left-style: none;
-  border-right-style: none;
-}
-div.tableblock > table[frame="vsides"] {
-  border-top-style: none;
-  border-bottom-style: none;
-}
-
 
 div.hdlist {
   margin-top: 0.8em;
@@ -362,14 +337,14 @@ div.colist td img {
 }
 
 @media print {
-  div#footer-badges { display: none; }
+  #footer-badges { display: none; }
 }
 
-div#toc {
+#toc {
   margin-bottom: 2.5em;
 }
 
-div#toctitle {
+#toctitle {
   color: #527bbd;
   font-size: 1.1em;
   font-weight: bold;
@@ -377,7 +352,7 @@ div#toctitle {
   margin-bottom: 0.1em;
 }
 
-div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
   margin-top: 0;
   margin-bottom: 0;
 }
@@ -394,10 +369,172 @@ div.toclevel4 {
   font-size: 0.9em;
 }
 
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+
+
 </style>
 <script type="text/javascript">
 /*<![CDATA[*/
-window.onload = function(){asciidoc.footnotes(); asciidoc.toc(2);}
 var asciidoc = {  // Namespace.
 
 /////////////////////////////////////////////////////////////////////
@@ -439,7 +576,7 @@ toc: function (toclevels) {
 
   function tocEntries(el, toclevels) {
     var result = new Array;
-    var re = new RegExp('[hH]([2-'+(toclevels+1)+'])');
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
     // Function that scans the DOM tree for header elements (the DOM2
     // nodeIterator API would be a better technique but not supported by all
     // browsers).
@@ -459,6 +596,25 @@ toc: function (toclevels) {
   }
 
   var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
   var entries = tocEntries(document.getElementById("content"), toclevels);
   for (var i = 0; i < entries.length; ++i) {
     var entry = entries[i];
@@ -486,24 +642,44 @@ toc: function (toclevels) {
  */
 
 footnotes: function () {
-  var cont = document.getElementById("content");
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
   var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
   var spans = cont.getElementsByTagName("span");
   var refs = {};
   var n = 0;
   for (i=0; i<spans.length; i++) {
     if (spans[i].className == "footnote") {
       n++;
-      // Use [\s\S] in place of . so multi-line matches work.
-      // Because JavaScript has no s (dotall) regex flag.
-      note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
       noteholder.innerHTML +=
         "<div class='footnote' id='_footnote_" + n + "'>" +
         "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
         n + "</a>. " + note + "</div>";
-      spans[i].innerHTML =
-        "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
-        "' title='View footnote' class='footnote'>" + n + "</a>]";
       var id =spans[i].getAttribute("id");
       if (id != null) refs["#"+id] = n;
     }
@@ -523,17 +699,40 @@ footnotes: function () {
       }
     }
   }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
 }
 
 }
+asciidoc.install(2);
 /*]]>*/
 </script>
 </head>
 <body class="article">
 <div id="header">
-<h1>Installation in Ubuntu: AsciiDoc 8.6.3</h1>
-<span id="author">Karl-Heinz Köther</span><br />
-<span id="email"><tt>&lt;<a href="mailto:&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;">&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;</a>&gt;</tt></span><br />
+<h1>Installation in Ubuntu: AsciiDoc 8.6.8</h1>
+<span id="author">Karl-Heinz Köther</span><br>
+<span id="email" class="monospaced">&lt;<a href="mailto:&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;">&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;</a>&gt;</span><br>
 <div id="toc">
   <div id="toctitle">Table of Contents</div>
   <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
@@ -542,7 +741,7 @@ footnotes: function () {
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph"><p>Version 1.4.0, November 2010, <a href="#_changelog">[Changelog]</a></p></div>
+<div class="paragraph"><p>Version 1.5.0, Oktober 2012, <a href="#_changelog">[Changelog]</a></p></div>
 </div>
 </div>
 <div class="sect1">
@@ -553,16 +752,16 @@ des Programms <a href="http://www.methods.co.nz/asciidoc/">AsciiDoc</a> aus dem 
 <div class="paragraph"><p><a href="http://www.methods.co.nz/asciidoc/">AsciiDoc</a> ist eine einfache Auszeichnungssprache,
 die dazu dient, Texte in verschiedenen Dokumentenformaten zu
 veröffentlichen.</p></div>
-<div class="paragraph"><p>Der Artikel ist in <a href="http://www.methods.co.nz/asciidoc/">ASCII DOC</a> erstellt worden.</p></div>
+<div class="paragraph"><p>Der Artikel ist in <a href="http://www.methods.co.nz/asciidoc/">AsciiDoc</a> erstellt worden.</p></div>
 <div class="admonitionblock">
 <table><tr>
 <td class="icon">
-<img src="./images/icons/caution.png" alt="Caution" />
+<img src="./images/icons/caution.png" alt="Caution">
 </td>
 <td class="content">
 <div class="paragraph"><p>Zu beachten ist, dass so ein Dokument zum Einen nie abschliessend
 sein kann, und zum Anderen bestimmte Konfigurationen anders, oder
-auf einem anderem Weg durchgeführt werden können.<br />
+auf einem anderem Weg durchgeführt werden können.<br>
 Gerne nehme ich Verbesserungsvorschläge entgegen.</p></div>
 <div class="paragraph"><p>Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr.</p></div>
 </td>
@@ -573,33 +772,45 @@ Gerne nehme ich Verbesserungsvorschläge entgegen.</p></div>
 <div class="sect1">
 <h2 id="_vorraussetzungen">Vorraussetzungen</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>Die Installation wird für <a href="http://www.ubuntu.com/">Ubuntu 10.04 (Lucid Lynx)</a>
-beschrieben.<br />
+<div class="paragraph"><p>Die Installation wird für <a href="http://www.ubuntu.com/">Ubuntu 12.04 LTS (Precise Pangolin)</a>
+beschrieben.<br>
 Gleichwohl sind die einzelnen Schritte auch für
 andere Debian-basierte GNU/Linux Distributionen übertragbar.</p></div>
-<div class="ulist"><div class="title">Download</div><ul>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip">
+</td>
+<td class="content">
+<div class="paragraph"><p>Ubuntu 12.04 LTS (Precise Pangolin) enthält das Paket <em>asciidoc_8.6.6-1ubuntu1_all</em>.</p></div>
+</td>
+</tr></table>
+</div>
+<div class="sect2">
+<h3 id="_download">Download</h3>
+<div class="ulist"><ul>
 <li>
 <p>
-<a href="http://sourceforge.net/projects/asciidoc/files/">AsciiDoc</a><br />
-  asciidoc-8.6.3.tar.gz  (ca. 771 KB)<br />
-  2010-11-14 (Release date)
+<a href="http://sourceforge.net/projects/asciidoc/files/">AsciiDoc</a><br>
+  asciidoc-8.6.8.tar.gz  (ca. 880K)<br>
+  2012-07-16 (Release date)
 </p>
 </li>
 </ul></div>
 <div class="admonitionblock">
 <table><tr>
 <td class="icon">
-<img src="./images/icons/note.png" alt="Note" />
+<img src="./images/icons/note.png" alt="Note">
 </td>
 <td class="content">
-<div class="paragraph"><p>Das Kompilieren der Auszeichnungssprache AsciiDoc wird beispielhaft vom Benutzer <em>bob</em>
-durchgeführt.<br />
+<div class="paragraph"><p>Das Kompilieren der Auszeichnungssprache AsciiDoc wird beispielhaft vom Benutzer <em>sid</em>
+durchgeführt.<br>
 Die eigentliche Installation von AsciiDoc wird vom
 Benutzer <em>root</em> für das System durchgeführt.</p></div>
 <div class="listingblock">
-<div class="content">
-<pre><tt>$ ls -l
--rw-r--r-- 1 bob bob   788543 2010-11-20 15:28 asciidoc-8.6.3.tar.gz</tt></pre>
+<div class="content monospaced">
+<pre>$ ls -l
+-rw-r--r--  1 sid  sid    900422 Okt  4 10:34 asciidoc-8.6.8.tar.gz</pre>
 </div></div>
 </td>
 </tr></table>
@@ -607,19 +818,20 @@ Benutzer <em>root</em> für das System durchgeführt.</p></div>
 <div class="admonitionblock">
 <table><tr>
 <td class="icon">
-<img src="./images/icons/note.png" alt="Note" />
+<img src="./images/icons/note.png" alt="Note">
 </td>
 <td class="content">
 <div class="paragraph"><p>Vor der eigentlichen Installation müssen die fehlenden
 Programm-Pakete installiert sind.</p></div>
 <div class="listingblock">
-<div class="content">
-<pre><tt>$ sudo apt-get install ...
+<div class="content monospaced">
+<pre>$ sudo apt-get install ...
                Benötigt:   python
-               Empfiehlt:  xmlto source-highlight vim-addon-manager</tt></pre>
+               Empfiehlt:  xmlto source-highlight vim-addon-manager</pre>
 </div></div>
 </td>
 </tr></table>
+</div>
 </div>
 </div>
 </div>
@@ -627,16 +839,16 @@ Programm-Pakete installiert sind.</p></div>
 <h2 id="_installation">Installation</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_asciidoc_8_6_3">AsciiDoc 8.6.3</h3>
+<h3 id="_asciidoc_8_6_8">AsciiDoc 8.6.8</h3>
 <div class="admonitionblock">
 <table><tr>
 <td class="icon">
-<img src="./images/icons/important.png" alt="Important" />
+<img src="./images/icons/important.png" alt="Important">
 </td>
 <td class="content">
 <div class="paragraph"><p>Ohne die Angabe eines Verzeichnisses wird <em>/usr/local/&#8230;</em> automatisch verwendet.
-Eine bereits vorhandene AsciiDoc-Installation wird überschrieben.<br />
-<br />
+Eine bereits vorhandene AsciiDoc-Installation wird überschrieben.<br>
+<br>
 Beispiel für die Änderung des Installations-Verzeichnisses:
 <em>./configure --prefix=/opt/wo_auch_immer</em></p></div>
 </td>
@@ -644,55 +856,55 @@ Beispiel für die Änderung des Installations-Verzeichnisses:
 </div>
 <div class="paragraph"><p><strong>Step 1:</strong> Auspacken des Source-Code</p></div>
 <div class="listingblock">
-<div class="content">
-<pre><tt>$ tar xvzf asciidoc-8.6.3.tar.gz
-$ cd asciidoc-8.6.3</tt></pre>
+<div class="content monospaced">
+<pre>$ tar xvzf asciidoc-8.6.8.tar.gz
+$ cd asciidoc-8.6.8</pre>
 </div></div>
 <div class="paragraph"><p><strong>Step 2:</strong> Konfiguration erstellen und kompilieren</p></div>
 <div class="listingblock">
-<div class="content">
-<pre><tt>$ ./configure | tee ../log.asciidoc_configure
+<div class="content monospaced">
+<pre>$ ./configure | tee ../log.asciidoc_configure
 checking for a sed that does not truncate output... /bin/sed
 checking whether ln -s works... yes
 checking for a BSD-compatible install... /usr/bin/install -c
 configure: creating ./config.status
-config.status: creating Makefile</tt></pre>
+config.status: creating Makefile</pre>
 </div></div>
 <div class="listingblock">
-<div class="content">
-<pre><tt>$ make | tee ../log.asciidoc_make
+<div class="content monospaced">
+<pre>$ make | tee ../log.asciidoc_make
 Fixing CONF_DIR in asciidoc.py
-Fixing CONF_DIR in a2x</tt></pre>
+Fixing CONF_DIR in a2x</pre>
 </div></div>
 <div class="paragraph"><p><strong>Step 3:</strong> Installation (als Benutzer <em>root</em>)</p></div>
 <div class="listingblock">
-<div class="content">
-<pre><tt>$ sudo make install | tee ../log.asciidoc_make_install
+<div class="content monospaced">
+<pre>$ sudo make install | tee ../log.asciidoc_make_install
 Fixing CONF_DIR in asciidoc.py
 Fixing CONF_DIR in a2x
 /usr/bin/install -c -d //usr/local/bin
-[...]</tt></pre>
+[...]</pre>
 </div></div>
 <div class="listingblock">
-<div class="content">
-<pre><tt>$ sudo make docs | tee ../log.asciidoc_make_docs
+<div class="content monospaced">
+<pre>$ sudo make docs | tee ../log.asciidoc_make_docs
 /usr/bin/install -c -d //usr/local/share/doc/asciidoc
-[...]</tt></pre>
+[...]</pre>
 </div></div>
 <div class="paragraph"><p><strong>Step 4:</strong> Installation verifizieren</p></div>
 <div class="listingblock">
-<div class="content">
-<pre><tt>$ cd /usr/local/bin
+<div class="content monospaced">
+<pre>$ cd /usr/local/bin
 $ ls -l
-lrwxrwxrwx   1 root root       6 2010-11-20 15:46 a2x -&gt; a2x.py
--rwxr-xr-x   1 root root   32210 2010-11-20 15:46 a2x.py
-lrwxrwxrwx   1 root root      11 2010-11-20 15:46 asciidoc -&gt; asciidoc.py
--rwxr-xr-x   1 root root  230481 2010-11-20 15:46 asciidoc.py
-[...]</tt></pre>
+lrwxrwxrwx 1 root root      6 Okt  4 10:38 a2x -&gt; a2x.py
+-rwxr-xr-x 1 root root  36839 Okt  4 10:38 a2x.py
+lrwxrwxrwx 1 root root     11 Okt  4 10:38 asciidoc -&gt; asciidoc.py
+-rwxr-xr-x 1 root root 253830 Okt  4 10:38 asciidoc.py
+[...]</pre>
 </div></div>
 <div class="listingblock">
-<div class="content">
-<pre><tt>$ man a2x
+<div class="content monospaced">
+<pre>$ man a2x
 A2X(1)                                                                  A2X(1)
 
 NAME
@@ -700,14 +912,14 @@ NAME
        other file formats)
 
 SYNOPSIS
-       a2x [OPTIONS] FILE
+       a2x [OPTIONS] SOURCE_FILE
 
 DESCRIPTION
-       A DocBook toolchain manager that translates an AsciiDoc text file FILE
-       to PDF, EPUB, DVI, PS, LaTeX, XHTML (single page or chunked), man page,
-       HTML Help or plain text formats using asciidoc(1) and other
-       applications (see REQUISITES section). FILE can also be a DocBook file
-       with an .xml extension.
+       A DocBook toolchain manager that translates an AsciiDoc text file
+       SOURCE_FILE to PDF, EPUB, DVI, PS, LaTeX, XHTML (single page or
+       chunked), man page, HTML Help or plain text formats using asciidoc(1)
+       and other applications (see REQUISITES section). SOURCE_FILE can also
+       be a DocBook file with an .xml extension.
 [...]
 
 
@@ -721,117 +933,172 @@ SYNOPSIS
        asciidoc [OPTIONS] FILE
 
 DESCRIPTION
-       The asciidoc(1) command translates the AsciiDoc text file FILE to a
-       DocBook, HTML or LinuxDoc file. If FILE is - then the standard input is
-       used.
-[...]</tt></pre>
+       The asciidoc(1) command translates the AsciiDoc text file FILE to
+       DocBook or HTML. If FILE is - then the standard input is used.
+[...]</pre>
 </div></div>
 <div class="listingblock">
-<div class="content">
-<pre><tt>$ find /usr -type d -cmin -5
-/usr/local/share/man/man1
-/usr/local/share/doc/asciidoc
-/usr/local/share/doc/asciidoc/docbook-xsl
-/usr/local/share/doc/asciidoc/dblatex
-/usr/local/share/doc/asciidoc/examples/website
-/usr/local/share/doc/asciidoc/stylesheets
-/usr/local/share/doc/asciidoc/javascripts
-/usr/local/share/doc/asciidoc/doc
-/usr/local/bin
+<div class="content monospaced">
+<pre>$ find /usr/local -type d -cmin -5
+/usr/local/etc
 /usr/local/etc/asciidoc
-/usr/local/etc/asciidoc/docbook-xsl
 /usr/local/etc/asciidoc/dblatex
+/usr/local/etc/asciidoc/javascripts
+/usr/local/etc/asciidoc/stylesheets
+/usr/local/etc/asciidoc/docbook-xsl
+/usr/local/etc/asciidoc/themes
+/usr/local/etc/asciidoc/themes/flask
+/usr/local/etc/asciidoc/themes/volnitsky
+/usr/local/etc/asciidoc/images
 /usr/local/etc/asciidoc/images/icons
 /usr/local/etc/asciidoc/images/icons/callouts
-/usr/local/etc/asciidoc/stylesheets
+/usr/local/etc/asciidoc/filters
 /usr/local/etc/asciidoc/filters/music
 /usr/local/etc/asciidoc/filters/latex
-/usr/local/etc/asciidoc/filters/code
 /usr/local/etc/asciidoc/filters/source
+/usr/local/etc/asciidoc/filters/code
 /usr/local/etc/asciidoc/filters/graphviz
-/usr/local/etc/asciidoc/javascripts</tt></pre>
+/usr/local/share
+/usr/local/share/doc
+/usr/local/share/doc/asciidoc
+/usr/local/share/doc/asciidoc/dblatex
+/usr/local/share/doc/asciidoc/javascripts
+/usr/local/share/doc/asciidoc/stylesheets
+/usr/local/share/doc/asciidoc/docbook-xsl
+/usr/local/share/doc/asciidoc/images
+/usr/local/share/doc/asciidoc/images/icons
+/usr/local/share/doc/asciidoc/images/icons/callouts
+/usr/local/share/doc/asciidoc/examples
+/usr/local/share/doc/asciidoc/examples/website
+/usr/local/share/doc/asciidoc/doc
+/usr/local/share/man
+/usr/local/share/man/man1
+/usr/local/bin</pre>
 </div></div>
 <div class="listingblock">
-<div class="content">
-<pre><tt>Browser&gt; file:///usr/local/share/doc/asciidoc/examples/website/index.html</tt></pre>
+<div class="content monospaced">
+<pre># cd /usr/local/share/doc/asciidoc/examples/website
+# vi build-website.sh</pre>
+</div></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>#!/bin/sh
+
+VERS="8.6.8"                                            &lt;--- aktualisieren
+DATE="2012-07-16"                                       &lt;--- aktualisieren
+
+# Leave the desired layout uncommented.
+LAYOUT=layout1      # Tables based layout.
+#LAYOUT=layout2     # CSS based simulated frames layout.
+
+ASCIIDOC_HTML="python /usr/local/bin/asciidoc.py [...]  &lt;--- Pfad zum Programm eintragen
+
+$ASCIIDOC_HTML -a index-only index.txt
+$ASCIIDOC_HTML -a toc -a numbered userguide.txt
+$ASCIIDOC_HTML -d manpage manpage.txt
+#$ASCIIDOC_HTML downloads.txt                           &lt;--- nicht mehr vorhanden
+[...]
+$ASCIIDOC_HTML asciimathml.txt                          &lt;--- Name anpassen
+
+# Nachtraeglich einfuegen          <img src="./images/icons/callouts/1.png" alt="1">
+$ASCIIDOC_HTML asciidocapi.txt
+$ASCIIDOC_HTML epub-notes.txt
+$ASCIIDOC_HTML faq.txt
+$ASCIIDOC_HTML music-filter.txt    <img src="./images/icons/callouts/2.png" alt="2">
+$ASCIIDOC_HTML newlists.txt
+$ASCIIDOC_HTML newtables.txt
+$ASCIIDOC_HTML plugins.txt
+$ASCIIDOC_HTML publishing-ebooks-with-asciidoc.txt
+$ASCIIDOC_HTML slidy-example.txt   <img src="./images/icons/callouts/3.png" alt="3">
+$ASCIIDOC_HTML slidy.txt
+$ASCIIDOC_HTML testasciidoc.txt
+$ASCIIDOC_HTML userguide.txt
+$ASCIIDOC_HTML version83.txt</pre>
+</div></div>
+<div class="colist arabic"><table>
+<tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
+Einige Links auf der generierten Index-Seite führen trotz alledem weiter ins Leere.
+</td></tr>
+<tr><td><img src="./images/icons/callouts/2.png" alt="2"></td><td>
+Die Datei <em>music-filter.txt</em> benötigt das Debian/Ubuntu-Paket <em>LilyPond</em>.
+</td></tr>
+<tr><td><img src="./images/icons/callouts/3.png" alt="3"></td><td>
+Die Datei <em>slidy-example.txt</em> benötigt das Debian/Ubuntu-Paket <em>ImageMagick</em>.
+</td></tr>
+</table></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre># ./build-website.sh</pre>
+</div></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>Browser&gt; file:///usr/local/share/doc/asciidoc/examples/website/index.html</pre>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="_beispiel_asciidoc">Beispiel: AsciiDoc</h3>
+<div class="paragraph"><p>Erstellen Sie eine Datei beispiel.txt (siehe <a href="#_anhang">[Anhang]</a>).</p></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>$ asciidoc -a toc beispiel.txt</pre>
 </div></div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_changelog">Changelog</h2>
+<h2 id="_anhang">Anhang</h2>
 <div class="sectionbody">
-<div class="ulist"><div class="title">Version 0.2</div><ul>
-<li>
-<p>
-Erste öffentliche Version
-</p>
-</li>
-</ul></div>
-<div class="ulist"><div class="title">Version 0.4</div><ul>
-<li>
-<p>
-Anpassung an Ubuntu 09.10 (Karmic Koala)
-</p>
-</li>
-</ul></div>
-<div class="ulist"><div class="title">Version 0.6</div><ul>
-<li>
-<p>
-Kleine Korrekturen am Text
-</p>
-</li>
-</ul></div>
-<div class="ulist"><div class="title">Version 0.8</div><ul>
-<li>
-<p>
-Hinweis zur Verwendung
-</p>
-</li>
-</ul></div>
-<div class="ulist"><div class="title">Version 0.8.1</div><ul>
-<li>
-<p>
-Aktualisierung der Installation
-</p>
-</li>
-</ul></div>
-<div class="ulist"><div class="title">Version 1.0.0</div><ul>
-<li>
-<p>
-Anpassung an Ubuntu 10.04 (Lucid Lynx)<br />
-  Neue Programmversion
-</p>
-</li>
-</ul></div>
-<div class="ulist"><div class="title">Version 1.1.0</div><ul>
-<li>
-<p>
-Version 8.5.3 ist weiterhin aktuell
-</p>
-</li>
-</ul></div>
-<div class="ulist"><div class="title">Version 1.3.0</div><ul>
-<li>
-<p>
-Neue Programmversion 8.6.1
-</p>
-</li>
-</ul></div>
-<div class="ulist"><div class="title">Version 1.4.0</div><ul>
-<li>
-<p>
-Neue Programmversion 8.6.3
-</p>
-</li>
-</ul></div>
+<div class="listingblock">
+<div class="title">Text-Datei: beispiel.txt</div>
+<div class="content monospaced">
+<pre>= Lorem ipsum
+Sid &lt;&amp;#115;&amp;#105;&amp;#100;&amp;#64;&amp;#101;&amp;#120;&amp;#97;&amp;#109;&amp;#112;&amp;#108;&amp;#101;&amp;#46;&amp;#111;&amp;#114;&amp;#103;&gt;
+Version 0.0.1
+
+:icons:
+:Author Initials: sid
+:creativecommons-url: http://creativecommons.org/licenses/by-sa/3.0/de/
+:asciidoc-url: http://www.methods.co.nz/asciidoc/
+
+
+== Abstract
+Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
+molestie consequat, vel illum dolore eu feugiat nulla facilisis.
+
+
+== Opera sine nomine scripta
+Lorem ipsum dolor sit amet, consectetur adipisici elit,
+sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit
+in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
+
+=== Scripta
+Excepteur sint obcaecat cupiditat non proident, sunt in culpa
+qui officia deserunt mollit anim id est laborum.
+
+
+=== Nomine
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+
+.Est laborum
+- cupiditat
+- proident
+- deseunt
+
+.Links
+* {asciidoc-url}[AsciiDoc]
+* link:http://la.wikisource.org/wiki/Lorem_ipsum[Lorem ipsum]
+* {creativecommons-url}[Creative Commens]</pre>
+</div></div>
 </div>
 </div>
 </div>
-<div id="footnotes"><hr /></div>
+<div id="footnotes"><hr></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2010-11-21 11:47:31 CET
+Last updated 2012-10-04 10:52:33 CEST
 </div>
 </div>
 </body>
