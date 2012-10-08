@@ -27,7 +27,7 @@ Ruby on Rails und Git ... und ... Dokumentation ist notwendig.
 
 Die Artikel sind in ASCII DOC erstellt worden.
  * AsciiDoc 8.6.8
- * Git 1.7.10.4
+ * Git 1.7.12.2
  * Ruby 1.9.3 - Rails 3.2.8
  * OpenJDK 6, Oracle JDK 7 
  * JRuby 1.6.8 - Rails 3.2.8
