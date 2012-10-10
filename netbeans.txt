@@ -26,9 +26,9 @@ Version 1.5.0, Oktober 2012, <<_changelog,[Changelog]>>
 Abstract
 --------
 Dieser Artikel ist eine Schritt-für-Schritt Anleitung zur Installation 
-der {netbeans-url}[NetBeans IDE 7] unter GNU/Linux.
+der {netbeans-url}[NetBeans IDE 7.2] unter GNU/Linux.
  
-Die {netbeans-url}[NetBeans IDE 7] bietet eine Unterstützung für verschiedene 
+Die {netbeans-url}[NetBeans IDE 7.2] bietet eine Unterstützung für verschiedene 
 Programmiersprachen und -techniken. 
 Wobei die Java-basierten Lösungen ausgezeichnet unterstützt werden. 
 
@@ -60,7 +60,7 @@ Ubuntu 12.04 LTS (Precise Pangolin) enthält das Paket _netbeans_7.0.1+dfsg1-4_a
 
 Download
 ~~~~~~~~
-* {netbeans-download-url}[NetBeans 7.0] +    
+* {netbeans-download-url}[NetBeans 7.2] +    
   netbeans-7.2-ml-linux.sh (ca. 214 MB) (IDE-Sprache: Englisch)
 
 [NOTE] 
@@ -80,7 +80,7 @@ der in der Entwicklung befindlichen NetBeans IDE 7.0 gestrichen. +
 
 http://wiki.netbeans.org/RubySupport[NetBeans-Wiki: RubySupport] 
 
-http://www.heise.de/developer/meldung/NetBeans-7-Rails-Unterstuetzung-faellt-raus-1179098.html[heise Developer: NetBeans 7.2: Rails-Unterstützung fällt raus]
+http://www.heise.de/developer/meldung/NetBeans-7-Rails-Unterstuetzung-faellt-raus-1179098.html[heise Developer: NetBeans 7: Rails-Unterstützung fällt raus]
 
 Knapp drei Wochen später wurde die Übernahme des Supports durch die 
 Community von Thomas Enebro (und Freunden und Kollegen) angekündigt. 
@@ -96,7 +96,7 @@ für _Ruby on Rails_ für die Version _7.0_ vom 16.04.2012.
 
 Installation
 ------------
-Vor der Installation von _NetBeans 7_ muß das OpenJDK oder das Oracle JDK
+Vor der Installation von _NetBeans 7.2_ muß das OpenJDK oder das Oracle JDK
 bereits installiert sein. 
 
 Zusätzliche Software-Pakete die nicht über das Paketmanagement 
@@ -285,10 +285,12 @@ Der Eintrag (Platform) 'Ruby 1.8.7-p352' ist die
 bereits von mir als Ubuntu-Paket installierte C-Ruby-Version. 
 Die 'PATH'-Variable wird während der Installation ausgewertet und 
 vorhandene Ruby-Installationen automatisch in der 
-NetBeans IDE 7 eingetragen. 
+_NetBeans IDE 7.2_ eingetragen. 
 ====
 
-.Ruby 1.9.3-p194
+&nbsp; +
+*Ruby 1.9.3-p194*
+
 image::images/netbeans/nb15_Oeffnen.jpeg[NetBeans IDE 7.2: &Ouml;ffnen]
 
 image::images/netbeans/nb16_Oeffnen.jpeg[NetBeans IDE 7.2: &Ouml;ffnen: Ruby 1.9.3-p194]
@@ -301,7 +303,9 @@ image::images/netbeans/nb17_Ruby_Platform_Manager.jpeg[NetBeans IDE 7.2: Ruby Pl
 
 image::images/netbeans/nb18_Ruby_Platform_Manager.jpeg[NetBeans IDE 7.2: Ruby Platform Manager]
 
-.JRuby 1.6.8
+&nbsp; +
+*JRuby 1.6.8*
+
 image::images/netbeans/nb15_Oeffnen.jpeg[NetBeans IDE 7.2: &Ouml;ffnen]
 
 image::images/netbeans/nb19_Oeffnen.jpeg[NetBeans IDE 7.2: &Ouml;ffnen: JRuby 1.6.8]
