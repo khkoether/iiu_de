@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="generator" content="AsciiDoc 8.6.8">
-<title>Installation in Ubuntu: Git 1.7.12.2</title>
+<title>Installation in Ubuntu: Git 1.8.0</title>
 <style type="text/css">
 /* Shared CSS for AsciiDoc xhtml11 and html5 backends */
 
@@ -730,7 +730,7 @@ asciidoc.install(2);
 </head>
 <body class="article">
 <div id="header">
-<h1>Installation in Ubuntu: Git 1.7.12.2</h1>
+<h1>Installation in Ubuntu: Git 1.8.0</h1>
 <span id="author">Karl-Heinz Köther</span><br>
 <span id="email" class="monospaced">&lt;<a href="mailto:&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;">&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;</a>&gt;</span><br>
 <div id="toc">
@@ -741,7 +741,7 @@ asciidoc.install(2);
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph"><p>Version 1.5.0, Oktober 2012, <a href="#_changelog">[Changelog]</a></p></div>
+<div class="paragraph"><p>Version 1.6.0, Oktober 2012, <a href="#_changelog">[Changelog]</a></p></div>
 </div>
 </div>
 <div class="sect1">
@@ -791,10 +791,10 @@ andere Debian-basierte GNU/Linux Distributionen übertragbar.</p></div>
 <li>
 <p>
 <a href="http://code.google.com/p/git-core/downloads/list">Git</a><br>
-  git-1.7.12.2.tar.gz  (ca. 3.9M)<br>
-  git-htmldocs-1.7.12.2.tar.gz  (ca. 1.7M)<br>
-  git-manpages-1.7.12.2.tar.gz  (ca. 508K)<br>
-  2012-09-30 (Release date)
+  git-1.8.0.tar.gz  (ca. 3.9M)<br>
+  git-htmldocs-1.8.0.tar.gz  (ca. 1.7M)<br>
+  git-manpages-1.8.0.tar.gz  (ca. 508K)<br>
+  2012-10-21 (Release date)
 </p>
 </li>
 </ul></div>
@@ -811,9 +811,9 @@ Benutzer <em>root</em> für das System durchgeführt.</p></div>
 <div class="listingblock">
 <div class="content monospaced">
 <pre>$ ls -l
--rw-r--r-- 1 sid sid 4106910 Okt  4 11:03 git-1.7.12.2.tar.gz
--rw-rw-r-- 1 sid sid 1795768 Okt  4 11:03 git-htmldocs-1.7.12.2.tar.gz
--rw-rw-r-- 1 sid sid  520877 Okt  4 11:04 git-manpages-1.7.12.2.tar.gz</pre>
+-rw-r--r-- 1 sid sid 4225055 Okt 27 16:58 git-1.8.0.tar.gz
+-rw-rw-r-- 1 sid sid 4225055 Okt 27 16:58 git-1.8.0.tar.gz
+-rw-rw-r-- 1 sid sid  523324 Okt 27 16:57 git-manpages-1.8.0.tar.gz</pre>
 </div></div>
 </td>
 </tr></table>
@@ -843,7 +843,7 @@ Programm-Pakete installiert sind.</p></div>
 <h2 id="_installation">Installation</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_git_1_7_12_2">Git 1.7.12.2</h3>
+<h3 id="_git_1_8_0">Git 1.8.0</h3>
 <div class="admonitionblock">
 <table><tr>
 <td class="icon">
@@ -861,14 +861,14 @@ Beispiel für die Änderung des Installations-Verzeichnisses:
 <div class="paragraph"><p><strong>Step 1:</strong> Auspacken des Source-Code</p></div>
 <div class="listingblock">
 <div class="content monospaced">
-<pre>$ tar xvzf git-1.7.12.2.tar.gz
-$ cd git-1.7.12.2</pre>
+<pre>$ tar xvzf git-1.8.0.tar.gz
+$ cd git-1.8.0</pre>
 </div></div>
 <div class="paragraph"><p><strong>Step 2:</strong> Konfiguration erstellen und kompilieren</p></div>
 <div class="listingblock">
 <div class="content monospaced">
 <pre>$ make configure
-GIT_VERSION = 1.7.12.2
+GIT_VERSION = 1.8.0
     GEN configure
 
 $ ./configure | tee ../log.git_configure
@@ -949,7 +949,8 @@ make[2]: »GIT-VERSION-FILE« ist bereits aktualisiert.
     SUBDIR gitk-git
 make[1]: Für das Ziel »all« ist nichts zu tun.
     SUBDIR perl
-[...]</pre>
+[...]
+        ./check_bindir "z$bindir" "z$execdir" "$bindir/git-add"</pre>
 </div></div>
 <div class="listingblock">
 <div class="title">Documentation: web-pages</div>
@@ -957,14 +958,14 @@ make[1]: Für das Ziel »all« ist nichts zu tun.
 <pre>$ cd /usr/local/share/doc
 $ sudo mkdir git-doc
 $ cd git-doc
-$ sudo tar xvzf git-htmldocs-1.7.12.2.tar.gz
+$ sudo tar xvzf git-htmldocs-1.8.0.tar.gz
 [...]</pre>
 </div></div>
 <div class="listingblock">
 <div class="title">Documentation: man-pages</div>
 <div class="content monospaced">
 <pre>$ cd /usr/local/man
-$ sudo tar xvzf git-manpages-1.7.12.2.tar.gz
+$ sudo tar xvzf git-manpages-1.8.0.tar.gz
 [...]
 $ sudo chown -R root.root man?   <img src="./images/icons/callouts/1.png" alt="1">
 $ sudo chmod g-s man?
@@ -984,13 +985,13 @@ Unbedingt die Rechte an den Dateien und den Ordnern anpassen!
 <div class="content monospaced">
 <pre>$ cd /usr/local/bin
 $ ls -l git*
--rwxr-xr-x 111 root root 6537809 Okt  4 11:42 git
--rwxr-xr-x   2 root root  120929 Okt  4 11:42 git-cvsserver
--rwxr-xr-x   1 root root  329682 Okt  4 11:42 gitk
--rwxr-xr-x 111 root root 6537809 Okt  4 11:42 git-receive-pack
--rwxr-xr-x   2 root root 2774217 Okt  4 11:42 git-shell
--rwxr-xr-x 111 root root 6537809 Okt  4 11:42 git-upload-archive
--rwxr-xr-x   2 root root 2873559 Okt  4 11:42 git-upload-pack</pre>
+-rwxr-xr-x 111 root root 6596100 Okt 27 17:14 git
+-rwxr-xr-x   2 root root  120926 Okt 27 17:14 git-cvsserver
+-rwxr-xr-x   1 root root  329781 Okt 27 17:14 gitk
+-rwxr-xr-x 111 root root 6596100 Okt 27 17:14 git-receive-pack
+-rwxr-xr-x   2 root root 2785330 Okt 27 17:14 git-shell
+-rwxr-xr-x 111 root root 6596100 Okt 27 17:14 git-upload-archive
+-rwxr-xr-x   2 root root 2888968 Okt 27 17:14 git-upload-pack</pre>
 </div></div>
 <div class="listingblock">
 <div class="content monospaced">
@@ -1066,7 +1067,7 @@ NOTES
         6. git@vger.kernel.org
            mailto:git@vger.kernel.org
 
-Git 1.7.12.2                      09/30/2012                            GIT(1)</pre>
+Git 1.8.0                      10/21/2012                            GIT(1)</pre>
 </div></div>
 <div class="listingblock">
 <div class="content monospaced">
@@ -1122,7 +1123,7 @@ SEE ALSO
 GIT
        Part of the git(1) suite
 
-Git 1.7.12.2                      09/30/2012                           GITK(1)</pre>
+Git 1.8.0                      10/21/2012                           GITK(1)</pre>
 </div></div>
 <div class="listingblock">
 <div class="content monospaced">
@@ -1185,12 +1186,12 @@ Git 1.7.12.2                      09/30/2012                           GITK(1)</
 <h2 id="_anhang">Anhang</h2>
 <div class="sectionbody">
 <div class="listingblock">
-<div class="title">Script zum Installieren von Git 1.7.12.2 (ohne Dokumentation, ohne weitere Erläuterung)</div>
+<div class="title">Script zum Installieren von Git 1.8.0 (ohne Dokumentation, ohne weitere Erläuterung)</div>
 <div class="content monospaced">
 <pre>#!/bin/bash
 #
 ME=make_git
-NAME=git-1.7.12.2
+NAME=git-1.8.0
 
 ls -l git*.tar.gz
 echo
@@ -1235,7 +1236,7 @@ echo "$ME: Ende."</pre>
 <div id="footnotes"><hr></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2012-10-04 12:36:54 CEST
+Last updated 2012-10-27 17:21:51 CEST
 </div>
 </div>
 </body>

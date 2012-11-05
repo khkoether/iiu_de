@@ -20,7 +20,7 @@ Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;
 :java-koerper-url: http://www.arndt-bruenner.de/mathe/java/koerper3d.htm
 
 
-Version 1.5.0, Oktober 2012, <<_changelog,[Changelog]>>
+Version 1.6.0, Oktober 2012, <<_changelog,[Changelog]>>
 
 
 Abstract
@@ -99,10 +99,8 @@ Installation
 Vor der Installation von _NetBeans 7.2_ muß das OpenJDK oder das Oracle JDK
 bereits installiert sein. 
 
-Zusätzliche Software-Pakete die nicht über das Paketmanagement 
-verwaltet wird, sollten im Verzeichnis '/opt' (Optional) 
-installiert werden. 
-
+Zusätzliche Software-Pakete  
+sollten im Verzeichnis '/opt' (Optional) installiert werden. 
 
 NetBeans IDE 7.2: Graphical Installer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

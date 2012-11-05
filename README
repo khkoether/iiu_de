@@ -27,11 +27,11 @@ Ruby on Rails und Git ... und ... Dokumentation ist notwendig.
 
 Die Artikel sind in ASCII DOC erstellt worden.
  * AsciiDoc 8.6.8
- * Git 1.7.12.2
+ * Git 1.8.0
  * Ruby 1.9.3 - Rails 3.2.8
  * OpenJDK 6, Oracle JDK 7 
- * JRuby 1.6.8 - Rails 3.2.8
- * NetBeans 7.1.2
+ * JRuby 1.7.0 - Rails 3.2.8
+ * NetBeans 7.2
 
 $ asciidoc -a toc NAME.txt 
 
@@ -41,7 +41,8 @@ Verzeichnis-Struktur:
 ./NAME.html
 ./images/icons      <-- Images durch AsciiDoc
 ./images/netbeans   <-- Images des Installationsdialogs
-
+./images/netbeans   <-- Image des RubyGems Documentation Index
+ 
 NAME = { asciidoc git ruby19 ruby19ror jdk jruby jrubyror netbeans }
 
 Die erstellten Seiten finden Sie hier:

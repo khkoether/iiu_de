@@ -9,7 +9,7 @@ Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;
 :asciidoc-url: http://www.methods.co.nz/asciidoc/
 :sourceforge-url: http://sourceforge.net/projects/asciidoc/files/
 
-Version 1.5.0, Oktober 2012, <<_changelog,[Changelog]>>
+Version 1.6.0, Oktober 2012, <<_changelog,[Changelog]>>
 
 
 Abstract
@@ -266,7 +266,7 @@ Browser> file:///usr/local/share/doc/asciidoc/examples/website/index.html
 
 Beispiel: AsciiDoc
 ~~~~~~~~~~~~~~~~~~
-Erstellen Sie eine Datei beispiel.txt (siehe <<_anhang,[Anhang]>>). 
+Mit dem folgenden Kommando erstellen Sie aus der Datei 'beispiel.txt'  (siehe <<_anhang,[Anhang]>>) die Datei 'beispiel.html'.
 ----
 $ asciidoc -a toc beispiel.txt
 ---- 
