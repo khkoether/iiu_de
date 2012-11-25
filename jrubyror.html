@@ -770,7 +770,7 @@ Gerne nehme ich Verbesserungsvorschläge entgegen.</p></div>
 <h2 id="_vorraussetzungen">Vorraussetzungen</h2>
 <div class="sectionbody">
 <div class="paragraph"><p><em>JRuby</em> und <em>Ruby on Rails</em> sind wie
-in <a href="jruby.html">Installation in Ubuntu: JRuby 1.6.8, Ruby on Rails 3.2.8</a>
+in <a href="jruby.html">Installation in Ubuntu: JRuby 1.7.0, Ruby on Rails 3.2.9</a>
 beschrieben durchgeführt worden.</p></div>
 <div class="listingblock">
 <div class="content monospaced">
@@ -778,23 +778,23 @@ beschrieben durchgeführt worden.</p></div>
 /opt/JRuby/sid/current/bin/jruby
 
 $ jruby -v
-jruby 1.6.8 (ruby-1.9.2-p312) (2012-09-18 1772b40) (Java HotSpot(TM) 64-Bit Server VM 1.7.0_07) [linux-amd64-java]
+jruby 1.7.0 (1.9.3p203) 2012-10-22 ff1ebbe on Java HotSpot(TM) 64-Bit Server VM 1.7.0_09-b05 [linux-amd64]
 
-$ jruby --1.9 -v   <img src="./images/icons/callouts/1.png" alt="1">
-jruby 1.6.8 (ruby-1.9.2-p312) (2012-09-18 1772b40) (Java HotSpot(TM) 64-Bit Server VM 1.7.0_07) [linux-amd64-java]
+$ jruby -v   <img src="./images/icons/callouts/1.png" alt="1">
+jruby 1.7.0 (ruby-1.8.7p370) 2012-10-22 ff1ebbe on Java HotSpot(TM) 64-Bit Server VM 1.7.0_09-b05 [linux-amd64]
 
 $ which rails
 /opt/JRuby/sid/current/bin/rails
 
 $ jruby -S rails -v   <img src="./images/icons/callouts/2.png" alt="2">
-Rails 3.2.8</pre>
+Rails 3.2.9</pre>
 </div></div>
 <div class="colist arabic"><table>
 <tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
 Die Installation <em>JRuby</em> enthält zwei (gleichberechtigte) Implementationen der
     Programmier-Sprache <em>Ruby</em>:<br>
-    <em>Ruby 1.8.7-p357</em><br>
-    <em>Ruby 1.9.2-p312</em>
+    <em>Ruby 1.8.7-p370</em><br>
+    <em>Ruby 1.9.2-p203</em> (default)
 </td></tr>
 <tr><td><img src="./images/icons/callouts/2.png" alt="2"></td><td>
 Der Schalter <em>-S</em> führt dazu, daß für das Script zuerst
@@ -865,7 +865,7 @@ die Entwicklung eines neuen Rails-Projektes:</p></div>
 </p>
 </li>
 </ul></div>
-<div class="paragraph"><p>Für die Datenbanken <em>SqLite3</em> und <em>MySQL</em> sind die notwendigen Datenbankadapter
+<div class="paragraph"><p>Für die Datenbanksysteme <em>SqLite3</em> und <em>MySQL</em> sind die notwendigen Datenbankadapter
 bereits installiert worden.</p></div>
 </div>
 <div class="sect2">
@@ -934,7 +934,7 @@ Bye</pre>
 $ mkdir RailsDir
 
 $ cd RailsDir
-$ jruby -S rails new jmyapp --database=mysql   <img src="./images/icons/callouts/1.png" alt="1">
+$ jruby -S rails new jMyApp --database=mysql   <img src="./images/icons/callouts/1.png" alt="1">
       create
       create  README.rdoc
       create  Rakefile
@@ -949,13 +949,15 @@ $ jruby -S rails new jmyapp --database=mysql   <img src="./images/icons/callouts
       create  vendor/plugins
       create  vendor/plugins/.gitkeep
          run  bundle install    <img src="./images/icons/callouts/4.png" alt="4">
-Fetching gem metadata from https://rubygems.org/.........
-Using rake (0.9.2.2)
+
+Fetching gem metadata from https://rubygems.org/...........
+Fetching gem metadata from https://rubygems.org/..
+Using rake (10.0.2)
 Using i18n (0.6.1)
-Using multi_json (1.3.6)
-Using activesupport (3.2.8)
-Using builder (3.0.3)
-Using activemodel (3.2.8)
+Using multi_json (1.3.7)
+Using activesupport (3.2.9)
+Using builder (3.0.4)
+Using activemodel (3.2.9)
 Using erubis (2.7.0)
 Using journey (1.0.4)
 Using rack (1.4.1)
@@ -963,35 +965,35 @@ Using rack-cache (1.2)
 Using rack-test (0.6.2)
 Using hike (1.2.1)
 Using tilt (1.3.3)
-Using sprockets (2.1.3)
-Using actionpack (3.2.8)
+Using sprockets (2.2.1)
+Using actionpack (3.2.9)
 Using mime-types (1.19)
 Using polyglot (0.3.3)
-Using treetop (1.4.10)
+Using treetop (1.4.12)
 Using mail (2.4.4)
-Using actionmailer (3.2.8)
+Using actionmailer (3.2.9)
 Using arel (3.0.2)
-Using tzinfo (0.3.33)
-Using activerecord (3.2.8)
-Using activerecord-jdbc-adapter (1.2.2)
+Using tzinfo (0.3.35)
+Using activerecord (3.2.9)
+Using activerecord-jdbc-adapter (1.2.2.1)
 Using jdbc-mysql (5.1.13)
-Using activerecord-jdbcmysql-adapter (1.2.2)
-Using activeresource (3.2.8)
-Using bouncy-castle-java (1.5.0146.1)
-Using bundler (1.2.1)
-Installing coffee-script-source (1.3.3)
+Using activerecord-jdbcmysql-adapter (1.2.2.1)
+Using activeresource (3.2.9)
+Installing bouncy-castle-java (1.5.0146.1)
+Using bundler (1.2.2)
+Installing coffee-script-source (1.4.0)
 Installing execjs (1.4.0)
 Installing coffee-script (2.2.0)
 Using rack-ssl (1.3.2)
 Using json (1.7.5)
 Using rdoc (3.12)
 Using thor (0.16.0)
-Using railties (3.2.8)
+Using railties (3.2.9)
 Installing coffee-rails (3.2.2)
 Installing jquery-rails (2.1.3)
-Using jruby-openssl (0.7.7)
-Using rails (3.2.8)
-Installing sass (3.2.1)
+Installing jruby-openssl (0.7.7)
+Using rails (3.2.9)
+Installing sass (3.2.3)
 Installing sass-rails (3.2.5)
 Installing therubyrhino_jar (1.7.4)
 Installing therubyrhino (2.0.1)
@@ -1023,7 +1025,7 @@ Konfigurationsdatei mit den Einstellungen für den
 <div class="content monospaced">
 <pre>source 'https://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.9'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git =&gt; 'git://github.com/rails/rails.git'
@@ -1154,19 +1156,19 @@ Entwicklungs-Umgebung verwendet.</p></div>
 <div class="content monospaced">
 <pre>$ jruby -S rails s
 =&gt; Booting WEBrick
-=&gt; Rails 3.2.8 application starting in development on http://0.0.0.0:3000   <img src="./images/icons/callouts/1.png" alt="1">
+=&gt; Rails 3.2.9 application starting in development on http://0.0.0.0:3000   <img src="./images/icons/callouts/1.png" alt="1">
 =&gt; Call with -d to detach
 =&gt; Ctrl-C to shutdown server
-[2012-10-04 22:22:13] INFO  WEBrick 1.3.1
-[2012-10-04 22:22:13] INFO  ruby 1.9.2 (2012-09-18) [java]   <img src="./images/icons/callouts/2.png" alt="2">
-[2012-10-04 22:22:13] INFO  WEBrick::HTTPServer#start: pid=30818 port=3000</pre>
+[2012-11-22 21:37:41] INFO  WEBrick 1.3.1
+[2012-11-22 21:37:41] INFO  ruby 1.9.3 (2012-10-22) [java]                  <img src="./images/icons/callouts/2.png" alt="2">
+[2012-11-22 21:37:42] INFO  WEBrick::HTTPServer#start: pid=2986 port=3000</pre>
 </div></div>
 <div class="colist arabic"><table>
 <tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
 Der Webserver läuft ohne Port-Angabe (<em>--port</em>) auf Port 3000.
 </td></tr>
 <tr><td><img src="./images/icons/callouts/2.png" alt="2"></td><td>
-Ruby Version 1.9.2
+Ruby Version 1.9.3
 </td></tr>
 </table></div>
 <div class="listingblock">
@@ -1195,16 +1197,16 @@ Informationen zur ausgeführten Applikation <em>MyApp</em>:<br>
 </table></div>
 <div class="listingblock">
 <div class="content monospaced">
-<pre>Ruby version               1.9.2 (java)   <img src="./images/icons/callouts/1.png" alt="1">
+<pre>Ruby version               1.9.3 (java)   <img src="./images/icons/callouts/1.png" alt="1">
 RubyGems version                1.8.24
 Rack version               1.4
-Rails version              3.2.8
+Rails version              3.2.9
 JavaScript Runtime      therubyrhino (Rhino)
-Active Record version     3.2.8
-Action Pack version          3.2.8
-Active Resource version   3.2.8
-Action Mailer version     3.2.8
-Active Support version    3.2.8
+Active Record version     3.2.9
+Action Pack version          3.2.9
+Active Resource version   3.2.9
+Action Mailer version     3.2.9
+Active Support version    3.2.9
 Middleware
 
     ActionDispatch::Static
@@ -1230,14 +1232,14 @@ Middleware
     Rack::ETag
     ActionDispatch::BestStandardsSupport
 
-Application root        /home/sid/80/RailsDir/jmyapp
+Application root        /home/sid/80/RailsDir/jMyApp
 Environment     development
 Database adapter        mysql
 Database schema version 0</pre>
 </div></div>
 <div class="colist arabic"><table>
 <tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
-Ruby Version 1.9.2 (java)
+Ruby Version 1.9.3 (java)
 </td></tr>
 </table></div>
 </div>
@@ -1247,7 +1249,7 @@ Ruby Version 1.9.2 (java)
 <div id="footnotes"><hr></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2012-11-05 10:25:45 CET
+Last updated 2012-11-25 19:29:24 CET
 </div>
 </div>
 </body>

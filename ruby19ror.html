@@ -741,7 +741,7 @@ asciidoc.install(2);
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph"><p>Version 1.6.0, Oktober 2012, <a href="#_changelog">[Changelog]</a></p></div>
+<div class="paragraph"><p>Version 1.6.1, November 2012, <a href="#_changelog">[Changelog]</a></p></div>
 </div>
 </div>
 <div class="sect1">
@@ -770,7 +770,7 @@ Gerne nehme ich Verbesserungsvorschläge entgegen.</p></div>
 <h2 id="_vorraussetzungen">Vorraussetzungen</h2>
 <div class="sectionbody">
 <div class="paragraph"><p><em>Ruby</em> und <em>Ruby on Rails</em> sind wie
-in <a href="ruby19.html">Installation in Ubuntu: Ruby 1.9.3, Ruby on Rails 3.2.8 </a>
+in <a href="ruby19.html">Installation in Ubuntu: Ruby 1.9.3, Ruby on Rails 3.2.9</a>
 beschrieben durchgeführt worden.</p></div>
 <div class="listingblock">
 <div class="content monospaced">
@@ -778,13 +778,13 @@ beschrieben durchgeführt worden.</p></div>
 /opt/Ruby/current/bin/ruby
 
 $ ruby -v
-ruby 1.9.3p194 (2012-04-20 revision 35410) [x86_64-linux]
+ruby 1.9.3p327 (2012-11-10 revision 37606) [x86_64-linux]
 
 $ which rails
 /opt/Ruby/current/bin/rails
 
 $ rails -v
-Rails 3.2.8</pre>
+Rails 3.2.9</pre>
 </div></div>
 </div>
 </div>
@@ -849,7 +849,7 @@ die Entwicklung eines neuen Rails-Projektes:</p></div>
 </p>
 </li>
 </ul></div>
-<div class="paragraph"><p>Für die Datenbanken <em>SqLite3</em> und <em>MySQL</em> sind die notwendigen Datenbankadapter
+<div class="paragraph"><p>Für die Datenbanksysteme <em>SqLite3</em> und <em>MySQL</em> sind die notwendigen Datenbankadapter
 bereits installiert worden.</p></div>
 </div>
 <div class="sect2">
@@ -918,7 +918,7 @@ Bye</pre>
 $ mkdir RailsDir
 
 $ cd RailsDir
-$ rails new myapp --database=mysql   <img src="./images/icons/callouts/1.png" alt="1">
+$ rails new MyApp --database=mysql   <img src="./images/icons/callouts/1.png" alt="1">
       create
       create  README.rdoc
       create  Rakefile
@@ -958,7 +958,7 @@ Wenn Sie nicht berechtigt sind RubyGems zu installieren, müssen Sie
 <div class="content monospaced">
 <pre>source 'https://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.9'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git =&gt; 'git://github.com/rails/rails.git'
@@ -979,7 +979,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-q[...]</pre>
+[...]</pre>
 </div></div>
 <div class="colist arabic"><table>
 <tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
@@ -995,34 +995,19 @@ Der Spezifizierer <em>~&gt; 3.2.1</em> ist identisch mit
 <div class="listingblock">
 <div class="content monospaced">
 <pre># gem install sass-rails coffee-rails uglifier jquery-rails
-Fetching: sass-rails-3.2.5.gem (100%)
+Successfully installed sass-3.2.3
 Successfully installed sass-rails-3.2.5
-Fetching: coffee-script-source-1.3.3.gem (100%)
-Fetching: execjs-1.4.0.gem (100%)
-Fetching: coffee-script-2.2.0.gem (100%)
-Fetching: coffee-rails-3.2.2.gem (100%)
-Successfully installed coffee-script-source-1.3.3
+Successfully installed coffee-script-source-1.4.0
 Successfully installed execjs-1.4.0
 Successfully installed coffee-script-2.2.0
 Successfully installed coffee-rails-3.2.2
-Fetching: uglifier-1.3.0.gem (100%)
 Successfully installed uglifier-1.3.0
-Fetching: jquery-rails-2.1.3.gem (100%)
 Successfully installed jquery-rails-2.1.3
-7 gems installed
-Installing ri documentation for sass-rails-3.2.5...
-Installing ri documentation for coffee-script-source-1.3.3...
-Installing ri documentation for execjs-1.4.0...
-Installing ri documentation for coffee-script-2.2.0...
-Installing ri documentation for coffee-rails-3.2.2...
-Installing ri documentation for uglifier-1.3.0...
+8 gems installed
+Installing ri documentation for sass-3.2.3...
+[...]
 Installing ri documentation for jquery-rails-2.1.3...
-Installing RDoc documentation for sass-rails-3.2.5...
-Installing RDoc documentation for coffee-script-source-1.3.3...
-Installing RDoc documentation for execjs-1.4.0...
-Installing RDoc documentation for coffee-script-2.2.0...
-Installing RDoc documentation for coffee-rails-3.2.2...
-Installing RDoc documentation for uglifier-1.3.0...
+[...]
 Installing RDoc documentation for jquery-rails-2.1.3...</pre>
 </div></div>
 <div class="listingblock">
@@ -1092,9 +1077,10 @@ Der hier vorgeschlagene Datenbank-Name wird von <em>Ruby on Rails</em>
 <div class="title">Möglichkeit 1: Das RubyGem <em>therubyracer</em></div>
 <div class="content monospaced">
 <pre># gem install therubyracer   <img src="./images/icons/callouts/1.png" alt="1">
+root@xanadu:/opt/Ruby/current# gem install therubyracer
 Fetching: libv8-3.3.10.4-x86_64-linux.gem (100%)
 Fetching: therubyracer-0.10.2.gem (100%)
-Building native extensions.  This could take a while...
+Building native extensions.  This could take a while...   <img src="./images/icons/callouts/2.png" alt="2">
 Successfully installed libv8-3.3.10.4-x86_64-linux
 Successfully installed therubyracer-0.10.2
 2 gems installed
@@ -1109,13 +1095,16 @@ Installing RDoc documentation for therubyracer-0.10.2...</pre>
     Call javascript code and manipulate javascript objects from ruby.<br>
     Call ruby code and manipulate ruby objects from javascript.
 </td></tr>
+<tr><td><img src="./images/icons/callouts/2.png" alt="2"></td><td>
+Das RubyGem <em>therubyracer</em> wird kompiliert!
+</td></tr>
 </table></div>
 <div class="listingblock">
 <div class="title">Gemfile</div>
 <div class="content monospaced">
 <pre>source 'https://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.9'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git =&gt; 'git://github.com/rails/rails.git'
@@ -1176,12 +1165,12 @@ Entwicklungs-Umgebung verwendet.</p></div>
 <div class="content monospaced">
 <pre>$ rails s
 =&gt; Booting WEBrick
-=&gt; Rails 3.2.8 application starting in development on http://0.0.0.0:3000   <img src="./images/icons/callouts/1.png" alt="1">
+=&gt; Rails 3.2.9 application starting in development on http://0.0.0.0:3000   <img src="./images/icons/callouts/1.png" alt="1">
 =&gt; Call with -d to detach
 =&gt; Ctrl-C to shutdown server
-[2012-10-04 17:50:15] INFO  WEBrick 1.3.1
-[2012-10-04 17:50:15] INFO  ruby 1.9.3 (2012-04-20) [x86_64-linux]
-[2012-10-04 17:50:15] INFO  WEBrick::HTTPServer#start: pid=27773 port=3000</pre>
+[2012-11-21 11:17:30] INFO  WEBrick 1.3.1
+[2012-11-21 11:17:30] INFO  ruby 1.9.3 (2012-11-10) [x86_64-linux]
+[2012-11-21 11:17:30] INFO  WEBrick::HTTPServer#start: pid=23231 port=3000</pre>
 </div></div>
 <div class="colist arabic"><table>
 <tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
@@ -1217,13 +1206,13 @@ Informationen zur ausgeführten Applikation <em>MyApp</em>:<br>
 <pre>Ruby version            1.9.3 (x86_64-linux)    <img src="./images/icons/callouts/1.png" alt="1">
 RubyGems version        1.8.24
 Rack version            1.4
-Rails version           3.2.8
+Rails version           3.2.9
 JavaScript Runtime therubyracer (V8)
 Active Record version   3.2.9
-Action Pack version     3.2.8
-Active Resource version 3.2.8
-Action Mailer version   3.2.8
-Active Support version  3.2.8
+Action Pack version     3.2.9
+Active Resource version 3.2.9
+Action Mailer version   3.2.9
+Active Support version  3.2.9
 Middleware
          • ActionDispatch::Static
          • Rack::Lock
@@ -1248,7 +1237,7 @@ Middleware
          • Rack::ETag
          • ActionDispatch::BestStandardsSupport
 
-Application root          /home/sid/RailsDir/myapp
+Application root          /home/sid/RailsDir/MyApp
 Environment               development
 Database adapter          mysql2
 Database schema version   0
@@ -1266,7 +1255,7 @@ Ruby Version 1.9.3
 <div id="footnotes"><hr></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2012-11-05 10:25:53 CET
+Last updated 2012-11-25 19:29:46 CET
 </div>
 </div>
 </body>
