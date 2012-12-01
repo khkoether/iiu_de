@@ -41,7 +41,8 @@ Verzeichnis-Struktur:
 ./NAME.html
 ./images/icons      <-- Images durch AsciiDoc
 ./images/netbeans   <-- Images des Installationsdialogs
-./images/netbeans   <-- Image des RubyGems Documentation Index
+./images/ruby       <-- Image des RubyGems Documentation Index
+./images/jruby      <-- Image des RubyGems Documentation Index
  
 NAME = { asciidoc git ruby19 ruby19ror jdk jruby jrubyror netbeans }
 
