@@ -623,8 +623,8 @@ warbler (1.3.6)
 ----
 
 
-Beipiel
-~~~~~~~
+Beispiel
+~~~~~~~~
 {jrubyror-url}[Ruby on Rails: Erste Schritte (mit JRuby)]
 
 
