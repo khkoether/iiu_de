@@ -8,7 +8,7 @@ Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;
 :ubuntu-url: http://www.ubuntu.com/
 :jruby-url: link:jruby.html
 
-Version 1.6.0, Oktober 2012, <<_changelog,[Changelog]>>
+Version 1.6.2, Dezember 2012, <<_changelog,[Changelog]>>
 
 
 Abstract
@@ -32,7 +32,7 @@ Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr.
 Vorraussetzungen
 ----------------
 _JRuby_ und _Ruby on Rails_ sind wie 
-in {jruby-url}[Installation in Ubuntu: JRuby 1.7.0, Ruby on Rails 3.2.9] 
+in {jruby-url}[Installation in Ubuntu: JRuby 1.7.1, Ruby on Rails 3.2.9] 
 beschrieben durchgeführt worden.
 
 ----
@@ -40,21 +40,24 @@ $ which jruby
 /opt/JRuby/sid/current/bin/jruby
 
 $ jruby -v 
-jruby 1.7.0 (1.9.3p203) 2012-10-22 ff1ebbe on Java HotSpot(TM) 64-Bit Server VM 1.7.0_09-b05 [linux-amd64]
+jruby 1.7.1 (1.9.3p327) 2012-12-03 30a153b on Java HotSpot(TM) 64-Bit Server VM 1.7.0_10-b18 [linux-amd64]
 
-$ jruby -v   <1> 
-jruby 1.7.0 (ruby-1.8.7p370) 2012-10-22 ff1ebbe on Java HotSpot(TM) 64-Bit Server VM 1.7.0_09-b05 [linux-amd64]
+$ jruby -v --1.8   <1> 
+jruby 1.7.1 (ruby-1.8.7p370) 2012-12-03 30a153b on Java HotSpot(TM) 64-Bit Server VM 1.7.0_10-b18 [linux-amd64]
 
 $ which rails
 /opt/JRuby/sid/current/bin/rails
 
 $ jruby -S rails -v   <2>
 Rails 3.2.9
+
+$ rails -v
+Rails 3.2.9
 ----
 <1> Die Installation _JRuby_ enthält zwei (gleichberechtigte) Implementationen der 
     Programmier-Sprache _Ruby_: +
     _Ruby 1.8.7-p370_ +
-    _Ruby 1.9.2-p203_ (default)
+    _Ruby 1.9.2-p327_ (default)
 <2> Der Schalter _-S_ führt dazu, daß für das Script zuerst  
     das Verzeichnis JRUBY_HOME/bin geprüft wird - und
     dann der PATH.   
@@ -176,9 +179,9 @@ $ jruby -S rails new jMyApp --database=mysql   <1>
 
 Fetching gem metadata from https://rubygems.org/...........
 Fetching gem metadata from https://rubygems.org/..
-Using rake (10.0.2) 
+Using rake (10.0.3) 
 Using i18n (0.6.1) 
-Using multi_json (1.3.7) 
+Using multi_json (1.5.0) 
 Using activesupport (3.2.9) 
 Using builder (3.0.4) 
 Using activemodel (3.2.9) 
@@ -189,7 +192,7 @@ Using rack-cache (1.2)
 Using rack-test (0.6.2) 
 Using hike (1.2.1) 
 Using tilt (1.3.3) 
-Using sprockets (2.2.1) 
+Using sprockets (2.2.2) 
 Using actionpack (3.2.9) 
 Using mime-types (1.19) 
 Using polyglot (0.3.3) 
@@ -200,11 +203,11 @@ Using arel (3.0.2)
 Using tzinfo (0.3.35) 
 Using activerecord (3.2.9) 
 Using activerecord-jdbc-adapter (1.2.2.1) 
-Using jdbc-mysql (5.1.13) 
+Using jdbc-mysql (5.1.22) 
 Using activerecord-jdbcmysql-adapter (1.2.2.1) 
 Using activeresource (3.2.9) 
 Installing bouncy-castle-java (1.5.0146.1) 
-Using bundler (1.2.2) 
+Using bundler (1.2.3) 
 Installing coffee-script-source (1.4.0) 
 Installing execjs (1.4.0) 
 Installing coffee-script (2.2.0) 
@@ -214,13 +217,13 @@ Using rdoc (3.12)
 Using thor (0.16.0) 
 Using railties (3.2.9) 
 Installing coffee-rails (3.2.2) 
-Installing jquery-rails (2.1.3) 
-Installing jruby-openssl (0.7.7) 
+Installing jquery-rails (2.1.4) 
+Installing jruby-openssl (0.8.2) 
 Using rails (3.2.9) 
-Installing sass (3.2.3) 
+Installing sass (3.2.4) 
 Installing sass-rails (3.2.5) 
 Installing therubyrhino_jar (1.7.4) 
-Installing therubyrhino (2.0.1) 
+Installing therubyrhino (2.0.2) 
 Installing uglifier (1.3.0) 
 Your bundle is complete! Use `bundle show [gemname]` to see where a bundled gem is installed.
 ----
@@ -272,7 +275,11 @@ gem 'jquery-rails'
 .Prüfen der Abhängigkeiten im _Gemfile_
 ----
 $ cd jmyapp
+
 $ jruby -S bundle check
+The Gemfile's dependencies are satisfied
+
+$ bundle check
 The Gemfile's dependencies are satisfied
 ----
 
@@ -348,12 +355,12 @@ Entwicklungs-Umgebung verwendet.
 ----
 $ jruby -S rails s
 => Booting WEBrick
-=> Rails 3.2.9 application starting in development on http://0.0.0.0:3000   <1>
+=> Rails 3.2.9 application starting in development on http://0.0.0.0:3000    <1>
 => Call with -d to detach
 => Ctrl-C to shutdown server
-[2012-11-22 21:37:41] INFO  WEBrick 1.3.1
-[2012-11-22 21:37:41] INFO  ruby 1.9.3 (2012-10-22) [java]                  <2>
-[2012-11-22 21:37:42] INFO  WEBrick::HTTPServer#start: pid=2986 port=3000
+[2012-12-27 15:44:19] INFO  WEBrick 1.3.1
+[2012-12-27 15:44:19] INFO  ruby 1.9.3 (2012-12-03) [java]                   <2>
+[2012-12-27 15:44:19] INFO  WEBrick::HTTPServer#start: pid=11734 port=3000
 ----
 <1> Der Webserver läuft ohne Port-Angabe (_--port_) auf Port 3000.
 <2> Ruby Version 1.9.3
@@ -365,14 +372,19 @@ Browser> http://localhost:3000/   <1>
 <1> Grundsätzlicher Test der Verbindung!
 <2> Link zu weiteren Informationen...
 
-oder
-
 ----
 Browser> http://localhost:3000/rails/info/properties/   <1>
 ----
 <1> Informationen zur ausgeführten Applikation _MyApp_: + 
    (Ruby-Version, RubyGems, Verzeichnis, Umgebung, Datenbank, Datenbank-Schema)
 
+oder 
+
+----
+$ jruby -S rake about
+----
+
+.Ausgabe...
 ----
 Ruby version	           1.9.3 (java)   <1>
 RubyGems version	        1.8.24

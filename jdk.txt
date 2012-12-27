@@ -17,7 +17,7 @@ Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;
 :java-koerper-url: http://www.arndt-bruenner.de/mathe/java/koerper3d.htm
 
 
-Version 1.6.0, Oktober 2012, <<_changelog,[Changelog]>>
+Version 1.6.2, Dezember 2012, <<_changelog,[Changelog]>>
 
 
 Abstract
@@ -52,10 +52,10 @@ zu anderen Ubuntu-Paketen bereits das _OpenJDK 6_ installiert sein.
 
 ----
 $ dpkg --list | grep openjdk  
-ii  openjdk-6-jdk              6b24-1.11.4-1ubuntu0.12.04.1   OpenJDK Development Kit (JDK)
-ii  openjdk-6-jre              6b24-1.11.4-1ubuntu0.12.04.1   OpenJDK Java runtime, ...
-ii  openjdk-6-jre-headless     6b24-1.11.4-1ubuntu0.12.04.1   OpenJDK Java runtime, ...
-ii  openjdk-6-jre-lib          6b24-1.11.4-1ubuntu0.12.04.1   OpenJDK Java runtime (...)
+ii  openjdk-6-jdk              6b24-1.11.5-1ubuntu0.12.04.1   OpenJDK Development Kit (JDK)
+ii  openjdk-6-jre              6b24-1.11.5-1ubuntu0.12.04.1   OpenJDK Java runtime, ...
+ii  openjdk-6-jre-headless     6b24-1.11.5-1ubuntu0.12.04.1   OpenJDK Java runtime, ...
+ii  openjdk-6-jre-lib          6b24-1.11.5-1ubuntu0.12.04.1   OpenJDK Java runtime (...)
 ----
 ====
 
@@ -118,12 +118,12 @@ Die folgenden NEUEN Pakete werden installiert:   <1>
 Oracle JDK
 ~~~~~~~~~~ 
 Wie auch immer, einige Ubuntu-Anwender benötigen das Oracle JDK. +
-Empfohlen wird die Version 7 Update 9
+Empfohlen wird die Version 7 Update 10
 
 Zusätzliche Software-Pakete  
 sollten im Verzeichnis '/opt' (Optional) installiert werden. 
 
-*Step 0:* Download JDK 7u9
+*Step 0:* Download JDK 7u10
 
 &rarr; {java-url}[Oracle: Java SE Downloads]
 
@@ -138,9 +138,10 @@ for Java SE to download this software.
 $ sudo mkdir /opt/Java && cd /opt/Java 
 
 $ ls -l
+-rw-rw-r-- 1 sid sid 96159666 Dez 27 14:40 jdk-7u10-linux-x64.tar.gz
 -rw-rw-r-- 1 sid sid 96043498 Okt 28 00:59 jdk-7u9-linux-x64.tar.gz
 
-$ sudo tar xvzf jdk-7u9-linux-x64.tar.gz
+$ sudo tar xvzf jdk-7u10-linux-x64.tar.gz
 [...]
 ----
 
@@ -148,11 +149,11 @@ Ein Vorteil bei der gezeigten Lösung ist, daß für das Einspielen einer neuen 
 weder die Konfigurations-Datei noch die 'PATH'-Variable angepasst werden müssen.  
 ----
 $ cd /opt/Java
-$ sudo chown -R root.root jdk1.7.0_09
-$ sudo ln -s jdk1.7.0_09 current
+$ sudo chown -R root.root jdk1.7.0_10
+$ sudo ln -s jdk1.7.0_10 current
 $ ls -l
-lrwxrwxrwx  1 root root   11 Okt 28 01:04 current -> jdk1.7.0_09
-drwxr-xr-x  8 uucp  143 4096 Sep 25 05:38 jdk1.7.0_09
+lrwxrwxrwx  1 root root   11 Dez 27 14:46 current -> jdk1.7.0_10
+drwxr-xr-x  8 root root 4096 Nov 28 13:10 jdk1.7.0_10
 ----
 
 *Step 2:* Java-Pfad setzen (von au&szlig;en)
@@ -171,9 +172,9 @@ $ which java
 /opt/Java/current/bin/java
 
 $ java -version
-java version "1.7.0_09"
-Java(TM) SE Runtime Environment (build 1.7.0_09-b05)
-Java HotSpot(TM) 64-Bit Server VM (build 23.5-b02, mixed mode)
+java version "1.7.0_10"
+Java(TM) SE Runtime Environment (build 1.7.0_10-b18)
+Java HotSpot(TM) 64-Bit Server VM (build 23.6-b04, mixed mode)
 ----
 
 

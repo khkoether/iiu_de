@@ -741,7 +741,7 @@ asciidoc.install(2);
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph"><p>Version 1.6.1, November 2012, <a href="#_changelog">[Changelog]</a></p></div>
+<div class="paragraph"><p>Version 1.6.1, Dezember 2012, <a href="#_changelog">[Changelog]</a></p></div>
 </div>
 </div>
 <div class="sect1">
@@ -778,7 +778,7 @@ beschrieben durchgeführt worden.</p></div>
 /opt/Ruby/current/bin/ruby
 
 $ ruby -v
-ruby 1.9.3p327 (2012-11-10 revision 37606) [x86_64-linux]
+ruby 1.9.3p362 (2012-12-25 revision 38607) [x86_64-linux]
 
 $ which rails
 /opt/Ruby/current/bin/rails
@@ -995,25 +995,34 @@ Der Spezifizierer <em>~&gt; 3.2.1</em> ist identisch mit
 <div class="listingblock">
 <div class="content monospaced">
 <pre># gem install sass-rails coffee-rails uglifier jquery-rails
-Successfully installed sass-3.2.3
+Fetching: sass-3.2.4.gem (100%)
+Fetching: sass-rails-3.2.5.gem (100%)
+Successfully installed sass-3.2.4
 Successfully installed sass-rails-3.2.5
+Fetching: coffee-script-source-1.4.0.gem (100%)
+Fetching: execjs-1.4.0.gem (100%)
+Fetching: coffee-script-2.2.0.gem (100%)
+Fetching: coffee-rails-3.2.2.gem (100%)
 Successfully installed coffee-script-source-1.4.0
 Successfully installed execjs-1.4.0
 Successfully installed coffee-script-2.2.0
 Successfully installed coffee-rails-3.2.2
+Fetching: uglifier-1.3.0.gem (100%)
 Successfully installed uglifier-1.3.0
-Successfully installed jquery-rails-2.1.3
+Fetching: jquery-rails-2.1.4.gem (100%)
+Successfully installed jquery-rails-2.1.4
 8 gems installed
-Installing ri documentation for sass-3.2.3...
+Installing ri documentation for sass-3.2.4...
 [...]
-Installing ri documentation for jquery-rails-2.1.3...
+Installing ri documentation for jquery-rails-2.1.4...
+Installing RDoc documentation for sass-3.2.4...
 [...]
-Installing RDoc documentation for jquery-rails-2.1.3...</pre>
+Installing RDoc documentation for jquery-rails-2.1.4...</pre>
 </div></div>
 <div class="listingblock">
 <div class="title">Prüfen der Abhängigkeiten im <em>Gemfile</em></div>
 <div class="content monospaced">
-<pre>$ cd myapp
+<pre>$ cd MyApp
 $ bundle check
 The Gemfile's dependencies are satisfied</pre>
 </div></div>
@@ -1076,18 +1085,18 @@ Der hier vorgeschlagene Datenbank-Name wird von <em>Ruby on Rails</em>
 <div class="listingblock">
 <div class="title">Möglichkeit 1: Das RubyGem <em>therubyracer</em></div>
 <div class="content monospaced">
-<pre># gem install therubyracer   <img src="./images/icons/callouts/1.png" alt="1">
+<pre># gem install libv8 therubyracer   <img src="./images/icons/callouts/1.png" alt="1">
 root@xanadu:/opt/Ruby/current# gem install therubyracer
-Fetching: libv8-3.3.10.4-x86_64-linux.gem (100%)
-Fetching: therubyracer-0.10.2.gem (100%)
+Fetching: libv8-3.11.8.4.gem (100%)
 Building native extensions.  This could take a while...   <img src="./images/icons/callouts/2.png" alt="2">
-Successfully installed libv8-3.3.10.4-x86_64-linux
-Successfully installed therubyracer-0.10.2
+Successfully installed libv8-3.11.8.4
+Building native extensions.  This could take a while...   <img src="./images/icons/callouts/3.png" alt="3">
+Successfully installed therubyracer-0.11.0
 2 gems installed
-Installing ri documentation for libv8-3.3.10.4-x86_64-linux...
-Installing ri documentation for therubyracer-0.10.2...
-Installing RDoc documentation for libv8-3.3.10.4-x86_64-linux...
-Installing RDoc documentation for therubyracer-0.10.2...</pre>
+Installing ri documentation for libv8-3.11.8.4...
+Installing ri documentation for therubyracer-0.11.0...
+Installing RDoc documentation for libv8-3.11.8.4...
+Installing RDoc documentation for therubyracer-0.11.0...</pre>
 </div></div>
 <div class="colist arabic"><table>
 <tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
@@ -1096,6 +1105,9 @@ Installing RDoc documentation for therubyracer-0.10.2...</pre>
     Call ruby code and manipulate ruby objects from javascript.
 </td></tr>
 <tr><td><img src="./images/icons/callouts/2.png" alt="2"></td><td>
+Das RubyGem <em>libv8</em> wird kompiliert!
+</td></tr>
+<tr><td><img src="./images/icons/callouts/3.png" alt="3"></td><td>
 Das RubyGem <em>therubyracer</em> wird kompiliert!
 </td></tr>
 </table></div>
@@ -1168,9 +1180,9 @@ Entwicklungs-Umgebung verwendet.</p></div>
 =&gt; Rails 3.2.9 application starting in development on http://0.0.0.0:3000   <img src="./images/icons/callouts/1.png" alt="1">
 =&gt; Call with -d to detach
 =&gt; Ctrl-C to shutdown server
-[2012-11-21 11:17:30] INFO  WEBrick 1.3.1
-[2012-11-21 11:17:30] INFO  ruby 1.9.3 (2012-11-10) [x86_64-linux]
-[2012-11-21 11:17:30] INFO  WEBrick::HTTPServer#start: pid=23231 port=3000</pre>
+[2012-12-27 14:30:27] INFO  WEBrick 1.3.1
+[2012-12-27 14:30:27] INFO  ruby 1.9.3 (2012-12-25) [x86_64-linux]
+[2012-12-27 14:30:27] INFO  WEBrick::HTTPServer#start: pid=9696 port=3000</pre>
 </div></div>
 <div class="colist arabic"><table>
 <tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
@@ -1190,7 +1202,6 @@ Grundsätzlicher Test der Verbindung!
 Link zu weiteren Informationen&#8230;
 </td></tr>
 </table></div>
-<div class="paragraph"><p>oder</p></div>
 <div class="listingblock">
 <div class="content monospaced">
 <pre>Browser&gt; http://localhost:3000/rails/info/properties/   <img src="./images/icons/callouts/1.png" alt="1"></pre>
@@ -1201,7 +1212,14 @@ Informationen zur ausgeführten Applikation <em>MyApp</em>:<br>
    (Ruby-Version, RubyGems, Verzeichnis, Umgebung, Datenbank, Datenbank-Schema)
 </td></tr>
 </table></div>
+<div class="paragraph"><p>oder</p></div>
 <div class="listingblock">
+<div class="content monospaced">
+<pre>$ rake about
+[...]</pre>
+</div></div>
+<div class="listingblock">
+<div class="title">Ausgabe&#8230;</div>
 <div class="content monospaced">
 <pre>Ruby version            1.9.3 (x86_64-linux)    <img src="./images/icons/callouts/1.png" alt="1">
 RubyGems version        1.8.24
@@ -1255,7 +1273,7 @@ Ruby Version 1.9.3
 <div id="footnotes"><hr></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2012-11-25 19:29:46 CET
+Last updated 2012-12-27 15:59:36 CET
 </div>
 </div>
 </body>

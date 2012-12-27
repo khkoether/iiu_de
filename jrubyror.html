@@ -741,7 +741,7 @@ asciidoc.install(2);
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph"><p>Version 1.6.0, Oktober 2012, <a href="#_changelog">[Changelog]</a></p></div>
+<div class="paragraph"><p>Version 1.6.2, Dezember 2012, <a href="#_changelog">[Changelog]</a></p></div>
 </div>
 </div>
 <div class="sect1">
@@ -770,7 +770,7 @@ Gerne nehme ich Verbesserungsvorschläge entgegen.</p></div>
 <h2 id="_vorraussetzungen">Vorraussetzungen</h2>
 <div class="sectionbody">
 <div class="paragraph"><p><em>JRuby</em> und <em>Ruby on Rails</em> sind wie
-in <a href="jruby.html">Installation in Ubuntu: JRuby 1.7.0, Ruby on Rails 3.2.9</a>
+in <a href="jruby.html">Installation in Ubuntu: JRuby 1.7.1, Ruby on Rails 3.2.9</a>
 beschrieben durchgeführt worden.</p></div>
 <div class="listingblock">
 <div class="content monospaced">
@@ -778,15 +778,18 @@ beschrieben durchgeführt worden.</p></div>
 /opt/JRuby/sid/current/bin/jruby
 
 $ jruby -v
-jruby 1.7.0 (1.9.3p203) 2012-10-22 ff1ebbe on Java HotSpot(TM) 64-Bit Server VM 1.7.0_09-b05 [linux-amd64]
+jruby 1.7.1 (1.9.3p327) 2012-12-03 30a153b on Java HotSpot(TM) 64-Bit Server VM 1.7.0_10-b18 [linux-amd64]
 
-$ jruby -v   <img src="./images/icons/callouts/1.png" alt="1">
-jruby 1.7.0 (ruby-1.8.7p370) 2012-10-22 ff1ebbe on Java HotSpot(TM) 64-Bit Server VM 1.7.0_09-b05 [linux-amd64]
+$ jruby -v --1.8   <img src="./images/icons/callouts/1.png" alt="1">
+jruby 1.7.1 (ruby-1.8.7p370) 2012-12-03 30a153b on Java HotSpot(TM) 64-Bit Server VM 1.7.0_10-b18 [linux-amd64]
 
 $ which rails
 /opt/JRuby/sid/current/bin/rails
 
 $ jruby -S rails -v   <img src="./images/icons/callouts/2.png" alt="2">
+Rails 3.2.9
+
+$ rails -v
 Rails 3.2.9</pre>
 </div></div>
 <div class="colist arabic"><table>
@@ -794,7 +797,7 @@ Rails 3.2.9</pre>
 Die Installation <em>JRuby</em> enthält zwei (gleichberechtigte) Implementationen der
     Programmier-Sprache <em>Ruby</em>:<br>
     <em>Ruby 1.8.7-p370</em><br>
-    <em>Ruby 1.9.2-p203</em> (default)
+    <em>Ruby 1.9.2-p327</em> (default)
 </td></tr>
 <tr><td><img src="./images/icons/callouts/2.png" alt="2"></td><td>
 Der Schalter <em>-S</em> führt dazu, daß für das Script zuerst
@@ -952,9 +955,9 @@ $ jruby -S rails new jMyApp --database=mysql   <img src="./images/icons/callouts
 
 Fetching gem metadata from https://rubygems.org/...........
 Fetching gem metadata from https://rubygems.org/..
-Using rake (10.0.2)
+Using rake (10.0.3)
 Using i18n (0.6.1)
-Using multi_json (1.3.7)
+Using multi_json (1.5.0)
 Using activesupport (3.2.9)
 Using builder (3.0.4)
 Using activemodel (3.2.9)
@@ -965,7 +968,7 @@ Using rack-cache (1.2)
 Using rack-test (0.6.2)
 Using hike (1.2.1)
 Using tilt (1.3.3)
-Using sprockets (2.2.1)
+Using sprockets (2.2.2)
 Using actionpack (3.2.9)
 Using mime-types (1.19)
 Using polyglot (0.3.3)
@@ -976,11 +979,11 @@ Using arel (3.0.2)
 Using tzinfo (0.3.35)
 Using activerecord (3.2.9)
 Using activerecord-jdbc-adapter (1.2.2.1)
-Using jdbc-mysql (5.1.13)
+Using jdbc-mysql (5.1.22)
 Using activerecord-jdbcmysql-adapter (1.2.2.1)
 Using activeresource (3.2.9)
 Installing bouncy-castle-java (1.5.0146.1)
-Using bundler (1.2.2)
+Using bundler (1.2.3)
 Installing coffee-script-source (1.4.0)
 Installing execjs (1.4.0)
 Installing coffee-script (2.2.0)
@@ -990,13 +993,13 @@ Using rdoc (3.12)
 Using thor (0.16.0)
 Using railties (3.2.9)
 Installing coffee-rails (3.2.2)
-Installing jquery-rails (2.1.3)
-Installing jruby-openssl (0.7.7)
+Installing jquery-rails (2.1.4)
+Installing jruby-openssl (0.8.2)
 Using rails (3.2.9)
-Installing sass (3.2.3)
+Installing sass (3.2.4)
 Installing sass-rails (3.2.5)
 Installing therubyrhino_jar (1.7.4)
-Installing therubyrhino (2.0.1)
+Installing therubyrhino (2.0.2)
 Installing uglifier (1.3.0)
 Your bundle is complete! Use `bundle show [gemname]` to see where a bundled gem is installed.</pre>
 </div></div>
@@ -1066,7 +1069,11 @@ RubyGem <em>therubyrhino</em>: JavaScript-Interpreter
 <div class="title">Prüfen der Abhängigkeiten im <em>Gemfile</em></div>
 <div class="content monospaced">
 <pre>$ cd jmyapp
+
 $ jruby -S bundle check
+The Gemfile's dependencies are satisfied
+
+$ bundle check
 The Gemfile's dependencies are satisfied</pre>
 </div></div>
 <div class="admonitionblock">
@@ -1156,12 +1163,12 @@ Entwicklungs-Umgebung verwendet.</p></div>
 <div class="content monospaced">
 <pre>$ jruby -S rails s
 =&gt; Booting WEBrick
-=&gt; Rails 3.2.9 application starting in development on http://0.0.0.0:3000   <img src="./images/icons/callouts/1.png" alt="1">
+=&gt; Rails 3.2.9 application starting in development on http://0.0.0.0:3000    <img src="./images/icons/callouts/1.png" alt="1">
 =&gt; Call with -d to detach
 =&gt; Ctrl-C to shutdown server
-[2012-11-22 21:37:41] INFO  WEBrick 1.3.1
-[2012-11-22 21:37:41] INFO  ruby 1.9.3 (2012-10-22) [java]                  <img src="./images/icons/callouts/2.png" alt="2">
-[2012-11-22 21:37:42] INFO  WEBrick::HTTPServer#start: pid=2986 port=3000</pre>
+[2012-12-27 15:44:19] INFO  WEBrick 1.3.1
+[2012-12-27 15:44:19] INFO  ruby 1.9.3 (2012-12-03) [java]                   <img src="./images/icons/callouts/2.png" alt="2">
+[2012-12-27 15:44:19] INFO  WEBrick::HTTPServer#start: pid=11734 port=3000</pre>
 </div></div>
 <div class="colist arabic"><table>
 <tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
@@ -1184,7 +1191,6 @@ Grundsätzlicher Test der Verbindung!
 Link zu weiteren Informationen&#8230;
 </td></tr>
 </table></div>
-<div class="paragraph"><p>oder</p></div>
 <div class="listingblock">
 <div class="content monospaced">
 <pre>Browser&gt; http://localhost:3000/rails/info/properties/   <img src="./images/icons/callouts/1.png" alt="1"></pre>
@@ -1195,7 +1201,13 @@ Informationen zur ausgeführten Applikation <em>MyApp</em>:<br>
    (Ruby-Version, RubyGems, Verzeichnis, Umgebung, Datenbank, Datenbank-Schema)
 </td></tr>
 </table></div>
+<div class="paragraph"><p>oder</p></div>
 <div class="listingblock">
+<div class="content monospaced">
+<pre>$ jruby -S rake about</pre>
+</div></div>
+<div class="listingblock">
+<div class="title">Ausgabe&#8230;</div>
 <div class="content monospaced">
 <pre>Ruby version               1.9.3 (java)   <img src="./images/icons/callouts/1.png" alt="1">
 RubyGems version                1.8.24
@@ -1249,7 +1261,7 @@ Ruby Version 1.9.3 (java)
 <div id="footnotes"><hr></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2012-11-25 19:29:24 CET
+Last updated 2012-12-27 15:56:35 CET
 </div>
 </div>
 </body>
