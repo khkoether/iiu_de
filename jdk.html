@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="generator" content="AsciiDoc 8.6.8">
-<title>Installation in Ubuntu: OpenJDK 6, Oracle JDK 7</title>
+<title>Installation in Ubuntu: OpenJDK 7, Oracle JDK 7</title>
 <style type="text/css">
 /* Shared CSS for AsciiDoc xhtml11 and html5 backends */
 
@@ -730,7 +730,7 @@ asciidoc.install(2);
 </head>
 <body class="article">
 <div id="header">
-<h1>Installation in Ubuntu: OpenJDK 6, Oracle JDK 7</h1>
+<h1>Installation in Ubuntu: OpenJDK 7, Oracle JDK 7</h1>
 <span id="author">Karl-Heinz Köther</span><br>
 <span id="email" class="monospaced">&lt;<a href="mailto:&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;">&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;</a>&gt;</span><br>
 <div id="toc">
@@ -741,7 +741,7 @@ asciidoc.install(2);
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph"><p>Version 1.6.2, Dezember 2012, <a href="#_changelog">[Changelog]</a></p></div>
+<div class="paragraph"><p>Version 1.8.0, April 2013, <a href="#_changelog">[Changelog]</a></p></div>
 </div>
 </div>
 <div class="sect1">
@@ -784,10 +784,10 @@ zu anderen Ubuntu-Paketen bereits das <em>OpenJDK 6</em> installiert sein.</p></
 <div class="listingblock">
 <div class="content monospaced">
 <pre>$ dpkg --list | grep openjdk
-ii  openjdk-6-jdk              6b24-1.11.5-1ubuntu0.12.04.1   OpenJDK Development Kit (JDK)
-ii  openjdk-6-jre              6b24-1.11.5-1ubuntu0.12.04.1   OpenJDK Java runtime, ...
-ii  openjdk-6-jre-headless     6b24-1.11.5-1ubuntu0.12.04.1   OpenJDK Java runtime, ...
-ii  openjdk-6-jre-lib          6b24-1.11.5-1ubuntu0.12.04.1   OpenJDK Java runtime (...)</pre>
+ii  openjdk-6-jdk              6b24-1.11.5-0ubuntu1~12.04.1   OpenJDK Development Kit (JDK)
+ii  openjdk-6-jre              6b24-1.11.5-0ubuntu1~12.04.1   OpenJDK Java runtime, ...
+ii  openjdk-6-jre-headless     6b24-1.11.5-0ubuntu1~12.04.1   OpenJDK Java runtime, ...
+ii  openjdk-6-jre-lib          6b24-1.11.5-0ubuntu1~12.04.1   OpenJDK Java runtime (...)</pre>
 </div></div>
 </td>
 </tr></table>
@@ -797,7 +797,7 @@ ii  openjdk-6-jre-lib          6b24-1.11.5-1ubuntu0.12.04.1   OpenJDK Java runti
 <div class="sect1">
 <h2 id="_installation">Installation</h2>
 <div class="sectionbody">
-<div class="paragraph"><div class="title">Primäre Auswahl: OpenJDK 6 und nicht Oracle (Sun) Java</div><p>Für Java steht eine gute OpenSource-Anwendung zur Verfügung: das <em>OpenJDK 6</em> und
+<div class="paragraph"><div class="title">Primäre Auswahl: OpenJDK 7 und nicht Oracle (Sun) Java</div><p>Für Java steht eine gute OpenSource-Anwendung zur Verfügung: das <em>OpenJDK 7</em> und
 das <em>IcedTea-Plugin</em> für den Browser. Sie sind erhältlich in den regulären
 Ubuntu-Repositories und erhalten regelmäßig Sicherheits-Updates.
 Für viele Menschen ist dieses Java ausreichend.</p></div>
@@ -805,20 +805,7 @@ Für viele Menschen ist dieses Java ausreichend.</p></div>
 Software-Repositories entfernt wurde.</p></div>
 <div class="paragraph"><p>Und nicht zu vergessen, Oracle hat die
 <em>Operating System Distributor License for Java (DLJ)</em> zurückgezogen.</p></div>
-<div class="admonitionblock">
-<table><tr>
-<td class="icon">
-<img src="./images/icons/note.png" alt="Note">
-</td>
-<td class="content">
-<div class="paragraph"><p>Installieren Sie (zu diesem Zeitpunkt) nicht <em>OpenJDK 7</em>, es ist zu früh &#8230; und
-es hat auch nicht viel Mehr-Nutzen für Sie. <em>OpenJDK 6</em> (Standard in Ubuntu)
-ist noch immer die bevorzugte Wahl.</p></div>
-</td>
-</tr></table>
-</div>
 <div class="paragraph"><p>&rarr; <a href="http://sites.google.com/site/easylinuxtipsproject/java#TOC-Primary-choice:-OpenJDK-6-and-not-Oracle-Sun-Java">Oracle (Sun) Java JRE for Ubuntu, Linux Mint and Debian</a></p></div>
-<div class="paragraph"><p>&rarr; <a href="http://wiki.ubuntuusers.de/Java">ubunutusers.de: Java</a></p></div>
 <div class="admonitionblock">
 <table><tr>
 <td class="icon">
@@ -832,38 +819,147 @@ Es gilt, Bugs zu melden, damit <em>OpenJDK</em> so gut wird wie die proprietäre
 </td>
 </tr></table>
 </div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/note.png" alt="Note">
+</td>
+<td class="content">
+<div class="paragraph"><p>OpenJDK 6 ist die ältere Version, was aber nicht heißen soll, dass sie veraltet ist.
+OpenJDK 7 ist aktueller, aber im Gegensatz zum Vorgänger nicht für alle
+Ubuntu-Versionen verfügbar. Wer kann, sollte sich für OpenJDK 7 entscheiden -
+solange ein spezieller Anwendungszweck wie beispielsweise <em>ElsterOnline</em> nicht
+dagegen spricht.</p></div>
+<div class="paragraph"><p>&rarr; <a href="http://wiki.ubuntuusers.de/Java">ubunutusers.de: Java</a></p></div>
+</td>
+</tr></table>
+</div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/caution.png" alt="Caution">
+</td>
+<td class="content">
+<div class="paragraph"><p>Ich habe mich entschlossen das vorhandende <em>OpenJDK 6</em> durch <em>OpenJDK 7</em> zu ersetzen.
+Das muß nicht von Ihnen gemacht werden!
+Wenn Sie sich entscheiden <em>OpenJDK 7</em> zusätzlich zu installieren,
+müssen sie aber die von Ihnen gewünschte Version als systemweiter Standard setzen.</p></div>
+<div class="paragraph"><p>&rarr; <a href="http://wiki.ubuntuusers.de/Java/Tipps#Verwendete-Java-Version-einstellen">ubuntuusers.de: Tipps - Verwendete Java-Version einstellen</a></p></div>
+</td>
+</tr></table>
+</div>
 <div class="sect2">
 <h3 id="_openjdk">OpenJDK</h3>
 <div class="listingblock">
 <div class="content monospaced">
-<pre>$ sudo apt-get install openjdk-6-jdk
+<pre>$ sudo apt-get remove openjdk-6-jre openjdk-6-jdk openjdk-6-jre-headless openjdk-6-jre-lib  <img src="./images/icons/callouts/1.png" alt="1">
 Abhängigkeitsbaum wird aufgebaut
 [...]
-Die folgenden NEUEN Pakete werden installiert:   <img src="./images/icons/callouts/1.png" alt="1">
-  ca-certificates-java icedtea-6-jre-cacao icedtea-6-jre-jamvm icedtea-netx
-  icedtea-netx-common java-common libatk-wrapper-java libatk-wrapper-java-jni
-  libgif4 libice-dev libpthread-stubs0 libpthread-stubs0-dev libsm-dev
-  libx11-dev libx11-doc libxau-dev libxcb1-dev libxdmcp-dev libxt-dev
-  openjdk-6-jdk openjdk-6-jre openjdk-6-jre-headless openjdk-6-jre-lib
-  ttf-dejavu-extra tzdata-java x11proto-core-dev x11proto-input-dev
-  x11proto-kb-dev xorg-sgml-doctools xtrans-dev
-0 aktualisiert, 30 neu installiert, 0 zu entfernen und 0 nicht aktualisiert.
+Die folgenden Pakete wurden automatisch installiert und werden nicht mehr benötigt:
+  libsm-dev libdb5.1-java-gcj libdb-je-java libice-dev libgcj-bc libpthread-stubs0 libjtidy-java
+  libicu4j-java libcommons-beanutils-java libdb-java javahelp2 libcommons-compress-java x11proto-kb-dev
+  libdb5.1-java xtrans-dev ant x11proto-input-dev ant-optional libxt-dev libxau-dev
+  libswing-layout-java libregexp-java xorg-sgml-doctools liblucene2-java libx11-dev
+  libcommons-collections3-java libx11-doc libxcb1-dev libcommons-digester-java x11proto-core-dev
+  libxdmcp-dev libpthread-stubs0-dev
+Verwenden Sie »apt-get autoremove«, um sie zu entfernen.
+Die folgenden zusätzlichen Pakete werden installiert:
+  icedtea-7-jre-jamvm openjdk-7-jre openjdk-7-jre-headless openjdk-7-jre-lib
+Vorgeschlagene Pakete:
+  icedtea-7-plugin sun-java6-fonts fonts-ipafont-gothic fonts-ipafont-mincho ttf-telugu-fonts
+  ttf-oriya-fonts ttf-kannada-fonts ttf-bengali-fonts
+Die folgenden Pakete werden ENTFERNT:
+  icedtea-6-jre-cacao icedtea-6-jre-jamvm icedtea-netx openjdk-6-jdk openjdk-6-jre
+  openjdk-6-jre-headless openjdk-6-jre-lib pauker
+Die folgenden NEUEN Pakete werden installiert:
+  icedtea-7-jre-jamvm openjdk-7-jre openjdk-7-jre-headless openjdk-7-jre-lib
+0 aktualisiert, 4 neu installiert, 8 zu entfernen und 0 nicht aktualisiert.
 [...]</pre>
 </div></div>
 <div class="colist arabic"><table>
 <tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
-Zu den 30 neu zu installierenden Ubuntu-Pakete gehören unter anderem:<br>
-    <em>icedtea_plugin</em>, <em>openjdk-6-jre</em> und <em>openjdk-6-jre-headless</em>
+Die vier zu entfernenden Pakete werden für das System mit vier <em>7</em>-Pakete ersetzt!<br>
+    <em>icedtea-7-jre-jamvm</em> <em>openjdk-7-jre</em> <em>openjdk-7-jre-headless</em> <em>openjdk-7-jre-lib</em>
 </td></tr>
 </table></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>$ sudo apt-get autoremove  <img src="./images/icons/callouts/1.png" alt="1">
+Statusinformationen werden eingelesen... Fertig
+Die folgenden Pakete werden ENTFERNT:
+  ant ant-optional icedtea-netx-common javahelp2 libcommons-beanutils-java libcommons-collections3-java
+  libcommons-compress-java libcommons-digester-java libdb-java libdb-je-java libdb5.1-java
+  libdb5.1-java-gcj libgcj-bc libice-dev libicu4j-java libjtidy-java liblucene2-java libpthread-stubs0
+  libpthread-stubs0-dev libregexp-java libsm-dev libswing-layout-java libx11-dev libx11-doc libxau-dev
+  libxcb1-dev libxdmcp-dev libxt-dev x11proto-core-dev x11proto-input-dev x11proto-kb-dev
+  xorg-sgml-doctools xtrans-dev
+0 aktualisiert, 0 neu installiert, 33 zu entfernen und 0 nicht aktualisiert.
+[...]</pre>
+</div></div>
+<div class="colist arabic"><table>
+<tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
+Die automatisch installierten Pakete (s. o.) werden entfernt!
+</td></tr>
+</table></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>$ sudo apt-get install icedtea-7-plugin  <img src="./images/icons/callouts/1.png" alt="1">
+Paketlisten werden gelesen... Fertig
+Abhängigkeitsbaum wird aufgebaut
+Statusinformationen werden eingelesen... Fertig
+Die folgenden zusätzlichen Pakete werden installiert:
+  icedtea-netx icedtea-netx-common
+Die folgenden NEUEN Pakete werden installiert:
+  icedtea-7-plugin icedtea-netx icedtea-netx-common
+0 aktualisiert, 3 neu installiert, 0 zu entfernen und 0 nicht aktualisiert.
+[...]</pre>
+</div></div>
+<div class="colist arabic"><table>
+<tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
+Sie müssen entscheiden ob Sie erneut das Java-Plugin für den Browser installieren,
+    oder aus Sicherheitsgründen darauf verzichten&#8230;!?
+</td></tr>
+</table></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>$ sudo apt-get install openjdk-7-jdk  <img src="./images/icons/callouts/1.png" alt="1">
+Paketlisten werden gelesen... Fertig
+Abhängigkeitsbaum wird aufgebaut
+Statusinformationen werden eingelesen... Fertig
+Die folgenden zusätzlichen Pakete werden installiert:
+  libice-dev libpthread-stubs0 libpthread-stubs0-dev libsm-dev libx11-dev libx11-doc libxau-dev
+  libxcb1-dev libxdmcp-dev libxt-dev x11proto-core-dev x11proto-input-dev x11proto-kb-dev
+  xorg-sgml-doctools xtrans-dev
+Vorgeschlagene Pakete:
+  libxcb-doc openjdk-7-demo openjdk-7-source visualvm
+Die folgenden NEUEN Pakete werden installiert:
+  libice-dev libpthread-stubs0 libpthread-stubs0-dev libsm-dev libx11-dev libx11-doc libxau-dev
+  libxcb1-dev libxdmcp-dev libxt-dev openjdk-7-jdk x11proto-core-dev x11proto-input-dev x11proto-kb-dev
+  xorg-sgml-doctools xtrans-dev
+0 aktualisiert, 16 neu installiert, 0 zu entfernen und 0 nicht aktualisiert.
+[...]</pre>
+</div></div>
+<div class="colist arabic"><table>
+<tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
+Ein Teil der oben entfernten Pakete finden sich hier zur erneuten Installation wieder ;-)
+</td></tr>
+</table></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>$ java -version
+java version "1.7.0_15"
+OpenJDK Runtime Environment (IcedTea7 2.3.7) (7u15-2.3.7-0ubuntu1~12.04.1)
+OpenJDK 64-Bit Server VM (build 23.7-b01, mixed mode)</pre>
+</div></div>
 </div>
 <div class="sect2">
 <h3 id="_oracle_jdk">Oracle JDK</h3>
 <div class="paragraph"><p>Wie auch immer, einige Ubuntu-Anwender benötigen das Oracle JDK.<br>
-Empfohlen wird die Version 7 Update 10</p></div>
+Empfohlen wird die jeweils neueste Version - zu diesem Zeitpunkt ist das:
+<em>Java SE Development Kit 7u17</em>.</p></div>
 <div class="paragraph"><p>Zusätzliche Software-Pakete
 sollten im Verzeichnis <em>/opt</em> (Optional) installiert werden.</p></div>
-<div class="paragraph"><p><strong>Step 0:</strong> Download JDK 7u10</p></div>
+<div class="paragraph"><p><strong>Step 0:</strong> Download JDK 7u17</p></div>
 <div class="paragraph"><p>&rarr; <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Oracle: Java SE Downloads</a></p></div>
 <div class="admonitionblock">
 <table><tr>
@@ -882,10 +978,9 @@ for Java SE to download this software.</p></div>
 <pre>$ sudo mkdir /opt/Java &amp;&amp; cd /opt/Java
 
 $ ls -l
--rw-rw-r-- 1 sid sid 96159666 Dez 27 14:40 jdk-7u10-linux-x64.tar.gz
--rw-rw-r-- 1 sid sid 96043498 Okt 28 00:59 jdk-7u9-linux-x64.tar.gz
+-rw-rw-r-- 1 khk khk 96160926 Apr  14 13:28 jdk-7u17-linux-x64.tar.gz
 
-$ sudo tar xvzf jdk-7u10-linux-x64.tar.gz
+$ sudo tar xvzf jdk-7u17-linux-x64.tar.gz
 [...]</pre>
 </div></div>
 <div class="paragraph"><p>Ein Vorteil bei der gezeigten Lösung ist, daß für das Einspielen einer neuen Version
@@ -893,11 +988,11 @@ weder die Konfigurations-Datei noch die <em>PATH</em>-Variable angepasst werden 
 <div class="listingblock">
 <div class="content monospaced">
 <pre>$ cd /opt/Java
-$ sudo chown -R root.root jdk1.7.0_10
-$ sudo ln -s jdk1.7.0_10 current
+$ sudo chown -R root.root jdk1.7.0_17
+$ sudo ln -s jdk1.7.0_17 current
 $ ls -l
-lrwxrwxrwx  1 root root   11 Dez 27 14:46 current -&gt; jdk1.7.0_10
-drwxr-xr-x  8 root root 4096 Nov 28 13:10 jdk1.7.0_10</pre>
+lrwxrwxrwx 1 root root   11 Apr 14 13:31 current -&gt; jdk1.7.0_17
+drwxr-xr-x 8 root root 4096 Mär  1 12:28 jdk1.7.0_17</pre>
 </div></div>
 <div class="paragraph"><p><strong>Step 2:</strong> Java-Pfad setzen (von au&szlig;en)
 Erstellen Sie eine Datei java.path.sh (siehe <a href="#_anhang">[Anhang]</a>).</p></div>
@@ -922,9 +1017,9 @@ Erstellen Sie eine Datei java.path.sh (siehe <a href="#_anhang">[Anhang]</a>).</
 /opt/Java/current/bin/java
 
 $ java -version
-java version "1.7.0_10"
-Java(TM) SE Runtime Environment (build 1.7.0_10-b18)
-Java HotSpot(TM) 64-Bit Server VM (build 23.6-b04, mixed mode)</pre>
+java version "1.7.0_17"
+Java(TM) SE Runtime Environment (build 1.7.0_17-b02)
+Java HotSpot(TM) 64-Bit Server VM (build 23.7-b01, mixed mode)</pre>
 </div></div>
 </div>
 </div>
@@ -954,7 +1049,7 @@ export PATH</pre>
 <div id="footnotes"><hr></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2012-12-27 14:48:26 CET
+Last updated 2013-04-14 13:51:28 CEST
 </div>
 </div>
 </body>

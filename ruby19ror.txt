@@ -1,5 +1,5 @@
-Ruby on Rails: Erste Schritte (mit Ruby)
-========================================
+Ruby on Rails: Erste Schritte 
+=============================
 Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;>
 
 :icons:
@@ -8,7 +8,7 @@ Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;
 :ubuntu-url: http://www.ubuntu.com/
 :ruby19-url: link:ruby19.html
 
-Version 1.6.1, Dezember 2012, <<_changelog,[Changelog]>>
+Version 1.8.0, April 2013, <<_changelog,[Changelog]>>
 
 
 Abstract
@@ -32,7 +32,7 @@ Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr.
 Vorraussetzungen
 ----------------
 _Ruby_ und _Ruby on Rails_ sind wie 
-in {ruby19-url}[Installation in Ubuntu: Ruby 1.9.3, Ruby on Rails 3.2.9] 
+in {ruby19-url}[Installation in Ubuntu: Ruby 1.9.3, Ruby on Rails 3.2.13] 
 beschrieben durchgeführt worden.
 
 ----
@@ -40,13 +40,13 @@ $ which ruby
 /opt/Ruby/current/bin/ruby
 
 $ ruby -v 
-ruby 1.9.3p362 (2012-12-25 revision 38607) [x86_64-linux]
+ruby 1.9.3p392 (2013-02-22 revision 39386) [x86_64-linux]
 
 $ which rails
 /opt/Ruby/current/bin/rails
 
 $ rails -v
-Rails 3.2.9
+Rails 3.2.13
 ----
    
    
@@ -172,13 +172,37 @@ Enter your password to install the bundled RubyGems to your system:   <4>
 <3> Konfigurationsdatei mit den Einstellungen für den 
     Datenbankzugriff (Datenbankadapter).        
 <4> Wenn Sie nicht berechtigt sind RubyGems zu installieren, müssen Sie 
-    die benötigten RubyGems installieren lassen!
+    die benötigten RubyGems installieren lassen! (Abbruch: [CRTL-C])
+
+----
+$ cd MyApp
+
+$ tree -L 1 .
+.
+├── app
+├── config
+├── config.ru
+├── db
+├── doc
+├── Gemfile
+├── lib
+├── log
+├── public
+├── Rakefile
+├── README.rdoc
+├── script
+├── test
+├── tmp
+└── vendor
+
+11 directories, 4 files
+----
 
 .Gemfile
 ----
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.9'
+gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -206,38 +230,86 @@ gem 'jquery-rails'
 <2> Der Spezifizierer '~> 3.2.1' ist identisch mit 
     den Bedingungen '>= 3.2.1' und '< 3.3'.    
 
-.Installation zusätzlicher Gems: 
-_sass-rails_, _coffee-rails_, _uglifier_ und _jquery-rails_
+.Prüfen der Abhängigkeiten im _Gemfile_ (1)
 ----
-# gem install sass-rails coffee-rails uglifier jquery-rails
-Fetching: sass-3.2.4.gem (100%)
-Fetching: sass-rails-3.2.5.gem (100%)
-Successfully installed sass-3.2.4
-Successfully installed sass-rails-3.2.5
-Fetching: coffee-script-source-1.4.0.gem (100%)
+$ bundle check
+Your Gemfile's dependencies could not be satisfied
+Install missing gems with `bundle install`
+
+$ bundle list
+Could not find gem 'jquery-rails (>= 0) ruby' in the gems available on this machine.
+----
+
+.Installation des fehlenden Gem: _jquery_rails_
+----
+Fetching: jquery-rails-2.2.1.gem (100%)
+Successfully installed jquery-rails-2.2.1
+Parsing documentation for jquery-rails-2.2.1
+Installing ri documentation for jquery-rails-2.2.1
+Installing darkfish documentation for jquery-rails-2.2.1
+Done installing documentation for jquery-rails after 0 seconds
+1 gem installed
+----
+
+.Prüfen der Abhängigkeiten im _Gemfile_ (2)
+----
+$ bundle check
+Resolving dependencies...
+Bundler can't satisfy your Gemfile's dependencies.
+Install missing gems with `bundle install`.
+
+$ bundle list
+Could not find gem 'coffee-rails (~> 3.2.1) ruby' in the gems available on this machine.
+----
+
+.Installation der (offensichtlich) fehlenden Gems: _coffee-rails_, _sass-rails_, und _uglifier_ 
+----
+# gem install coffee-rails sass-rails uglifier --rdoc --ri
+Fetching: coffee-script-source-1.6.2.gem (100%)
+Successfully installed coffee-script-source-1.6.2
 Fetching: execjs-1.4.0.gem (100%)
-Fetching: coffee-script-2.2.0.gem (100%)
-Fetching: coffee-rails-3.2.2.gem (100%)
-Successfully installed coffee-script-source-1.4.0
 Successfully installed execjs-1.4.0
+Fetching: coffee-script-2.2.0.gem (100%)
 Successfully installed coffee-script-2.2.0
+Fetching: coffee-rails-3.2.2.gem (100%)
 Successfully installed coffee-rails-3.2.2
-Fetching: uglifier-1.3.0.gem (100%)
-Successfully installed uglifier-1.3.0
-Fetching: jquery-rails-2.1.4.gem (100%)
-Successfully installed jquery-rails-2.1.4
-8 gems installed
-Installing ri documentation for sass-3.2.4...
-[...]
-Installing ri documentation for jquery-rails-2.1.4...
-Installing RDoc documentation for sass-3.2.4...
-[...]
-Installing RDoc documentation for jquery-rails-2.1.4...
+Parsing documentation for coffee-script-source-1.6.2
+Installing ri documentation for coffee-script-source-1.6.2
+Installing darkfish documentation for coffee-script-source-1.6.2
+Parsing documentation for execjs-1.4.0
+Installing ri documentation for execjs-1.4.0
+Installing darkfish documentation for execjs-1.4.0
+Parsing documentation for coffee-script-2.2.0
+Installing ri documentation for coffee-script-2.2.0
+Installing darkfish documentation for coffee-script-2.2.0
+Parsing documentation for coffee-rails-3.2.2
+Installing ri documentation for coffee-rails-3.2.2
+Installing darkfish documentation for coffee-rails-3.2.2
+Done installing documentation for coffee-script-source, execjs, coffee-script, coffee-rails after 23 seconds   <1>
+Fetching: sass-3.2.7.gem (100%)
+Successfully installed sass-3.2.7
+Fetching: sass-rails-3.2.6.gem (100%)
+Successfully installed sass-rails-3.2.6
+Parsing documentation for sass-3.2.7
+Installing ri documentation for sass-3.2.7
+Installing darkfish documentation for sass-3.2.7
+Parsing documentation for sass-rails-3.2.6
+Installing ri documentation for sass-rails-3.2.6
+Installing darkfish documentation for sass-rails-3.2.6
+Done installing documentation for sass, sass-rails after 15 seconds
+Fetching: uglifier-2.0.1.gem (100%)
+Successfully installed uglifier-2.0.1
+Parsing documentation for uglifier-2.0.1
+Installing ri documentation for uglifier-2.0.1
+Installing darkfish documentation for uglifier-2.0.1
+Done installing documentation for uglifier after 0 seconds
+7 gems installed
 ----
- 
-.Prüfen der Abhängigkeiten im _Gemfile_
+<1> Abhängigkeiten für _coffee-rails_: _coffee-script-source_, _execjs_ und _coffee-script_ +
+    Abhängigkeit für _sass-rails_: _sass_ 
+
+.Prüfen der Abhängigkeiten im _Gemfile_ (3)
 ----
-$ cd MyApp
 $ bundle check
 The Gemfile's dependencies are satisfied
 ----
@@ -288,30 +360,36 @@ Für die erzeugte _Ruby on Rails_-Anwendung ist eine JavaScript-Runtime erforder
 
 .Möglichkeit 1: Das RubyGem _therubyracer_
 ----
-# gem install libv8 therubyracer   <1>
-root@xanadu:/opt/Ruby/current# gem install therubyracer
-Fetching: libv8-3.11.8.4.gem (100%)
+# gem install therubyracer --rdoc --ri   <1>
+Fetching: ref-1.0.4.gem (100%)
+Successfully installed ref-1.0.4
+Fetching: libv8-3.11.8.17-x86_64-linux.gem (100%)
+Successfully installed libv8-3.11.8.17-x86_64-linux
+Fetching: therubyracer-0.11.4.gem (100%)
 Building native extensions.  This could take a while...   <2>
-Successfully installed libv8-3.11.8.4
-Building native extensions.  This could take a while...   <3>
-Successfully installed therubyracer-0.11.0
-2 gems installed
-Installing ri documentation for libv8-3.11.8.4...
-Installing ri documentation for therubyracer-0.11.0...
-Installing RDoc documentation for libv8-3.11.8.4...
-Installing RDoc documentation for therubyracer-0.11.0...
+Successfully installed therubyracer-0.11.4
+Parsing documentation for ref-1.0.4
+Installing ri documentation for ref-1.0.4
+Installing darkfish documentation for ref-1.0.4
+Parsing documentation for libv8-3.11.8.17-x86_64-linux
+Installing ri documentation for libv8-3.11.8.17-x86_64-linux
+Installing darkfish documentation for libv8-3.11.8.17-x86_64-linux
+Parsing documentation for therubyracer-0.11.4
+Installing ri documentation for therubyracer-0.11.4
+Installing darkfish documentation for therubyracer-0.11.4
+Done installing documentation for ref, libv8, therubyracer after 2 seconds
+3 gems installed
 ----
 <1> link:http://rubygems.org/gems/therubyracer[RubyGems.org: therubyracer] +
     Call javascript code and manipulate javascript objects from ruby. +
     Call ruby code and manipulate ruby objects from javascript.
-<2> Das RubyGem 'libv8' wird kompiliert!
-<3> Das RubyGem 'therubyracer' wird kompiliert!
+<2> Das RubyGem 'therubyracer' wird kompiliert!
 
 .Gemfile
 ----
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.9'
+gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -337,28 +415,31 @@ gem 'jquery-rails'
 
 ----
 $ bundle check
+Resolving dependencies...
 The Gemfile's dependencies are satisfied
 ----
 
 .Möglichkeit 2: Das Ubuntu-Paket 'nodejs' installieren
 ----
-$ sudo apt-get install nodejs
+$ sudo apt-get -s install nodejs       <1>
+Paketlisten werden gelesen... Fertig
 Abhängigkeitsbaum wird aufgebaut       
 Statusinformationen werden eingelesen... Fertig
 Die folgenden zusätzlichen Pakete werden installiert:
   libc-ares2 libev4 libv8-3.7.12.22
 Die folgenden NEUEN Pakete werden installiert:
   libc-ares2 libev4 libv8-3.7.12.22 nodejs
-0 aktualisiert, 4 neu installiert, 0 zu entfernen und 0 nicht aktualisiert.
-Es müssen 2.099 kB an Archiven heruntergeladen werden.
-Nach dieser Operation werden 6.400 kB Plattenplatz zusätzlich benutzt.
-Möchten Sie fortfahren [J/n]? 
-[...]
-nodejs (0.6.12~dfsg1-1ubuntu1) wird eingerichtet ...
-update-alternatives: /usr/bin/node wird verwendet, um /usr/bin/js (js) im Auto-Modus bereitzustellen.
-Trigger für libc-bin werden verarbeitet ...
-ldconfig deferred processing now taking place
+0 aktualisiert, 4 neu installiert, 0 zu entfernen und 3 nicht aktualisiert.
+Inst libc-ares2 (1.7.5-1 Ubuntu:12.04/precise [amd64])
+Inst libv8-3.7.12.22 (3.7.12.22-3 Ubuntu:12.04/precise [amd64])
+Inst libev4 (1:4.11-1 Ubuntu:12.04/precise [amd64])
+Inst nodejs (0.6.12~dfsg1-1ubuntu1 Ubuntu:12.04/precise [amd64])
+Conf libc-ares2 (1.7.5-1 Ubuntu:12.04/precise [amd64])
+Conf libv8-3.7.12.22 (3.7.12.22-3 Ubuntu:12.04/precise [amd64])
+Conf libev4 (1:4.11-1 Ubuntu:12.04/precise [amd64])
+Conf nodejs (0.6.12~dfsg1-1ubuntu1 Ubuntu:12.04/precise [amd64])
 ----
+<1> _apt-get -s ... (simulate)_ ich habe mich dagegen entschieden.
 
 
 Aufruf der Webanwendung im Browser
@@ -368,14 +449,14 @@ Entwicklungs-Umgebung verwendet.
 ----
 $ rails s
 => Booting WEBrick
-=> Rails 3.2.9 application starting in development on http://0.0.0.0:3000   <1>
+=> Rails 3.2.13 application starting in development on http://0.0.0.0:3000   <1>
 => Call with -d to detach
 => Ctrl-C to shutdown server
-[2012-12-27 14:30:27] INFO  WEBrick 1.3.1
-[2012-12-27 14:30:27] INFO  ruby 1.9.3 (2012-12-25) [x86_64-linux]
-[2012-12-27 14:30:27] INFO  WEBrick::HTTPServer#start: pid=9696 port=3000
+[2013-04-14 13:30:34] INFO  WEBrick 1.3.1
+[2013-04-14 13:30:34] INFO  ruby 1.9.3 (2013-02-22) [x86_64-linux]
+[2013-04-14 13:30:34] INFO  WEBrick::HTTPServer#start: pid=30929 port=3000
 ----
-<1> Der Webserver läuft ohne Port-Angabe (_--port_) auf Port 3000.
+<1> Der Webserver läuft ohne Port-Angabe (_--port_ ...) auf Port 3000.
 
 ----
 Browser> http://localhost:3000/   <1>
@@ -400,15 +481,15 @@ $ rake about
 .Ausgabe...
 ----
 Ruby version            1.9.3 (x86_64-linux)    <1>
-RubyGems version        1.8.24
+RubyGems version        2.0.3
 Rack version            1.4
-Rails version           3.2.9
+Rails version           3.2.13
 JavaScript Runtime therubyracer (V8)
-Active Record version   3.2.9
-Action Pack version     3.2.9
-Active Resource version 3.2.9
-Action Mailer version   3.2.9
-Active Support version  3.2.9
+Active Record version   3.2.13
+Action Pack version     3.2.13
+Active Resource version 3.2.13
+Action Mailer version   3.2.13
+Active Support version  3.2.13
 Middleware
          • ActionDispatch::Static
          • Rack::Lock

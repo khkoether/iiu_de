@@ -1,4 +1,4 @@
-Installation in Ubuntu: Git 1.8.0.2
+Installation in Ubuntu: Git 1.8.2.1
 ===================================
 Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;>
 
@@ -10,9 +10,9 @@ Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;
 :git-url: http://git-scm.com/
 :git-download-url: http://code.google.com/p/git-core/downloads/list
 
-:git-version: 1.8.0.2
+:git-version: 1.8.2.1
 
-Version 1.6.2, Dezember 2012, <<_changelog,[Changelog]>>
+Version 1.8.0, April 2013, <<_changelog,[Changelog]>>
 
 
 Abstract
@@ -52,10 +52,10 @@ Ubuntu 12.04 LTS (Precise Pangolin) enthält das Paket _git-core_1.7.9.5-1_all_.
 Download
 ~~~~~~~~
 * {git-download-url}[Git] +    
-  git-{git-version}.tar.gz  (ca. 4.0M) +
-  git-htmldocs-{git-version}.tar.gz  (ca. 1.7M) +
-  git-manpages-{git-version}.tar.gz  (ca. 511K) +
-  2012-10-21 (Release date)
+  git-{git-version}.tar.gz  (ca. 4.2M) +
+  git-htmldocs-{git-version}.tar.gz  (ca. 2.0M) +
+  git-manpages-{git-version}.tar.gz  (ca. 525K) +
+  2013-04-06 (Release date)
   
 [NOTE] 
 ====
@@ -65,9 +65,9 @@ Die eigentliche Installation von Git wird vom
 Benutzer 'root' für das System durchgeführt.
 ----
 $ ls -l 
--rw-rw-r--  1 sid  sid    4231410 Dez 27 12:57 git-1.8.0.2.tar.gz
--rw-rw-r--  1 sid  sid    1809932 Dez 27 12:58 git-htmldocs-1.8.0.2.tar.gz
--rw-rw-r--  1 sid  sid     523757 Dez 27 12:58 git-manpages-1.8.0.2.tar.gz
+-rw-rw-r-- 1 sid sid 4400440 Apr 14 09:35 git-1.8.2.1.tar.gz
+-rw-rw-r-- 1 sid sid 2093688 Apr 14 09:35 git-htmldocs-1.8.2.1.tar.gz
+-rw-rw-r-- 1 sid sid  536718 Apr 14 09:35 git-manpages-1.8.2.1.tar.gz
 ----
 ====
 
@@ -101,14 +101,14 @@ Beispiel für die Änderung des Installations-Verzeichnisses:
 
 *Step 1:* Auspacken des Source-Code
 ----
-$ tar xvzf git-1.8.0.2.tar.gz
-$ cd git-1.8.0.2
+$ tar xvzf git-1.8.2.1.tar.gz
+$ cd git-1.8.2.1
 ----
 
 *Step 2:* Konfiguration erstellen und kompilieren
 ----
 $ make configure
-GIT_VERSION = 1.8.0.2
+GIT_VERSION = 1.8.2.1
     GEN configure
 
 $ ./configure | tee ../log.git_configure
@@ -137,31 +137,9 @@ $ make | tee ../log.git_make
     CC advice.o
     CC alias.o
 [...]
-    GEN git-web--browse
-    GEN perl/PM.stamp
-    SUBDIR perl
-/usr/bin/perl Makefile.PL PREFIX='/usr/local' INSTALL_BASE='' --localedir='/usr/local/share/locale'
-Writing perl.mak for Git
-Writing MYMETA.yml
-    GEN git-add--interactive
-    GEN git-difftool
-    GEN git-archimport
-    GEN git-cvsexportcommit
-    GEN git-cvsimport
-    GEN git-cvsserver
-    GEN git-relink
-    GEN git-send-email
-    GEN git-svn
-    GEN git-remote-testgit
-    GEN git-p4
-    SUBDIR gitweb
-    SUBDIR ../
-make[2]: »GIT-VERSION-FILE« ist bereits aktualisiert.
-    GEN gitweb.cgi
-    GEN static/gitweb.js
-[...]
     GEN bin-wrappers/test-subprocess
     GEN bin-wrappers/test-svn-fe
+    GEN bin-wrappers/test-wildmatch    
 ----
 
 *Step 3:* Installation (als Benutzer 'root')
@@ -198,29 +176,37 @@ make[1]: Für das Ziel »all« ist nichts zu tun.
 $ cd /usr/local/share/doc
 $ sudo mkdir git-doc
 $ cd git-doc
-$ sudo tar xvzf git-htmldocs-1.8.0.tar.gz
+$ sudo tar xvzf git-htmldocs-1.8.1.5.tar.gz
 [...]
+./howto-index.html
+./git-update-server-info.txt
+$ cd ..
+
+$ sudo chown -R root.root git-doc   <1>
+$ sudo chmod g-s git-doc
+$ sudo chmod 755 git-doc
 
 $ ls -l 
--rw-rw-r-- 1 1012 src   4049 Dez 10 22:56 blame-options.txt
--rw-rw-r-- 1 1012 src   1211 Dez 10 22:56 cmds-ancillaryinterrogators.txt
--rw-rw-r-- 1 1012 src   1005 Dez 10 22:56 cmds-ancillarymanipulators.txt
-[...]
+drwxr-xr-x 9 root root  4096 Okt  4 10:38 asciidoc
+drwxr-xr-x 5 root root 20480 Apr  8 22:36 git-doc
 ----
+<1> Unbedingt die Rechte an den Dateien und den Ordnern anpassen!
 
 .Documentation: man-pages
 ----
 $ cd /usr/local/man  
 $ sudo tar xvzf git-manpages-1.8.0.tar.gz 
 [...]
+
 $ sudo chown -R root.root man?   <1>
 $ sudo chmod g-s man?
 $ sudo chmod 755 man?
+
 $ ls -l
-drwxr-xr-x 2 root root 4096 Dez 10 23:02 man1
-drwxr-xr-x 2 root root 4096 Dez 27 13:07 man3
-drwxr-xr-x 2 root root 4096 Dez 10 23:02 man5
-drwxr-xr-x 2 root root 4096 Dez 10 23:02 man7
+drwxr-xr-x 2 root root 4096 Mär  1 22:43 man1
+drwxr-xr-x 2 root root 4096 Mär 10 14:34 man3
+drwxr-xr-x 2 root root 4096 Mär  1 22:43 man5
+drwxr-xr-x 2 root root 4096 Mär  1 22:43 man7
 ----
 <1> Unbedingt die Rechte an den Dateien und den Ordnern anpassen!
 
@@ -229,13 +215,13 @@ drwxr-xr-x 2 root root 4096 Dez 10 23:02 man7
 ----
 $ cd /usr/local/bin
 $ ls -l git*
--rwxr-xr-x 111 root root 6601718 Dez 27 13:07 git
--rwxr-xr-x   2 root root  120928 Dez 27 13:07 git-cvsserver
--rwxr-xr-x   1 root root  329781 Dez 27 13:07 gitk
--rwxr-xr-x 111 root root 6601718 Dez 27 13:07 git-receive-pack
--rwxr-xr-x   2 root root 2798402 Dez 27 13:07 git-shell
--rwxr-xr-x 111 root root 6601718 Dez 27 13:07 git-upload-archive
--rwxr-xr-x   2 root root 2901904 Dez 27 13:07 git-upload-pack
+-rwxr-xr-x 112 root root 6738639 Apr 14 10:13 /usr/local/bin/git
+-rwxr-xr-x   2 root root  162398 Apr 14 10:13 /usr/local/bin/git-cvsserver
+-rwxr-xr-x   1 root root  333121 Apr 14 10:13 /usr/local/bin/gitk
+-rwxr-xr-x 112 root root 6738639 Apr 14 10:13 /usr/local/bin/git-receive-pack
+-rwxr-xr-x   2 root root 2867782 Apr 14 10:13 /usr/local/bin/git-shell
+-rwxr-xr-x 112 root root 6738639 Apr 14 10:13 /usr/local/bin/git-upload-archive
+-rwxr-xr-x   2 root root 2971931 Apr 14 10:13 /usr/local/bin/git-upload-pack
 ----
 
 ----
@@ -311,7 +297,7 @@ NOTES
         6. git@vger.kernel.org
            mailto:git@vger.kernel.org
 
-Git 1.8.0.2                    12/10/2012                            GIT(1)
+Git 1.8.2.1                       04/07/2013                            GIT(1)
 ----
 
 ----
@@ -367,7 +353,7 @@ SEE ALSO
 GIT
        Part of the git(1) suite
 
-Git 1.8.0.2                    12/10/2012                           GITK(1)
+Git 1.8.2.1                       04/07/2013                           GITK(1)
 ----
 
 ----
@@ -378,15 +364,18 @@ $ find /usr/local -type d -cmin -5
 /usr/local/share/git-core/templates/info
 /usr/local/share/git-gui/lib
 /usr/local/share/git-gui/lib/msgs
+/usr/local/share/doc
 /usr/local/share/doc/git-doc
 /usr/local/share/doc/git-doc/howto
 /usr/local/share/doc/git-doc/technical
 /usr/local/share/doc/git-doc/RelNotes
 /usr/local/share/man
 /usr/local/share/man/man7
-/usr/local/share/man/man5
 /usr/local/share/man/man3
+/usr/local/share/man/man5
 /usr/local/share/man/man1
+/usr/local/share/perl/5.14.2
+/usr/local/share/perl/5.14.2/Git/SVN
 /usr/local/share/gitweb
 /usr/local/share/gitweb/static
 /usr/local/share/gitk/lib/msgs
@@ -412,6 +401,9 @@ $ find /usr/local -type d -cmin -5
 /usr/local/bin
 /usr/local/libexec/git-core
 /usr/local/libexec/git-core/mergetools
+/usr/local/lib/python2.7/dist-packages
+/usr/local/lib/python2.7/dist-packages/git_remote_helpers
+/usr/local/lib/python2.7/dist-packages/git_remote_helpers/git
 ----
 
 *Step 5:* Dokumentation (local)
@@ -454,7 +446,7 @@ Anhang
 #!/bin/bash
 #
 ME=make_git
-NAME=git-1.8.0.2
+NAME=git-1.8.2.1
 
 ls -l git*.tar.gz
 echo 

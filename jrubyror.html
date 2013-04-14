@@ -741,7 +741,7 @@ asciidoc.install(2);
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph"><p>Version 1.6.2, Dezember 2012, <a href="#_changelog">[Changelog]</a></p></div>
+<div class="paragraph"><p>Version 1.8.0, April 2013, <a href="#_changelog">[Changelog]</a></p></div>
 </div>
 </div>
 <div class="sect1">
@@ -770,7 +770,7 @@ Gerne nehme ich Verbesserungsvorschläge entgegen.</p></div>
 <h2 id="_vorraussetzungen">Vorraussetzungen</h2>
 <div class="sectionbody">
 <div class="paragraph"><p><em>JRuby</em> und <em>Ruby on Rails</em> sind wie
-in <a href="jruby.html">Installation in Ubuntu: JRuby 1.7.1, Ruby on Rails 3.2.9</a>
+in <a href="jruby.html">Installation in Ubuntu: JRuby 1.7.3, Ruby on Rails 3.2.13</a>
 beschrieben durchgeführt worden.</p></div>
 <div class="listingblock">
 <div class="content monospaced">
@@ -778,31 +778,35 @@ beschrieben durchgeführt worden.</p></div>
 /opt/JRuby/sid/current/bin/jruby
 
 $ jruby -v
-jruby 1.7.1 (1.9.3p327) 2012-12-03 30a153b on Java HotSpot(TM) 64-Bit Server VM 1.7.0_10-b18 [linux-amd64]
+jruby 1.7.3 (1.9.3p385) 2013-02-21 dac429b on OpenJDK 64-Bit Server VM 1.7.0_15-b20 [linux-amd64]
 
 $ jruby -v --1.8   <img src="./images/icons/callouts/1.png" alt="1">
-jruby 1.7.1 (ruby-1.8.7p370) 2012-12-03 30a153b on Java HotSpot(TM) 64-Bit Server VM 1.7.0_10-b18 [linux-amd64]
+jruby 1.7.3 (ruby-1.8.7p370) 2013-02-21 dac429b on OpenJDK 64-Bit Server VM 1.7.0_15-b20 [linux-amd64]
 
 $ which rails
 /opt/JRuby/sid/current/bin/rails
 
 $ jruby -S rails -v   <img src="./images/icons/callouts/2.png" alt="2">
-Rails 3.2.9
+Rails 3.2.13
 
-$ rails -v
-Rails 3.2.9</pre>
+$ rails -v     <img src="./images/icons/callouts/3.png" alt="3">
+Rails 3.2.13</pre>
 </div></div>
 <div class="colist arabic"><table>
 <tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
 Die Installation <em>JRuby</em> enthält zwei (gleichberechtigte) Implementationen der
     Programmier-Sprache <em>Ruby</em>:<br>
     <em>Ruby 1.8.7-p370</em><br>
-    <em>Ruby 1.9.2-p327</em> (default)
+    <em>Ruby 1.9.3-p385</em> (default)
 </td></tr>
 <tr><td><img src="./images/icons/callouts/2.png" alt="2"></td><td>
 Der Schalter <em>-S</em> führt dazu, daß für das Script zuerst
     das Verzeichnis JRUBY_HOME/bin geprüft wird - und
     dann der PATH.
+</td></tr>
+<tr><td><img src="./images/icons/callouts/3.png" alt="3"></td><td>
+Solange wie die ausführbaren Programme von <em>JRuby on Rails</em> im PATH vorangestellt
+    werden, kann auf <em>jruby -S</em> verzichtet werden.
 </td></tr>
 </table></div>
 </div>
@@ -936,8 +940,11 @@ Bye</pre>
 <pre>$ cd
 $ mkdir RailsDir
 
+$ which rails
+/opt/JRuby/sid/current/bin/rails
+
 $ cd RailsDir
-$ jruby -S rails new jMyApp --database=mysql   <img src="./images/icons/callouts/1.png" alt="1">
+$ rails new jMyApp --database=mysql   <img src="./images/icons/callouts/1.png" alt="1">
       create
       create  README.rdoc
       create  Rakefile
@@ -952,61 +959,62 @@ $ jruby -S rails new jMyApp --database=mysql   <img src="./images/icons/callouts
       create  vendor/plugins
       create  vendor/plugins/.gitkeep
          run  bundle install    <img src="./images/icons/callouts/4.png" alt="4">
-
 Fetching gem metadata from https://rubygems.org/...........
 Fetching gem metadata from https://rubygems.org/..
-Using rake (10.0.3)
+Resolving dependencies...
+Using rake (10.0.4)
 Using i18n (0.6.1)
-Using multi_json (1.5.0)
-Using activesupport (3.2.9)
+Using multi_json (1.7.2)
+Using activesupport (3.2.13)
 Using builder (3.0.4)
-Using activemodel (3.2.9)
+Using activemodel (3.2.13)
 Using erubis (2.7.0)
 Using journey (1.0.4)
-Using rack (1.4.1)
+Using rack (1.4.5)
 Using rack-cache (1.2)
 Using rack-test (0.6.2)
-Using hike (1.2.1)
-Using tilt (1.3.3)
+Using hike (1.2.2)
+Using tilt (1.3.7)
 Using sprockets (2.2.2)
-Using actionpack (3.2.9)
-Using mime-types (1.19)
+Using actionpack (3.2.13)
+Using mime-types (1.22)
 Using polyglot (0.3.3)
 Using treetop (1.4.12)
-Using mail (2.4.4)
-Using actionmailer (3.2.9)
+Using mail (2.5.3)
+Using actionmailer (3.2.13)
 Using arel (3.0.2)
-Using tzinfo (0.3.35)
-Using activerecord (3.2.9)
-Using activerecord-jdbc-adapter (1.2.2.1)
-Using jdbc-mysql (5.1.22)
-Using activerecord-jdbcmysql-adapter (1.2.2.1)
-Using activeresource (3.2.9)
-Installing bouncy-castle-java (1.5.0146.1)
-Using bundler (1.2.3)
-Installing coffee-script-source (1.4.0)
+Using tzinfo (0.3.37)
+Using activerecord (3.2.13)
+Using activerecord-jdbc-adapter (1.2.9)
+Using jdbc-mysql (5.1.24)
+Using activerecord-jdbcmysql-adapter (1.2.9)
+Using activeresource (3.2.13)
+Installing bouncy-castle-java (1.5.0147)
+Using bundler (1.3.5)
+Installing coffee-script-source (1.6.2)
 Installing execjs (1.4.0)
 Installing coffee-script (2.2.0)
-Using rack-ssl (1.3.2)
-Using json (1.7.5)
-Using rdoc (3.12)
-Using thor (0.16.0)
-Using railties (3.2.9)
+Using rack-ssl (1.3.3)
+Using json (1.7.7)
+Using rdoc (3.12.2)
+Using thor (0.18.1)
+Using railties (3.2.13)
 Installing coffee-rails (3.2.2)
-Installing jquery-rails (2.1.4)
-Installing jruby-openssl (0.8.2)
-Using rails (3.2.9)
-Installing sass (3.2.4)
-Installing sass-rails (3.2.5)
+Installing jquery-rails (2.2.1)
+Installing jruby-openssl (0.8.7)
+Using rails (3.2.13)
+Installing sass (3.2.7)
+Installing sass-rails (3.2.6)
 Installing therubyrhino_jar (1.7.4)
 Installing therubyrhino (2.0.2)
-Installing uglifier (1.3.0)
-Your bundle is complete! Use `bundle show [gemname]` to see where a bundled gem is installed.</pre>
+Installing uglifier (2.0.1)
+Your bundle is complete!
+Use `bundle show [gemname]` to see where a bundled gem is installed.</pre>
 </div></div>
 <div class="colist arabic"><table>
 <tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
-Für das Datenbanksystem <em>SqLite3</em> verkürzt sich der Aufruf:<br>
-    <em>jruby -S rails new myapp</em>
+Für das Datenbanksystem <em>SqLite3</em> verkürzt sich der Aufruf:
+    <em>rails new myapp</em>
 </td></tr>
 <tr><td><img src="./images/icons/callouts/2.png" alt="2"></td><td>
 Die zu diesem Zeitpunkt benötigten RubyGems und deren Abhängigkeiten
@@ -1019,8 +1027,9 @@ Konfigurationsdatei mit den Einstellungen für den
 <tr><td><img src="./images/icons/callouts/4.png" alt="4"></td><td>
 <em>JRuby</em> ist eine benutzereigene Installation - somit können benötigte
     RubyGems (siehe <em>Gemfile</em>) automatisch installiert werden.<br>
-    <em>coffee-script-source</em>, <em>execjs</em>, <em>coffee_script</em>, <em>coffee-rails</em>,
-    <em>jquery-rails</em>, <em>sass</em>, <em>sass-rails</em>, <em>therubyrhino</em>, <em>uglifier</em>
+    <em>bouncy-castle-java</em>, <em>coffee-script-source</em>, <em>execjs</em>, <em>coffee_script</em>,
+    <em>coffee-rails</em>, <em>jquery-rails</em>, <em>jruby-openssl</em>,
+    <em>sass</em>, <em>sass-rails</em>, <em>therubyrhino_jar</em>, <em>therubyrhino</em>, <em>uglifier</em>
 </td></tr>
 </table></div>
 <div class="listingblock">
@@ -1028,7 +1037,7 @@ Konfigurationsdatei mit den Einstellungen für den
 <div class="content monospaced">
 <pre>source 'https://rubygems.org'
 
-gem 'rails', '3.2.9'
+gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git =&gt; 'git://github.com/rails/rails.git'
@@ -1050,7 +1059,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-[...]</pre>
+ [...]</pre>
 </div></div>
 <div class="colist arabic"><table>
 <tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
@@ -1069,10 +1078,6 @@ RubyGem <em>therubyrhino</em>: JavaScript-Interpreter
 <div class="title">Prüfen der Abhängigkeiten im <em>Gemfile</em></div>
 <div class="content monospaced">
 <pre>$ cd jmyapp
-
-$ jruby -S bundle check
-The Gemfile's dependencies are satisfied
-
 $ bundle check
 The Gemfile's dependencies are satisfied</pre>
 </div></div>
@@ -1127,13 +1132,9 @@ Der hier vorgeschlagene Datenbank-Name wird von <em>Ruby on Rails</em>
 <div class="sect2">
 <h3 id="_javascript_runtime_installieren">JavaScript-Runtime installieren</h3>
 <div class="paragraph"><p>Für die erzeugte <em>Ruby on Rails</em>-Anwendung ist eine JavaScript-Runtime erforderlich.</p></div>
-<div class="literalblock">
-<div class="title">Möglichkeit 1: Das RubyGem <em>therubyrhino</em></div>
-<div class="content monospaced">
-<pre>link:http://rubygems.org/gems/therubyrhino[RubyGems.org: therubyrhino] +
-Embed the Mozilla Rhino JavaScript interpreter into Ruby. +
-(Ist bereits installiert ... siehe oben:)</pre>
-</div></div>
+<div class="paragraph"><div class="title">Möglichkeit 1: Das RubyGem <em>therubyrhino</em></div><p><a href="http://rubygems.org/gems/therubyrhino">RubyGems.org: therubyrhino</a><br>
+Embed the Mozilla Rhino JavaScript interpreter into Ruby.<br>
+(Ist bereits installiert &#8230; siehe oben:)</p></div>
 <div class="listingblock">
 <div class="title">Möglichkeit 2: Das Ubuntu-Paket <em>nodejs</em> installieren</div>
 <div class="content monospaced">
@@ -1156,23 +1157,23 @@ ldconfig deferred processing now taking place</pre>
 </div></div>
 </div>
 <div class="sect2">
-<h3 id="_aufruf_der_webanwendung_im_browser_mit_der_ruby_implementation_1_9_2">Aufruf der Webanwendung im Browser (mit der Ruby Implementation 1.9.2)</h3>
+<h3 id="_aufruf_der_webanwendung_im_browser_mit_der_ruby_implementation_1_9_3">Aufruf der Webanwendung im Browser (mit der Ruby Implementation 1.9.3)</h3>
 <div class="paragraph"><p>WEBrick wird in <em>Ruby on Rails</em> default-mäßig als Testserver für die
 Entwicklungs-Umgebung verwendet.</p></div>
 <div class="listingblock">
 <div class="content monospaced">
-<pre>$ jruby -S rails s
+<pre>$ rails s
 =&gt; Booting WEBrick
-=&gt; Rails 3.2.9 application starting in development on http://0.0.0.0:3000    <img src="./images/icons/callouts/1.png" alt="1">
+=&gt; Rails 3.2.13 application starting in development on http://0.0.0.0:3000    <img src="./images/icons/callouts/1.png" alt="1">
 =&gt; Call with -d to detach
 =&gt; Ctrl-C to shutdown server
-[2012-12-27 15:44:19] INFO  WEBrick 1.3.1
-[2012-12-27 15:44:19] INFO  ruby 1.9.3 (2012-12-03) [java]                   <img src="./images/icons/callouts/2.png" alt="2">
-[2012-12-27 15:44:19] INFO  WEBrick::HTTPServer#start: pid=11734 port=3000</pre>
+[2013-04-14 17:08:27] INFO  WEBrick 1.3.1
+[2013-04-14 17:08:27] INFO  ruby 1.9.3 (2013-02-21) [java]                    <img src="./images/icons/callouts/2.png" alt="2">
+[2013-04-14 17:08:27] INFO  WEBrick::HTTPServer#start: pid=4029 port=3000</pre>
 </div></div>
 <div class="colist arabic"><table>
 <tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
-Der Webserver läuft ohne Port-Angabe (<em>--port</em>) auf Port 3000.
+Der Webserver läuft ohne Port-Angabe (<em>--port</em> &#8230;) auf Port 3000.
 </td></tr>
 <tr><td><img src="./images/icons/callouts/2.png" alt="2"></td><td>
 Ruby Version 1.9.3
@@ -1204,50 +1205,47 @@ Informationen zur ausgeführten Applikation <em>MyApp</em>:<br>
 <div class="paragraph"><p>oder</p></div>
 <div class="listingblock">
 <div class="content monospaced">
-<pre>$ jruby -S rake about</pre>
+<pre>$ rake about</pre>
 </div></div>
 <div class="listingblock">
 <div class="title">Ausgabe&#8230;</div>
 <div class="content monospaced">
-<pre>Ruby version               1.9.3 (java)   <img src="./images/icons/callouts/1.png" alt="1">
-RubyGems version                1.8.24
-Rack version               1.4
-Rails version              3.2.9
-JavaScript Runtime      therubyrhino (Rhino)
-Active Record version     3.2.9
-Action Pack version          3.2.9
-Active Resource version   3.2.9
-Action Mailer version     3.2.9
-Active Support version    3.2.9
+<pre>About your application's environment
+Ruby version              1.9.3 (java)   <img src="./images/icons/callouts/1.png" alt="1">
+RubyGems version          2.0.3
+Rack version              1.4
+Rails version             3.2.13
+JavaScript Runtime        therubyrhino (Rhino)
+Active Record version     3.2.13
+Action Pack version       3.2.13
+Active Resource version   3.2.13
+Action Mailer version     3.2.13
+Active Support version    3.2.13
 Middleware
-
-    ActionDispatch::Static
-    Rack::Lock
-    #&lt;ActiveSupport::Cache::Strategy::LocalCache::Middleware:0x6215723d&gt;
-    Rack::Runtime
-    Rack::MethodOverride
-    ActionDispatch::RequestId
-    Rails::Rack::Logger
-    ActionDispatch::ShowExceptions
-    ActionDispatch::DebugExceptions
-    ActionDispatch::RemoteIp
-    ActionDispatch::Reloader
-    ActionDispatch::Callbacks
-    ActiveRecord::ConnectionAdapters::ConnectionManagement
-    ActiveRecord::QueryCache
-    ActionDispatch::Cookies
-    ActionDispatch::Session::CookieStore
-    ActionDispatch::Flash
-    ActionDispatch::ParamsParser
-    ActionDispatch::Head
-    Rack::ConditionalGet
-    Rack::ETag
+    ActionDispatch::Static,
+    Rack::Lock,
+    #&lt;ActiveSupport::Cache::Strategy::LocalCache::Middleware:0x3714dfe5&gt;,
+    Rack::Runtime,
+    Rack::MethodOverride,
+    ActionDispatch::RequestId,
+    Rails::Rack::Logger,
+    ActionDispatch::ShowExceptions,
+    ActionDispatch::DebugExceptions,
+    ActionDispatch::RemoteIp,
+    ActionDispatch::Reloader,
+    ActionDispatch::Callbacks,
+    ActiveRecord::ConnectionAdapters::ConnectionManagement,
+    ActiveRecord::QueryCache,
+    ActionDispatch::Cookies,
+    ActionDispatch::Session::CookieStore,
+    ActionDispatch::Flash, ActionDispatch::ParamsParser,
+    ActionDispatch::Head, Rack::ConditionalGet,
+    Rack::ETag,
     ActionDispatch::BestStandardsSupport
-
-Application root        /home/sid/80/RailsDir/jMyApp
-Environment     development
-Database adapter        mysql
-Database schema version 0</pre>
+Application root                /home/sid/80/RailsDir/jMyApp
+Environment                   development
+Database adapter                mysql
+Database schema version   0</pre>
 </div></div>
 <div class="colist arabic"><table>
 <tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
@@ -1261,7 +1259,7 @@ Ruby Version 1.9.3 (java)
 <div id="footnotes"><hr></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2012-12-27 15:56:35 CET
+Last updated 2013-04-14 17:36:07 CEST
 </div>
 </div>
 </body>

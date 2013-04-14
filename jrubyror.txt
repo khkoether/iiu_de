@@ -8,7 +8,7 @@ Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;
 :ubuntu-url: http://www.ubuntu.com/
 :jruby-url: link:jruby.html
 
-Version 1.6.2, Dezember 2012, <<_changelog,[Changelog]>>
+Version 1.8.0, April 2013, <<_changelog,[Changelog]>>
 
 
 Abstract
@@ -32,7 +32,7 @@ Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr.
 Vorraussetzungen
 ----------------
 _JRuby_ und _Ruby on Rails_ sind wie 
-in {jruby-url}[Installation in Ubuntu: JRuby 1.7.1, Ruby on Rails 3.2.9] 
+in {jruby-url}[Installation in Ubuntu: JRuby 1.7.3, Ruby on Rails 3.2.13] 
 beschrieben durchgeführt worden.
 
 ----
@@ -40,27 +40,29 @@ $ which jruby
 /opt/JRuby/sid/current/bin/jruby
 
 $ jruby -v 
-jruby 1.7.1 (1.9.3p327) 2012-12-03 30a153b on Java HotSpot(TM) 64-Bit Server VM 1.7.0_10-b18 [linux-amd64]
+jruby 1.7.3 (1.9.3p385) 2013-02-21 dac429b on OpenJDK 64-Bit Server VM 1.7.0_15-b20 [linux-amd64]
 
 $ jruby -v --1.8   <1> 
-jruby 1.7.1 (ruby-1.8.7p370) 2012-12-03 30a153b on Java HotSpot(TM) 64-Bit Server VM 1.7.0_10-b18 [linux-amd64]
+jruby 1.7.3 (ruby-1.8.7p370) 2013-02-21 dac429b on OpenJDK 64-Bit Server VM 1.7.0_15-b20 [linux-amd64]
 
 $ which rails
 /opt/JRuby/sid/current/bin/rails
 
 $ jruby -S rails -v   <2>
-Rails 3.2.9
+Rails 3.2.13
 
-$ rails -v
-Rails 3.2.9
+$ rails -v     <3>
+Rails 3.2.13
 ----
 <1> Die Installation _JRuby_ enthält zwei (gleichberechtigte) Implementationen der 
     Programmier-Sprache _Ruby_: +
     _Ruby 1.8.7-p370_ +
-    _Ruby 1.9.2-p327_ (default)
+    _Ruby 1.9.3-p385_ (default)
 <2> Der Schalter _-S_ führt dazu, daß für das Script zuerst  
     das Verzeichnis JRUBY_HOME/bin geprüft wird - und
-    dann der PATH.   
+    dann der PATH.
+<3> Solange wie die ausführbaren Programme von _JRuby on Rails_ im PATH vorangestellt
+    werden, kann auf _jruby -S_ verzichtet werden.       
 
 
 Erste Schritte
@@ -160,8 +162,11 @@ Projektverzeichnis erstellen
 $ cd
 $ mkdir RailsDir
 
+$ which rails
+/opt/JRuby/sid/current/bin/rails
+
 $ cd RailsDir
-$ jruby -S rails new jMyApp --database=mysql   <1>
+$ rails new jMyApp --database=mysql   <1>
       create  
       create  README.rdoc
       create  Rakefile
@@ -176,73 +181,75 @@ $ jruby -S rails new jMyApp --database=mysql   <1>
       create  vendor/plugins
       create  vendor/plugins/.gitkeep
          run  bundle install    <4>
-
 Fetching gem metadata from https://rubygems.org/...........
 Fetching gem metadata from https://rubygems.org/..
-Using rake (10.0.3) 
+Resolving dependencies...
+Using rake (10.0.4) 
 Using i18n (0.6.1) 
-Using multi_json (1.5.0) 
-Using activesupport (3.2.9) 
+Using multi_json (1.7.2) 
+Using activesupport (3.2.13) 
 Using builder (3.0.4) 
-Using activemodel (3.2.9) 
+Using activemodel (3.2.13) 
 Using erubis (2.7.0) 
 Using journey (1.0.4) 
-Using rack (1.4.1) 
+Using rack (1.4.5) 
 Using rack-cache (1.2) 
 Using rack-test (0.6.2) 
-Using hike (1.2.1) 
-Using tilt (1.3.3) 
+Using hike (1.2.2) 
+Using tilt (1.3.7) 
 Using sprockets (2.2.2) 
-Using actionpack (3.2.9) 
-Using mime-types (1.19) 
+Using actionpack (3.2.13) 
+Using mime-types (1.22) 
 Using polyglot (0.3.3) 
 Using treetop (1.4.12) 
-Using mail (2.4.4) 
-Using actionmailer (3.2.9) 
+Using mail (2.5.3) 
+Using actionmailer (3.2.13) 
 Using arel (3.0.2) 
-Using tzinfo (0.3.35) 
-Using activerecord (3.2.9) 
-Using activerecord-jdbc-adapter (1.2.2.1) 
-Using jdbc-mysql (5.1.22) 
-Using activerecord-jdbcmysql-adapter (1.2.2.1) 
-Using activeresource (3.2.9) 
-Installing bouncy-castle-java (1.5.0146.1) 
-Using bundler (1.2.3) 
-Installing coffee-script-source (1.4.0) 
+Using tzinfo (0.3.37) 
+Using activerecord (3.2.13) 
+Using activerecord-jdbc-adapter (1.2.9) 
+Using jdbc-mysql (5.1.24) 
+Using activerecord-jdbcmysql-adapter (1.2.9) 
+Using activeresource (3.2.13) 
+Installing bouncy-castle-java (1.5.0147) 
+Using bundler (1.3.5) 
+Installing coffee-script-source (1.6.2) 
 Installing execjs (1.4.0) 
 Installing coffee-script (2.2.0) 
-Using rack-ssl (1.3.2) 
-Using json (1.7.5) 
-Using rdoc (3.12) 
-Using thor (0.16.0) 
-Using railties (3.2.9) 
+Using rack-ssl (1.3.3) 
+Using json (1.7.7) 
+Using rdoc (3.12.2) 
+Using thor (0.18.1) 
+Using railties (3.2.13) 
 Installing coffee-rails (3.2.2) 
-Installing jquery-rails (2.1.4) 
-Installing jruby-openssl (0.8.2) 
-Using rails (3.2.9) 
-Installing sass (3.2.4) 
-Installing sass-rails (3.2.5) 
+Installing jquery-rails (2.2.1) 
+Installing jruby-openssl (0.8.7) 
+Using rails (3.2.13) 
+Installing sass (3.2.7) 
+Installing sass-rails (3.2.6) 
 Installing therubyrhino_jar (1.7.4) 
 Installing therubyrhino (2.0.2) 
-Installing uglifier (1.3.0) 
-Your bundle is complete! Use `bundle show [gemname]` to see where a bundled gem is installed.
+Installing uglifier (2.0.1) 
+Your bundle is complete!
+Use `bundle show [gemname]` to see where a bundled gem is installed.
 ----
-<1> Für das Datenbanksystem _SqLite3_ verkürzt sich der Aufruf: +
-    _jruby -S rails new myapp_
+<1> Für das Datenbanksystem _SqLite3_ verkürzt sich der Aufruf: 
+    _rails new myapp_
 <2> Die zu diesem Zeitpunkt benötigten RubyGems und deren Abhängigkeiten
     untereinander entnehmen Sie der Datei _Gemfile_.
 <3> Konfigurationsdatei mit den Einstellungen für den 
     Datenbankzugriff (Datenbankadapter).        
 <4> _JRuby_ ist eine benutzereigene Installation - somit können benötigte
     RubyGems (siehe _Gemfile_) automatisch installiert werden. +
-    _coffee-script-source_, _execjs_, _coffee_script_, _coffee-rails_,
-    _jquery-rails_, _sass_, _sass-rails_, _therubyrhino_, _uglifier_
+    _bouncy-castle-java_, _coffee-script-source_, _execjs_, _coffee_script_, 
+    _coffee-rails_, _jquery-rails_, _jruby-openssl_, 
+    _sass_, _sass-rails_, _therubyrhino_jar_, _therubyrhino_, _uglifier_
 
 .Gemfile
 ----
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.9'
+gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -264,7 +271,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-[...]
+ [...]
 ----
 <1> Der Spezifizierer '~> 3.2.3' ist identisch mit 
     den Bedingungen '>= 3.2.3' und '< 3.3'.  
@@ -275,11 +282,7 @@ gem 'jquery-rails'
 .Prüfen der Abhängigkeiten im _Gemfile_
 ----
 $ cd jmyapp
-
-$ jruby -S bundle check
-The Gemfile's dependencies are satisfied
-
-$ bundle check
+$ bundle check  
 The Gemfile's dependencies are satisfied
 ----
 
@@ -323,9 +326,10 @@ JavaScript-Runtime installieren
 Für die erzeugte _Ruby on Rails_-Anwendung ist eine JavaScript-Runtime erforderlich.
 
 .Möglichkeit 1: Das RubyGem _therubyrhino_
-  link:http://rubygems.org/gems/therubyrhino[RubyGems.org: therubyrhino] +
-  Embed the Mozilla Rhino JavaScript interpreter into Ruby. +
-  (Ist bereits installiert ... siehe oben:) 
+
+link:http://rubygems.org/gems/therubyrhino[RubyGems.org: therubyrhino] +
+Embed the Mozilla Rhino JavaScript interpreter into Ruby. +
+(Ist bereits installiert ... siehe oben:) 
   
 .Möglichkeit 2: Das Ubuntu-Paket 'nodejs' installieren
 ----
@@ -348,21 +352,22 @@ ldconfig deferred processing now taking place
 ----
 
 
-Aufruf der Webanwendung im Browser (mit der Ruby Implementation 1.9.2)
+Aufruf der Webanwendung im Browser (mit der Ruby Implementation 1.9.3)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 WEBrick wird in _Ruby on Rails_ default-mäßig als Testserver für die 
 Entwicklungs-Umgebung verwendet.
+
 ----
-$ jruby -S rails s
+$ rails s 
 => Booting WEBrick
-=> Rails 3.2.9 application starting in development on http://0.0.0.0:3000    <1>
+=> Rails 3.2.13 application starting in development on http://0.0.0.0:3000    <1>
 => Call with -d to detach
 => Ctrl-C to shutdown server
-[2012-12-27 15:44:19] INFO  WEBrick 1.3.1
-[2012-12-27 15:44:19] INFO  ruby 1.9.3 (2012-12-03) [java]                   <2>
-[2012-12-27 15:44:19] INFO  WEBrick::HTTPServer#start: pid=11734 port=3000
+[2013-04-14 17:08:27] INFO  WEBrick 1.3.1
+[2013-04-14 17:08:27] INFO  ruby 1.9.3 (2013-02-21) [java]                    <2>
+[2013-04-14 17:08:27] INFO  WEBrick::HTTPServer#start: pid=4029 port=3000
 ----
-<1> Der Webserver läuft ohne Port-Angabe (_--port_) auf Port 3000.
+<1> Der Webserver läuft ohne Port-Angabe (_--port_ ...) auf Port 3000.
 <2> Ruby Version 1.9.3
 
 ----
@@ -381,49 +386,46 @@ Browser> http://localhost:3000/rails/info/properties/   <1>
 oder 
 
 ----
-$ jruby -S rake about
+$ rake about  
 ----
 
 .Ausgabe...
 ----
-Ruby version	           1.9.3 (java)   <1>
-RubyGems version	        1.8.24
-Rack version	           1.4
-Rails version	           3.2.9
-JavaScript Runtime	therubyrhino (Rhino)
-Active Record version	  3.2.9
-Action Pack version	     3.2.9
-Active Resource version   3.2.9
-Action Mailer version	  3.2.9
-Active Support version	  3.2.9
-Middleware	
-
-    ActionDispatch::Static
-    Rack::Lock
-    #<ActiveSupport::Cache::Strategy::LocalCache::Middleware:0x6215723d>
-    Rack::Runtime
-    Rack::MethodOverride
-    ActionDispatch::RequestId
-    Rails::Rack::Logger
-    ActionDispatch::ShowExceptions
-    ActionDispatch::DebugExceptions
-    ActionDispatch::RemoteIp
-    ActionDispatch::Reloader
-    ActionDispatch::Callbacks
-    ActiveRecord::ConnectionAdapters::ConnectionManagement
-    ActiveRecord::QueryCache
-    ActionDispatch::Cookies
-    ActionDispatch::Session::CookieStore
-    ActionDispatch::Flash
-    ActionDispatch::ParamsParser
-    ActionDispatch::Head
-    Rack::ConditionalGet
-    Rack::ETag
+About your application's environment
+Ruby version              1.9.3 (java)   <1>
+RubyGems version          2.0.3
+Rack version              1.4
+Rails version             3.2.13
+JavaScript Runtime        therubyrhino (Rhino)
+Active Record version     3.2.13
+Action Pack version       3.2.13
+Active Resource version   3.2.13
+Action Mailer version     3.2.13
+Active Support version    3.2.13
+Middleware                
+    ActionDispatch::Static, 
+    Rack::Lock, 
+    #<ActiveSupport::Cache::Strategy::LocalCache::Middleware:0x3714dfe5>, 
+    Rack::Runtime, 
+    Rack::MethodOverride, 
+    ActionDispatch::RequestId, 
+    Rails::Rack::Logger, 
+    ActionDispatch::ShowExceptions, 
+    ActionDispatch::DebugExceptions, 
+    ActionDispatch::RemoteIp, 
+    ActionDispatch::Reloader, 
+    ActionDispatch::Callbacks, 
+    ActiveRecord::ConnectionAdapters::ConnectionManagement, 
+    ActiveRecord::QueryCache, 
+    ActionDispatch::Cookies, 
+    ActionDispatch::Session::CookieStore, 
+    ActionDispatch::Flash, ActionDispatch::ParamsParser, 
+    ActionDispatch::Head, Rack::ConditionalGet, 
+    Rack::ETag, 
     ActionDispatch::BestStandardsSupport
-
-Application root	/home/sid/80/RailsDir/jMyApp
-Environment	development
-Database adapter	mysql
-Database schema version	0
+Application root	        /home/sid/80/RailsDir/jMyApp
+Environment	              development
+Database adapter	        mysql
+Database schema version	  0
 ----
 <1> Ruby Version 1.9.3 (java)

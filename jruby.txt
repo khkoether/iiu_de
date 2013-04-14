@@ -1,5 +1,5 @@
-Installation in Ubuntu: JRuby 1.7.1, Ruby on Rails 3.2.9 
-========================================================
+Installation in Ubuntu: JRuby 1.7.3, Ruby on Rails 3.2.13 
+=========================================================
 Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;>
 
 :icons:
@@ -19,13 +19,13 @@ Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;
 
 :jrubyror-url: link:jrubyror.html
 
-Version 1.6.2, Dezember 2012, <<_changelog,[Changelog]>>
+Version 1.8.0, April 2013, <<_changelog,[Changelog]>>
 
 
 Abstract
 --------
 Dieser Artikel ist eine Schritt-für-Schritt Anleitung zur Installation 
-von {jruby-url}[JRuby 1.7.1] unter GNU/Linux.
+von {jruby-url}[JRuby 1.7.3] unter GNU/Linux.
  
 Die Programmiersprache {ruby-url}[JRuby] ist die Implementation 
 von {ruby-url}[Ruby] in Java, die wiederum die Grundlage für das 
@@ -58,16 +58,16 @@ Ubuntu 12.04 LTS (Precise Pangolin) enthält das Paket _jruby_1.5.6-2_all_.
 
 Download
 ~~~~~~~~
-* {jruby-download-url}[JRuby 1.7.1] +    
-  jruby-1.7.1  (ca. 16.4M) +
-  2012-12-03 (Release date)  
+* {jruby-download-url}[JRuby 1.7.3] +    
+  jruby-1.7.3  (ca. 17.3M) +
+  2013-02-21 (Release date)  
 
 [NOTE] 
 ====
-Die neue _JRuby-Version 1.7_ wurde seit 18 Monaten mit bestimmten Zielen entwickelt:
+Die neue _JRuby-Version 1.7_ wird seit 18 Monaten mit bestimmten Zielen entwickelt:
 
 . JDK-Version 6 ist (mindestens) notwendig 
-. Unterstützen der JDK-Version 7
+. Unterstützung der JDK-Version 7
 . JRuby wird als im Modus _Ruby 1.9.3_ ausgeführt (neuer Default)
 . JRuby unterstützt das neue Java-Feature 'invokedynamic' +
   (auch wenn es für den Moment ausgeschaltet ist - "due to JVM issues" ) +
@@ -87,7 +87,7 @@ Die Installation des OpenJDK oder des Oracle JDK wurde vom Benutzer 'root' für 
 Während die anschließende Installation von JRuby und Ruby on Rails für den Benutzer 'sid' ausgeführt wird. 
 ----
 $ ls -l 
--rw-rw-r-- 1 sid sid 17160215 Dez 27 14:51 jruby-bin-1.7.1.tar.gz
+-rw-rw-r-- 1 sid sid 18157086 Apr 14 13:47 jruby-bin-1.7.3.tar.gz
 ----
 ====
 
@@ -117,18 +117,20 @@ $ cd /opt/JRuby/sid
 $ tar xvzf jruby-bin-1.7.1.tar.gz
 [...]
 
-$ ln -s jruby-1.7.1/ current
+$ ln -s jruby-1.7.3/ current
 $ ls -l
-lrwxrwxrwx 1 sid sid   11 Dez 27 14:53 current -> jruby-1.7.1
+lrwxrwxrwx 1 sid sid   11 Jan 16 12:49 current -> jruby-1.7.3
 drwxrwxr-x 8 sid sid 4096 Okt 17 20:40 jruby-1.6.8
 drwxrwxr-x 7 sid sid 4096 Nov 21 22:20 jruby-1.7.0
-drwxrwxr-x 7 khk khk 4096 Dez 27 14:53 jruby-1.7.1
+drwxrwxr-x 7 sid sid 4096 Dez 27 14:53 jruby-1.7.1
+drwxrwxr-x 7 sid sid 4096 Jan 16 12:49 jruby-1.7.2
+drwxrwxr-x 7 khk khk 4096 Apr 14 13:52 jruby-1.7.3
 ----
 
 Das Programm 'tree' ist ein wunderbares Hilfsmittel zur Darstellung von Verzeichnissen.
 ----
 $ tree -d -L 2 current
-current   <--- jruby-1.7.0
+current   <1>
 ├── bin
 ├── docs
 │   ├── api
@@ -147,6 +149,7 @@ current   <--- jruby-1.7.0
 
 15 directories
 ---- 
+<1> JRuby 1.7.3
 
 Die zu diesem Zeitpunkt in JRuby enthaltenen RubyGems.
 ----
@@ -156,7 +159,7 @@ current/lib/ruby/gems/
     ├── cache
     ├── doc
     ├── gems
-    │   └── rake-0.9.2.2
+    │   └── rake-10.0.3
     └── specifications
 
 6 directories   <1>
@@ -193,16 +196,16 @@ $ which jruby
 /opt/JRuby/sid/current/bin/jruby
 
 $ java -version
-java version "1.7.0_09"
-Java(TM) SE Runtime Environment (build 1.7.0_09-b05)
-Java HotSpot(TM) 64-Bit Server VM (build 23.5-b02, mixed mode)
+java version "1.7.0_15"
+OpenJDK Runtime Environment (IcedTea7 2.3.7) (7u15-2.3.7-0ubuntu1~12.04.1)
+OpenJDK 64-Bit Server VM (build 23.7-b01, mixed mode)
 
 $ jruby --version
-jruby 1.7.1 (1.9.3p327) 2012-12-03 30a153b on Java HotSpot(TM) 64-Bit Server VM 1.7.0_10-b18 [linux-amd64]
+jruby 1.7.3 (1.9.3p385) 2013-02-21 dac429b on OpenJDK 64-Bit Server VM 1.7.0_15-b20 [linux-amd64]
 
 $ JRUBY_OPTS=--1.8 jruby --version
 $ jruby -v --1.8
-jruby 1.7.1 (ruby-1.8.7p370) 2012-12-03 30a153b on Java HotSpot(TM) 64-Bit Server VM 1.7.0_10-b18 [linux-amd64]
+jruby 1.7.3 (ruby-1.8.7p370) 2013-02-21 dac429b on OpenJDK 64-Bit Server VM 1.7.0_15-b20 [linux-amd64]
 ----
 
 . Interactive Ruby: jirb
@@ -211,7 +214,7 @@ $ jirb
 irb(main):001:0> RUBY_VERSION
 => "1.9.3"
 irb(main):002:0> RUBY_PATCHLEVEL
-=> 327
+=> 385
 irb(main):003:0> exit
 ----
 
@@ -219,23 +222,38 @@ irb(main):003:0> exit
 ----
 $ jruby -S gem -v
 1.8.24
+----
 
+----
 $ jruby -S gem list --local
-*** LOCAL GEMS ***
-rake (0.9.2.2)
 
+*** LOCAL GEMS ***
+
+rake (10.0.3)
+----
+
+----
 $ jgem list --local
-*** LOCAL GEMS ***
-rake (0.9.2.2)
 
-$ jgem search ^rails --remote
+*** LOCAL GEMS ***
+
+rake (10.0.3)
+----
+
+----
+$ jgem search ^rails --remote   <1>
+
 *** REMOTE GEMS ***
-rails (3.2.9)
+
+rails (3.2.13)
 rails-3-settings (0.1.1)
 rails-action-args (0.1.1)
 rails-admin (0.0.0)
 [...]
+rails-where (0.2)
 ----
+<1> Für die Suche wird die Schreibweise nicht berücksichtigt. +
+    Zum aktuellen Zeitpunkt (14.04.2013) enthält das Suchergebnis _453 RubyGems_!
 
 [NOTE]
 ====
@@ -262,38 +280,47 @@ Happy new JRuby
     Eine vorher notwendige zusätzliche Installation entfällt. 
 
 
-Ruby on Rails 3.2.9
-~~~~~~~~~~~~~~~~~~~
+Ruby on Rails 3.2.13
+~~~~~~~~~~~~~~~~~~~~
 *Step 1:* Das Programm '(j)gem' aktualisieren
 ----
 $ jgem update --system  
-Latest version currently installed. Aborting.
+Successfully installed rubygems-update-2.0.3
+Installing RubyGems 2.0.3
+RubyGems 2.0.3 installed
+[...]
+RubyGems installed the following executables:
+	/opt/JRuby/sid/jruby-1.7.3/bin/jgem
+
+RubyGems system software updated
 ----
 Das Programm '(j)gem' mu&szlig; von Hand aktualisiert werden.
 
 .(j)gem
 ----
-$ which jgem
-/opt/JRuby/sid/current/bin/jgem
+$ jruby -S gem -v 
+2.0.3
+
 
 $ jgem -v
-1.8.24
+2.0.3
+----
+
+----
+$ jruby -S gem list --local
+
+*** LOCAL GEMS ***
+
+rake (10.0.3)
+rubygems-update (2.0.3)
+
 
 $ jgem list --local
+
 *** LOCAL GEMS ***
-rake (0.9.2.2)
-----
 
-----
-$ which gem
-/opt/JRuby/sid/current/bin/gem
-
-$ gem -v
-1.8.24
-
-$ gem list
-*** LOCAL GEMS ***
-rake (0.9.2.2)
+rake (10.0.3)
+rubygems-update (2.0.3)
 ----
 
 [NOTE]
@@ -310,24 +337,17 @@ wiederum auf die Umsetzung in Java hinweist.
 Praktisch sollen die Programme _etwas?_ differieren ... und 
 das Angebot *jgem* ist _mehr?_ up-to-date ... 
 
-Persönlich favorisiere ich *jruby -S gem ...* -- aber *jgem ...* ist kürzer
+Persönlich favorisiere ich *jruby -S gem ...* -- aber *jgem ...* ist kürzer ;-)
 ====
 
-----
-$ jruby -S gem -v
-1.8.24
-
-$ jgem -v
-1.8.24
-----
 
 *Step 2:* Die bereits installierten RubyGems aktualisieren (update)
 ----
-$ jruby -S gem update
+$ jgem update
 Updating installed gems
 Updating rake
-Fetching: rake-10.0.3.gem (100%)
-Successfully installed rake-10.0.3
+Fetching: rake-10.0.4.gem (100%)
+Successfully installed rake-10.0.4
 Gems updated: rake
 ----
 
@@ -336,34 +356,35 @@ $ jgem list --local
 
 *** LOCAL GEMS ***
 
-rake (10.0.3, 0.9.2.2)   <1>
+rake (10.0.4, 10.0.3)     <1>
+rubygems-update (2.0.3)
 ----
-<1> Der gezeigte Versionssprung ist kein Fehler ;-) +
+<1> Für alle die sich über die hohe Versions-Nummer wundern ;-) +
     &rarr; link:https://github.com/jimweirich/rake/blob/next-major-release/doc/release_notes/rake-10.0.0.rdoc[Rake 10.0 Released]
 
 
 *Step 3:* Die _Ruby-Documentation_ installieren
 ----
 $ jgem install rdoc-data
-Fetching: json-1.7.5-java.gem (100%)
-Fetching: rdoc-3.12.gem (100%)
+Fetching: json-1.7.7-java.gem (100%)
+Successfully installed json-1.7.7-java
+Fetching: rdoc-3.12.2.gem (100%)
 Depending on your version of ruby, you may need to install ruby rdoc/ri data:
 
 <= 1.8.6 : unsupported
  = 1.8.7 : gem install rdoc-data; rdoc-data --install
  = 1.9.1 : gem install rdoc-data; rdoc-data --install
 >= 1.9.2 : nothing to do! Yay!
+Successfully installed rdoc-3.12.2
 Fetching: rdoc-data-3.12.gem (100%)
 rdoc-data is only required for C ruby 1.8.7 or 1.9.1.
 
-rdoc-data is required for JRuby.   <1>
+rdoc-data is required for JRuby.
 
 To install ri data for RDoc 2.5+ run:
 
   rdoc-data --install
 
-Successfully installed json-1.7.5-java
-Successfully installed rdoc-3.12
 Successfully installed rdoc-data-3.12
 3 gems installed
 ----
@@ -402,10 +423,11 @@ $ jgem list --local
 
 *** LOCAL GEMS ***
 
-json (1.7.5 java)
-rake (10.0.3, 0.9.2.2)
-rdoc (3.12)
+json (1.7.7 java)
+rake (10.0.4, 10.0.3)
+rdoc (3.12.2)
 rdoc-data (3.12)
+rubygems-update (2.0.3)
 ----
 
 Auf die installierte Dokumentation zugreifen.
@@ -424,102 +446,137 @@ image::images/jruby/rubygems_documentation_index.jpeg[RubyGems Documentation Ind
 
 *Step 4:* Grundinstallation von 'Ruby on Rails'
 ----
-$ jgem install rails --rdoc --ri
+$ jgem install rails --no-rdoc --no-ri   <1>
 Fetching: i18n-0.6.1.gem (100%)
- [...]
-Fetching: rails-3.2.9.gem (100%)
 Successfully installed i18n-0.6.1
-Successfully installed multi_json-1.5.0
-Successfully installed activesupport-3.2.9
+Fetching: multi_json-1.7.2.gem (100%)
+Successfully installed multi_json-1.7.2
+Fetching: activesupport-3.2.13.gem (100%)
+Successfully installed activesupport-3.2.13
+Fetching: builder-3.0.4.gem (100%)
 Successfully installed builder-3.0.4
-Successfully installed activemodel-3.2.9
-Successfully installed rack-1.4.1
+Fetching: activemodel-3.2.13.gem (100%)
+Successfully installed activemodel-3.2.13
+Fetching: rack-1.4.5.gem (100%)
+Successfully installed rack-1.4.5
+Fetching: rack-cache-1.2.gem (100%)
 Successfully installed rack-cache-1.2
+Fetching: rack-test-0.6.2.gem (100%)
 Successfully installed rack-test-0.6.2
+Fetching: journey-1.0.4.gem (100%)
 Successfully installed journey-1.0.4
-Successfully installed hike-1.2.1
-Successfully installed tilt-1.3.3
+Fetching: hike-1.2.2.gem (100%)
+Successfully installed hike-1.2.2
+Fetching: tilt-1.3.7.gem (100%)
+Successfully installed tilt-1.3.7
+Fetching: sprockets-2.2.2.gem (100%)
 Successfully installed sprockets-2.2.2
+Fetching: erubis-2.7.0.gem (100%)
 Successfully installed erubis-2.7.0
-Successfully installed actionpack-3.2.9
+Fetching: actionpack-3.2.13.gem (100%)
+Successfully installed actionpack-3.2.13
+Fetching: arel-3.0.2.gem (100%)
 Successfully installed arel-3.0.2
-Successfully installed tzinfo-0.3.35
-Successfully installed activerecord-3.2.9
-Successfully installed activeresource-3.2.9
-Successfully installed mime-types-1.19
+Fetching: tzinfo-0.3.37.gem (100%)
+Successfully installed tzinfo-0.3.37
+Fetching: activerecord-3.2.13.gem (100%)
+Successfully installed activerecord-3.2.13
+Fetching: activeresource-3.2.13.gem (100%)
+Successfully installed activeresource-3.2.13
+Fetching: mime-types-1.22.gem (100%)
+Successfully installed mime-types-1.22
+Fetching: polyglot-0.3.3.gem (100%)
 Successfully installed polyglot-0.3.3
+Fetching: treetop-1.4.12.gem (100%)
 Successfully installed treetop-1.4.12
-Successfully installed mail-2.4.4
-Successfully installed actionmailer-3.2.9
-Successfully installed rack-ssl-1.3.2
-Successfully installed thor-0.16.0
-Successfully installed railties-3.2.9
-Successfully installed bundler-1.2.3
-Successfully installed rails-3.2.9
-28 gems installed
-Installing ri documentation for i18n-0.6.1...
-[...]
-Installing ri documentation for rails-3.2.9...
-Installing RDoc documentation for i18n-0.6.1...
-[...]
-Installing RDoc documentation for rails-3.2.9...
+Fetching: mail-2.5.3.gem (100%)
+Successfully installed mail-2.5.3
+Fetching: actionmailer-3.2.13.gem (100%)
+Successfully installed actionmailer-3.2.13
+Fetching: rack-ssl-1.3.3.gem (100%)
+Successfully installed rack-ssl-1.3.3
+Fetching: thor-0.18.1.gem (100%)
+Successfully installed thor-0.18.1
+Fetching: railties-3.2.13.gem (100%)
+Successfully installed railties-3.2.13
+Fetching: bundler-1.3.5.gem (100%)
+Successfully installed bundler-1.3.5
+Fetching: rails-3.2.13.gem (100%)
+Successfully installed rails-3.2.13
+28 gems installed   <2>
 ----
+<1> Die Dokumentation wird wg. eines RDoc-Fehler im RubyGem _mime_types_ nachträglich installiert.
+<2> Für das Framework _Ruby on Rails_ wurden 28 RubyGems installiert. +
+    Hinweis: Weitere RubyGems müssen installiert werden (Datenbank-Treiber, Erweiterungen). 
+
+----
+$ jgem list | sed 's/ (.*$//' > gemlist
+
+$ for name in `cat gemlist`; do echo $name; gem rdoc $name; done;   <1>
+[...]
+----
+<1> Mit dem Befehl _gem rdoc ..._ wird ausschließlich die noch nicht vorhandene
+    Dokumentation erstellt.
 
 [NOTE]
 ====
 Alternativ kann Rails mit der Angabe einer Version installiert werden.
 ----
-$ jgem install rails --version 3.2.9 --rdoc --ri
+$ jgem install rails --version 3.2.13 --rdoc --ri
 
-$ jgem install rails --version '~> 3.2.0' --rdoc --ri   <1>
+$ jgem install rails --version '~> 3.2' --rdoc --ri   <1>
 ----
-<1> Twiddle Wakka: '~> 3.2.0' bedeutet, das die höchste Gem-Version von Rails
-    im Bereich von >= 3.2.0 und < 3.3 installiert wird. 
+<1> Twiddle Wakka: '~> 3.2' bedeutet, das die höchste Gem-Version von Rails
+    im Bereich von >= 3.2 und < 4 installiert wird. 
 ====
 
 
 *Step 6:* Datenbankzugriff (via JDBC)
 ----
 $ jgem install activerecord-jdbc-adapter --rdoc --ri
-Successfully installed activerecord-jdbc-adapter-1.2.2.1
+Fetching: activerecord-jdbc-adapter-1.2.9.gem (100%)
+Successfully installed activerecord-jdbc-adapter-1.2.9
+invalid options: -SHN           <1>
+(invalid options are ignored)
+Installing ri documentation for activerecord-jdbc-adapter-1.2.9
+Installing darkfish documentation for activerecord-jdbc-adapter-1.2.9
 1 gem installed
-Installing ri documentation for activerecord-jdbc-adapter-1.2.2.1...
-Installing RDoc documentation for activerecord-jdbc-adapter-1.2.2.1...
 ----
+<1> _Invalid Options_ werden ignoriert - alles gut!
 
 ----
 $ jgem install activerecord-jdbcmysql-adapter activerecord-jdbcsqlite3-adapter --rdoc --ri
-Fetching: jdbc-mysql-5.1.22.gem (100%)
-Fetching: activerecord-jdbcmysql-adapter-1.2.2.1.gem (100%)
-Successfully installed jdbc-mysql-5.1.22
-Successfully installed activerecord-jdbcmysql-adapter-1.2.2.1
-Fetching: jdbc-sqlite3-3.7.2.gem (100%)
-Fetching: activerecord-jdbcsqlite3-adapter-1.2.2.1.gem (100%)
-Successfully installed jdbc-sqlite3-3.7.2
-Successfully installed activerecord-jdbcsqlite3-adapter-1.2.2.1
+Fetching: jdbc-mysql-5.1.24.gem (100%)
+Successfully installed jdbc-mysql-5.1.24
+Fetching: activerecord-jdbcmysql-adapter-1.2.9.gem (100%)
+Successfully installed activerecord-jdbcmysql-adapter-1.2.9
+Installing ri documentation for jdbc-mysql-5.1.24
+Installing darkfish documentation for jdbc-mysql-5.1.24
+Installing ri documentation for activerecord-jdbcmysql-adapter-1.2.9
+Installing darkfish documentation for activerecord-jdbcmysql-adapter-1.2.9
+Fetching: jdbc-sqlite3-3.7.2.1.gem (100%)
+Successfully installed jdbc-sqlite3-3.7.2.1
+Fetching: activerecord-jdbcsqlite3-adapter-1.2.9.gem (100%)
+Successfully installed activerecord-jdbcsqlite3-adapter-1.2.9
+Installing ri documentation for jdbc-sqlite3-3.7.2.1
+Installing darkfish documentation for jdbc-sqlite3-3.7.2.1
+Installing ri documentation for activerecord-jdbcsqlite3-adapter-1.2.9
+Installing darkfish documentation for activerecord-jdbcsqlite3-adapter-1.2.9
 4 gems installed
-Installing ri documentation for jdbc-mysql-5.1.22...
-Installing ri documentation for activerecord-jdbcmysql-adapter-1.2.2.1...
-Installing ri documentation for jdbc-sqlite3-3.7.2...
-Installing ri documentation for activerecord-jdbcsqlite3-adapter-1.2.2.1...
-Installing RDoc documentation for jdbc-mysql-5.1.22...
-Installing RDoc documentation for activerecord-jdbcmysql-adapter-1.2.2.1...
-Installing RDoc documentation for jdbc-sqlite3-3.7.2...
-Installing RDoc documentation for activerecord-jdbcsqlite3-adapter-1.2.2.1...
 ----
 
 *Step 6:* WebServer I
 ----
 $ jgem install mongrel --rdoc --ri
 Fetching: gem_plugin-0.2.3.gem (100%)
-Fetching: mongrel-1.1.5-java.gem (100%)
 Successfully installed gem_plugin-0.2.3
+Fetching: mongrel-1.1.5-java.gem (100%)
 Successfully installed mongrel-1.1.5-java
+Installing ri documentation for gem_plugin-0.2.3
+Installing darkfish documentation for gem_plugin-0.2.3
+Installing ri documentation for mongrel-1.1.5-java
+Installing darkfish documentation for mongrel-1.1.5-java
 2 gems installed
-Installing ri documentation for gem_plugin-0.2.3...
-Installing ri documentation for mongrel-1.1.5-java...
-Installing RDoc documentation for gem_plugin-0.2.3...
-Installing RDoc documentation for mongrel-1.1.5-java...
 ----
 
 *Step 7:* WebServer II
@@ -527,46 +584,65 @@ Installing RDoc documentation for mongrel-1.1.5-java...
 $ jgem install glassfish --rdoc --ri
 Fetching: glassfish-1.0.3-universal-java.gem (100%)
 Successfully installed glassfish-1.0.3-universal-java
+unable to convert "\xD5" from ASCII-8BIT to UTF-8 for LICENSE.txt, skipping
+Installing ri documentation for glassfish-1.0.3-universal-java
+Installing darkfish documentation for glassfish-1.0.3-universal-java
 1 gem installed
-Installing ri documentation for glassfish-1.0.3-universal-java...
-Installing RDoc documentation for glassfish-1.0.3-universal-java...
 ----
 
 *Step 8:* WAR (WAR ist ein Dateiformat und steht für Web Application Archive) 
 ----
 $ jgem install warbler --rdoc --ri
-Fetching: jruby-jars-1.7.1.gem (100%)
-Fetching: jruby-rack-1.1.12.gem (100%)
+Fetching: jruby-jars-1.7.3.gem (100%)
+Successfully installed jruby-jars-1.7.3
+Fetching: jruby-rack-1.1.13.2.gem (100%)
+Successfully installed jruby-rack-1.1.13.2
 Fetching: rubyzip-0.9.9.gem (100%)
-Fetching: warbler-1.3.6.gem (100%)
-Successfully installed jruby-jars-1.7.1
-Successfully installed jruby-rack-1.1.12
 Successfully installed rubyzip-0.9.9
+Fetching: warbler-1.3.6.gem (100%)
 Successfully installed warbler-1.3.6
-4 gems installed
-Installing ri documentation for jruby-jars-1.7.1...
-Installing ri documentation for jruby-rack-1.1.12...
-Installing ri documentation for rubyzip-0.9.9...
-Installing ri documentation for warbler-1.3.6...
-Installing RDoc documentation for jruby-jars-1.7.1...
-Installing RDoc documentation for jruby-rack-1.1.12...
-Installing RDoc documentation for rubyzip-0.9.9...
-Installing RDoc documentation for warbler-1.3.6...
+Installing ri documentation for jruby-jars-1.7.3
+Installing darkfish documentation for jruby-jars-1.7.3
+Installing ri documentation for jruby-rack-1.1.13.2
+Installing darkfish documentation for jruby-rack-1.1.13.2
+Installing ri documentation for rubyzip-0.9.9
+Installing darkfish documentation for rubyzip-0.9.9
+Installing ri documentation for warbler-1.3.6
+Installing darkfish documentation for warbler-1.3.6
+ERROR:  While executing gem ... (RDoc::Error)
+    error generating /Object.html: No such file or directory -  (Errno::ENOENT)
+----
+
+----
+$ jgem rdoc warbler
 ----
 
 *Step 9:* Erweiterungen
 ----
-$ jgem install sinatra --rdoc --ri
-Fetching: rack-protection-1.3.2.gem (100%)
-Fetching: sinatra-1.3.3.gem (100%)
-Successfully installed rack-protection-1.3.2
-Successfully installed sinatra-1.3.3
-2 gems installed
-Installing ri documentation for rack-protection-1.3.2...
-Installing ri documentation for sinatra-1.3.3...
-Installing RDoc documentation for rack-protection-1.3.2...
-Installing RDoc documentation for sinatra-1.3.3...
+$ jgem install sinatra --rdoc --ri   <1>
+Fetching: rack-1.5.2.gem (100%)    <2>
+Successfully installed rack-1.5.2
+Fetching: rack-protection-1.5.0.gem (100%)
+Successfully installed rack-protection-1.5.0
+Fetching: sinatra-1.4.2.gem (100%)
+Successfully installed sinatra-1.4.2
+unable to convert "\x89" from ASCII-8BIT to UTF-8 for test/multipart/binary, skipping
+Installing ri documentation for rack-1.5.2
+Installing darkfish documentation for rack-1.5.2
+Installing ri documentation for rack-protection-1.5.0
+Installing darkfish documentation for rack-protection-1.5.0
+Installing ri documentation for sinatra-1.4.2
+Installing darkfish documentation for sinatra-1.4.2
+3 gems installed
 ----
+<1> Sinatra ist eine freie und OpenSource Webapplikationsbibliothek und 
+    eine in Ruby geschriebene domänenspezifische Sprache. +
+    &rarr; link:http://de.wikipedia.org/wiki/Sinatra_%28Software%29[Wikipedia: Sinatra (Software)]
+<2> Eine weitere _neuere_ Version von _Rack_ wurde installiert. 
+    Das RubyGem _Bundler_ klärt für die nun von Ihnen installierten Frameworks 
+    _Ruby on Rails_ und _Sinatra_
+    welche der vorhandenen Versionen (1.4.5, 1.5.2) verwendet wird. 
+
 
 *Step 10:* Liste der installierte RubyGems
 ----
@@ -574,51 +650,52 @@ $ jgem list --local
 
 *** LOCAL GEMS ***
 
-actionmailer (3.2.9)
-actionpack (3.2.9)
-activemodel (3.2.9)
-activerecord (3.2.9)
-activerecord-jdbc-adapter (1.2.2.1)
-activerecord-jdbcmysql-adapter (1.2.2.1)
-activerecord-jdbcsqlite3-adapter (1.2.2.1)
-activeresource (3.2.9)
-activesupport (3.2.9)
+actionmailer (3.2.13)
+actionpack (3.2.13)
+activemodel (3.2.13)
+activerecord (3.2.13)
+activerecord-jdbc-adapter (1.2.9)
+activerecord-jdbcmysql-adapter (1.2.9)
+activerecord-jdbcsqlite3-adapter (1.2.9)
+activeresource (3.2.13)
+activesupport (3.2.13)
 arel (3.0.2)
 builder (3.0.4)
-bundler (1.2.3)
+bundler (1.3.5)
 erubis (2.7.0)
 gem_plugin (0.2.3)
 glassfish (1.0.3 universal-java)
-hike (1.2.1)
+hike (1.2.2)
 i18n (0.6.1)
-jdbc-mysql (5.1.22)
-jdbc-sqlite3 (3.7.2)
+jdbc-mysql (5.1.24)
+jdbc-sqlite3 (3.7.2.1)
 journey (1.0.4)
-jruby-jars (1.7.1)
-jruby-rack (1.1.12)
-json (1.7.5 java)
-mail (2.4.4)
-mime-types (1.19)
+jruby-jars (1.7.3)
+jruby-rack (1.1.13.2)
+json (1.7.7 java)
+mail (2.5.3)
+mime-types (1.22)
 mongrel (1.1.5 java)
-multi_json (1.5.0)
+multi_json (1.7.2)
 polyglot (0.3.3)
-rack (1.4.1)
+rack (1.5.2, 1.4.5)
 rack-cache (1.2)
-rack-protection (1.3.2)
-rack-ssl (1.3.2)
+rack-protection (1.5.0)
+rack-ssl (1.3.3)
 rack-test (0.6.2)
-rails (3.2.9)
-railties (3.2.9)
-rake (10.0.3, 0.9.2.2)
-rdoc (3.12)
+rails (3.2.13)
+railties (3.2.13)
+rake (10.0.4, 10.0.3)
+rdoc (3.12.2)
 rdoc-data (3.12)
+rubygems-update (2.0.3)
 rubyzip (0.9.9)
-sinatra (1.3.3)
+sinatra (1.4.2)
 sprockets (2.2.2)
-thor (0.16.0)
-tilt (1.3.3)
+thor (0.18.1)
+tilt (1.3.7)
 treetop (1.4.12)
-tzinfo (0.3.35)
+tzinfo (0.3.37)
 warbler (1.3.6)
 ----
 
@@ -644,7 +721,7 @@ export JRUBY_HOME
 #export JRUBY_OPTS
 export PATH
 ----
-<1> JRuby wird als im Modus _Ruby 1.8.7_ ausgeführt.
+<1> JRuby wird im Modus _Ruby 1.8.7_ ausgeführt.
 
 
 .JRuby (mit separatem JDK)
@@ -655,7 +732,7 @@ JDK_HOME=/opt/Java/current
 JRE_HOME=/opt/Java/current
 
 JRUBY_HOME=/opt/JRuby/sid/current
-#JRUBY_OPTS=--1.8   <1>
+#JRUBY_OPTS=--1.8   <2>
 
 # Tomcat
 #CATALINA_OPTS='-server -Xms512m -Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=512m'
@@ -675,3 +752,4 @@ export JRUBY_HOME
 export PATH
 ----
 <1> Eine von Hand installierte _JDK_-Version 
+<2> JRuby wird im Modus _Ruby 1.8.7_ ausgeführt.
