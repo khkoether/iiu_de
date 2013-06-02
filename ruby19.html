@@ -741,7 +741,7 @@ asciidoc.install(2);
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph"><p>Version 1.8.0, April 2013, <a href="#_changelog">[Changelog]</a></p></div>
+<div class="paragraph"><p>Version 1.8.1, Juni 2013, <a href="#_changelog">[Changelog]</a></p></div>
 </div>
 </div>
 <div class="sect1">
@@ -794,8 +794,8 @@ anderen Ubuntu-Paketen) bereits installiert.</p></div>
 <li>
 <p>
 <a href="ftp://www.ruby-lang.org/pub/ruby/1.9/">Ruby 1.9.3</a><br>
-  ruby-1.9.3-p392.tar.gz  (ca. 12M)<br>
-  2013-02-22 (Release date)
+  ruby-1.9.3-p429.tar.gz  (ca. 12M)<br>
+  2013-05-14 (Release date)
 </p>
 </li>
 </ul></div>
@@ -823,7 +823,7 @@ Benutzer <em>root</em> für das System durchgeführt.</p></div>
 <div class="listingblock">
 <div class="content monospaced">
 <pre>$ ls -l
--rw-rw-r-- 1 sid sid 12557294 Apr 14 10:36 ruby-1.9.3-p392.tar.gz</pre>
+-rw-rw-r-- 1 sid sid 12553234 Jun  1 14:41 ruby-1.9.3-p429.tar.gz</pre>
 </div></div>
 </td>
 </tr></table>
@@ -854,7 +854,7 @@ Programm-Pakete installiert sind.</p></div>
 <h2 id="_installation">Installation</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_ruby_1_9_3_p392">Ruby 1.9.3-p392</h3>
+<h3 id="_ruby_1_9_3_p429">Ruby 1.9.3-p429</h3>
 <div class="paragraph"><p>Zusätzliche Software-Pakete
 sollten im Verzeichnis <em>/opt</em> (Optional) installiert werden.</p></div>
 <div class="admonitionblock">
@@ -874,13 +874,13 @@ Beispiel für die Änderung des Installations-Verzeichnisses:
 <div class="paragraph"><p><strong>Step 1:</strong> Auspacken des Source-Code</p></div>
 <div class="listingblock">
 <div class="content monospaced">
-<pre>$ tar xvzf ruby-1.9.3-p392.tar.gz
-$ cd ruby-1.9.3-p392</pre>
+<pre>$ tar xvzf ruby-1.9.3-p429.tar.gz
+$ cd ruby-1.9.3-p429</pre>
 </div></div>
 <div class="paragraph"><p><strong>Step 2:</strong> Ziel-Verzeichnis anlegen, Konfiguration erstellen und kompilieren</p></div>
 <div class="listingblock">
 <div class="content monospaced">
-<pre>$ sudo mkdir -p /opt/Ruby/ruby-1.9.3-p392</pre>
+<pre>$ sudo mkdir -p /opt/Ruby/ruby-1.9.3-p429</pre>
 </div></div>
 <div class="admonitionblock">
 <table><tr>
@@ -898,7 +898,7 @@ ohne das Suffix <em>19</em> wiederum vorhandene Dateien überschreibt.</p></div>
 </div>
 <div class="listingblock">
 <div class="content monospaced">
-<pre>$ ./configure --prefix=/opt/Ruby/ruby-1.9.3-p392 | tee ../log.ruby_configure
+<pre>$ ./configure --prefix=/opt/Ruby/ruby-1.9.3-p429 | tee ../log.ruby_configure
 checking build system type... x86_64-unknown-linux-gnu
 checking host system type... x86_64-unknown-linux-gnu
 checking target system type... x86_64-unknown-linux-gnu
@@ -938,7 +938,7 @@ Enclosing class/module 'mDigest' for class SHA1 not known
 Enclosing class/module "cASN1ObjectId" for alias short_name sn not known
 Enclosing class/module "cASN1ObjectId" for alias long_name ln not known
 
-Generating RI format into /yggdrasil/PrecisePangolin/Ruby19/ruby-1.9.3-p392/.ext/rdoc...
+Generating RI format into /yggdrasil/PrecisePangolin/Ruby19/ruby-1.9.3-p429/.ext/rdoc...
 
 Files:        773
 
@@ -946,12 +946,12 @@ Classes:     1374 ( 708 undocumented)
 Modules:      306 ( 152 undocumented)
 Constants:   2258 ( 828 undocumented)
 Attributes:  1020 ( 440 undocumented)
-Methods:    10478 (3102 undocumented)
+Methods:    10480 (3102 undocumented)
 
-Total:      15436 (5230 undocumented)
+Total:      15438 (5230 undocumented)
  66.12% documented
 
-Elapsed: 116.7s</pre>
+Elapsed: 117.5s</pre>
 </div></div>
 <div class="colist arabic"><table>
 <tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
@@ -971,9 +971,9 @@ PASS all 951 tests
 ./miniruby -I./lib -I. -I.ext/common  ./tool/runruby.rb --extout=.ext  --
                        --disable-gems "./bootstraptest/runner.rb"
                        --ruby="ruby"  ./KNOWNBUGS.rb
-2013-04-14 10:48:24 +0200
-Driver is ruby 1.9.3p392 (2013-02-22 revision 39386) [x86_64-linux]
-Target is ruby 1.9.3p392 (2013-02-22 revision 39386) [x86_64-linux]
+2013-06-01 15:02:24 +0200
+Driver is ruby 1.9.3p429 (2013-05-15 revision 40747) [x86_64-linux]
+Target is ruby 1.9.3p429 (2013-05-15 revision 40747) [x86_64-linux]
 
 
 KNOWNBUGS.rb           <img src="./images/icons/callouts/2.png" alt="2">
@@ -1041,25 +1041,25 @@ Elapsed: 0.0s
                        --make-flags="" --data-mode=0644 --prog-mode=0755
                        --installed-list .installed.list --mantype="doc" --install=all
                        --rdoc-output=".ext/rdoc"
-installing binary commands:   /opt/Ruby/ruby-1.9.3-p392/bin
-installing base libraries:    /opt/Ruby/ruby-1.9.3-p392/lib
-installing arch files:        /opt/Ruby/ruby-1.9.3-p392/lib/ruby/1.9.1/x86_64-linux
-installing pkgconfig data:    /opt/Ruby/ruby-1.9.3-p392/lib/pkgconfig
-installing extension objects: /opt/Ruby/ruby-1.9.3-p392/lib/ruby/1.9.1/x86_64-linux
-installing extension objects: /opt/Ruby/ruby-1.9.3-p392/lib/ruby/site_ruby/1.9.1/x86_64-linux
-installing extension objects: /opt/Ruby/ruby-1.9.3-p392/lib/ruby/vendor_ruby/1.9.1/x86_64-linux
-installing extension headers: /opt/Ruby/ruby-1.9.3-p392/include/ruby-1.9.1/x86_64-linux
-installing extension scripts: /opt/Ruby/ruby-1.9.3-p392/lib/ruby/1.9.1
-installing extension scripts: /opt/Ruby/ruby-1.9.3-p392/lib/ruby/site_ruby/1.9.1
-installing extension scripts: /opt/Ruby/ruby-1.9.3-p392/lib/ruby/vendor_ruby/1.9.1
-installing extension headers: /opt/Ruby/ruby-1.9.3-p392/include/ruby-1.9.1/ruby
-installing rdoc:              /opt/Ruby/ruby-1.9.3-p392/share/ri/1.9.1/system
-installing capi-docs:         /opt/Ruby/ruby-1.9.3-p392/share/doc/ruby
-installing command scripts:   /opt/Ruby/ruby-1.9.3-p392/bin
-installing library scripts:   /opt/Ruby/ruby-1.9.3-p392/lib/ruby/1.9.1
-installing common headers:    /opt/Ruby/ruby-1.9.3-p392/include/ruby-1.9.1
-installing manpages:          /opt/Ruby/ruby-1.9.3-p392/share/man/man1
-installing default gems:      /opt/Ruby/ruby-1.9.3-p392/lib/ruby/gems/1.9.1 (cache, doc, gems, specifications)
+installing binary commands:   /opt/Ruby/ruby-1.9.3-p429/bin
+installing base libraries:    /opt/Ruby/ruby-1.9.3-p429/lib
+installing arch files:        /opt/Ruby/ruby-1.9.3-p429/lib/ruby/1.9.1/x86_64-linux
+installing pkgconfig data:    /opt/Ruby/ruby-1.9.3-p429/lib/pkgconfig
+installing extension objects: /opt/Ruby/ruby-1.9.3-p429/lib/ruby/1.9.1/x86_64-linux
+installing extension objects: /opt/Ruby/ruby-1.9.3-p429/lib/ruby/site_ruby/1.9.1/x86_64-linux
+installing extension objects: /opt/Ruby/ruby-1.9.3-p429/lib/ruby/vendor_ruby/1.9.1/x86_64-linux
+installing extension headers: /opt/Ruby/ruby-1.9.3-p429/include/ruby-1.9.1/x86_64-linux
+installing extension scripts: /opt/Ruby/ruby-1.9.3-p429/lib/ruby/1.9.1
+installing extension scripts: /opt/Ruby/ruby-1.9.3-p429/lib/ruby/site_ruby/1.9.1
+installing extension scripts: /opt/Ruby/ruby-1.9.3-p429/lib/ruby/vendor_ruby/1.9.1
+installing extension headers: /opt/Ruby/ruby-1.9.3-p429/include/ruby-1.9.1/ruby
+installing rdoc:              /opt/Ruby/ruby-1.9.3-p429/share/ri/1.9.1/system
+installing capi-docs:         /opt/Ruby/ruby-1.9.3-p429/share/doc/ruby
+installing command scripts:   /opt/Ruby/ruby-1.9.3-p429/bin
+installing library scripts:   /opt/Ruby/ruby-1.9.3-p429/lib/ruby/1.9.1
+installing common headers:    /opt/Ruby/ruby-1.9.3-p429/include/ruby-1.9.1
+installing manpages:          /opt/Ruby/ruby-1.9.3-p429/share/man/man1
+installing default gems:      /opt/Ruby/ruby-1.9.3-p429/lib/ruby/gems/1.9.1 (cache, doc, gems, specifications)
                               rake 0.9.2.2
                               rdoc 3.9.5
                               minitest 2.5.1
@@ -1070,26 +1070,26 @@ installing default gems:      /opt/Ruby/ruby-1.9.3-p392/lib/ruby/gems/1.9.1 (cac
 <div class="paragraph"><p><strong>Step 4:</strong> Installation verifizieren</p></div>
 <div class="listingblock">
 <div class="content monospaced">
-<pre>$ cd /opt/Ruby/ruby-1.9.3-p392
+<pre>$ cd /opt/Ruby/ruby-1.9.3-p429
 $ ls -l
-drwxr-xr-x 2 root root 4096 Apr 14 10:51 bin
-drwxr-xr-x 3 root root 4096 Apr 14 10:51 include
-drwxr-xr-x 4 root root 4096 Apr 14 10:51 lib
-drwxr-xr-x 5 root root 4096 Apr 14 10:51 share</pre>
+drwxr-xr-x 2 root root 4096 Jun  1 15:13 bin
+drwxr-xr-x 3 root root 4096 Jun  1 15:13 include
+drwxr-xr-x 4 root root 4096 Jun  1 15:13 lib
+drwxr-xr-x 5 root root 4096 Jun  1 15:13 share</pre>
 </div></div>
 <div class="listingblock">
 <div class="content monospaced">
 <pre>$ ls -l bin
--rwxr-xr-x 1 root root    4414 Apr 14 10:51 erb
--rwxr-xr-x 1 root root     563 Apr 14 10:51 gem
--rwxr-xr-x 1 root root     335 Apr 14 10:51 irb
--rwxr-xr-x 1 root root    1248 Apr 14 10:51 rake
--rwxr-xr-x 1 root root     805 Apr 14 10:51 rdoc
--rwxr-xr-x 1 root root     205 Apr 14 10:51 ri
--rwxr-xr-x 1 root root 8641132 Apr 14 10:44 ruby
--rwxr-xr-x 1 root root     315 Apr 14 10:51 testrb</pre>
+-rwxr-xr-x 1 root root    4414 Jun  1 15:13 erb
+-rwxr-xr-x 1 root root     563 Jun  1 15:13 gem
+-rwxr-xr-x 1 root root     335 Jun  1 15:13 irb
+-rwxr-xr-x 1 root root    1248 Jun  1 15:13 rake
+-rwxr-xr-x 1 root root     805 Jun  1 15:13 rdoc
+-rwxr-xr-x 1 root root     205 Jun  1 15:13 ri
+-rwxr-xr-x 1 root root 8653957 Jun  1 14:52 ruby
+-rwxr-xr-x 1 root root     315 Jun  1 15:13 testrb</pre>
 </div></div>
-<div class="paragraph"><p><strong>Step 5:</strong> Der Pfad zum Verzeichnis <em>/opt/Ruby/ruby-1.9.3-p392/bin</em> muß gesetzt werden.</p></div>
+<div class="paragraph"><p><strong>Step 5:</strong> Der Pfad zum Verzeichnis <em>/opt/Ruby/ruby-1.9.3-p429/bin</em> muß gesetzt werden.</p></div>
 <div class="listingblock">
 <div class="content monospaced">
 <pre>$ cd /opt/Ruby/
@@ -1103,7 +1103,8 @@ drwxr-xr-x 7 root root 4096 Okt 27 17:52 ruby-1.9.3-p286
 drwxr-xr-x 7 root root 4096 Nov 21 10:05 ruby-1.9.3-p327-old
 drwxr-xr-x 7 root root 4096 Jan 16 11:51 ruby-1.9.3-p362
 drwxr-xr-x 7 root root 4096 Jan 22 10:13 ruby-1.9.3-p374
-drwxr-xr-x 6 root root 4096 Apr 14 10:51 ruby-1.9.3-p392</pre>
+drwxr-xr-x 6 root root 4096 Apr 14 10:51 ruby-1.9.3-p392
+drwxr-xr-x 6 root root 4096 Jun  1 15:13 ruby-1.9.3-p429</pre>
 </div></div>
 <div class="paragraph"><div class="title">Lokal in der aktuellen Shell (1)</div><p>Erstellen Sie eine Datei <em>ruby19.path.sh</em>.</p></div>
 <div class="listingblock">
@@ -1148,7 +1149,7 @@ $ sudo which ruby            <img src="./images/icons/callouts/2.png" alt="2">
 /opt/Ruby/current/bin/ruby
 
 $ ruby -v                    <img src="./images/icons/callouts/3.png" alt="3">
-ruby 1.9.3p392 (2013-02-22 revision 39386) [x86_64-linux]</pre>
+ruby 1.9.3p429 (2013-05-15 revision 40747) [x86_64-linux]</pre>
 </div></div>
 <div class="colist arabic"><table>
 <tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
@@ -1170,16 +1171,18 @@ Happy new Ruby</pre>
 <div class="listingblock">
 <div class="title">Und ein Ruby1.9-Feature &#8230;</div>
 <div class="content monospaced">
-<pre>irb(main):001:0&gt; RUBY_VERSION
+<pre>$ irb
+irb(main):001:0&gt; RUBY_VERSION
 =&gt; "1.9.3"
 irb(main):002:0&gt; RUBY_PATCHLEVEL
-=&gt; 392
+=&gt; 429
 irb(main):003:0&gt; Time.now.to_s
-=&gt; "2013-04-14 10:55:12 +0200"
-irb(main):004:0&gt; Time.now.friday?
+=&gt; "2013-06-01 15:17:58 +0200"
+irb(main):004:0&gt; Time.now.tuesday?
 =&gt; false
-irb(main):005:0&gt; Time.now.sunday?
-=&gt; true</pre>
+irb(main):005:0&gt; Time.now.saturday?
+=&gt; true
+irb(main):006:0&gt; exit</pre>
 </div></div>
 <div class="listingblock">
 <div class="title">ri - Ruby Interactive (Test der installierten Dokumentation)</div>
@@ -1311,28 +1314,28 @@ Successfully installed io-console-0.4.2
 Installing ri documentation for io-console-0.4.2
 Installing darkfish documentation for io-console-0.4.2
 Updating json
-Fetching: json-1.7.7.gem (100%)
+Fetching: json-1.8.0.gem (100%)
 Building native extensions.  This could take a while...
-Successfully installed json-1.7.7
-Installing ri documentation for json-1.7.7
-Installing darkfish documentation for json-1.7.7
+Successfully installed json-1.8.0
+Installing ri documentation for json-1.8.0
+Installing darkfish documentation for json-1.8.0
 Updating minitest
-Fetching: minitest-4.7.0.gem (100%)
-Successfully installed minitest-4.7.0
-Installing ri documentation for minitest-4.7.0
-Installing darkfish documentation for minitest-4.7.0
+Fetching: minitest-5.0.3.gem (100%)
+Successfully installed minitest-5.0.3
+Installing ri documentation for minitest-5.0.3
+Installing darkfish documentation for minitest-5.0.3
 Updating rake
 Fetching: rake-10.0.4.gem (100%)
-rake's executable "rake" conflicts with /opt/Ruby/ruby-1.9.3-p392/bin/rake
+rake's executable "rake" conflicts with /opt/Ruby/ruby-1.9.3-p429/bin/rake
 Overwrite the executable? [yN]  y    <img src="./images/icons/callouts/1.png" alt="1">
 Successfully installed rake-10.0.4
 Installing ri documentation for rake-10.0.4
 Installing darkfish documentation for rake-10.0.4
 Updating rdoc
 Fetching: rdoc-4.0.1.gem (100%)
-rdoc's executable "rdoc" conflicts with /opt/Ruby/ruby-1.9.3-p392/bin/rdoc
+rdoc's executable "rdoc" conflicts with /opt/Ruby/ruby-1.9.3-p429/bin/rdoc
 Overwrite the executable? [yN]  y
-rdoc's executable "ri" conflicts with /opt/Ruby/ruby-1.9.3-p392/bin/ri
+rdoc's executable "ri" conflicts with /opt/Ruby/ruby-1.9.3-p429/bin/ri
 Overwrite the executable? [yN]  y
 Depending on your version of ruby, you may need to install ruby rdoc/ri data:
 
@@ -1361,9 +1364,9 @@ Fünf <em>Gems</em> aktualisiert!
 
 bigdecimal (1.1.0)
 io-console (0.4.2, 0.3)
-json (1.7.7, 1.5.5)
-minitest (4.7.1, 2.5.1)
-rake (10.0.4, 0.9.2.2)   <img src="./images/icons/callouts/1.png" alt="1">
+json (1.8.0, 1.5.5)
+minitest (5.0.3, 2.5.1)
+rake (10.0.4, 0.9.2.2)    <img src="./images/icons/callouts/1.png" alt="1">
 rdoc (4.0.1, 3.9.5)
 rubygems-update (2.0.3)</pre>
 </div></div>
@@ -1381,27 +1384,27 @@ Der gezeigte Versionssprung ist kein Fehler ;-)<br>
 Parsing sources...
 Couldn't find file to include 'README.txt' from lib/ruby/1.9.1/minitest/unit.rb
 unknown encoding name "&lt;%= @options.charset %&gt;" for lib/ruby/1.9.1/rdoc/generator/template/darkfish/classpage.rhtml, skipping
-Couldn't find file to include 'README.txt' from lib/ruby/gems/1.9.1/gems/minitest-4.7.1/lib/minitest/unit.rb
-100% [20401/20401]  share/ri/1.9.1/system/fatal/cdesc-fatal.ri
+Couldn't find file to include 'README.txt' from lib/ruby/gems/1.9.1/gems/minitest-5.0.3/lib/minitest.rb
+100% [20500/20500]  share/ri/1.9.1/system/fatal/cdesc-fatal.ri
 
-Generating Darkfish format into /opt/Ruby/ruby-1.9.3-p392/doc...
+Generating Darkfish format into /opt/Ruby/ruby-1.9.3-p429/doc...
 
-Files:      20401
+Files:      20500
 
-Classes:     1317 (   0 undocumented)
-Modules:      312 (  15 undocumented)
-Constants:   1033 ( 723 undocumented)
-Attributes:  1147 ( 474 undocumented)
-Methods:     8190 (3387 undocumented)
+Classes:     1334 (   0 undocumented)
+Modules:      312 (  13 undocumented)
+Constants:   1035 ( 725 undocumented)
+Attributes:  1162 ( 480 undocumented)
+Methods:     8356 (3412 undocumented)
 
-Total:      11999 (4599 undocumented)
- 61.67% documented
+Total:      12199 (4630 undocumented)
+ 62.05% documented
 
-Elapsed: 1462.9s  <img src="./images/icons/callouts/2.png" alt="2"></pre>
+Elapsed: 1492.9s   <img src="./images/icons/callouts/2.png" alt="2"></pre>
 </div></div>
 <div class="colist arabic"><table>
 <tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
-Entspricht: <em>/opt/Ruby/ruby-1.9.3-p392</em>
+Entspricht: <em>/opt/Ruby/ruby-1.9.3-p429</em>
 </td></tr>
 <tr><td><img src="./images/icons/callouts/2.png" alt="2"></td><td>
 <em>Generating Darkfish</em> dauert lange&#8230;
@@ -1410,16 +1413,16 @@ Entspricht: <em>/opt/Ruby/ruby-1.9.3-p392</em>
 <div class="listingblock">
 <div class="content monospaced">
 <pre># ls -l
-drwxr-xr-x  2 root root  4096 Apr 14 10:59 bin
-drwxr-xr-x 81 root root 12288 Apr 14 11:26 doc       <img src="./images/icons/callouts/1.png" alt="1">
-drwxr-xr-x  3 root root  4096 Apr 14 10:51 include
-drwxr-xr-x  4 root root  4096 Apr 14 10:51 lib
-drwxr-xr-x  5 root root  4096 Apr 14 10:51 share</pre>
+drwxr-xr-x  2 root root  4096 Jun  1 15:23 bin
+drwxr-xr-x 81 root root 12288 Jun  1 15:49 doc       <img src="./images/icons/callouts/1.png" alt="1">
+drwxr-xr-x  3 root root  4096 Jun  1 15:13 include
+drwxr-xr-x  4 root root  4096 Jun  1 15:13 lib
+drwxr-xr-x  5 root root  4096 Jun  1 15:13 share</pre>
 </div></div>
 <div class="colist arabic"><table>
 <tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
 Das Dokumentations-Verzeichnis enthält die Datei <em>index.html</em>.<br>
-    Das neue Verzeichnis belegt ca. 738M Speicherplatz.
+    Das neue Verzeichnis belegt ca. 753M Speicherplatz.
 </td></tr>
 </table></div>
 <div class="listingblock">
@@ -1466,7 +1469,7 @@ Done installing documentation for
      journey, hike, tilt, sprockets, erubis, actionpack, arel, tzinfo, activerecord,
      activeresource, mime-types, polyglot, treetop, mail, actionmailer, rack-ssl, thor,
      railties, bundler,
-     rails after 144 seconds
+     rails after 151 seconds
 28 gems installed  <img src="./images/icons/callouts/1.png" alt="1"></pre>
 </div></div>
 <div class="colist arabic"><table>
@@ -1518,11 +1521,11 @@ hike (1.2.2)
 i18n (0.6.1)
 io-console (0.4.2, 0.3)
 journey (1.0.4)
-json (1.7.7, 1.5.5)
-mail (2.5.3)
-mime-types (1.22)
-minitest (4.7.1, 2.5.1)
-multi_json (1.7.2)
+json (1.8.0, 1.5.5)
+mail (2.5.4)
+mime-types (1.23)
+minitest (5.0.3, 2.5.1)
+multi_json (1.7.4)
 polyglot (0.3.3)
 rack (1.4.5)
 rack-cache (1.2)
@@ -1535,7 +1538,7 @@ rdoc (4.0.1, 3.9.5)
 rubygems-update (2.0.3)
 sprockets (2.2.2)
 thor (0.18.1)
-tilt (1.3.7)
+tilt (1.4.1)
 treetop (1.4.12)
 tzinfo (0.3.37)</pre>
 </div></div>
@@ -1543,23 +1546,23 @@ tzinfo (0.3.37)</pre>
 <div class="content monospaced">
 <pre>$ cd /opt/Ruby/current
 $ ls -l bin
--rwxr-xr-x 1 root root     478 Apr 14 11:33 bundle
--rwxr-xr-x 1 root root    4414 Apr 14 10:51 erb
--rwxr-xr-x 1 root root     475 Apr 14 11:31 erubis
--rwxr-xr-x 1 root root     563 Apr 14 10:51 gem
--rwxr-xr-x 1 root root     335 Apr 14 10:51 irb
--rwxr-xr-x 1 root root     469 Apr 14 11:31 rackup
--rwxr-xr-x 1 root root     480 Apr 14 11:33 rails
--rwxr-xr-x 1 root root     467 Apr 14 10:58 rake
--rwxr-xr-x 1 root root     467 Apr 14 10:59 rdoc
--rwxr-xr-x 1 root root     465 Apr 14 10:59 ri
--rwxr-xr-x 1 root root 8641132 Apr 14 10:44 ruby
--rwxr-xr-x 1 root root     487 Apr 14 11:31 sprockets
--rwxr-xr-x 1 root root     315 Apr 14 10:51 testrb
--rwxr-xr-x 1 root root     467 Apr 14 11:33 thor
--rwxr-xr-x 1 root root     467 Apr 14 11:31 tilt
--rwxr-xr-x 1 root root     474 Apr 14 11:32 tt
--rwxr-xr-x 1 root root     511 Apr 14 10:57 update_rubygems</pre>
+-rwxr-xr-x 1 root root     478 Jun  1 16:50 bundle
+-rwxr-xr-x 1 root root    4414 Jun  1 15:13 erb
+-rwxr-xr-x 1 root root     475 Jun  1 16:48 erubis
+-rwxr-xr-x 1 root root     563 Jun  1 15:13 gem
+-rwxr-xr-x 1 root root     335 Jun  1 15:13 irb
+-rwxr-xr-x 1 root root     469 Jun  1 16:48 rackup
+-rwxr-xr-x 1 root root     480 Jun  1 16:50 rails
+-rwxr-xr-x 1 root root     467 Jun  1 15:22 rake
+-rwxr-xr-x 1 root root     467 Jun  1 15:22 rdoc
+-rwxr-xr-x 1 root root     465 Jun  1 15:23 ri
+-rwxr-xr-x 1 root root 8653957 Jun  1 14:52 ruby
+-rwxr-xr-x 1 root root     487 Jun  1 16:48 sprockets
+-rwxr-xr-x 1 root root     315 Jun  1 15:13 testrb
+-rwxr-xr-x 1 root root     467 Jun  1 16:49 thor
+-rwxr-xr-x 1 root root     467 Jun  1 16:48 tilt
+-rwxr-xr-x 1 root root     474 Jun  1 16:49 tt
+-rwxr-xr-x 1 root root     511 Jun  1 15:20 update_rubygems</pre>
 </div></div>
 <div class="admonitionblock">
 <table><tr>
@@ -1575,17 +1578,20 @@ zusätzlich - ist sie für viele Partitionen halt zu groß ;-)</p></div>
 # rdoc /opt/Ruby/current     <img src="./images/icons/callouts/2.png" alt="2">
 Parsing sources...
 [...]
-Elapsed: 6789.7s  <img src="./images/icons/callouts/3.png" alt="3"></pre>
+Elapsed: 6789.7s   <img src="./images/icons/callouts/3.png" alt="3">, <img src="./images/icons/callouts/4.png" alt="4"></pre>
 </div></div>
 <div class="colist arabic"><table>
 <tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
 Ungefähr 11GB - schon beachtlich!
 </td></tr>
 <tr><td><img src="./images/icons/callouts/2.png" alt="2"></td><td>
-Entspricht: <em>/opt/Ruby/ruby-1.9.3-p392</em> (vorher das <em>doc</em>-Verzeichnis löschen!)
+Entspricht: <em>/opt/Ruby/ruby-1.9.3-p429</em> (vorher das <em>doc</em>-Verzeichnis löschen!)
 </td></tr>
 <tr><td><img src="./images/icons/callouts/3.png" alt="3"></td><td>
 <em>Generating Darkfish</em> dauert nun um so vieles länger&#8230;
+</td></tr>
+<tr><td><img src="./images/icons/callouts/4.png" alt="4"></td><td>
+Heute habe ich mir das Erstellen &#8230; gespart ;-)
 </td></tr>
 </table></div>
 </td>
@@ -1611,7 +1617,7 @@ Done installing documentation for mysql2 after 0 seconds
 </td>
 <td class="content">
 <div class="paragraph"><p><em>mysql2</em> in der Version 0.3.x arbeitet nicht mit <em>Rails 3.0.x</em> zusammen.<br>
-Dementsprechend mu&szlig; eine älterere Version installiert werden!</p></div>
+Dementsprechend mu&szlig; f&uuml;r <em>Rails 3.0.x</em> eine älterere Version installiert werden!</p></div>
 <div class="listingblock">
 <div class="content monospaced">
 <pre># gem install mysql2 --version 0.2.11   <img src="./images/icons/callouts/1.png" alt="1">
@@ -1673,13 +1679,14 @@ Installing darkfish documentation for rack-protection-1.5.0
 Parsing documentation for sinatra-1.4.2
 Installing ri documentation for sinatra-1.4.2
 Installing darkfish documentation for sinatra-1.4.2
-Done installing documentation for rack, rack-protection, sinatra after 673 seconds
+Done installing documentation for rack, rack-protection, sinatra after 740 seconds
 3 gems installed</pre>
 </div></div>
 <div class="colist arabic"><table>
 <tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
-Sinatra ist eine freie und OpenSource Webapplikationsbibliothek und
-    eine in Ruby geschriebene domänenspezifische Sprache.<br>
+Sinatra ist eine <em>freie</em> und <em>open source Webapplikationsbibliothek</em> und
+    eine in Ruby geschriebene <em>domänenspezifische</em> Sprache.<br>
+    Sinatra setzt das Rack Webserver-Interface voraus.<br>
     &rarr; <a href="http://de.wikipedia.org/wiki/Sinatra_%28Software%29">Wikipedia: Sinatra (Software)</a>
 </td></tr>
 <tr><td><img src="./images/icons/callouts/2.png" alt="2"></td><td>
@@ -1719,12 +1726,12 @@ Server started at http://0.0.0.0:8808</pre>
 <h2 id="_anhang">Anhang</h2>
 <div class="sectionbody">
 <div class="listingblock">
-<div class="title">Script zum Installieren von Ruby 1.9.3-p392 (ohne weitere Erläuterung)</div>
+<div class="title">Script zum Installieren von Ruby 1.9.3-p429 (ohne weitere Erläuterung)</div>
 <div class="content monospaced">
 <pre>#!/bin/bash
 #
 ME=make_ruby_1.9.3
-NAME=ruby-1.9.3-p392
+NAME=ruby-1.9.3-p429
 TARGET=/opt/Ruby/${NAME}
 
 if [ ! -e $TARGET ]
@@ -1773,7 +1780,7 @@ echo "$ME: Ende."</pre>
 <div id="footnotes"><hr></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2013-04-14 16:48:46 CEST
+Last updated 2013-06-01 18:00:53 CEST
 </div>
 </div>
 </body>

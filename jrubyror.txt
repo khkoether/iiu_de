@@ -8,7 +8,7 @@ Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;
 :ubuntu-url: http://www.ubuntu.com/
 :jruby-url: link:jruby.html
 
-Version 1.8.0, April 2013, <<_changelog,[Changelog]>>
+Version 1.8.1, Juni 2013, <<_changelog,[Changelog]>>
 
 
 Abstract
@@ -32,7 +32,7 @@ Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr.
 Vorraussetzungen
 ----------------
 _JRuby_ und _Ruby on Rails_ sind wie 
-in {jruby-url}[Installation in Ubuntu: JRuby 1.7.3, Ruby on Rails 3.2.13] 
+in {jruby-url}[Installation in Ubuntu: JRuby 1.7.4, Ruby on Rails 3.2.13] 
 beschrieben durchgeführt worden.
 
 ----
@@ -40,10 +40,10 @@ $ which jruby
 /opt/JRuby/sid/current/bin/jruby
 
 $ jruby -v 
-jruby 1.7.3 (1.9.3p385) 2013-02-21 dac429b on OpenJDK 64-Bit Server VM 1.7.0_15-b20 [linux-amd64]
+jruby 1.7.4 (1.9.3p392) 2013-05-16 2390d3b on OpenJDK 64-Bit Server VM 1.7.0_21-b02 [linux-amd64]
 
 $ jruby -v --1.8   <1> 
-jruby 1.7.3 (ruby-1.8.7p370) 2013-02-21 dac429b on OpenJDK 64-Bit Server VM 1.7.0_15-b20 [linux-amd64]
+jruby 1.7.4 (ruby-1.8.7p370) 2013-05-16 2390d3b on OpenJDK 64-Bit Server VM 1.7.0_21-b02 [linux-amd64]
 
 $ which rails
 /opt/JRuby/sid/current/bin/rails
@@ -57,7 +57,7 @@ Rails 3.2.13
 <1> Die Installation _JRuby_ enthält zwei (gleichberechtigte) Implementationen der 
     Programmier-Sprache _Ruby_: +
     _Ruby 1.8.7-p370_ +
-    _Ruby 1.9.3-p385_ (default)
+    _Ruby 1.9.3-p392_ (default)
 <2> Der Schalter _-S_ führt dazu, daß für das Script zuerst  
     das Verzeichnis JRUBY_HOME/bin geprüft wird - und
     dann der PATH.
@@ -186,7 +186,7 @@ Fetching gem metadata from https://rubygems.org/..
 Resolving dependencies...
 Using rake (10.0.4) 
 Using i18n (0.6.1) 
-Using multi_json (1.7.2) 
+Using multi_json (1.7.5) 
 Using activesupport (3.2.13) 
 Using builder (3.0.4) 
 Using activemodel (3.2.13) 
@@ -196,13 +196,13 @@ Using rack (1.4.5)
 Using rack-cache (1.2) 
 Using rack-test (0.6.2) 
 Using hike (1.2.2) 
-Using tilt (1.3.7) 
+Using tilt (1.4.1) 
 Using sprockets (2.2.2) 
 Using actionpack (3.2.13) 
-Using mime-types (1.22) 
+Using mime-types (1.23) 
 Using polyglot (0.3.3) 
 Using treetop (1.4.12) 
-Using mail (2.5.3) 
+Using mail (2.5.4) 
 Using actionmailer (3.2.13) 
 Using arel (3.0.2) 
 Using tzinfo (0.3.37) 
@@ -217,19 +217,19 @@ Installing coffee-script-source (1.6.2)
 Installing execjs (1.4.0) 
 Installing coffee-script (2.2.0) 
 Using rack-ssl (1.3.3) 
-Using json (1.7.7) 
+Using json (1.8.0) 
 Using rdoc (3.12.2) 
 Using thor (0.18.1) 
 Using railties (3.2.13) 
 Installing coffee-rails (3.2.2) 
-Installing jquery-rails (2.2.1) 
-Installing jruby-openssl (0.8.7) 
+Installing jquery-rails (3.0.0) 
+Installing jruby-openssl (0.8.8) 
 Using rails (3.2.13) 
-Installing sass (3.2.7) 
+Installing sass (3.2.9) 
 Installing sass-rails (3.2.6) 
 Installing therubyrhino_jar (1.7.4) 
 Installing therubyrhino (2.0.2) 
-Installing uglifier (2.0.1) 
+Installing uglifier (2.1.1) 
 Your bundle is complete!
 Use `bundle show [gemname]` to see where a bundled gem is installed.
 ----
@@ -282,6 +282,7 @@ gem 'jquery-rails'
 .Prüfen der Abhängigkeiten im _Gemfile_
 ----
 $ cd jmyapp
+
 $ bundle check  
 The Gemfile's dependencies are satisfied
 ----
@@ -363,9 +364,9 @@ $ rails s
 => Rails 3.2.13 application starting in development on http://0.0.0.0:3000    <1>
 => Call with -d to detach
 => Ctrl-C to shutdown server
-[2013-04-14 17:08:27] INFO  WEBrick 1.3.1
-[2013-04-14 17:08:27] INFO  ruby 1.9.3 (2013-02-21) [java]                    <2>
-[2013-04-14 17:08:27] INFO  WEBrick::HTTPServer#start: pid=4029 port=3000
+[2013-06-02 13:50:13] INFO  WEBrick 1.3.1
+[2013-06-02 13:50:13] INFO  ruby 1.9.3 (2013-05-16) [java]                    <2>
+[2013-06-02 13:50:13] INFO  WEBrick::HTTPServer#start: pid=4730 port=3000
 ----
 <1> Der Webserver läuft ohne Port-Angabe (_--port_ ...) auf Port 3000.
 <2> Ruby Version 1.9.3

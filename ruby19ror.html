@@ -741,7 +741,7 @@ asciidoc.install(2);
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph"><p>Version 1.8.0, April 2013, <a href="#_changelog">[Changelog]</a></p></div>
+<div class="paragraph"><p>Version 1.8.1, Juni 2013, <a href="#_changelog">[Changelog]</a></p></div>
 </div>
 </div>
 <div class="sect1">
@@ -778,7 +778,7 @@ beschrieben durchgeführt worden.</p></div>
 /opt/Ruby/current/bin/ruby
 
 $ ruby -v
-ruby 1.9.3p392 (2013-02-22 revision 39386) [x86_64-linux]
+ruby 1.9.3p429 (2013-05-15 revision 40747) [x86_64-linux]
 
 $ which rails
 /opt/Ruby/current/bin/rails
@@ -957,23 +957,23 @@ Wenn Sie nicht berechtigt sind RubyGems zu installieren, müssen Sie
 <div class="content monospaced">
 <pre>$ cd MyApp
 
-$ tree -L 1 .
+$ tree -LF 1 .
 .
-├── app
-├── config
+├── app/
+├── config/
 ├── config.ru
-├── db
-├── doc
+├── db/
+├── doc/
 ├── Gemfile
-├── lib
-├── log
-├── public
+├── lib/
+├── log/
+├── public/
 ├── Rakefile
 ├── README.rdoc
-├── script
-├── test
-├── tmp
-└── vendor
+├── script/
+├── test/
+├── tmp/
+└── vendor/
 
 11 directories, 4 files</pre>
 </div></div>
@@ -1026,79 +1026,71 @@ $ bundle list
 Could not find gem 'jquery-rails (&gt;= 0) ruby' in the gems available on this machine.</pre>
 </div></div>
 <div class="listingblock">
-<div class="title">Installation des fehlenden Gem: <em>jquery_rails</em></div>
+<div class="title">Installation der fehlenden Gems mit dem zur Installation berechtigten User <em>root</em>!</div>
 <div class="content monospaced">
-<pre>Fetching: jquery-rails-2.2.1.gem (100%)
-Successfully installed jquery-rails-2.2.1
-Parsing documentation for jquery-rails-2.2.1
-Installing ri documentation for jquery-rails-2.2.1
-Installing darkfish documentation for jquery-rails-2.2.1
-Done installing documentation for jquery-rails after 0 seconds
-1 gem installed</pre>
-</div></div>
-<div class="listingblock">
-<div class="title">Prüfen der Abhängigkeiten im <em>Gemfile</em> (2)</div>
-<div class="content monospaced">
-<pre>$ bundle check
+<pre># cd ~/RailsDir/MyApp
+
+# bundle check
 Resolving dependencies...
 Bundler can't satisfy your Gemfile's dependencies.
 Install missing gems with `bundle install`.
 
-$ bundle list
-Could not find gem 'coffee-rails (~&gt; 3.2.1) ruby' in the gems available on this machine.</pre>
+# bundle install
+Fetching gem metadata from https://rubygems.org/...........
+Fetching gem metadata from https://rubygems.org/..
+Resolving dependencies...
+Using rake (10.0.4)
+Using i18n (0.6.1)
+Using multi_json (1.7.4)
+Using activesupport (3.2.13)
+Using builder (3.0.4)
+Using activemodel (3.2.13)
+Using erubis (2.7.0)
+Using journey (1.0.4)
+Using rack (1.4.5)
+Using rack-cache (1.2)
+Using rack-test (0.6.2)
+Using hike (1.2.2)
+Using tilt (1.4.1)
+Using sprockets (2.2.2)
+Using actionpack (3.2.13)
+Using mime-types (1.23)
+Using polyglot (0.3.3)
+Using treetop (1.4.12)
+Using mail (2.5.4)
+Using actionmailer (3.2.13)
+Using arel (3.0.2)
+Using tzinfo (0.3.37)
+Using activerecord (3.2.13)
+Using activeresource (3.2.13)
+Using bundler (1.3.5)
+Installing coffee-script-source (1.6.2)
+Installing execjs (1.4.0)
+Installing coffee-script (2.2.0)
+Using rack-ssl (1.3.3)
+Using json (1.8.0)
+Installing rdoc (3.12.2)
+Using thor (0.18.1)
+Using railties (3.2.13)
+Installing coffee-rails (3.2.2)
+Installing jquery-rails (3.0.0)
+Using mysql2 (0.3.11)
+Using rails (3.2.13)
+Installing sass (3.2.9)
+Installing sass-rails (3.2.6)
+Installing uglifier (2.1.1)
+Your bundle is complete!
+Use `bundle show [gemname]` to see where a bundled gem is installed.
+Post-install message from rdoc:
+Depending on your version of ruby, you may need to install ruby rdoc/ri data:
+
+&lt;= 1.8.6 : unsupported
+ = 1.8.7 : gem install rdoc-data; rdoc-data --install
+ = 1.9.1 : gem install rdoc-data; rdoc-data --install
+&gt;= 1.9.2 : nothing to do! Yay!</pre>
 </div></div>
 <div class="listingblock">
-<div class="title">Installation der (offensichtlich) fehlenden Gems: <em>coffee-rails</em>, <em>sass-rails</em>, und <em>uglifier</em></div>
-<div class="content monospaced">
-<pre># gem install coffee-rails sass-rails uglifier --rdoc --ri
-Fetching: coffee-script-source-1.6.2.gem (100%)
-Successfully installed coffee-script-source-1.6.2
-Fetching: execjs-1.4.0.gem (100%)
-Successfully installed execjs-1.4.0
-Fetching: coffee-script-2.2.0.gem (100%)
-Successfully installed coffee-script-2.2.0
-Fetching: coffee-rails-3.2.2.gem (100%)
-Successfully installed coffee-rails-3.2.2
-Parsing documentation for coffee-script-source-1.6.2
-Installing ri documentation for coffee-script-source-1.6.2
-Installing darkfish documentation for coffee-script-source-1.6.2
-Parsing documentation for execjs-1.4.0
-Installing ri documentation for execjs-1.4.0
-Installing darkfish documentation for execjs-1.4.0
-Parsing documentation for coffee-script-2.2.0
-Installing ri documentation for coffee-script-2.2.0
-Installing darkfish documentation for coffee-script-2.2.0
-Parsing documentation for coffee-rails-3.2.2
-Installing ri documentation for coffee-rails-3.2.2
-Installing darkfish documentation for coffee-rails-3.2.2
-Done installing documentation for coffee-script-source, execjs, coffee-script, coffee-rails after 23 seconds   <img src="./images/icons/callouts/1.png" alt="1">
-Fetching: sass-3.2.7.gem (100%)
-Successfully installed sass-3.2.7
-Fetching: sass-rails-3.2.6.gem (100%)
-Successfully installed sass-rails-3.2.6
-Parsing documentation for sass-3.2.7
-Installing ri documentation for sass-3.2.7
-Installing darkfish documentation for sass-3.2.7
-Parsing documentation for sass-rails-3.2.6
-Installing ri documentation for sass-rails-3.2.6
-Installing darkfish documentation for sass-rails-3.2.6
-Done installing documentation for sass, sass-rails after 15 seconds
-Fetching: uglifier-2.0.1.gem (100%)
-Successfully installed uglifier-2.0.1
-Parsing documentation for uglifier-2.0.1
-Installing ri documentation for uglifier-2.0.1
-Installing darkfish documentation for uglifier-2.0.1
-Done installing documentation for uglifier after 0 seconds
-7 gems installed</pre>
-</div></div>
-<div class="colist arabic"><table>
-<tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
-Abhängigkeiten für <em>coffee-rails</em>: <em>coffee-script-source</em>, <em>execjs</em> und <em>coffee-script</em><br>
-    Abhängigkeit für <em>sass-rails</em>: <em>sass</em>
-</td></tr>
-</table></div>
-<div class="listingblock">
-<div class="title">Prüfen der Abhängigkeiten im <em>Gemfile</em> (3)</div>
+<div class="title">Prüfen der Abhängigkeiten im <em>Gemfile</em> (2)</div>
 <div class="content monospaced">
 <pre>$ bundle check
 The Gemfile's dependencies are satisfied</pre>
@@ -1160,39 +1152,6 @@ Der hier vorgeschlagene Datenbank-Name wird von <em>Ruby on Rails</em>
 <h3 id="_javascript_runtime_installieren">JavaScript-Runtime installieren</h3>
 <div class="paragraph"><p>Für die erzeugte <em>Ruby on Rails</em>-Anwendung ist eine JavaScript-Runtime erforderlich.</p></div>
 <div class="listingblock">
-<div class="title">Möglichkeit 1: Das RubyGem <em>therubyracer</em></div>
-<div class="content monospaced">
-<pre># gem install therubyracer --rdoc --ri   <img src="./images/icons/callouts/1.png" alt="1">
-Fetching: ref-1.0.4.gem (100%)
-Successfully installed ref-1.0.4
-Fetching: libv8-3.11.8.17-x86_64-linux.gem (100%)
-Successfully installed libv8-3.11.8.17-x86_64-linux
-Fetching: therubyracer-0.11.4.gem (100%)
-Building native extensions.  This could take a while...   <img src="./images/icons/callouts/2.png" alt="2">
-Successfully installed therubyracer-0.11.4
-Parsing documentation for ref-1.0.4
-Installing ri documentation for ref-1.0.4
-Installing darkfish documentation for ref-1.0.4
-Parsing documentation for libv8-3.11.8.17-x86_64-linux
-Installing ri documentation for libv8-3.11.8.17-x86_64-linux
-Installing darkfish documentation for libv8-3.11.8.17-x86_64-linux
-Parsing documentation for therubyracer-0.11.4
-Installing ri documentation for therubyracer-0.11.4
-Installing darkfish documentation for therubyracer-0.11.4
-Done installing documentation for ref, libv8, therubyracer after 2 seconds
-3 gems installed</pre>
-</div></div>
-<div class="colist arabic"><table>
-<tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
-<a href="http://rubygems.org/gems/therubyracer">RubyGems.org: therubyracer</a><br>
-    Call javascript code and manipulate javascript objects from ruby.<br>
-    Call ruby code and manipulate ruby objects from javascript.
-</td></tr>
-<tr><td><img src="./images/icons/callouts/2.png" alt="2"></td><td>
-Das RubyGem <em>therubyracer</em> wird kompiliert!
-</td></tr>
-</table></div>
-<div class="listingblock">
 <div class="title">Gemfile</div>
 <div class="content monospaced">
 <pre>source 'https://rubygems.org'
@@ -1222,6 +1181,37 @@ gem 'jquery-rails'
 <div class="colist arabic"><table>
 <tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
 Entfernen Sie das Kommentar-Zeichen <em>#</em>.
+</td></tr>
+</table></div>
+<div class="listingblock">
+<div class="title">bundle install</div>
+<div class="content monospaced">
+<pre># bundle install
+Fetching gem metadata from https://rubygems.org/...........
+Fetching gem metadata from https://rubygems.org/..
+Resolving dependencies...
+Using rake (10.0.4)
+[...]
+Using jquery-rails (3.0.0)
+Installing libv8 (3.11.8.17)
+Using mysql2 (0.3.11)
+Using rails (3.2.13)
+Installing ref (1.0.5)
+Using sass (3.2.9)
+Using sass-rails (3.2.6)
+Installing therubyracer (0.11.4)   <img src="./images/icons/callouts/1.png" alt="1">, <img src="./images/icons/callouts/2.png" alt="2">
+Using uglifier (2.1.1)
+Your bundle is complete!
+Use `bundle show [gemname]` to see where a bundled gem is installed.</pre>
+</div></div>
+<div class="colist arabic"><table>
+<tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
+<a href="http://rubygems.org/gems/therubyracer">RubyGems.org: therubyracer</a><br>
+    Call javascript code and manipulate javascript objects from ruby.<br>
+    Call ruby code and manipulate ruby objects from javascript.
+</td></tr>
+<tr><td><img src="./images/icons/callouts/2.png" alt="2"></td><td>
+Das RubyGem <em>therubyracer</em> wird kompiliert!
 </td></tr>
 </table></div>
 <div class="listingblock">
@@ -1268,13 +1258,16 @@ Entwicklungs-Umgebung verwendet.</p></div>
 =&gt; Rails 3.2.13 application starting in development on http://0.0.0.0:3000   <img src="./images/icons/callouts/1.png" alt="1">
 =&gt; Call with -d to detach
 =&gt; Ctrl-C to shutdown server
-[2013-04-14 13:30:34] INFO  WEBrick 1.3.1
-[2013-04-14 13:30:34] INFO  ruby 1.9.3 (2013-02-22) [x86_64-linux]
-[2013-04-14 13:30:34] INFO  WEBrick::HTTPServer#start: pid=30929 port=3000</pre>
+[2013-06-01 19:37:18] INFO  WEBrick 1.3.1
+[2013-06-01 19:37:18] INFO  ruby 1.9.3 (2013-05-15) [x86_64-linux]           <img src="./images/icons/callouts/2.png" alt="2">
+[2013-06-01 19:37:18] INFO  WEBrick::HTTPServer#start: pid=30902 port=3000</pre>
 </div></div>
 <div class="colist arabic"><table>
 <tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
 Der Webserver läuft ohne Port-Angabe (<em>--port</em> &#8230;) auf Port 3000.
+</td></tr>
+<tr><td><img src="./images/icons/callouts/2.png" alt="2"></td><td>
+Ruby Version 1.9.3
 </td></tr>
 </table></div>
 <div class="listingblock">
@@ -1361,7 +1354,7 @@ Ruby Version 1.9.3
 <div id="footnotes"><hr></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2013-04-14 17:15:53 CEST
+Last updated 2013-06-02 13:50:56 CEST
 </div>
 </div>
 </body>

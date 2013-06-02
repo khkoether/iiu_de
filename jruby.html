@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="generator" content="AsciiDoc 8.6.8">
-<title>Installation in Ubuntu: JRuby 1.7.3, Ruby on Rails 3.2.13</title>
+<title>Installation in Ubuntu: JRuby 1.7.4, Ruby on Rails 3.2.13</title>
 <style type="text/css">
 /* Shared CSS for AsciiDoc xhtml11 and html5 backends */
 
@@ -730,7 +730,7 @@ asciidoc.install(2);
 </head>
 <body class="article">
 <div id="header">
-<h1>Installation in Ubuntu: JRuby 1.7.3, Ruby on Rails 3.2.13</h1>
+<h1>Installation in Ubuntu: JRuby 1.7.4, Ruby on Rails 3.2.13</h1>
 <span id="author">Karl-Heinz Köther</span><br>
 <span id="email" class="monospaced">&lt;<a href="mailto:&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;">&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;</a>&gt;</span><br>
 <div id="toc">
@@ -741,14 +741,14 @@ asciidoc.install(2);
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph"><p>Version 1.8.0, April 2013, <a href="#_changelog">[Changelog]</a></p></div>
+<div class="paragraph"><p>Version 1.8.1, Juni 2013, <a href="#_changelog">[Changelog]</a></p></div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_abstract">Abstract</h2>
 <div class="sectionbody">
 <div class="paragraph"><p>Dieser Artikel ist eine Schritt-für-Schritt Anleitung zur Installation
-von <a href="http://jruby.org/">JRuby 1.7.3</a> unter GNU/Linux.</p></div>
+von <a href="http://jruby.org/">JRuby 1.7.4</a> unter GNU/Linux.</p></div>
 <div class="paragraph"><p>Die Programmiersprache <a href="http://www.ruby-lang.org/">JRuby</a> ist die Implementation
 von <a href="http://www.ruby-lang.org/">Ruby</a> in Java, die wiederum die Grundlage für das
 WebApplication Framework <a href="http://www.rubyonrails.org">Ruby on Rails</a> bildet.</p></div>
@@ -790,9 +790,9 @@ andere Distributionen übertragbar.</p></div>
 <div class="ulist"><ul>
 <li>
 <p>
-<a href="http://jruby.org/download">JRuby 1.7.3</a><br>
-  jruby-1.7.3  (ca. 17.3M)<br>
-  2013-02-21 (Release date)
+<a href="http://jruby.org/download">JRuby 1.7.4</a><br>
+  jruby-1.7.4-bin.tar.gz  (ca. 20M)<br>
+  2013-05-16 (Release date)
 </p>
 </li>
 </ul></div>
@@ -823,7 +823,7 @@ JRuby wird als im Modus <em>Ruby 1.9.3</em> ausgeführt (neuer Default)
 <p>
 JRuby unterstützt das neue Java-Feature <em>invokedynamic</em><br>
   (auch wenn es für den Moment ausgeschaltet ist - "due to JVM issues" )<br>
-  <a href="http://www.jruby.org/2012/10/22/jruby-1-7-0.html">JRuby 1.7.0 Released</a>
+  &rarr; <a href="http://www.jruby.org/2012/10/22/jruby-1-7-0.html">JRuby 1.7.0 Released</a>
 </p>
 </li>
 </ol></div>
@@ -846,7 +846,7 @@ Während die anschließende Installation von JRuby und Ruby on Rails für den Be
 <div class="listingblock">
 <div class="content monospaced">
 <pre>$ ls -l
--rw-rw-r-- 1 sid sid 18157086 Apr 14 13:47 jruby-bin-1.7.3.tar.gz</pre>
+-rw-rw-r-- 1 sid sid 20187733 Jun  2 11:40 jruby-bin-1.7.4.tar.gz</pre>
 </div></div>
 </td>
 </tr></table>
@@ -884,14 +884,15 @@ sollten im Verzeichnis <em>/opt</em> (Optional) installiert werden.</p></div>
 $ tar xvzf jruby-bin-1.7.1.tar.gz
 [...]
 
-$ ln -s jruby-1.7.3/ current
+$ ln -s jruby-1.7.4/ current
 $ ls -l
-lrwxrwxrwx 1 sid sid   11 Jan 16 12:49 current -&gt; jruby-1.7.3
+lrwxrwxrwx 1 sid sid   11 Jan 16 12:49 current -&gt; jruby-1.7.4
 drwxrwxr-x 8 sid sid 4096 Okt 17 20:40 jruby-1.6.8
 drwxrwxr-x 7 sid sid 4096 Nov 21 22:20 jruby-1.7.0
 drwxrwxr-x 7 sid sid 4096 Dez 27 14:53 jruby-1.7.1
 drwxrwxr-x 7 sid sid 4096 Jan 16 12:49 jruby-1.7.2
-drwxrwxr-x 7 khk khk 4096 Apr 14 13:52 jruby-1.7.3</pre>
+drwxrwxr-x 7 sid sid 4096 Apr 14 13:52 jruby-1.7.3
+drwxrwxr-x 7 sid sid 4096 Jun  2 11:53 jruby-1.7.4</pre>
 </div></div>
 <div class="paragraph"><p>Das Programm <em>tree</em> ist ein wunderbares Hilfsmittel zur Darstellung von Verzeichnissen.</p></div>
 <div class="listingblock">
@@ -918,7 +919,7 @@ current   <img src="./images/icons/callouts/1.png" alt="1">
 </div></div>
 <div class="colist arabic"><table>
 <tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
-JRuby 1.7.3
+JRuby 1.7.4
 </td></tr>
 </table></div>
 <div class="paragraph"><p>Die zu diesem Zeitpunkt in JRuby enthaltenen RubyGems.</p></div>
@@ -978,16 +979,16 @@ Datei setzen.</p></div>
 /opt/JRuby/sid/current/bin/jruby
 
 $ java -version
-java version "1.7.0_15"
-OpenJDK Runtime Environment (IcedTea7 2.3.7) (7u15-2.3.7-0ubuntu1~12.04.1)
+java version "1.7.0_21"
+OpenJDK Runtime Environment (IcedTea 2.3.9) (7u21-2.3.9-0ubuntu0.12.04.1)
 OpenJDK 64-Bit Server VM (build 23.7-b01, mixed mode)
 
 $ jruby --version
-jruby 1.7.3 (1.9.3p385) 2013-02-21 dac429b on OpenJDK 64-Bit Server VM 1.7.0_15-b20 [linux-amd64]
+jruby 1.7.4 (1.9.3p392) 2013-05-16 2390d3b on OpenJDK 64-Bit Server VM 1.7.0_21-b02 [linux-amd64]
 
 $ JRUBY_OPTS=--1.8 jruby --version
 $ jruby -v --1.8
-jruby 1.7.3 (ruby-1.8.7p370) 2013-02-21 dac429b on OpenJDK 64-Bit Server VM 1.7.0_15-b20 [linux-amd64]</pre>
+jruby 1.7.4 (ruby-1.8.7p370) 2013-05-16 2390d3b on OpenJDK 64-Bit Server VM 1.7.0_21-b02 [linux-amd64]</pre>
 </div></div>
 <div class="olist arabic"><ol class="arabic">
 <li>
@@ -1002,8 +1003,12 @@ Interactive Ruby: jirb
 irb(main):001:0&gt; RUBY_VERSION
 =&gt; "1.9.3"
 irb(main):002:0&gt; RUBY_PATCHLEVEL
-=&gt; 385
-irb(main):003:0&gt; exit</pre>
+=&gt; 392
+irb(main):003:0&gt; Time.now.tuesday?
+=&gt; false
+irb(main):004:0&gt; Time.now.sunday?
+=&gt; true
+irb(main):005:0&gt; exit</pre>
 </div></div>
 <div class="listingblock">
 <div class="title">Ruby Gems</div>
@@ -1090,7 +1095,7 @@ Installing RubyGems 2.0.3
 RubyGems 2.0.3 installed
 [...]
 RubyGems installed the following executables:
-        /opt/JRuby/sid/jruby-1.7.3/bin/jgem
+        /opt/JRuby/sid/jruby-1.7.4/bin/jgem
 
 RubyGems system software updated</pre>
 </div></div>
@@ -1103,6 +1108,10 @@ RubyGems system software updated</pre>
 
 
 $ jgem -v
+2.0.3
+
+
+$ gem -v
 2.0.3</pre>
 </div></div>
 <div class="listingblock">
@@ -1116,6 +1125,14 @@ rubygems-update (2.0.3)
 
 
 $ jgem list --local
+
+*** LOCAL GEMS ***
+
+rake (10.0.3)
+rubygems-update (2.0.3)
+
+
+$ gem list --local
 
 *** LOCAL GEMS ***
 
@@ -1136,14 +1153,14 @@ für eine <em>private</em> Sichtweise alternativ vorhanden.</p></div>
 wiederum auf die Umsetzung in Java hinweist.</p></div>
 <div class="paragraph"><p>Praktisch sollen die Programme <em>etwas?</em> differieren &#8230; und
 das Angebot <strong>jgem</strong> ist <em>mehr?</em> up-to-date &#8230;</p></div>
-<div class="paragraph"><p>Persönlich favorisiere ich <strong>jruby -S gem &#8230;</strong>&#8201;&#8212;&#8201;aber <strong>jgem &#8230;</strong> ist kürzer ;-)</p></div>
+<div class="paragraph"><p>Persönlich favorisiere ich <strong>jruby -S gem &#8230;</strong>&#8201;&#8212;&#8201;aber <strong>jgem &#8230;</strong> äh <strong>gem &#8230;</strong> ist kürzer ;-)</p></div>
 </td>
 </tr></table>
 </div>
 <div class="paragraph"><p><strong>Step 2:</strong> Die bereits installierten RubyGems aktualisieren (update)</p></div>
 <div class="listingblock">
 <div class="content monospaced">
-<pre>$ jgem update
+<pre>$ gem update
 Updating installed gems
 Updating rake
 Fetching: rake-10.0.4.gem (100%)
@@ -1152,7 +1169,7 @@ Gems updated: rake</pre>
 </div></div>
 <div class="listingblock">
 <div class="content monospaced">
-<pre>$ jgem list --local
+<pre>$ gem list --local
 
 *** LOCAL GEMS ***
 
@@ -1169,8 +1186,8 @@ Für alle die sich über die hohe Versions-Nummer wundern ;-)<br>
 <div class="listingblock">
 <div class="content monospaced">
 <pre>$ jgem install rdoc-data
-Fetching: json-1.7.7-java.gem (100%)
-Successfully installed json-1.7.7-java
+Fetching: json-1.8.0-java.gem (100%)
+Successfully installed json-1.8.0-java
 Fetching: rdoc-3.12.2.gem (100%)
 Depending on your version of ruby, you may need to install ruby rdoc/ri data:
 
@@ -1182,7 +1199,7 @@ Successfully installed rdoc-3.12.2
 Fetching: rdoc-data-3.12.gem (100%)
 rdoc-data is only required for C ruby 1.8.7 or 1.9.1.
 
-rdoc-data is required for JRuby.
+rdoc-data is required for JRuby.        <img src="./images/icons/callouts/1.png" alt="1">
 
 To install ri data for RDoc 2.5+ run:
 
@@ -1226,11 +1243,11 @@ produces:
 </div></div>
 <div class="listingblock">
 <div class="content monospaced">
-<pre>$ jgem list --local
+<pre>$ gem list --local
 
 *** LOCAL GEMS ***
 
-json (1.7.7 java)
+json (1.8.0 java)
 rake (10.0.4, 10.0.3)
 rdoc (3.12.2)
 rdoc-data (3.12)
@@ -1239,7 +1256,7 @@ rubygems-update (2.0.3)</pre>
 <div class="paragraph"><p>Auf die installierte Dokumentation zugreifen.</p></div>
 <div class="listingblock">
 <div class="content monospaced">
-<pre>$ jgem server
+<pre>$ gem server
 Server started at http://[0:0:0:0:0:0:0:0]:8808</pre>
 </div></div>
 <div class="listingblock">
@@ -1255,11 +1272,11 @@ Server started at http://[0:0:0:0:0:0:0:0]:8808</pre>
 <div class="paragraph"><p><strong>Step 4:</strong> Grundinstallation von <em>Ruby on Rails</em></p></div>
 <div class="listingblock">
 <div class="content monospaced">
-<pre>$ jgem install rails --no-rdoc --no-ri   <img src="./images/icons/callouts/1.png" alt="1">
+<pre>$ gem install rails --no-rdoc --no-ri   <img src="./images/icons/callouts/1.png" alt="1">
 Fetching: i18n-0.6.1.gem (100%)
 Successfully installed i18n-0.6.1
-Fetching: multi_json-1.7.2.gem (100%)
-Successfully installed multi_json-1.7.2
+Fetching: multi_json-1.7.5.gem (100%)
+Successfully installed multi_json-1.7.5
 Fetching: activesupport-3.2.13.gem (100%)
 Successfully installed activesupport-3.2.13
 Fetching: builder-3.0.4.gem (100%)
@@ -1276,8 +1293,8 @@ Fetching: journey-1.0.4.gem (100%)
 Successfully installed journey-1.0.4
 Fetching: hike-1.2.2.gem (100%)
 Successfully installed hike-1.2.2
-Fetching: tilt-1.3.7.gem (100%)
-Successfully installed tilt-1.3.7
+Fetching: tilt-1.4.1.gem (100%)
+Successfully installed tilt-1.4.1
 Fetching: sprockets-2.2.2.gem (100%)
 Successfully installed sprockets-2.2.2
 Fetching: erubis-2.7.0.gem (100%)
@@ -1292,14 +1309,14 @@ Fetching: activerecord-3.2.13.gem (100%)
 Successfully installed activerecord-3.2.13
 Fetching: activeresource-3.2.13.gem (100%)
 Successfully installed activeresource-3.2.13
-Fetching: mime-types-1.22.gem (100%)
-Successfully installed mime-types-1.22
+Fetching: mime-types-1.23.gem (100%)
+Successfully installed mime-types-1.23
 Fetching: polyglot-0.3.3.gem (100%)
 Successfully installed polyglot-0.3.3
 Fetching: treetop-1.4.12.gem (100%)
 Successfully installed treetop-1.4.12
-Fetching: mail-2.5.3.gem (100%)
-Successfully installed mail-2.5.3
+Fetching: mail-2.5.4.gem (100%)
+Successfully installed mail-2.5.4
 Fetching: actionmailer-3.2.13.gem (100%)
 Successfully installed actionmailer-3.2.13
 Fetching: rack-ssl-1.3.3.gem (100%)
@@ -1325,7 +1342,7 @@ Für das Framework <em>Ruby on Rails</em> wurden 28 RubyGems installiert.<br>
 </table></div>
 <div class="listingblock">
 <div class="content monospaced">
-<pre>$ jgem list | sed 's/ (.*$//' &gt; gemlist
+<pre>$ gem list --local | sed 's/ (.*$//' &gt; gemlist
 
 $ for name in `cat gemlist`; do echo $name; gem rdoc $name; done;   <img src="./images/icons/callouts/1.png" alt="1">
 [...]</pre>
@@ -1345,9 +1362,9 @@ Mit dem Befehl <em>gem rdoc &#8230;</em> wird ausschließlich die noch nicht vor
 <div class="paragraph"><p>Alternativ kann Rails mit der Angabe einer Version installiert werden.</p></div>
 <div class="listingblock">
 <div class="content monospaced">
-<pre>$ jgem install rails --version 3.2.13 --rdoc --ri
+<pre>$ gem install rails --version 3.2.13 --no-rdoc --no-ri
 
-$ jgem install rails --version '~&gt; 3.2' --rdoc --ri   <img src="./images/icons/callouts/1.png" alt="1"></pre>
+$ gem install rails --version '~&gt; 3.2' --no-rdoc --no-ri   <img src="./images/icons/callouts/1.png" alt="1"></pre>
 </div></div>
 <div class="colist arabic"><table>
 <tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
@@ -1361,7 +1378,7 @@ Twiddle Wakka: <em>~&gt; 3.2</em> bedeutet, das die höchste Gem-Version von Rai
 <div class="paragraph"><p><strong>Step 6:</strong> Datenbankzugriff (via JDBC)</p></div>
 <div class="listingblock">
 <div class="content monospaced">
-<pre>$ jgem install activerecord-jdbc-adapter --rdoc --ri
+<pre>$ gem install activerecord-jdbc-adapter --rdoc --ri
 Fetching: activerecord-jdbc-adapter-1.2.9.gem (100%)
 Successfully installed activerecord-jdbc-adapter-1.2.9
 invalid options: -SHN           <img src="./images/icons/callouts/1.png" alt="1">
@@ -1377,7 +1394,7 @@ Installing darkfish documentation for activerecord-jdbc-adapter-1.2.9
 </table></div>
 <div class="listingblock">
 <div class="content monospaced">
-<pre>$ jgem install activerecord-jdbcmysql-adapter activerecord-jdbcsqlite3-adapter --rdoc --ri
+<pre>$ gem install activerecord-jdbcmysql-adapter activerecord-jdbcsqlite3-adapter --rdoc --ri
 Fetching: jdbc-mysql-5.1.24.gem (100%)
 Successfully installed jdbc-mysql-5.1.24
 Fetching: activerecord-jdbcmysql-adapter-1.2.9.gem (100%)
@@ -1399,7 +1416,7 @@ Installing darkfish documentation for activerecord-jdbcsqlite3-adapter-1.2.9
 <div class="paragraph"><p><strong>Step 6:</strong> WebServer I</p></div>
 <div class="listingblock">
 <div class="content monospaced">
-<pre>$ jgem install mongrel --rdoc --ri
+<pre>$ gem install mongrel --rdoc --ri
 Fetching: gem_plugin-0.2.3.gem (100%)
 Successfully installed gem_plugin-0.2.3
 Fetching: mongrel-1.1.5-java.gem (100%)
@@ -1413,7 +1430,7 @@ Installing darkfish documentation for mongrel-1.1.5-java
 <div class="paragraph"><p><strong>Step 7:</strong> WebServer II</p></div>
 <div class="listingblock">
 <div class="content monospaced">
-<pre>$ jgem install glassfish --rdoc --ri
+<pre>$ gem install glassfish --rdoc --ri
 Fetching: glassfish-1.0.3-universal-java.gem (100%)
 Successfully installed glassfish-1.0.3-universal-java
 unable to convert "\xD5" from ASCII-8BIT to UTF-8 for LICENSE.txt, skipping
@@ -1424,35 +1441,35 @@ Installing darkfish documentation for glassfish-1.0.3-universal-java
 <div class="paragraph"><p><strong>Step 8:</strong> WAR (WAR ist ein Dateiformat und steht für Web Application Archive)</p></div>
 <div class="listingblock">
 <div class="content monospaced">
-<pre>$ jgem install warbler --rdoc --ri
-Fetching: jruby-jars-1.7.3.gem (100%)
-Successfully installed jruby-jars-1.7.3
+<pre>$ gem install warbler --rdoc --ri
+Fetching: jruby-jars-1.7.4.gem (100%)
+Successfully installed jruby-jars-1.7.4
 Fetching: jruby-rack-1.1.13.2.gem (100%)
 Successfully installed jruby-rack-1.1.13.2
 Fetching: rubyzip-0.9.9.gem (100%)
 Successfully installed rubyzip-0.9.9
-Fetching: warbler-1.3.6.gem (100%)
-Successfully installed warbler-1.3.6
-Installing ri documentation for jruby-jars-1.7.3
-Installing darkfish documentation for jruby-jars-1.7.3
+Fetching: warbler-1.3.8.gem (100%)
+Successfully installed warbler-1.3.8
+Installing ri documentation for jruby-jars-1.7.4
+Installing darkfish documentation for jruby-jars-1.7.4
 Installing ri documentation for jruby-rack-1.1.13.2
 Installing darkfish documentation for jruby-rack-1.1.13.2
 Installing ri documentation for rubyzip-0.9.9
 Installing darkfish documentation for rubyzip-0.9.9
-Installing ri documentation for warbler-1.3.6
-Installing darkfish documentation for warbler-1.3.6
+Installing ri documentation for warbler-1.3.8
+Installing darkfish documentation for warbler-1.3.8
 ERROR:  While executing gem ... (RDoc::Error)
     error generating /Object.html: No such file or directory -  (Errno::ENOENT)</pre>
 </div></div>
 <div class="listingblock">
 <div class="content monospaced">
-<pre>$ jgem rdoc warbler</pre>
+<pre>$ gem rdoc warbler</pre>
 </div></div>
 <div class="paragraph"><p><strong>Step 9:</strong> Erweiterungen</p></div>
 <div class="listingblock">
 <div class="content monospaced">
-<pre>$ jgem install sinatra --rdoc --ri   <img src="./images/icons/callouts/1.png" alt="1">
-Fetching: rack-1.5.2.gem (100%)    <img src="./images/icons/callouts/2.png" alt="2">
+<pre>$ gem install sinatra --rdoc --ri   <img src="./images/icons/callouts/1.png" alt="1">
+Fetching: rack-1.5.2.gem (100%)     <img src="./images/icons/callouts/2.png" alt="2">
 Successfully installed rack-1.5.2
 Fetching: rack-protection-1.5.0.gem (100%)
 Successfully installed rack-protection-1.5.0
@@ -1469,7 +1486,7 @@ Installing darkfish documentation for sinatra-1.4.2
 </div></div>
 <div class="colist arabic"><table>
 <tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
-Sinatra ist eine freie und OpenSource Webapplikationsbibliothek und
+Sinatra ist eine freie und open source Webapplikationsbibliothek und
     eine in Ruby geschriebene domänenspezifische Sprache.<br>
     &rarr; <a href="http://de.wikipedia.org/wiki/Sinatra_%28Software%29">Wikipedia: Sinatra (Software)</a>
 </td></tr>
@@ -1483,7 +1500,7 @@ Eine weitere <em>neuere</em> Version von <em>Rack</em> wurde installiert.
 <div class="paragraph"><p><strong>Step 10:</strong> Liste der installierte RubyGems</p></div>
 <div class="listingblock">
 <div class="content monospaced">
-<pre>$ jgem list --local
+<pre>$ gem list --local
 
 *** LOCAL GEMS ***
 
@@ -1507,13 +1524,13 @@ i18n (0.6.1)
 jdbc-mysql (5.1.24)
 jdbc-sqlite3 (3.7.2.1)
 journey (1.0.4)
-jruby-jars (1.7.3)
+jruby-jars (1.7.4)
 jruby-rack (1.1.13.2)
-json (1.7.7 java)
-mail (2.5.3)
-mime-types (1.22)
+json (1.8.0 java)
+mail (2.5.4)
+mime-types (1.23)
 mongrel (1.1.5 java)
-multi_json (1.7.2)
+multi_json (1.7.5)
 polyglot (0.3.3)
 rack (1.5.2, 1.4.5)
 rack-cache (1.2)
@@ -1530,10 +1547,10 @@ rubyzip (0.9.9)
 sinatra (1.4.2)
 sprockets (2.2.2)
 thor (0.18.1)
-tilt (1.3.7)
+tilt (1.4.1)
 treetop (1.4.12)
 tzinfo (0.3.37)
-warbler (1.3.6)</pre>
+warbler (1.3.8)</pre>
 </div></div>
 </div>
 <div class="sect2">
@@ -1556,6 +1573,7 @@ PATH=$JRUBY_HOME/bin:$PATH
 
 export JRUBY_HOME
 #export JRUBY_OPTS
+
 export PATH</pre>
 </div></div>
 <div class="colist arabic"><table>
@@ -1605,7 +1623,7 @@ JRuby wird im Modus <em>Ruby 1.8.7</em> ausgeführt.
 <div id="footnotes"><hr></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2013-04-14 16:50:27 CEST
+Last updated 2013-06-02 13:55:44 CEST
 </div>
 </div>
 </body>

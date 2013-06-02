@@ -1,5 +1,5 @@
-Installation in Ubuntu: Git 1.8.2.1
-===================================
+Installation in Ubuntu: Git 1.8.3
+=================================
 Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;>
 
 :icons:
@@ -10,9 +10,9 @@ Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;
 :git-url: http://git-scm.com/
 :git-download-url: http://code.google.com/p/git-core/downloads/list
 
-:git-version: 1.8.2.1
+:git-version: 1.8.3
 
-Version 1.8.0, April 2013, <<_changelog,[Changelog]>>
+Version 1.8.1, Juni 2013, <<_changelog,[Changelog]>>
 
 
 Abstract
@@ -52,10 +52,10 @@ Ubuntu 12.04 LTS (Precise Pangolin) enthält das Paket _git-core_1.7.9.5-1_all_.
 Download
 ~~~~~~~~
 * {git-download-url}[Git] +    
-  git-{git-version}.tar.gz  (ca. 4.2M) +
-  git-htmldocs-{git-version}.tar.gz  (ca. 2.0M) +
-  git-manpages-{git-version}.tar.gz  (ca. 525K) +
-  2013-04-06 (Release date)
+  git-{git-version}.tar.gz  (ca. 4.3M) +
+  git-htmldocs-{git-version}.tar.gz  (ca. 2.1M) +
+  git-manpages-{git-version}.tar.gz  (ca. 530K) +
+  2013-05-24 (Release date)
   
 [NOTE] 
 ====
@@ -65,9 +65,9 @@ Die eigentliche Installation von Git wird vom
 Benutzer 'root' für das System durchgeführt.
 ----
 $ ls -l 
--rw-rw-r-- 1 sid sid 4400440 Apr 14 09:35 git-1.8.2.1.tar.gz
--rw-rw-r-- 1 sid sid 2093688 Apr 14 09:35 git-htmldocs-1.8.2.1.tar.gz
--rw-rw-r-- 1 sid sid  536718 Apr 14 09:35 git-manpages-1.8.2.1.tar.gz
+-rw-rw-r-- 1 sid sid 4470281 Jun  1 14:17 git-1.8.3.tar.gz
+-rw-rw-r-- 1 sid sid 2113960 Jun  1 14:16 git-htmldocs-1.8.3.tar.gz
+-rw-rw-r-- 1 sid sid  542692 Jun  1 14:16 git-manpages-1.8.3.tar.gz
 ----
 ====
 
@@ -101,14 +101,14 @@ Beispiel für die Änderung des Installations-Verzeichnisses:
 
 *Step 1:* Auspacken des Source-Code
 ----
-$ tar xvzf git-1.8.2.1.tar.gz
-$ cd git-1.8.2.1
+$ tar xvzf git-1.8.3.tar.gz
+$ cd git-1.8.3
 ----
 
 *Step 2:* Konfiguration erstellen und kompilieren
 ----
 $ make configure
-GIT_VERSION = 1.8.2.1
+GIT_VERSION = 1.8.3
     GEN configure
 
 $ ./configure | tee ../log.git_configure
@@ -176,7 +176,7 @@ make[1]: Für das Ziel »all« ist nichts zu tun.
 $ cd /usr/local/share/doc
 $ sudo mkdir git-doc
 $ cd git-doc
-$ sudo tar xvzf git-htmldocs-1.8.1.5.tar.gz
+$ sudo tar xvzf git-htmldocs-1.8.3.tar.gz
 [...]
 ./howto-index.html
 ./git-update-server-info.txt
@@ -188,14 +188,14 @@ $ sudo chmod 755 git-doc
 
 $ ls -l 
 drwxr-xr-x 9 root root  4096 Okt  4 10:38 asciidoc
-drwxr-xr-x 5 root root 20480 Apr  8 22:36 git-doc
+drwxr-xr-x 5 root root 20480 Mai 24 21:18 git-doc
 ----
 <1> Unbedingt die Rechte an den Dateien und den Ordnern anpassen!
 
 .Documentation: man-pages
 ----
 $ cd /usr/local/man  
-$ sudo tar xvzf git-manpages-1.8.0.tar.gz 
+$ sudo tar xvzf git-manpages-1.8.3.tar.gz 
 [...]
 
 $ sudo chown -R root.root man?   <1>
@@ -203,10 +203,10 @@ $ sudo chmod g-s man?
 $ sudo chmod 755 man?
 
 $ ls -l
-drwxr-xr-x 2 root root 4096 Mär  1 22:43 man1
-drwxr-xr-x 2 root root 4096 Mär 10 14:34 man3
-drwxr-xr-x 2 root root 4096 Mär  1 22:43 man5
-drwxr-xr-x 2 root root 4096 Mär  1 22:43 man7
+drwxr-xr-x 2 root root 4096 Mai 24 21:25 man1
+drwxr-xr-x 2 root root 4096 Jun  1 14:27 man3
+drwxr-xr-x 2 root root 4096 Mai 24 21:25 man5
+drwxr-xr-x 2 root root 4096 Mai 24 21:25 man7
 ----
 <1> Unbedingt die Rechte an den Dateien und den Ordnern anpassen!
 
@@ -215,13 +215,13 @@ drwxr-xr-x 2 root root 4096 Mär  1 22:43 man7
 ----
 $ cd /usr/local/bin
 $ ls -l git*
--rwxr-xr-x 112 root root 6738639 Apr 14 10:13 /usr/local/bin/git
--rwxr-xr-x   2 root root  162398 Apr 14 10:13 /usr/local/bin/git-cvsserver
--rwxr-xr-x   1 root root  333121 Apr 14 10:13 /usr/local/bin/gitk
--rwxr-xr-x 112 root root 6738639 Apr 14 10:13 /usr/local/bin/git-receive-pack
--rwxr-xr-x   2 root root 2867782 Apr 14 10:13 /usr/local/bin/git-shell
--rwxr-xr-x 112 root root 6738639 Apr 14 10:13 /usr/local/bin/git-upload-archive
--rwxr-xr-x   2 root root 2971931 Apr 14 10:13 /usr/local/bin/git-upload-pack
+-rwxr-xr-x 112 root root 6817137 Jun  1 14:27 git
+-rwxr-xr-x   2 root root  162397 Jun  1 14:27 git-cvsserver
+-rwxr-xr-x   1 root root  339288 Jun  1 14:27 gitk
+-rwxr-xr-x 112 root root 6817137 Jun  1 14:27 git-receive-pack
+-rwxr-xr-x   2 root root 3303126 Jun  1 14:27 git-shell
+-rwxr-xr-x 112 root root 6817137 Jun  1 14:27 git-upload-archive
+-rwxr-xr-x   2 root root 3405867 Jun  1 14:27 git-upload-pack
 ----
 
 ----
@@ -297,7 +297,7 @@ NOTES
         6. git@vger.kernel.org
            mailto:git@vger.kernel.org
 
-Git 1.8.2.1                       04/07/2013                            GIT(1)
+Git 1.8.3                         05/24/2013                            GIT(1)
 ----
 
 ----
@@ -353,7 +353,7 @@ SEE ALSO
 GIT
        Part of the git(1) suite
 
-Git 1.8.2.1                       04/07/2013                           GITK(1)
+Git 1.8.3                         05/24/2013                           GITK(1)
 ----
 
 ----
@@ -446,7 +446,7 @@ Anhang
 #!/bin/bash
 #
 ME=make_git
-NAME=git-1.8.2.1
+NAME=git-1.8.3
 
 ls -l git*.tar.gz
 echo 
