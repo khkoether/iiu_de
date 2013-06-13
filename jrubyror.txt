@@ -465,7 +465,7 @@ der 204_304_keep_alive.patch eingearbeitet werden.
         @header['connection'] = "close"
       end
 ----
-<1> Zeile 150
+<1> Zeile 201
 <2> Kommentarzeichen setzen
 <3> Neue Zeile mit zusätzlichen Bedingungen
 
