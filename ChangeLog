@@ -77,3 +77,7 @@
 
 .Version 1.8.1
 * Neue Programmversion: Git, Ruby, JRuby  
+
+Version 1.8.2
+* JRuby: Patch für WEBrick
+

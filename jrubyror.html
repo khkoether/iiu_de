@@ -1254,13 +1254,58 @@ Ruby Version 1.9.3 (java)
 </td></tr>
 </table></div>
 </div>
+<div class="sect2">
+<h3 id="_webrick_benötigt_einen_patch">WEBrick benötigt einen Patch</h3>
+<div class="paragraph"><p>In der Logdatei erzeugt der WebServer <em>WEBrick</em> Warnungen:</p></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>[...]
+[2013-06-13 20:43:41] WARN  Could not determine content-length of response body. Set content-length of the response or set Response#chunked = true
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2013-06-13 20:43:41 +0200
+Served asset /rails.png - 304 Not Modified (23ms)
+[2013-06-13 20:43:41] WARN  Could not determine content-length of response body. Set content-length of the response or set Response#chunked = true</pre>
+</div></div>
+<div class="paragraph"><p>Um die zusätzlichen Ausgaben zu verhindern, muß in der JRuby-Installation
+der 204_304_keep_alive.patch eingearbeitet werden.</p></div>
+<div class="paragraph"><p>&rarr; <a href="https://bugs.ruby-lang.org/attachments/2300/204_304_keep_alive.patch">https://bugs.ruby-lang.org/attachments/2300/204_304_keep_alive.patch</a></p></div>
+<div class="listingblock">
+<div class="title">current/lib/ruby/1.8/webrick/httpresponse.rb</div>
+<div class="content"><!-- Generator: GNU source-highlight 3.1.5
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>      <span style="font-style: italic"><span style="color: #9A1900"># Keep-Alive connection.   <img src="./images/icons/callouts/1.png" alt="1"></span></span>
+      <span style="font-weight: bold"><span style="color: #0000FF">if</span></span> <span style="color: #009900">@header</span><span style="color: #990000">[</span><span style="color: #FF0000">'connection'</span><span style="color: #990000">]</span> <span style="color: #990000">==</span> <span style="color: #FF0000">"close"</span>
+         <span style="color: #009900">@keep_alive</span> <span style="color: #990000">=</span> <span style="font-weight: bold"><span style="color: #0000FF">false</span></span>
+      <span style="font-weight: bold"><span style="color: #0000FF">elsif</span></span> keep_alive?
+        <span style="font-style: italic"><span style="color: #9A1900">#if chunked? || @header['content-length']   <img src="./images/icons/callouts/2.png" alt="2"></span></span>
+        <span style="font-weight: bold"><span style="color: #0000FF">if</span></span> chunked? <span style="color: #990000">||</span> <span style="color: #009900">@header</span><span style="color: #990000">[</span><span style="color: #FF0000">'content-length'</span><span style="color: #990000">]</span> <span style="color: #990000">||</span> <span style="color: #009900">@status</span> <span style="color: #990000">==</span> <span style="color: #993399">304</span> <span style="color: #990000">||</span> <span style="color: #009900">@status</span> <span style="color: #990000">==</span> <span style="color: #993399">204</span>   <span style="color: #FF0000"><img src="./images/icons/callouts/3.png" alt="3"></span>
+          <span style="color: #009900">@header</span><span style="color: #990000">[</span><span style="color: #FF0000">'connection'</span><span style="color: #990000">]</span> <span style="color: #990000">=</span> <span style="color: #FF0000">"Keep-Alive"</span>
+        <span style="font-weight: bold"><span style="color: #0000FF">end</span></span>
+      <span style="font-weight: bold"><span style="color: #0000FF">else</span></span>
+        <span style="color: #009900">@header</span><span style="color: #990000">[</span><span style="color: #FF0000">'connection'</span><span style="color: #990000">]</span> <span style="color: #990000">=</span> <span style="color: #FF0000">"close"</span>
+      <span style="font-weight: bold"><span style="color: #0000FF">end</span></span></tt></pre></div></div>
+<div class="colist arabic"><table>
+<tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
+Zeile 150
+</td></tr>
+<tr><td><img src="./images/icons/callouts/2.png" alt="2"></td><td>
+Kommentarzeichen setzen
+</td></tr>
+<tr><td><img src="./images/icons/callouts/3.png" alt="3"></td><td>
+Neue Zeile mit zusätzlichen Bedingungen
+</td></tr>
+</table></div>
+</div>
 </div>
 </div>
 </div>
 <div id="footnotes"><hr></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2013-06-02 13:55:58 CEST
+Last updated 2013-06-13 20:53:32 CEST
 </div>
 </div>
 </body>

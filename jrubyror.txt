@@ -430,3 +430,49 @@ Database adapter	        mysql
 Database schema version	  0
 ----
 <1> Ruby Version 1.9.3 (java)
+
+
+WEBrick benötigt einen Patch
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In der Logdatei erzeugt der WebServer _WEBrick_ Warnungen:
+----
+[...]
+[2013-06-13 20:43:41] WARN  Could not determine content-length of response body. Set content-length of the response or set Response#chunked = true
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2013-06-13 20:43:41 +0200
+Served asset /rails.png - 304 Not Modified (23ms)
+[2013-06-13 20:43:41] WARN  Could not determine content-length of response body. Set content-length of the response or set Response#chunked = true
+----
+
+Um die zusätzlichen Ausgaben zu verhindern, muß in der JRuby-Installation
+der 204_304_keep_alive.patch eingearbeitet werden.
+
+&rarr; https://bugs.ruby-lang.org/attachments/2300/204_304_keep_alive.patch
+
+.current/lib/ruby/1.8/webrick/httpresponse.rb
+[source,ruby]
+----
+      # Keep-Alive connection.   <1>
+      if @header['connection'] == "close"
+         @keep_alive = false
+      elsif keep_alive?
+        #if chunked? || @header['content-length']   <2>
+        if chunked? || @header['content-length'] || @status == 304 || @status == 204   <3>
+          @header['connection'] = "Keep-Alive"
+        end
+      else
+        @header['connection'] = "close"
+      end
+----
+<1> Zeile 150
+<2> Kommentarzeichen setzen
+<3> Neue Zeile mit zusätzlichen Bedingungen
+
+
+
+
+
+
+
+
