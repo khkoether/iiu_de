@@ -450,7 +450,7 @@ der 204_304_keep_alive.patch eingearbeitet werden.
 
 &rarr; https://bugs.ruby-lang.org/attachments/2300/204_304_keep_alive.patch
 
-.current/lib/ruby/1.8/webrick/httpresponse.rb
+.current/lib/ruby/1.9/webrick/httpresponse.rb
 [source,ruby]
 ----
       # Keep-Alive connection.   <1>
