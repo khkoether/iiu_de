@@ -1,5 +1,5 @@
-Ruby on Rails: Erste Schritte (mit JRuby) 
-=========================================
+Rails 4: Erste Schritte &hellip; mit JRuby 
+==========================================
 Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;>
 
 :icons:
@@ -8,7 +8,7 @@ Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;
 :ubuntu-url: http://www.ubuntu.com/
 :jruby-url: link:jruby.html
 
-Version 1.8.1, Juni 2013, <<_changelog,[Changelog]>>
+Version 2.0.0, Oktober 2013, <<_changelog,[Changelog]>>
 
 
 Abstract
@@ -31,28 +31,31 @@ Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr.
 
 Vorraussetzungen
 ----------------
-_JRuby_ und _Ruby on Rails_ sind wie 
-in {jruby-url}[Installation in Ubuntu: JRuby 1.7.4, Ruby on Rails 3.2.13] 
+_JRuby_ und _Ruby on Rails_ sind wie in
+
+* {jruby-url}[Installation in Ubuntu: JRuby 1.7.5, Ruby on Rails 4.0.0]
+ 
 beschrieben durchgeführt worden.
 
+.JRuby 1.7.5
 ----
 $ which jruby
 /opt/JRuby/sid/current/bin/jruby
 
 $ jruby -v 
-jruby 1.7.4 (1.9.3p392) 2013-05-16 2390d3b on OpenJDK 64-Bit Server VM 1.7.0_21-b02 [linux-amd64]
+jruby 1.7.5 (1.9.3p392) 2013-10-07 74e9291 on OpenJDK 64-Bit Server VM 1.7.0_25-b30 [linux-amd64]
 
 $ jruby -v --1.8   <1> 
-jruby 1.7.4 (ruby-1.8.7p370) 2013-05-16 2390d3b on OpenJDK 64-Bit Server VM 1.7.0_21-b02 [linux-amd64]
+jruby 1.7.5 (ruby-1.8.7p370) 2013-10-07 74e9291 on OpenJDK 64-Bit Server VM 1.7.0_25-b30 [linux-amd64]
 
 $ which rails
 /opt/JRuby/sid/current/bin/rails
 
 $ jruby -S rails -v   <2>
-Rails 3.2.13
+Rails 4.0.0
 
 $ rails -v     <3>
-Rails 3.2.13
+Rails 4.0.0
 ----
 <1> Die Installation _JRuby_ enthält zwei (gleichberechtigte) Implementationen der 
     Programmier-Sprache _Ruby_: +
@@ -65,8 +68,8 @@ Rails 3.2.13
     werden, kann auf _jruby -S_ verzichtet werden.       
 
 
-Erste Schritte
---------------
+Erste Schritte &hellip;
+-----------------------
 Die notwendigen Schritte werden auf der Kommandozeile durchgeführt.
 
 .Vorgehensweise 
@@ -79,7 +82,7 @@ Die notwendigen Schritte werden auf der Kommandozeile durchgeführt.
 
 
 Datenbanksystem wählen
-~~~~~~~~~~~~~~~~~~~~~~
+----------------------
 Für _Ruby on Rails_ sind drei Datenbanksysteme zumindest erste Wahl für
 die Entwicklung eines neuen Rails-Projektes:
 
@@ -96,7 +99,7 @@ bereits installiert worden.
  
 
 Datenbank erstellen
-~~~~~~~~~~~~~~~~~~~
+-------------------
 _SQLite3_ ist eine Programmbibliothek, die ein relationales Datenbanksystem enthält.
 Das bedeutet, der normale Aufwand an Administration für ein Datenbanksystem, sowie
 für das Anlegen von Benutzern, einer Datenbank und dem Zuweisen von Rechten entfällt. 
@@ -138,9 +141,9 @@ $ mysql -usid -p
 Enter password: 
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 44
-Server version: 5.5.22-0ubuntu1 (Ubuntu)
+Server version: 5.5.32-0ubuntu0.12.04.1 (Ubuntu)
 
-Copyright (c) 2000, 2011, Oracle and/or its affiliates. All rights reserved.
+Copyright (c) 2000, 2013, Oracle and/or its affiliates. All rights reserved.
 
 Oracle is a registered trademark of Oracle Corporation and/or its
 affiliates. Other names may be trademarks of their respective
@@ -157,13 +160,10 @@ Bye
 
 
 Projektverzeichnis erstellen 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------------------
 ----
 $ cd
 $ mkdir RailsDir
-
-$ which rails
-/opt/JRuby/sid/current/bin/rails
 
 $ cd RailsDir
 $ rails new jMyApp --database=mysql   <1>
@@ -183,53 +183,55 @@ $ rails new jMyApp --database=mysql   <1>
          run  bundle install    <4>
 Fetching gem metadata from https://rubygems.org/...........
 Fetching gem metadata from https://rubygems.org/..
-Resolving dependencies...
-Using rake (10.0.4) 
-Using i18n (0.6.1) 
-Using multi_json (1.7.5) 
-Using activesupport (3.2.13) 
-Using builder (3.0.4) 
-Using activemodel (3.2.13) 
+Resolving dependencies....
+Using rake (10.1.0) 
+Using i18n (0.6.5) 
+Using minitest (4.7.5) 
+Using multi_json (1.8.1) 
+Using atomic (1.1.14) 
+Using thread_safe (0.1.3) 
+Using tzinfo (0.3.38) 
+Using activesupport (4.0.0) 
+Using builder (3.1.4) 
 Using erubis (2.7.0) 
-Using journey (1.0.4) 
-Using rack (1.4.5) 
-Using rack-cache (1.2) 
+Using rack (1.5.2) 
 Using rack-test (0.6.2) 
-Using hike (1.2.2) 
-Using tilt (1.4.1) 
-Using sprockets (2.2.2) 
-Using actionpack (3.2.13) 
-Using mime-types (1.23) 
+Using actionpack (4.0.0) 
+Using mime-types (1.25) 
 Using polyglot (0.3.3) 
-Using treetop (1.4.12) 
+Using treetop (1.4.15) 
 Using mail (2.5.4) 
-Using actionmailer (3.2.13) 
-Using arel (3.0.2) 
-Using tzinfo (0.3.37) 
-Using activerecord (3.2.13) 
-Using activerecord-jdbc-adapter (1.2.9) 
-Using jdbc-mysql (5.1.24) 
-Using activerecord-jdbcmysql-adapter (1.2.9) 
-Using activeresource (3.2.13) 
-Installing bouncy-castle-java (1.5.0147) 
+Using actionmailer (4.0.0) 
+Using activemodel (4.0.0) 
+Using activerecord-deprecated_finders (1.0.3) 
+Using arel (4.0.0) 
+Using activerecord (4.0.0) 
+Installing activerecord-jdbc-adapter (1.3.2)        <4>
+Using jdbc-mysql (5.1.25) 
+Installing activerecord-jdbcmysql-adapter (1.3.2)   <5>
 Using bundler (1.3.5) 
-Installing coffee-script-source (1.6.2) 
-Installing execjs (1.4.0) 
-Installing coffee-script (2.2.0) 
-Using rack-ssl (1.3.3) 
-Using json (1.8.0) 
-Using rdoc (3.12.2) 
+Using coffee-script-source (1.6.3) 
+Using execjs (2.0.2) 
+Using coffee-script (2.2.0) 
 Using thor (0.18.1) 
-Using railties (3.2.13) 
-Installing coffee-rails (3.2.2) 
-Installing jquery-rails (3.0.0) 
-Installing jruby-openssl (0.8.8) 
-Using rails (3.2.13) 
-Installing sass (3.2.9) 
-Installing sass-rails (3.2.6) 
-Installing therubyrhino_jar (1.7.4) 
-Installing therubyrhino (2.0.2) 
-Installing uglifier (2.1.1) 
+Using railties (4.0.0) 
+Using coffee-rails (4.0.0) 
+Using hike (1.2.3) 
+Using jbuilder (1.5.2) 
+Using jquery-rails (3.0.4) 
+Using json (1.8.0) 
+Using tilt (1.4.1) 
+Using sprockets (2.10.0) 
+Using sprockets-rails (2.0.0) 
+Using rails (4.0.0) 
+Using rdoc (3.12.2) 
+Using sass (3.2.12) 
+Using sass-rails (4.0.0) 
+Using sdoc (0.3.20) 
+Using therubyrhino_jar (1.7.4) 
+Using therubyrhino (2.0.2) 
+Using turbolinks (1.3.0) 
+Using uglifier (2.2.1) 
 Your bundle is complete!
 Use `bundle show [gemname]` to see where a bundled gem is installed.
 ----
@@ -239,49 +241,84 @@ Use `bundle show [gemname]` to see where a bundled gem is installed.
     untereinander entnehmen Sie der Datei _Gemfile_.
 <3> Konfigurationsdatei mit den Einstellungen für den 
     Datenbankzugriff (Datenbankadapter).        
-<4> _JRuby_ ist eine benutzereigene Installation - somit können benötigte
-    RubyGems (siehe _Gemfile_) automatisch installiert werden. +
-    _bouncy-castle-java_, _coffee-script-source_, _execjs_, _coffee_script_, 
-    _coffee-rails_, _jquery-rails_, _jruby-openssl_, 
-    _sass_, _sass-rails_, _therubyrhino_jar_, _therubyrhino_, _uglifier_
+<4> Im Netz gibt es inzwischen _neuere_ Versionen für den Zugriff
+    mit _Java_ ...
+<5> ...auf die Datenbank _MySQL_.
+    
+[NOTE]
+==== 
+Die neue Version von _activerecord-jdbc-adapter_ gibt einen Hinweis darauf,
+das auch der JDBC-Treiber für _SQLite3_ aktualisiert werden kann.
+----
+$ gem search ^activerecord-jdbcsqlite3* --remote
+
+*** REMOTE GEMS ***
+
+activerecord-jdbcsqlite3-adapter (1.3.2, 1.0.3 java)
+----
+
+----
+$ gem update activerecord-jdbcsqlite3
+Updating installed gems
+Updating activerecord-jdbcsqlite3-adapter
+Fetching: activerecord-jdbcsqlite3-adapter-1.3.2.gem (100%)
+Successfully installed activerecord-jdbcsqlite3-adapter-1.3.2
+Gems updated: activerecord-jdbcsqlite3-adapter
+----
+
+----
+$ gem list --local | grep activerecord-jdbc
+activerecord-jdbc-adapter (1.3.2, 1.3.1)
+activerecord-jdbcmysql-adapter (1.3.2, 1.3.1)
+activerecord-jdbcsqlite3-adapter (1.3.2, 1.3.1)
+----
+====
+ 
 
 .Gemfile
 ----
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '4.0.0'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
+# Use jdbcmysql as the database for Active Record
 gem 'activerecord-jdbcmysql-adapter'
 
-gem 'jruby-openssl'
+# Use SCSS for stylesheets
+gem 'sass-rails', '~> 4.0.0'   <1>
 
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'   <1>
-  gem 'coffee-rails', '~> 3.2.1'   <2>
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '>= 1.3.0'
 
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  gem 'therubyrhino'   <3>
+# Use CoffeeScript for .js.coffee assets and views
+gem 'coffee-rails', '~> 4.0.0'
 
-  gem 'uglifier', '>= 1.0.3'
-end
+# See https://github.com/sstephenson/execjs#readme for more supported runtimes
+gem 'therubyrhino'   <2>
 
+# Use jquery as the JavaScript library
 gem 'jquery-rails'
+
+# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+gem 'turbolinks'
+
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jbuilder', '~> 1.2'
+
+group :doc do
+  # bundle exec rake doc:rails generates the API under doc/api.
+  gem 'sdoc', require: false
+end
  [...]
 ----
-<1> Der Spezifizierer '~> 3.2.3' ist identisch mit 
-    den Bedingungen '>= 3.2.3' und '< 3.3'.  
-<2> Der Spezifizierer '~> 3.2.1' ist identisch mit 
-    den Bedingungen '>= 3.2.1' und '< 3.3'.
-<3> RubyGem _therubyrhino_: JavaScript-Interpreter      
+<1> Der Spezifizierer '~> 4.0.0' ist identisch mit 
+    den Bedingungen '>= 4.0.0' und '< 4.1'.  
+<2> RubyGem _therubyrhino_: JavaScript-Interpreter      
  
 .Prüfen der Abhängigkeiten im _Gemfile_
 ----
-$ cd jmyapp
+$ cd jMyApp
 
 $ bundle check  
 The Gemfile's dependencies are satisfied
@@ -294,7 +331,7 @@ _CoffeeScript_ ist seit _Ruby on Rails_ v3.1 Standard.
 
 
 Datenbankadapter konfigurieren
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------
 .config/database.yml: sqlite3
 ----
 [...]
@@ -323,7 +360,7 @@ development:
 
 
 JavaScript-Runtime installieren
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------
 Für die erzeugte _Ruby on Rails_-Anwendung ist eine JavaScript-Runtime erforderlich.
 
 .Möglichkeit 1: Das RubyGem _therubyrhino_
@@ -353,20 +390,20 @@ ldconfig deferred processing now taking place
 ----
 
 
-Aufruf der Webanwendung im Browser (mit der Ruby Implementation 1.9.3)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Aufruf der Webanwendung im Browser
+----------------------------------
 WEBrick wird in _Ruby on Rails_ default-mäßig als Testserver für die 
 Entwicklungs-Umgebung verwendet.
 
 ----
 $ rails s 
 => Booting WEBrick
-=> Rails 3.2.13 application starting in development on http://0.0.0.0:3000    <1>
+=> Rails 4.0.0 application starting in development on http://0.0.0.0:3000    <1>
 => Call with -d to detach
 => Ctrl-C to shutdown server
-[2013-06-02 13:50:13] INFO  WEBrick 1.3.1
-[2013-06-02 13:50:13] INFO  ruby 1.9.3 (2013-05-16) [java]                    <2>
-[2013-06-02 13:50:13] INFO  WEBrick::HTTPServer#start: pid=4730 port=3000
+[2013-10-12 19:41:13] INFO  WEBrick 1.3.1
+[2013-10-12 19:41:13] INFO  ruby 1.9.3 (2013-10-07) [java]                    <2>
+[2013-10-12 19:41:13] INFO  WEBrick::HTTPServer#start: pid=4223 port=3000
 ----
 <1> Der Webserver läuft ohne Port-Angabe (_--port_ ...) auf Port 3000.
 <2> Ruby Version 1.9.3
@@ -394,19 +431,18 @@ $ rake about
 ----
 About your application's environment
 Ruby version              1.9.3 (java)   <1>
-RubyGems version          2.0.3
-Rack version              1.4
-Rails version             3.2.13
+RubyGems version          2.1.7
+Rack version              1.5
+Rails version             4.0.0
 JavaScript Runtime        therubyrhino (Rhino)
-Active Record version     3.2.13
-Action Pack version       3.2.13
-Active Resource version   3.2.13
-Action Mailer version     3.2.13
-Active Support version    3.2.13
-Middleware                
+Active Record version     4.0.0
+Action Pack version       4.0.0
+Action Mailer version     4.0.0
+Active Support version    4.0.0
+Middleware   
     ActionDispatch::Static, 
     Rack::Lock, 
-    #<ActiveSupport::Cache::Strategy::LocalCache::Middleware:0x3714dfe5>, 
+    #<ActiveSupport::Cache::Strategy::LocalCache::Middleware:0x2ce2006c>, 
     Rack::Runtime, 
     Rack::MethodOverride, 
     ActionDispatch::RequestId, 
@@ -416,14 +452,16 @@ Middleware
     ActionDispatch::RemoteIp, 
     ActionDispatch::Reloader, 
     ActionDispatch::Callbacks, 
+    ActiveRecord::Migration::CheckPending, 
     ActiveRecord::ConnectionAdapters::ConnectionManagement, 
     ActiveRecord::QueryCache, 
     ActionDispatch::Cookies, 
     ActionDispatch::Session::CookieStore, 
-    ActionDispatch::Flash, ActionDispatch::ParamsParser, 
-    ActionDispatch::Head, Rack::ConditionalGet, 
-    Rack::ETag, 
-    ActionDispatch::BestStandardsSupport
+    ActionDispatch::Flash, 
+    ActionDispatch::ParamsParser, 
+    Rack::Head, 
+    Rack::ConditionalGet, 
+    Rack::ETag
 Application root	        /home/sid/80/RailsDir/jMyApp
 Environment	              development
 Database adapter	        mysql
@@ -433,16 +471,17 @@ Database schema version	  0
 
 
 WEBrick benötigt einen Patch
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------------------
 In der Logdatei erzeugt der WebServer _WEBrick_ Warnungen:
 ----
 [...]
-[2013-06-13 20:43:41] WARN  Could not determine content-length of response body. Set content-length of the response or set Response#chunked = true
+[2013-10-12 19:47:31] WARN  Could not determine content-length of response body. Set content-length of the response or set Response#chunked = true
 
 
-Started GET "/assets/rails.png" for 127.0.0.1 at 2013-06-13 20:43:41 +0200
+Started GET "/assets/rails.png" for 127.0.0.1 at 2013-10-12 19:47:31 +0200
 Served asset /rails.png - 304 Not Modified (23ms)
-[2013-06-13 20:43:41] WARN  Could not determine content-length of response body. Set content-length of the response or set Response#chunked = true
+[2013-10-12 19:47:31] WARN  Could not determine content-length of response body. Set content-length of the response or set Response#chunked = true
+[...]
 ----
 
 Um die zusätzlichen Ausgaben zu verhindern, muß in der JRuby-Installation
@@ -468,11 +507,3 @@ der 204_304_keep_alive.patch eingearbeitet werden.
 <1> Zeile 201
 <2> Kommentarzeichen setzen
 <3> Neue Zeile mit zusätzlichen Bedingungen
-
-
-
-
-
-
-
-

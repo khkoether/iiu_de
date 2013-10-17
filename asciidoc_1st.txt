@@ -1,0 +1,44 @@
+= Lorem ipsum
+Sid <&#115;&#105;&#100;&#64;&#101;&#120;&#97;&#109;&#112;&#108;&#101;&#46;&#111;&#114;&#103;>
+Version 0.0.1
+
+:icons:
+:Author Initials: sid
+:creativecommons-url: http://creativecommons.org/licenses/by-sa/3.0/de/
+:asciidoc-url: http://www.methods.co.nz/asciidoc/
+
+
+== Abstract
+Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse 
+molestie consequat, vel illum dolore eu feugiat nulla facilisis.
+
+
+== Opera sine nomine scripta
+Lorem ipsum dolor sit amet, consectetur adipisici elit, 
+sed eiusmod tempor incidunt ut labore et dolore magna aliqua. 
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit 
+in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+
+
+=== Scripta
+Excepteur sint obcaecat cupiditat non proident, sunt in culpa 
+qui officia deserunt mollit anim id est laborum.
+
+
+=== Nomine 
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+
+.Est laborum
+- cupiditat
+- proident
+- deseunt
+
+.Links
+* {asciidoc-url}[AsciiDoc]
+* link:http://la.wikisource.org/wiki/Lorem_ipsum[Lorem ipsum]
+* {creativecommons-url}[Creative Commens]
+
+''''
+link:asciidoc.html#_beispiel[zurück]
+

@@ -1,4 +1,4 @@
-Installation in Ubuntu: AsciiDoc 8.6.8 
+Installation in Ubuntu: AsciiDoc 8.6.8   
 ======================================
 Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;>
 
@@ -9,7 +9,7 @@ Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;
 :asciidoc-url: http://www.methods.co.nz/asciidoc/
 :sourceforge-url: http://sourceforge.net/projects/asciidoc/files/
 
-Version 1.6.0, Oktober 2012, <<_changelog,[Changelog]>>
+Version 2.0.0, Oktober 2013, <<_changelog,[Changelog]>>
 
 
 Abstract
@@ -25,7 +25,7 @@ Der Artikel ist in {asciidoc-url}[AsciiDoc] erstellt worden.
 
 [CAUTION]
 ====
-Zu beachten ist, dass so ein Dokument zum Einen nie abschliessend 
+Zu beachten ist, dass so ein Dokument zum Einen nie abschließend 
 sein kann, und zum Anderen bestimmte Konfigurationen anders, oder 
 auf einem anderem Weg durchgeführt werden können. +
 Gerne nehme ich Verbesserungsvorschläge entgegen.
@@ -34,8 +34,8 @@ Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr.
 ====
 
 
-Vorraussetzungen
-----------------
+Vorraussetzung
+--------------
 Die Installation wird für {ubuntu-url}[Ubuntu 12.04 LTS (Precise Pangolin)] 
 beschrieben. + 
 Gleichwohl sind die einzelnen Schritte auch für 
@@ -48,7 +48,7 @@ Ubuntu 12.04 LTS (Precise Pangolin) enthält das Paket _asciidoc_8.6.6-1ubuntu1_
 
 
 Download
-~~~~~~~~
+--------
 * {sourceforge-url}[AsciiDoc] +    
   asciidoc-8.6.8.tar.gz  (ca. 880K) +
   2012-07-16 (Release date)
@@ -79,9 +79,6 @@ $ sudo apt-get install ...
 
 Installation
 ------------
-AsciiDoc 8.6.8
-~~~~~~~~~~~~~~
-
 [IMPORTANT]
 ====
 Ohne die Angabe eines Verzeichnisses wird '/usr/local/...' automatisch verwendet.
@@ -264,18 +261,20 @@ Browser> file:///usr/local/share/doc/asciidoc/examples/website/index.html
 ----
 
 
-Beispiel: AsciiDoc
-~~~~~~~~~~~~~~~~~~
-Mit dem folgenden Kommando erstellen Sie aus der Datei 'beispiel.txt'  (siehe <<_anhang,[Anhang]>>) die Datei 'beispiel.html'.
+Beispiel
+--------
+Mit dem folgenden Kommando erstellen Sie aus der Datei 
+link:asciidoc_1st.txt[asciidoc_1st.txt] (siehe <<_anhang,[Anhang]>>) die Datei.
 ----
-$ asciidoc -a toc beispiel.txt
+$ asciidoc -a toc asciidoc_1st.txt
 ---- 
 
+link:asciidoc_1st.html[Ausgabebeispiel: So sieht's aus]
+ 
 
 Anhang
 ------
-
-.Text-Datei: beispiel.txt 
+.Text-Datei: asciidoc_1st.txt 
 ----
 = Lorem ipsum
 Sid <&#115;&#105;&#100;&#64;&#101;&#120;&#97;&#109;&#112;&#108;&#101;&#46;&#111;&#114;&#103;>
@@ -317,4 +316,7 @@ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
 * {asciidoc-url}[AsciiDoc]
 * link:http://la.wikisource.org/wiki/Lorem_ipsum[Lorem ipsum]
 * {creativecommons-url}[Creative Commens]
+
+''''
+link:asciidoc.html#_beispiel[zurück]
 ----

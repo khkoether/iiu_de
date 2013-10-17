@@ -7,6 +7,8 @@ Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;
 :creativecommons-url: http://creativecommons.org/licenses/by-sa/3.0/de/
 :ubuntu-url: http://www.ubuntu.com/
 :asciidoc-url: http://www.methods.co.nz/asciidoc/
+:git-url: http://git-scm.com/
+:git-download-url: http://code.google.com/p/git-core/downloads/list
 :ruby-url: http://www.ruby-lang.org/
 :ruby-download-url: http://www.ruby-lang.org/de/downloads/
 :ruby-ftp: ftp://www.ruby-lang.org/pub/ruby/1.9/
@@ -47,7 +49,7 @@ andere Distributionen übertragbar.
 
 [TIP]
 ====
-In Ubuntu 12.04 LTS (Precise Pangolin) kann über bestehende Abhängigkeiten 
+In Ubuntu 12.04 LTS (Precise Pangolin) kann über bestehende Abhängigkeiten +
 zu anderen Ubuntu-Paketen bereits das _OpenJDK 6_ installiert sein.
 
 ----
@@ -60,9 +62,9 @@ ii  openjdk-6-jre-lib          6b24-1.11.5-0ubuntu1~12.04.1   OpenJDK Java runti
 ====
 
 
-Installation
-------------
-.Primäre Auswahl: OpenJDK 7 und nicht Oracle (Sun) Java
+Wahlmöglichkeiten
+-----------------
+.OpenJDK 7 .vs Oracle JDK 7
 Für Java steht eine gute OpenSource-Anwendung zur Verfügung: das _OpenJDK 7_ und
 das _IcedTea-Plugin_ für den Browser. Sie sind erhältlich in den regulären 
 Ubuntu-Repositories und erhalten regelmäßig Sicherheits-Updates.
@@ -71,17 +73,17 @@ Für viele Menschen ist dieses Java ausreichend.
 Das ist mit ein Grund warum das ClosedSource Oracle Java von den offiziellen
 Software-Repositories entfernt wurde. 
 
-Und nicht zu vergessen, Oracle hat die 
-_Operating System Distributor License for Java (DLJ)_ zurückgezogen.
+Ein weiterer Grund war natürlich auch, das Oracle die 
+_Operating System Distributor License for Java (DLJ)_ zurückgezog.
 
 &rarr; link:http://sites.google.com/site/easylinuxtipsproject/java#TOC-Primary-choice:-OpenJDK-6-and-not-Oracle-Sun-Java[Oracle (Sun) Java JRE for Ubuntu, Linux Mint and Debian]
 
 [NOTE]
 ====
 Unabhängig davon, das die Firma _Oracle_ das freie _JDK_ unterstützt und auch
-vorantreibt ... gibt es durchaus Bugs, die in den offiziellen Paketen nicht 
+vorantreibt ... gibt es durchaus Bugs, die in den propietären Paketen nicht 
 vorhanden sind. +
-Es gilt, Bugs zu melden, damit _OpenJDK_ so gut wird wie die proprietäre Version.
+Es gilt, Bugs zu melden, damit _OpenJDK_ ebenso gut wird.
 ====
 
 [NOTE]
@@ -100,13 +102,13 @@ dagegen spricht.
 Ich habe mich entschlossen das vorhandende _OpenJDK 6_ durch _OpenJDK 7_ zu ersetzen. 
 Das muß nicht von Ihnen gemacht werden! 
 Wenn Sie sich entscheiden _OpenJDK 7_ zusätzlich zu installieren, 
-müssen sie aber die von Ihnen gewünschte Version als systemweiter Standard setzen.
+müssen sie aber die von Ihnen gewünschte Version als systemweiten Standard setzen.
 
 &rarr; http://wiki.ubuntuusers.de/Java/Tipps#Verwendete-Java-Version-einstellen[ubuntuusers.de: Tipps - Verwendete Java-Version einstellen]
 ====
 
-OpenJDK 
-~~~~~~~ 
+Installation: OpenJDK 7
+-----------------------
 ----
 $ sudo apt-get remove openjdk-6-jre openjdk-6-jdk openjdk-6-jre-headless openjdk-6-jre-lib  <1>
 Abhängigkeitsbaum wird aufgebaut
@@ -187,14 +189,14 @@ Die folgenden NEUEN Pakete werden installiert:
 
 ----
 $ java -version
-java version "1.7.0_15"
-OpenJDK Runtime Environment (IcedTea7 2.3.7) (7u15-2.3.7-0ubuntu1~12.04.1)
+java version "1.7.0_25"
+OpenJDK Runtime Environment (IcedTea 2.3.10) (7u25-2.3.10-1ubuntu0.12.04.2)
 OpenJDK 64-Bit Server VM (build 23.7-b01, mixed mode)
 ----   
 
  
-Oracle JDK
-~~~~~~~~~~ 
+Installation: Oracle JDK
+------------------------
 Wie auch immer, einige Ubuntu-Anwender benötigen das Oracle JDK. +
 Empfohlen wird die jeweils neueste Version - zu diesem Zeitpunkt ist das: 
 _Java SE Development Kit 7u17_.
@@ -202,7 +204,7 @@ _Java SE Development Kit 7u17_.
 Zusätzliche Software-Pakete  
 sollten im Verzeichnis '/opt' (Optional) installiert werden. 
 
-*Step 0:* Download JDK 7u17
+*Step 0:* Download JDK 7u40
 
 &rarr; {java-url}[Oracle: Java SE Downloads]
 
@@ -217,9 +219,9 @@ for Java SE to download this software.
 $ sudo mkdir /opt/Java && cd /opt/Java 
 
 $ ls -l
--rw-rw-r-- 1 khk khk 96160926 Apr  14 13:28 jdk-7u17-linux-x64.tar.gz
+-rw-rw-r-- 1 sid sid 96160926 Apr  14 13:28 jdk-7u40-linux-x64.tar.gz
 
-$ sudo tar xvzf jdk-7u17-linux-x64.tar.gz
+$ sudo tar xvzf jdk-7u40-linux-x64.tar.gz
 [...]
 ----
 
@@ -227,11 +229,11 @@ Ein Vorteil bei der gezeigten Lösung ist, daß für das Einspielen einer neuen 
 weder die Konfigurations-Datei noch die 'PATH'-Variable angepasst werden müssen.  
 ----
 $ cd /opt/Java
-$ sudo chown -R root.root jdk1.7.0_17
-$ sudo ln -s jdk1.7.0_17 current
+$ sudo chown -R root.root jdk1.7.0_40
+$ sudo ln -s jdk1.7.0_40 current
 $ ls -l
-lrwxrwxrwx 1 root root   11 Apr 14 13:31 current -> jdk1.7.0_17
-drwxr-xr-x 8 root root 4096 Mär  1 12:28 jdk1.7.0_17
+lrwxrwxrwx 1 root root   11 Okt  9 09:19 current -> jdk1.7.0_40
+drwxr-xr-x 8 root root 4096 Aug 27 09:24 jdk1.7.0_40
 ----
 
 *Step 2:* Java-Pfad setzen (von au&szlig;en)
@@ -250,11 +252,46 @@ $ which java
 /opt/Java/current/bin/java
 
 $ java -version
-java version "1.7.0_17"
-Java(TM) SE Runtime Environment (build 1.7.0_17-b02)
-Java HotSpot(TM) 64-Bit Server VM (build 23.7-b01, mixed mode)
+java version "1.7.0_40"
+Java(TM) SE Runtime Environment (build 1.7.0_40-b43)
+Java HotSpot(TM) 64-Bit Server VM (build 24.0-b56, mixed mode)
 ----
 
+
+Java im Browser
+---------------
+Überprüfen Sie die im Browser installierten _Plugins_:
+
+* Mozilla Firefox +
+  +about:plugins+
+* Chromium +
+  +chrome://plugins/+
+
+Beide Browser greifen bei mir auf das _IcedTea-Web Plugin_ zu: +
++IcedTea-Web Plugin (using IcedTea-Web 1.2.3 (1.2.3-0ubuntu0.12.04.3))+
+
++++ <br /> +++
+  
+Mit den folgenden Links können Sie zum Einen die im Browser verwendete
+Java-Version bestimmen, zum Anderem die Funktionsfähigkeit des Plugin
+überprüfen oder -- halt die aktuelle Zeit anzeigen:
+
+* http://javatester.org/[Java Tester] +
+  Test the version of Java your browser is using
+* http://www.arndt-bruenner.de/mathe/java/[Testseiten für Java-Applets - von Arndt Brünner] +
+  Platonische und Archimedische Körper (mein Favorit ;-)
+* http://www.w3.org/2000/07/8378/object/java/clock[W3C: Java applet test with applet and object] +
+  W3C host clocks: MIT, UTC, INRIA, Keio
+
++++ <br /> +++
+
+Darüberhinaus sollten Sie die Hinweise zur Sicherheit von Browsern überhaupt 
+und die mit _Java_ im Besonderen immer im Blick haben... + 
+
+* http://www.heise.de/security/hilfe/[heise Security: Erste Hilfe] +
+  *Browsercheck*: Java, JavaScript/JScript, Visual Basic Script, ActiveX,
+  Cookies, XPI-Erweiterungen, Phishing
+  
 
 Anhang
 ------

@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="generator" content="AsciiDoc 8.6.8">
-<title>Ruby on Rails: Erste Schritte</title>
+<title>Rails 4: Erste Schritte &hellip; mit Ruby</title>
 <style type="text/css">
 /* Shared CSS for AsciiDoc xhtml11 and html5 backends */
 
@@ -532,6 +532,12 @@ body.manpage div.sectionbody {
 }
 
 
+/* Default font. */
+body {
+  font-family: Verdana,Arial,Helvetica,sans-serif;
+  font-size: 100.01%;
+  /* font-family: Georgia,serif; */
+}
 </style>
 <script type="text/javascript">
 /*<![CDATA[*/
@@ -730,7 +736,7 @@ asciidoc.install(2);
 </head>
 <body class="article">
 <div id="header">
-<h1>Ruby on Rails: Erste Schritte</h1>
+<h1>Rails 4: Erste Schritte &hellip; mit Ruby</h1>
 <span id="author">Karl-Heinz Köther</span><br>
 <span id="email" class="monospaced">&lt;<a href="mailto:&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;">&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;</a>&gt;</span><br>
 <div id="toc">
@@ -741,7 +747,7 @@ asciidoc.install(2);
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph"><p>Version 1.8.1, Juni 2013, <a href="#_changelog">[Changelog]</a></p></div>
+<div class="paragraph"><p>Version 2.0.0, Oktober 2013, <a href="#_changelog">[Changelog]</a></p></div>
 </div>
 </div>
 <div class="sect1">
@@ -767,29 +773,46 @@ Gerne nehme ich Verbesserungsvorschläge entgegen.</p></div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_vorraussetzungen">Vorraussetzungen</h2>
+<h2 id="_vorraussetzung">Vorraussetzung</h2>
 <div class="sectionbody">
-<div class="paragraph"><p><em>Ruby</em> und <em>Ruby on Rails</em> sind wie
-in <a href="ruby19.html">Installation in Ubuntu: Ruby 1.9.3, Ruby on Rails 3.2.13</a>
-beschrieben durchgeführt worden.</p></div>
+<div class="paragraph"><p>Die Installation von <em>Ruby</em> und <em>Ruby on Rails</em> ist, wie in</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="ruby19.html">Installation in Ubuntu: Ruby 1.9.3, Ruby on Rails 4.0.0</a>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>oder</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="ruby20.html">Installation in Ubuntu: Ruby 2.0.0, Ruby on Rails 4.0.0</a>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>beschrieben, durchgeführt worden.</p></div>
+<div class="paragraph"><p>Die hier aufgeführten Schritte werden beispielhaft für <em>Ruby 2.0.0</em> ausgeführt.
+Gelten aber, auch in dieser Reihenfolge, ebenfalls für <em>Ruby 1.9.3</em>.</p></div>
 <div class="listingblock">
+<div class="title">Ruby 2.0.0</div>
 <div class="content monospaced">
 <pre>$ which ruby
-/opt/Ruby/current/bin/ruby
+/opt/Ruby/current20/bin/ruby
 
 $ ruby -v
-ruby 1.9.3p429 (2013-05-15 revision 40747) [x86_64-linux]
+ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-linux]
 
 $ which rails
-/opt/Ruby/current/bin/rails
+/opt/Ruby/current20/bin/rails
 
 $ rails -v
-Rails 3.2.13</pre>
+Rails 4.0.0</pre>
 </div></div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_erste_schritte">Erste Schritte</h2>
+<h2 id="_erste_schritte_hellip">Erste Schritte &hellip;</h2>
 <div class="sectionbody">
 <div class="paragraph"><p>Die notwendigen Schritte werden auf der Kommandozeile durchgeführt.</p></div>
 <div class="ulist"><div class="title">Vorgehensweise</div><ul>
@@ -824,8 +847,11 @@ Aufruf der Webanwendung im Browser
 </p>
 </li>
 </ul></div>
-<div class="sect2">
-<h3 id="_datenbanksystem_wählen">Datenbanksystem wählen</h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_datenbanksystem_wählen">Datenbanksystem wählen</h2>
+<div class="sectionbody">
 <div class="paragraph"><p>Für <em>Ruby on Rails</em> sind drei Datenbanksysteme zumindest erste Wahl für
 die Entwicklung eines neuen Rails-Projektes:</p></div>
 <div class="ulist"><ul>
@@ -852,8 +878,10 @@ die Entwicklung eines neuen Rails-Projektes:</p></div>
 <div class="paragraph"><p>Für die Datenbanksysteme <em>SqLite3</em> und <em>MySQL</em> sind die notwendigen Datenbankadapter
 bereits installiert worden.</p></div>
 </div>
-<div class="sect2">
-<h3 id="_datenbank_erstellen">Datenbank erstellen</h3>
+</div>
+<div class="sect1">
+<h2 id="_datenbank_erstellen">Datenbank erstellen</h2>
+<div class="sectionbody">
 <div class="paragraph"><p><em>SQLite3</em> ist eine Programmbibliothek, die ein relationales Datenbanksystem enthält.
 Das bedeutet, der notwendige Aufwand an Administration für ein Datenbanksystem, sowie
 für das Anlegen von Benutzern, einer Datenbank und dem Zuweisen von Rechten entfällt.</p></div>
@@ -870,9 +898,9 @@ die Kommandozeile.</p></div>
 Enter password:
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 41
-Server version: 5.5.22-0ubuntu1 (Ubuntu)
+Server version: 5.5.32-0ubuntu0.12.04.1 (Ubuntu)
 
-Copyright (c) 2000, 2011, Oracle and/or its affiliates. All rights reserved.
+Copyright (c) 2000, 2013, Oracle and/or its affiliates. All rights reserved.
 
 Oracle is a registered trademark of Oracle Corporation and/or its
 affiliates. Other names may be trademarks of their respective
@@ -910,8 +938,10 @@ mysql&gt; exit
 Bye</pre>
 </div></div>
 </div>
-<div class="sect2">
-<h3 id="_projektverzeichnis_erstellen">Projektverzeichnis erstellen</h3>
+</div>
+<div class="sect1">
+<h2 id="_projektverzeichnis_erstellen">Projektverzeichnis erstellen</h2>
+<div class="sectionbody">
 <div class="listingblock">
 <div class="content monospaced">
 <pre>$ cd
@@ -960,59 +990,83 @@ Wenn Sie nicht berechtigt sind RubyGems zu installieren, müssen Sie
 $ tree -LF 1 .
 .
 ├── app/
+├── bin/
 ├── config/
 ├── config.ru
 ├── db/
-├── doc/
 ├── Gemfile
 ├── lib/
 ├── log/
 ├── public/
 ├── Rakefile
 ├── README.rdoc
-├── script/
 ├── test/
 ├── tmp/
 └── vendor/
 
-11 directories, 4 files</pre>
+10 directories, 4 files</pre>
 </div></div>
 <div class="listingblock">
-<div class="title">Gemfile</div>
+<div class="title">Datei: Gemfile</div>
 <div class="content monospaced">
 <pre>source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '4.0.0'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git =&gt; 'git://github.com/rails/rails.git'
-
+# Use mysql as the database for Active Record
 gem 'mysql2'
 
+# Use SCSS for stylesheets
+gem 'sass-rails', '~&gt; 4.0.0'
 
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails',   '~&gt; 3.2.3'   <img src="./images/icons/callouts/1.png" alt="1">
-  gem 'coffee-rails', '~&gt; 3.2.1'   <img src="./images/icons/callouts/2.png" alt="2">
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '&gt;= 1.3.0'
 
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms =&gt; :ruby
+# Use CoffeeScript for .js.coffee assets and views
+gem 'coffee-rails', '~&gt; 4.0.0'   <img src="./images/icons/callouts/1.png" alt="1">
 
-  gem 'uglifier', '&gt;= 1.0.3'
+# See https://github.com/sstephenson/execjs#readme for more supported runtimes
+# gem 'therubyracer', platforms: :ruby
+
+# Use jquery as the JavaScript library
+gem 'jquery-rails'
+
+# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+gem 'turbolinks'
+
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jbuilder', '~&gt; 1.2'   <img src="./images/icons/callouts/2.png" alt="2">
+
+group :doc do
+  # bundle exec rake doc:rails generates the API under doc/api.
+  gem 'sdoc', require: false
 end
 
-gem 'jquery-rails'
-[...]</pre>
+# Use ActiveModel has_secure_password
+# gem 'bcrypt-ruby', '~&gt; 3.0.0'   <img src="./images/icons/callouts/3.png" alt="3">
+
+# Use unicorn as the app server
+# gem 'unicorn'
+
+# Use Capistrano for deployment
+# gem 'capistrano', group: :development
+
+# Use debugger
+# gem 'debugger', group: [:development, :test]</pre>
 </div></div>
 <div class="colist arabic"><table>
 <tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
-Der Spezifizierer <em>~&gt; 3.2.3</em> ist identisch mit
-    den Bedingungen <em>&gt;= 3.2.3</em> und <em>&lt; 3.3</em>.
+Der Spezifizierer <em>~&gt; 4.0.0</em> ist identisch mit
+    den Bedingungen <em>&gt;= 4.0.0</em> und <em>&lt; 4.1</em>.
 </td></tr>
 <tr><td><img src="./images/icons/callouts/2.png" alt="2"></td><td>
-Der Spezifizierer <em>~&gt; 3.2.1</em> ist identisch mit
-    den Bedingungen <em>&gt;= 3.2.1</em> und <em>&lt; 3.3</em>.
+Der Spezifizierer <em>~&gt; 1.2</em> ist identisch mit
+    den Bedingungen <em>&gt;= 1.2</em> und <em>&lt; 2</em>.
+</td></tr>
+<tr><td><img src="./images/icons/callouts/3.png" alt="3"></td><td>
+Der Spezifizierer <em>~&gt; 3.0.0</em> ist identisch mit
+    den Bedingungen <em>&gt;= 3.0.0</em> und <em>&lt; 3.1</em>.
 </td></tr>
 </table></div>
 <div class="listingblock">
@@ -1023,62 +1077,66 @@ Your Gemfile's dependencies could not be satisfied
 Install missing gems with `bundle install`
 
 $ bundle list
-Could not find gem 'jquery-rails (&gt;= 0) ruby' in the gems available on this machine.</pre>
+Could not find gem 'sdoc (&gt;= 0) ruby' in the gems available on this machine.</pre>
 </div></div>
 <div class="listingblock">
 <div class="title">Installation der fehlenden Gems mit dem zur Installation berechtigten User <em>root</em>!</div>
 <div class="content monospaced">
-<pre># cd ~/RailsDir/MyApp
+<pre># cd ~sid/RailsDir/MyApp
 
 # bundle check
 Resolving dependencies...
 Bundler can't satisfy your Gemfile's dependencies.
 Install missing gems with `bundle install`.
 
-# bundle install
+# bundle install    <img src="./images/icons/callouts/1.png" alt="1">
 Fetching gem metadata from https://rubygems.org/...........
 Fetching gem metadata from https://rubygems.org/..
 Resolving dependencies...
-Using rake (10.0.4)
-Using i18n (0.6.1)
-Using multi_json (1.7.4)
-Using activesupport (3.2.13)
-Using builder (3.0.4)
-Using activemodel (3.2.13)
-Using erubis (2.7.0)
-Using journey (1.0.4)
-Using rack (1.4.5)
-Using rack-cache (1.2)
-Using rack-test (0.6.2)
-Using hike (1.2.2)
-Using tilt (1.4.1)
-Using sprockets (2.2.2)
-Using actionpack (3.2.13)
-Using mime-types (1.23)
-Using polyglot (0.3.3)
-Using treetop (1.4.12)
-Using mail (2.5.4)
-Using actionmailer (3.2.13)
-Using arel (3.0.2)
+Using rake (10.1.0)
+Using i18n (0.6.5)
+Installing minitest (4.7.5)
+Using multi_json (1.8.1)
+Using atomic (1.1.14)
+Using thread_safe (0.1.3)
 Using tzinfo (0.3.37)
-Using activerecord (3.2.13)
-Using activeresource (3.2.13)
+Using activesupport (4.0.0)
+Using builder (3.1.4)
+Using erubis (2.7.0)
+Using rack (1.5.2)
+Using rack-test (0.6.2)
+Using actionpack (4.0.0)
+Using mime-types (1.25)
+Using polyglot (0.3.3)
+Using treetop (1.4.15)
+Using mail (2.5.4)
+Using actionmailer (4.0.0)
+Using activemodel (4.0.0)
+Using activerecord-deprecated_finders (1.0.3)
+Using arel (4.0.0)
+Using activerecord (4.0.0)
 Using bundler (1.3.5)
-Installing coffee-script-source (1.6.2)
-Installing execjs (1.4.0)
+Installing coffee-script-source (1.6.3)
+Installing execjs (2.0.2)
 Installing coffee-script (2.2.0)
-Using rack-ssl (1.3.3)
-Using json (1.8.0)
-Installing rdoc (3.12.2)
 Using thor (0.18.1)
-Using railties (3.2.13)
-Installing coffee-rails (3.2.2)
-Installing jquery-rails (3.0.0)
-Using mysql2 (0.3.11)
-Using rails (3.2.13)
-Installing sass (3.2.9)
-Installing sass-rails (3.2.6)
-Installing uglifier (2.1.1)
+Using railties (4.0.0)
+Installing coffee-rails (4.0.0)
+Using hike (1.2.3)
+Installing jbuilder (1.5.1)
+Installing jquery-rails (3.0.4)
+Using json (1.8.0)
+Using mysql2 (0.3.13)
+Using tilt (1.4.1)
+Using sprockets (2.10.0)
+Using sprockets-rails (2.0.0)
+Using rails (4.0.0)
+Installing rdoc (3.12.2)
+Installing sass (3.2.12)
+Installing sass-rails (4.0.0)
+Installing sdoc (0.3.20)
+Installing turbolinks (1.3.0)
+Installing uglifier (2.2.1)
 Your bundle is complete!
 Use `bundle show [gemname]` to see where a bundled gem is installed.
 Post-install message from rdoc:
@@ -1089,27 +1147,31 @@ Depending on your version of ruby, you may need to install ruby rdoc/ri data:
  = 1.9.1 : gem install rdoc-data; rdoc-data --install
 &gt;= 1.9.2 : nothing to do! Yay!</pre>
 </div></div>
+<div class="colist arabic"><table>
+<tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
+Die Ausgabe bezieht sich auf Ruby Version 2.0.0!
+</td></tr>
+</table></div>
 <div class="listingblock">
 <div class="title">Prüfen der Abhängigkeiten im <em>Gemfile</em> (2)</div>
 <div class="content monospaced">
-<pre>$ bundle check
-The Gemfile's dependencies are satisfied</pre>
+<pre>$ ls -l Gemfile*
+-rw-rw-r-- 1 sid sid 1173 Okt  8 20:18 Gemfile
+
+$ bundle check
+The Gemfile's dependencies are satisfied
+
+$ ls -l Gemfile*
+-rw-rw-r-- 1 sid sid 1173 Okt  8 20:18 Gemfile
+-rw-rw-r-- 1 sid sid 2738 Okt  8 20:27 Gemfile.lock</pre>
 </div></div>
-<div class="admonitionblock">
-<table><tr>
-<td class="icon">
-<img src="./images/icons/note.png" alt="Note">
-</td>
-<td class="content">
-<div class="paragraph"><p><em>CoffeeScript</em> ist seit <em>Ruby on Rails</em> v3.1 Standard.</p></div>
-</td>
-</tr></table>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_datenbankadapter_konfigurieren">Datenbankadapter konfigurieren</h3>
+<div class="sect1">
+<h2 id="_datenbankadapter_konfigurieren">Datenbankadapter konfigurieren</h2>
+<div class="sectionbody">
 <div class="listingblock">
-<div class="title">config/database.yml: sqlite3</div>
+<div class="title">Datei: config/database.yml: sqlite3</div>
 <div class="content monospaced">
 <pre>[...]
 development:
@@ -1126,7 +1188,7 @@ Die Datenbank-Datei wird mit dem ersten Aufruf automatisch angelegt.<br>
 </td></tr>
 </table></div>
 <div class="listingblock">
-<div class="title">config/database.yml: mysql</div>
+<div class="title">Datei: config/database.yml: mysql</div>
 <div class="content monospaced">
 <pre>[...]
 development:
@@ -1148,34 +1210,47 @@ Der hier vorgeschlagene Datenbank-Name wird von <em>Ruby on Rails</em>
 </td></tr>
 </table></div>
 </div>
-<div class="sect2">
-<h3 id="_javascript_runtime_installieren">JavaScript-Runtime installieren</h3>
+</div>
+<div class="sect1">
+<h2 id="_javascript_runtime_installieren">JavaScript-Runtime installieren</h2>
+<div class="sectionbody">
 <div class="paragraph"><p>Für die erzeugte <em>Ruby on Rails</em>-Anwendung ist eine JavaScript-Runtime erforderlich.</p></div>
 <div class="listingblock">
-<div class="title">Gemfile</div>
+<div class="title">Datei: Gemfile</div>
 <div class="content monospaced">
 <pre>source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '4.0.0'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git =&gt; 'git://github.com/rails/rails.git'
-
+# Use mysql as the database for Active Record
 gem 'mysql2'
 
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails',   '~&gt; 3.2.3'
-  gem 'coffee-rails', '~&gt; 3.2.1'
+# Use SCSS for stylesheets
+gem 'sass-rails', '~&gt; 4.0.0'
 
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  gem 'therubyracer', :platform =&gt; :ruby   <img src="./images/icons/callouts/1.png" alt="1">
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '&gt;= 1.3.0'
 
-  gem 'uglifier', '&gt;= 1.0.3'
-end
+# Use CoffeeScript for .js.coffee assets and views
+gem 'coffee-rails', '~&gt; 4.0.0'
 
+# See https://github.com/sstephenson/execjs#readme for more supported runtimes
+gem 'therubyracer', platforms: :ruby   <img src="./images/icons/callouts/1.png" alt="1">
+
+# Use jquery as the JavaScript library
 gem 'jquery-rails'
+
+# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+gem 'turbolinks'
+
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jbuilder', '~&gt; 1.2'
+
+group :doc do
+  # bundle exec rake doc:rails generates the API under doc/api.
+  gem 'sdoc', require: false
+end
 [...]</pre>
 </div></div>
 <div class="colist arabic"><table>
@@ -1184,23 +1259,61 @@ Entfernen Sie das Kommentar-Zeichen <em>#</em>.
 </td></tr>
 </table></div>
 <div class="listingblock">
-<div class="title">bundle install</div>
+<div class="title">bundle install (mit dem Benutzer <em>root</em>)</div>
 <div class="content monospaced">
-<pre># bundle install
+<pre># cd ~sid/80/RailsDir/MyApp
+
+# bundle install
 Fetching gem metadata from https://rubygems.org/...........
 Fetching gem metadata from https://rubygems.org/..
 Resolving dependencies...
-Using rake (10.0.4)
-[...]
-Using jquery-rails (3.0.0)
-Installing libv8 (3.11.8.17)
-Using mysql2 (0.3.11)
-Using rails (3.2.13)
+Using rake (10.1.0)
+Using i18n (0.6.5)
+Using minitest (4.7.5)
+Using multi_json (1.8.1)
+Using atomic (1.1.14)
+Using thread_safe (0.1.3)
+Using tzinfo (0.3.37)
+Using activesupport (4.0.0)
+Using builder (3.1.4)
+Using erubis (2.7.0)
+Using rack (1.5.2)
+Using rack-test (0.6.2)
+Using actionpack (4.0.0)
+Using mime-types (1.25)
+Using polyglot (0.3.3)
+Using treetop (1.4.15)
+Using mail (2.5.4)
+Using actionmailer (4.0.0)
+Using activemodel (4.0.0)
+Using activerecord-deprecated_finders (1.0.3)
+Using arel (4.0.0)
+Using activerecord (4.0.0)
+Using bundler (1.3.5)
+Using coffee-script-source (1.6.3)
+Using execjs (2.0.2)
+Using coffee-script (2.2.0)
+Using thor (0.18.1)
+Using railties (4.0.0)
+Using coffee-rails (4.0.0)
+Using hike (1.2.3)
+Using jbuilder (1.5.1)
+Using jquery-rails (3.0.4)
+Using json (1.8.0)
+Installing libv8 (3.16.14.3)
+Using mysql2 (0.3.13)
+Using tilt (1.4.1)
+Using sprockets (2.10.0)
+Using sprockets-rails (2.0.0)
+Using rails (4.0.0)
+Using rdoc (3.12.2)
 Installing ref (1.0.5)
-Using sass (3.2.9)
-Using sass-rails (3.2.6)
-Installing therubyracer (0.11.4)   <img src="./images/icons/callouts/1.png" alt="1">, <img src="./images/icons/callouts/2.png" alt="2">
-Using uglifier (2.1.1)
+Using sass (3.2.12)
+Using sass-rails (4.0.0)
+Using sdoc (0.3.20)
+Installing therubyracer (0.12.0)   <img src="./images/icons/callouts/1.png" alt="1">, <img src="./images/icons/callouts/2.png" alt="2">
+Using turbolinks (1.3.0)
+Using uglifier (2.2.1)
 Your bundle is complete!
 Use `bundle show [gemname]` to see where a bundled gem is installed.</pre>
 </div></div>
@@ -1247,27 +1360,30 @@ Conf nodejs (0.6.12~dfsg1-1ubuntu1 Ubuntu:12.04/precise [amd64])</pre>
 </td></tr>
 </table></div>
 </div>
-<div class="sect2">
-<h3 id="_aufruf_der_webanwendung_im_browser">Aufruf der Webanwendung im Browser</h3>
+</div>
+<div class="sect1">
+<h2 id="_aufruf_der_webanwendung_im_browser">Aufruf der Webanwendung im Browser</h2>
+<div class="sectionbody">
 <div class="paragraph"><p>WEBrick wird in <em>Ruby on Rails</em> default-mäßig als Testserver für die
 Entwicklungs-Umgebung verwendet.</p></div>
 <div class="listingblock">
 <div class="content monospaced">
 <pre>$ rails s
 =&gt; Booting WEBrick
-=&gt; Rails 3.2.13 application starting in development on http://0.0.0.0:3000   <img src="./images/icons/callouts/1.png" alt="1">
-=&gt; Call with -d to detach
+=&gt; Rails 4.0.0 application starting in development on http://0.0.0.0:3000    <img src="./images/icons/callouts/1.png" alt="1">
+=&gt; Run `rails server -h` for more startup options
 =&gt; Ctrl-C to shutdown server
-[2013-06-01 19:37:18] INFO  WEBrick 1.3.1
-[2013-06-01 19:37:18] INFO  ruby 1.9.3 (2013-05-15) [x86_64-linux]           <img src="./images/icons/callouts/2.png" alt="2">
-[2013-06-01 19:37:18] INFO  WEBrick::HTTPServer#start: pid=30902 port=3000</pre>
+[2013-10-08 20:39:44] INFO  WEBrick 1.3.1
+[2013-10-08 20:39:44] INFO  ruby 2.0.0 (2013-06-27) [x86_64-linux]           <img src="./images/icons/callouts/2.png" alt="2">
+[2013-10-08 20:39:44] INFO  WEBrick::HTTPServer#start: pid=21488 port=3000
+[...]</pre>
 </div></div>
 <div class="colist arabic"><table>
 <tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
 Der Webserver läuft ohne Port-Angabe (<em>--port</em> &#8230;) auf Port 3000.
 </td></tr>
 <tr><td><img src="./images/icons/callouts/2.png" alt="2"></td><td>
-Ruby Version 1.9.3
+Ruby Version 2.0.0
 </td></tr>
 </table></div>
 <div class="listingblock">
@@ -1302,59 +1418,62 @@ Informationen zur ausgeführten Applikation <em>MyApp</em>:<br>
 <div class="listingblock">
 <div class="title">Ausgabe&#8230;</div>
 <div class="content monospaced">
-<pre>Ruby version            1.9.3 (x86_64-linux)    <img src="./images/icons/callouts/1.png" alt="1">
-RubyGems version        2.0.3
-Rack version            1.4
-Rails version           3.2.13
-JavaScript Runtime therubyracer (V8)
-Active Record version   3.2.13
-Action Pack version     3.2.13
-Active Resource version 3.2.13
-Action Mailer version   3.2.13
-Active Support version  3.2.13
-Middleware
-         • ActionDispatch::Static
-         • Rack::Lock
-         • #&lt;ActiveSupport::Cache::Strategy::LocalCache::Middleware:0x00000002c27688&gt;
-         • Rack::Runtime
-         • Rack::MethodOverride
-         • ActionDispatch::RequestId
-         • Rails::Rack::Logger
-         • ActionDispatch::ShowExceptions
-         • ActionDispatch::DebugExceptions
-         • ActionDispatch::RemoteIp
-         • ActionDispatch::Reloader
-         • ActionDispatch::Callbacks
-         • ActiveRecord::ConnectionAdapters::ConnectionManagement
-         • ActiveRecord::QueryCache
-         • ActionDispatch::Cookies
-         • ActionDispatch::Session::CookieStore
-         • ActionDispatch::Flash
-         • ActionDispatch::ParamsParser
-         • ActionDispatch::Head
-         • Rack::ConditionalGet
-         • Rack::ETag
-         • ActionDispatch::BestStandardsSupport
-
-Application root          /home/sid/RailsDir/MyApp
+<pre>About your application's environment
+Ruby version              2.0.0 (x86_64-linux)   <img src="./images/icons/callouts/1.png" alt="1">
+RubyGems version          2.0.6
+Rack version              1.5
+Rails version             4.0.0
+JavaScript Runtime        therubyracer (V8)
+Active Record version     4.0.0
+Action Pack version       4.0.0
+Action Mailer version     4.0.0
+Active Support version    4.0.0
+Middleware  ActionDispatch::Static,
+            Rack::Lock,
+            #&lt;ActiveSupport::Cache::Strategy::LocalCache::Middleware:0x007feb3807ee98&gt;,
+            Rack::Runtime,
+            Rack::MethodOverride,
+            ActionDispatch::RequestId,
+            Rails::Rack::Logger,
+            ActionDispatch::ShowExceptions,
+            ActionDispatch::DebugExceptions,
+            ActionDispatch::RemoteIp,
+            ActionDispatch::Reloader,
+            ActionDispatch::Callbacks,
+            ActiveRecord::Migration::CheckPending,
+            ActiveRecord::ConnectionAdapters::ConnectionManagement,
+            ActiveRecord::QueryCache,
+            ActionDispatch::Cookies,
+            ActionDispatch::Session::CookieStore,
+            ActionDispatch::Flash,
+            ActionDispatch::ParamsParser,
+            Rack::Head,
+            Rack::ConditionalGet,
+            Rack::ETag
+Application root          /home/sid/80/RailsDir/MyApp
 Environment               development
+=&gt; Booting WEBrick
+=&gt; Rails 4.0.0 application starting in development on http://0.0.0.0:3000
+=&gt; Run `rails server -h` for more startup options
+=&gt; Ctrl-C to shutdown server
+[2013-10-08 20:39:44] INFO  WEBrick 1.3.1
+[2013-10-08 20:39:44] INFO  ruby 2.0.0 (2013-06-27) [x86_64-linux]
+[2013-10-08 20:39:44] INFO  WEBrick::HTTPServer#start: pid=21488 port=3000
 Database adapter          mysql2
-Database schema version   0
-version</pre>
+Database schema version   0</pre>
 </div></div>
 <div class="colist arabic"><table>
 <tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
-Ruby Version 1.9.3
+Ruby Version 2.0.0
 </td></tr>
 </table></div>
-</div>
 </div>
 </div>
 </div>
 <div id="footnotes"><hr></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2013-06-02 13:50:56 CEST
+Last updated 2013-10-17 19:17:01 CEST
 </div>
 </div>
 </body>
