@@ -1,4 +1,4 @@
-Installation in Ubuntu: JRuby 1.7.5, Ruby on Rails 4
+Installation in Ubuntu: JRuby 1.7.6, Ruby on Rails 4
 ====================================================
 Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;>
 
@@ -16,17 +16,17 @@ Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;
 :jruby-download-url: http://jruby.org/download
 
 :jdk-url: link:jdk.html
-:jruby-version: 1.7.5
+:jruby-version: 1.7.6
 :jruby_1st-url: link:jruby_1st.html
 
 
-Version 2.0.0, Oktober 2013, <<_changelog,[Changelog]>>
+Version 2.0.1, Oktober 2013, <<_changelog,[Changelog]>>
 
 
 Abstract
 --------
 Dieser Artikel ist eine Schritt-für-Schritt Anleitung zur Installation 
-von {jruby-url}[JRuby 1.7.4] unter GNU/Linux.
+von {jruby-url}[JRuby 1.7.6] unter GNU/Linux.
  
 Die Programmiersprache {ruby-url}[JRuby] ist die Implementation 
 von {ruby-url}[Ruby] in Java, die wiederum die Grundlage für das 
@@ -59,9 +59,9 @@ Ubuntu 12.04 LTS (Precise Pangolin) enthält das Paket _jruby_1.5.6-2_all_.
 
 Download
 --------
-* {jruby-download-url}[JRuby 1.7.5] +    
-  jruby-1.7.5-bin.tar.gz  (ca. 19M) +
-  2013-10-07 (Release date)  
+* {jruby-download-url}[JRuby 1.7.6] +    
+  jruby-1.7.6-bin.tar.gz  (ca. 20M) +
+  2013-10-22 (Release date) -- Expect a new release about every 3 weeks 
 
 [NOTE] 
 ====
@@ -90,7 +90,7 @@ Während die anschließende Installation von _JRuby_ und _Ruby on Rails_ für
 den Benutzer 'sid' ausgeführt wird. 
 ----
 $ ls -l 
--rw-rw-r-- 1 sid sid 19778892 Okt  9 09:53 jruby-bin-1.7.5.tar.gz
+-rw-rw-r-- 1 sid sid 19991052 Okt 25 11:39 jruby-bin-1.7.6.tar.gz
 ----
 ====
 
@@ -109,12 +109,12 @@ $ sudo mkdir -p /opt/JRuby/sid && chown sid.sid /opt/JRuby/sid
 ----
 $ cd /opt/JRuby/sid
 
-$ tar xvzf jruby-bin-1.7.5tar.gz
+$ tar xvzf jruby-bin-1.7.6.tar.gz
 [...]
 
-$ ln -s jruby-1.7.5 current
+$ ln -s jruby-1.7.6 current
 $ ls -l
-lrwxrwxrwx 1 sid sid   11 Okt  9 09:59 current -> jruby-1.7.5
+lrwxrwxrwx 1 sid sid   11 Okt 25 11:43 current -> jruby-1.7.6
 drwxrwxr-x 8 sid sid 4096 Okt 17 20:40 jruby-1.6.8
 drwxrwxr-x 7 sid sid 4096 Nov 21 22:20 jruby-1.7.0
 drwxrwxr-x 7 sid sid 4096 Dez 27 14:53 jruby-1.7.1
@@ -122,6 +122,7 @@ drwxrwxr-x 7 sid sid 4096 Jan 16 12:49 jruby-1.7.2
 drwxrwxr-x 7 sid sid 4096 Apr 14 13:52 jruby-1.7.3
 drwxrwxr-x 7 sid sid 4096 Jun  2 11:53 jruby-1.7.4
 drwxrwxr-x 7 sid sid 4096 Okt  9 09:58 jruby-1.7.5
+drwxrwxr-x 7 sid sid 4096 Okt 25 11:42 jruby-1.7.6
 ----
 
 Das Programm 'tree' ist ein wunderbares Hilfsmittel zur Darstellung von Verzeichnissen.
@@ -160,7 +161,7 @@ current/lib/ruby/gems/
 
 6 directories   <1>
 ----
-<1> Schade. Das vertraute 'sources-0.0.1' _...is gone_ ;-)
+<1> Schade. Das vertraute 'sources-0.0.1' _... is gone_ ;-)
 
 
 *Step 2:* JRuby-Pfad setzen (von au&szlig;en)
@@ -197,11 +198,11 @@ OpenJDK Runtime Environment (IcedTea 2.3.10) (7u25-2.3.10-1ubuntu0.12.04.2)
 OpenJDK 64-Bit Server VM (build 23.7-b01, mixed mode)
 
 $ jruby --version
-jruby 1.7.5 (1.9.3p392) 2013-10-07 74e9291 on OpenJDK 64-Bit Server VM 1.7.0_25-b30 [linux-amd64]
+jruby 1.7.6 (1.9.3p392) 2013-10-22 6004147 on Java HotSpot(TM) 64-Bit Server VM 1.7.0_45-b18 [linux-amd64]
 
 $ JRUBY_OPTS=--1.8 jruby --version
 $ jruby -v --1.8
-jruby 1.7.5 (ruby-1.8.7p370) 2013-10-07 74e9291 on OpenJDK 64-Bit Server VM 1.7.0_25-b30 [linux-amd64]
+jruby 1.7.6 (ruby-1.8.7p370) 2013-10-22 6004147 on Java HotSpot(TM) 64-Bit Server VM 1.7.0_45-b18 [linux-amd64]
 ----
 
 .Interactive Ruby: _jirb_
@@ -212,10 +213,10 @@ irb(main):001:0> RUBY_VERSION
 irb(main):002:0> RUBY_PATCHLEVEL
 => 392
 irb(main):003:0> Time.now.to_s
-=> "2013-10-09 10:08:32 +0200"
+=> "2013-10-25 11:46:54 +0200"
 irb(main):004:0> Time.now.sunday?
 => false
-irb(main):005:0> Time.now.wednesday?
+irb(main):005:0> Time.now.friday?
 => true
 irb(main):006:0> exit
 ----
@@ -223,12 +224,12 @@ irb(main):006:0> exit
 .RubyGems: _gem_, _jgem_
 ----
 $ jruby -S gem -v   
-2.1.5
+2.1.9
 ----
 
 ----
 $ jgem -v
-2.1.5
+2.1.9
 ----
 
 ----
@@ -269,7 +270,8 @@ $ jruby -ropenssl -rzlib -rreadline -e "puts 'Happy new JRuby'"   <1>
 Happy new JRuby
 ----
 <1> Die Bibliothek _openssl_ ist in JRuby 1.7 bereits enthalten. +
-    Eine vorher notwendige zusätzliche Installation entfällt. 
+    Eine vorher notwendige zusätzliche Installation entfällt. +
+    &rarr; link:http://jruby.org/openssl 
 
 
 Rubygems Aktualisierung
@@ -285,14 +287,17 @@ zu verwalten oder auch wieder zu entfernen. +
 ====
 Vorraussetzung für die nächsten Befehle ist ein 
 funktionierender 'PATH'-Eintrag für den Benutzer 'sid' 
-auf die _JRuby 1.7.5_-Installation:
+auf die _JRuby 1.7.6_-Installation:
 
 ----
 $ jruby -v
-jruby 1.7.5 (1.9.3p392) 2013-10-07 74e9291 on OpenJDK 64-Bit Server VM 1.7.0_25-b30 [linux-amd64]
+jruby 1.7.6 (1.9.3p392) 2013-10-22 6004147 on Java HotSpot(TM) 64-Bit Server VM 1.7.0_45-b18 [linux-amd64]
 
 $ which jruby
 /opt/JRuby/sid/current/bin/jruby
+
+$ which jgem
+/opt/JRuby/sid/current/bin/jgem
 
 $ which gem
 /opt/JRuby/sid/current/bin/gem
@@ -302,16 +307,18 @@ $ which gem
 *Step 1:* Das Programm '(j)gem' aktualisieren
 ----
 $ jgem update --system   <1>  
-Successfully installed rubygems-update-2.1.7
-Installing RubyGems 2.1.7
-RubyGems 2.1.7 installed
+Updating rubygems-update
+Fetching: rubygems-update-2.1.10.gem (100%)
+Successfully installed rubygems-update-2.1.10
+Installing RubyGems 2.1.10
+RubyGems 2.1.10 installed
 
 [...]
 
  -----------------------------------------------------------------------------
 
 RubyGems installed the following executables:
-	/opt/JRuby/sid/jruby-1.7.5/bin/jgem
+	/opt/JRuby/sid/jruby-1.7.6/bin/jgem
 
 RubyGems system software updated
 ----
@@ -320,15 +327,15 @@ Das Programm '(j)gem' mu&szlig; von Hand aktualisiert werden.
 .(j)gem
 ----
 $ jruby -S gem -v 
-2.1.7
+2.1.10
 
 
 $ jgem -v
-2.1.7 
+2.1.10
 
 
 $ gem -v
-2.1.7 
+2.1.10 
 ----
 
 ----
@@ -337,7 +344,7 @@ $ jruby -S gem list --local
 *** LOCAL GEMS ***
 
 rake (10.1.0)
-rubygems-update (2.1.7)
+rubygems-update (2.1.10)
 
 
 $ jgem list --local
@@ -345,7 +352,7 @@ $ jgem list --local
 *** LOCAL GEMS ***
 
 rake (10.1.0)
-rubygems-update (2.1.7)
+rubygems-update (2.1.10)
 
 
 $ gem list --local
@@ -353,7 +360,7 @@ $ gem list --local
 *** LOCAL GEMS ***
 
 rake (10.1.0)
-rubygems-update (2.1.7)
+rubygems-update (2.1.10)
 ----
 
 [NOTE]
@@ -387,7 +394,7 @@ $ gem list --local
 *** LOCAL GEMS ***
 
 rake (10.1.0)             <1>
-rubygems-update (2.1.7)
+rubygems-update (2.1.10)
 ----
 <1> Für alle die sich über die hohe Versions-Nummer wundern ;-) +
     &rarr; link:https://github.com/jimweirich/rake/blob/next-major-release/doc/release_notes/rake-10.0.0.rdoc[Rake 10.0 Released]
@@ -396,8 +403,8 @@ rubygems-update (2.1.7)
 *Step 3:* Die _Ruby-Documentation_ installieren
 ----
 $ gem install rdoc   
-Fetching: json-1.8.0-java.gem (100%)
-Successfully installed json-1.8.0-java
+Fetching: json-1.8.1-java.gem (100%)
+Successfully installed json-1.8.1-java
 Fetching: rdoc-4.0.1.gem (100%)
 Depending on your version of ruby, you may need to install ruby rdoc/ri data:
 
@@ -407,6 +414,34 @@ Depending on your version of ruby, you may need to install ruby rdoc/ri data:
 >= 1.9.2 : nothing to do! Yay!
 Successfully installed rdoc-4.0.1
 2 gems installed
+----
+
+----
+$ ri Array#each
+Nothing known about Array   <1>
+----
+<1> Das RubyGem _rdoc_ alleine reicht nicht für _JRuby_! 
+
+----
+$ gem install rdoc-data
+Fetching: rdoc-data-4.0.1.gem (100%)
+rdoc-data is only required for C ruby 1.8.7 or 1.9.1.
+
+rdoc-data is required for JRuby.
+
+To install ri data for RDoc 4.0+ run:
+
+  rdoc-data --install
+
+Successfully installed rdoc-data-4.0.1
+1 gem installed
+----
+
+----
+$ which rdoc-data
+/opt/JRuby/sid/current/bin/rdoc-data
+
+$ rdoc-data --install
 ----
 
 ----
@@ -438,10 +473,11 @@ $ gem list --local
 
 *** LOCAL GEMS ***
 
-json (1.8.0 java)
+json (1.8.1 java)
 rake (10.1.0)
 rdoc (4.0.1)
-rubygems-update (2.1.7)
+rdoc-data (4.0.1)
+rubygems-update (2.1.10)
 ----
 
 Auf die installierte Dokumentation zugreifen.
@@ -463,7 +499,7 @@ Installation: Ruby on Rails 4.0.0
 
 *Step 0:*  
 ----
-$ jgem search ^rails --remote   <1>
+$ gem search ^rails --remote   <1>
 
 *** REMOTE GEMS ***
 
@@ -479,7 +515,7 @@ railswhere (0.2)
 railsy_backbone (0.0.4)
 ----
 <1> Für die Suche wird die Schreibweise nicht berücksichtigt. +
-    Zum aktuellen Zeitpunkt (10.10.2013) enthält das Suchergebnis _536 RubyGems_!
+    Zum aktuellen Zeitpunkt (25.10.2013) enthält das Suchergebnis _536 RubyGems_!
 
 *Step 1:* Grundinstallation von 'Ruby on Rails'
 ----

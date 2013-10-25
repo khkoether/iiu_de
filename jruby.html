@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="generator" content="AsciiDoc 8.6.8">
-<title>Installation in Ubuntu: JRuby 1.7.5, Ruby on Rails 4</title>
+<title>Installation in Ubuntu: JRuby 1.7.6, Ruby on Rails 4</title>
 <style type="text/css">
 /* Shared CSS for AsciiDoc xhtml11 and html5 backends */
 
@@ -736,7 +736,7 @@ asciidoc.install(2);
 </head>
 <body class="article">
 <div id="header">
-<h1>Installation in Ubuntu: JRuby 1.7.5, Ruby on Rails 4</h1>
+<h1>Installation in Ubuntu: JRuby 1.7.6, Ruby on Rails 4</h1>
 <span id="author">Karl-Heinz Köther</span><br>
 <span id="email" class="monospaced">&lt;<a href="mailto:&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;">&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;</a>&gt;</span><br>
 <div id="toc">
@@ -747,14 +747,14 @@ asciidoc.install(2);
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph"><p>Version 2.0.0, Oktober 2013, <a href="#_changelog">[Changelog]</a></p></div>
+<div class="paragraph"><p>Version 2.0.1, Oktober 2013, <a href="#_changelog">[Changelog]</a></p></div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_abstract">Abstract</h2>
 <div class="sectionbody">
 <div class="paragraph"><p>Dieser Artikel ist eine Schritt-für-Schritt Anleitung zur Installation
-von <a href="http://jruby.org/">JRuby 1.7.4</a> unter GNU/Linux.</p></div>
+von <a href="http://jruby.org/">JRuby 1.7.6</a> unter GNU/Linux.</p></div>
 <div class="paragraph"><p>Die Programmiersprache <a href="http://www.ruby-lang.org/">JRuby</a> ist die Implementation
 von <a href="http://www.ruby-lang.org/">Ruby</a> in Java, die wiederum die Grundlage für das
 WebApplication Framework <a href="http://www.rubyonrails.org">Ruby on Rails</a> bildet.</p></div>
@@ -799,9 +799,9 @@ andere Distributionen übertragbar.</p></div>
 <div class="ulist"><ul>
 <li>
 <p>
-<a href="http://jruby.org/download">JRuby 1.7.5</a><br>
-  jruby-1.7.5-bin.tar.gz  (ca. 19M)<br>
-  2013-10-07 (Release date)
+<a href="http://jruby.org/download">JRuby 1.7.6</a><br>
+  jruby-1.7.6-bin.tar.gz  (ca. 20M)<br>
+  2013-10-22 (Release date)&#8201;&#8212;&#8201;Expect a new release about every 3 weeks
 </p>
 </li>
 </ul></div>
@@ -857,7 +857,7 @@ den Benutzer <em>sid</em> ausgeführt wird.</p></div>
 <div class="listingblock">
 <div class="content monospaced">
 <pre>$ ls -l
--rw-rw-r-- 1 sid sid 19778892 Okt  9 09:53 jruby-bin-1.7.5.tar.gz</pre>
+-rw-rw-r-- 1 sid sid 19991052 Okt 25 11:39 jruby-bin-1.7.6.tar.gz</pre>
 </div></div>
 </td>
 </tr></table>
@@ -865,7 +865,7 @@ den Benutzer <em>sid</em> ausgeführt wird.</p></div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_installation_jruby_1_7_5">Installation: JRuby 1.7.5</h2>
+<h2 id="_installation_jruby_1_7_6">Installation: JRuby 1.7.6</h2>
 <div class="sectionbody">
 <div class="paragraph"><p>Zusätzliche Software-Pakete
 sollten im Verzeichnis <em>/opt</em> (Optional) installiert werden.</p></div>
@@ -878,19 +878,20 @@ sollten im Verzeichnis <em>/opt</em> (Optional) installiert werden.</p></div>
 <div class="content monospaced">
 <pre>$ cd /opt/JRuby/sid
 
-$ tar xvzf jruby-bin-1.7.5tar.gz
+$ tar xvzf jruby-bin-1.7.6.tar.gz
 [...]
 
-$ ln -s jruby-1.7.5 current
+$ ln -s jruby-1.7.6 current
 $ ls -l
-lrwxrwxrwx 1 sid sid   11 Okt  9 09:59 current -&gt; jruby-1.7.5
+lrwxrwxrwx 1 sid sid   11 Okt 25 11:43 current -&gt; jruby-1.7.6
 drwxrwxr-x 8 sid sid 4096 Okt 17 20:40 jruby-1.6.8
 drwxrwxr-x 7 sid sid 4096 Nov 21 22:20 jruby-1.7.0
 drwxrwxr-x 7 sid sid 4096 Dez 27 14:53 jruby-1.7.1
 drwxrwxr-x 7 sid sid 4096 Jan 16 12:49 jruby-1.7.2
 drwxrwxr-x 7 sid sid 4096 Apr 14 13:52 jruby-1.7.3
 drwxrwxr-x 7 sid sid 4096 Jun  2 11:53 jruby-1.7.4
-drwxrwxr-x 7 sid sid 4096 Okt  9 09:58 jruby-1.7.5</pre>
+drwxrwxr-x 7 sid sid 4096 Okt  9 09:58 jruby-1.7.5
+drwxrwxr-x 7 sid sid 4096 Okt 25 11:42 jruby-1.7.6</pre>
 </div></div>
 <div class="paragraph"><p>Das Programm <em>tree</em> ist ein wunderbares Hilfsmittel zur Darstellung von Verzeichnissen.</p></div>
 <div class="listingblock">
@@ -935,7 +936,7 @@ current/lib/ruby/gems/
 </div></div>
 <div class="colist arabic"><table>
 <tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
-Schade. Das vertraute <em>sources-0.0.1</em> <em>&#8230;is gone</em> ;-)
+Schade. Das vertraute <em>sources-0.0.1</em> <em>&#8230; is gone</em> ;-)
 </td></tr>
 </table></div>
 <div class="paragraph"><p><strong>Step 2:</strong> JRuby-Pfad setzen (von au&szlig;en)
@@ -981,11 +982,11 @@ OpenJDK Runtime Environment (IcedTea 2.3.10) (7u25-2.3.10-1ubuntu0.12.04.2)
 OpenJDK 64-Bit Server VM (build 23.7-b01, mixed mode)
 
 $ jruby --version
-jruby 1.7.5 (1.9.3p392) 2013-10-07 74e9291 on OpenJDK 64-Bit Server VM 1.7.0_25-b30 [linux-amd64]
+jruby 1.7.6 (1.9.3p392) 2013-10-22 6004147 on Java HotSpot(TM) 64-Bit Server VM 1.7.0_45-b18 [linux-amd64]
 
 $ JRUBY_OPTS=--1.8 jruby --version
 $ jruby -v --1.8
-jruby 1.7.5 (ruby-1.8.7p370) 2013-10-07 74e9291 on OpenJDK 64-Bit Server VM 1.7.0_25-b30 [linux-amd64]</pre>
+jruby 1.7.6 (ruby-1.8.7p370) 2013-10-22 6004147 on Java HotSpot(TM) 64-Bit Server VM 1.7.0_45-b18 [linux-amd64]</pre>
 </div></div>
 <div class="listingblock">
 <div class="title">Interactive Ruby: <em>jirb</em></div>
@@ -996,10 +997,10 @@ irb(main):001:0&gt; RUBY_VERSION
 irb(main):002:0&gt; RUBY_PATCHLEVEL
 =&gt; 392
 irb(main):003:0&gt; Time.now.to_s
-=&gt; "2013-10-09 10:08:32 +0200"
+=&gt; "2013-10-25 11:46:54 +0200"
 irb(main):004:0&gt; Time.now.sunday?
 =&gt; false
-irb(main):005:0&gt; Time.now.wednesday?
+irb(main):005:0&gt; Time.now.friday?
 =&gt; true
 irb(main):006:0&gt; exit</pre>
 </div></div>
@@ -1007,12 +1008,12 @@ irb(main):006:0&gt; exit</pre>
 <div class="title">RubyGems: <em>gem</em>, <em>jgem</em></div>
 <div class="content monospaced">
 <pre>$ jruby -S gem -v
-2.1.5</pre>
+2.1.9</pre>
 </div></div>
 <div class="listingblock">
 <div class="content monospaced">
 <pre>$ jgem -v
-2.1.5</pre>
+2.1.9</pre>
 </div></div>
 <div class="listingblock">
 <div class="content monospaced">
@@ -1059,7 +1060,8 @@ Happy new JRuby</pre>
 <div class="colist arabic"><table>
 <tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
 Die Bibliothek <em>openssl</em> ist in JRuby 1.7 bereits enthalten.<br>
-    Eine vorher notwendige zusätzliche Installation entfällt.
+    Eine vorher notwendige zusätzliche Installation entfällt.<br>
+    &rarr; link:http://jruby.org/openssl
 </td></tr>
 </table></div>
 </div>
@@ -1081,14 +1083,17 @@ zu verwalten oder auch wieder zu entfernen.<br>
 <td class="content">
 <div class="paragraph"><p>Vorraussetzung für die nächsten Befehle ist ein
 funktionierender <em>PATH</em>-Eintrag für den Benutzer <em>sid</em>
-auf die <em>JRuby 1.7.5</em>-Installation:</p></div>
+auf die <em>JRuby 1.7.6</em>-Installation:</p></div>
 <div class="listingblock">
 <div class="content monospaced">
 <pre>$ jruby -v
-jruby 1.7.5 (1.9.3p392) 2013-10-07 74e9291 on OpenJDK 64-Bit Server VM 1.7.0_25-b30 [linux-amd64]
+jruby 1.7.6 (1.9.3p392) 2013-10-22 6004147 on Java HotSpot(TM) 64-Bit Server VM 1.7.0_45-b18 [linux-amd64]
 
 $ which jruby
 /opt/JRuby/sid/current/bin/jruby
+
+$ which jgem
+/opt/JRuby/sid/current/bin/jgem
 
 $ which gem
 /opt/JRuby/sid/current/bin/gem</pre>
@@ -1100,16 +1105,18 @@ $ which gem
 <div class="listingblock">
 <div class="content monospaced">
 <pre>$ jgem update --system   <img src="./images/icons/callouts/1.png" alt="1">
-Successfully installed rubygems-update-2.1.7
-Installing RubyGems 2.1.7
-RubyGems 2.1.7 installed
+Updating rubygems-update
+Fetching: rubygems-update-2.1.10.gem (100%)
+Successfully installed rubygems-update-2.1.10
+Installing RubyGems 2.1.10
+RubyGems 2.1.10 installed
 
 [...]
 
  -----------------------------------------------------------------------------
 
 RubyGems installed the following executables:
-        /opt/JRuby/sid/jruby-1.7.5/bin/jgem
+        /opt/JRuby/sid/jruby-1.7.6/bin/jgem
 
 RubyGems system software updated</pre>
 </div></div>
@@ -1118,15 +1125,15 @@ RubyGems system software updated</pre>
 <div class="title">(j)gem</div>
 <div class="content monospaced">
 <pre>$ jruby -S gem -v
-2.1.7
+2.1.10
 
 
 $ jgem -v
-2.1.7
+2.1.10
 
 
 $ gem -v
-2.1.7</pre>
+2.1.10</pre>
 </div></div>
 <div class="listingblock">
 <div class="content monospaced">
@@ -1135,7 +1142,7 @@ $ gem -v
 *** LOCAL GEMS ***
 
 rake (10.1.0)
-rubygems-update (2.1.7)
+rubygems-update (2.1.10)
 
 
 $ jgem list --local
@@ -1143,7 +1150,7 @@ $ jgem list --local
 *** LOCAL GEMS ***
 
 rake (10.1.0)
-rubygems-update (2.1.7)
+rubygems-update (2.1.10)
 
 
 $ gem list --local
@@ -1151,7 +1158,7 @@ $ gem list --local
 *** LOCAL GEMS ***
 
 rake (10.1.0)
-rubygems-update (2.1.7)</pre>
+rubygems-update (2.1.10)</pre>
 </div></div>
 <div class="admonitionblock">
 <table><tr>
@@ -1185,7 +1192,7 @@ Nothing to update</pre>
 *** LOCAL GEMS ***
 
 rake (10.1.0)             <img src="./images/icons/callouts/1.png" alt="1">
-rubygems-update (2.1.7)</pre>
+rubygems-update (2.1.10)</pre>
 </div></div>
 <div class="colist arabic"><table>
 <tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
@@ -1197,8 +1204,8 @@ Für alle die sich über die hohe Versions-Nummer wundern ;-)<br>
 <div class="listingblock">
 <div class="content monospaced">
 <pre>$ gem install rdoc
-Fetching: json-1.8.0-java.gem (100%)
-Successfully installed json-1.8.0-java
+Fetching: json-1.8.1-java.gem (100%)
+Successfully installed json-1.8.1-java
 Fetching: rdoc-4.0.1.gem (100%)
 Depending on your version of ruby, you may need to install ruby rdoc/ri data:
 
@@ -1208,6 +1215,38 @@ Depending on your version of ruby, you may need to install ruby rdoc/ri data:
 &gt;= 1.9.2 : nothing to do! Yay!
 Successfully installed rdoc-4.0.1
 2 gems installed</pre>
+</div></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>$ ri Array#each
+Nothing known about Array   <img src="./images/icons/callouts/1.png" alt="1"></pre>
+</div></div>
+<div class="colist arabic"><table>
+<tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
+Das RubyGem <em>rdoc</em> alleine reicht nicht für <em>JRuby</em>!
+</td></tr>
+</table></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>$ gem install rdoc-data
+Fetching: rdoc-data-4.0.1.gem (100%)
+rdoc-data is only required for C ruby 1.8.7 or 1.9.1.
+
+rdoc-data is required for JRuby.
+
+To install ri data for RDoc 4.0+ run:
+
+  rdoc-data --install
+
+Successfully installed rdoc-data-4.0.1
+1 gem installed</pre>
+</div></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>$ which rdoc-data
+/opt/JRuby/sid/current/bin/rdoc-data
+
+$ rdoc-data --install</pre>
 </div></div>
 <div class="listingblock">
 <div class="content monospaced">
@@ -1239,10 +1278,11 @@ produces:
 
 *** LOCAL GEMS ***
 
-json (1.8.0 java)
+json (1.8.1 java)
 rake (10.1.0)
 rdoc (4.0.1)
-rubygems-update (2.1.7)</pre>
+rdoc-data (4.0.1)
+rubygems-update (2.1.10)</pre>
 </div></div>
 <div class="paragraph"><p>Auf die installierte Dokumentation zugreifen.</p></div>
 <div class="listingblock">
@@ -1268,7 +1308,7 @@ Server started at http://[0:0:0:0:0:0:0:0]:8808</pre>
 <div class="paragraph"><p><strong>Step 0:</strong></p></div>
 <div class="listingblock">
 <div class="content monospaced">
-<pre>$ jgem search ^rails --remote   <img src="./images/icons/callouts/1.png" alt="1">
+<pre>$ gem search ^rails --remote   <img src="./images/icons/callouts/1.png" alt="1">
 
 *** REMOTE GEMS ***
 
@@ -1286,7 +1326,7 @@ railsy_backbone (0.0.4)</pre>
 <div class="colist arabic"><table>
 <tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
 Für die Suche wird die Schreibweise nicht berücksichtigt.<br>
-    Zum aktuellen Zeitpunkt (10.10.2013) enthält das Suchergebnis <em>536 RubyGems</em>!
+    Zum aktuellen Zeitpunkt (25.10.2013) enthält das Suchergebnis <em>536 RubyGems</em>!
 </td></tr>
 </table></div>
 <div class="paragraph"><p><strong>Step 1:</strong> Grundinstallation von <em>Ruby on Rails</em></p></div>
@@ -1637,7 +1677,7 @@ JRuby wird im Modus <em>Ruby 1.8.7</em> ausgeführt.
 <div id="footnotes"><hr></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2013-10-17 20:01:52 CEST
+Last updated 2013-10-25 12:49:33 CEST
 </div>
 </div>
 </body>

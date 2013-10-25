@@ -747,7 +747,7 @@ asciidoc.install(2);
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph"><p>Version 1.8.0, April 2013, <a href="#_changelog">[Changelog]</a></p></div>
+<div class="paragraph"><p>Version 2.0.1, Oktober 2013, <a href="#_changelog">[Changelog]</a></p></div>
 </div>
 </div>
 <div class="sect1">
@@ -967,10 +967,10 @@ OpenJDK 64-Bit Server VM (build 23.7-b01, mixed mode)</pre>
 <div class="sectionbody">
 <div class="paragraph"><p>Wie auch immer, einige Ubuntu-Anwender benötigen das Oracle JDK.<br>
 Empfohlen wird die jeweils neueste Version - zu diesem Zeitpunkt ist das:
-<em>Java SE Development Kit 7u17</em>.</p></div>
+<em>Java SE Development Kit 7u45</em>.</p></div>
 <div class="paragraph"><p>Zusätzliche Software-Pakete
 sollten im Verzeichnis <em>/opt</em> (Optional) installiert werden.</p></div>
-<div class="paragraph"><p><strong>Step 0:</strong> Download JDK 7u40</p></div>
+<div class="paragraph"><p><strong>Step 0:</strong> Download JDK 7u45</p></div>
 <div class="paragraph"><p>&rarr; <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Oracle: Java SE Downloads</a></p></div>
 <div class="admonitionblock">
 <table><tr>
@@ -989,9 +989,9 @@ for Java SE to download this software.</p></div>
 <pre>$ sudo mkdir /opt/Java &amp;&amp; cd /opt/Java
 
 $ ls -l
--rw-rw-r-- 1 sid sid 96160926 Apr  14 13:28 jdk-7u40-linux-x64.tar.gz
+-rw-rw-r-- 1 sid sid 138094686 Okt 25 11:25 jdk-7u45-linux-x64.tar.gz
 
-$ sudo tar xvzf jdk-7u40-linux-x64.tar.gz
+$ sudo tar xvzf jdk-7u45-linux-x64.tar.gz
 [...]</pre>
 </div></div>
 <div class="paragraph"><p>Ein Vorteil bei der gezeigten Lösung ist, daß für das Einspielen einer neuen Version
@@ -999,11 +999,12 @@ weder die Konfigurations-Datei noch die <em>PATH</em>-Variable angepasst werden 
 <div class="listingblock">
 <div class="content monospaced">
 <pre>$ cd /opt/Java
-$ sudo chown -R root.root jdk1.7.0_40
-$ sudo ln -s jdk1.7.0_40 current
+$ sudo chown -R root.root jdk1.7.0_45
+
+$ sudo ln -s jdk1.7.0_45 current
 $ ls -l
-lrwxrwxrwx 1 root root   11 Okt  9 09:19 current -&gt; jdk1.7.0_40
-drwxr-xr-x 8 root root 4096 Aug 27 09:24 jdk1.7.0_40</pre>
+lrwxrwxrwx 1 root root   25 Okt  9 11:31 current -&gt; jdk1.7.0_45
+drwxr-xr-x 8 root root 4096 Okt  8 15:03 jdk1.7.0_45</pre>
 </div></div>
 <div class="paragraph"><p><strong>Step 2:</strong> Java-Pfad setzen (von au&szlig;en)
 Erstellen Sie eine Datei java.path.sh (siehe <a href="#_anhang">[Anhang]</a>).</p></div>
@@ -1028,10 +1029,15 @@ Erstellen Sie eine Datei java.path.sh (siehe <a href="#_anhang">[Anhang]</a>).</
 /opt/Java/current/bin/java
 
 $ java -version
-java version "1.7.0_40"
-Java(TM) SE Runtime Environment (build 1.7.0_40-b43)
-Java HotSpot(TM) 64-Bit Server VM (build 24.0-b56, mixed mode)</pre>
+java version "1.7.0_45"
+Java(TM) SE Runtime Environment (build 1.7.0_45-b18)   <img src="./images/icons/callouts/1.png" alt="1">
+Java HotSpot(TM) 64-Bit Server VM (build 24.45-b08, mixed mode)</pre>
 </div></div>
+<div class="colist arabic"><table>
+<tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
+<em>b</em> steht für <em>build</em>
+</td></tr>
+</table></div>
 </div>
 </div>
 <div class="sect1">
@@ -1117,7 +1123,7 @@ export PATH</pre>
 <div id="footnotes"><hr></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2013-10-13 17:47:06 CEST
+Last updated 2013-10-25 16:27:01 CEST
 </div>
 </div>
 </body>
