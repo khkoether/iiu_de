@@ -146,7 +146,7 @@ current   <1>
 
 14 directories
 ---- 
-<1> JRuby 1.7.5
+<1> JRuby 1.7.6
 
 Die zu diesem Zeitpunkt in JRuby enthaltenen RubyGems.
 ----
@@ -517,13 +517,21 @@ railsy_backbone (0.0.4)
 <1> Für die Suche wird die Schreibweise nicht berücksichtigt. +
     Zum aktuellen Zeitpunkt (25.10.2013) enthält das Suchergebnis _536 RubyGems_!
 
+----
+$ gem search ^rails$ --remote
+
+*** REMOTE GEMS ***
+
+rails (4.0.0)
+----
+
 *Step 1:* Grundinstallation von 'Ruby on Rails'
 ----
 $ gem install rails --no-rdoc --no-ri   <1>
 Fetching: i18n-0.6.5.gem (100%)
 Successfully installed i18n-0.6.5
-Fetching: multi_json-1.8.1.gem (100%)
-Successfully installed multi_json-1.8.1
+Fetching: multi_json-1.8.2.gem (100%)
+Successfully installed multi_json-1.8.2
 Fetching: tzinfo-0.3.38.gem (100%)
 Successfully installed tzinfo-0.3.38
 Fetching: minitest-4.7.5.gem (100%)
@@ -546,8 +554,8 @@ Fetching: actionpack-4.0.0.gem (100%)
 Successfully installed actionpack-4.0.0
 Fetching: activemodel-4.0.0.gem (100%)
 Successfully installed activemodel-4.0.0
-Fetching: arel-4.0.0.gem (100%)
-Successfully installed arel-4.0.0
+Fetching: arel-4.0.1.gem (100%)
+Successfully installed arel-4.0.1
 Fetching: activerecord-deprecated_finders-1.0.3.gem (100%)
 Successfully installed activerecord-deprecated_finders-1.0.3
 Fetching: activerecord-4.0.0.gem (100%)
@@ -574,13 +582,13 @@ Fetching: tilt-1.4.1.gem (100%)
 Successfully installed tilt-1.4.1
 Fetching: sprockets-2.10.0.gem (100%)
 Successfully installed sprockets-2.10.0
-Fetching: sprockets-rails-2.0.0.gem (100%)
-Successfully installed sprockets-rails-2.0.0
+Fetching: sprockets-rails-2.0.1.gem (100%)
+Successfully installed sprockets-rails-2.0.1
 Fetching: rails-4.0.0.gem (100%)
 Successfully installed rails-4.0.0
 29 gems installed   <2>
 ----
-<1> Die Dokumentation wird wg. eines RDoc-Fehler im RubyGem _mime_types_ nachträglich installiert.
+<1> Die Dokumentation wird wg. eines RDoc-Fehler im RubyGem _builder_ nachträglich installiert.
 <2> Für das Framework _Ruby on Rails_ wurden 29 RubyGems installiert. +
     Hinweis: Weitere RubyGems müssen installiert werden (Datenbank-Treiber, Erweiterungen). 
 
@@ -588,66 +596,67 @@ Successfully installed rails-4.0.0
 ----
 $ gem list --local | sed 's/ (.*$//' > gemlist
 
-$ for name in `cat gemlist`; do echo $name; gem rdoc $name; done;   <1>
+$ for name in `cat gemlist`; do echo $name; gem rdoc $name; echo; done;   <1>
 [...]
 ----
 <1> Mit dem Befehl _gem rdoc ..._ wird ausschließlich die noch nicht vorhandene
-    Dokumentation erstellt.
+    Dokumentation für das jeweilige RubyGem erstellt.
 
 [NOTE]
 ====
 Alternativ kann Rails mit der Angabe einer Version installiert werden.
 ----
-$ gem install rails --version 3.2.13 --no-rdoc --no-ri
+$ gem install rails --version 3.2.15 --no-rdoc --no-ri
 
 $ gem install rails --version '~> 3.2' --no-rdoc --no-ri   <1>
 ----
 <1> Twiddle Wakka: '~> 3.2' bedeutet, das die höchste Gem-Version von Rails
-    im Bereich von >= 3.2 und < 4 installiert wird. 
+    im Bereich von >= 3.2 und < 4 installiert wird. Aktuell: _3.2.15_ 
 ====
 
 
 *Step 2:* Datenbankzugriff (via JDBC)
 ----
 $ gem install activerecord-jdbc-adapter --rdoc --ri
-Fetching: activerecord-jdbc-adapter-1.3.1.gem (100%)
-Successfully installed activerecord-jdbc-adapter-1.3.1
+Fetching: activerecord-jdbc-adapter-1.3.2.gem (100%)
+Successfully installed activerecord-jdbc-adapter-1.3.2
 invalid options: -SHN           <1>
 (invalid options are ignored)
-Parsing documentation for activerecord-jdbc-adapter-1.3.1
-Installing ri documentation for activerecord-jdbc-adapter-1.3.1
-Installing darkfish documentation for activerecord-jdbc-adapter-1.3.1
-Done installing documentation for activerecord-jdbc-adapter after 23 seconds
+Parsing documentation for activerecord-jdbc-adapter-1.3.2
+Installing ri documentation for activerecord-jdbc-adapter-1.3.2
+Installing darkfish documentation for activerecord-jdbc-adapter-1.3.2
+Done installing documentation for activerecord-jdbc-adapter after 24 seconds
 1 gem installed
 ----
 <1> _Invalid Options_ werden ignoriert - alles gut!
 
 ----
-$ gem install activerecord-jdbcmysql-adapter activerecord-jdbcsqlite3-adapter --rdoc --ri
+$ gem install activerecord-jdbcmysql-adapter activerecord-jdbcsqlite3-adapter --rdoc --ri   <1>   
 Fetching: jdbc-mysql-5.1.25.gem (100%)
 Successfully installed jdbc-mysql-5.1.25
-Fetching: activerecord-jdbcmysql-adapter-1.3.1.gem (100%)
-Successfully installed activerecord-jdbcmysql-adapter-1.3.1
-Parsing documentation for activerecord-jdbcmysql-adapter-1.3.1
-Installing ri documentation for activerecord-jdbcmysql-adapter-1.3.1
-Installing darkfish documentation for activerecord-jdbcmysql-adapter-1.3.1
+Fetching: activerecord-jdbcmysql-adapter-1.3.2.gem (100%)
+Successfully installed activerecord-jdbcmysql-adapter-1.3.2
+Parsing documentation for activerecord-jdbcmysql-adapter-1.3.2
+Installing ri documentation for activerecord-jdbcmysql-adapter-1.3.2
+Installing darkfish documentation for activerecord-jdbcmysql-adapter-1.3.2
 Parsing documentation for jdbc-mysql-5.1.25
 Installing ri documentation for jdbc-mysql-5.1.25
 Installing darkfish documentation for jdbc-mysql-5.1.25
 Done installing documentation for activerecord-jdbcmysql-adapter, jdbc-mysql after 2 seconds
 Fetching: jdbc-sqlite3-3.7.2.1.gem (100%)
 Successfully installed jdbc-sqlite3-3.7.2.1
-Fetching: activerecord-jdbcsqlite3-adapter-1.3.1.gem (100%)
-Successfully installed activerecord-jdbcsqlite3-adapter-1.3.1
-Parsing documentation for activerecord-jdbcsqlite3-adapter-1.3.1
-Installing ri documentation for activerecord-jdbcsqlite3-adapter-1.3.1
-Installing darkfish documentation for activerecord-jdbcsqlite3-adapter-1.3.1
+Fetching: activerecord-jdbcsqlite3-adapter-1.3.2.gem (100%)
+Successfully installed activerecord-jdbcsqlite3-adapter-1.3.2
+Parsing documentation for activerecord-jdbcsqlite3-adapter-1.3.2
+Installing ri documentation for activerecord-jdbcsqlite3-adapter-1.3.2
+Installing darkfish documentation for activerecord-jdbcsqlite3-adapter-1.3.2
 Parsing documentation for jdbc-sqlite3-3.7.2.1
 Installing ri documentation for jdbc-sqlite3-3.7.2.1
 Installing darkfish documentation for jdbc-sqlite3-3.7.2.1
 Done installing documentation for activerecord-jdbcsqlite3-adapter, jdbc-sqlite3 after 0 seconds
 4 gems installed
 ----
+<1> DBMS: _MySQL_, _SQLite3_
 
 *Step 3:* WebServer 
 ----
@@ -657,7 +666,7 @@ Successfully installed glassfish-1.0.3-universal-java
 Parsing documentation for glassfish-1.0.3-universal-java
 Installing ri documentation for glassfish-1.0.3-universal-java
 Installing darkfish documentation for glassfish-1.0.3-universal-java
-Done installing documentation for glassfish after 6 seconds
+Done installing documentation for glassfish after 7 seconds
 1 gem installed
 ----
 <1> Der WebServer _WEBrick_ ist Teil von JRuby!
@@ -665,17 +674,17 @@ Done installing documentation for glassfish after 6 seconds
 *Step 4:* WAR (WAR ist ein Dateiformat und steht für Web Application Archive) 
 ----
 $ gem install warbler --rdoc --ri
-Fetching: jruby-jars-1.7.5.gem (100%)
-Successfully installed jruby-jars-1.7.5
+Fetching: jruby-jars-1.7.6.gem (100%)
+Successfully installed jruby-jars-1.7.6
 Fetching: jruby-rack-1.1.13.2.gem (100%)
 Successfully installed jruby-rack-1.1.13.2
 Fetching: rubyzip-1.0.0.gem (100%)
 Successfully installed rubyzip-1.0.0
 Fetching: warbler-1.3.8.gem (100%)
 Successfully installed warbler-1.3.8
-Parsing documentation for jruby-jars-1.7.5
-Installing ri documentation for jruby-jars-1.7.5
-Installing darkfish documentation for jruby-jars-1.7.5
+Parsing documentation for jruby-jars-1.7.6
+Installing ri documentation for jruby-jars-1.7.6
+Installing darkfish documentation for jruby-jars-1.7.6
 Parsing documentation for jruby-rack-1.1.13.2
 Installing ri documentation for jruby-rack-1.1.13.2
 Installing darkfish documentation for jruby-rack-1.1.13.2
@@ -685,24 +694,24 @@ Installing darkfish documentation for rubyzip-1.0.0
 Parsing documentation for warbler-1.3.8
 Installing ri documentation for warbler-1.3.8
 Installing darkfish documentation for warbler-1.3.8
-Done installing documentation for jruby-jars, jruby-rack, rubyzip, warbler after 14 seconds
+Done installing documentation for jruby-jars, jruby-rack, rubyzip, warbler after 15 seconds
 4 gems installed
 ----
 
 *Step 5:* Erweiterungen
 ----
 $ gem install sinatra --rdoc --ri   <1>
-Fetching: rack-protection-1.5.0.gem (100%)
-Successfully installed rack-protection-1.5.0
-Fetching: sinatra-1.4.3.gem (100%)
-Successfully installed sinatra-1.4.3
-Parsing documentation for rack-protection-1.5.0
-Installing ri documentation for rack-protection-1.5.0
-Installing darkfish documentation for rack-protection-1.5.0
-Parsing documentation for sinatra-1.4.3
-Installing ri documentation for sinatra-1.4.3
-Installing darkfish documentation for sinatra-1.4.3
-Done installing documentation for rack-protection, sinatra after 467 seconds
+Fetching: rack-protection-1.5.1.gem (100%)
+Successfully installed rack-protection-1.5.1
+Fetching: sinatra-1.4.4.gem (100%)
+Successfully installed sinatra-1.4.4
+Parsing documentation for rack-protection-1.5.1
+Installing ri documentation for rack-protection-1.5.1
+Installing darkfish documentation for rack-protection-1.5.1
+Parsing documentation for sinatra-1.4.4
+Installing ri documentation for sinatra-1.4.4
+Installing darkfish documentation for sinatra-1.4.4
+Done installing documentation for rack-protection, sinatra after 502 seconds
 2 gems installed
 ----
 <1> Sinatra ist eine freie und open source Webapplikationsbibliothek und 
@@ -720,11 +729,11 @@ actionpack (4.0.0)
 activemodel (4.0.0)
 activerecord (4.0.0)
 activerecord-deprecated_finders (1.0.3)
-activerecord-jdbc-adapter (1.3.1)
-activerecord-jdbcmysql-adapter (1.3.1)
-activerecord-jdbcsqlite3-adapter (1.3.1)
+activerecord-jdbc-adapter (1.3.2)
+activerecord-jdbcmysql-adapter (1.3.2)
+activerecord-jdbcsqlite3-adapter (1.3.2)
 activesupport (4.0.0)
-arel (4.0.0)
+arel (4.0.1)
 atomic (1.1.14 java)
 builder (3.1.4)
 bundler (1.3.5)
@@ -734,26 +743,27 @@ hike (1.2.3)
 i18n (0.6.5)
 jdbc-mysql (5.1.25)
 jdbc-sqlite3 (3.7.2.1)
-jruby-jars (1.7.5)
+jruby-jars (1.7.6)
 jruby-rack (1.1.13.2)
-json (1.8.0 java)
+json (1.8.1 java)
 mail (2.5.4)
 mime-types (1.25)
 minitest (4.7.5)
-multi_json (1.8.1)
+multi_json (1.8.2)
 polyglot (0.3.3)
 rack (1.5.2)
-rack-protection (1.5.0)
+rack-protection (1.5.1)
 rack-test (0.6.2)
 rails (4.0.0)
 railties (4.0.0)
 rake (10.1.0)
 rdoc (4.0.1)
-rubygems-update (2.1.7)
+rdoc-data (4.0.1)
+rubygems-update (2.1.10)
 rubyzip (1.0.0)
-sinatra (1.4.3)
+sinatra (1.4.4)
 sprockets (2.10.0)
-sprockets-rails (2.0.0)
+sprockets-rails (2.0.1)
 thor (0.18.1)
 thread_safe (0.1.3 java)
 tilt (1.4.1)
