@@ -271,7 +271,7 @@ Happy new JRuby
 ----
 <1> Die Bibliothek _openssl_ ist in JRuby 1.7 bereits enthalten. +
     Eine vorher notwendige zusätzliche Installation entfällt. +
-    &rarr; link:http://jruby.org/openssl 
+    &rarr; link:http://jruby.org/openssl[JRuby Builtin OpenSSL Support] 
 
 
 Rubygems Aktualisierung
