@@ -1,4 +1,4 @@
-Installation in Ubuntu: AsciiDoc 8.6.8   
+Installation in Ubuntu: AsciiDoc 8.6.9   
 ======================================
 Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;>
 
@@ -9,7 +9,7 @@ Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;
 :asciidoc-url: http://www.methods.co.nz/asciidoc/
 :sourceforge-url: http://sourceforge.net/projects/asciidoc/files/
 
-Version 2.0.0, Oktober 2013, <<_changelog,[Changelog]>>
+Version 2.0.2, Dezemer 2013
 
 
 Abstract
@@ -50,8 +50,8 @@ Ubuntu 12.04 LTS (Precise Pangolin) enthält das Paket _asciidoc_8.6.6-1ubuntu1_
 Download
 --------
 * {sourceforge-url}[AsciiDoc] +    
-  asciidoc-8.6.8.tar.gz  (ca. 880K) +
-  2012-07-16 (Release date)
+  asciidoc-8.6.9.tar.gz  (ca. 907.3K) +
+  2013-11-09 (Release date)
   
 [NOTE] 
 ====
@@ -61,7 +61,7 @@ Die eigentliche Installation von AsciiDoc wird vom
 Benutzer 'root' für das System durchgeführt.
 ----
 $ ls -l 
--rw-r--r--  1 sid  sid    900422 Okt  4 10:34 asciidoc-8.6.8.tar.gz
+-rw-r--r--  1 sid  sid    907253 Dez  8 15:24 asciidoc-8.6.9.tar.gz
 ----
 ====
 
@@ -71,8 +71,8 @@ Vor der eigentlichen Installation müssen die fehlenden
 Programm-Pakete installiert sind.
 ----
 $ sudo apt-get install ... 
-               Benötigt:   python 
-               Empfiehlt:  xmlto source-highlight vim-addon-manager 
+                       python 
+           Empfiehlt:  xmlto source-highlight vim-addon-manager 
 ----
 ====
 
@@ -90,8 +90,8 @@ Beispiel für die Änderung des Installations-Verzeichnisses:
 
 *Step 1:* Auspacken des Source-Code
 ----
-$ tar xvzf asciidoc-8.6.8.tar.gz
-$ cd asciidoc-8.6.8
+$ tar xvzf asciidoc-8.6.9.tar.gz
+$ cd asciidoc-8.6.9
 ----
 
 *Step 2:* Konfiguration erstellen und kompilieren
@@ -129,10 +129,10 @@ $ sudo make docs | tee ../log.asciidoc_make_docs
 ----
 $ cd /usr/local/bin
 $ ls -l
-lrwxrwxrwx 1 root root      6 Okt  4 10:38 a2x -> a2x.py
--rwxr-xr-x 1 root root  36839 Okt  4 10:38 a2x.py
-lrwxrwxrwx 1 root root     11 Okt  4 10:38 asciidoc -> asciidoc.py
--rwxr-xr-x 1 root root 253830 Okt  4 10:38 asciidoc.py
+lrwxrwxrwx   1 root root       6 Dez  8 15:28 a2x -> a2x.py
+-rwxr-xr-x   1 root root   37005 Dez  8 15:28 a2x.py
+lrwxrwxrwx   1 root root      11 Dez  8 15:28 asciidoc -> asciidoc.py
+-rwxr-xr-x   1 root root  254212 Dez  8 15:28 asciidoc.py
 [...]
 ----
 
@@ -173,40 +173,29 @@ DESCRIPTION
 
 ----
 $ find /usr/local -type d -cmin -5
-/usr/local/etc
-/usr/local/etc/asciidoc
-/usr/local/etc/asciidoc/dblatex
-/usr/local/etc/asciidoc/javascripts
-/usr/local/etc/asciidoc/stylesheets
-/usr/local/etc/asciidoc/docbook-xsl
-/usr/local/etc/asciidoc/themes
-/usr/local/etc/asciidoc/themes/flask
-/usr/local/etc/asciidoc/themes/volnitsky
-/usr/local/etc/asciidoc/images
-/usr/local/etc/asciidoc/images/icons
-/usr/local/etc/asciidoc/images/icons/callouts
-/usr/local/etc/asciidoc/filters
-/usr/local/etc/asciidoc/filters/music
-/usr/local/etc/asciidoc/filters/latex
-/usr/local/etc/asciidoc/filters/source
-/usr/local/etc/asciidoc/filters/code
-/usr/local/etc/asciidoc/filters/graphviz
-/usr/local/share
-/usr/local/share/doc
 /usr/local/share/doc/asciidoc
-/usr/local/share/doc/asciidoc/dblatex
-/usr/local/share/doc/asciidoc/javascripts
 /usr/local/share/doc/asciidoc/stylesheets
-/usr/local/share/doc/asciidoc/docbook-xsl
-/usr/local/share/doc/asciidoc/images
-/usr/local/share/doc/asciidoc/images/icons
-/usr/local/share/doc/asciidoc/images/icons/callouts
-/usr/local/share/doc/asciidoc/examples
-/usr/local/share/doc/asciidoc/examples/website
+/usr/local/share/doc/asciidoc/dblatex
 /usr/local/share/doc/asciidoc/doc
-/usr/local/share/man
+/usr/local/share/doc/asciidoc/docbook-xsl
+/usr/local/share/doc/asciidoc/javascripts
+/usr/local/share/doc/asciidoc/examples/website
 /usr/local/share/man/man1
 /usr/local/bin
+/usr/local/etc/asciidoc
+/usr/local/etc/asciidoc/images/icons
+/usr/local/etc/asciidoc/images/icons/callouts
+/usr/local/etc/asciidoc/stylesheets
+/usr/local/etc/asciidoc/filters/source
+/usr/local/etc/asciidoc/filters/code
+/usr/local/etc/asciidoc/filters/music
+/usr/local/etc/asciidoc/filters/latex
+/usr/local/etc/asciidoc/filters/graphviz
+/usr/local/etc/asciidoc/themes/volnitsky
+/usr/local/etc/asciidoc/themes/flask
+/usr/local/etc/asciidoc/dblatex
+/usr/local/etc/asciidoc/docbook-xsl
+/usr/local/etc/asciidoc/javascripts
 ----
 
 ----
@@ -217,7 +206,7 @@ $ find /usr/local -type d -cmin -5
 ----
 #!/bin/sh
 
-VERS="8.6.8"                                            <--- aktualisieren
+VERS="8.6j.9"                                            <--- aktualisieren
 DATE="2012-07-16"                                       <--- aktualisieren
 
 # Leave the desired layout uncommented.
@@ -230,14 +219,21 @@ $ASCIIDOC_HTML -a index-only index.txt
 $ASCIIDOC_HTML -a toc -a numbered userguide.txt
 $ASCIIDOC_HTML -d manpage manpage.txt
 #$ASCIIDOC_HTML downloads.txt                           <--- nicht mehr vorhanden
-[...]
+$ASCIIDOC_HTML latex-backend.txt
+$ASCIIDOC_HTML README.txt
+$ASCIIDOC_HTML INSTALL.txt
+$ASCIIDOC_HTML CHANGELOG.txt
+$ASCIIDOC_HTML README-website.txt
+$ASCIIDOC_HTML support.txt
+$ASCIIDOC_HTML source-highlight-filter.txt
+$ASCIIDOC_HTML music-filter.txt    <1>
+$ASCIIDOC_HTML a2x.1.txt
 $ASCIIDOC_HTML asciimathml.txt                          <--- Name anpassen
 
-# Nachtraeglich einfuegen          <1>
+# Nachtraeglich einfuegen          <2>
 $ASCIIDOC_HTML asciidocapi.txt
 $ASCIIDOC_HTML epub-notes.txt
 $ASCIIDOC_HTML faq.txt
-$ASCIIDOC_HTML music-filter.txt    <2>
 $ASCIIDOC_HTML newlists.txt
 $ASCIIDOC_HTML newtables.txt
 $ASCIIDOC_HTML plugins.txt
@@ -248,8 +244,8 @@ $ASCIIDOC_HTML testasciidoc.txt
 $ASCIIDOC_HTML userguide.txt
 $ASCIIDOC_HTML version83.txt
 ----
-<1> Einige Links auf der generierten Index-Seite führen trotz alledem weiter ins Leere.
-<2> Die Datei _music-filter.txt_ benötigt das Debian/Ubuntu-Paket _LilyPond_.
+<1> Die Datei _music-filter.txt_ benötigt das Debian/Ubuntu-Paket _LilyPond_.
+<2> Einige Links auf der generierten Index-Seite führen trotz alledem weiter ins Leere.
 <3> Die Datei _slidy-example.txt_ benötigt das Debian/Ubuntu-Paket _ImageMagick_.
     
 ----
@@ -274,7 +270,7 @@ link:asciidoc_1st.html[Ausgabebeispiel: So sieht's aus]
 
 Anhang
 ------
-.Text-Datei: asciidoc_1st.txt 
+.Text-Datei: +asciidoc_1st.txt+ 
 ----
 = Lorem ipsum
 Sid <&#115;&#105;&#100;&#64;&#101;&#120;&#97;&#109;&#112;&#108;&#101;&#46;&#111;&#114;&#103;>

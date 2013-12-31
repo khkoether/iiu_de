@@ -1,5 +1,5 @@
-Installation in Ubuntu: NetBeans IDE 7.3.1 
-==========================================
+Installation in Ubuntu: NetBeans IDE 7.4 
+========================================
 Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;>
 
 :icons:
@@ -23,15 +23,15 @@ Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;
 :jruby-url: link:jruby.html
 :netbeans_1st-url: link:netbeans_1st.html
 
-Version 2.0.0, Oktober 2013, <<_changelog,[Changelog]>>
+Version 2.0.2, Dezember 2013
 
 
 Abstract
 --------
 Dieser Artikel ist eine Schritt-für-Schritt Anleitung zur Installation 
-der {netbeans-ide-url}[NetBeans IDE 7.3.1] unter GNU/Linux.
+der {netbeans-ide-url}[NetBeans IDE 7.4] unter GNU/Linux.
  
-Die {netbeans-ide-url}[NetBeans IDE 7.3.1] bietet eine Unterstützung für verschiedene 
+Die {netbeans-ide-url}[NetBeans IDE 7.4] bietet eine Unterstützung für verschiedene 
 Programmiersprachen und -techniken. 
 Wobei die Java-basierten Lösungen ausgezeichnet unterstützt werden. 
 
@@ -63,39 +63,93 @@ Ubuntu 12.04 LTS (Precise Pangolin) enthält das Paket _netbeans_7.0.1+dfsg1-4_a
 
 Download
 --------
-* {netbeans-ide-download-url}[NetBeans 7.3.1] +    
-  netbeans-7.3.1-ml-linux.sh (ca. 218 MB) (IDE-Sprache: Englisch)
+* {netbeans-ide-download-url}[NetBeans 7.4] +    
+  netbeans-7.4-ml-linux.sh (ca. 198 MB) (IDE-Sprache: Englisch) (All) +
+  2013-10-15 (Release date)
 * {netbeans-ide-plugin-ruby-and-rails-url}[NetBeans: Plugin Ruby on Rails] + 
-  1367260843_updates.zip (ca. 40 MB)
+  1367260843_updates.zip (ca. 40 MB) +
+  2013-11-24 (Release date)
   
-[NOTE] 
-====
-Die Installation des _OpenJDK_ oder des _Oracle JDK_ wurde vom Benutzer 'root' für 
-das System durchgeführt &rarr; {jdk-url}[JDK]. +
-Anschließend wurde mit dem Benutzer 'sid' sowohl _JRuby_ als auch _Ruby on Rails_ 
-installiert &rarr; {jruby-url}[JRuby].
 
-Die _NetBeans IDE 7.3.1_ wird ebenfalls mit dem Benutzer 'sid' installiert.
+Anmerkungen I
+~~~~~~~~~~~~~
+* Die Installation des _OpenJDK 7_ (_Oracle JDK 7_) wurde vom 
+  Benutzer 'root' für das System durchgeführt &rarr; {jdk-url}[JDK]. 
+* Die Installation von _JRuby_ und _Ruby on Rails_ wurde vom
+  Benutzer 'sid' durchgeführt &rarr; {jruby-url}[JRuby].  
+* Die Installation der _NetBeans IDE 7.4_ wird ebenfalls mit dem 
+  Benutzer 'sid' durchgeführt. 
+* Ich verwende das _OpenJDK 7_!
+  
+----
+$ java -version
+java version "1.7.0_25"
+OpenJDK Runtime Environment (IcedTea 2.3.10) (7u25-2.3.10-1ubuntu0.12.04.2)
+OpenJDK 64-Bit Server VM (build 23.7-b01, mixed mode)
+
+$ jruby -v
+jruby 1.7.9 (1.9.3p392) 2013-12-06 87b108a on OpenJDK 64-Bit Server VM 1.7.0_25-b30 [linux-amd64]
+---- 
+
+
+Anmerkungen II
+~~~~~~~~~~~~~~
+Die _NetBeans IDE 7.4_ wird nach der Installation um das Plugin 
+ _Ruby on Rails_ erweitert.
 ----
 $ ls -l 
--rw-rw-r-- 1 sid sid 227724288 Okt 13 11:31 netbeans-7.3.1-linux.sh
--rw-rw-r-- 1 sid sid  41339181 Okt 13 11:35 1367260843_updates.zip    <1>
+-rw-rw-r-- 1 sid sid 206623744 Dez 30 21:52 netbeans-7.4-linux.sh
+-rw-rw-r-- 1 sid sid  40949251 Dez 30 21:54 1385326848_archive.zip    <1>
 ----
-<1> Mit dem Befehl &nbsp; +unzip 1367260843_updates.zip+ &nbsp; wird das Verzeichnis +updates+ erstellt.  
+<1> NetBeans IDE Plugin: _Ruby on Rails_  
 
 ----
-# ls -l updates 
-drwxr-xr-x 2 sid sid     4096 Apr  4  2013 licenses
--rw-r--r-- 1 sid sid 24377603 Apr  4  2013 org-jruby-distro.nbm
--rw-r--r-- 1 sid sid 18833620 Apr  4  2013 org-jruby-jruby.jar
--rw-r--r-- 1 sid sid    24533 Apr  4  2013 org-kxml2.nbm
--rw-r--r-- 1 sid sid   191894 Apr  4  2013 org-netbeans-libs-jrubyparser.nbm
-[...]
--rw-r--r-- 1 sid sid    11133 Apr  4  2013 org-netbeans-modules-spellchecker-bindings-ruby.nbm
--rw-r--r-- 1 sid sid    26909 Apr  4  2013 org-rubyforge-debugcommons.nbm
--rw-r--r-- 1 sid sid    33347 Apr  4  2013 updates.xml
+$ unzip 1385326848_archive.zip
 ----
-====
+
+----
+$ ls -l
+drwxrwsr-x 3 sid sid      4096 Nov 24 20:43 archive
+-rw-rw-r-- 1 sid sid 206623744 Dez 30 21:52 netbeans-7.4-linux.sh
+-rw-rw-r-- 1 sid sid  40949251 Dez 30 21:54 1385326848_archive.zip   
+----
+
+----
+$ tree archive
+archive
+└── build
+    └── updates   <1>
+        ├── licenses
+        │   └── CF174EE3.license
+        ├── org-jruby-distro.nbm
+        ├── org-jruby-jruby.jar
+        ├── org-kxml2.nbm
+        ├── org-netbeans-libs-jrubyparser.nbm
+        ├── org-netbeans-libs-yydebug.nbm
+        ├── org-netbeans-modules-jellytools-ruby.nbm
+        ├── org-netbeans-modules-ruby-codecoverage.nbm
+        ├── org-netbeans-modules-ruby-debugger.nbm
+        ├── org-netbeans-modules-ruby-extrahints.nbm
+        ├── org-netbeans-modules-ruby-help.nbm
+        ├── org-netbeans-modules-ruby-hints.nbm
+        ├── org-netbeans-modules-ruby-javaint.nbm
+        ├── org-netbeans-modules-ruby-kit.nbm
+        ├── org-netbeans-modules-ruby.nbm
+        ├── org-netbeans-modules-ruby-platform.nbm
+        ├── org-netbeans-modules-ruby-project.nbm
+        ├── org-netbeans-modules-ruby-railsprojects.nbm
+        ├── org-netbeans-modules-ruby-rakeproject.nbm
+        ├── org-netbeans-modules-ruby-refactoring.nbm
+        ├── org-netbeans-modules-ruby-rhtml.nbm
+        ├── org-netbeans-modules-ruby-samples-depot.nbm
+        ├── org-netbeans-modules-spellchecker-bindings-ruby.nbm
+        ├── org-rubyforge-debugcommons.nbm
+        └── updates.xml
+
+3 directories, 25 files
+----
+<1> Für das installieren des Plugins _Ruby on Rails_ wird
+    genau dieses Verzeichnis angegeben!
 
 [CAUTION]
 ====
@@ -112,9 +166,6 @@ Community von Thomas Enebro (und Freunden und Kollegen) angekündigt.
 http://it-republik.de/jaxenter/news/Rettung-naht-Ruby-auf-NetBeans-geht-weiter-058404.html[it republik: Rettung naht: Ruby auf NetBeans geht weiter]
 
 http://java.dzone.com/news/ruby-netbeans-lives[DZone: Ruby On NetBeans Lives!]
-
-Im {netbeans-ide-plugin-url}[NetBeans Plugin Portal] gibt es die Erweiterung der IDE 
-für _Ruby on Rails_ für die Version _7.0_ vom 16.04.2012.
 ====
 
 
@@ -124,8 +175,8 @@ Zusätzliche (große) Software-Pakete
 sollten im Verzeichnis '/opt' (Optional) installiert werden. 
 
 
-NetBeans IDE 7.3.1: Graphical Installer
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+NetBeans IDE 7.4: Graphical Installer
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .Installations-Verzeichnisse anlegen
 ----
 $ sudo mkdir -p /opt/NetBeans/sid && chown sid.sid /opt/NetBeans/sid   <1>
@@ -133,44 +184,51 @@ $ sudo mkdir -p /opt/NetBeans/sid && chown sid.sid /opt/NetBeans/sid   <1>
 $ sudo mkdir -p /opt/Tomcat/sid   && chown sid.sid /opt/Tomcat/sid     <2>
 ----
 <1> Das 'Anlegen' der Verzeichnisse in '/opt' muß der Benutzer 'root' durchführen.
-<2> Optional, falls das Software-Paket _Tomcat_ installiert werden sollte.
+<2> Falls das Software-Paket _Tomcat_ ebenfalls installiert werden soll.
 
 OpenJDK
 ^^^^^^^
 ----
 $ cd /opt/NetBeans/sid
-$ sh netbeans-7.3.1-ml-linux.sh
+
+$ sh netbeans-7.4-linux.sh   <1>
 Konfiguriere Installation...
 Suche verfügbare JVM auf dem System...
 Extrahiere Installationsdaten...
 Starte Installationassistent...
 ----
+<1> Verwendet wird das von _Ubuntu 12.04 LTS_ bereitgestellte _OpenJDK 7_ +
+    _openjdk-7-jdk (7u25-2.3.10-1ubuntu0.12.04.2) [universe]_
 
 Oracle JDK
 ^^^^^^^^^^
 ----
 $ cd /opt/NetBeans/sid
-$ sh netbeans-7.3.1-ml-linux.sh --javahome /opt/Java/current/
+
+$ sh netbeans-7.4-linux.sh --javahome /opt/Java/current/   <1>
 Konfiguriere Installation...
 Suche verfügbare JVM auf dem System...
 Extrahiere Installationsdaten...
 Starte Installationassistent...
 ----
+<1> Verwendet wird das zusätzlich installierte _Oracle JDK 7_ +
+    _jdk-7u45-linux-x64.tar.gz_
 
 image::images/netbeans/nb00_Installationssystem.jpeg[NetBeans-IDE Installationssystem]
 
 
-NetBeans IDE 7.3.1: Installation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+NetBeans IDE 7.4: Installation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Installationsschritte (in Textform)
 
 .Anpassen
 - Basis IDE/ Base IDE
 - Java SE
 - HTML5
-- Funktionen bei Bedarf/ Features on Demand
-- Apache Tomcat 7.0.34                  (Optional)
-Installationsgröße: 312,9 MB
+- Funktionen bei Bedarf + 
+  Features on Demand
+- Apache Tomcat 7.0.41                  (Optional)
+Installationsgröße: 336,3 MB
 
 .Lizenzvereinbarung/ License Agreement
 - Ich akzeptiere die Bedingungen des Lizenzabkommens +
@@ -180,115 +238,125 @@ Installationsgröße: 312,9 MB
 - Ich akzeptiere die Bedingungen des Lizenzvereinbarung JUnit installieren +
   I accept the terms in the license agreement. Install JUnit
 
-.NetBeans-IDE 7.3.1 Installation
-- /opt/NetBeans/sid/netbeans-7.3.1
-- /usr/lib/jvm/java-7-openjdk-amd64   <- OpenJDK
-- /opt/Java/current                   <- Oracle JDK
+.NetBeans-IDE 7.4 Installation
+- +/opt/NetBeans/sid/netbeans-7.4+
+- +/usr/lib/jvm/java-7-openjdk-amd64+   <- _OpenJDK_ +
+  +/opt/Java/current+                   <- _Oracle JDK_
 
-.Apache Tomcat 7.0.34 Installation
-- /opt/Tomcat/sid/apache-tomcat-7.0.34  (Optional)
+.Apache Tomcat 7.0.41 Installation
+- +/opt/Tomcat/sid/apache-tomcat-7.0.41+  (Optional)
 
 .Zusammenfassung
 - NetBeans-Installationsverzeichnis/ NetBeans IDE Installation Folder: +
-  /opt/NetBeans/sid/netbeans-7.3.1
-- Apache Tomcat 7.0.34 Installationsverzeichnis/ Apache Tomcat 7.0.34 Installation Folder: +
-  /opt/Tomcat/sid/apache-tomcat-7.0.34
+  +/opt/NetBeans/sid/netbeans-7.4+
+- Apache Tomcat 7.0.41 Installationsverzeichnis/ Apache Tomcat 7.0.34 Installation Folder: +
+  +/opt/Tomcat/sid/apache-tomcat-7.0.41+
 - JUnit wird beim ersten Start der NetBeans IDE heruntergeladen und installiert. +
   JUnit library will be downloaded and installed during installation of NetBeans IDE.
 - Check for Updates  
 - Installationsgröße (gesamt)/ Total Installation Size: +
-  312,9 MB
+  336,3 MB
 
 .Einrichtung vollständig/ Setup Complete
 Zum Ende der Installation werden Sie gebeten 'Anonyme Nutzungsdaten' freizugeben.
 
 
-NetBeans IDE 7.3.1: ~/.nbi
+NetBeans IDE 7.4: ~/.nbi
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 Das _NetBeans Installer_-Verzeichnis enthält Informationen zur durchgeführten Installation. 
 
 .~/.nbi
 ----
 $ ls -l ~/.nbi
-drwxrwxr-x 2 sid sid  4096 Okt 13 18:03 downloads
-drwxrwxr-x 2 sid sid  4096 Okt 13 18:03 log
-drwxrwxr-x 7 sid sid  4096 Okt 13 18:17 product-cache
--rw-rw-r-- 1 sid sid 34143 Okt 13 18:22 registry.xml
-drwxrwxr-x 2 sid sid  4096 Okt 13 18:22 tmp
-drwxrwxr-x 2 sid sid  4096 Okt 13 18:03 wd
+drwxrwxr-x 2 sid sid  4096 Dez 31 15:33 downloads
+drwxrwxr-x 2 sid sid  4096 Dez 31 15:36 log
+drwxrwxr-x 8 sid sid  4096 Dez 31 15:39 product-cache
+-rw-rw-r-- 1 sid sid 39399 Dez 31 15:43 registry.xml
+drwxrwxr-x 2 sid sid  4096 Dez 31 15:43 tmp
+drwxrwxr-x 2 sid sid  4096 Dez 31 15:33 wd
 ----
 
 
 Start und Konfiguration
 -----------------------
-NetBeans IDE 7.3.1
-~~~~~~~~~~~~~~~~~~
+
+NetBeans IDE 7.4
+~~~~~~~~~~~~~~~~
 *Step 1:* _netbeans_ ausführen ...
 ----
-$ /opt/NetBeans/sid/netbeans-7.3.1/bin/netbeans
+$ /opt/NetBeans/sid/netbeans-7.4/bin/netbeans
 ----
 
-image::images/netbeans/nb01_NetBeans_IDE_7.3.1.jpeg[NetBeans IDE 7.3.1: Startseite]
+image::images/netbeans/nb01_NetBeans_IDE_7.4.jpeg[NetBeans IDE 7.4: Startseite]
 
 
-NetBeans IDE 7.3.1: Plugins
+NetBeans IDE 7.4: Plugins
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 *Step 2:* NB IDE -> Tools -> Plugins
 
-image::images/netbeans/nb02_NetBeans_IDE_7.3.1.jpeg[NetBeans IDE 7.3.1: Plugins]
+image::images/netbeans/nb02_NetBeans_IDE_7.4.jpeg[NetBeans IDE 7.4: Plugins]
 
 
 &nbsp; +
 *Step 3:* Plugins 'Check for Updates' 
 
-image::images/netbeans/nb03_Plugins.jpeg[NetBeans IDE 7.3.1 Plugins [Check for Updates]]
+image::images/netbeans/nb03_Plugins.jpeg[NetBeans IDE 7.4 Plugins [Check for Updates]]
 
 
 &nbsp; +
 *Step 4:* Plugins 'Downloaded' -> Add Plugins...
 
-image::images/netbeans/nb04_Plugins.jpeg[NetBeans IDE 7.3.1: Plugins [Downloaded]]
+image::images/netbeans/nb04_Plugins.jpeg[NetBeans IDE 7.4: Plugins [Downloaded]]
 
 
 &nbsp; +
-*Step 5:* Add Plugins 'updates' -> 'Alle Dateien' markieren -> &Ouml;ffnen +
-*Hinweis:* &nbsp; +updates+ &nbsp; ist das mit dem Befehl &nbsp; +unzip+ &nbsp; erstellte Verzeichnis. +
+*Step 5:* Add Plugins 'updates' -> 'Alle Dateien' markieren -> &Ouml;ffnen
 
-image::images/netbeans/nb05_Add_Plugins.jpeg[NetBeans IDE 7.3.1: Add Plugins [Alle markieren -> &Ouml;ffnen]]
+image::images/netbeans/nb05_Add_Plugins.jpeg[NetBeans IDE 7.4: Add Plugins [Alle markieren -> &Ouml;ffnen]]
 
+[NOTE]
+====
+* Das Verzeichnis &nbsp; +updates+ &nbsp; befindet sich 
+  sich in dem entpackten Archiv &nbsp; +1385326848_archive.zip+.
+* Um _alle_ Dateien markieren zu können muß im Dialog 'Dateityp: Alle Dateien' 
+  ausgewählt sein!
+====     
 
 &nbsp; +
-*Step 6:* Plugins 'Downloaded (24)' -> Install +
+*Step 6:* Plugins 'Downloaded (23)' -> Install +
 
-image::images/netbeans/nb06_Plugins.jpeg[NetBeans IDE 7.3.1: Plugins [Downloaded (24)]]
+image::images/netbeans/nb06_Plugins.jpeg[NetBeans IDE 7.4: Plugins [Downloaded (23)]]
 
 &nbsp;
 
-image::images/netbeans/nb07_NetBeans_IDE_Installer.jpeg[NetBeans IDE 7.3.1: NetBeans IDE Installer (Next)]
+image::images/netbeans/nb07_NetBeans_IDE_Installer.jpeg[NetBeans IDE 7.4: NetBeans IDE Installer (Next)]
 
-image::images/netbeans/nb08_NetBeans_IDE_Installer.jpeg[NetBeans IDE 7.3.1: NetBeans IDE Installer (License Agreement)]
+image::images/netbeans/nb08_NetBeans_IDE_Installer.jpeg[NetBeans IDE 7.4: NetBeans IDE Installer (Install)]
 
-image::images/netbeans/nb09_NetBeans_IDE_Installer.jpeg[NetBeans IDE 7.3.1: NetBeans IDE Installer (Validate)]
+image::images/netbeans/nb09_NetBeans_IDE_Installer.jpeg[NetBeans IDE 7.4: NetBeans IDE Installer (Validate)]
 
-image::images/netbeans/nb10_Validation_Warning.jpeg[NetBeans IDE 7.3.1: Validation Warning]
+image::images/netbeans/nb10_Validation_Warning.jpeg[NetBeans IDE 7.4: Validation Warning (Continue)]
 
-image::images/netbeans/nb11_NetBeans_IDE_Installer.jpeg[NetBeans IDE 7.3.1: NetBeans IDE Installer (Restart IDE now)]
+image::images/netbeans/nb11_NetBeans_IDE_Installer.jpeg[NetBeans IDE 7.4: NetBeans IDE Installer (Finish)]
 
 
-NetBeans IDE 7.3.1: Neustart
+NetBeans IDE 7.4: Neustart
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 *Step 7:* 'My NetBeans' 
 
+Falls Sie während der Installation dem Punkt _Statistics_ nicht zugestimmt haben
+werden Sie jetzt erneut (ein letztes Mal) gebeten zuzustimmen: _Ihre Entscheidung_!
+
 image::images/netbeans/nb12_Usage_Statistics.jpeg[NetBeans IDE 7.2: Usage Statistics (I Agree/ No, Thank You)]
 
-image::images/netbeans/nb13_NetBeans_7.3.1.jpeg[NetBeans IDE 7.3.1: My NetBeans]
+image::images/netbeans/nb13_NetBeans_7.4.jpeg[NetBeans IDE 7.4: My NetBeans]
 
 
-NetBeans IDE 7.3.1: Ruby Platforms
+NetBeans IDE 7.4: Ruby Platforms
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 *Step 8:* NB IDE -> Tools -> Ruby Platforms
 
-image::images/netbeans/nb14_NetBeans_IDE_7.3.1_Ruby_Platforms.jpeg[NetBeans IDE 7.3.1: NetBeans IDE 7.3.1 - Ruby Plaforms]
+image::images/netbeans/nb14_NetBeans_IDE_7.4_Ruby_Platforms.jpeg[NetBeans IDE 7.4: NetBeans IDE 7.4 - Ruby Plaforms]
 
 
 &nbsp; +
@@ -299,7 +367,7 @@ image::images/netbeans/nb15_Ruby_Platform_Manager.jpeg[NetBeans IDE 7.2: Ruby Pl
 .Platforms
 * Der Eintrag 'Built-in JRuby 1.7.3' ist Teil der Installation
   des Plugins 'Ruby on Rails'.
-* Der Eintrag 'JRuby 1.7.5' ist die von mir bereits zuvor installierte
+* Der Eintrag 'JRuby 1.7.9' ist die von mir bereits zuvor installierte
   JRuby-Version. +
 * Der Eintrag 'Ruby 1.8.7-p352' ist die in _Ubuntu 12.04_
   standardmäßig installierte C-Ruby-Version. + 
@@ -308,7 +376,7 @@ image::images/netbeans/nb15_Ruby_Platform_Manager.jpeg[NetBeans IDE 7.2: Ruby Pl
 ====
 Die 'PATH'-Variable wird während der Installation ausgewertet und 
 vorhandene Ruby-Installationen automatisch in der 
-_NetBeans IDE 7.3.1_ eingetragen.
+_NetBeans IDE 7.4_ eingetragen.
 
 Im 'PATH' war zum Zeitpunkt der Installation kein Verweis auf die 
 von mir zusätzlich installierten Versionen _Ruby 1.9.3_ und _Ruby 2.0.0_!
@@ -316,51 +384,53 @@ von mir zusätzlich installierten Versionen _Ruby 1.9.3_ und _Ruby 2.0.0_!
 
 
 &nbsp; +
-*Step 10:* 'Ruby Platform Manager' -> Add Platform -> *Ruby 2.0.0-p247* 
+*Step 10:* 'Ruby Platform Manager' -> Add Platform -> *Ruby 2.0.0-p353* 
 
-image::images/netbeans/nb16_Oeffnen.jpeg[NetBeans IDE 7.3.1: &Ouml;ffnen]
+image::images/netbeans/nb16_Oeffnen.jpeg[NetBeans IDE 7.4: &Ouml;ffnen]
 
-image::images/netbeans/nb17_Oeffnen.jpeg[NetBeans IDE 7.3.1: &Ouml;ffnen: Ruby 2.0.0-p247]
+image::images/netbeans/nb17_Oeffnen.jpeg[NetBeans IDE 7.4: &Ouml;ffnen: Ruby 2.0.0-p353]
 
-image::images/netbeans/nb18_Ruby_Platform_Manager.jpeg[NetBeans IDE 7.3.1: Ruby Platform Manager]
+image::images/netbeans/nb18_Ruby_Platform_Manager.jpeg[NetBeans IDE 7.4: Ruby Platform Manager]
 
 
-NetBeans IDE 7.3.1: JRuby 1.7.5 Gems
+NetBeans IDE 7.4: JRuby 1.7.9 Gems
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 *Step 11:* 'Ruby Platform Manager' -> Gem Manager
 
-image::images/netbeans/nb19_Ruby_Platform_Manager.jpeg[NetBeans IDE 7.3.1: Ruby Platform Manager]
+image::images/netbeans/nb19_Ruby_Platform_Manager.jpeg[NetBeans IDE 7.4: Ruby Platform Manager]
 
-image::images/netbeans/nb20_Ruby_Gems.jpeg[NetBeans IDE 7.3.1: Ruby Gems: JRuby 1.7.5]
+image::images/netbeans/nb20_Ruby_Gems.jpeg[NetBeans IDE 7.4: Ruby Gems: JRuby 1.7.9]
 
 
-NetBeans IDE 7.3.1: ~/.netbeans
+NetBeans IDE 7.4: ~/.netbeans
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Das _NetBeans_-Verzeichnis enthält Informationen zur aktuellen Konfiguration. 
 
 .~/.netbeans
 ----
 $ ls -la ~/.netbeans
-drwxrwxr-x 10 sid sid 4096 Okt 13 22:31 7.3.1
--rw-rw-r--  1 sid sid   36 Okt 13 18:24 .superId
+drwxrwxr-x 10 sid sid 4096 Dez 31 17:16 7.4
+-rw-rw-r--  1 sid sid   36 Dez 31 17:16 .superId
 ----
 
 ----
-$ ls -l ../.netbeans/7.3.1 
--rw-rw-r-- 1 sid sid 12503 Okt 13 22:43 build.properties
-drwxrwxr-x 7 sid sid  4096 Okt 13 19:20 config
-drwxrwxr-x 7 sid sid  4096 Okt 13 19:20 jruby
--rw--w---- 1 sid sid    18 Okt 13 22:31 lock
-drwxrwxr-x 4 sid sid  4096 Okt 13 19:20 modules
--rw-rw-r-- 1 sid sid  1406 Okt 13 19:20 platform_info.rb
--rw-rw-r-- 1 sid sid  3220 Okt 13 19:20 plugin.rb
--rw-rw-r-- 1 sid sid   524 Okt 13 19:20 rake
-drwxrwxr-x 3 sid sid  4096 Okt 13 19:20 ruby
-drwxrwxr-x 3 sid sid  4096 Okt 13 19:20 rubystubs
--rw-rw-r-- 1 sid sid   220 Okt 13 19:20 sync-stdio.rb
-drwxrwxr-x 2 sid sid  4096 Okt 13 19:20 update_tracking
-drwxrwxr-x 3 sid sid  4096 Okt 13 18:24 var
--rw-rw-r-- 1 sid sid    41 Okt 13 19:20 VERSION.txt
+$ ls -la ../.netbeans/7.4 
+-rw-rw-r--  1 sid sid 1592 Dez 31 17:24 build.properties
+drwxrwxr-x  7 sid sid 4096 Dez 31 16:17 config
+drwxrwxr-x  7 sid sid 4096 Dez 31 16:17 jruby
+-rw-rw-r--  1 sid sid    0 Dez 31 17:16 .lastModified
+-rw--w----  1 sid sid   18 Dez 31 17:16 lock
+drwxrwxr-x  2 sid sid 4096 Dez 31 15:45 .metadata
+drwxrwxr-x  4 sid sid 4096 Dez 31 16:17 modules
+-rw-rw-r--  1 sid sid 1406 Dez 31 16:17 platform_info.rb
+-rw-rw-r--  1 sid sid 3220 Dez 31 16:17 plugin.rb
+-rw-rw-r--  1 sid sid  524 Dez 31 16:17 rake
+drwxrwxr-x  3 sid sid 4096 Dez 31 16:17 ruby
+drwxrwxr-x  3 sid sid 4096 Dez 31 16:17 rubystubs
+-rw-rw-r--  1 sid sid  220 Dez 31 16:17 sync-stdio.rb
+drwxrwxr-x  2 sid sid 4096 Dez 31 16:17 update_tracking
+drwxrwxr-x  3 sid sid 4096 Dez 31 15:45 var
+-rw-rw-r--  1 sid sid   41 Dez 31 16:17 VERSION.txt
 ----
 
 

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="generator" content="AsciiDoc 8.6.8">
+<meta name="generator" content="AsciiDoc 8.6.9">
 <title>Installation in Ubuntu: OpenJDK 7, Oracle JDK 7</title>
 <style type="text/css">
 /* Shared CSS for AsciiDoc xhtml11 and html5 backends */
@@ -93,7 +93,9 @@ ul > li > * { color: black; }
   padding: 0;
   margin: 0;
 }
-
+pre {
+  white-space: pre-wrap;
+}
 
 #author {
   color: #527bbd;
@@ -222,7 +224,7 @@ div.exampleblock > div.content {
 }
 
 div.imageblock div.content { padding-left: 0; }
-span.image img { border-style: none; }
+span.image img { border-style: none; vertical-align: text-bottom; }
 a.image:visited { color: white; }
 
 dl {
@@ -747,7 +749,7 @@ asciidoc.install(2);
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph"><p>Version 2.0.1, Oktober 2013, <a href="#_changelog">[Changelog]</a></p></div>
+<div class="paragraph"><p>Version 2.0.2, Dezember 2013</p></div>
 </div>
 </div>
 <div class="sect1">
@@ -963,7 +965,7 @@ OpenJDK 64-Bit Server VM (build 23.7-b01, mixed mode)</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_installation_oracle_jdk">Installation: Oracle JDK</h2>
+<h2 id="_installation_oracle_jdk_7">Installation: Oracle JDK 7</h2>
 <div class="sectionbody">
 <div class="paragraph"><p>Wie auch immer, einige Ubuntu-Anwender benötigen das Oracle JDK.<br>
 Empfohlen wird die jeweils neueste Version - zu diesem Zeitpunkt ist das:
@@ -1101,8 +1103,9 @@ und die mit <em>Java</em> im Besonderen immer im Blick haben&#8230;<br></p></div
 <div class="sect1">
 <h2 id="_anhang">Anhang</h2>
 <div class="sectionbody">
+<div class="paragraph"><p>Script zum Setzen der Umgebung für das Oracle JDK (ohne weitere Erläuterung).</p></div>
 <div class="listingblock">
-<div class="title">Script zum Setzen der Umgebung für das JDK (ohne weitere Erläuterung)</div>
+<div class="title">Datei: <span class="monospaced">java.path.sh</span></div>
 <div class="content monospaced">
 <pre>JAVA_BINDIR=/opt/Java/current/bin
 JAVA_HOME=/opt/Java/current
@@ -1123,7 +1126,7 @@ export PATH</pre>
 <div id="footnotes"><hr></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2013-10-25 16:27:01 CEST
+Last updated 2013-12-12 20:55:01 CET
 </div>
 </div>
 </body>

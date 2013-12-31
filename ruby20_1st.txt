@@ -9,7 +9,7 @@ Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;
 :ruby19-url: link:ruby19.html
 :ruby20-url: link:ruby20.html
 
-Version 2.0.0, Oktober 2013, <<_changelog,[Changelog]>>
+Version 2.0.2, Dezember 2013
 
 
 Abstract
@@ -34,11 +34,11 @@ Vorraussetzung
 --------------
 Die Installation von _Ruby_ und _Ruby on Rails_ ist, wie in
 
-* {ruby19-url}[Installation in Ubuntu: Ruby 1.9.3, Ruby on Rails 4.0.0] 
+* {ruby19-url}[Installation in Ubuntu: Ruby 1.9.3, Ruby on Rails 4] 
 
 oder 
 
-* {ruby20-url}[Installation in Ubuntu: Ruby 2.0.0, Ruby on Rails 4.0.0] 
+* {ruby20-url}[Installation in Ubuntu: Ruby 2.0.0, Ruby on Rails 4] 
 
 beschrieben, durchgeführt worden.
 
@@ -51,13 +51,13 @@ $ which ruby
 /opt/Ruby/current20/bin/ruby
 
 $ ruby -v 
-ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-linux]
+ruby 2.0.0p353 (2013-11-22 revision 43784) [x86_64-linux]
 
 $ which rails
 /opt/Ruby/current20/bin/rails
 
 $ rails -v    
-Rails 4.0.0
+Rails 4.0.2
 ----
 
   
@@ -213,7 +213,7 @@ $ tree -LF 1 .
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
+gem 'rails', '4.0.2'
 
 # Use mysql as the database for Active Record
 gem 'mysql2'
@@ -287,49 +287,49 @@ Fetching gem metadata from https://rubygems.org/...........
 Fetching gem metadata from https://rubygems.org/..
 Resolving dependencies...
 Using rake (10.1.0) 
-Using i18n (0.6.5) 
-Installing minitest (4.7.5) 
-Using multi_json (1.8.1) 
+Using i18n (0.6.9) 
+Using minitest (4.7.5) 
+Using multi_json (1.8.2) 
 Using atomic (1.1.14) 
 Using thread_safe (0.1.3) 
-Using tzinfo (0.3.37) 
-Using activesupport (4.0.0) 
+Using tzinfo (0.3.38) 
+Using activesupport (4.0.2) 
 Using builder (3.1.4) 
 Using erubis (2.7.0) 
 Using rack (1.5.2) 
 Using rack-test (0.6.2) 
-Using actionpack (4.0.0) 
-Using mime-types (1.25) 
+Using actionpack (4.0.2) 
+Using mime-types (1.25.1) 
 Using polyglot (0.3.3) 
 Using treetop (1.4.15) 
 Using mail (2.5.4) 
-Using actionmailer (4.0.0) 
-Using activemodel (4.0.0) 
+Using actionmailer (4.0.2) 
+Using activemodel (4.0.2) 
 Using activerecord-deprecated_finders (1.0.3) 
-Using arel (4.0.0) 
-Using activerecord (4.0.0) 
+Using arel (4.0.1) 
+Using activerecord (4.0.2) 
 Using bundler (1.3.5) 
 Installing coffee-script-source (1.6.3) 
 Installing execjs (2.0.2) 
 Installing coffee-script (2.2.0) 
 Using thor (0.18.1) 
-Using railties (4.0.0) 
-Installing coffee-rails (4.0.0) 
+Using railties (4.0.2) 
+Installing coffee-rails (4.0.1) 
 Using hike (1.2.3) 
-Installing jbuilder (1.5.1) 
+Installing jbuilder (1.5.3) 
 Installing jquery-rails (3.0.4) 
-Using json (1.8.0) 
-Using mysql2 (0.3.13) 
+Using json (1.8.1) 
+Using mysql2 (0.3.14) 
 Using tilt (1.4.1) 
-Using sprockets (2.10.0) 
-Using sprockets-rails (2.0.0) 
-Using rails (4.0.0) 
+Using sprockets (2.10.1) 
+Using sprockets-rails (2.0.1) 
+Using rails (4.0.2) 
 Installing rdoc (3.12.2) 
 Installing sass (3.2.12) 
-Installing sass-rails (4.0.0) 
+Installing sass-rails (4.0.1) 
 Installing sdoc (0.3.20) 
-Installing turbolinks (1.3.0) 
-Installing uglifier (2.2.1) 
+Installing turbolinks (2.0.0) 
+Installing uglifier (2.3.2) 
 Your bundle is complete!
 Use `bundle show [gemname]` to see where a bundled gem is installed.
 Post-install message from rdoc:
@@ -344,15 +344,28 @@ Depending on your version of ruby, you may need to install ruby rdoc/ri data:
 
 .Prüfen der Abhängigkeiten im _Gemfile_ (2)
 ----
-$ ls -l Gemfile*
--rw-rw-r-- 1 sid sid 1173 Okt  8 20:18 Gemfile
-
 $ bundle check
 The Gemfile's dependencies are satisfied
 
 $ ls -l Gemfile*
--rw-rw-r-- 1 sid sid 1173 Okt  8 20:18 Gemfile
--rw-rw-r-- 1 sid sid 2738 Okt  8 20:27 Gemfile.lock
+-rw-rw-r-- 1 sid  sid  1173 Dez  9 21:56 Gemfile
+-rw-rw-r-- 1 root root 2716 Dez  9 22:00 Gemfile.lock   <1>
+----
+<1> Die Rechte an der Datei +Gemfile.lock+ sind durch den Befehl _bundle install_ 
+    (als Benutzer 'root') auf den Benutzer 'root' gesetzt!
+
+----
+# rm Gemfile.lock
+----
+
+----
+$ bundle check
+Resolving dependencies...
+The Gemfile's dependencies are satisfied
+
+$ ls -l Gemfile*
+-rw-rw-r-- 1 sid sid 1173 Dez  9 21:56 Gemfile
+-rw-rw-r-- 1 sid sid 2716 Dez  9 22:04 Gemfile.lock
 ----
 
 
@@ -401,7 +414,7 @@ Für die erzeugte _Ruby on Rails_-Anwendung ist eine JavaScript-Runtime erforder
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
+gem 'rails', '4.0.2'
 
 # Use mysql as the database for Active Record
 gem 'mysql2'
@@ -444,61 +457,63 @@ Fetching gem metadata from https://rubygems.org/...........
 Fetching gem metadata from https://rubygems.org/..
 Resolving dependencies...
 Using rake (10.1.0) 
-Using i18n (0.6.5) 
+Using i18n (0.6.9) 
 Using minitest (4.7.5) 
-Using multi_json (1.8.1) 
+Using multi_json (1.8.2) 
 Using atomic (1.1.14) 
 Using thread_safe (0.1.3) 
-Using tzinfo (0.3.37) 
-Using activesupport (4.0.0) 
+Using tzinfo (0.3.38) 
+Using activesupport (4.0.2) 
 Using builder (3.1.4) 
 Using erubis (2.7.0) 
 Using rack (1.5.2) 
 Using rack-test (0.6.2) 
-Using actionpack (4.0.0) 
-Using mime-types (1.25) 
+Using actionpack (4.0.2) 
+Using mime-types (1.25.1) 
 Using polyglot (0.3.3) 
 Using treetop (1.4.15) 
 Using mail (2.5.4) 
-Using actionmailer (4.0.0) 
-Using activemodel (4.0.0) 
+Using actionmailer (4.0.2) 
+Using activemodel (4.0.2) 
 Using activerecord-deprecated_finders (1.0.3) 
-Using arel (4.0.0) 
-Using activerecord (4.0.0) 
+Using arel (4.0.1) 
+Using activerecord (4.0.2) 
 Using bundler (1.3.5) 
 Using coffee-script-source (1.6.3) 
 Using execjs (2.0.2) 
 Using coffee-script (2.2.0) 
 Using thor (0.18.1) 
-Using railties (4.0.0) 
-Using coffee-rails (4.0.0) 
+Using railties (4.0.2) 
+Using coffee-rails (4.0.1) 
 Using hike (1.2.3) 
-Using jbuilder (1.5.1) 
+Using jbuilder (1.5.3) 
 Using jquery-rails (3.0.4) 
-Using json (1.8.0) 
+Using json (1.8.1) 
 Installing libv8 (3.16.14.3) 
-Using mysql2 (0.3.13) 
+Using mysql2 (0.3.14) 
 Using tilt (1.4.1) 
-Using sprockets (2.10.0) 
-Using sprockets-rails (2.0.0) 
-Using rails (4.0.0) 
+Using sprockets (2.10.1) 
+Using sprockets-rails (2.0.1) 
+Using rails (4.0.2) 
 Using rdoc (3.12.2) 
 Installing ref (1.0.5) 
 Using sass (3.2.12) 
-Using sass-rails (4.0.0) 
+Using sass-rails (4.0.1) 
 Using sdoc (0.3.20) 
 Installing therubyracer (0.12.0)   <1>, <2>
-Using turbolinks (1.3.0) 
-Using uglifier (2.2.1) 
+Using turbolinks (2.0.0) 
+Using uglifier (2.3.2) 
 Your bundle is complete!
 Use `bundle show [gemname]` to see where a bundled gem is installed.
 ----
 <1> link:http://rubygems.org/gems/therubyracer[RubyGems.org: therubyracer] +
-    Call javascript code and manipulate javascript objects from ruby. +
+    Call javascript cls -lode and manipulate javascript objects from ruby. +
     Call ruby code and manipulate ruby objects from javascript.
 <2> Das RubyGem 'therubyracer' wird kompiliert!
 
 ----
+# rm Gemfile.lock
+
 $ bundle check
 Resolving dependencies...
 The Gemfile's dependencies are satisfied
@@ -534,12 +549,12 @@ Entwicklungs-Umgebung verwendet.
 ----
 $ rails s
 => Booting WEBrick
-=> Rails 4.0.0 application starting in development on http://0.0.0.0:3000    <1>
+=> Rails 4.0.2 application starting in development on http://0.0.0.0:3000    <1>
 => Run `rails server -h` for more startup options
 => Ctrl-C to shutdown server
-[2013-10-08 20:39:44] INFO  WEBrick 1.3.1
-[2013-10-08 20:39:44] INFO  ruby 2.0.0 (2013-06-27) [x86_64-linux]           <2>
-[2013-10-08 20:39:44] INFO  WEBrick::HTTPServer#start: pid=21488 port=3000
+[2013-12-10 23:03:17] INFO  WEBrick 1.3.1
+[2013-12-10 23:03:17] INFO  ruby 2.0.0 (2013-11-22) [x86_64-linux]           <2>
+[2013-12-10 23:03:17] INFO  WEBrick::HTTPServer#start: pid=13207 port=3000
 [...]
 ----
 <1> Der Webserver läuft ohne Port-Angabe (_--port_ ...) auf Port 3000.
@@ -569,17 +584,18 @@ $ rake about
 ----
 About your application's environment
 Ruby version              2.0.0 (x86_64-linux)   <1>
-RubyGems version          2.0.6
+RubyGems version          2.0.11
 Rack version              1.5
-Rails version             4.0.0
+Rails version             4.0.2
 JavaScript Runtime        therubyracer (V8)
-Active Record version     4.0.0
-Action Pack version       4.0.0
-Action Mailer version     4.0.0
-Active Support version    4.0.0
-Middleware  ActionDispatch::Static, 
-            Rack::Lock,      
-            #<ActiveSupport::Cache::Strategy::LocalCache::Middleware:0x007feb3807ee98>, 
+Active Record version     4.0.2
+Action Pack version       4.0.2
+Action Mailer version     4.0.2
+Active Support version    4.0.2
+Middleware  Rack::Sendfile, 
+            ActionDispatch::Static, 
+            Rack::Lock, 
+            #<ActiveSupport::Cache::Strategy::LocalCache::Middleware:0x...>, 
             Rack::Runtime, 
             Rack::MethodOverride, 
             ActionDispatch::RequestId, 
@@ -589,8 +605,8 @@ Middleware  ActionDispatch::Static,
             ActionDispatch::RemoteIp, 
             ActionDispatch::Reloader, 
             ActionDispatch::Callbacks, 
-            ActiveRecord::Migration::CheckPending,
-            ActiveRecord::ConnectionAdapters::ConnectionManagement,
+            ActiveRecord::Migration::CheckPending, 
+            ActiveRecord::ConnectionAdapters::ConnectionManagement, 
             ActiveRecord::QueryCache, 
             ActionDispatch::Cookies, 
             ActionDispatch::Session::CookieStore, 
@@ -601,14 +617,74 @@ Middleware  ActionDispatch::Static,
             Rack::ETag
 Application root          /home/sid/80/RailsDir/MyApp
 Environment               development
-=> Booting WEBrick
-=> Rails 4.0.0 application starting in development on http://0.0.0.0:3000
-=> Run `rails server -h` for more startup options
-=> Ctrl-C to shutdown server
-[2013-10-08 20:39:44] INFO  WEBrick 1.3.1
-[2013-10-08 20:39:44] INFO  ruby 2.0.0 (2013-06-27) [x86_64-linux]
-[2013-10-08 20:39:44] INFO  WEBrick::HTTPServer#start: pid=21488 port=3000
 Database adapter          mysql2
 Database schema version   0
 ----
 <1> Ruby Version 2.0.0
+
+
+Anhang
+------
+Abschließend die Liste der aktuell installierten _RubyGems_.
+
+----
+$ gem list --local
+
+*** LOCAL GEMS ***
+
+actionmailer (4.0.2)
+actionpack (4.0.2)
+activemodel (4.0.2)
+activerecord (4.0.2)
+activerecord-deprecated_finders (1.0.3)
+activesupport (4.0.2)
+arel (4.0.1)
+atomic (1.1.14)
+bigdecimal (1.2.3, 1.2.0)
+builder (3.1.4)
+bundler (1.3.5)
+coffee-rails (4.0.1)
+coffee-script (2.2.0)
+coffee-script-source (1.6.3)
+erubis (2.7.0)
+execjs (2.0.2)
+hike (1.2.3)
+i18n (0.6.9)
+io-console (0.4.2)
+jbuilder (1.5.3)
+jquery-rails (3.0.4)
+json (1.8.1, 1.7.7)
+libv8 (3.16.14.3 x86_64-linux)
+mail (2.5.4)
+mime-types (1.25.1)
+minitest (5.1.0, 4.7.5, 4.3.2)
+multi_json (1.8.2)
+mysql2 (0.3.14)
+polyglot (0.3.3)
+psych (2.0.2, 2.0.0)
+rack (1.5.2)
+rack-protection (1.5.1)
+rack-test (0.6.2)
+rails (4.0.2)
+railties (4.0.2)
+rake (10.1.0, 0.9.6)
+rdoc (4.0.1, 4.0.0, 3.12.2)
+ref (1.0.5)
+rubygems-update (2.1.11)
+sass (3.2.12)
+sass-rails (4.0.1)
+sdoc (0.3.20)
+sinatra (1.4.4)
+sprockets (2.10.1)
+sprockets-rails (2.0.1)
+sqlite3 (1.3.8)
+test-unit (2.5.5, 2.0.0.0)
+therubyracer (0.12.0)
+thor (0.18.1)
+thread_safe (0.1.3)
+tilt (1.4.1)
+treetop (1.4.15)
+turbolinks (2.0.0)
+tzinfo (0.3.38)
+uglifier (2.3.2)
+----

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="generator" content="AsciiDoc 8.6.8">
+<meta name="generator" content="AsciiDoc 8.6.9">
 <title>Rails 4: Erste Schritte &hellip; mit der NetBeans IDE</title>
 <style type="text/css">
 /* Shared CSS for AsciiDoc xhtml11 and html5 backends */
@@ -93,7 +93,9 @@ ul > li > * { color: black; }
   padding: 0;
   margin: 0;
 }
-
+pre {
+  white-space: pre-wrap;
+}
 
 #author {
   color: #527bbd;
@@ -222,7 +224,7 @@ div.exampleblock > div.content {
 }
 
 div.imageblock div.content { padding-left: 0; }
-span.image img { border-style: none; }
+span.image img { border-style: none; vertical-align: text-bottom; }
 a.image:visited { color: white; }
 
 dl {
@@ -747,14 +749,14 @@ asciidoc.install(2);
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph"><p>Version 2.0.0, Oktober 2013, <a href="#_changelog">[Changelog]</a></p></div>
+<div class="paragraph"><p>Version 2.0.2, Dezember 2013</p></div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_abstract">Abstract</h2>
 <div class="sectionbody">
 <div class="paragraph"><p>Die folgenden Schritte stellen die Funktionsfähigkeit der Installation
-von <em>NetBeans IDE 7.3.1</em> (kurz: <em>NetBeans</em>) sicher.</p></div>
+von <em>NetBeans IDE 7.4</em> (kurz: <em>NetBeans</em>) sicher.</p></div>
 <div class="paragraph"><p>Der Artikel ist in <a href="http://www.methods.co.nz/asciidoc/">AsciiDoc</a> erstellt worden.</p></div>
 <div class="admonitionblock">
 <table><tr>
@@ -779,7 +781,7 @@ Gerne nehme ich Verbesserungsvorschläge entgegen.</p></div>
 <div class="ulist"><ul>
 <li>
 <p>
-<a href="netbeans.html">Installation in Ubuntu: NetBeans IDE 7.3.1</a>
+<a href="netbeans.html">Installation in Ubuntu: NetBeans IDE 7.4</a>
 </p>
 </li>
 </ul></div>
@@ -789,11 +791,11 @@ Gerne nehme ich Verbesserungsvorschläge entgegen.</p></div>
 <div class="sect1">
 <h2 id="_erste_schritte_hellip">Erste Schritte &hellip;</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>Die notwendigen Schritte werden in der <em>NetBeans IDE 7.3.1</em> durchgeführt.</p></div>
+<div class="paragraph"><p>Die notwendigen Schritte werden in der <em>NetBeans IDE 7.4</em> durchgeführt.</p></div>
 <div class="ulist"><div class="title">Vorgehensweise</div><ul>
 <li>
 <p>
-NetBeans IDE 7.3.1 &middot; New Project
+NetBeans IDE 7.4 &middot; New Project
 </p>
 </li>
 <li>
@@ -835,16 +837,16 @@ Aufruf der Webanwendung im Browser
 </div>
 </div>
 <div class="sect1">
-<h2 id="_netbeans_ide_7_3_1_middot_new_project">NetBeans IDE 7.3.1 &middot; New Project</h2>
+<h2 id="_netbeans_ide_7_4_middot_new_project">NetBeans IDE 7.4 &middot; New Project</h2>
 <div class="sectionbody">
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/ror01_NetBeans_IDE_7.3.1.jpeg" alt="NetBeans-IDE 7.3.1 &middot; Startpage">
+<img src="images/netbeans/ror01_NetBeans_IDE_7.4.jpeg" alt="NetBeans-IDE 7.4 &middot; Startpage">
 </div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/ror02_NetBeans_IDE_7.3.1.jpeg" alt="NetBeans-IDE 7.3.1 &middot; New Project">
+<img src="images/netbeans/ror02_NetBeans_IDE_7.4.jpeg" alt="NetBeans-IDE 7.4 &middot; New Project">
 </div>
 </div>
 </div>
@@ -854,7 +856,7 @@ Aufruf der Webanwendung im Browser
 <div class="sectionbody">
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/ror03_New_Project.jpeg" alt="New Project &middot; Choose Project">
+<img src="images/netbeans/ror03_New_Project.jpeg" alt="Categories &middot; Projects (Next)">
 </div>
 </div>
 </div>
@@ -864,12 +866,7 @@ Aufruf der Webanwendung im Browser
 <div class="sectionbody">
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/ror04_Enter_Master_Password.jpeg" alt="Enter Master Password &middot; My choice: [Cancel]">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/netbeans/ror05_New_Ruby_on_Rails_Application.jpeg" alt="New Ruby on Rails Application &middot; Name and Location">
+<img src="images/netbeans/ror04_New_Ruby_on_Rails_Application.jpeg" alt="New Ruby on Rails Application &middot; Name and Location">
 </div>
 </div>
 </div>
@@ -879,7 +876,7 @@ Aufruf der Webanwendung im Browser
 <div class="sectionbody">
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/ror06_New_Ruby_on_Rails_Application.jpeg" alt="New Ruby on Rails Application &middot; Database Configuration">
+<img src="images/netbeans/ror05_New_Ruby_on_Rails_Application.jpeg" alt="New Ruby on Rails Application &middot; Database Configuration">
 </div>
 </div>
 </div>
@@ -889,12 +886,12 @@ Aufruf der Webanwendung im Browser
 <div class="sectionbody">
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/ror07_New_Ruby_on_Rails_Application.jpeg" alt="New Ruby on Rails Application &middot; Install Rails">
+<img src="images/netbeans/ror06_New_Ruby_on_Rails_Application.jpeg" alt="New Ruby on Rails Application &middot; Install Rails">
 </div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/ror08_RailsApplication1-NetBeans_IDE_7.3.1.jpeg" alt="RailsApplication1 - NetBeans IDE 7.3.1 &middot; Output - Generate Rails Project">
+<img src="images/netbeans/ror07_RailsApplication1-NetBeans_IDE_7.4.jpeg" alt="RailsApplication1 - NetBeans IDE 7.4 &middot; Output - Generate Rails Project">
 </div>
 </div>
 </div>
@@ -904,17 +901,17 @@ Aufruf der Webanwendung im Browser
 <div class="sectionbody">
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/ror09_RailsApplication1-NetBeans_IDE_7.3.1.jpeg" alt="RailsApplication1 - NetBeans IDE 7.3.1 &middot; Run/Debug Rake Task">
+<img src="images/netbeans/ror08_RailsApplication1-NetBeans_IDE_7.4.jpeg" alt="RailsApplication1 - NetBeans IDE 7.4 &middot; Run/Debug Rake Task">
 </div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/ror10_Run-Debug_Rake_Task_RailsApplication1.jpeg" alt="Run-Debug Rake Task (RailsApplication1) &middot; db:create">
+<img src="images/netbeans/ror09_Run-Debug_Rake_Task_RailsApplication1.jpeg" alt="Run-Debug Rake Task (RailsApplication1) &middot; db:create">
 </div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/ror11_RailsApplication1-NetBeans_IDE_7.3.1.jpeg" alt="RailsApplication1 - NetBeans IDE 7.3.1 &middot; Output: RailsApplication1 (db:create)">
+<img src="images/netbeans/ror10_RailsApplication1-NetBeans_IDE_7.4.jpeg" alt="RailsApplication1 - NetBeans IDE 7.4 &middot; Output: RailsApplication1 (db:create)">
 </div>
 </div>
 </div>
@@ -924,12 +921,12 @@ Aufruf der Webanwendung im Browser
 <div class="sectionbody">
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/ror12_RailsApplication1-NetBeans_IDE_7.3.1.jpeg" alt="RailsApplication1 - NetBeans IDE 7.3.1 &middot; Run Project (RailsApplication1)">
+<img src="images/netbeans/ror11_RailsApplication1-NetBeans_IDE_7.4.jpeg" alt="RailsApplication1 - NetBeans IDE 7.4 &middot; Run Project (RailsApplication1)">
 </div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/ror13_RailsApplication1-NetBeans_IDE_7.3.1.jpeg" alt="RailsApplication1 - NetBeans IDE 7.3.1 &middot; Output: WEBrick for RailsApplication1 on 3000">
+<img src="images/netbeans/ror12_RailsApplication1-NetBeans_IDE_7.4.jpeg" alt="RailsApplication1 - NetBeans IDE 7.4 &middot; Output: WEBrick for RailsApplication1 on 3000">
 </div>
 </div>
 <div class="admonitionblock">
@@ -938,8 +935,8 @@ Aufruf der Webanwendung im Browser
 <img src="./images/icons/note.png" alt="Note">
 </td>
 <td class="content">
-<div class="paragraph"><p>Die Erweiterung für die <em>NetBeans IDE 7.3.1</em> sind noch nicht für
-<em>Rails 4.0.0</em> angepasst:<br>
+<div class="paragraph"><p>Die Erweiterung für die <em>NetBeans IDE 7.4</em> sind noch nicht für
+<em>Rails 4.0.2</em> angepasst:<br>
 Das Verzeichnis <span class="monospaced">script</span> wird nicht mehr für den <em>rails</em>-Aufruf verwendet.</p></div>
 </td>
 </tr></table>
@@ -953,12 +950,12 @@ Das Verzeichnis <span class="monospaced">script</span> wird nicht mehr für den 
 <div class="content monospaced">
 <pre>$ rails s
 =&gt; Booting WEBrick
-=&gt; Rails 4.0.0 application starting in development on http://0.0.0.0:3000
+=&gt; Rails 4.0.2 application starting in development on http://0.0.0.0:3000
 =&gt; Run `rails server -h` for more startup options
 =&gt; Ctrl-C to shutdown server
-[2013-10-15 10:48:03] INFO  WEBrick 1.3.1
-[2013-10-15 10:48:03] INFO  ruby 1.9.3 (2013-10-07) [java]
-[2013-10-15 10:48:03] INFO  WEBrick::HTTPServer#start: pid=26798 port=3000</pre>
+[2013-12-31 19:32:45] INFO  WEBrick 1.3.1
+[2013-12-31 19:32:45] INFO  ruby 1.9.3 (2013-12-06) [java]
+[2013-12-31 19:32:45] INFO  WEBrick::HTTPServer#start: pid=11271 port=3000</pre>
 </div></div>
 </div>
 </div>
@@ -967,12 +964,12 @@ Das Verzeichnis <span class="monospaced">script</span> wird nicht mehr für den 
 <div class="sectionbody">
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/ror14_Ruby_on_Rails_Welcome_aboard.jpeg" alt="Ruby on Rails: Welcome aboard">
+<img src="images/netbeans/ror13_Ruby_on_Rails_Welcome_aboard.jpeg" alt="Ruby on Rails: Welcome aboard">
 </div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/ror15_Ruby_on_Rails_Welcome_aboard.jpeg" alt="Ruby on Rails: Welcome aboard">
+<img src="images/netbeans/ror14_Ruby_on_Rails_Welcome_aboard.jpeg" alt="Ruby on Rails: Welcome aboard">
 </div>
 </div>
 </div>
@@ -981,7 +978,7 @@ Das Verzeichnis <span class="monospaced">script</span> wird nicht mehr für den 
 <div id="footnotes"><hr></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2013-10-17 19:17:49 CEST
+Last updated 2013-12-31 19:41:53 CET
 </div>
 </div>
 </body>

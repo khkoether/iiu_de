@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="generator" content="AsciiDoc 8.6.8">
+<meta name="generator" content="AsciiDoc 8.6.9">
 <title>Rails 4: Erste Schritte &hellip; mit JRuby</title>
 <style type="text/css">
 /* Shared CSS for AsciiDoc xhtml11 and html5 backends */
@@ -93,7 +93,9 @@ ul > li > * { color: black; }
   padding: 0;
   margin: 0;
 }
-
+pre {
+  white-space: pre-wrap;
+}
 
 #author {
   color: #527bbd;
@@ -222,7 +224,7 @@ div.exampleblock > div.content {
 }
 
 div.imageblock div.content { padding-left: 0; }
-span.image img { border-style: none; }
+span.image img { border-style: none; vertical-align: text-bottom; }
 a.image:visited { color: white; }
 
 dl {
@@ -747,7 +749,7 @@ asciidoc.install(2);
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph"><p>Version 2.0.1, Oktober 2013, <a href="#_changelog">[Changelog]</a></p></div>
+<div class="paragraph"><p>Version 2.0.2, Dezember 2013, <a href="#_changelog">[Changelog]</a></p></div>
 </div>
 </div>
 <div class="sect1">
@@ -779,31 +781,31 @@ Gerne nehme ich Verbesserungsvorschläge entgegen.</p></div>
 <div class="ulist"><ul>
 <li>
 <p>
-<a href="jruby.html">Installation in Ubuntu: JRuby 1.7.6, Ruby on Rails 4.0.0</a>
+<a href="jruby.html">Installation in Ubuntu: JRuby 1.7.9, Ruby on Rails 4.0.0</a>
 </p>
 </li>
 </ul></div>
 <div class="paragraph"><p>beschrieben durchgeführt worden.</p></div>
 <div class="listingblock">
-<div class="title">JRuby 1.7.6</div>
+<div class="title">JRuby 1.7.9</div>
 <div class="content monospaced">
 <pre>$ which jruby
 /opt/JRuby/sid/current/bin/jruby
 
 $ jruby -v
-jruby 1.7.6 (1.9.3p392) 2013-10-22 6004147 on Java HotSpot(TM) 64-Bit Server VM 1.7.0_45-b18 [linux-amd64]
+jruby 1.7.9 (1.9.3p392) 2013-12-06 87b108a on OpenJDK 64-Bit Server VM 1.7.0_25-b30 [linux-amd64]
 
 $ jruby -v --1.8   <img src="./images/icons/callouts/1.png" alt="1">
-jruby 1.7.6 (ruby-1.8.7p370) 2013-10-22 6004147 on Java HotSpot(TM) 64-Bit Server VM 1.7.0_45-b18 [linux-amd64]
+jruby 1.7.9 (ruby-1.8.7p370) 2013-12-06 87b108a on OpenJDK 64-Bit Server VM 1.7.0_25-b30 [linux-amd64]
 
 $ which rails
 /opt/JRuby/sid/current/bin/rails
 
 $ jruby -S rails -v   <img src="./images/icons/callouts/2.png" alt="2">
-Rails 4.0.0
+Rails 4.0.2
 
 $ rails -v     <img src="./images/icons/callouts/3.png" alt="3">
-Rails 4.0.0</pre>
+Rails 4.0.2</pre>
 </div></div>
 <div class="colist arabic"><table>
 <tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
@@ -983,54 +985,54 @@ $ rails new jMyApp --database=mysql   <img src="./images/icons/callouts/1.png" a
 Fetching gem metadata from https://rubygems.org/...........
 Fetching gem metadata from https://rubygems.org/..
 Resolving dependencies....
-Using rake (10.1.0)
-Using i18n (0.6.5)
+Using rake (10.1.1)
+Using i18n (0.6.9)
 Using minitest (4.7.5)
 Using multi_json (1.8.2)
 Using atomic (1.1.14)
 Using thread_safe (0.1.3)
 Using tzinfo (0.3.38)
-Using activesupport (4.0.0)
+Using activesupport (4.0.2)
 Using builder (3.1.4)
 Using erubis (2.7.0)
 Using rack (1.5.2)
 Using rack-test (0.6.2)
-Using actionpack (4.0.0)
-Using mime-types (1.25)
+Using actionpack (4.0.2)
+Using mime-types (1.25.1)
 Using polyglot (0.3.3)
 Using treetop (1.4.15)
 Using mail (2.5.4)
-Using actionmailer (4.0.0)
-Using activemodel (4.0.0)
+Using actionmailer (4.0.2)
+Using activemodel (4.0.2)
 Using activerecord-deprecated_finders (1.0.3)
 Using arel (4.0.1)
-Using activerecord (4.0.0)
-Using activerecord-jdbc-adapter (1.3.2)        <img src="./images/icons/callouts/4.png" alt="4">
-Using jdbc-mysql (5.1.25)
-Using activerecord-jdbcmysql-adapter (1.3.2)   <img src="./images/icons/callouts/5.png" alt="5">
-Using bundler (1.3.5)
+Using activerecord (4.0.2)
+Using activerecord-jdbc-adapter (1.3.4)        <img src="./images/icons/callouts/4.png" alt="4">
+Using jdbc-mysql (5.1.27)
+Using activerecord-jdbcmysql-adapter (1.3.4)   <img src="./images/icons/callouts/5.png" alt="5">
+Using bundler (1.5.1)
 Installing coffee-script-source (1.6.3)
 Installing execjs (2.0.2)
 Installing coffee-script (2.2.0)
 Using thor (0.18.1)
-Using railties (4.0.0)
+Using railties (4.0.2)
 Installing coffee-rails (4.0.1)
 Using hike (1.2.3)
-Installing jbuilder (1.5.2)
+Installing jbuilder (1.5.3)
 Installing jquery-rails (3.0.4)
 Using json (1.8.1)
 Using tilt (1.4.1)
-Using sprockets (2.10.0)
+Using sprockets (2.10.1)
 Using sprockets-rails (2.0.1)
-Using rails (4.0.0)
+Using rails (4.0.2)
 Installing rdoc (3.12.2)
-Installing sass (3.2.12)
+Installing sass (3.2.13)
 Installing sass-rails (4.0.1)
 Installing sdoc (0.3.20)
 Installing therubyrhino_jar (1.7.4)
 Installing therubyrhino (2.0.2)
-Installing turbolinks (1.3.0)
-Installing uglifier (2.2.1)
+Installing turbolinks (2.0.0)
+Installing uglifier (2.4.0)
 Your bundle is complete!
 Use `bundle show [gemname]` to see where a bundled gem is installed.
 Post-install message from rdoc:
@@ -1068,7 +1070,7 @@ Im Netz gibt es möglicherweise aktuell <em>neuere</em> Versionen für den
 <pre>source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
+gem 'rails', '4.0.2'
 
 # Use jdbcmysql as the database for Active Record
 gem 'activerecord-jdbcmysql-adapter'
@@ -1116,7 +1118,11 @@ RubyGem <em>therubyrhino</em>: JavaScript-Interpreter
 <pre>$ cd jMyApp
 
 $ bundle check
-The Gemfile's dependencies are satisfied</pre>
+The Gemfile's dependencies are satisfied
+
+$ ls -l Gemfile*
+-rw-rw-r-- 1 sid sid 1119 Dez 12 21:57 Gemfile
+-rw-rw-r-- 1 sid sid 3043 Dez 12 21:58 Gemfile.lock</pre>
 </div></div>
 <div class="admonitionblock">
 <table><tr>
@@ -1207,12 +1213,12 @@ Entwicklungs-Umgebung verwendet.</p></div>
 <div class="content monospaced">
 <pre>$ rails s
 =&gt; Booting WEBrick
-=&gt; Rails 4.0.0 application starting in development on http://0.0.0.0:3000    <img src="./images/icons/callouts/1.png" alt="1">
+=&gt; Rails 4.0.2 application starting in development on http://0.0.0.0:3000     <img src="./images/icons/callouts/1.png" alt="1">
 =&gt; Call with -d to detach
 =&gt; Ctrl-C to shutdown server
-[2013-10-25 17:49:49] INFO  WEBrick 1.3.1
-[2013-10-25 17:49:49] INFO  ruby 1.9.3 (2013-10-22) [java]                    <img src="./images/icons/callouts/2.png" alt="2">
-[2013-10-25 17:49:49] INFO  WEBrick::HTTPServer#start: pid=13067 port=3000</pre>
+[2013-12-12 22:02:57] INFO  WEBrick 1.3.1
+[2013-12-12 22:02:57] INFO  ruby 1.9.3 (2013-12-06) [java]                    <img src="./images/icons/callouts/2.png" alt="2">
+[2013-12-12 22:02:57] INFO  WEBrick::HTTPServer#start: pid=10222 port=3000</pre>
 </div></div>
 <div class="colist arabic"><table>
 <tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
@@ -1255,37 +1261,37 @@ Informationen zur ausgeführten Applikation <em>MyApp</em>:<br>
 <div class="content monospaced">
 <pre>About your application's environment
 Ruby version              1.9.3 (java)   <img src="./images/icons/callouts/1.png" alt="1">
-RubyGems version          2.1.10
+RubyGems version          2.1.11
 Rack version              1.5
-Rails version             4.0.0
+Rails version             4.0.2
 JavaScript Runtime        therubyrhino (Rhino)
-Active Record version     4.0.0
-Action Pack version       4.0.0
-Action Mailer version     4.0.0
-Active Support version    4.0.0
-Middleware
-    ActionDispatch::Static,
-    Rack::Lock,
-    #&lt;ActiveSupport::Cache::Strategy::LocalCache::Middleware:0x548e0fd5&gt;,
-    Rack::Runtime,
-    Rack::MethodOverride,
-    ActionDispatch::RequestId,
-    Rails::Rack::Logger,
-    ActionDispatch::ShowExceptions,
-    ActionDispatch::DebugExceptions,
-    ActionDispatch::RemoteIp,
-    ActionDispatch::Reloader,
-    ActionDispatch::Callbacks,
-    ActiveRecord::Migration::CheckPending,
-    ActiveRecord::ConnectionAdapters::ConnectionManagement,
-    ActiveRecord::QueryCache,
-    ActionDispatch::Cookies,
-    ActionDispatch::Session::CookieStore,
-    ActionDispatch::Flash,
-    ActionDispatch::ParamsParser,
-    Rack::Head,
-    Rack::ConditionalGet,
-    Rack::ETag
+Active Record version     4.0.2
+Action Pack version       4.0.2
+Action Mailer version     4.0.2
+Active Support version    4.0.2
+Middleware                Rack::Sendfile,
+                          ActionDispatch::Static,
+                          Rack::Lock,
+                          #&lt;ActiveSupport::Cache::Strategy::LocalCache::Middleware:0x...&gt;,
+                          Rack::Runtime,
+                          Rack::MethodOverride,
+                          ActionDispatch::RequestId,
+                          Rails::Rack::Logger,
+                          ActionDispatch::ShowExceptions,
+                          ActionDispatch::DebugExceptions,
+                          ActionDispatch::RemoteIp,
+                          ActionDispatch::Reloader,
+                          ActionDispatch::Callbacks,
+                          ActiveRecord::Migration::CheckPending,
+                          ActiveRecord::ConnectionAdapters::ConnectionManagement,
+                          ActiveRecord::QueryCache,
+                          ActionDispatch::Cookies,
+                          ActionDispatch::Session::CookieStore,
+                          ActionDispatch::Flash,
+                          ActionDispatch::ParamsParser,
+                          Rack::Head,
+                          Rack::ConditionalGet,
+                          Rack::ETag
 Application root                /home/sid/80/RailsDir/jMyApp
 Environment                   development
 Database adapter                mysql
@@ -1305,19 +1311,20 @@ Ruby Version 1.9.3 (java)
 <div class="listingblock">
 <div class="content monospaced">
 <pre>=&gt; Booting WEBrick
-=&gt; Rails 4.0.0 application starting in development on http://0.0.0.0:3000
-=&gt; Run `rails server -h` for more startup options
+=&gt; Rails 4.0.2 application starting in development on http://0.0.0.0:3000
+=&gt; Call with -d to detach
 =&gt; Ctrl-C to shutdown server
-[2013-10-25 17:49:49] INFO  WEBrick 1.3.1
-[2013-10-25 17:49:49] INFO  ruby 1.9.3 (2013-10-22) [java]
-[2013-10-25 17:49:49] INFO  WEBrick::HTTPServer#start: pid=13067 port=3000
+[2013-12-12 22:02:57] INFO  WEBrick 1.3.1
+[2013-12-12 22:02:57] INFO  ruby 1.9.3 (2013-12-06) [java]
+[2013-12-12 22:02:57] INFO  WEBrick::HTTPServer#start: pid=10222 port=3000
 
 
 Started GET "/" for 127.0.0.1 at 2013-10-25 17:51:10 +0200
 Processing by Rails::WelcomeController#index as HTML
   Rendered [...]
 Completed 200 OK in 1200ms (Views: 58.0ms | ActiveRecord: 0.0ms)
-[2013-10-25 17:51:12] WARN  Could not determine content-length of response body. Set content-length of the response or set Response#chunked = true
+[2013-12-12 22:06:48] WARN  Could not determine content-length of response body.
+                            Set content-length of the response or set Response#chunked = true
 [...]</pre>
 </div></div>
 <div class="paragraph"><p>Um die zusätzlichen Ausgaben zu verhindern, muß in der JRuby-Installation
@@ -1353,11 +1360,83 @@ Neue Zeile mit zusätzlichen Bedingungen
 </table></div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_anhang">Anhang</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Abschließend die Liste der aktuell installierten <em>RubyGems</em>.</p></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>$ gem list --local
+
+*** LOCAL GEMS ***
+
+actionmailer (4.0.2)
+actionpack (4.0.2)
+activemodel (4.0.2)
+activerecord (4.0.2)
+activerecord-deprecated_finders (1.0.3)
+activerecord-jdbc-adapter (1.3.4)
+activerecord-jdbcmysql-adapter (1.3.4)
+activerecord-jdbcsqlite3-adapter (1.3.4)
+activesupport (4.0.2)
+arel (4.0.1)
+atomic (1.1.14 java)
+builder (3.1.4)
+bundler (1.5.1)
+coffee-rails (4.0.1)
+coffee-script (2.2.0)
+coffee-script-source (1.6.3)
+erubis (2.7.0)
+execjs (2.0.2)
+glassfish (1.0.3 universal-java)
+hike (1.2.3)
+i18n (0.6.9)
+jbuilder (1.5.3)
+jdbc-mysql (5.1.27)
+jdbc-sqlite3 (3.7.2.1)
+jquery-rails (3.0.4)
+jruby-jars (1.7.9)
+jruby-rack (1.1.13.3)
+json (1.8.1 java)
+mail (2.5.4)
+mime-types (1.25.1)
+minitest (4.7.5)
+multi_json (1.8.2)
+polyglot (0.3.3)
+rack (1.5.2)
+rack-protection (1.5.1)
+rack-test (0.6.2)
+rails (4.0.2)
+railties (4.0.2)
+rake (10.1.1)
+rdoc (4.0.1, 3.12.2)
+rdoc-data (4.0.1)
+rubygems-update (2.1.11)
+rubyzip (1.0.0)
+sass (3.2.13)
+sass-rails (4.0.1)
+sdoc (0.3.20)
+sinatra (1.4.4)
+sprockets (2.10.1)
+sprockets-rails (2.0.1)
+therubyrhino (2.0.2)
+therubyrhino_jar (1.7.4)
+thor (0.18.1)
+thread_safe (0.1.3 java)
+tilt (1.4.1)
+treetop (1.4.15)
+turbolinks (2.1.0)
+tzinfo (0.3.38)
+uglifier (2.4.0)
+warbler (1.4.0)</pre>
+</div></div>
+</div>
+</div>
 </div>
 <div id="footnotes"><hr></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2013-10-25 18:00:18 CEST
+Last updated 2013-12-31 19:21:06 CET
 </div>
 </div>
 </body>

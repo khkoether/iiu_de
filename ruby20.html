@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="generator" content="AsciiDoc 8.6.8">
+<meta name="generator" content="AsciiDoc 8.6.9">
 <title>Installation in Ubuntu: Ruby 2.0.0, Ruby on Rails 4</title>
 <style type="text/css">
 /* Shared CSS for AsciiDoc xhtml11 and html5 backends */
@@ -93,7 +93,9 @@ ul > li > * { color: black; }
   padding: 0;
   margin: 0;
 }
-
+pre {
+  white-space: pre-wrap;
+}
 
 #author {
   color: #527bbd;
@@ -222,7 +224,7 @@ div.exampleblock > div.content {
 }
 
 div.imageblock div.content { padding-left: 0; }
-span.image img { border-style: none; }
+span.image img { border-style: none; vertical-align: text-bottom; }
 a.image:visited { color: white; }
 
 dl {
@@ -747,7 +749,7 @@ asciidoc.install(2);
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph"><p>Version 2.0.0, Oktober 2013, <a href="#_changelog">[Changelog]</a></p></div>
+<div class="paragraph"><p>Version 2.0.2, Dezember 2013</p></div>
 </div>
 </div>
 <div class="sect1">
@@ -807,8 +809,8 @@ Debian first and import them from there.</p></div>
 <li>
 <p>
 <a href="ftp://www.ruby-lang.org/pub/ruby/2.0/">Ruby 2.0.0</a><br>
-  ruby-2.0.0-p247.tar.gz  (ca. 12M)<br>
-  2013-06-27 (Release date)
+  ruby-2.0.0-p353.tar.gz  (ca. 13M)<br>
+  2013-11-22 (Release date)
 </p>
 </li>
 </ul></div>
@@ -836,7 +838,7 @@ Benutzer <em>root</em> für das System durchgeführt.</p></div>
 <div class="listingblock">
 <div class="content monospaced">
 <pre>$ ls -l
--rw-rw-r-- 1 sid sid 13652782 Okt  8 18:30 ruby-2.0.0-p247.tar.gz</pre>
+-rw-rw-r-- 1 sid sid 13572794 Dez  9 18:08 ruby-2.0.0-p353.tar.gz</pre>
 </div></div>
 </td>
 </tr></table>
@@ -863,7 +865,7 @@ Programm-Pakete installiert sind.</p></div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_installation_ruby_2_0_0_p247">Installation: Ruby 2.0.0-p247</h2>
+<h2 id="_installation_ruby_2_0_0_p353">Installation: Ruby 2.0.0-p353</h2>
 <div class="sectionbody">
 <div class="paragraph"><p>Zusätzliche Software-Pakete
 sollten im Verzeichnis <em>/opt</em> (Optional) installiert werden.</p></div>
@@ -884,17 +886,17 @@ Beispiel für die Änderung des Installations-Verzeichnisses:
 <div class="paragraph"><p><strong>Step 1:</strong> Auspacken des Source-Code</p></div>
 <div class="listingblock">
 <div class="content monospaced">
-<pre>$ tar xvzf ruby-2.0.0-p247.tar.gz
-$ cd ruby-2.0.0-p247</pre>
+<pre>$ tar xvzf ruby-2.0.0-p353.tar.gz
+$ cd ruby-2.0.0-p353</pre>
 </div></div>
 <div class="paragraph"><p><strong>Step 2:</strong> Ziel-Verzeichnis anlegen, Konfiguration erstellen und kompilieren</p></div>
 <div class="listingblock">
 <div class="content monospaced">
-<pre>$ sudo mkdir -p /opt/Ruby/ruby-2.0.0-p247</pre>
+<pre>$ sudo mkdir -p /opt/Ruby/ruby-2.0.0-p353</pre>
 </div></div>
 <div class="listingblock">
 <div class="content monospaced">
-<pre>$ ./configure --prefix=/opt/Ruby/ruby-2.0.0-p247 | tee ../log.ruby_configure
+<pre>$ ./configure --prefix=/opt/Ruby/ruby-2.0.0-p353 | tee ../log.ruby_configure
 checking build system type... x86_64-unknown-linux-gnu
 checking host system type... x86_64-unknown-linux-gnu
 checking target system type... x86_64-unknown-linux-gnu
@@ -928,24 +930,25 @@ compiling main.c
 [...]
 Generating RDoc documentation
 
-Generating RI format into /yggdrasil/PrecisePangolin/Ruby20/ruby-2.0.0-p247/.ext/rdoc...
+Generating RI format into /yggdrasil/PrecisePangolin/Ruby20/ruby-2.0.0-p353/.ext/rdoc...
 
 Files:        905
 
 Classes:     1411 (   0 undocumented)
 Modules:      312 (   4 undocumented)
 Constants:   2282 ( 724 undocumented)
-Attributes:  1138 ( 340 undocumented)
-Methods:    10863 (2552 undocumented)
+Attributes:  1137 ( 340 undocumented)
+Methods:    10864 (2556 undocumented)
 
-Total:      16006 (3620 undocumented)
- 77.38% documented
+Total:      16006 (3624 undocumented)
+ 77.36% documented
 
-Elapsed: 160.8s</pre>
+Elapsed: 158.7s</pre>
 </div></div>
 <div class="listingblock">
 <div class="content monospaced">
 <pre>$ make test | tee ../log.ruby_make-test
+[...]
 sample/test.rb:assignment ...................[...viele...]...OK 372   <img src="./images/icons/callouts/1.png" alt="1">
 sample/test.rb:condition ..OK 2
 sample/test.rb:if/unless ...OK 3
@@ -957,9 +960,9 @@ test succeeded
 PASS all 964 tests
 ./miniruby -I./lib -I. -I.ext/common  ./tool/runruby.rb --extout=.ext  --
   --disable-gems "./bootstraptest/runner.rb" --ruby="ruby"   ./KNOWNBUGS.rb
-2013-10-08 18:44:10 +0200
-Driver is ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-linux]
-Target is ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-linux]
+2013-12-09 18:30:14 +0100
+Driver is ruby 2.0.0p353 (2013-11-22 revision 43784) [x86_64-linux]
+Target is ruby 2.0.0p353 (2013-11-22 revision 43784) [x86_64-linux]
 
 KNOWNBUGS.rbPASS 0   <img src="./images/icons/callouts/2.png" alt="2">
 No tests, no problem</pre>
@@ -988,11 +991,8 @@ Entwickler-Bibliotheken (libNAME-dev) zusätzlich installiert werden.</p></div>
 <pre>$ grep Failed ../log.ruby_make-all
 Failed to configure -test-/win32/dln. It will not be installed.
 Failed to configure -test-/win32/fd_setsize. It will not be installed.
-Failed to configure dbm. It will not be installed.
 Failed to configure dl/win32. It will not be installed.
-Failed to configure fiddle. It will not be installed.
 Failed to configure fiddle/win32. It will not be installed.
-Failed to configure gdbm. It will not be installed.
 Failed to configure tk. It will not be installed.
 Failed to configure tk/tkutil. It will not be installed.
 Failed to configure win32ole. It will not be installed.</pre>
@@ -1022,30 +1022,32 @@ Total:      0 (0 undocumented)
   0.00% documented
 
 Elapsed: 0.0s
-./miniruby -I./lib -I. -I.ext/common  ./tool/rbinstall.rb
-                       --make="make" --dest-dir="" --extout=".ext" --mflags=""
-                       --make-flags="" --data-mode=0644 --prog-mode=0755
-                       --installed-list .installed.list --mantype="doc" --install=all
-                       --rdoc-output=".ext/rdoc"
-installing binary commands:   /opt/Ruby/ruby-2.0.0-p247/bin
-installing base libraries:    /opt/Ruby/ruby-2.0.0-p247/lib
-installing arch files:        /opt/Ruby/ruby-2.0.0-p247/lib/ruby/2.0.0/x86_64-linux
-installing pkgconfig data:    /opt/Ruby/ruby-2.0.0-p247/lib/pkgconfig
-installing extension objects: /opt/Ruby/ruby-2.0.0-p247/lib/ruby/2.0.0/x86_64-linux
-installing extension objects: /opt/Ruby/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/x86_64-linux
-installing extension objects: /opt/Ruby/ruby-2.0.0-p247/lib/ruby/vendor_ruby/2.0.0/x86_64-linux
-installing extension headers: /opt/Ruby/ruby-2.0.0-p247/include/ruby-2.0.0/x86_64-linux
-installing extension scripts: /opt/Ruby/ruby-2.0.0-p247/lib/ruby/2.0.0
-installing extension scripts: /opt/Ruby/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0
-installing extension scripts: /opt/Ruby/ruby-2.0.0-p247/lib/ruby/vendor_ruby/2.0.0
-installing extension headers: /opt/Ruby/ruby-2.0.0-p247/include/ruby-2.0.0/ruby
-installing rdoc:              /opt/Ruby/ruby-2.0.0-p247/share/ri/2.0.0/system
-installing capi-docs:         /opt/Ruby/ruby-2.0.0-p247/share/doc/ruby
-installing command scripts:   /opt/Ruby/ruby-2.0.0-p247/bin
-installing library scripts:   /opt/Ruby/ruby-2.0.0-p247/lib/ruby/2.0.0
-installing common headers:    /opt/Ruby/ruby-2.0.0-p247/include/ruby-2.0.0
-installing manpages:          /opt/Ruby/ruby-2.0.0-p247/share/man/man1
-installing default gems:      /opt/Ruby/ruby-2.0.0-p247/lib/ruby/gems/2.0.0 (build_info, cache, doc, gems, specifications)
+config.status: creating x86_64-linux-fake.rb
+./miniruby -I./lib -I. -I.ext/common  ./tool/runruby.rb --extout=.ext  --
+           --disable-gems -r./x86_64-linux-fake ./tool/rbinstall.rb
+           --make="make" --dest-dir="" --extout=".ext" --mflags=""
+           --make-flags="" --data-mode=0644 --prog-mode=0755
+           --installed-list .installed.list --mantype="doc"
+           --install=all --rdoc-output=".ext/rdoc"
+installing binary commands:   /opt/Ruby/ruby-2.0.0-p353/bin
+installing base libraries:    /opt/Ruby/ruby-2.0.0-p353/lib
+installing arch files:        /opt/Ruby/ruby-2.0.0-p353/lib/ruby/2.0.0/x86_64-linux
+installing pkgconfig data:    /opt/Ruby/ruby-2.0.0-p353/lib/pkgconfig
+installing extension objects: /opt/Ruby/ruby-2.0.0-p353/lib/ruby/2.0.0/x86_64-linux
+installing extension objects: /opt/Ruby/ruby-2.0.0-p353/lib/ruby/site_ruby/2.0.0/x86_64-linux
+installing extension objects: /opt/Ruby/ruby-2.0.0-p353/lib/ruby/vendor_ruby/2.0.0/x86_64-linux
+installing extension headers: /opt/Ruby/ruby-2.0.0-p353/include/ruby-2.0.0/x86_64-linux
+installing extension scripts: /opt/Ruby/ruby-2.0.0-p353/lib/ruby/2.0.0
+installing extension scripts: /opt/Ruby/ruby-2.0.0-p353/lib/ruby/site_ruby/2.0.0
+installing extension scripts: /opt/Ruby/ruby-2.0.0-p353/lib/ruby/vendor_ruby/2.0.0
+installing extension headers: /opt/Ruby/ruby-2.0.0-p353/include/ruby-2.0.0/ruby
+installing rdoc:              /opt/Ruby/ruby-2.0.0-p353/share/ri/2.0.0/system
+installing capi-docs:         /opt/Ruby/ruby-2.0.0-p353/share/doc/ruby
+installing command scripts:   /opt/Ruby/ruby-2.0.0-p353/bin
+installing library scripts:   /opt/Ruby/ruby-2.0.0-p353/lib/ruby/2.0.0
+installing common headers:    /opt/Ruby/ruby-2.0.0-p353/include/ruby-2.0.0
+installing manpages:          /opt/Ruby/ruby-2.0.0-p353/share/man/man1
+installing default gems:      /opt/Ruby/ruby-2.0.0-p353/lib/ruby/gems/2.0.0 (build_info, cache, doc, gems, specifications)
                               bigdecimal 1.2.0
                               io-console 0.4.2
                               json 1.7.7
@@ -1058,34 +1060,34 @@ installing default gems:      /opt/Ruby/ruby-2.0.0-p247/lib/ruby/gems/2.0.0 (bui
 <div class="paragraph"><p><strong>Step 4:</strong> Installation verifizieren</p></div>
 <div class="listingblock">
 <div class="content monospaced">
-<pre>$ cd /opt/Ruby/ruby-2.0.0-p247
+<pre>$ cd /opt/Ruby/ruby-2.0.0-p353
 $ ls -l
-drwxr-xr-x 2 root root 4096 Okt  8 18:46 bin
-drwxr-xr-x 3 root root 4096 Okt  8 18:46 include
-drwxr-xr-x 4 root root 4096 Okt  8 18:46 lib
-drwxr-xr-x 5 root root 4096 Okt  8 18:46 share</pre>
+drwxr-xr-x 2 root root 4096 Dez  9 18:32 bin
+drwxr-xr-x 3 root root 4096 Dez  9 18:32 include
+drwxr-xr-x 4 root root 4096 Dez  9 18:32 lib
+drwxr-xr-x 5 root root 4096 Dez  9 18:32 share</pre>
 </div></div>
 <div class="listingblock">
 <div class="content monospaced">
 <pre>$ ls -l bin
--rwxr-xr-x 1 root root     4414 Okt  8 18:46 erb
--rwxr-xr-x 1 root root      563 Okt  8 18:46 gem
--rwxr-xr-x 1 root root      335 Okt  8 18:46 irb
--rwxr-xr-x 1 root root     1337 Okt  8 18:46 rake
--rwxr-xr-x 1 root root      955 Okt  8 18:46 rdoc
--rwxr-xr-x 1 root root      205 Okt  8 18:46 ri
--rwxr-xr-x 1 root root 17727947 Okt  8 18:37 ruby
--rwxr-xr-x 1 root root       95 Okt  8 18:46 testrb</pre>
+-rwxr-xr-x 1 root root     4414 Dez  9 18:32 erb
+-rwxr-xr-x 1 root root      563 Dez  9 18:32 gem
+-rwxr-xr-x 1 root root      335 Dez  9 18:32 irb
+-rwxr-xr-x 1 root root     1337 Dez  9 18:32 rake
+-rwxr-xr-x 1 root root      955 Dez  9 18:32 rdoc
+-rwxr-xr-x 1 root root      205 Dez  9 18:32 ri
+-rwxr-xr-x 1 root root 17653973 Dez  9 18:25 ruby
+-rwxr-xr-x 1 root root       95 Dez  9 18:32 testrb</pre>
 </div></div>
-<div class="paragraph"><p><strong>Step 5:</strong> Der Pfad zum Verzeichnis <em>/opt/Ruby/ruby-2.0.0-p247/bin</em> muß gesetzt werden.</p></div>
+<div class="paragraph"><p><strong>Step 5:</strong> Der Pfad zum Verzeichnis <em>/opt/Ruby/ruby-2.0.0-p353/bin</em> muß gesetzt werden.</p></div>
 <div class="listingblock">
 <div class="content monospaced">
 <pre>$ cd /opt/Ruby/
-$ sudo ln -s ruby-2.0.0-p247 current20
+$ sudo ln -s ruby-2.0.0-p353 current20
 
 $ ls -l
 lrwxrwxrwx 1 root root   15 Okt  8 16:29 current -&gt; ruby-1.9.3-p448
-lrwxrwxrwx 1 root root   15 Okt  8 18:48 current20 -&gt; ruby-2.0.0-p247
+lrwxrwxrwx 1 root root   15 Okt  8 18:48 current20 -&gt; ruby-2.0.0-p353
 drwxr-xr-x 6 root root 4096 Jan  4  2012 ruby-1.9.3-p0
 drwxr-xr-x 7 root root 4096 Okt  4  2012 ruby-1.9.3-p194
 drwxr-xr-x 7 root root 4096 Okt 27 17:52 ruby-1.9.3-p286
@@ -1096,13 +1098,15 @@ drwxr-xr-x 6 root root 4096 Apr 14 10:51 ruby-1.9.3-p392
 drwxr-xr-x 6 root root 4096 Jun  1 15:13 ruby-1.9.3-p429
 drwxr-xr-x 7 root root 4096 Okt  8 16:39 ruby-1.9.3-p448
 -rw-r--r-- 1 root root   45 Jun 23  2011 ruby19.path.sh
-drwxr-xr-x 6 root root 4096 Okt  8 18:46 ruby-2.0.0-p247</pre>
+drwxr-xr-x 7 root root 4096 Okt  8 18:59 ruby-2.0.0-p247
+drwxr-xr-x 6 root root 4096 Dez  9 18:32 ruby-2.0.0-p353
+-rw-r--r-- 1 root root   47 Jul 20 13:11 ruby20.path.sh</pre>
 </div></div>
-<div class="paragraph"><div class="title">Lokal in der aktuellen Shell (1)</div><p>Erstellen Sie eine Datei <em>ruby19.path.sh</em>.</p></div>
+<div class="paragraph"><div class="title">Lokal in der aktuellen Shell (1)</div><p>Erstellen Sie eine Datei <em>ruby20.path.sh</em>.</p></div>
 <div class="listingblock">
 <div class="content monospaced">
 <pre>$ sudo vim ruby20.path.sh
-PATH=/opt/Ruby/current/bin:$PATH
+PATH=/opt/Ruby/current20/bin:$PATH
 export PATH</pre>
 </div></div>
 <div class="admonitionblock">
@@ -1141,7 +1145,7 @@ $ sudo which ruby            <img src="./images/icons/callouts/2.png" alt="2">
 /opt/Ruby/current20/bin/ruby
 
 $ ruby -v                    <img src="./images/icons/callouts/3.png" alt="3">
-ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-linux]</pre>
+ruby 2.0.0p353 (2013-11-22 revision 43784) [x86_64-linux]</pre>
 </div></div>
 <div class="colist arabic"><table>
 <tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
@@ -1167,12 +1171,12 @@ Happy new Ruby</pre>
 irb(main):001:0&gt; RUBY_VERSION
 =&gt; "2.0.0"
 irb(main):002:0&gt; RUBY_PATCHLEVEL
-=&gt; 247
+=&gt; 353
 irb(main):003:0&gt; Time.now.to_s
-=&gt; "2013-10-08 18:49:59 +0200"
+=&gt; "2013-12-09 18:39:12 +0100"
 irb(main):004:0&gt; Time.now.sunday?
 =&gt; false
-irb(main):005:0&gt; Time.now.tuesday?
+irb(main):005:0&gt; Time.now.monday?
 =&gt; true
 irb(main):006:0&gt; exit</pre>
 </div></div>
@@ -1244,7 +1248,7 @@ $ sudo su -
 <div class="listingblock">
 <div class="content monospaced">
 <pre>$ gem -v
-2.0.3
+2.0.14
 
 $ gem list --local
 
@@ -1264,22 +1268,22 @@ test-unit (2.0.0.0)</pre>
 <div class="content monospaced">
 <pre># gem update --system
 Updating rubygems-update
-Fetching: rubygems-update-2.1.5.gem (100%)
-Successfully installed rubygems-update-2.1.5
-Parsing documentation for rubygems-update-2.1.5
-Installing ri documentation for rubygems-update-2.1.5
-Installing darkfish documentation for rubygems-update-2.1.5
-Installing RubyGems 2.1.5
-RubyGems 2.1.5 installed
-Parsing documentation for rubygems-2.1.5
-Installing ri documentation for rubygems-2.1.5
+Fetching: rubygems-update-2.1.11.gem (100%)
+Successfully installed rubygems-update-2.1.11
+Parsing documentation for rubygems-update-2.1.11
+Installing ri documentation for rubygems-update-2.1.11
+Installing darkfish documentation for rubygems-update-2.1.11
+Installing RubyGems 2.1.11
+RubyGems 2.1.11 installed
+Parsing documentation for rubygems-2.1.11
+Installing ri documentation for rubygems-2.1.11
 
 [...]
 
  -----------------------------------------------------------------------------
 
 RubyGems installed the following executables:
-              /opt/Ruby/ruby-2.0.0-p247/bin/gem
+              /opt/Ruby/ruby-2.0.0-p353/bin/gem
 
 Ruby Interactive (ri) documentation was installed. ri is kind of like man
 pages for ruby libraries. You may access it like this:
@@ -1298,40 +1302,40 @@ RubyGems system software updated</pre>
 <pre># gem update
 Updating installed gems
 Updating bigdecimal
-Fetching: bigdecimal-1.2.1.gem (100%)
+Fetching: bigdecimal-1.2.3.gem (100%)
 Building native extensions.  This could take a while...
-Successfully installed bigdecimal-1.2.1
-Parsing documentation for bigdecimal-1.2.1
-unable to convert "\xC8" from ASCII-8BIT to UTF-8 for bigdecimal.o, skipping
-unable to convert "\x80" from ASCII-8BIT to UTF-8 for bigdecimal.so, skipping
-Installing ri documentation for bigdecimal-1.2.1
-Installing darkfish documentation for bigdecimal-1.2.1
+Successfully installed bigdecimal-1.2.3
+Parsing documentation for bigdecimal-1.2.3
+unable to convert "\xC0" from ASCII-8BIT to UTF-8 for bigdecimal.o, skipping
+unable to convert "\xD0" from ASCII-8BIT to UTF-8 for bigdecimal.so, skipping
+Installing ri documentation for bigdecimal-1.2.3
+Installing darkfish documentation for bigdecimal-1.2.3
 Updating json
-Fetching: json-1.8.0.gem (100%)
+Fetching: json-1.8.1.gem (100%)
 Building native extensions.  This could take a while...
-Successfully installed json-1.8.0
-Parsing documentation for json-1.8.0
+Successfully installed json-1.8.1
+Parsing documentation for json-1.8.1
 unable to convert "\xE0" from ASCII-8BIT to UTF-8 for lib/json/ext/generator.so, skipping
 unable to convert "\xF8" from ASCII-8BIT to UTF-8 for lib/json/ext/parser.so, skipping
-Installing ri documentation for json-1.8.0
-Installing darkfish documentation for json-1.8.0
+Installing ri documentation for json-1.8.1
+Installing darkfish documentation for json-1.8.1
 Updating minitest
-Fetching: minitest-5.0.8.gem (100%)
-Successfully installed minitest-5.0.8
-Parsing documentation for minitest-5.0.8
-Installing ri documentation for minitest-5.0.8
-Installing darkfish documentation for minitest-5.0.8
+Fetching: minitest-5.1.0.gem (100%)
+Successfully installed minitest-5.1.0
+Parsing documentation for minitest-5.1.0
+Installing ri documentation for minitest-5.1.0
+Installing darkfish documentation for minitest-5.1.0
 Updating psych
-Fetching: psych-2.0.1.gem (100%)
+Fetching: psych-2.0.2.gem (100%)
 Building native extensions.  This could take a while...
-Successfully installed psych-2.0.1
-Parsing documentation for psych-2.0.1
-unable to convert "\xD8" from ASCII-8BIT to UTF-8 for lib/psych.so, skipping
-Installing ri documentation for psych-2.0.1
-Installing darkfish documentation for psych-2.0.1
+Successfully installed psych-2.0.2
+Parsing documentation for psych-2.0.2
+unable to convert "\xE0" from ASCII-8BIT to UTF-8 for lib/psych.so, skipping
+Installing ri documentation for psych-2.0.2
+Installing darkfish documentation for psych-2.0.2
 Updating rake
 Fetching: rake-10.1.0.gem (100%)
-rake's executable "rake" conflicts with /opt/Ruby/ruby-2.0.0-p247/bin/rake
+rake's executable "rake" conflicts with /opt/Ruby/ruby-2.0.0-p353/bin/rake
 Overwrite the executable? [yN]  y   <img src="./images/icons/callouts/1.png" alt="1">
 Successfully installed rake-10.1.0
 Parsing documentation for rake-10.1.0
@@ -1339,9 +1343,9 @@ Installing ri documentation for rake-10.1.0
 Installing darkfish documentation for rake-10.1.0
 Updating rdoc
 Fetching: rdoc-4.0.1.gem (100%)
-rdoc's executable "rdoc" conflicts with /opt/Ruby/ruby-2.0.0-p247/bin/rdoc
+rdoc's executable "rdoc" conflicts with /opt/Ruby/ruby-2.0.0-p353/bin/rdoc
 Overwrite the executable? [yN]  y
-rdoc's executable "ri" conflicts with /opt/Ruby/ruby-2.0.0-p247/bin/ri
+rdoc's executable "ri" conflicts with /opt/Ruby/ruby-2.0.0-p353/bin/ri
 Overwrite the executable? [yN]  y
 Depending on your version of ruby, you may need to install ruby rdoc/ri data:
 
@@ -1375,14 +1379,14 @@ Sieben <em>Gems</em> aktualisiert!
 
 *** LOCAL GEMS ***
 
-bigdecimal (1.2.1, 1.2.0)
+bigdecimal (1.2.3, 1.2.0)
 io-console (0.4.2)
-json (1.8.0, 1.7.7)
-minitest (5.0.8, 4.3.2)
-psych (2.0.1, 2.0.0)
+json (1.8.1, 1.7.7)
+minitest (5.1.0, 4.3.2)
+psych (2.0.2, 2.0.0)
 rake (10.1.0, 0.9.6)   <img src="./images/icons/callouts/1.png" alt="1">
 rdoc (4.0.1, 4.0.0)
-rubygems-update (2.1.5)
+rubygems-update (2.1.11)
 test-unit (2.5.5, 2.0.0.0)</pre>
 </div></div>
 <div class="colist arabic"><table>
@@ -1401,7 +1405,7 @@ Couldn't find file to include 'README.txt' from lib/ruby/2.0.0/minitest/unit.rb
 Before reporting this, could you check that the file you're documentingdex.js
 has proper syntax:
 
-  /opt/Ruby/ruby-2.0.0-p247/bin/ruby -c lib/ruby/gems/2.0.0/doc/rdoc-4.0.1/rdoc/js/search_index.js
+  /opt/Ruby/ruby-2.0.0-p353/bin/ruby -c lib/ruby/gems/2.0.0/doc/rdoc-4.0.1/rdoc/js/search_index.js
 
 RDoc is not a full Ruby parser and will fail when fed invalid ruby programs.
 
@@ -1416,7 +1420,7 @@ run with --debug for full backtrace</pre>
 </div></div>
 <div class="colist arabic"><table>
 <tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
-Entspricht: <em>/opt/Ruby/ruby-2.0.0-p247</em>
+Entspricht: <em>/opt/Ruby/ruby-2.0.0-p353</em>
 </td></tr>
 <tr><td><img src="./images/icons/callouts/2.png" alt="2"></td><td>
 Das Problem habe ich bisher nicht gefixed :-(
@@ -1425,47 +1429,27 @@ Das Problem habe ich bisher nicht gefixed :-(
 </div>
 </div>
 <div class="sect1">
-<h2 id="_installation_ruby_on_rails_4_0_0">Installation: Ruby on Rails 4.0.0</h2>
+<h2 id="_installation_ruby_on_rails_4_0_2">Installation: Ruby on Rails 4.0.2</h2>
 <div class="sectionbody">
 <div class="paragraph"><p><strong>Step 0</strong></p></div>
 <div class="listingblock">
 <div class="content monospaced">
 <pre># gem search ^rails$ --remote
+
 *** REMOTE GEMS ***
-rails (4.0.0)</pre>
+
+rails (4.0.2)</pre>
 </div></div>
 <div class="paragraph"><p><strong>Step 1:</strong> Wichtig ist hier die Systemweite Installation von
-Rails 4.0.0 mit dem Benutzer <em>root</em>.</p></div>
+Rails 4.0.2 mit dem Benutzer <em>root</em>.</p></div>
 <div class="listingblock">
 <div class="content monospaced">
-<pre># gem install rails --rdoc --ri
-Fetching: i18n-0.6.5.gem (100%)
-Successfully installed i18n-0.6.5
+<pre># gem install rails --no-rdoc --no-ri
+Fetching: i18n-0.6.9.gem (100%)
+Successfully installed i18n-0.6.9
 [...]
-Fetching: rails-4.0.0.gem (100%)
-Successfully installed rails-4.0.0
-Parsing documentation for actionmailer-4.0.0
-Installing ri documentation for actionmailer-4.0.0
-Installing darkfish documentation for actionmailer-4.0.0
-[...]
-Parsing documentation for builder-3.1.4
-/opt/Ruby/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/rdoc-4.0.1/lib/rdoc/parser.rb:87: warning: Unsupported encoding : ignored
-/opt/Ruby/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/rdoc-4.0.1/lib/rdoc/parser.rb:87: warning: Unsupported encoding  ignored
-/opt/Ruby/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/rdoc-4.0.1/lib/rdoc/parser.rb:87: warning: Unsupported encoding : ignored
-/opt/Ruby/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/rdoc-4.0.1/lib/rdoc/parser.rb:87: warning: Unsupported encoding  ignored
-Installing ri documentation for builder-3.1.4
-Installing darkfish documentation for builder-3.1.4
-[...]
-Parsing documentation for tzinfo-0.3.37
-Installing ri documentation for tzinfo-0.3.37
-Installing darkfish documentation for tzinfo-0.3.37
-Done installing documentation for
-  actionmailer, actionpack, activemodel, activerecord,
-  activerecord-deprecated_finders, activesupport, arel, atomic,
-  builder, bundler, erubis, hike, i18n, mail, mime-types, multi_json,
-  polyglot, rack, rack-test, rails, railties, sprockets, sprockets-rails,
-  thor, thread_safe, tilt, treetop, tzinfo
-  after 596 seconds
+Fetching: rails-4.0.2.gem (100%)
+Successfully installed rails-4.0.2
 28 gems installed     <img src="./images/icons/callouts/1.png" alt="1"></pre>
 </div></div>
 <div class="colist arabic"><table>
@@ -1484,14 +1468,14 @@ Für das Framework <em>Ruby on Rails</em> wurden 28 RubyGems installiert.<br>
 <div class="paragraph"><p>Alternativ kann Rails mit der Angabe einer Version installiert werden.</p></div>
 <div class="listingblock">
 <div class="content monospaced">
-<pre># gem install rails --version 4.0.0
+<pre># gem install rails --version 4.0.2
 
-# gem install rails --version '~&gt; 4.0.0'   <img src="./images/icons/callouts/1.png" alt="1"></pre>
+# gem install rails --version '~&gt; 4.0.2'   <img src="./images/icons/callouts/1.png" alt="1"></pre>
 </div></div>
 <div class="colist arabic"><table>
 <tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
-Twiddle Wakka: <em>~&gt; 4.0.0</em> bedeutet, das die höchste Gem-Version von Rails
-    im Bereich von &gt;= 4.0.0 und &lt; 4.1 installiert wird.
+Twiddle Wakka: <em>~&gt; 4.0.2</em> bedeutet, das die höchste Gem-Version von Rails
+    im Bereich von &gt;= 4.0.2 und &lt; 4.1 installiert wird.
 </td></tr>
 </table></div>
 </td>
@@ -1503,77 +1487,73 @@ Twiddle Wakka: <em>~&gt; 4.0.0</em> bedeutet, das die höchste Gem-Version von R
 
 *** LOCAL GEMS ***
 
-actionmailer (4.0.0)
-actionpack (4.0.0)
-activemodel (4.0.0)
-activerecord (4.0.0)
+actionmailer (4.0.2)
+actionpack (4.0.2)
+activemodel (4.0.2)
+activerecord (4.0.2)
 activerecord-deprecated_finders (1.0.3)
-activesupport (4.0.0)
-arel (4.0.0)
+activesupport (4.0.2)
+arel (4.0.1)
 atomic (1.1.14)
-bigdecimal (1.2.1, 1.2.0)
+bigdecimal (1.2.3, 1.2.0)
 builder (3.1.4)
 bundler (1.3.5)
 erubis (2.7.0)
 hike (1.2.3)
-i18n (0.6.5)
+i18n (0.6.9)
 io-console (0.4.2)
-json (1.8.0, 1.7.7)
+json (1.8.1, 1.7.7)
 mail (2.5.4)
-mime-types (1.25)
-minitest (5.0.8, 4.3.2)
-multi_json (1.8.1)
+mime-types (1.25.1)
+minitest (5.1.0, 4.3.2)
+multi_json (1.8.2)
 polyglot (0.3.3)
-psych (2.0.1, 2.0.0)
+psych (2.0.2, 2.0.0)
 rack (1.5.2)
 rack-test (0.6.2)
-rails (4.0.0)
-railties (4.0.0)
+rails (4.0.2)
+railties (4.0.2)
 rake (10.1.0, 0.9.6)
 rdoc (4.0.1, 4.0.0)
-rubygems-update (2.1.5)
-sprockets (2.10.0)
-sprockets-rails (2.0.0)
+rubygems-update (2.1.11)
+sprockets (2.10.1)
+sprockets-rails (2.0.1)
 test-unit (2.5.5, 2.0.0.0)
 thor (0.18.1)
 thread_safe (0.1.3)
 tilt (1.4.1)
 treetop (1.4.15)
-tzinfo (0.3.37)</pre>
+tzinfo (0.3.38)</pre>
 </div></div>
 <div class="listingblock">
 <div class="content monospaced">
 <pre>$ cd /opt/Ruby/current20
 $ ls -l bin
--rwxr-xr-x 1 root root      478 Okt  8 19:03 bundle
--rwxr-xr-x 1 root root     4414 Okt  8 18:46 erb
--rwxr-xr-x 1 root root      475 Okt  8 19:02 erubis
--rwxr-xr-x 1 root root      563 Okt  8 18:46 gem
--rwxr-xr-x 1 root root      335 Okt  8 18:46 irb
--rwxr-xr-x 1 root root      469 Okt  8 19:02 rackup
--rwxr-xr-x 1 root root      480 Okt  8 19:02 rails
--rwxr-xr-x 1 root root      467 Okt  8 18:55 rake
--rwxr-xr-x 1 root root      467 Okt  8 18:56 rdoc
--rwxr-xr-x 1 root root      465 Okt  8 18:56 ri
--rwxr-xr-x 1 root root 17727947 Okt  8 18:37 ruby
--rwxr-xr-x 1 root root      487 Okt  8 19:03 sprockets
--rwxr-xr-x 1 root root       95 Okt  8 18:46 testrb
--rwxr-xr-x 1 root root      467 Okt  8 19:02 thor
--rwxr-xr-x 1 root root      467 Okt  8 19:03 tilt
--rwxr-xr-x 1 root root      474 Okt  8 19:02 tt
--rwxr-xr-x 1 root root      511 Okt  8 18:51 update_rubygems</pre>
+-rwxr-xr-x 1 root root      478 Dez  9 18:49 bundle
+-rwxr-xr-x 1 root root     4414 Dez  9 18:32 erb
+-rwxr-xr-x 1 root root      475 Dez  9 18:49 erubis
+-rwxr-xr-x 1 root root      563 Dez  9 18:32 gem
+-rwxr-xr-x 1 root root      335 Dez  9 18:32 irb
+-rwxr-xr-x 1 root root      469 Dez  9 18:49 rackup
+-rwxr-xr-x 1 root root      480 Dez  9 18:49 rails
+-rwxr-xr-x 1 root root      467 Dez  9 18:43 rake
+-rwxr-xr-x 1 root root      467 Dez  9 18:43 rdoc
+-rwxr-xr-x 1 root root      465 Dez  9 18:43 ri
+-rwxr-xr-x 1 root root 17653973 Dez  9 18:25 ruby
+-rwxr-xr-x 1 root root      487 Dez  9 18:49 sprockets
+-rwxr-xr-x 1 root root       95 Dez  9 18:32 testrb
+-rwxr-xr-x 1 root root      467 Dez  9 18:49 thor
+-rwxr-xr-x 1 root root      467 Dez  9 18:49 tilt
+-rwxr-xr-x 1 root root      474 Dez  9 18:49 tt
+-rwxr-xr-x 1 root root      511 Dez  9 18:41 update_rubygems</pre>
 </div></div>
 <div class="paragraph"><p><strong>Step 2:</strong> Installation der Datenbank-Treiber mit dem Benutzer <em>root</em>.</p></div>
 <div class="listingblock">
 <div class="content monospaced">
-<pre># gem install mysql2 --rdoc --ri
-Fetching: mysql2-0.3.13.gem (100%)
+<pre># gem install mysql2 --no-rdoc --no-ri
+Fetching: mysql2-0.3.14.gem (100%)
 Building native extensions.  This could take a while...
-Successfully installed mysql2-0.3.13
-Parsing documentation for mysql2-0.3.13
-Installing ri documentation for mysql2-0.3.13
-Installing darkfish documentation for mysql2-0.3.13
-Done installing documentation for mysql2 after 0 seconds
+Successfully installed mysql2-0.3.14
 1 gem installed</pre>
 </div></div>
 <div class="admonitionblock">
@@ -1594,14 +1574,10 @@ Dementsprechend mu&szlig; f&uuml;r <em>Rails 3.0.x</em> eine älterere Version i
 </div>
 <div class="listingblock">
 <div class="content monospaced">
-<pre># gem install sqlite3 --rdoc --ri   <img src="./images/icons/callouts/1.png" alt="1">
+<pre># gem install sqlite3 --no-rdoc --no-ri   <img src="./images/icons/callouts/1.png" alt="1">
 Fetching: sqlite3-1.3.8.gem (100%)
 Building native extensions.  This could take a while...
 Successfully installed sqlite3-1.3.8
-Parsing documentation for sqlite3-1.3.8
-Installing ri documentation for sqlite3-1.3.8
-Installing darkfish documentation for sqlite3-1.3.8
-Done installing documentation for sqlite3 after 2 seconds
 1 gem installed</pre>
 </div></div>
 <div class="colist arabic"><table>
@@ -1629,18 +1605,11 @@ dependencies accordingly.</p></div>
 <div class="paragraph"><p><strong>Step 3:</strong> Erweiterungen</p></div>
 <div class="listingblock">
 <div class="content monospaced">
-<pre># gem install sinatra --rdoc --ri   <img src="./images/icons/callouts/1.png" alt="1">
-Fetching: rack-protection-1.5.0.gem (100%)
-Successfully installed rack-protection-1.5.0
-Fetching: sinatra-1.4.3.gem (100%)
-Successfully installed sinatra-1.4.3
-Parsing documentation for rack-protection-1.5.0
-Installing ri documentation for rack-protection-1.5.0
-Installing darkfish documentation for rack-protection-1.5.0
-Parsing documentation for sinatra-1.4.3
-Installing ri documentation for sinatra-1.4.3
-Installing darkfish documentation for sinatra-1.4.3
-Done installing documentation for rack-protection, sinatra after 683 seconds
+<pre># gem install sinatra --no-rdoc --no-ri   <img src="./images/icons/callouts/1.png" alt="1">
+Fetching: rack-protection-1.5.1.gem (100%)
+Successfully installed rack-protection-1.5.1
+Fetching: sinatra-1.4.4.gem (100%)
+Successfully installed sinatra-1.4.4
 2 gems installed</pre>
 </div></div>
 <div class="colist arabic"><table>
@@ -1683,13 +1652,14 @@ Server started at http://0.0.0.0:8808</pre>
 <div class="sect1">
 <h2 id="_anhang">Anhang</h2>
 <div class="sectionbody">
+<div class="paragraph"><p>Script zum Installieren von Ruby 2.0.0-p353 (ohne weitere Erläuterung).</p></div>
 <div class="listingblock">
-<div class="title">Script zum Installieren von Ruby 2.0.0-p247 (ohne weitere Erläuterung)</div>
+<div class="title">Datei: <span class="monospaced">ruby20-install.sh</span></div>
 <div class="content monospaced">
 <pre>#!/bin/bash
 #
 ME=make_ruby_2.0.0
-NAME=ruby-2.0.0-p247
+NAME=ruby-2.0.0-p353
 TARGET=/opt/Ruby/${NAME}
 
 if [ ! -e $TARGET ]
@@ -1738,7 +1708,7 @@ echo "$ME: Ende."</pre>
 <div id="footnotes"><hr></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2013-10-17 19:57:51 CEST
+Last updated 2013-12-12 20:51:29 CET
 </div>
 </div>
 </body>

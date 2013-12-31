@@ -19,7 +19,7 @@ Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;
 :java-koerper-url: http://www.arndt-bruenner.de/mathe/java/koerper3d.htm
 
 
-Version 2.0.1, Oktober 2013, <<_changelog,[Changelog]>>
+Version 2.0.2, Dezember 2013
 
 
 Abstract
@@ -195,8 +195,8 @@ OpenJDK 64-Bit Server VM (build 23.7-b01, mixed mode)
 ----   
 
  
-Installation: Oracle JDK
-------------------------
+Installation: Oracle JDK 7
+--------------------------
 Wie auch immer, einige Ubuntu-Anwender benötigen das Oracle JDK. +
 Empfohlen wird die jeweils neueste Version - zu diesem Zeitpunkt ist das: 
 _Java SE Development Kit 7u45_.
@@ -297,7 +297,9 @@ und die mit _Java_ im Besonderen immer im Blick haben... +
 
 Anhang
 ------
-.Script zum Setzen der Umgebung für das JDK (ohne weitere Erläuterung)
+Script zum Setzen der Umgebung für das Oracle JDK (ohne weitere Erläuterung).
+
+.Datei: +java.path.sh+
 ----
 JAVA_BINDIR=/opt/Java/current/bin
 JAVA_HOME=/opt/Java/current

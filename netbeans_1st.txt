@@ -24,13 +24,13 @@ Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;
 :netbeans-url: link:netbeans.html
 
 
-Version 2.0.0, Oktober 2013, <<_changelog,[Changelog]>>
+Version 2.0.2, Dezember 2013
 
 
 Abstract
 --------
 Die folgenden Schritte stellen die Funktionsfähigkeit der Installation 
-von _NetBeans IDE 7.3.1_ (kurz: _NetBeans_) sicher. 
+von _NetBeans IDE 7.4_ (kurz: _NetBeans_) sicher. 
 
 Der Artikel ist in {asciidoc-url}[AsciiDoc] erstellt worden.
 
@@ -49,17 +49,17 @@ Vorraussetzungen
 ----------------
 Die _NetBeans IDE_ ist wie in
 
-* {netbeans-url}[Installation in Ubuntu: NetBeans IDE 7.3.1]
+* {netbeans-url}[Installation in Ubuntu: NetBeans IDE 7.4]
  
 beschrieben durchgeführt worden.
 
 
 Erste Schritte &hellip;
 -----------------------
-Die notwendigen Schritte werden in der _NetBeans IDE 7.3.1_ durchgeführt.
+Die notwendigen Schritte werden in der _NetBeans IDE 7.4_ durchgeführt.
 
 .Vorgehensweise
-- NetBeans IDE 7.3.1 &middot; New Project 
+- NetBeans IDE 7.4 &middot; New Project 
 - 1. Choose Project 
 - 2. Name and Location
 - 3. Database Configuration 
@@ -69,56 +69,54 @@ Die notwendigen Schritte werden in der _NetBeans IDE 7.3.1_ durchgeführt.
 - Aufruf der Webanwendung im Browser
 
 
-NetBeans IDE 7.3.1 &middot; New Project
+NetBeans IDE 7.4 &middot; New Project
 ---------------------------------------
-image::images/netbeans/ror01_NetBeans_IDE_7.3.1.jpeg[NetBeans-IDE 7.3.1 &middot; Startpage] 
+image::images/netbeans/ror01_NetBeans_IDE_7.4.jpeg[NetBeans-IDE 7.4 &middot; Startpage] 
 
-image::images/netbeans/ror02_NetBeans_IDE_7.3.1.jpeg[NetBeans-IDE 7.3.1 &middot; New Project]
+image::images/netbeans/ror02_NetBeans_IDE_7.4.jpeg[NetBeans-IDE 7.4 &middot; New Project]
  
 
 1. Choose Project
 -----------------
-image::images/netbeans/ror03_New_Project.jpeg[New Project &middot; Choose Project]
+image::images/netbeans/ror03_New_Project.jpeg[Categories &middot; Projects (Next)]
  
 
 2. Name and Location
 --------------------
-image::images/netbeans/ror04_Enter_Master_Password.jpeg[Enter Master Password &middot; My choice: [Cancel]] 
-
-image::images/netbeans/ror05_New_Ruby_on_Rails_Application.jpeg[New Ruby on Rails Application &middot; Name and Location] 
+image::images/netbeans/ror04_New_Ruby_on_Rails_Application.jpeg[New Ruby on Rails Application &middot; Name and Location] 
 
 
 3. Database Configuration
 -------------------------
-image::images/netbeans/ror06_New_Ruby_on_Rails_Application.jpeg[New Ruby on Rails Application &middot; Database Configuration]
+image::images/netbeans/ror05_New_Ruby_on_Rails_Application.jpeg[New Ruby on Rails Application &middot; Database Configuration]
 
   
 4. Install Rails
 ----------------
-image::images/netbeans/ror07_New_Ruby_on_Rails_Application.jpeg[New Ruby on Rails Application &middot; Install Rails] 
+image::images/netbeans/ror06_New_Ruby_on_Rails_Application.jpeg[New Ruby on Rails Application &middot; Install Rails] 
 
-image::images/netbeans/ror08_RailsApplication1-NetBeans_IDE_7.3.1.jpeg[RailsApplication1 - NetBeans IDE 7.3.1 &middot; Output - Generate Rails Project]
+image::images/netbeans/ror07_RailsApplication1-NetBeans_IDE_7.4.jpeg[RailsApplication1 - NetBeans IDE 7.4 &middot; Output - Generate Rails Project]
 
 
 Create Database
 ---------------
-image::images/netbeans/ror09_RailsApplication1-NetBeans_IDE_7.3.1.jpeg[RailsApplication1 - NetBeans IDE 7.3.1 &middot; Run/Debug Rake Task]
+image::images/netbeans/ror08_RailsApplication1-NetBeans_IDE_7.4.jpeg[RailsApplication1 - NetBeans IDE 7.4 &middot; Run/Debug Rake Task]
 
-image::images/netbeans/ror10_Run-Debug_Rake_Task_RailsApplication1.jpeg[Run-Debug Rake Task (RailsApplication1) &middot; db:create]
+image::images/netbeans/ror09_Run-Debug_Rake_Task_RailsApplication1.jpeg[Run-Debug Rake Task (RailsApplication1) &middot; db:create]
 
-image::images/netbeans/ror11_RailsApplication1-NetBeans_IDE_7.3.1.jpeg[RailsApplication1 - NetBeans IDE 7.3.1 &middot; Output: RailsApplication1 (db:create)]
+image::images/netbeans/ror10_RailsApplication1-NetBeans_IDE_7.4.jpeg[RailsApplication1 - NetBeans IDE 7.4 &middot; Output: RailsApplication1 (db:create)]
 
 
 Run Project
 -----------
-image::images/netbeans/ror12_RailsApplication1-NetBeans_IDE_7.3.1.jpeg[RailsApplication1 - NetBeans IDE 7.3.1 &middot; Run Project (RailsApplication1)]
+image::images/netbeans/ror11_RailsApplication1-NetBeans_IDE_7.4.jpeg[RailsApplication1 - NetBeans IDE 7.4 &middot; Run Project (RailsApplication1)]
 
-image::images/netbeans/ror13_RailsApplication1-NetBeans_IDE_7.3.1.jpeg[RailsApplication1 - NetBeans IDE 7.3.1 &middot; Output: WEBrick for RailsApplication1 on 3000]
+image::images/netbeans/ror12_RailsApplication1-NetBeans_IDE_7.4.jpeg[RailsApplication1 - NetBeans IDE 7.4 &middot; Output: WEBrick for RailsApplication1 on 3000]
 
 [NOTE]
 ====
-Die Erweiterung für die _NetBeans IDE 7.3.1_ sind noch nicht für  
-_Rails 4.0.0_ angepasst: +
+Die Erweiterung für die _NetBeans IDE 7.4_ sind noch nicht für  
+_Rails 4.0.2_ angepasst: +
 Das Verzeichnis +script+ wird nicht mehr für den _rails_-Aufruf verwendet. 
 ====
 
@@ -130,20 +128,20 @@ $ cd ~/NetBeansProjects/RailsApplication1
 ----
 $ rails s
 => Booting WEBrick
-=> Rails 4.0.0 application starting in development on http://0.0.0.0:3000
+=> Rails 4.0.2 application starting in development on http://0.0.0.0:3000
 => Run `rails server -h` for more startup options
 => Ctrl-C to shutdown server
-[2013-10-15 10:48:03] INFO  WEBrick 1.3.1
-[2013-10-15 10:48:03] INFO  ruby 1.9.3 (2013-10-07) [java]
-[2013-10-15 10:48:03] INFO  WEBrick::HTTPServer#start: pid=26798 port=3000
+[2013-12-31 19:32:45] INFO  WEBrick 1.3.1
+[2013-12-31 19:32:45] INFO  ruby 1.9.3 (2013-12-06) [java]
+[2013-12-31 19:32:45] INFO  WEBrick::HTTPServer#start: pid=11271 port=3000
 ----
 
 
 Aufruf der Webanwendung im Browser
 ----------------------------------
-image::images/netbeans/ror14_Ruby_on_Rails_Welcome_aboard.jpeg[Ruby on Rails: Welcome aboard]
+image::images/netbeans/ror13_Ruby_on_Rails_Welcome_aboard.jpeg[Ruby on Rails: Welcome aboard]
 
-image::images/netbeans/ror15_Ruby_on_Rails_Welcome_aboard.jpeg[Ruby on Rails: Welcome aboard]
+image::images/netbeans/ror14_Ruby_on_Rails_Welcome_aboard.jpeg[Ruby on Rails: Welcome aboard]
 
 
 

@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="generator" content="AsciiDoc 8.6.8">
-<title>Installation in Ubuntu: NetBeans IDE 7.3.1</title>
+<meta name="generator" content="AsciiDoc 8.6.9">
+<title>Installation in Ubuntu: NetBeans IDE 7.4</title>
 <style type="text/css">
 /* Shared CSS for AsciiDoc xhtml11 and html5 backends */
 
@@ -93,7 +93,9 @@ ul > li > * { color: black; }
   padding: 0;
   margin: 0;
 }
-
+pre {
+  white-space: pre-wrap;
+}
 
 #author {
   color: #527bbd;
@@ -222,7 +224,7 @@ div.exampleblock > div.content {
 }
 
 div.imageblock div.content { padding-left: 0; }
-span.image img { border-style: none; }
+span.image img { border-style: none; vertical-align: text-bottom; }
 a.image:visited { color: white; }
 
 dl {
@@ -736,7 +738,7 @@ asciidoc.install(2);
 </head>
 <body class="article">
 <div id="header">
-<h1>Installation in Ubuntu: NetBeans IDE 7.3.1</h1>
+<h1>Installation in Ubuntu: NetBeans IDE 7.4</h1>
 <span id="author">Karl-Heinz Köther</span><br>
 <span id="email" class="monospaced">&lt;<a href="mailto:&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;">&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;</a>&gt;</span><br>
 <div id="toc">
@@ -747,15 +749,15 @@ asciidoc.install(2);
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph"><p>Version 2.0.0, Oktober 2013, <a href="#_changelog">[Changelog]</a></p></div>
+<div class="paragraph"><p>Version 2.0.2, Dezember 2013</p></div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_abstract">Abstract</h2>
 <div class="sectionbody">
 <div class="paragraph"><p>Dieser Artikel ist eine Schritt-für-Schritt Anleitung zur Installation
-der <a href="http://netbeans.org/">NetBeans IDE 7.3.1</a> unter GNU/Linux.</p></div>
-<div class="paragraph"><p>Die <a href="http://netbeans.org/">NetBeans IDE 7.3.1</a> bietet eine Unterstützung für verschiedene
+der <a href="http://netbeans.org/">NetBeans IDE 7.4</a> unter GNU/Linux.</p></div>
+<div class="paragraph"><p>Die <a href="http://netbeans.org/">NetBeans IDE 7.4</a> bietet eine Unterstützung für verschiedene
 Programmiersprachen und -techniken.
 Wobei die Java-basierten Lösungen ausgezeichnet unterstützt werden.</p></div>
 <div class="paragraph"><p>Der Artikel ist in <a href="http://www.methods.co.nz/asciidoc/">AsciiDoc</a> erstellt worden.</p></div>
@@ -800,55 +802,124 @@ andere Distributionen übertragbar.</p></div>
 <div class="ulist"><ul>
 <li>
 <p>
-<a href="http://netbeans.org/downloads/">NetBeans 7.3.1</a><br>
-  netbeans-7.3.1-ml-linux.sh (ca. 218 MB) (IDE-Sprache: Englisch)
+<a href="http://netbeans.org/downloads/">NetBeans 7.4</a><br>
+  netbeans-7.4-ml-linux.sh (ca. 198 MB) (IDE-Sprache: Englisch) (All)<br>
+  2013-10-15 (Release date)
 </p>
 </li>
 <li>
 <p>
 <a href="http://plugins.netbeans.org/plugin/38549/ruby-and-rails">NetBeans: Plugin Ruby on Rails</a><br>
-  1367260843_updates.zip (ca. 40 MB)
+  1367260843_updates.zip (ca. 40 MB)<br>
+  2013-11-24 (Release date)
 </p>
 </li>
 </ul></div>
-<div class="admonitionblock">
-<table><tr>
-<td class="icon">
-<img src="./images/icons/note.png" alt="Note">
-</td>
-<td class="content">
-<div class="paragraph"><p>Die Installation des <em>OpenJDK</em> oder des <em>Oracle JDK</em> wurde vom Benutzer <em>root</em> für
-das System durchgeführt &rarr; <a href="jdk.html">JDK</a>.<br>
-Anschließend wurde mit dem Benutzer <em>sid</em> sowohl <em>JRuby</em> als auch <em>Ruby on Rails</em>
-installiert &rarr; <a href="jruby.html">JRuby</a>.</p></div>
-<div class="paragraph"><p>Die <em>NetBeans IDE 7.3.1</em> wird ebenfalls mit dem Benutzer <em>sid</em> installiert.</p></div>
+<div class="sect2">
+<h3 id="_anmerkungen_i">Anmerkungen I</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Die Installation des <em>OpenJDK 7</em> (<em>Oracle JDK 7</em>) wurde vom
+  Benutzer <em>root</em> für das System durchgeführt &rarr; <a href="jdk.html">JDK</a>.
+</p>
+</li>
+<li>
+<p>
+Die Installation von <em>JRuby</em> und <em>Ruby on Rails</em> wurde vom
+  Benutzer <em>sid</em> durchgeführt &rarr; <a href="jruby.html">JRuby</a>.
+</p>
+</li>
+<li>
+<p>
+Die Installation der <em>NetBeans IDE 7.4</em> wird ebenfalls mit dem
+  Benutzer <em>sid</em> durchgeführt.
+</p>
+</li>
+<li>
+<p>
+Ich verwende das <em>OpenJDK 7</em>!
+</p>
+</li>
+</ul></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>$ java -version
+java version "1.7.0_25"
+OpenJDK Runtime Environment (IcedTea 2.3.10) (7u25-2.3.10-1ubuntu0.12.04.2)
+OpenJDK 64-Bit Server VM (build 23.7-b01, mixed mode)
+
+$ jruby -v
+jruby 1.7.9 (1.9.3p392) 2013-12-06 87b108a on OpenJDK 64-Bit Server VM 1.7.0_25-b30 [linux-amd64]</pre>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="_anmerkungen_ii">Anmerkungen II</h3>
+<div class="paragraph"><p>Die <em>NetBeans IDE 7.4</em> wird nach der Installation um das Plugin
+ <em>Ruby on Rails</em> erweitert.</p></div>
 <div class="listingblock">
 <div class="content monospaced">
 <pre>$ ls -l
--rw-rw-r-- 1 sid sid 227724288 Okt 13 11:31 netbeans-7.3.1-linux.sh
--rw-rw-r-- 1 sid sid  41339181 Okt 13 11:35 1367260843_updates.zip    <img src="./images/icons/callouts/1.png" alt="1"></pre>
+-rw-rw-r-- 1 sid sid 206623744 Dez 30 21:52 netbeans-7.4-linux.sh
+-rw-rw-r-- 1 sid sid  40949251 Dez 30 21:54 1385326848_archive.zip    <img src="./images/icons/callouts/1.png" alt="1"></pre>
 </div></div>
 <div class="colist arabic"><table>
 <tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
-Mit dem Befehl &nbsp; <span class="monospaced">unzip 1367260843_updates.zip</span> &nbsp; wird das Verzeichnis <span class="monospaced">updates</span> erstellt.
+NetBeans IDE Plugin: <em>Ruby on Rails</em>
 </td></tr>
 </table></div>
 <div class="listingblock">
 <div class="content monospaced">
-<pre># ls -l updates
-drwxr-xr-x 2 sid sid     4096 Apr  4  2013 licenses
--rw-r--r-- 1 sid sid 24377603 Apr  4  2013 org-jruby-distro.nbm
--rw-r--r-- 1 sid sid 18833620 Apr  4  2013 org-jruby-jruby.jar
--rw-r--r-- 1 sid sid    24533 Apr  4  2013 org-kxml2.nbm
--rw-r--r-- 1 sid sid   191894 Apr  4  2013 org-netbeans-libs-jrubyparser.nbm
-[...]
--rw-r--r-- 1 sid sid    11133 Apr  4  2013 org-netbeans-modules-spellchecker-bindings-ruby.nbm
--rw-r--r-- 1 sid sid    26909 Apr  4  2013 org-rubyforge-debugcommons.nbm
--rw-r--r-- 1 sid sid    33347 Apr  4  2013 updates.xml</pre>
+<pre>$ unzip 1385326848_archive.zip</pre>
 </div></div>
-</td>
-</tr></table>
-</div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>$ ls -l
+drwxrwsr-x 3 sid sid      4096 Nov 24 20:43 archive
+-rw-rw-r-- 1 sid sid 206623744 Dez 30 21:52 netbeans-7.4-linux.sh
+-rw-rw-r-- 1 sid sid  40949251 Dez 30 21:54 1385326848_archive.zip</pre>
+</div></div>
+<div class="listingblock">
+<div class="content monospaced">
+<pre>$ tree archive
+archive
+└── build
+    └── updates   <img src="./images/icons/callouts/1.png" alt="1">
+        ├── licenses
+        │   └── CF174EE3.license
+        ├── org-jruby-distro.nbm
+        ├── org-jruby-jruby.jar
+        ├── org-kxml2.nbm
+        ├── org-netbeans-libs-jrubyparser.nbm
+        ├── org-netbeans-libs-yydebug.nbm
+        ├── org-netbeans-modules-jellytools-ruby.nbm
+        ├── org-netbeans-modules-ruby-codecoverage.nbm
+        ├── org-netbeans-modules-ruby-debugger.nbm
+        ├── org-netbeans-modules-ruby-extrahints.nbm
+        ├── org-netbeans-modules-ruby-help.nbm
+        ├── org-netbeans-modules-ruby-hints.nbm
+        ├── org-netbeans-modules-ruby-javaint.nbm
+        ├── org-netbeans-modules-ruby-kit.nbm
+        ├── org-netbeans-modules-ruby.nbm
+        ├── org-netbeans-modules-ruby-platform.nbm
+        ├── org-netbeans-modules-ruby-project.nbm
+        ├── org-netbeans-modules-ruby-railsprojects.nbm
+        ├── org-netbeans-modules-ruby-rakeproject.nbm
+        ├── org-netbeans-modules-ruby-refactoring.nbm
+        ├── org-netbeans-modules-ruby-rhtml.nbm
+        ├── org-netbeans-modules-ruby-samples-depot.nbm
+        ├── org-netbeans-modules-spellchecker-bindings-ruby.nbm
+        ├── org-rubyforge-debugcommons.nbm
+        └── updates.xml
+
+3 directories, 25 files</pre>
+</div></div>
+<div class="colist arabic"><table>
+<tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
+Für das installieren des Plugins <em>Ruby on Rails</em> wird
+    genau dieses Verzeichnis angegeben!
+</td></tr>
+</table></div>
 <div class="admonitionblock">
 <table><tr>
 <td class="icon">
@@ -863,10 +934,9 @@ der in der Entwicklung befindlichen NetBeans IDE 7.0 gestrichen.<br></p></div>
 Community von Thomas Enebro (und Freunden und Kollegen) angekündigt.</p></div>
 <div class="paragraph"><p><a href="http://it-republik.de/jaxenter/news/Rettung-naht-Ruby-auf-NetBeans-geht-weiter-058404.html">it republik: Rettung naht: Ruby auf NetBeans geht weiter</a></p></div>
 <div class="paragraph"><p><a href="http://java.dzone.com/news/ruby-netbeans-lives">DZone: Ruby On NetBeans Lives!</a></p></div>
-<div class="paragraph"><p>Im <a href="http://plugins.netbeans.org/PluginPortal/">NetBeans Plugin Portal</a> gibt es die Erweiterung der IDE
-für <em>Ruby on Rails</em> für die Version <em>7.0</em> vom 16.04.2012.</p></div>
 </td>
 </tr></table>
+</div>
 </div>
 </div>
 </div>
@@ -876,7 +946,7 @@ für <em>Ruby on Rails</em> für die Version <em>7.0</em> vom 16.04.2012.</p></d
 <div class="paragraph"><p>Zusätzliche (große) Software-Pakete
 sollten im Verzeichnis <em>/opt</em> (Optional) installiert werden.</p></div>
 <div class="sect2">
-<h3 id="_netbeans_ide_7_3_1_graphical_installer">NetBeans IDE 7.3.1: Graphical Installer</h3>
+<h3 id="_netbeans_ide_7_4_graphical_installer">NetBeans IDE 7.4: Graphical Installer</h3>
 <div class="listingblock">
 <div class="title">Installations-Verzeichnisse anlegen</div>
 <div class="content monospaced">
@@ -889,7 +959,7 @@ $ sudo mkdir -p /opt/Tomcat/sid   &amp;&amp; chown sid.sid /opt/Tomcat/sid     <
 Das <em>Anlegen</em> der Verzeichnisse in <em>/opt</em> muß der Benutzer <em>root</em> durchführen.
 </td></tr>
 <tr><td><img src="./images/icons/callouts/2.png" alt="2"></td><td>
-Optional, falls das Software-Paket <em>Tomcat</em> installiert werden sollte.
+Falls das Software-Paket <em>Tomcat</em> ebenfalls installiert werden soll.
 </td></tr>
 </table></div>
 <div class="sect3">
@@ -897,24 +967,38 @@ Optional, falls das Software-Paket <em>Tomcat</em> installiert werden sollte.
 <div class="listingblock">
 <div class="content monospaced">
 <pre>$ cd /opt/NetBeans/sid
-$ sh netbeans-7.3.1-ml-linux.sh
+
+$ sh netbeans-7.4-linux.sh   <img src="./images/icons/callouts/1.png" alt="1">
 Konfiguriere Installation...
 Suche verfügbare JVM auf dem System...
 Extrahiere Installationsdaten...
 Starte Installationassistent...</pre>
 </div></div>
+<div class="colist arabic"><table>
+<tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
+Verwendet wird das von <em>Ubuntu 12.04 LTS</em> bereitgestellte <em>OpenJDK 7</em><br>
+    <em>openjdk-7-jdk (7u25-2.3.10-1ubuntu0.12.04.2) [universe]</em>
+</td></tr>
+</table></div>
 </div>
 <div class="sect3">
 <h4 id="_oracle_jdk">Oracle JDK</h4>
 <div class="listingblock">
 <div class="content monospaced">
 <pre>$ cd /opt/NetBeans/sid
-$ sh netbeans-7.3.1-ml-linux.sh --javahome /opt/Java/current/
+
+$ sh netbeans-7.4-linux.sh --javahome /opt/Java/current/   <img src="./images/icons/callouts/1.png" alt="1">
 Konfiguriere Installation...
 Suche verfügbare JVM auf dem System...
 Extrahiere Installationsdaten...
 Starte Installationassistent...</pre>
 </div></div>
+<div class="colist arabic"><table>
+<tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
+Verwendet wird das zusätzlich installierte <em>Oracle JDK 7</em><br>
+    <em>jdk-7u45-linux-x64.tar.gz</em>
+</td></tr>
+</table></div>
 <div class="imageblock">
 <div class="content">
 <img src="images/netbeans/nb00_Installationssystem.jpeg" alt="NetBeans-IDE Installationssystem">
@@ -923,7 +1007,7 @@ Starte Installationassistent...</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_netbeans_ide_7_3_1_installation">NetBeans IDE 7.3.1: Installation</h3>
+<h3 id="_netbeans_ide_7_4_installation">NetBeans IDE 7.4: Installation</h3>
 <div class="paragraph"><p>Installationsschritte (in Textform)</p></div>
 <div class="ulist"><div class="title">Anpassen</div><ul>
 <li>
@@ -943,13 +1027,14 @@ HTML5
 </li>
 <li>
 <p>
-Funktionen bei Bedarf/ Features on Demand
+Funktionen bei Bedarf<br>
+  Features on Demand
 </p>
 </li>
 <li>
 <p>
-Apache Tomcat 7.0.34                  (Optional)
-Installationsgröße: 312,9 MB
+Apache Tomcat 7.0.41                  (Optional)
+Installationsgröße: 336,3 MB
 </p>
 </li>
 </ul></div>
@@ -969,27 +1054,23 @@ Ich akzeptiere die Bedingungen des Lizenzvereinbarung JUnit installieren<br>
 </p>
 </li>
 </ul></div>
-<div class="ulist"><div class="title">NetBeans-IDE 7.3.1 Installation</div><ul>
+<div class="ulist"><div class="title">NetBeans-IDE 7.4 Installation</div><ul>
 <li>
 <p>
-/opt/NetBeans/sid/netbeans-7.3.1
+<span class="monospaced">/opt/NetBeans/sid/netbeans-7.4</span>
 </p>
 </li>
 <li>
 <p>
-/usr/lib/jvm/java-7-openjdk-amd64   &#8592; OpenJDK
-</p>
-</li>
-<li>
-<p>
-/opt/Java/current                   &#8592; Oracle JDK
+<span class="monospaced">/usr/lib/jvm/java-7-openjdk-amd64</span>   &#8592; <em>OpenJDK</em><br>
+  <span class="monospaced">/opt/Java/current</span>                   &#8592; <em>Oracle JDK</em>
 </p>
 </li>
 </ul></div>
-<div class="ulist"><div class="title">Apache Tomcat 7.0.34 Installation</div><ul>
+<div class="ulist"><div class="title">Apache Tomcat 7.0.41 Installation</div><ul>
 <li>
 <p>
-/opt/Tomcat/sid/apache-tomcat-7.0.34  (Optional)
+<span class="monospaced">/opt/Tomcat/sid/apache-tomcat-7.0.41</span>  (Optional)
 </p>
 </li>
 </ul></div>
@@ -997,13 +1078,13 @@ Ich akzeptiere die Bedingungen des Lizenzvereinbarung JUnit installieren<br>
 <li>
 <p>
 NetBeans-Installationsverzeichnis/ NetBeans IDE Installation Folder:<br>
-  /opt/NetBeans/sid/netbeans-7.3.1
+  <span class="monospaced">/opt/NetBeans/sid/netbeans-7.4</span>
 </p>
 </li>
 <li>
 <p>
-Apache Tomcat 7.0.34 Installationsverzeichnis/ Apache Tomcat 7.0.34 Installation Folder:<br>
-  /opt/Tomcat/sid/apache-tomcat-7.0.34
+Apache Tomcat 7.0.41 Installationsverzeichnis/ Apache Tomcat 7.0.34 Installation Folder:<br>
+  <span class="monospaced">/opt/Tomcat/sid/apache-tomcat-7.0.41</span>
 </p>
 </li>
 <li>
@@ -1020,25 +1101,25 @@ Check for Updates
 <li>
 <p>
 Installationsgröße (gesamt)/ Total Installation Size:<br>
-  312,9 MB
+  336,3 MB
 </p>
 </li>
 </ul></div>
 <div class="paragraph"><div class="title">Einrichtung vollständig/ Setup Complete</div><p>Zum Ende der Installation werden Sie gebeten <em>Anonyme Nutzungsdaten</em> freizugeben.</p></div>
 </div>
 <div class="sect2">
-<h3 id="_netbeans_ide_7_3_1_nbi">NetBeans IDE 7.3.1: ~/.nbi</h3>
+<h3 id="_netbeans_ide_7_4_nbi">NetBeans IDE 7.4: ~/.nbi</h3>
 <div class="paragraph"><p>Das <em>NetBeans Installer</em>-Verzeichnis enthält Informationen zur durchgeführten Installation.</p></div>
 <div class="listingblock">
 <div class="title">~/.nbi</div>
 <div class="content monospaced">
 <pre>$ ls -l ~/.nbi
-drwxrwxr-x 2 sid sid  4096 Okt 13 18:03 downloads
-drwxrwxr-x 2 sid sid  4096 Okt 13 18:03 log
-drwxrwxr-x 7 sid sid  4096 Okt 13 18:17 product-cache
--rw-rw-r-- 1 sid sid 34143 Okt 13 18:22 registry.xml
-drwxrwxr-x 2 sid sid  4096 Okt 13 18:22 tmp
-drwxrwxr-x 2 sid sid  4096 Okt 13 18:03 wd</pre>
+drwxrwxr-x 2 sid sid  4096 Dez 31 15:33 downloads
+drwxrwxr-x 2 sid sid  4096 Dez 31 15:36 log
+drwxrwxr-x 8 sid sid  4096 Dez 31 15:39 product-cache
+-rw-rw-r-- 1 sid sid 39399 Dez 31 15:43 registry.xml
+drwxrwxr-x 2 sid sid  4096 Dez 31 15:43 tmp
+drwxrwxr-x 2 sid sid  4096 Dez 31 15:33 wd</pre>
 </div></div>
 </div>
 </div>
@@ -1047,85 +1128,109 @@ drwxrwxr-x 2 sid sid  4096 Okt 13 18:03 wd</pre>
 <h2 id="_start_und_konfiguration">Start und Konfiguration</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_netbeans_ide_7_3_1">NetBeans IDE 7.3.1</h3>
+<h3 id="_netbeans_ide_7_4">NetBeans IDE 7.4</h3>
 <div class="paragraph"><p><strong>Step 1:</strong> <em>netbeans</em> ausführen &#8230;</p></div>
 <div class="listingblock">
 <div class="content monospaced">
-<pre>$ /opt/NetBeans/sid/netbeans-7.3.1/bin/netbeans</pre>
+<pre>$ /opt/NetBeans/sid/netbeans-7.4/bin/netbeans</pre>
 </div></div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/nb01_NetBeans_IDE_7.3.1.jpeg" alt="NetBeans IDE 7.3.1: Startseite">
+<img src="images/netbeans/nb01_NetBeans_IDE_7.4.jpeg" alt="NetBeans IDE 7.4: Startseite">
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_netbeans_ide_7_3_1_plugins">NetBeans IDE 7.3.1: Plugins</h3>
+<h3 id="_netbeans_ide_7_4_plugins">NetBeans IDE 7.4: Plugins</h3>
 <div class="paragraph"><p><strong>Step 2:</strong> NB IDE &#8594; Tools &#8594; Plugins</p></div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/nb02_NetBeans_IDE_7.3.1.jpeg" alt="NetBeans IDE 7.3.1: Plugins">
+<img src="images/netbeans/nb02_NetBeans_IDE_7.4.jpeg" alt="NetBeans IDE 7.4: Plugins">
 </div>
 </div>
 <div class="paragraph"><p>&nbsp;<br>
 <strong>Step 3:</strong> Plugins <em>Check for Updates</em></p></div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/nb03_Plugins.jpeg" alt="NetBeans IDE 7.3.1 Plugins [Check for Updates]">
+<img src="images/netbeans/nb03_Plugins.jpeg" alt="NetBeans IDE 7.4 Plugins [Check for Updates]">
 </div>
 </div>
 <div class="paragraph"><p>&nbsp;<br>
 <strong>Step 4:</strong> Plugins <em>Downloaded</em> &#8594; Add Plugins&#8230;</p></div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/nb04_Plugins.jpeg" alt="NetBeans IDE 7.3.1: Plugins [Downloaded]">
+<img src="images/netbeans/nb04_Plugins.jpeg" alt="NetBeans IDE 7.4: Plugins [Downloaded]">
 </div>
 </div>
 <div class="paragraph"><p>&nbsp;<br>
-<strong>Step 5:</strong> Add Plugins <em>updates</em> &#8594; <em>Alle Dateien</em> markieren &#8594; &Ouml;ffnen<br>
-<strong>Hinweis:</strong> &nbsp; <span class="monospaced">updates</span> &nbsp; ist das mit dem Befehl &nbsp; <span class="monospaced">unzip</span> &nbsp; erstellte Verzeichnis.<br></p></div>
+<strong>Step 5:</strong> Add Plugins <em>updates</em> &#8594; <em>Alle Dateien</em> markieren &#8594; &Ouml;ffnen</p></div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/nb05_Add_Plugins.jpeg" alt="NetBeans IDE 7.3.1: Add Plugins [Alle markieren -> &Ouml;ffnen]">
+<img src="images/netbeans/nb05_Add_Plugins.jpeg" alt="NetBeans IDE 7.4: Add Plugins [Alle markieren -> &Ouml;ffnen]">
 </div>
+</div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/note.png" alt="Note">
+</td>
+<td class="content">
+<div class="ulist"><ul>
+<li>
+<p>
+Das Verzeichnis &nbsp; <span class="monospaced">updates</span> &nbsp; befindet sich
+  sich in dem entpackten Archiv &nbsp; <span class="monospaced">1385326848_archive.zip</span>.
+</p>
+</li>
+<li>
+<p>
+Um <em>alle</em> Dateien markieren zu können muß im Dialog <em>Dateityp: Alle Dateien</em>
+  ausgewählt sein!
+</p>
+</li>
+</ul></div>
+</td>
+</tr></table>
 </div>
 <div class="paragraph"><p>&nbsp;<br>
-<strong>Step 6:</strong> Plugins <em>Downloaded (24)</em> &#8594; Install<br></p></div>
+<strong>Step 6:</strong> Plugins <em>Downloaded (23)</em> &#8594; Install<br></p></div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/nb06_Plugins.jpeg" alt="NetBeans IDE 7.3.1: Plugins [Downloaded (24)]">
+<img src="images/netbeans/nb06_Plugins.jpeg" alt="NetBeans IDE 7.4: Plugins [Downloaded (23)]">
 </div>
 </div>
 <div class="paragraph"><p>&nbsp;</p></div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/nb07_NetBeans_IDE_Installer.jpeg" alt="NetBeans IDE 7.3.1: NetBeans IDE Installer (Next)">
+<img src="images/netbeans/nb07_NetBeans_IDE_Installer.jpeg" alt="NetBeans IDE 7.4: NetBeans IDE Installer (Next)">
 </div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/nb08_NetBeans_IDE_Installer.jpeg" alt="NetBeans IDE 7.3.1: NetBeans IDE Installer (License Agreement)">
+<img src="images/netbeans/nb08_NetBeans_IDE_Installer.jpeg" alt="NetBeans IDE 7.4: NetBeans IDE Installer (Install)">
 </div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/nb09_NetBeans_IDE_Installer.jpeg" alt="NetBeans IDE 7.3.1: NetBeans IDE Installer (Validate)">
+<img src="images/netbeans/nb09_NetBeans_IDE_Installer.jpeg" alt="NetBeans IDE 7.4: NetBeans IDE Installer (Validate)">
 </div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/nb10_Validation_Warning.jpeg" alt="NetBeans IDE 7.3.1: Validation Warning">
+<img src="images/netbeans/nb10_Validation_Warning.jpeg" alt="NetBeans IDE 7.4: Validation Warning (Continue)">
 </div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/nb11_NetBeans_IDE_Installer.jpeg" alt="NetBeans IDE 7.3.1: NetBeans IDE Installer (Restart IDE now)">
+<img src="images/netbeans/nb11_NetBeans_IDE_Installer.jpeg" alt="NetBeans IDE 7.4: NetBeans IDE Installer (Finish)">
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_netbeans_ide_7_3_1_neustart">NetBeans IDE 7.3.1: Neustart</h3>
+<h3 id="_netbeans_ide_7_4_neustart">NetBeans IDE 7.4: Neustart</h3>
 <div class="paragraph"><p><strong>Step 7:</strong> <em>My NetBeans</em></p></div>
+<div class="paragraph"><p>Falls Sie während der Installation dem Punkt <em>Statistics</em> nicht zugestimmt haben
+werden Sie jetzt erneut (ein letztes Mal) gebeten zuzustimmen: <em>Ihre Entscheidung</em>!</p></div>
 <div class="imageblock">
 <div class="content">
 <img src="images/netbeans/nb12_Usage_Statistics.jpeg" alt="NetBeans IDE 7.2: Usage Statistics (I Agree/ No">
@@ -1133,16 +1238,16 @@ drwxrwxr-x 2 sid sid  4096 Okt 13 18:03 wd</pre>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/nb13_NetBeans_7.3.1.jpeg" alt="NetBeans IDE 7.3.1: My NetBeans">
+<img src="images/netbeans/nb13_NetBeans_7.4.jpeg" alt="NetBeans IDE 7.4: My NetBeans">
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_netbeans_ide_7_3_1_ruby_platforms">NetBeans IDE 7.3.1: Ruby Platforms</h3>
+<h3 id="_netbeans_ide_7_4_ruby_platforms">NetBeans IDE 7.4: Ruby Platforms</h3>
 <div class="paragraph"><p><strong>Step 8:</strong> NB IDE &#8594; Tools &#8594; Ruby Platforms</p></div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/nb14_NetBeans_IDE_7.3.1_Ruby_Platforms.jpeg" alt="NetBeans IDE 7.3.1: NetBeans IDE 7.3.1 - Ruby Plaforms">
+<img src="images/netbeans/nb14_NetBeans_IDE_7.4_Ruby_Platforms.jpeg" alt="NetBeans IDE 7.4: NetBeans IDE 7.4 - Ruby Plaforms">
 </div>
 </div>
 <div class="paragraph"><p>&nbsp;<br>
@@ -1161,7 +1266,7 @@ Der Eintrag <em>Built-in JRuby 1.7.3</em> ist Teil der Installation
 </li>
 <li>
 <p>
-Der Eintrag <em>JRuby 1.7.5</em> ist die von mir bereits zuvor installierte
+Der Eintrag <em>JRuby 1.7.9</em> ist die von mir bereits zuvor installierte
   JRuby-Version.<br>
 </p>
 </li>
@@ -1180,71 +1285,73 @@ Der Eintrag <em>Ruby 1.8.7-p352</em> ist die in <em>Ubuntu 12.04</em>
 <td class="content">
 <div class="paragraph"><p>Die <em>PATH</em>-Variable wird während der Installation ausgewertet und
 vorhandene Ruby-Installationen automatisch in der
-<em>NetBeans IDE 7.3.1</em> eingetragen.</p></div>
+<em>NetBeans IDE 7.4</em> eingetragen.</p></div>
 <div class="paragraph"><p>Im <em>PATH</em> war zum Zeitpunkt der Installation kein Verweis auf die
 von mir zusätzlich installierten Versionen <em>Ruby 1.9.3</em> und <em>Ruby 2.0.0</em>!</p></div>
 </td>
 </tr></table>
 </div>
 <div class="paragraph"><p>&nbsp;<br>
-<strong>Step 10:</strong> <em>Ruby Platform Manager</em> &#8594; Add Platform &#8594; <strong>Ruby 2.0.0-p247</strong></p></div>
+<strong>Step 10:</strong> <em>Ruby Platform Manager</em> &#8594; Add Platform &#8594; <strong>Ruby 2.0.0-p353</strong></p></div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/nb16_Oeffnen.jpeg" alt="NetBeans IDE 7.3.1: &Ouml;ffnen">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/netbeans/nb17_Oeffnen.jpeg" alt="NetBeans IDE 7.3.1: &Ouml;ffnen: Ruby 2.0.0-p247">
+<img src="images/netbeans/nb16_Oeffnen.jpeg" alt="NetBeans IDE 7.4: &Ouml;ffnen">
 </div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/nb18_Ruby_Platform_Manager.jpeg" alt="NetBeans IDE 7.3.1: Ruby Platform Manager">
+<img src="images/netbeans/nb17_Oeffnen.jpeg" alt="NetBeans IDE 7.4: &Ouml;ffnen: Ruby 2.0.0-p353">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans/nb18_Ruby_Platform_Manager.jpeg" alt="NetBeans IDE 7.4: Ruby Platform Manager">
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_netbeans_ide_7_3_1_jruby_1_7_5_gems">NetBeans IDE 7.3.1: JRuby 1.7.5 Gems</h3>
+<h3 id="_netbeans_ide_7_4_jruby_1_7_9_gems">NetBeans IDE 7.4: JRuby 1.7.9 Gems</h3>
 <div class="paragraph"><p><strong>Step 11:</strong> <em>Ruby Platform Manager</em> &#8594; Gem Manager</p></div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/nb19_Ruby_Platform_Manager.jpeg" alt="NetBeans IDE 7.3.1: Ruby Platform Manager">
+<img src="images/netbeans/nb19_Ruby_Platform_Manager.jpeg" alt="NetBeans IDE 7.4: Ruby Platform Manager">
 </div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/nb20_Ruby_Gems.jpeg" alt="NetBeans IDE 7.3.1: Ruby Gems: JRuby 1.7.5">
+<img src="images/netbeans/nb20_Ruby_Gems.jpeg" alt="NetBeans IDE 7.4: Ruby Gems: JRuby 1.7.9">
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_netbeans_ide_7_3_1_netbeans">NetBeans IDE 7.3.1: ~/.netbeans</h3>
+<h3 id="_netbeans_ide_7_4_netbeans">NetBeans IDE 7.4: ~/.netbeans</h3>
 <div class="paragraph"><p>Das <em>NetBeans</em>-Verzeichnis enthält Informationen zur aktuellen Konfiguration.</p></div>
 <div class="listingblock">
 <div class="title">~/.netbeans</div>
 <div class="content monospaced">
 <pre>$ ls -la ~/.netbeans
-drwxrwxr-x 10 sid sid 4096 Okt 13 22:31 7.3.1
--rw-rw-r--  1 sid sid   36 Okt 13 18:24 .superId</pre>
+drwxrwxr-x 10 sid sid 4096 Dez 31 17:16 7.4
+-rw-rw-r--  1 sid sid   36 Dez 31 17:16 .superId</pre>
 </div></div>
 <div class="listingblock">
 <div class="content monospaced">
-<pre>$ ls -l ../.netbeans/7.3.1
--rw-rw-r-- 1 sid sid 12503 Okt 13 22:43 build.properties
-drwxrwxr-x 7 sid sid  4096 Okt 13 19:20 config
-drwxrwxr-x 7 sid sid  4096 Okt 13 19:20 jruby
--rw--w---- 1 sid sid    18 Okt 13 22:31 lock
-drwxrwxr-x 4 sid sid  4096 Okt 13 19:20 modules
--rw-rw-r-- 1 sid sid  1406 Okt 13 19:20 platform_info.rb
--rw-rw-r-- 1 sid sid  3220 Okt 13 19:20 plugin.rb
--rw-rw-r-- 1 sid sid   524 Okt 13 19:20 rake
-drwxrwxr-x 3 sid sid  4096 Okt 13 19:20 ruby
-drwxrwxr-x 3 sid sid  4096 Okt 13 19:20 rubystubs
--rw-rw-r-- 1 sid sid   220 Okt 13 19:20 sync-stdio.rb
-drwxrwxr-x 2 sid sid  4096 Okt 13 19:20 update_tracking
-drwxrwxr-x 3 sid sid  4096 Okt 13 18:24 var
--rw-rw-r-- 1 sid sid    41 Okt 13 19:20 VERSION.txt</pre>
+<pre>$ ls -la ../.netbeans/7.4
+-rw-rw-r--  1 sid sid 1592 Dez 31 17:24 build.properties
+drwxrwxr-x  7 sid sid 4096 Dez 31 16:17 config
+drwxrwxr-x  7 sid sid 4096 Dez 31 16:17 jruby
+-rw-rw-r--  1 sid sid    0 Dez 31 17:16 .lastModified
+-rw--w----  1 sid sid   18 Dez 31 17:16 lock
+drwxrwxr-x  2 sid sid 4096 Dez 31 15:45 .metadata
+drwxrwxr-x  4 sid sid 4096 Dez 31 16:17 modules
+-rw-rw-r--  1 sid sid 1406 Dez 31 16:17 platform_info.rb
+-rw-rw-r--  1 sid sid 3220 Dez 31 16:17 plugin.rb
+-rw-rw-r--  1 sid sid  524 Dez 31 16:17 rake
+drwxrwxr-x  3 sid sid 4096 Dez 31 16:17 ruby
+drwxrwxr-x  3 sid sid 4096 Dez 31 16:17 rubystubs
+-rw-rw-r--  1 sid sid  220 Dez 31 16:17 sync-stdio.rb
+drwxrwxr-x  2 sid sid 4096 Dez 31 16:17 update_tracking
+drwxrwxr-x  3 sid sid 4096 Dez 31 15:45 var
+-rw-rw-r--  1 sid sid   41 Dez 31 16:17 VERSION.txt</pre>
 </div></div>
 </div>
 </div>
@@ -1259,7 +1366,7 @@ drwxrwxr-x 3 sid sid  4096 Okt 13 18:24 var
 <div id="footnotes"><hr></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2013-10-17 19:16:29 CEST
+Last updated 2013-12-31 20:16:52 CET
 </div>
 </div>
 </body>

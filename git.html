@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="generator" content="AsciiDoc 8.6.8">
-<title>Installation in Ubuntu: Git 1.8.4.1</title>
+<meta name="generator" content="AsciiDoc 8.6.9">
+<title>Installation in Ubuntu: Git 1.8.5.1</title>
 <style type="text/css">
 /* Shared CSS for AsciiDoc xhtml11 and html5 backends */
 
@@ -93,7 +93,9 @@ ul > li > * { color: black; }
   padding: 0;
   margin: 0;
 }
-
+pre {
+  white-space: pre-wrap;
+}
 
 #author {
   color: #527bbd;
@@ -222,7 +224,7 @@ div.exampleblock > div.content {
 }
 
 div.imageblock div.content { padding-left: 0; }
-span.image img { border-style: none; }
+span.image img { border-style: none; vertical-align: text-bottom; }
 a.image:visited { color: white; }
 
 dl {
@@ -736,7 +738,7 @@ asciidoc.install(2);
 </head>
 <body class="article">
 <div id="header">
-<h1>Installation in Ubuntu: Git 1.8.4.1</h1>
+<h1>Installation in Ubuntu: Git 1.8.5.1</h1>
 <span id="author">Karl-Heinz Köther</span><br>
 <span id="email" class="monospaced">&lt;<a href="mailto:&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;">&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;</a>&gt;</span><br>
 <div id="toc">
@@ -747,7 +749,7 @@ asciidoc.install(2);
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph"><p>Version 2.0.0, Otober 2013, <a href="#_changelog">[Changelog]</a></p></div>
+<div class="paragraph"><p>Version 2.0.2, Dezember 2013</p></div>
 </div>
 </div>
 <div class="sect1">
@@ -800,10 +802,10 @@ andere Debian-basierte GNU/Linux Distributionen übertragbar.</p></div>
 <li>
 <p>
 <a href="http://code.google.com/p/git-core/downloads/list">Git</a><br>
-  git-1.8.4.1.tar.gz  (ca. 4.3M)<br>
-  git-htmldocs-1.8.4.1.tar.gz  (ca. 2.1M)<br>
-  git-manpages-1.8.4.1.tar.gz  (ca. 533K)<br>
-  2013-10-02 (Release date)
+  git-1.8.5.1.tar.gz  (ca. 4.6M)<br>
+  git-htmldocs-1.8.5.1.tar.gz  (ca. 2.2M)<br>
+  git-manpages-1.8.5.1.tar.gz  (ca. 556K)<br>
+  2013-12-03 (Release date)
 </p>
 </li>
 </ul></div>
@@ -820,9 +822,9 @@ Benutzer <em>root</em> für das System durchgeführt.</p></div>
 <div class="listingblock">
 <div class="content monospaced">
 <pre>$ ls -l
--rw-rw-r-- 1 sid sid 4669033 Okt  8 15:18 git-1.8.4.1.tar.gz
--rw-rw-r-- 1 sid sid 2183784 Okt  8 15:18 git-htmldocs-1.8.4.1.tar.gz
--rw-rw-r-- 1 sid sid  565610 Okt  8 15:18 git-manpages-1.8.4.1.tar.gz</pre>
+-rw-rw-r--  1 sid  sid    4755019 Dez  8 15:56 git-1.8.5.1.tar.gz
+-rw-rw-r--  1 sid  sid    2236187 Dez  8 15:56 git-htmldocs-1.8.5.1.tar.gz
+-rw-rw-r--  1 sid  sid     569069 Dez  8 15:56 git-manpages-1.8.5.1.tar.gz</pre>
 </div></div>
 </td>
 </tr></table>
@@ -838,9 +840,9 @@ Programm-Pakete installiert sind.</p></div>
 <div class="listingblock">
 <div class="content monospaced">
 <pre>$ sudo apt-get install ...
-               Benötigt:   build-essential libc6 libcurl3-gnutls libexpat1 libexpat1-dev
-                           autoconf zlib1g perl-modules liberror-perl libdigest-sha-perl
-                           libcurl4-openssl-dev libssl-dev tcl8.4  tcl8.4-dev xmlto</pre>
+                       build-essential libc6 libcurl3-gnutls libexpat1 libexpat1-dev
+                       autoconf zlib1g perl-modules liberror-perl libdigest-sha-perl
+                       libcurl4-openssl-dev libssl-dev tcl8.4  tcl8.4-dev xmlto</pre>
 </div></div>
 </td>
 </tr></table>
@@ -866,14 +868,14 @@ Eine bereits vorhandene Git-Installation wird überschrieben.<br></p></div>
 <div class="paragraph"><p><strong>Step 1:</strong> Auspacken des Source-Code</p></div>
 <div class="listingblock">
 <div class="content monospaced">
-<pre>$ tar xvzf git-1.8.4.1.tar.gz
-$ cd git-1.8.4.1</pre>
+<pre>$ tar xvzf git-1.8.5.1.tar.gz
+$ cd git-1.8.5.1</pre>
 </div></div>
 <div class="paragraph"><p><strong>Step 2:</strong> Konfiguration erstellen und kompilieren</p></div>
 <div class="listingblock">
 <div class="content monospaced">
 <pre>$ make configure | tee ../log.git_make-configure
-GIT_VERSION = 1.8.4.1
+GIT_VERSION = 1.8.5.1
     GEN configure
 
 $ ./configure | tee ../log.git_configure
@@ -882,7 +884,7 @@ configure: Will try -pthread then -lpthread to enable POSIX Threads.
 configure: CHECKS for site configuration
 [...]
 checking for asciidoc... asciidoc
-checking for asciidoc version... asciidoc 8.6.8
+checking for asciidoc version... asciidoc 8.6.9
 [...]
 configure: creating ./config.status
 config.status: creating config.mak.autogen
@@ -891,15 +893,14 @@ config.status: executing config.mak.autogen commands</pre>
 <div class="listingblock">
 <div class="content monospaced">
 <pre>$ make | tee ../log.git_make
-    * new build flags
-    CC credential-store.o
-    * new link flags
+    * new script parameters
+    GEN git-am
+    GEN git-bisect
+    GEN git-difftool--helper
 [...]
-    GEN bin-wrappers/test-subprocess
-    GEN bin-wrappers/test-svn-fe
+    GEN bin-wrappers/test-urlmatch-normalization
     GEN bin-wrappers/test-wildmatch
-    GEN git-remote-testgit
-    GEN git-remote-testpy</pre>
+    GEN git-remote-testgit</pre>
 </div></div>
 <div class="paragraph"><p><strong>Step 3:</strong> Installation (als Benutzer <em>root</em>)</p></div>
 <div class="listingblock">
@@ -937,20 +938,19 @@ make[1]: Für das Ziel »all« ist nichts zu tun.
 $ sudo mkdir git-doc
 
 $ cd git-doc
-$ sudo tar xvzf git-htmldocs-1.8.4.1.tar.gz
+$ sudo tar xvzf git-htmldocs-1.8.5.1.tar.gz
 [...]
-./git-show-ref.txt
-./git-ls-remote.txt
-./git-repack.txt
-$ cd ..
+./git-peek-remote.html
+./user-manual.html
+./git-unpack-file.html
 
+$ cd ..
 $ sudo chown -R root.root git-doc   <img src="./images/icons/callouts/1.png" alt="1">
-$ sudo chmod -R g-s git-doc
-$ sudo chmod -R 755 git-doc
+$ sudo chmod -R a+rX git-doc
 
 $ ls -l
-drwxr-xr-x 9 root root  4096 Okt  4 10:38 asciidoc
-drwxr-xr-x 5 root root 20480 Sep 27 20:18 git-doc</pre>
+drwxr-xr-x 9 root root  4096 Dez  8 15:28 asciidoc
+drwxr-xr-x 5 root root 20480 Dez  3 20:36 git-doc</pre>
 </div></div>
 <div class="colist arabic"><table>
 <tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
@@ -960,26 +960,19 @@ Unbedingt die Rechte an den Dateien und den Ordnern anpassen!
 <div class="listingblock">
 <div class="title">Documentation: man-pages</div>
 <div class="content monospaced">
-<pre>$ cd /usr/local/man
-$ sudo tar xvzf git-manpages-1.8.4.1.tar.gz
+<pre>$ cd /usr/local/share/man
+$ sudo tar xvzf git-manpages-1.8.5.1.tar.gz
 [...]
 
-$ sudo chown -R root.root man?   <img src="./images/icons/callouts/1.png" alt="1">
-$ sudo chmod -R g-s man?
-$ sudo chmod -R 755 man?
+$ cd ..
+$ sudo chown -R root.root man   <img src="./images/icons/callouts/1.png" alt="1">
+$ sudo chmod -R a+rX man
 
 $ ls -l
-drwxr-xr-x 2 root root 4096 Sep 27 20:22 man1
-drwxr-xr-x 2 root root 4096 Okt  8 15:27 man3
-drwxr-xr-x 2 root root 4096 Sep 27 20:22 man5
-drwxr-xr-x 2 root root 4096 Sep 27 20:22 man7
-
-$ cd ..
-$ sudo chown root.root man
-$ sudo chmod 755 man
-
-# ls -ld man
-drwxr-xr-x 6 root root 4096 Sep 27 20:18 man</pre>
+drwxr-xr-x 2 root root 4096 Dez  3 20:37 man1
+drwxr-xr-x 2 root root 4096 Dez  8 16:30 man3
+drwxr-xr-x 2 root root 4096 Dez  3 20:37 man5
+drwxr-xr-x 2 root root 4096 Dez  3 20:37 man7</pre>
 </div></div>
 <div class="colist arabic"><table>
 <tr><td><img src="./images/icons/callouts/1.png" alt="1"></td><td>
@@ -991,13 +984,13 @@ Unbedingt die Rechte an den Dateien und den Ordnern anpassen!
 <div class="content monospaced">
 <pre>$ cd /usr/local/bin
 $ ls -l git*
--rwxr-xr-x 113 root root 7065521 Okt  8 15:27 git
--rwxr-xr-x   2 root root  162399 Okt  8 15:27 git-cvsserver
--rwxr-xr-x   1 root root  339288 Okt  8 15:27 gitk
--rwxr-xr-x 113 root root 7065521 Okt  8 15:27 git-receive-pack
--rwxr-xr-x   2 root root 3472099 Okt  8 15:27 git-shell
--rwxr-xr-x 113 root root 7065521 Okt  8 15:27 git-upload-archive
--rwxr-xr-x   2 root root 3571624 Okt  8 15:27 git-upload-pack</pre>
+-rwxr-xr-x 114 root root 7230390 Dez  8 16:30 git
+-rwxr-xr-x   2 root root  162425 Dez  8 16:30 git-cvsserver
+-rwxr-xr-x   1 root root  339288 Dez  8 16:30 gitk
+-rwxr-xr-x 114 root root 7230390 Dez  8 16:30 git-receive-pack
+-rwxr-xr-x   2 root root 3556383 Dez  8 16:30 git-shell
+-rwxr-xr-x 114 root root 7230390 Dez  8 16:30 git-upload-archive
+-rwxr-xr-x   2 root root 3627238 Dez  8 16:30 git-upload-pack</pre>
 </div></div>
 <div class="listingblock">
 <div class="content monospaced">
@@ -1073,7 +1066,7 @@ NOTES
         6. git@vger.kernel.org
            mailto:git@vger.kernel.org
 
-Git 1.8.4.1                       09/27/2013                            GIT(1)</pre>
+Git 1.8.5.1                       12/03/2013                            GIT(1)</pre>
 </div></div>
 <div class="listingblock">
 <div class="content monospaced">
@@ -1129,17 +1122,19 @@ SEE ALSO
 GIT
        Part of the git(1) suite
 
-Git 1.8.4.1                       09/27/2013                           GITK(1)</pre>
+Git 1.8.5.1                       12/03/2013                           GITK(1)</pre>
 </div></div>
 <div class="listingblock">
 <div class="content monospaced">
 <pre>$ find /usr/local -type d -cmin -10
+/usr/local
 /usr/local/share/git-core/templates
 /usr/local/share/git-core/templates/hooks
 /usr/local/share/git-core/templates/branches
 /usr/local/share/git-core/templates/info
 /usr/local/share/git-gui/lib
 /usr/local/share/git-gui/lib/msgs
+/usr/local/share/doc
 /usr/local/share/doc/git-doc
 /usr/local/share/doc/git-doc/howto
 /usr/local/share/doc/git-doc/technical
@@ -1149,6 +1144,7 @@ Git 1.8.4.1                       09/27/2013                           GITK(1)</
 /usr/local/share/man/man3
 /usr/local/share/man/man5
 /usr/local/share/man/man1
+/usr/local/share/perl/5.14.2/Git/SVN
 /usr/local/share/gitweb
 /usr/local/share/gitweb/static
 /usr/local/share/gitk/lib/msgs
@@ -1157,6 +1153,8 @@ Git 1.8.4.1                       09/27/2013                           GITK(1)</
 /usr/local/share/locale/is/LC_MESSAGES
 /usr/local/share/locale/da
 /usr/local/share/locale/da/LC_MESSAGES
+/usr/local/share/locale/fr
+/usr/local/share/locale/fr/LC_MESSAGES
 /usr/local/share/locale/it
 /usr/local/share/locale/it/LC_MESSAGES
 /usr/local/share/locale/nl
@@ -1173,10 +1171,7 @@ Git 1.8.4.1                       09/27/2013                           GITK(1)</
 /usr/local/share/locale/zh_CN/LC_MESSAGES
 /usr/local/bin
 /usr/local/libexec/git-core
-/usr/local/libexec/git-core/mergetools
-/usr/local/lib/python2.7/dist-packages
-/usr/local/lib/python2.7/dist-packages/git_remote_helpers
-/usr/local/lib/python2.7/dist-packages/git_remote_helpers/git</pre>
+/usr/local/libexec/git-core/mergetools</pre>
 </div></div>
 <div class="paragraph"><p><strong>Step 5:</strong> Dokumentation (local)</p></div>
 <div class="paragraph"><div class="title">git(1) Manual Page</div><p>Browser&gt; <a href="file:///usr/local/share/doc/git-doc/index.html">file:///usr/local/share/doc/git-doc/index.html</a></p></div>
@@ -1194,13 +1189,15 @@ Git 1.8.4.1                       09/27/2013                           GITK(1)</
 <div class="sect1">
 <h2 id="_anhang">Anhang</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>Script zum Installieren von Git 1.8.4.1 (ohne Dokumentation, ohne weitere Erläuterung)</p></div>
+<div class="paragraph"><p>Script zum Installieren von Git 1.8.5.1 (ohne weitere Erläuterung).
+Die Dokumentation wird mit diesem Script <em>nicht</em> installiert.</p></div>
 <div class="listingblock">
+<div class="title">Datei: <span class="monospaced">git-install.sh</span></div>
 <div class="content monospaced">
 <pre>#!/bin/bash
 #
 ME=make_git
-NAME=git-1.8.4.1
+NAME=git-1.8.5.1
 
 ls -l git*.tar.gz
 echo
@@ -1245,7 +1242,7 @@ echo "$ME: Ende."</pre>
 <div id="footnotes"><hr></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2013-10-08 16:05:17 CEST
+Last updated 2013-12-12 20:50:45 CET
 </div>
 </div>
 </body>

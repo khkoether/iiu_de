@@ -1,4 +1,4 @@
-Installation in Ubuntu: Git 1.8.4.1
+Installation in Ubuntu: Git 1.8.5.1
 ===================================
 Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;>
 
@@ -10,9 +10,9 @@ Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;
 :git-url: http://git-scm.com/
 :git-download-url: http://code.google.com/p/git-core/downloads/list
 
-:git-version: 1.8.4.1
+:git-version: 1.8.5.1
 
-Version 2.0.0, Otober 2013, <<_changelog,[Changelog]>>
+Version 2.0.2, Dezember 2013
 
 
 Abstract
@@ -52,10 +52,10 @@ Ubuntu 12.04 LTS (Precise Pangolin) enthält das Paket _git-core_1.7.9.5-1_all_.
 Download
 --------
 * {git-download-url}[Git] +    
-  git-{git-version}.tar.gz  (ca. 4.3M) +
-  git-htmldocs-{git-version}.tar.gz  (ca. 2.1M) +
-  git-manpages-{git-version}.tar.gz  (ca. 533K) +
-  2013-10-02 (Release date)
+  git-{git-version}.tar.gz  (ca. 4.6M) +
+  git-htmldocs-{git-version}.tar.gz  (ca. 2.2M) +
+  git-manpages-{git-version}.tar.gz  (ca. 556K) +
+  2013-12-03 (Release date)
   
 [NOTE] 
 ====
@@ -65,9 +65,9 @@ Die eigentliche Installation von Git wird vom
 Benutzer 'root' für das System durchgeführt.
 ----
 $ ls -l 
--rw-rw-r-- 1 sid sid 4669033 Okt  8 15:18 git-1.8.4.1.tar.gz
--rw-rw-r-- 1 sid sid 2183784 Okt  8 15:18 git-htmldocs-1.8.4.1.tar.gz
--rw-rw-r-- 1 sid sid  565610 Okt  8 15:18 git-manpages-1.8.4.1.tar.gz
+-rw-rw-r--  1 sid  sid    4755019 Dez  8 15:56 git-1.8.5.1.tar.gz
+-rw-rw-r--  1 sid  sid    2236187 Dez  8 15:56 git-htmldocs-1.8.5.1.tar.gz
+-rw-rw-r--  1 sid  sid     569069 Dez  8 15:56 git-manpages-1.8.5.1.tar.gz
 ----
 ====
 
@@ -77,9 +77,9 @@ Vor der eigentlichen Installation müssen die fehlenden
 Programm-Pakete installiert sind.
 ----
 $ sudo apt-get install ... 
-               Benötigt:   build-essential libc6 libcurl3-gnutls libexpat1 libexpat1-dev 
-                           autoconf zlib1g perl-modules liberror-perl libdigest-sha-perl 
-                           libcurl4-openssl-dev libssl-dev tcl8.4  tcl8.4-dev xmlto
+                       build-essential libc6 libcurl3-gnutls libexpat1 libexpat1-dev 
+                       autoconf zlib1g perl-modules liberror-perl libdigest-sha-perl 
+                       libcurl4-openssl-dev libssl-dev tcl8.4  tcl8.4-dev xmlto
 ----
 ====
 
@@ -97,14 +97,14 @@ Beispiel für die Änderung des Installations-Verzeichnisses: +
 
 *Step 1:* Auspacken des Source-Code
 ----
-$ tar xvzf git-1.8.4.1.tar.gz
-$ cd git-1.8.4.1
+$ tar xvzf git-1.8.5.1.tar.gz
+$ cd git-1.8.5.1
 ----
 
 *Step 2:* Konfiguration erstellen und kompilieren
 ----
 $ make configure | tee ../log.git_make-configure
-GIT_VERSION = 1.8.4.1
+GIT_VERSION = 1.8.5.1
     GEN configure
 
 $ ./configure | tee ../log.git_configure
@@ -113,7 +113,7 @@ configure: Will try -pthread then -lpthread to enable POSIX Threads.
 configure: CHECKS for site configuration
 [...]
 checking for asciidoc... asciidoc
-checking for asciidoc version... asciidoc 8.6.8
+checking for asciidoc version... asciidoc 8.6.9
 [...]
 configure: creating ./config.status
 config.status: creating config.mak.autogen
@@ -122,15 +122,14 @@ config.status: executing config.mak.autogen commands
 
 ----
 $ make | tee ../log.git_make
-    * new build flags
-    CC credential-store.o
-    * new link flags
+    * new script parameters
+    GEN git-am
+    GEN git-bisect
+    GEN git-difftool--helper
 [...]
-    GEN bin-wrappers/test-subprocess
-    GEN bin-wrappers/test-svn-fe
+    GEN bin-wrappers/test-urlmatch-normalization
     GEN bin-wrappers/test-wildmatch
     GEN git-remote-testgit
-    GEN git-remote-testpy
 ----
 
 *Step 3:* Installation (als Benutzer 'root')
@@ -168,60 +167,51 @@ $ cd /usr/local/share/doc
 $ sudo mkdir git-doc
 
 $ cd git-doc
-$ sudo tar xvzf git-htmldocs-1.8.4.1.tar.gz
+$ sudo tar xvzf git-htmldocs-1.8.5.1.tar.gz
 [...]
-./git-show-ref.txt
-./git-ls-remote.txt
-./git-repack.txt
-$ cd ..
+./git-peek-remote.html
+./user-manual.html
+./git-unpack-file.html
 
+$ cd ..
 $ sudo chown -R root.root git-doc   <1>
-$ sudo chmod -R g-s git-doc
-$ sudo chmod -R 755 git-doc
+$ sudo chmod -R a+rX git-doc
 
 $ ls -l 
-drwxr-xr-x 9 root root  4096 Okt  4 10:38 asciidoc
-drwxr-xr-x 5 root root 20480 Sep 27 20:18 git-doc
+drwxr-xr-x 9 root root  4096 Dez  8 15:28 asciidoc
+drwxr-xr-x 5 root root 20480 Dez  3 20:36 git-doc
 ----
 <1> Unbedingt die Rechte an den Dateien und den Ordnern anpassen!
 
 .Documentation: man-pages
 ----
-$ cd /usr/local/man  
-$ sudo tar xvzf git-manpages-1.8.4.1.tar.gz 
+$ cd /usr/local/share/man  
+$ sudo tar xvzf git-manpages-1.8.5.1.tar.gz 
 [...]
 
-$ sudo chown -R root.root man?   <1>
-$ sudo chmod -R g-s man?
-$ sudo chmod -R 755 man?
+$ cd ..
+$ sudo chown -R root.root man   <1>
+$ sudo chmod -R a+rX man
 
 $ ls -l
-drwxr-xr-x 2 root root 4096 Sep 27 20:22 man1
-drwxr-xr-x 2 root root 4096 Okt  8 15:27 man3
-drwxr-xr-x 2 root root 4096 Sep 27 20:22 man5
-drwxr-xr-x 2 root root 4096 Sep 27 20:22 man7
-
-$ cd ..
-$ sudo chown root.root man 
-$ sudo chmod 755 man
-
-# ls -ld man
-drwxr-xr-x 6 root root 4096 Sep 27 20:18 man
+drwxr-xr-x 2 root root 4096 Dez  3 20:37 man1
+drwxr-xr-x 2 root root 4096 Dez  8 16:30 man3
+drwxr-xr-x 2 root root 4096 Dez  3 20:37 man5
+drwxr-xr-x 2 root root 4096 Dez  3 20:37 man7
 ----
 <1> Unbedingt die Rechte an den Dateien und den Ordnern anpassen!
-
 
 *Step 4:* Installation verifizieren
 ----
 $ cd /usr/local/bin
 $ ls -l git*
--rwxr-xr-x 113 root root 7065521 Okt  8 15:27 git
--rwxr-xr-x   2 root root  162399 Okt  8 15:27 git-cvsserver
--rwxr-xr-x   1 root root  339288 Okt  8 15:27 gitk
--rwxr-xr-x 113 root root 7065521 Okt  8 15:27 git-receive-pack
--rwxr-xr-x   2 root root 3472099 Okt  8 15:27 git-shell
--rwxr-xr-x 113 root root 7065521 Okt  8 15:27 git-upload-archive
--rwxr-xr-x   2 root root 3571624 Okt  8 15:27 git-upload-pack
+-rwxr-xr-x 114 root root 7230390 Dez  8 16:30 git
+-rwxr-xr-x   2 root root  162425 Dez  8 16:30 git-cvsserver
+-rwxr-xr-x   1 root root  339288 Dez  8 16:30 gitk
+-rwxr-xr-x 114 root root 7230390 Dez  8 16:30 git-receive-pack
+-rwxr-xr-x   2 root root 3556383 Dez  8 16:30 git-shell
+-rwxr-xr-x 114 root root 7230390 Dez  8 16:30 git-upload-archive
+-rwxr-xr-x   2 root root 3627238 Dez  8 16:30 git-upload-pack
 ----
 
 ----
@@ -297,7 +287,7 @@ NOTES
         6. git@vger.kernel.org
            mailto:git@vger.kernel.org
 
-Git 1.8.4.1                       09/27/2013                            GIT(1)
+Git 1.8.5.1                       12/03/2013                            GIT(1)
 ----
 
 ----
@@ -353,17 +343,19 @@ SEE ALSO
 GIT
        Part of the git(1) suite
 
-Git 1.8.4.1                       09/27/2013                           GITK(1)
+Git 1.8.5.1                       12/03/2013                           GITK(1)
 ----
 
 ----
 $ find /usr/local -type d -cmin -10
+/usr/local
 /usr/local/share/git-core/templates
 /usr/local/share/git-core/templates/hooks
 /usr/local/share/git-core/templates/branches
 /usr/local/share/git-core/templates/info
 /usr/local/share/git-gui/lib
 /usr/local/share/git-gui/lib/msgs
+/usr/local/share/doc
 /usr/local/share/doc/git-doc
 /usr/local/share/doc/git-doc/howto
 /usr/local/share/doc/git-doc/technical
@@ -373,6 +365,7 @@ $ find /usr/local -type d -cmin -10
 /usr/local/share/man/man3
 /usr/local/share/man/man5
 /usr/local/share/man/man1
+/usr/local/share/perl/5.14.2/Git/SVN
 /usr/local/share/gitweb
 /usr/local/share/gitweb/static
 /usr/local/share/gitk/lib/msgs
@@ -381,6 +374,8 @@ $ find /usr/local -type d -cmin -10
 /usr/local/share/locale/is/LC_MESSAGES
 /usr/local/share/locale/da
 /usr/local/share/locale/da/LC_MESSAGES
+/usr/local/share/locale/fr
+/usr/local/share/locale/fr/LC_MESSAGES
 /usr/local/share/locale/it
 /usr/local/share/locale/it/LC_MESSAGES
 /usr/local/share/locale/nl
@@ -398,9 +393,6 @@ $ find /usr/local -type d -cmin -10
 /usr/local/bin
 /usr/local/libexec/git-core
 /usr/local/libexec/git-core/mergetools
-/usr/local/lib/python2.7/dist-packages
-/usr/local/lib/python2.7/dist-packages/git_remote_helpers
-/usr/local/lib/python2.7/dist-packages/git_remote_helpers/git
 ----
 
 *Step 5:* Dokumentation (local)
@@ -438,12 +430,15 @@ Browser> file:///usr/local/share/doc/git-doc/git-config.html
 
 Anhang
 ------
-Script zum Installieren von Git {git-version} (ohne Dokumentation, ohne weitere Erläuterung)
+Script zum Installieren von Git {git-version} (ohne weitere Erläuterung).
+Die Dokumentation wird mit diesem Script _nicht_ installiert.
+
+.Datei: +git-install.sh+
 ----
 #!/bin/bash
 #
 ME=make_git
-NAME=git-1.8.4.1
+NAME=git-1.8.5.1
 
 ls -l git*.tar.gz
 echo 

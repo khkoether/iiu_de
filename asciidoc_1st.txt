@@ -2,7 +2,7 @@
 Sid <&#115;&#105;&#100;&#64;&#101;&#120;&#97;&#109;&#112;&#108;&#101;&#46;&#111;&#114;&#103;>
 Version 0.0.1
 
-:icons:
+:icons: 
 :Author Initials: sid
 :creativecommons-url: http://creativecommons.org/licenses/by-sa/3.0/de/
 :asciidoc-url: http://www.methods.co.nz/asciidoc/

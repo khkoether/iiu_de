@@ -88,4 +88,8 @@ Version 1.8.2
 .Version 2.0.1
 * Neue Programmversion: Java, JRuby
   Beispiel zu: Rails 4 mit JRuby
+
+.Version 2.0.2
+* Neue Programmversion: AsciiDoc, Git, Ruby (1.9.3, 2.0.0), Java, JRuby, NetBeans
+  Beispiele zu: AsciiDoc, Rails 4 mit [Ruby, JRuby, NetBeans] 
   
