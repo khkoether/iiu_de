@@ -1,23 +1,24 @@
-Installation in Ubuntu: Ruby 1.9.3, Ruby on Rails 4
-===================================================
-Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;>
+IiU -- Ruby 1.9.3, Ruby on Rails 4
+==================================
+Installation in Ubuntu — khkoether[at]kahweb[dot]de
 
 :icons:
 :Author Initials: KHK
 :creativecommons-url: http://creativecommons.org/licenses/by-sa/3.0/de/
 :ubuntu-url: http://www.ubuntu.com/
-:asciidoc-url: http://www.methods.co.nz/asciidoc/
+:asciidoctor-url: http://asciidoctor.org/
+:asciidoctordocs-url: http://asciidoctor.org/docs/
 :git-url: http://git-scm.com/
 :git-download-url: http://code.google.com/p/git-core/downloads/list
-:ruby-url: http://www.ruby-lang.org/
-:ruby-download-url: http://www.ruby-lang.org/de/downloads/
-:ruby-ftp: ftp://www.ruby-lang.org/pub/ruby/1.9/
+:ruby-url: https://www.ruby-lang.org/de/
+:ruby-download-url: https://www.ruby-lang.org/de/downloads/
 :rubyonrails-url: http://www.rubyonrails.org
 
-:ruby-version: 1.9.3-p484
+:ruby-version: 1.9.3-p545
 :ruby20_1st-url: link:ruby20_1st.html
 
-Version 2.0.2, Dezember 2013
+
+Version 2.2.0, März 2014
 
 
 Abstract
@@ -28,13 +29,14 @@ von {ruby-url}[Ruby 1.9.3] aus dem QuellCode.
 Die Programmiersprache {ruby-url}[Ruby] ist die Grundlage für das 
 Framework {rubyonrails-url}[Ruby on Rails].
 
-Der Artikel ist in {asciidoc-url}[AsciiDoc] erstellt worden.
+Der Artikel ist in {asciidoctordocs-url}[AsciiDoc] geschrieben 
+und mit _Asciidoctor 1.5.0.preview3_ erstellt worden.
 
 [CAUTION]
 ====
 Zu beachten ist, dass so ein Dokument zum Einen nie abschliessend 
 sein kann, und zum Anderen bestimmte Konfigurationen anders, oder 
-auf einem anderem Weg durchgeführt werden können. +
+auf einem anderem Weg durchgeführt werden können. 
 Gerne nehme ich Verbesserungsvorschläge entgegen.
 
 Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr.
@@ -59,15 +61,16 @@ anderen Ubuntu-Paketen) bereits installiert.
 
 Download
 --------
-* {ruby-ftp}[Ruby 1.9.3] +    
-  ruby-{ruby-version}.tar.gz  (ca. 12M) +
-  2013-11-22 (Release date)  
+* {ruby-download-url}[Ruby 1.9.3] +    
+  +ruby-{ruby-version}.tar.gz+  (ca. 12M) +
+  2014-02-24 (Release date) -- Ruby's 21. Geburtstag  
 
-[NOTE] 
+[CAUTION]
 ====
-Stand der Dinge ist *2013* mindestens Ruby 1.9.3 verwenden!!!
- 
-Ruby 2.0.0 ist am 24. Februar 2013 (20 Jahre Ruby) hinzugekommen.
+https://www.ruby-lang.org/de/news/2014/01/10/ruby-1-9-3-will-end-on-2015/[Unterstützung für Ruby 1.9.3 endet am 23. Februar 2015]
+
+Es wird nachdrücklich empfohlen, so schnell wie möglich auf Ruby 2.1 oder 2.0.0 zu 
+aktualisieren.
 ====
 
 [NOTE] 
@@ -78,7 +81,7 @@ Die eigentliche Installation von Ruby und Ruby on Rails wird vom
 Benutzer 'root' für das System durchgeführt.
 ----
 $ ls -l 
--rw-rw-r-- 1 sid sid 12576996 Dez  8 17:03 ruby-1.9.3-p484.tar.gz
+-rw-rw-r-- 1 sid sid 12582277 Mär  3 11:48 ruby-1.9.3-p545.tar.gz
 ----
 ====
 
@@ -99,54 +102,49 @@ $ sudo apt-get install ...
 Installation: Ruby {ruby-version}
 ---------------------------------
 Zusätzliche Software-Pakete  
-sollten im Verzeichnis '/opt' (Optional) installiert werden. 
+sollten im Verzeichnis +/opt+ (Optional) installiert werden. 
 
 [IMPORTANT]
 ====
-Ohne die Angabe eines Verzeichnisses wird '/usr/local/...' automatisch verwendet.
-Eine bereits vorhandene Ruby-Installation wird überschrieben. +  
- +
-Beispiel für die Änderung des Installations-Verzeichnisses:
-'./configure --prefix=/opt/wo_auch_immer'
+Ohne die Angabe eines Verzeichnisses wird +/usr/local/...+ automatisch verwendet. +
+Eine bereits vorhandene Ruby-Installation wird überschrieben.   
+
+Beispiel für die Änderung des Installations-Verzeichnisses: +
++./configure --prefix=/opt/wo_auch_immer+
 ====
 
 *Step 1:* Auspacken des Source-Code
 ----
-$ tar xvzf ruby-1.9.3-p484.tar.gz
-$ cd ruby-1.9.3-p484
+$ tar xvzf ruby-1.9.3-p545.tar.gz
+$ cd ruby-1.9.3-p545
 ----
 
 *Step 2:* Ziel-Verzeichnis anlegen, Konfiguration erstellen und kompilieren
 ----
-$ sudo mkdir -p /opt/Ruby/ruby-1.9.3-p484
+$ sudo mkdir -p /opt/Ruby/ruby-1.9.3-p545
 ----
 
 ----
-$ ./configure --prefix=/opt/Ruby/ruby-1.9.3-p484 | tee ../log.ruby_configure
+$ ./configure --prefix=/opt/Ruby/ruby-1.9.3-p545 | tee ../log.ruby_configure
 checking build system type... x86_64-unknown-linux-gnu
-checking host system type... x86_64-unknown-linux-gnu
-checking target system type... x86_64-unknown-linux-gnu
-checking for gcc... gcc
-checking whether the C compiler works... yes
 [...]
-checking for nroff... /usr/bin/nroff
 .ext/include/x86_64-linux/ruby/config.h updated
-ruby library version = 1.9.1
+ruby library version = 1.9.1   <1>
 configure: creating ./config.status
 config.status: creating Makefile
 config.status: creating ruby-1.9.pc
 ----
+<1> Kein Fehler.
 
 ----
 $ make all | tee ../log.ruby_make-all
         CC = gcc
         LD = ld
         LDSHARED = gcc -shared
-        CFLAGS = -O3 -ggdb -Wextra -Wno-unused-parameter 
-                           -Wno-parentheses -Wno-long-long 
-                           -Wno-missing-field-initializers -Werror=pointer-arith 
-                           -Werror=write-strings -Werror=declaration-after-statement 
-                           -Werror=implicit-function-declaration 
+        CFLAGS = -O3 -ggdb 
+                 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long 
+                 -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings 
+                 -Wdeclaration-after-statement -Wimplicit-function-declaration 
         XCFLAGS = -include ruby/config.h -include ruby/missing.h -fvisibility=hidden -DRUBY_EXPORT
         CPPFLAGS =   -I. -I.ext/include/x86_64-linux -I./include -I.
         DLDFLAGS =  
@@ -162,7 +160,7 @@ Enclosing class/module 'mDigest' for class SHA1 not known
 Enclosing class/module "cASN1ObjectId" for alias short_name sn not known
 Enclosing class/module "cASN1ObjectId" for alias long_name ln not known
 
-Generating RI format into /yggdrasil/PrecisePangolin/Ruby19/ruby-1.9.3-p484/.ext/rdoc...
+Generating RI format into /yggdrasil/PrecisePangolin/Ruby19/ruby-1.9.3-p545/.ext/rdoc...
 
 Files:        773
 
@@ -170,12 +168,12 @@ Classes:     1374 ( 708 undocumented)
 Modules:      305 ( 151 undocumented)
 Constants:   2256 ( 826 undocumented)
 Attributes:  1020 ( 440 undocumented)
-Methods:    10480 (3102 undocumented)
+Methods:    10481 (3102 undocumented)
 
-Total:      15435 (5227 undocumented)
+Total:      15436 (5227 undocumented)
  66.14% documented
 
-Elapsed: 117.1s
+Elapsed: 117.7s
 ----
 <1> Beim Erzeugen der _Ruby Documentation (RDoc)_ kommt es zu Fehlern!
 
@@ -191,9 +189,9 @@ PASS all 951 tests
 ./miniruby -I./lib -I. -I.ext/common  ./tool/runruby.rb --extout=.ext  -- 
                        --disable-gems "./bootstraptest/runner.rb" 
                        --ruby="ruby"  ./KNOWNBUGS.rb
-2013-12-08 17:21:36 +0100
-Driver is ruby 1.9.3p484 (2013-11-22 revision 43786) [x86_64-linux]
-Target is ruby 1.9.3p484 (2013-11-22 revision 43786) [x86_64-linux]
+2014-03-03 12:18:47 +0100
+Driver is ruby 1.9.3p545 (2014-02-24 revision 45159) [x86_64-linux]
+Target is ruby 1.9.3p545 (2014-02-24 revision 45159) [x86_64-linux]
 
 
 KNOWNBUGS.rb           <2>
@@ -243,29 +241,28 @@ Total:      0 (0 undocumented)
 
 Elapsed: 0.0s
 ./miniruby -I./lib -I. -I.ext/common  ./tool/rbinstall.rb 
-                       --make="make" --dest-dir="" --extout=".ext" --mflags="" 
-                       --make-flags="" --data-mode=0644 --prog-mode=0755 
-                       --installed-list .installed.list --mantype="doc" --install=all 
-                       --rdoc-output=".ext/rdoc"
-installing binary commands:   /opt/Ruby/ruby-1.9.3-p484/bin
-installing base libraries:    /opt/Ruby/ruby-1.9.3-p484/lib
-installing arch files:        /opt/Ruby/ruby-1.9.3-p484/lib/ruby/1.9.1/x86_64-linux
-installing pkgconfig data:    /opt/Ruby/ruby-1.9.3-p484/lib/pkgconfig
-installing extension objects: /opt/Ruby/ruby-1.9.3-p484/lib/ruby/1.9.1/x86_64-linux
-installing extension objects: /opt/Ruby/ruby-1.9.3-p484/lib/ruby/site_ruby/1.9.1/x86_64-linux
-installing extension objects: /opt/Ruby/ruby-1.9.3-p484/lib/ruby/vendor_ruby/1.9.1/x86_64-linux
-installing extension headers: /opt/Ruby/ruby-1.9.3-p484/include/ruby-1.9.1/x86_64-linux
-installing extension scripts: /opt/Ruby/ruby-1.9.3-p484/lib/ruby/1.9.1
-installing extension scripts: /opt/Ruby/ruby-1.9.3-p484/lib/ruby/site_ruby/1.9.1
-installing extension scripts: /opt/Ruby/ruby-1.9.3-p484/lib/ruby/vendor_ruby/1.9.1
-installing extension headers: /opt/Ruby/ruby-1.9.3-p484/include/ruby-1.9.1/ruby
-installing rdoc:              /opt/Ruby/ruby-1.9.3-p484/share/ri/1.9.1/system
-installing capi-docs:         /opt/Ruby/ruby-1.9.3-p484/share/doc/ruby
-installing command scripts:   /opt/Ruby/ruby-1.9.3-p484/bin
-installing library scripts:   /opt/Ruby/ruby-1.9.3-p484/lib/ruby/1.9.1
-installing common headers:    /opt/Ruby/ruby-1.9.3-p484/include/ruby-1.9.1
-installing manpages:          /opt/Ruby/ruby-1.9.3-p484/share/man/man1
-installing default gems:      /opt/Ruby/ruby-1.9.3-p484/lib/ruby/gems/1.9.1 (cache, doc, gems, specifications)
+           --make="make" --dest-dir="" --extout=".ext" --mflags="" --make-flags="" 
+           --data-mode=0644 --prog-mode=0755 --installed-list .installed.list 
+           --mantype="doc" --install=all --rdoc-output=".ext/rdoc"
+installing binary commands:   /opt/Ruby/ruby-1.9.3-p545/bin
+installing base libraries:    /opt/Ruby/ruby-1.9.3-p545/lib
+installing arch files:        /opt/Ruby/ruby-1.9.3-p545/lib/ruby/1.9.1/x86_64-linux
+installing pkgconfig data:    /opt/Ruby/ruby-1.9.3-p545/lib/pkgconfig
+installing extension objects: /opt/Ruby/ruby-1.9.3-p545/lib/ruby/1.9.1/x86_64-linux
+installing extension objects: /opt/Ruby/ruby-1.9.3-p545/lib/ruby/site_ruby/1.9.1/x86_64-linux
+installing extension objects: /opt/Ruby/ruby-1.9.3-p545/lib/ruby/vendor_ruby/1.9.1/x86_64-linux
+installing extension headers: /opt/Ruby/ruby-1.9.3-p545/include/ruby-1.9.1/x86_64-linux
+installing extension scripts: /opt/Ruby/ruby-1.9.3-p545/lib/ruby/1.9.1
+installing extension scripts: /opt/Ruby/ruby-1.9.3-p545/lib/ruby/site_ruby/1.9.1
+installing extension scripts: /opt/Ruby/ruby-1.9.3-p545/lib/ruby/vendor_ruby/1.9.1
+installing extension headers: /opt/Ruby/ruby-1.9.3-p545/include/ruby-1.9.1/ruby
+installing rdoc:              /opt/Ruby/ruby-1.9.3-p545/share/ri/1.9.1/system
+installing capi-docs:         /opt/Ruby/ruby-1.9.3-p545/share/doc/ruby
+installing command scripts:   /opt/Ruby/ruby-1.9.3-p545/bin
+installing library scripts:   /opt/Ruby/ruby-1.9.3-p545/lib/ruby/1.9.1
+installing common headers:    /opt/Ruby/ruby-1.9.3-p545/include/ruby-1.9.1
+installing manpages:          /opt/Ruby/ruby-1.9.3-p545/share/man/man1
+installing default gems:      /opt/Ruby/ruby-1.9.3-p545/lib/ruby/gems/1.9.1 (cache, doc, gems, specifications)
                               rake 0.9.2.2
                               rdoc 3.9.5
                               minitest 2.5.1
@@ -276,49 +273,54 @@ installing default gems:      /opt/Ruby/ruby-1.9.3-p484/lib/ruby/gems/1.9.1 (cac
 
 *Step 4:* Installation verifizieren
 ----
-$ cd /opt/Ruby/ruby-1.9.3-p484
+$ cd /opt/Ruby/ruby-1.9.3-p545
 $ ls -l
-drwxr-xr-x 2 root root 4096 Dez  8 20:05 bin
-drwxr-xr-x 3 root root 4096 Dez  8 20:05 include
-drwxr-xr-x 4 root root 4096 Dez  8 20:05 lib
-drwxr-xr-x 5 root root 4096 Dez  8 20:05 share
+drwxr-xr-x 2 root root 4096 Mär  3 12:23 bin
+drwxr-xr-x 3 root root 4096 Mär  3 12:23 include
+drwxr-xr-x 4 root root 4096 Mär  3 12:23 lib
+drwxr-xr-x 5 root root 4096 Mär  3 12:23 share
 ----
 
 ----
 $ ls -l bin
--rwxr-xr-x 1 root root    4414 Dez  8 20:05 erb
--rwxr-xr-x 1 root root     563 Dez  8 20:05 gem
--rwxr-xr-x 1 root root     335 Dez  8 20:05 irb
--rwxr-xr-x 1 root root    1248 Dez  8 20:05 rake
--rwxr-xr-x 1 root root     805 Dez  8 20:05 rdoc
--rwxr-xr-x 1 root root     205 Dez  8 20:05 ri
--rwxr-xr-x 1 root root 8609029 Dez  8 17:16 ruby
--rwxr-xr-x 1 root root     315 Dez  8 20:05 testrb
+-rwxr-xr-x 1 root root    4414 Mär  3 12:23 erb
+-rwxr-xr-x 1 root root     563 Mär  3 12:23 gem
+-rwxr-xr-x 1 root root     335 Mär  3 12:23 irb
+-rwxr-xr-x 1 root root    1248 Mär  3 12:23 rake
+-rwxr-xr-x 1 root root     805 Mär  3 12:23 rdoc
+-rwxr-xr-x 1 root root     205 Mär  3 12:23 ri
+-rwxr-xr-x 1 root root 8611537 Mär  3 12:11 ruby
+-rwxr-xr-x 1 root root     315 Mär  3 12:23 testrb
 ----
 
-*Step 5:* Der Pfad zum Verzeichnis '/opt/Ruby/ruby-{ruby-version}/bin' muß gesetzt werden. 
+*Step 5:* Der Pfad zum Verzeichnis +/opt/Ruby/ruby-{ruby-version}/bin+ muß gesetzt werden. 
 ----
 $ cd /opt/Ruby/
-$ sudo ln -s ruby-1.9.3-p484 current
+$ sudo ln -s ruby-1.9.3-p545 current
 
 $ ls -l
-lrwxrwxrwx 1 root root   15 Okt  8 20:08 current -> ruby-1.9.3-p484
-drwxr-xr-x 6 root root 4096 Jan  4  2012 ruby-1.9.3-p0
-drwxr-xr-x 7 root root 4096 Okt  4  2012 ruby-1.9.3-p194
-drwxr-xr-x 7 root root 4096 Okt 27 17:52 ruby-1.9.3-p286
-drwxr-xr-x 7 root root 4096 Jan 16 11:51 ruby-1.9.3-p362
-drwxr-xr-x 7 root root 4096 Jan 22 10:13 ruby-1.9.3-p374
-drwxr-xr-x 6 root root 4096 Apr 14 10:51 ruby-1.9.3-p392
-drwxr-xr-x 6 root root 4096 Jun  1 15:13 ruby-1.9.3-p429
-drwxr-xr-x 6 root root 4096 Okt  8 16:27 ruby-1.9.3-p448
-drwxr-xr-x 6 root root 4096 Dez  8 20:05 ruby-1.9.3-p484
+lrwxrwxrwx 1 root root   15 Mär  3 12:37 current19 -> ruby-1.9.3-p545
+lrwxrwxrwx 1 root root   15 Mär  3 12:36 current20 -> ruby-2.0.0-p451
+-rw-rw-r-- 1 khk  khk   740 Mär  3 12:28 gem_list_19_484.txt
+-rw-rw-r-- 1 khk  khk  1062 Mär  3 12:34 gem_list_20_353.txt
+drwxr-xr-x 7 root root 4096 Jan 22  2013 ruby-1.9.3-p374
+drwxr-xr-x 7 root root 4096 Apr 14  2013 ruby-1.9.3-p392
+drwxr-xr-x 7 root root 4096 Jun  1  2013 ruby-1.9.3-p429
+drwxr-xr-x 7 root root 4096 Okt  8 16:39 ruby-1.9.3-p448
+drwxr-xr-x 7 root root 4096 Dez  8 20:16 ruby-1.9.3-p484
+drwxr-xr-x 6 root root 4096 Mär  3 12:23 ruby-1.9.3-p545
+-rw-r--r-- 1 root root   47 Mär  3 12:38 ruby19.path.sh
+drwxr-xr-x 7 root root 4096 Okt  8 18:59 ruby-2.0.0-p247
+drwxr-xr-x 7 root root 4096 Dez  9 18:45 ruby-2.0.0-p353
+drwxr-xr-x 6 root root 4096 Mär  3 12:30 ruby-2.0.0-p451
+-rw-r--r-- 1 root root   47 Mär  3 12:38 ruby20.path.sh
 ----
 
 .Lokal in der aktuellen Shell (1)
-Erstellen Sie eine Datei 'ruby19.path.sh'.  
+Erstellen Sie eine Datei +ruby19.path.sh+.  
 ----
 $ sudo vim ruby19.path.sh
-PATH=/opt/Ruby/current/bin:$PATH
+PATH=/opt/Ruby/current19/bin:$PATH
 export PATH
 ----
 
@@ -331,10 +333,10 @@ $ . ruby19.path.sh   <1>
 <1> Oder mit dem Bash-Builtin Kommando: _source ruby19.path.sh_
 =========================================================
 
-.Systemweit in der Datei '/etc/environment' (2)
+.Systemweit in der Datei +/etc/environment+ (2)
 ----
 $ sudo vim /etc/environment
-PATH="/opt/Ruby/current/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+PATH="/opt/Ruby/current19/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 ----
 
 
@@ -343,16 +345,16 @@ PATH="/opt/Ruby/current/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/s
 .Die Ruby-Version ...
 ----
 $ which ruby
-/opt/Ruby/current/bin/ruby   <1>
+/opt/Ruby/current19/bin/ruby   <1>
 
 $ sudo which ruby            <2>
-/opt/Ruby/current/bin/ruby
+/opt/Ruby/current19/bin/ruby
 
 $ ruby -v                    <3>
-ruby 1.9.3p484 (2013-11-22 revision 43786) [x86_64-linux]
+ruby 1.9.3p545 (2014-02-24 revision 45159) [x86_64-linux]
 ----
-<1> Das Kommando 'which' wertet den gesetzten 'PATH' für den Benutzer 'sid' aus +
-<2> Das Kommando 'which' wertet den gesetzten 'PATH' für den Benuzter 'root' aus
+<1> Das Kommando 'which' wertet den gesetzten +PATH+ für den Benutzer 'sid' aus +
+<2> Das Kommando 'which' wertet den gesetzten +PATH+ für den Benuzter 'root' aus
 <3> Ausgabe der Version des installierten Ruby
 
 
@@ -368,12 +370,12 @@ $ irb
 irb(main):001:0> RUBY_VERSION
 => "1.9.3"
 irb(main):002:0> RUBY_PATCHLEVEL
-=> 484
+=> 545
 irb(main):003:0> Time.now.to_s
-=> "2013-12-08 20:11:25 +0100"
-irb(main):004:0> Time.now.saturday?
+=> "2014-03-03 12:41:41 +0100"
+irb(main):004:0> Time.now.sunday?
 => false
-irb(main):005:0> Time.now.sunday?
+irb(main):005:0> Time.now.monday?
 => true
 irb(main):006:0> exit
 ----
@@ -424,22 +426,22 @@ Benutzer 'root' durchgeführt.
 ====
 
 *Step 1:* Vorraussetzung für die nächsten Befehle ist ein 
-funktionierender 'PATH'-Eintrag für alle Benutzer (einschliesslich 'root') 
+funktionierender +PATH+-Eintrag für alle Benutzer (einschliesslich 'root') 
 auf die Ruby1.9-Installation:
 ----
 $ which gem
-/opt/Ruby/current/bin/gem
+/opt/Ruby/current19/bin/gem
 
 $ sudo su -
 # . /opt/Ruby/ruby19.path.sh
 # which gem
-/opt/Ruby/current/bin/gem
+/opt/Ruby/current19/bin/gem
 ----
 
 Dann gehen auch die folgenden Befehle
 ----
 $ gem -v
-1.8.23
+1.8.23.2
 
 $ gem list --local
 
@@ -457,18 +459,18 @@ rdoc (3.9.5)
 ----
 # gem update --system      
 Updating rubygems-update
-Fetching: rubygems-update-2.1.11.gem (100%)
-Successfully installed rubygems-update-2.1.11
-Installing RubyGems 2.1.11
-RubyGems 2.1.11 installed
-Installing ri documentation for rubygems-2.1.11
+Fetching: rubygems-update-2.2.2.gem (100%)
+Successfully installed rubygems-update-2.2.2
+Installing RubyGems 2.2.2
+RubyGems 2.2.2 installed
+Installing ri documentation for rubygems-2.2.2
 
 [...]
 
  -----------------------------------------------------------------------------
 
 RubyGems installed the following executables:
-	/opt/Ruby/ruby-1.9.3-p484/bin/gem
+	/opt/Ruby/ruby-1.9.3-p545/bin/gem
 
 Ruby Interactive (ri) documentation was installed. ri is kind of like man 
 pages for ruby libraries. You may access it like this:
@@ -476,7 +478,7 @@ pages for ruby libraries. You may access it like this:
   ri Classname.class_method
   ri Classname#instance_method
 If you do not wish to install this documentation in the future, use the
- --no-document flag, or set it as the default in your ~/.gemrc file. See
+--no-document flag, or set it as the default in your ~/.gemrc file. See
 'gem help env' for details.
 
 RubyGems system software updated
@@ -487,11 +489,11 @@ RubyGems system software updated
 # gem update
 Updating installed gems
 Updating bigdecimal
-Fetching: bigdecimal-1.2.3.gem (100%)
+Fetching: bigdecimal-1.2.5.gem (100%)
 Building native extensions.  This could take a while...
-Successfully installed bigdecimal-1.2.3
-Installing ri documentation for bigdecimal-1.2.3
-Installing darkfish documentation for bigdecimal-1.2.3
+Successfully installed bigdecimal-1.2.5
+Installing ri documentation for bigdecimal-1.2.5
+Installing darkfish documentation for bigdecimal-1.2.5
 Updating io-console
 Fetching: io-console-0.4.2.gem (100%)
 Building native extensions.  This could take a while...
@@ -505,22 +507,22 @@ Successfully installed json-1.8.1
 Installing ri documentation for json-1.8.1
 Installing darkfish documentation for json-1.8.1
 Updating minitest
-Fetching: minitest-5.1,0.gem (100%)
-Successfully installed minitest-5.1.0
-Installing ri documentation for minitest-5.1.0
-Installing darkfish documentation for minitest-5.1.0
+Fetching: minitest-5.3.0.gem (100%)
+Successfully installed minitest-5.3.0
+Installing ri documentation for minitest-5.3.0
+Installing darkfish documentation for minitest-5.3.0
 Updating rake
-Fetching: rake-10.1.0.gem (100%)
-rake's executable "rake" conflicts with /opt/Ruby/ruby-1.9.3-p484/bin/rake
+Fetching: rake-10.1.1.gem (100%)
+rake's executable "rake" conflicts with /opt/Ruby/ruby-1.9.3-p545/bin/rake
 Overwrite the executable? [yN]  y   <1>
-Successfully installed rake-10.1.0
-Installing ri documentation for rake-10.1.0
-Installing darkfish documentation for rake-10.1.0
+Successfully installed rake-10.1.1
+Installing ri documentation for rake-10.1.1
+Installing darkfish documentation for rake-10.1.1
 Updating rdoc
-Fetching: rdoc-4.0.1.gem (100%)
-rdoc's executable "rdoc" conflicts with /opt/Ruby/ruby-1.9.3-p484/bin/rdoc
+Fetching: rdoc-4.1.1.gem (100%)
+rdoc's executable "rdoc" conflicts with /opt/Ruby/ruby-1.9.3-p545/bin/rdoc
 Overwrite the executable? [yN]  y
-rdoc's executable "ri" conflicts with /opt/Ruby/ruby-1.9.3-p484/bin/ri
+rdoc's executable "ri" conflicts with /opt/Ruby/ruby-1.9.3-p545/bin/ri
 Overwrite the executable? [yN]  y
 Depending on your version of ruby, you may need to install ruby rdoc/ri data:
 
@@ -528,9 +530,9 @@ Depending on your version of ruby, you may need to install ruby rdoc/ri data:
  = 1.8.7 : gem install rdoc-data; rdoc-data --install
  = 1.9.1 : gem install rdoc-data; rdoc-data --install
 >= 1.9.2 : nothing to do! Yay!
-Successfully installed rdoc-4.0.1
-Installing ri documentation for rdoc-4.0.1
-Installing darkfish documentation for rdoc-4.0.1
+Successfully installed rdoc-4.1.1
+Installing ri documentation for rdoc-4.1.1
+Installing darkfish documentation for rdoc-4.1.1
 Gems updated: bigdecimal io-console json minitest rake rdoc   <2>
 ----
 <1> Ich wähle die jeweils aktuellste Version: _y_
@@ -541,79 +543,82 @@ Gems updated: bigdecimal io-console json minitest rake rdoc   <2>
 
 *** LOCAL GEMS ***
 
-bigdecimal (1.2.3, 1.1.0)
+bigdecimal (1.2.5, 1.1.0)
 io-console (0.4.2, 0.3)
 json (1.8.1, 1.5.5)
-minitest (5.1.0, 2.5.1)
-rake (10.1.0, 0.9.2.2)    <1>
-rdoc (4.0.1, 3.9.5)
-rubygems-update (2.1.11)
+minitest (5.3.0, 2.5.1)
+rake (10.1.1, 0.9.2.2)    <1>
+rdoc (4.1.1, 3.9.5)
+rubygems-update (2.2.2)
 ----
 <1> Der gezeigte Versionssprung ist kein Fehler ;-) +
     &rarr; link:https://github.com/jimweirich/rake/blob/next-major-release/doc/release_notes/rake-10.0.0.rdoc[Rake 10.0 Released]
 
 *Step 4:* Dokumentation zu den installierten RubyGems aktualisieren
 ----
-# cd /opt/Ruby/current   <1>  
+# cd /opt/Ruby/current19   <1>  
 # rdoc .
 Parsing sources...
 Couldn't find file to include 'README.txt' from lib/ruby/1.9.1/minitest/unit.rb 
 unknown encoding name "<%= @options.charset %>" for lib/ruby/1.9.1/rdoc/generator/template/darkfish/classpage.rhtml, skipping
-Couldn't find file to include 'README.txt' from lib/ruby/gems/1.9.1/gems/minitest-5.0.3/lib/minitest.rb
-100% [23408/23408]  share/ri/1.9.1/system/fatal/cdesc-fatal.ri           
+Couldn't find file to include 'README.txt' from lib/ruby/gems/1.9.1/gems/minitest-5.3.0/lib/minitest.rb
+100% [21062/21062]  share/ri/1.9.1/system/fatal/cdesc-fatal.ri          
                 
-Generating Darkfish format into /opt/Ruby/ruby-1.9.3-p484/doc...
+Generating Darkfish format into /opt/Ruby/ruby-1.9.3-p545/doc...
 
-Files:      20861
+  Files:      21062
 
-Classes:     1357 (   0 undocumented)
-Modules:      318 (  13 undocumented)
-Constants:   1066 ( 730 undocumented)
-Attributes:  1180 ( 491 undocumented)
-Methods:     8584 (3522 undocumented)
+  Classes:     1302 ( 662 undocumented)
+  Modules:      264 ( 137 undocumented)
+  Constants:   1049 ( 714 undocumented)
+  Attributes:  1187 ( 444 undocumented)
+  Methods:     8477 (3321 undocumented)
 
-Total:      12505 (4756 undocumented)
- 61.97% documented
+  Total:      12279 (5278 undocumented)
+   57.02% documented
 
-Elapsed: 1819.2s   <2>
+  Elapsed: 2207.4s   <2>
 ----
-<1> Entspricht: _/opt/Ruby/ruby-1.9.3-p484_
+<1> Entspricht: _/opt/Ruby/ruby-1.9.3-p545_
 <2> _Generating Darkfish_ dauert lange...
 
 ----
 # ls -l
-drwxr-xr-x  2 root root  4096 Dez  8 20:15 bin
-drwxr-xr-x 83 root root 12288 Dez  8 20:46 doc       <1>
-drwxr-xr-x  3 root root  4096 Dez  8 20:05 include
-drwxr-xr-x  4 root root  4096 Dez  8 20:05 lib
-drwxr-xr-x  5 root root  4096 Dez  8 20:05 share
+drwxr-xr-x  2 root root  4096 Mär  3 12:49 bin
+drwxr-xr-x 83 root root 16384 Mär  3 13:28 doc       <1>
+drwxr-xr-x  3 root root  4096 Mär  3 12:23 include
+drwxr-xr-x  4 root root  4096 Mär  3 12:23 lib
+drwxr-xr-x  5 root root  4096 Mär  3 12:23 share
 ----
 <1> Das Dokumentations-Verzeichnis enthält die Datei _index.html_. +
-    Das neue Verzeichnis belegt ca. 812M Speicherplatz.
+    Das neue Verzeichnis belegt ca. 186M Speicherplatz.
 
 ----
-Browser> file:///opt/Ruby/current/doc/index.html
+Browser> file:///opt/Ruby/current19/doc/index.html
 ----
 
 
-Installation: Ruby on Rails 4.0.2
+Installation: Ruby on Rails 4.0.3
 ---------------------------------
 *Step 0* 
 ----
 # gem search ^rails$ --remote
+
 *** REMOTE GEMS ***
-rails (4.0.2)
+
+rails (4.0.3)
 ----
 
 *Step 1:* Wichtig ist hier die Systemweite Installation von 
-Rails 4.0.2 mit dem Benutzer 'root'.
+Rails 4.0.3 mit dem Benutzer 'root'.
 ---- 
 # gem install rails --no-rdoc --no-ri
-Fetching: i18n-0.6.9.gem (100%)
-Successfully installed i18n-0.6.9
+Fetching: atomic-1.1.15.gem (100%)
+Building native extensions.  This could take a while...
+Successfully installed atomic-1.1.15
 [...]
-Fetching: rails-4.0.2.gem (100%)
-Successfully installed rails-4.0.2
+Fetching: rails-4.0.3.gem (100%)
+Successfully installed rails-4.0.3
 29 gems installed   <1>
 ----
 <1> Für das Framework _Ruby on Rails_ wurden 29 RubyGems installiert. +
@@ -623,12 +628,12 @@ Successfully installed rails-4.0.2
 ====
 Alternativ kann _Rails_ mit der Angabe einer Version installiert werden.
 ----
-# gem install rails --version 4.0.2
+# gem install rails --version 4.0.3
 
-# gem install rails --version '~> 4.0.2'   <1>
+# gem install rails --version '~> 4.0.3'   <1>
 ----
-<1> Twiddle Wakka: '~> 4.0.2' bedeutet, das die höchste Gem-Version von Rails
-    im Bereich von >= 4.0.2 und < 4.1 installiert wird. 
+<1> Twiddle Wakka: '~> 4.0.3' bedeutet, das die höchste Gem-Version von Rails
+    im Bereich von >= 4.0.3 und < 4.1 installiert wird. 
 ====
 
 ----
@@ -636,17 +641,17 @@ $ gem list --local
 
 *** LOCAL GEMS ***
 
-actionmailer (4.0.2)
-actionpack (4.0.2)
-activemodel (4.0.2)
-activerecord (4.0.2)
+actionmailer (4.0.3)
+actionpack (4.0.3)
+activemodel (4.0.3)
+activerecord (4.0.3)
 activerecord-deprecated_finders (1.0.3)
-activesupport (4.0.2)
-arel (4.0.1)
-atomic (1.1.14)
-bigdecimal (1.2.3, 1.1.0)
+activesupport (4.0.3)
+arel (4.0.2)
+atomic (1.1.15)
+bigdecimal (1.2.5, 1.1.0)
 builder (3.1.4)
-bundler (1.3.5)
+bundler (1.6.0.rc)
 erubis (2.7.0)
 hike (1.2.3)
 i18n (0.6.9)
@@ -654,70 +659,61 @@ io-console (0.4.2, 0.3)
 json (1.8.1, 1.5.5)
 mail (2.5.4)
 mime-types (1.25.1)
-minitest (5.1.0, 4.7.5, 2.5.1)
-multi_json (1.8.2)
-polyglot (0.3.3)
+minitest (5.3.0, 4.7.5, 2.5.1)
+multi_json (1.8.4)
+polyglot (0.3.4)
 rack (1.5.2)
 rack-test (0.6.2)
-rails (4.0.2)
-railties (4.0.2)
-rake (10.1.0, 0.9.2.2)
-rdoc (4.0.1, 3.9.5)
-rubygems-update (2.1.11)
-sprockets (2.10.1)
+rails (4.0.3)
+railties (4.0.3)
+rake (10.1.1, 0.9.2.2)
+rdoc (4.1.1, 3.9.5)
+rubygems-update (2.2.2)
+sprockets (2.11.0)
 sprockets-rails (2.0.1)
 thor (0.18.1)
-thread_safe (0.1.3)
+thread_safe (0.2.0)
 tilt (1.4.1)
 treetop (1.4.15)
 tzinfo (0.3.38)
 ----
 
 ----
-$ cd /opt/Ruby/current
+$ cd /opt/Ruby/current19
 $ ls -l bin
--rwxr-xr-x 1 root root     478 Dez  8 22:23 bundle
--rwxr-xr-x 1 root root    4414 Dez  8 20:05 erb
--rwxr-xr-x 1 root root     475 Dez  8 22:22 erubis
--rwxr-xr-x 1 root root     563 Dez  8 20:05 gem
--rwxr-xr-x 1 root root     335 Dez  8 20:05 irb
--rwxr-xr-x 1 root root     469 Dez  8 22:22 rackup
--rwxr-xr-x 1 root root     480 Dez  8 22:23 rails
--rwxr-xr-x 1 root root     467 Dez  8 20:15 rake
--rwxr-xr-x 1 root root     467 Dez  8 20:15 rdoc
--rwxr-xr-x 1 root root     465 Dez  8 20:15 ri
--rwxr-xr-x 1 root root 8609029 Dez  8 17:16 ruby
--rwxr-xr-x 1 root root     487 Dez  8 22:23 sprockets
--rwxr-xr-x 1 root root     315 Dez  8 20:05 testrb
--rwxr-xr-x 1 root root     467 Dez  8 22:23 thor
--rwxr-xr-x 1 root root     467 Dez  8 22:23 tilt
--rwxr-xr-x 1 root root     474 Dez  8 22:22 tt
--rwxr-xr-x 1 root root     511 Dez  8 20:13 update_rubygems
+-rwxr-xr-x 1 root root     513 Mär  3 14:40 bundle
+-rwxr-xr-x 1 root root     514 Mär  3 14:40 bundler
+-rwxr-xr-x 1 root root    4414 Mär  3 12:23 erb
+-rwxr-xr-x 1 root root     510 Mär  3 14:39 erubis
+-rwxr-xr-x 1 root root     563 Mär  3 12:23 gem
+-rwxr-xr-x 1 root root     335 Mär  3 12:23 irb
+-rwxr-xr-x 1 root root     504 Mär  3 14:39 rackup
+-rwxr-xr-x 1 root root     515 Mär  3 14:40 rails
+-rwxr-xr-x 1 root root     502 Mär  3 12:49 rake
+-rwxr-xr-x 1 root root     502 Mär  3 12:49 rdoc
+-rwxr-xr-x 1 root root     500 Mär  3 12:49 ri
+-rwxr-xr-x 1 root root 8611537 Mär  3 12:11 ruby
+-rwxr-xr-x 1 root root     522 Mär  3 14:40 sprockets
+-rwxr-xr-x 1 root root     315 Mär  3 12:23 testrb
+-rwxr-xr-x 1 root root     502 Mär  3 14:40 thor
+-rwxr-xr-x 1 root root     502 Mär  3 14:40 tilt
+-rwxr-xr-x 1 root root     509 Mär  3 14:40 tt
+-rwxr-xr-x 1 root root     511 Mär  3 12:46 update_rubygems
 ----
 
 [NOTE]
 ====
-Das Erstellen der Dokumentation muß leider wiederholt werden... und mit Rails (29 Gems)
-zusätzlich - ist sie für viele Partitionen - halt zu groß ;-)
-----
-# /partition_mit_viel_platz  <1>
-# rdoc /opt/Ruby/current     <2>  
-Parsing sources...
-[...]
-Elapsed: 6789.7s   <3>, <4>
-----
-<1> Ungefähr 11GB - schon beachtlich!
-<2> Entspricht: _/opt/Ruby/ruby-1.9.3-p484_ (vorher das _doc_-Verzeichnis löschen!)
-<3> _Generating Darkfish_ dauert nun um so vieles länger...
-<4> Heute habe ich mir das Erstellen ... gespart ;-)
+Das Erstellen der Dokumentation müßte wiederholt werden... 
+aber mit Rails (29 Gems) zusätzlich - ist sie für viele Partitionen (mit ca. 11GB)
+ - halt zu groß ;-)
 ====
 
 *Step 2:* Installation der Datenbank-Treiber mit dem Benutzer 'root'.
 ---- 
 # gem install mysql2 --no-rdoc --no-ri
-Fetching: mysql2-0.3.14.gem (100%)
+Fetching: mysql2-0.3.15.gem (100%)
 Building native extensions.  This could take a while...
-Successfully installed mysql2-0.3.14
+Successfully installed mysql2-0.3.15
 1 gem installed
 ----
 
@@ -733,9 +729,9 @@ Dementsprechend mu&szlig; f&uuml;r _Rails 3.0.x_ eine älterere Version installi
 
 ----
 # gem install sqlite3 --no-rdoc --no-ri   <1>
-Fetching: sqlite3-1.3.8.gem (100%)
+Fetching: sqlite3-1.3.9.gem (100%)
 Building native extensions.  This could take a while...
-Successfully installed sqlite3-1.3.8
+Successfully installed sqlite3-1.3.9
 1 gem installed
 ----
 <1> Rails ist für die Verwendung einer 'SQLite3'-Datenbank vorkonfiguriert. + 
@@ -757,8 +753,8 @@ Thanks from the Ruby sqlite3 team!
 *Step 3:* Erweiterungen
 ----
 # gem install sinatra --no-rdoc --no-ri   <1>
-Fetching: rack-protection-1.5.1.gem (100%)
-Successfully installed rack-protection-1.5.1
+Fetching: rack-protection-1.5.2.gem (100%)
+Successfully installed rack-protection-1.5.2
 Fetching: sinatra-1.4.4.gem (100%)
 Successfully installed sinatra-1.4.4
 2 gems installed
@@ -768,6 +764,22 @@ Successfully installed sinatra-1.4.4
     Sinatra setzt das Rack Webserver-Interface voraus. +
     &rarr; link:http://de.wikipedia.org/wiki/Sinatra_%28Software%29[Wikipedia: Sinatra (Software)]
 
+http://rubygems.org/gems/asciidoctor/versions/1.5.0.preview3[Download: *asciidoctor* &middot; 1.5.0.preview3] (03.03.2014)
+----
+-rw-r--r-- 1 sid  sid  266240 Mär  3 15:05 asciidoctor-1.5.0.preview3.gem
+----
+
+----
+# gem install asciidoctor-1.5.0.preview3.gem        <1>
+Successfully installed asciidoctor-1.5.0.preview3
+Parsing documentation for asciidoctor-1.5.0.preview3
+Installing ri documentation for asciidoctor-1.5.0.preview3
+Done installing documentation for asciidoctor after 5 seconds
+1 gem installed
+----
+<1> *Asciidoctor* is an open source Ruby processor for converting AsciiDoc markup 
+    into HTML 5, DocBook 4.5 and other formats.
+    
 
 RubyGems Documentation Index
 ----------------------------
@@ -799,7 +811,7 @@ Script zum Installieren von Ruby {ruby-version} (ohne weitere Erläuterung).
 #!/bin/bash
 #
 ME=make_ruby_1.9.3
-NAME=ruby-1.9.3-p484
+NAME=ruby-1.9.3-p545
 TARGET=/opt/Ruby/${NAME}
 
 if [ ! -e $TARGET ] 

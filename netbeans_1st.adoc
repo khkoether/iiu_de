@@ -1,15 +1,15 @@
-Rails 4: Erste Schritte &hellip; mit der NetBeans IDE 
-=====================================================
-Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;>
+IiU -- Rails 4: Erste Schritte &hellip; mit NetBeans 
+====================================================
+Installation in Ubuntu — khkoether[at]kahweb[dot]de
 
 :icons:
 :Author Initials: KHK
 :creativecommons-url: http://creativecommons.org/licenses/by-sa/3.0/de/
 :ubuntu-url: http://www.ubuntu.com/
-:asciidoc-url: http://www.methods.co.nz/asciidoc/
-:ruby-url: http://www.ruby-lang.org/
-:ruby-download-url: http://www.ruby-lang.org/de/downloads/
-:ruby-ftp: ftp://www.ruby-lang.org/pub/ruby/1.9/
+:asciidoctor-url: http://asciidoctor.org/
+:asciidoctordocs-url: http://asciidoctor.org/docs/
+:ruby-url: https://www.ruby-lang.org/de/
+:ruby-download-url: https://www.ruby-lang.org/de/downloads/
 :rubyonrails-url: http://www.rubyonrails.org
 :java-url: http://www.oracle.com/technetwork/java/javase/downloads/index.html
 :jruby-url: http://jruby.org/
@@ -24,7 +24,7 @@ Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;
 :netbeans-url: link:netbeans.html
 
 
-Version 2.0.2, Dezember 2013
+Version 2.2.0, März 2014
 
 
 Abstract
@@ -32,13 +32,14 @@ Abstract
 Die folgenden Schritte stellen die Funktionsfähigkeit der Installation 
 von _NetBeans IDE 7.4_ (kurz: _NetBeans_) sicher. 
 
-Der Artikel ist in {asciidoc-url}[AsciiDoc] erstellt worden.
+Der Artikel ist in {asciidoctordocs-url}[AsciiDoc] geschrieben 
+und mit _Asciidoctor 1.5.0.preview3_ erstellt worden.
 
 [CAUTION]
 ====
 Zu beachten ist, dass so ein Dokument zum Einen nie abschliessend 
 sein kann, und zum Anderen bestimmte Konfigurationen anders, oder 
-auf einem anderem Weg durchgeführt werden können. +
+auf einem anderem Weg durchgeführt werden können. 
 Gerne nehme ich Verbesserungsvorschläge entgegen.
 
 Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr.
@@ -116,7 +117,7 @@ image::images/netbeans/ror12_RailsApplication1-NetBeans_IDE_7.4.jpeg[RailsApplic
 [NOTE]
 ====
 Die Erweiterung für die _NetBeans IDE 7.4_ sind noch nicht für  
-_Rails 4.0.2_ angepasst: +
+_Rails&nbsp;4_ angepasst: +
 Das Verzeichnis +script+ wird nicht mehr für den _rails_-Aufruf verwendet. 
 ====
 
@@ -128,12 +129,12 @@ $ cd ~/NetBeansProjects/RailsApplication1
 ----
 $ rails s
 => Booting WEBrick
-=> Rails 4.0.2 application starting in development on http://0.0.0.0:3000
+=> Rails 4.0.3 application starting in development on http://0.0.0.0:3000
 => Run `rails server -h` for more startup options
 => Ctrl-C to shutdown server
-[2013-12-31 19:32:45] INFO  WEBrick 1.3.1
-[2013-12-31 19:32:45] INFO  ruby 1.9.3 (2013-12-06) [java]
-[2013-12-31 19:32:45] INFO  WEBrick::HTTPServer#start: pid=11271 port=3000
+[2014-03-03 22:20:40] INFO  WEBrick 1.3.1
+[2014-03-03 22:20:40] INFO  ruby 1.9.3 (2014-02-24) [java]
+[2014-03-03 22:20:40] INFO  WEBrick::HTTPServer#start: pid=17295 port=3000
 ----
 
 

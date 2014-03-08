@@ -1,15 +1,40 @@
-Installation in Ubuntu: AsciiDoc 8.6.9   
-======================================
-Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;>
+IiU -- AsciiDoc 8.6.9   
+=====================
+Installation in Ubuntu — khkoether[at]kahweb[dot]de  
 
+:middot: &middot;
 :icons:
 :Author Initials: KHK
 :creativecommons-url: http://creativecommons.org/licenses/by-sa/3.0/de/
 :ubuntu-url: http://www.ubuntu.com/
 :asciidoc-url: http://www.methods.co.nz/asciidoc/
+:asciidoctor-url: http://asciidoctor.org/
+:asciidoctordocs-url: http://asciidoctor.org/docs/
 :sourceforge-url: http://sourceforge.net/projects/asciidoc/files/
 
-Version 2.0.2, Dezemer 2013
+
+[CAUTION]
+====
+Ich werde diese Seite für das mit Python implementierte _AsciiDoc_ nicht weiter pflegen. + 
+Inzwischen nutze ich selbst _Asciidoctor_ (siehe NOTE).
+====
+ 
+[NOTE]
+====
+http://themes.asciidoctor.org/preview/#installing-asciidoc
+
+.Installing AsciiDoc
+The original AsciiDoc processor is a Python script and can be run on any system 
+that has Python 2 installed.[2]
+
+There’s a modern implementation of AsciiDoc, written in Ruby, named Asciidoctor. 
+If decide to use Asciidoctor, you’ll still need to install the Python version 
+for some conversions -- such as generating a PDF -- that Asciidoctor doesn’t handle 
+at the time of this writing.
+====
+
+
+Version 2.0.2, Dezember 2013 (unverändert)
 
 
 Abstract
@@ -17,17 +42,18 @@ Abstract
 Der Artikel ist eine Schritt-für-Schritt Anleitung zur Installation 
 des Programms {asciidoc-url}[AsciiDoc] aus dem QuellCode.
  
-{asciidoc-url}[AsciiDoc] ist eine einfache Auszeichnungssprache, 
+{asciidoctordocs-url}[AsciiDoc] ist eine einfache Auszeichnungssprache, 
 die dazu dient, Texte in verschiedenen Dokumentenformaten zu 
 veröffentlichen.
 
-Der Artikel ist in {asciidoc-url}[AsciiDoc] erstellt worden.
+Der Artikel ist in {asciidoctor-url}[AsciiDoc] geschrieben 
+und mit _Asciidoctor 1.5.0.preview3_ erstellt worden.
 
 [CAUTION]
 ====
 Zu beachten ist, dass so ein Dokument zum Einen nie abschließend 
 sein kann, und zum Anderen bestimmte Konfigurationen anders, oder 
-auf einem anderem Weg durchgeführt werden können. +
+auf einem anderem Weg durchgeführt werden können. 
 Gerne nehme ich Verbesserungsvorschläge entgegen.
 
 Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr.
@@ -50,7 +76,7 @@ Ubuntu 12.04 LTS (Precise Pangolin) enthält das Paket _asciidoc_8.6.6-1ubuntu1_
 Download
 --------
 * {sourceforge-url}[AsciiDoc] +    
-  asciidoc-8.6.9.tar.gz  (ca. 907.3K) +
+  +asciidoc-8.6.9.tar.gz+  (ca. 907.3K) +
   2013-11-09 (Release date)
   
 [NOTE] 
@@ -81,11 +107,11 @@ Installation
 ------------
 [IMPORTANT]
 ====
-Ohne die Angabe eines Verzeichnisses wird '/usr/local/...' automatisch verwendet.
-Eine bereits vorhandene AsciiDoc-Installation wird überschrieben. +  
- +
+Ohne die Angabe eines Verzeichnisses wird +/usr/local/...+ automatisch verwendet. +
+Eine bereits vorhandene AsciiDoc-Installation wird überschrieben. 
+ 
 Beispiel für die Änderung des Installations-Verzeichnisses:
-'./configure --prefix=/opt/wo_auch_immer'
++./configure --prefix=/opt/wo_auch_immer+
 ====
 
 *Step 1:* Auspacken des Source-Code
@@ -259,10 +285,10 @@ Browser> file:///usr/local/share/doc/asciidoc/examples/website/index.html
 
 Beispiel
 --------
-Mit dem folgenden Kommando erstellen Sie aus der Datei 
-link:asciidoc_1st.txt[asciidoc_1st.txt] (siehe <<_anhang,[Anhang]>>) die Datei.
+Mit dem folgenden Kommando erstellen Sie mit _asciidoc_ aus der Datei 
++asciidoc_1st.adoc+ (siehe <<_anhang,[Anhang]>>) die HTML5-Datei +asciidoc_1st.html+.
 ----
-$ asciidoc -a toc asciidoc_1st.txt
+$ asciidoc -b html5 -a icons -a toc asciidoc_1st.adoc
 ---- 
 
 link:asciidoc_1st.html[Ausgabebeispiel: So sieht's aus]
@@ -270,11 +296,12 @@ link:asciidoc_1st.html[Ausgabebeispiel: So sieht's aus]
 
 Anhang
 ------
-.Text-Datei: +asciidoc_1st.txt+ 
+.Text-Datei: +asciidoc_1st.adoc+ 
 ----
 = Lorem ipsum
-Sid <&#115;&#105;&#100;&#64;&#101;&#120;&#97;&#109;&#112;&#108;&#101;&#46;&#111;&#114;&#103;>
-Version 0.0.1
+Sid -- sid[at]example[dot]org
+
+Version 0.0.1, Dezember 2013 (unverändert)
 
 :icons:
 :Author Initials: sid

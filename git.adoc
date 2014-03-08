@@ -1,18 +1,20 @@
-Installation in Ubuntu: Git 1.8.5.1
-===================================
-Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;>
+IiU -- Git 1.9.0
+================
+Installation in Ubuntu — khkoether[at]kahweb[dot]de
 
 :icons:
 :Author Initials: KHK
 :creativecommons-url: http://creativecommons.org/licenses/by-sa/3.0/de/
 :ubuntu-url: http://www.ubuntu.com/
-:asciidoc-url: http://www.methods.co.nz/asciidoc/
+:asciidoctor-url: http://asciidoctor.org/
+:asciidoctordocs-url: http://asciidoctor.org/docs/
 :git-url: http://git-scm.com/
 :git-download-url: http://code.google.com/p/git-core/downloads/list
 
-:git-version: 1.8.5.1
+:git-version: 1.9.0
 
-Version 2.0.2, Dezember 2013
+
+Version 2.2.0, März 2014
 
 
 Abstract
@@ -23,13 +25,14 @@ des Programms {git-url}[Git] aus dem QuellCode.
 {git-url}[Git] ist ein freies verteiltes Versionskontrollsystem 
 (DVCS - Distributed Version Control System).
 
-Der Artikel ist in {asciidoc-url}[AsciiDoc] erstellt worden.
+Der Artikel ist in {asciidoctordocs-url}[AsciiDoc] geschrieben 
+und mit _Asciidoctor 1.5.0.preview3_ erstellt worden.
 
 [CAUTION]
 ====
 Zu beachten ist, dass so ein Dokument zum Einen nie abschliessend 
 sein kann, und zum Anderen bestimmte Konfigurationen anders, oder 
-auf einem anderem Weg durchgeführt werden können. +
+auf einem anderem Weg durchgeführt werden können. 
 Gerne nehme ich Verbesserungsvorschläge entgegen.
 
 Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr.
@@ -52,10 +55,10 @@ Ubuntu 12.04 LTS (Precise Pangolin) enthält das Paket _git-core_1.7.9.5-1_all_.
 Download
 --------
 * {git-download-url}[Git] +    
-  git-{git-version}.tar.gz  (ca. 4.6M) +
-  git-htmldocs-{git-version}.tar.gz  (ca. 2.2M) +
-  git-manpages-{git-version}.tar.gz  (ca. 556K) +
-  2013-12-03 (Release date)
+  +git-{git-version}.tar.gz+  (ca. 4.7M) +
+  +git-htmldocs-{git-version}.tar.gz+  (ca. 2.2M) +
+  +git-manpages-{git-version}.tar.gz+  (ca. 559K) +
+  2014-02-14 (Release date)
   
 [NOTE] 
 ====
@@ -64,10 +67,10 @@ durchgeführt. +
 Die eigentliche Installation von Git wird vom  
 Benutzer 'root' für das System durchgeführt.
 ----
-$ ls -l 
--rw-rw-r--  1 sid  sid    4755019 Dez  8 15:56 git-1.8.5.1.tar.gz
--rw-rw-r--  1 sid  sid    2236187 Dez  8 15:56 git-htmldocs-1.8.5.1.tar.gz
--rw-rw-r--  1 sid  sid     569069 Dez  8 15:56 git-manpages-1.8.5.1.tar.gz
+$ ls -l
+-rw-rw-r--  1 sid  sid    4839724 Mär  2 16:16 git-1.9.0.tar.gz
+-rw-rw-r--  1 sid  sid    2240600 Mär  2 16:16 git-htmldocs-1.9.0.tar.gz
+-rw-rw-r--  1 sid  sid     571616 Mär  2 16:16 git-manpages-1.9.0.tar.gz
 ----
 ====
 
@@ -88,23 +91,23 @@ Installation
 ------------
 [IMPORTANT]
 ====
-Ohne die Angabe eines Verzeichnisses wird '/usr/local/...' automatisch verwendet.
-Eine bereits vorhandene Git-Installation wird überschrieben. +  
+Ohne die Angabe eines Verzeichnisses wird +/usr/local/...+ automatisch verwendet. +
+Eine bereits vorhandene Git-Installation wird überschrieben. 
  
 Beispiel für die Änderung des Installations-Verzeichnisses: +
-'./configure --prefix=/opt/wo_auch_immer'
++./configure --prefix=/opt/wo_auch_immer+
 ====
 
 *Step 1:* Auspacken des Source-Code
 ----
-$ tar xvzf git-1.8.5.1.tar.gz
-$ cd git-1.8.5.1
+$ tar xvzf git-1.9.0.tar.gz
+$ cd git-1.9.0
 ----
 
 *Step 2:* Konfiguration erstellen und kompilieren
 ----
 $ make configure | tee ../log.git_make-configure
-GIT_VERSION = 1.8.5.1
+GIT_VERSION = 1.9.0
     GEN configure
 
 $ ./configure | tee ../log.git_configure
@@ -122,12 +125,9 @@ config.status: executing config.mak.autogen commands
 
 ----
 $ make | tee ../log.git_make
-    * new script parameters
-    GEN git-am
-    GEN git-bisect
-    GEN git-difftool--helper
+    * new build flags
+    CC credential-store.o
 [...]
-    GEN bin-wrappers/test-urlmatch-normalization
     GEN bin-wrappers/test-wildmatch
     GEN git-remote-testgit
 ----
@@ -136,26 +136,6 @@ $ make | tee ../log.git_make
 ----
 $ sudo make install | tee ../log.git_make-install
     GEN perl/PM.stamp
-    SUBDIR perl
-/usr/bin/perl Makefile.PL PREFIX='/usr/local' INSTALL_BASE='' --localedir='/usr/local/share/locale'
-Writing perl.mak for Git
-Writing MYMETA.yml
-    GEN git-add--interactive
-    GEN git-difftool
-    GEN git-archimport
-    GEN git-cvsexportcommit
-    GEN git-cvsimport
-    GEN git-cvsserver
-    GEN git-relink
-    GEN git-send-email
-    GEN git-svn
-    SUBDIR gitweb
-    SUBDIR ../
-make[2]: »GIT-VERSION-FILE« ist bereits aktualisiert.
-    GEN git-instaweb
-    SUBDIR git-gui
-    SUBDIR gitk-git
-make[1]: Für das Ziel »all« ist nichts zu tun.
     SUBDIR perl
 [...]
 	./check_bindir "z$bindir" "z$execdir" "$bindir/git-add"
@@ -167,37 +147,36 @@ $ cd /usr/local/share/doc
 $ sudo mkdir git-doc
 
 $ cd git-doc
-$ sudo tar xvzf git-htmldocs-1.8.5.1.tar.gz
+$ sudo tar xvzf git-htmldocs-1.9.0.tar.gz
 [...]
-./git-peek-remote.html
-./user-manual.html
 ./git-unpack-file.html
 
 $ cd ..
 $ sudo chown -R root.root git-doc   <1>
-$ sudo chmod -R a+rX git-doc
+$ sudo chmod -R a+rx git-doc
 
 $ ls -l 
 drwxr-xr-x 9 root root  4096 Dez  8 15:28 asciidoc
-drwxr-xr-x 5 root root 20480 Dez  3 20:36 git-doc
+drwxr-xr-x 5 root root 20480 Feb 14 22:58 git-doc
 ----
 <1> Unbedingt die Rechte an den Dateien und den Ordnern anpassen!
 
 .Documentation: man-pages
 ----
 $ cd /usr/local/share/man  
-$ sudo tar xvzf git-manpages-1.8.5.1.tar.gz 
+$ sudo tar xvzf git-manpages-1.9.0.tar.gz 
 [...]
+./man8/gitnamespaces.7
 
 $ cd ..
 $ sudo chown -R root.root man   <1>
 $ sudo chmod -R a+rX man
 
 $ ls -l
-drwxr-xr-x 2 root root 4096 Dez  3 20:37 man1
-drwxr-xr-x 2 root root 4096 Dez  8 16:30 man3
-drwxr-xr-x 2 root root 4096 Dez  3 20:37 man5
-drwxr-xr-x 2 root root 4096 Dez  3 20:37 man7
+drwxr-xr-x 2 root root 4096 Feb 14 22:59 man1
+drwxr-xr-x 2 root root 4096 Mär  2 16:27 man3
+drwxr-xr-x 2 root root 4096 Feb 14 22:59 man5
+drwxr-xr-x 2 root root 4096 Feb 14 22:59 man7
 ----
 <1> Unbedingt die Rechte an den Dateien und den Ordnern anpassen!
 
@@ -205,13 +184,13 @@ drwxr-xr-x 2 root root 4096 Dez  3 20:37 man7
 ----
 $ cd /usr/local/bin
 $ ls -l git*
--rwxr-xr-x 114 root root 7230390 Dez  8 16:30 git
--rwxr-xr-x   2 root root  162425 Dez  8 16:30 git-cvsserver
--rwxr-xr-x   1 root root  339288 Dez  8 16:30 gitk
--rwxr-xr-x 114 root root 7230390 Dez  8 16:30 git-receive-pack
--rwxr-xr-x   2 root root 3556383 Dez  8 16:30 git-shell
--rwxr-xr-x 114 root root 7230390 Dez  8 16:30 git-upload-archive
--rwxr-xr-x   2 root root 3627238 Dez  8 16:30 git-upload-pack
+-rwxr-xr-x 111 root root 7309559 Mär  2 16:27 git
+-rwxr-xr-x   2 root root  162423 Mär  2 16:27 git-cvsserver
+-rwxr-xr-x   1 root root  344042 Mär  2 16:27 gitk
+-rwxr-xr-x 111 root root 7309559 Mär  2 16:27 git-receive-pack
+-rwxr-xr-x   2 root root 3598463 Mär  2 16:27 git-shell
+-rwxr-xr-x 111 root root 7309559 Mär  2 16:27 git-upload-archive
+-rwxr-xr-x   2 root root 3669941 Mär  2 16:27 git-upload-pack
 ----
 
 ----
@@ -287,9 +266,9 @@ NOTES
         6. git@vger.kernel.org
            mailto:git@vger.kernel.org
 
-Git 1.8.5.1                       12/03/2013                            GIT(1)
+Git 1.9.0                         02/14/2014                            GIT(1)
 ----
-
+ 
 ----
 $ man gitk 
 GITK(1)                           Git Manual                           GITK(1)
@@ -343,12 +322,11 @@ SEE ALSO
 GIT
        Part of the git(1) suite
 
-Git 1.8.5.1                       12/03/2013                           GITK(1)
+Git 1.9.0                         02/14/2014                           GITK(1)
 ----
 
 ----
 $ find /usr/local -type d -cmin -10
-/usr/local
 /usr/local/share/git-core/templates
 /usr/local/share/git-core/templates/hooks
 /usr/local/share/git-core/templates/branches
@@ -365,6 +343,7 @@ $ find /usr/local -type d -cmin -10
 /usr/local/share/man/man3
 /usr/local/share/man/man5
 /usr/local/share/man/man1
+/usr/local/share/perl/5.14.2/Git
 /usr/local/share/perl/5.14.2/Git/SVN
 /usr/local/share/gitweb
 /usr/local/share/gitweb/static
@@ -372,14 +351,12 @@ $ find /usr/local -type d -cmin -10
 /usr/local/share/locale
 /usr/local/share/locale/is
 /usr/local/share/locale/is/LC_MESSAGES
-/usr/local/share/locale/da
-/usr/local/share/locale/da/LC_MESSAGES
+/usr/local/share/locale/bg
+/usr/local/share/locale/bg/LC_MESSAGES
 /usr/local/share/locale/fr
 /usr/local/share/locale/fr/LC_MESSAGES
 /usr/local/share/locale/it
 /usr/local/share/locale/it/LC_MESSAGES
-/usr/local/share/locale/nl
-/usr/local/share/locale/nl/LC_MESSAGES
 /usr/local/share/locale/sv
 /usr/local/share/locale/sv/LC_MESSAGES
 /usr/local/share/locale/pt_PT
@@ -438,7 +415,7 @@ Die Dokumentation wird mit diesem Script _nicht_ installiert.
 #!/bin/bash
 #
 ME=make_git
-NAME=git-1.8.5.1
+NAME=git-1.9.0
 
 ls -l git*.tar.gz
 echo 

@@ -1,15 +1,15 @@
-Installation in Ubuntu: NetBeans IDE 7.4 
-========================================
-Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;>
+IiU -- NetBeans IDE 7.4 
+=======================
+Installation in Ubuntu — khkoether[at]kahweb[dot]de
 
 :icons:
 :Author Initials: KHK
 :creativecommons-url: http://creativecommons.org/licenses/by-sa/3.0/de/
 :ubuntu-url: http://www.ubuntu.com/
-:asciidoc-url: http://www.methods.co.nz/asciidoc/
-:ruby-url: http://www.ruby-lang.org/
-:ruby-download-url: http://www.ruby-lang.org/de/downloads/
-:ruby-ftp: ftp://www.ruby-lang.org/pub/ruby/1.9/
+:asciidoctor-url: http://asciidoctor.org/
+:asciidoctordocs-url: http://asciidoctor.org/docs/
+:ruby-url: https://www.ruby-lang.org/de/
+:ruby-download-url: https://www.ruby-lang.org/de/downloads/
 :rubyonrails-url: http://www.rubyonrails.org
 :java-url: http://www.oracle.com/technetwork/java/javase/downloads/index.html
 :jruby-url: http://jruby.org/
@@ -23,7 +23,8 @@ Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;
 :jruby-url: link:jruby.html
 :netbeans_1st-url: link:netbeans_1st.html
 
-Version 2.0.2, Dezember 2013
+
+Version 2.2.0, März 2014
 
 
 Abstract
@@ -35,13 +36,14 @@ Die {netbeans-ide-url}[NetBeans IDE 7.4] bietet eine Unterstützung für verschi
 Programmiersprachen und -techniken. 
 Wobei die Java-basierten Lösungen ausgezeichnet unterstützt werden. 
 
-Der Artikel ist in {asciidoc-url}[AsciiDoc] erstellt worden.
+Der Artikel ist in {asciidoctordocs-url}[AsciiDoc] geschrieben 
+und mit _Asciidoctor 1.5.0.preview3_ erstellt worden.
 
 [CAUTION]
 ====
 Zu beachten ist, dass so ein Dokument zum Einen nie abschliessend 
 sein kann, und zum Anderen bestimmte Konfigurationen anders, oder 
-auf einem anderem Weg durchgeführt werden können. +
+auf einem anderem Weg durchgeführt werden können. 
 Gerne nehme ich Verbesserungsvorschläge entgegen.
 
 Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr.
@@ -64,10 +66,10 @@ Ubuntu 12.04 LTS (Precise Pangolin) enthält das Paket _netbeans_7.0.1+dfsg1-4_a
 Download
 --------
 * {netbeans-ide-download-url}[NetBeans 7.4] +    
-  netbeans-7.4-ml-linux.sh (ca. 198 MB) (IDE-Sprache: Englisch) (All) +
+  +netbeans-7.4-ml-linux.sh+ (ca. 198 MB) (IDE-Sprache: Englisch) (All) +
   2013-10-15 (Release date)
 * {netbeans-ide-plugin-ruby-and-rails-url}[NetBeans: Plugin Ruby on Rails] + 
-  1367260843_updates.zip (ca. 40 MB) +
+  +1367260843_updates.zip+ (ca. 40 MB) +
   2013-11-24 (Release date)
   
 
@@ -83,12 +85,12 @@ Anmerkungen I
   
 ----
 $ java -version
-java version "1.7.0_25"
-OpenJDK Runtime Environment (IcedTea 2.3.10) (7u25-2.3.10-1ubuntu0.12.04.2)
-OpenJDK 64-Bit Server VM (build 23.7-b01, mixed mode)
+java version "1.7.0_51"
+OpenJDK Runtime Environment (IcedTea 2.4.4) (7u51-2.4.4-0ubuntu0.12.04.2)
+OpenJDK 64-Bit Server VM (build 24.45-b08, mixed mode)
 
 $ jruby -v
-jruby 1.7.9 (1.9.3p392) 2013-12-06 87b108a on OpenJDK 64-Bit Server VM 1.7.0_25-b30 [linux-amd64]
+jruby 1.7.11 (1.9.3p392) 2014-02-24 86339bb on OpenJDK 64-Bit Server VM 1.7.0_51-b00 [linux-amd64]
 ---- 
 
 
@@ -172,7 +174,7 @@ http://java.dzone.com/news/ruby-netbeans-lives[DZone: Ruby On NetBeans Lives!]
 Installation
 ------------
 Zusätzliche (große) Software-Pakete  
-sollten im Verzeichnis '/opt' (Optional) installiert werden. 
+sollten im Verzeichnis +/opt+ (Optional) installiert werden. 
 
 
 NetBeans IDE 7.4: Graphical Installer
@@ -183,7 +185,7 @@ $ sudo mkdir -p /opt/NetBeans/sid && chown sid.sid /opt/NetBeans/sid   <1>
 
 $ sudo mkdir -p /opt/Tomcat/sid   && chown sid.sid /opt/Tomcat/sid     <2>
 ----
-<1> Das 'Anlegen' der Verzeichnisse in '/opt' muß der Benutzer 'root' durchführen.
+<1> Das 'Anlegen' der Verzeichnisse in +/opt+ muß der Benutzer 'root' durchführen.
 <2> Falls das Software-Paket _Tomcat_ ebenfalls installiert werden soll.
 
 OpenJDK
@@ -198,7 +200,7 @@ Extrahiere Installationsdaten...
 Starte Installationassistent...
 ----
 <1> Verwendet wird das von _Ubuntu 12.04 LTS_ bereitgestellte _OpenJDK 7_ +
-    _openjdk-7-jdk (7u25-2.3.10-1ubuntu0.12.04.2) [universe]_
+    _openjdk-7-jdk (7u51-2.4.4-0ubuntu0.12.04.2) [universe]_
 
 Oracle JDK
 ^^^^^^^^^^
@@ -212,7 +214,7 @@ Extrahiere Installationsdaten...
 Starte Installationassistent...
 ----
 <1> Verwendet wird das zusätzlich installierte _Oracle JDK 7_ +
-    _jdk-7u45-linux-x64.tar.gz_
+    _jdk-7u51-linux-x64.tar.gz_
 
 image::images/netbeans/nb00_Installationssystem.jpeg[NetBeans-IDE Installationssystem]
 
@@ -262,7 +264,7 @@ Zum Ende der Installation werden Sie gebeten 'Anonyme Nutzungsdaten' freizugeben
 
 
 NetBeans IDE 7.4: ~/.nbi
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~
 Das _NetBeans Installer_-Verzeichnis enthält Informationen zur durchgeführten Installation. 
 
 .~/.nbi
@@ -291,7 +293,7 @@ image::images/netbeans/nb01_NetBeans_IDE_7.4.jpeg[NetBeans IDE 7.4: Startseite]
 
 
 NetBeans IDE 7.4: Plugins
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~
 *Step 2:* NB IDE -> Tools -> Plugins
 
 image::images/netbeans/nb02_NetBeans_IDE_7.4.jpeg[NetBeans IDE 7.4: Plugins]
@@ -341,7 +343,7 @@ image::images/netbeans/nb11_NetBeans_IDE_Installer.jpeg[NetBeans IDE 7.4: NetBea
 
 
 NetBeans IDE 7.4: Neustart
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 *Step 7:* 'My NetBeans' 
 
 Falls Sie während der Installation dem Punkt _Statistics_ nicht zugestimmt haben
@@ -353,7 +355,7 @@ image::images/netbeans/nb13_NetBeans_7.4.jpeg[NetBeans IDE 7.4: My NetBeans]
 
 
 NetBeans IDE 7.4: Ruby Platforms
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 *Step 8:* NB IDE -> Tools -> Ruby Platforms
 
 image::images/netbeans/nb14_NetBeans_IDE_7.4_Ruby_Platforms.jpeg[NetBeans IDE 7.4: NetBeans IDE 7.4 - Ruby Plaforms]
@@ -367,39 +369,39 @@ image::images/netbeans/nb15_Ruby_Platform_Manager.jpeg[NetBeans IDE 7.2: Ruby Pl
 .Platforms
 * Der Eintrag 'Built-in JRuby 1.7.3' ist Teil der Installation
   des Plugins 'Ruby on Rails'.
-* Der Eintrag 'JRuby 1.7.9' ist die von mir bereits zuvor installierte
+* Der Eintrag 'JRuby 1.7.11' ist die von mir bereits zuvor installierte
   JRuby-Version. +
 * Der Eintrag 'Ruby 1.8.7-p352' ist die in _Ubuntu 12.04_
   standardmäßig installierte C-Ruby-Version. + 
 
 [NOTE]
 ====
-Die 'PATH'-Variable wird während der Installation ausgewertet und 
+Die +PATH+-Variable wird während der Installation ausgewertet und 
 vorhandene Ruby-Installationen automatisch in der 
 _NetBeans IDE 7.4_ eingetragen.
 
-Im 'PATH' war zum Zeitpunkt der Installation kein Verweis auf die 
+Im +PATH+ war zum Zeitpunkt der Installation kein Verweis auf die 
 von mir zusätzlich installierten Versionen _Ruby 1.9.3_ und _Ruby 2.0.0_!
 ==== 
 
 
 &nbsp; +
-*Step 10:* 'Ruby Platform Manager' -> Add Platform -> *Ruby 2.0.0-p353* 
+*Step 10:* 'Ruby Platform Manager' -> Add Platform -> *Ruby 2.0.0-p451* 
 
 image::images/netbeans/nb16_Oeffnen.jpeg[NetBeans IDE 7.4: &Ouml;ffnen]
 
-image::images/netbeans/nb17_Oeffnen.jpeg[NetBeans IDE 7.4: &Ouml;ffnen: Ruby 2.0.0-p353]
+image::images/netbeans/nb17_Oeffnen.jpeg[NetBeans IDE 7.4: &Ouml;ffnen: Ruby 2.0.0-p451]
 
 image::images/netbeans/nb18_Ruby_Platform_Manager.jpeg[NetBeans IDE 7.4: Ruby Platform Manager]
 
 
-NetBeans IDE 7.4: JRuby 1.7.9 Gems
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+NetBeans IDE 7.4: JRuby 1.7.11 Gems
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 *Step 11:* 'Ruby Platform Manager' -> Gem Manager
 
 image::images/netbeans/nb19_Ruby_Platform_Manager.jpeg[NetBeans IDE 7.4: Ruby Platform Manager]
 
-image::images/netbeans/nb20_Ruby_Gems.jpeg[NetBeans IDE 7.4: Ruby Gems: JRuby 1.7.9]
+image::images/netbeans/nb20_Ruby_Gems.jpeg[NetBeans IDE 7.4: Ruby Gems: JRuby 1.7.11]
 
 
 NetBeans IDE 7.4: ~/.netbeans
@@ -437,3 +439,4 @@ drwxrwxr-x  3 sid sid 4096 Dez 31 15:45 var
 Beispiel
 --------
 {netbeans_1st-url}[Rails 4: Erste Schritte &hellip; mit der NetBeans IDE]
+

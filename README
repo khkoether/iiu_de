@@ -28,21 +28,21 @@ Ruby on Rails und Git ... und ... Dokumentation ist notwendig.
 Die Artikel sind in ASCII DOC erstellt worden.
  * AsciiDoc 8.6.9
  * AsciiDoc: Erste Schritte 
- * Git 1.8.5.1
- * Ruby 1.9.3-p484 - Rails 4
- * Ruby 2.0.0-p353 - Rails 4 
+ * Git 1.9.0
+ * Ruby 1.9.3-p545 - Rails 4
+ * Ruby 2.0.0-p451 - Rails 4 
  * Rails 4: Erste Schritte ... mit Ruby
  * OpenJDK 7, Oracle JDK 7 
- * JRuby 1.7.9 - Rails 4
+ * JRuby 1.7.11 - Rails 4
  * Rails 4: Erste Schritte ... mit JRuby 
  * NetBeans 7.4
  * Rails 4: Erste Schritte ... mit der NetBeans IDE
 
-$ asciidoc -a toc NAME.txt 
+$ asciidoctor -b html5 -a toc NAME.adoc
 
 Verzeichnis-Struktur:
 ./iiu_de.sh         <-- Script zum Erstellen aller HTML-Dateien
-./NAME.txt
+./NAME.adoc
 ./NAME.html
 ./images/icons      <-- Images durch AsciiDoc
 ./images/netbeans   <-- Images des Installationsdialogs

@@ -1,14 +1,17 @@
-Rails 4: Erste Schritte &hellip; mit JRuby 
-==========================================
-Karl-Heinz Köther <&#107;&#104;&#107;&#111;&#101;&#116;&#104;&#101;&#114;&#064;&#107;&#097;&#104;&#119;&#101;&#098;&#046;&#100;&#101;>
+IiU -- Rails 4: Erste Schritte &hellip; mit JRuby 
+=================================================
+Installation in Ubuntu — khkoether[at]kahweb[dot]de
 
 :icons:
 :Author Initials: KHK
 :creativecommons-url: http://creativecommons.org/licenses/by-sa/3.0/de/
 :ubuntu-url: http://www.ubuntu.com/
+:asciidoctor-url: http://asciidoctor.org/
+:asciidoctordocs-url: http://asciidoctor.org/docs/
 :jruby-url: link:jruby.html
 
-Version 2.0.2, Dezember 2013, <<_changelog,[Changelog]>>
+
+Version 2.2.0, März 2014
 
 
 Abstract
@@ -16,13 +19,14 @@ Abstract
 Die folgenden Schritte stellen die Funktionsfähigkeit der Installation 
 von _JRuby_ und _Ruby on Rails_ (kurz: _Rails_) sicher. 
 
-Der Artikel ist in {asciidoc-url}[AsciiDoc] erstellt worden.
+Der Artikel ist in {asciidoctordocs-url}[AsciiDoc] geschrieben 
+und mit _Asciidoctor 1.5.0.preview3_ erstellt worden.
 
 [CAUTION]
 ====
 Zu beachten ist, dass so ein Dokument zum Einen nie abschliessend 
 sein kann, und zum Anderen bestimmte Konfigurationen anders, oder 
-auf einem anderem Weg durchgeführt werden können. +
+auf einem anderem Weg durchgeführt werden können. 
 Gerne nehme ich Verbesserungsvorschläge entgegen.
 
 Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr.
@@ -33,38 +37,39 @@ Vorraussetzungen
 ----------------
 _JRuby_ und _Ruby on Rails_ sind wie in
 
-* {jruby-url}[Installation in Ubuntu: JRuby 1.7.9, Ruby on Rails 4.0.0]
+* {jruby-url}[Installation in Ubuntu: JRuby 1.7.11, Ruby on Rails 4.0.3]
  
 beschrieben durchgeführt worden.
 
-.JRuby 1.7.9
+.JRuby 1.7.11
 ----
 $ which jruby
 /opt/JRuby/sid/current/bin/jruby
 
 $ jruby -v 
-jruby 1.7.9 (1.9.3p392) 2013-12-06 87b108a on OpenJDK 64-Bit Server VM 1.7.0_25-b30 [linux-amd64]
+jruby 1.7.11 (1.9.3p392) 2014-02-24 86339bb on OpenJDK 64-Bit Server VM 1.7.0_51-b00 [linux-amd64]
 
-$ jruby -v --1.8   <1> 
-jruby 1.7.9 (ruby-1.8.7p370) 2013-12-06 87b108a on OpenJDK 64-Bit Server VM 1.7.0_25-b30 [linux-amd64]
+$ jruby -v --2.0   <1> 
+jruby 1.7.11 (2.0.0p195) 2014-02-24 86339bb on OpenJDK 64-Bit Server VM 1.7.0_51-b00 [linux-amd64]
 
 $ which rails
 /opt/JRuby/sid/current/bin/rails
 
 $ jruby -S rails -v   <2>
-Rails 4.0.2
+Rails 4.0.3
 
 $ rails -v     <3>
-Rails 4.0.2
+Rails 4.0.3
 ----
 <1> Die Installation _JRuby_ enthält zwei (gleichberechtigte) Implementationen der 
     Programmier-Sprache _Ruby_: +
-    _Ruby 1.8.7-p370_ +
-    _Ruby 1.9.3-p392_ (default)
+    _Ruby 1.9.3-p392_ (default) +
+    _Ruby 2.0.0-p195_ +
+    _Ruby 1.8.7-p370_ kann für _Rails 4_ nicht mehr verwendet werden!
 <2> Der Schalter _-S_ führt dazu, daß für das Script zuerst  
-    das Verzeichnis JRUBY_HOME/bin geprüft wird - und
-    dann der PATH.
-<3> Solange wie die ausführbaren Programme von _JRuby on Rails_ im PATH vorangestellt
+    das Verzeichnis +JRUBY_HOME/bin+ geprüft wird - und
+    dann der +PATH+.
+<3> Solange wie die ausführbaren Programme von _JRuby on Rails_ im +PATH+ vorangestellt
     werden, kann auf _jruby -S_ verzichtet werden.       
 
 
@@ -117,10 +122,10 @@ die Kommandozeile.
 # mysql -uroot -p
 Enter password: 
 Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 41
-Server version: 5.5.22-0ubuntu1 (Ubuntu)
+Your MySQL connection id is 77
+Server version: 5.5.35-0ubuntu0.12.04.2 (Ubuntu)
 
-Copyright (c) 2000, 2011, Oracle and/or its affiliates. All rights reserved.
+Copyright (c) 2000, 2013, Oracle and/or its affiliates. All rights reserved.
 
 Oracle is a registered trademark of Oracle Corporation and/or its
 affiliates. Other names may be trademarks of their respective
@@ -140,8 +145,8 @@ mysql> exit
 $ mysql -usid -p 
 Enter password: 
 Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 44
-Server version: 5.5.32-0ubuntu0.12.04.1 (Ubuntu)
+Your MySQL connection id is 78
+Server version: 5.5.35-0ubuntu0.12.04.2 (Ubuntu)
 
 Copyright (c) 2000, 2013, Oracle and/or its affiliates. All rights reserved.
 
@@ -186,65 +191,58 @@ $ rails new jMyApp --database=mysql   <1>
       create  vendor/assets/stylesheets/.keep
          run  bundle install
 Fetching gem metadata from https://rubygems.org/...........
-Fetching gem metadata from https://rubygems.org/..
+Fetching additional metadata from https://rubygems.org/..
 Resolving dependencies....
-Using rake (10.1.1) 
-Using i18n (0.6.9) 
-Using minitest (4.7.5) 
-Using multi_json (1.8.2) 
-Using atomic (1.1.14) 
-Using thread_safe (0.1.3) 
-Using tzinfo (0.3.38) 
-Using activesupport (4.0.2) 
-Using builder (3.1.4) 
-Using erubis (2.7.0) 
-Using rack (1.5.2) 
-Using rack-test (0.6.2) 
-Using actionpack (4.0.2) 
-Using mime-types (1.25.1) 
-Using polyglot (0.3.3) 
-Using treetop (1.4.15) 
-Using mail (2.5.4) 
-Using actionmailer (4.0.2) 
-Using activemodel (4.0.2) 
-Using activerecord-deprecated_finders (1.0.3) 
-Using arel (4.0.1) 
-Using activerecord (4.0.2) 
-Using activerecord-jdbc-adapter (1.3.4)        <4> 
-Using jdbc-mysql (5.1.27) 
-Using activerecord-jdbcmysql-adapter (1.3.4)   <5>
-Using bundler (1.5.1) 
-Installing coffee-script-source (1.6.3) 
-Installing execjs (2.0.2) 
-Installing coffee-script (2.2.0) 
-Using thor (0.18.1) 
-Using railties (4.0.2) 
-Installing coffee-rails (4.0.1) 
-Using hike (1.2.3) 
-Installing jbuilder (1.5.3) 
-Installing jquery-rails (3.0.4) 
-Using json (1.8.1) 
-Using tilt (1.4.1) 
-Using sprockets (2.10.1) 
-Using sprockets-rails (2.0.1) 
-Using rails (4.0.2) 
-Installing rdoc (3.12.2) 
-Installing sass (3.2.13) 
-Installing sass-rails (4.0.1) 
-Installing sdoc (0.3.20) 
-Installing therubyrhino_jar (1.7.4) 
-Installing therubyrhino (2.0.2) 
-Installing turbolinks (2.0.0) 
-Installing uglifier (2.4.0) 
+Using rake 10.1.1
+Using i18n 0.6.9
+Using minitest 4.7.5
+Using multi_json 1.8.4
+Using atomic 1.1.15
+Using thread_safe 0.2.0
+Using tzinfo 0.3.38
+Using activesupport 4.0.3
+Using builder 3.1.4
+Using erubis 2.7.0
+Using rack 1.5.2
+Using rack-test 0.6.2
+Using actionpack 4.0.3
+Using mime-types 1.25.1
+Using polyglot 0.3.4
+Using treetop 1.4.15
+Using mail 2.5.4
+Using actionmailer 4.0.3
+Using activemodel 4.0.3
+Using activerecord-deprecated_finders 1.0.3
+Using arel 4.0.2
+Using activerecord 4.0.3
+Using activerecord-jdbc-adapter 1.3.6   <4>
+Using jdbc-mysql 5.1.28
+Using activerecord-jdbcmysql-adapter 1.3.6   <5>
+Using bundler 1.6.0.rc
+Installing coffee-script-source 1.7.0
+Installing execjs 2.0.2
+Installing coffee-script 2.2.0
+Using thor 0.18.1
+Using railties 4.0.3
+Installing coffee-rails 4.0.1
+Using hike 1.2.3
+Installing jbuilder 1.5.3
+Installing jquery-rails 3.1.0
+Using json 1.8.1
+Using tilt 1.4.1
+Using sprockets 2.11.0
+Using sprockets-rails 2.0.1
+Using rails 4.0.3
+Using rdoc 4.1.1
+Installing sass 3.2.14
+Installing sass-rails 4.0.1
+Installing sdoc 0.4.0
+Installing therubyrhino_jar 1.7.4
+Installing therubyrhino 2.0.3
+Installing turbolinks 2.2.1
+Installing uglifier 2.4.0
 Your bundle is complete!
 Use `bundle show [gemname]` to see where a bundled gem is installed.
-Post-install message from rdoc:
-Depending on your version of ruby, you may need to install ruby rdoc/ri data:
-
-<= 1.8.6 : unsupported
- = 1.8.7 : gem install rdoc-data; rdoc-data --install
- = 1.9.1 : gem install rdoc-data; rdoc-data --install
->= 1.9.2 : nothing to do! Yay!
 ----
 <1> Für das Datenbanksystem _SqLite3_ verkürzt sich der Aufruf: 
     _rails new myapp_
@@ -256,12 +254,12 @@ Depending on your version of ruby, you may need to install ruby rdoc/ri data:
     Zugriff mit _Java_ ...
 <5> ...auf die Datenbank _MySQL_.
     
-.Gemfile
+.Datei: +Gemfile+
 ----
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.2'
+gem 'rails', '4.0.3'
 
 # Use jdbcmysql as the database for Active Record
 gem 'activerecord-jdbcmysql-adapter'
@@ -281,8 +279,7 @@ gem 'therubyrhino'   <2>
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
-# Turbolinks makes following links in your web application faster. 
-# Read more: https://github.com/rails/turbolinks
+# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -292,13 +289,21 @@ group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
- [...]
+
+# Use ActiveModel has_secure_password
+# gem 'bcrypt-ruby', '~> 3.1.2'
+
+# Use unicorn as the app server
+# gem 'unicorn'
+
+# Use Capistrano for deployment
+# gem 'capistrano', group: :development
 ----
 <1> Der Spezifizierer '~> 4.0.0' ist identisch mit 
     den Bedingungen '>= 4.0.0' und '< 4.1'.  
 <2> RubyGem _therubyrhino_: JavaScript-Interpreter      
  
-.Prüfen der Abhängigkeiten im _Gemfile_
+.Prüfen der Abhängigkeiten im +Gemfile+
 ----
 $ cd jMyApp
 
@@ -306,8 +311,8 @@ $ bundle check
 The Gemfile's dependencies are satisfied
 
 $ ls -l Gemfile*
--rw-rw-r-- 1 sid sid 1119 Dez 12 21:57 Gemfile
--rw-rw-r-- 1 sid sid 3043 Dez 12 21:58 Gemfile.lock
+-rw-rw-r-- 1 sid sid 1119 Mär  3 18:47 Gemfile
+-rw-rw-r-- 1 sid sid 3061 Mär  3 18:48 Gemfile.lock
 ----
 
 [NOTE]
@@ -384,12 +389,12 @@ Entwicklungs-Umgebung verwendet.
 ----
 $ rails s 
 => Booting WEBrick
-=> Rails 4.0.2 application starting in development on http://0.0.0.0:3000     <1>
+=> Rails 4.0.3 application starting in development on http://0.0.0.0:3000   <1>
 => Call with -d to detach
 => Ctrl-C to shutdown server
-[2013-12-12 22:02:57] INFO  WEBrick 1.3.1
-[2013-12-12 22:02:57] INFO  ruby 1.9.3 (2013-12-06) [java]                    <2>
-[2013-12-12 22:02:57] INFO  WEBrick::HTTPServer#start: pid=10222 port=3000
+[2014-03-03 18:52:55] INFO  WEBrick 1.3.1
+[2014-03-03 18:52:55] INFO  ruby 1.9.3 (2014-02-24) [java]                   <2>
+[2014-03-03 18:52:55] INFO  WEBrick::HTTPServer#start: pid=14412 port=3000
 ----
 <1> Der Webserver läuft ohne Port-Angabe (_--port_ ...) auf Port 3000.
 <2> Ruby Version 1.9.3
@@ -417,18 +422,18 @@ $ rake about
 ----
 About your application's environment
 Ruby version              1.9.3 (java)   <1>
-RubyGems version          2.1.11
+RubyGems version          2.2.2
 Rack version              1.5
-Rails version             4.0.2
+Rails version             4.0.3
 JavaScript Runtime        therubyrhino (Rhino)
-Active Record version     4.0.2
-Action Pack version       4.0.2
-Action Mailer version     4.0.2
-Active Support version    4.0.2
+Active Record version     4.0.3
+Action Pack version       4.0.3
+Action Mailer version     4.0.3
+Active Support version    4.0.3
 Middleware                Rack::Sendfile, 
                           ActionDispatch::Static, 
                           Rack::Lock, 
-                          #<ActiveSupport::Cache::Strategy::LocalCache::Middleware:0x...>, 
+                          #<ActiveSupport::Cache::Strategy::LocalCache::Middleware:0...>, 
                           Rack::Runtime, 
                           Rack::MethodOverride, 
                           ActionDispatch::RequestId, 
@@ -456,53 +461,6 @@ Database schema version	  0
 <1> Ruby Version 1.9.3 (java)
 
 
-WEBrick benötigt einen Patch
-----------------------------
-In der Logdatei erzeugt der WebServer _WEBrick_ Warnungen:
-----
-=> Booting WEBrick
-=> Rails 4.0.2 application starting in development on http://0.0.0.0:3000  
-=> Call with -d to detach
-=> Ctrl-C to shutdown server
-[2013-12-12 22:02:57] INFO  WEBrick 1.3.1
-[2013-12-12 22:02:57] INFO  ruby 1.9.3 (2013-12-06) [java]                    
-[2013-12-12 22:02:57] INFO  WEBrick::HTTPServer#start: pid=10222 port=3000
-
-
-Started GET "/" for 127.0.0.1 at 2013-10-25 17:51:10 +0200
-Processing by Rails::WelcomeController#index as HTML
-  Rendered [...]
-Completed 200 OK in 1200ms (Views: 58.0ms | ActiveRecord: 0.0ms)
-[2013-12-12 22:06:48] WARN  Could not determine content-length of response body. 
-                            Set content-length of the response or set Response#chunked = true
-[...]
-----
-
-Um die zusätzlichen Ausgaben zu verhindern, muß in der JRuby-Installation
-der 204_304_keep_alive.patch eingearbeitet werden.
-
-&rarr; https://bugs.ruby-lang.org/attachments/2300/204_304_keep_alive.patch
-
-.current/lib/ruby/1.9/webrick/httpresponse.rb
-[source,ruby]
-----
-      # Keep-Alive connection.   <1>
-      if @header['connection'] == "close"
-         @keep_alive = false
-      elsif keep_alive?
-        #sid#if chunked? || @header['content-length']   <2>
-        if chunked? || @header['content-length'] || @status == 304 || @status == 204   <3>
-          @header['connection'] = "Keep-Alive"
-        end
-      else
-        @header['connection'] = "close"
-      end
-----
-<1> Zeile 201
-<2> Kommentarzeichen setzen
-<3> Neue Zeile mit zusätzlichen Bedingungen
-
-
 Anhang
 ------
 Abschließend die Liste der aktuell installierten _RubyGems_.
@@ -512,63 +470,70 @@ $ gem list --local
 
 *** LOCAL GEMS ***
 
-actionmailer (4.0.2)
-actionpack (4.0.2)
-activemodel (4.0.2)
-activerecord (4.0.2)
+actionmailer (4.0.3)
+actionpack (4.0.3)
+activemodel (4.0.3)
+activerecord (4.0.3)
 activerecord-deprecated_finders (1.0.3)
-activerecord-jdbc-adapter (1.3.4)
-activerecord-jdbcmysql-adapter (1.3.4)
-activerecord-jdbcsqlite3-adapter (1.3.4)
-activesupport (4.0.2)
-arel (4.0.1)
-atomic (1.1.14 java)
+activerecord-jdbc-adapter (1.3.6)
+activerecord-jdbcmysql-adapter (1.3.6)
+activerecord-jdbcsqlite3-adapter (1.3.6)
+activesupport (4.0.3)
+arel (4.0.2)
+asciidoctor (1.5.0.preview3)
+atomic (1.1.15 java)
+bouncy-castle-java (1.5.0147)
 builder (3.1.4)
-bundler (1.5.1)
+bundler (1.6.0.rc)
 coffee-rails (4.0.1)
 coffee-script (2.2.0)
-coffee-script-source (1.6.3)
+coffee-script-source (1.7.0)
 erubis (2.7.0)
 execjs (2.0.2)
-glassfish (1.0.3 universal-java)
 hike (1.2.3)
 i18n (0.6.9)
 jbuilder (1.5.3)
-jdbc-mysql (5.1.27)
-jdbc-sqlite3 (3.7.2.1)
-jquery-rails (3.0.4)
-jruby-jars (1.7.9)
-jruby-rack (1.1.13.3)
-json (1.8.1 java)
+jdbc-mysql (5.1.28)
+jdbc-sqlite3 (3.7.15.SNAPSHOT)
+jquery-rails (3.1.0)
+jruby-jars (1.7.11)
+jruby-openssl (0.9.4, 0.9.3)
+jruby-rack (1.1.14)
+json (1.8.1 java, 1.8.0 java)
+krypt (0.0.1)
+krypt-core (0.0.1 universal-java)
+krypt-provider-jdk (0.0.1)
 mail (2.5.4)
 mime-types (1.25.1)
 minitest (4.7.5)
-multi_json (1.8.2)
-polyglot (0.3.3)
+multi_json (1.8.4)
+polyglot (0.3.4)
 rack (1.5.2)
-rack-protection (1.5.1)
+rack-protection (1.5.2)
 rack-test (0.6.2)
-rails (4.0.2)
-railties (4.0.2)
-rake (10.1.1)
-rdoc (4.0.1, 3.12.2)
+rails (4.0.3)
+railties (4.0.3)
+rake (10.1.1, 10.1.0)
+rdoc (4.1.1, 4.0.1)
 rdoc-data (4.0.1)
-rubygems-update (2.1.11)
+rubygems-update (2.2.2)
 rubyzip (1.0.0)
-sass (3.2.13)
+sass (3.2.14)
 sass-rails (4.0.1)
-sdoc (0.3.20)
+sdoc (0.4.0)
 sinatra (1.4.4)
-sprockets (2.10.1)
+sprockets (2.11.0)
 sprockets-rails (2.0.1)
-therubyrhino (2.0.2)
+therubyrhino (2.0.3)
 therubyrhino_jar (1.7.4)
 thor (0.18.1)
-thread_safe (0.1.3 java)
+thread_safe (0.2.0 java)
 tilt (1.4.1)
 treetop (1.4.15)
-turbolinks (2.1.0)
+turbolinks (2.2.1)
 tzinfo (0.3.38)
 uglifier (2.4.0)
-warbler (1.4.0)
+warbler (1.4.1)
 ----
+
+
