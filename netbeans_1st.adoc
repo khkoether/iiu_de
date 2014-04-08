@@ -24,7 +24,7 @@ Installation in Ubuntu — khkoether[at]kahweb[dot]de
 :netbeans-url: link:netbeans.html
 
 
-Version 2.2.0, März 2014
+Version 2.2.1, April 2014
 
 
 Abstract
@@ -71,7 +71,7 @@ Die notwendigen Schritte werden in der _NetBeans IDE 7.4_ durchgeführt.
 
 
 NetBeans IDE 7.4 &middot; New Project
----------------------------------------
+-------------------------------------
 image::images/netbeans/ror01_NetBeans_IDE_7.4.jpeg[NetBeans-IDE 7.4 &middot; Startpage] 
 
 image::images/netbeans/ror02_NetBeans_IDE_7.4.jpeg[NetBeans-IDE 7.4 &middot; New Project]

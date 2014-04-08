@@ -24,7 +24,7 @@ Installation in Ubuntu — khkoether[at]kahweb[dot]de
 :netbeans_1st-url: link:netbeans_1st.html
 
 
-Version 2.2.0, März 2014
+Version 2.2.1, April 2014
 
 
 Abstract
