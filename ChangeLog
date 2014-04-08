@@ -99,3 +99,6 @@ Version 1.8.2
   Die AsciiDoc-Quell-Dateien wurden alle auf das Suffix .adoc umbenannt.
   Die HTML5-Seiten werden jetzt mit Asciidoctor (v1.5.0-preview3)erstellt.  
   
+.Version 2.2.1
+* AsciiDoc-Compiler-Fehler: image::images/dir/file.jpeg[Text [Text2]] -> ...[Text (Text2)]
+

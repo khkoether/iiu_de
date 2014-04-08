@@ -302,19 +302,19 @@ image::images/netbeans/nb02_NetBeans_IDE_7.4.jpeg[NetBeans IDE 7.4: Plugins]
 &nbsp; +
 *Step 3:* Plugins 'Check for Updates' 
 
-image::images/netbeans/nb03_Plugins.jpeg[NetBeans IDE 7.4 Plugins [Check for Updates]]
+image::images/netbeans/nb03_Plugins.jpeg[NetBeans IDE 7.4 Plugins (Check for Updates)]
 
 
 &nbsp; +
 *Step 4:* Plugins 'Downloaded' -> Add Plugins...
 
-image::images/netbeans/nb04_Plugins.jpeg[NetBeans IDE 7.4: Plugins [Downloaded]]
+image::images/netbeans/nb04_Plugins.jpeg[NetBeans IDE 7.4: Plugins (Downloaded)]
 
 
 &nbsp; +
 *Step 5:* Add Plugins 'updates' -> 'Alle Dateien' markieren -> &Ouml;ffnen
 
-image::images/netbeans/nb05_Add_Plugins.jpeg[NetBeans IDE 7.4: Add Plugins [Alle markieren -> &Ouml;ffnen]]
+image::images/netbeans/nb05_Add_Plugins.jpeg[NetBeans IDE 7.4: Add Plugins (Alle markieren -> &Ouml;ffnen]
 
 [NOTE]
 ====
@@ -327,7 +327,7 @@ image::images/netbeans/nb05_Add_Plugins.jpeg[NetBeans IDE 7.4: Add Plugins [Alle
 &nbsp; +
 *Step 6:* Plugins 'Downloaded (23)' -> Install +
 
-image::images/netbeans/nb06_Plugins.jpeg[NetBeans IDE 7.4: Plugins [Downloaded (23)]]
+image::images/netbeans/nb06_Plugins.jpeg[NetBeans IDE 7.4: Plugins (Downloaded (23))]
 
 &nbsp;
 
