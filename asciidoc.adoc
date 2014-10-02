@@ -1,4 +1,4 @@
-IiU -- AsciiDoc 8.6.9   
+IiU -- AsciiDoc 8.6.9
 =====================
 Installation in Ubuntu — khkoether[at]kahweb[dot]de  
 
@@ -6,35 +6,35 @@ Installation in Ubuntu — khkoether[at]kahweb[dot]de
 :icons:
 :Author Initials: KHK
 :creativecommons-url: http://creativecommons.org/licenses/by-sa/3.0/de/
-:ubuntu-url: http://www.ubuntu.com/
-:asciidoc-url: http://www.methods.co.nz/asciidoc/
-:asciidoctor-url: http://asciidoctor.org/
+:mit-url:             http://opensource.org/licenses/mit-license.php
+:ubuntu-url:          http://www.ubuntu.com/
+:asciidoc-url:        http://www.methods.co.nz/asciidoc/
+:asciidoctor-url:     http://asciidoctor.org/
 :asciidoctordocs-url: http://asciidoctor.org/docs/
-:sourceforge-url: http://sourceforge.net/projects/asciidoc/files/
+:sourceforge-url:     http://sourceforge.net/projects/asciidoc/files/
+
+Version 2.0.2, Dezember 2013 (*unverändert*)
 
 
 [CAUTION]
 ====
-Ich werde diese Seite für das mit Python implementierte _AsciiDoc_ nicht weiter pflegen. + 
-Inzwischen nutze ich selbst _Asciidoctor_ (siehe NOTE).
+Ich werde diese Seite für das mit Python implementierte *AsciiDoc* nicht mehr aktualisieren. + 
+Inzwischen nutze ich selbst *Asciidoctor* (siehe NOTE).
 ====
  
 [NOTE]
 ====
-http://themes.asciidoctor.org/preview/#installing-asciidoc
+http://themes.asciidoctor.org/preview/#installing-asciidoc[Asciidoctor: Installing AsciiDoc]
 
 .Installing AsciiDoc
 The original AsciiDoc processor is a Python script and can be run on any system 
-that has Python 2 installed.[2]
+that has Python 2 installed.
 
-There’s a modern implementation of AsciiDoc, written in Ruby, named Asciidoctor. 
+TIP: There’s a modern implementation of AsciiDoc, written in Ruby, named Asciidoctor.
 If decide to use Asciidoctor, you’ll still need to install the Python version 
 for some conversions -- such as generating a PDF -- that Asciidoctor doesn’t handle 
 at the time of this writing.
 ====
-
-
-Version 2.0.2, Dezember 2013 (unverändert)
 
 
 Abstract
@@ -286,27 +286,28 @@ Browser> file:///usr/local/share/doc/asciidoc/examples/website/index.html
 Beispiel
 --------
 Mit dem folgenden Kommando erstellen Sie mit _asciidoc_ aus der Datei 
-+asciidoc_1st.adoc+ (siehe <<_anhang,[Anhang]>>) die HTML5-Datei +asciidoc_1st.html+.
+`asciidoctor_1st.adoc` (siehe <<_anhang,[Anhang]>>) die HTML5-Datei `asciidoc_1st.html`.
 ----
-$ asciidoc -b html5 -a icons -a toc asciidoc_1st.adoc
+$ asciidoc -b html5 -a icons -a toc asciidoctor_1st.adoc
 ---- 
 
-link:asciidoc_1st.html[Ausgabebeispiel: So sieht's aus]
+link:asciidoctor_1st.html[AsciiDoc: Erste Schritte &hellip; mit Asciidoctor]
  
 
 Anhang
 ------
 .Text-Datei: +asciidoc_1st.adoc+ 
 ----
-= Lorem ipsum
+= AsciiDoc: Erste Schritte &hellip; mit AsciiDoc
 Sid -- sid[at]example[dot]org
 
-Version 0.0.1, Dezember 2013 (unverändert)
+Version 3.0.0, September 2014
 
 :icons:
 :Author Initials: sid
-:creativecommons-url: http://creativecommons.org/licenses/by-sa/3.0/de/
-:asciidoc-url: http://www.methods.co.nz/asciidoc/
+:creativecommons-url: http://creativecommons.org/licenses/by-sa/4.0/deed.de
+:mit-url:             http://opensource.org/licenses/mit-license.php 
+:asciidoctor-url:     http://asciidoctor.org/
 
 
 == Abstract
@@ -335,10 +336,12 @@ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
 - proident
 - deseunt
 
-.Links
-* {asciidoc-url}[AsciiDoc]
+
+== Links
+* link:{asciidoctor-url}[Asciidoctor]
 * link:http://la.wikisource.org/wiki/Lorem_ipsum[Lorem ipsum]
-* {creativecommons-url}[Creative Commens]
+* link:{creativecommons-url}[Creative Commens]
+* link:{mit-url}[MIT-License]
 
 ''''
 link:asciidoc.html#_beispiel[zurück]

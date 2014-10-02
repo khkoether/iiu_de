@@ -4,27 +4,31 @@ Installation in Ubuntu — khkoether[at]kahweb[dot]de
 
 :icons:
 :Author Initials: KHK
-:creativecommons-url: http://creativecommons.org/licenses/by-sa/3.0/de/
-:ubuntu-url: http://www.ubuntu.com/
-:asciidoctor-url: http://asciidoctor.org/
+:creativecommons-url: http://creativecommons.org/licenses/by/4.0/deed.de
+:mit-url:             http://opensource.org/licenses/mit-license.php  
+:ubuntu-url:          http://www.ubuntu.com/
+:asciidoctor-url:     http://asciidoctor.org/
 :asciidoctordocs-url: http://asciidoctor.org/docs/
-:ruby-url: https://www.ruby-lang.org/de/
-:ruby-download-url: https://www.ruby-lang.org/de/downloads/
-:rubyonrails-url: http://www.rubyonrails.org
-:java-url: http://www.oracle.com/technetwork/java/javase/downloads/index.html
-:jruby-url: http://jruby.org/
-:jruby-download-url: http://jruby.org/download
+:git-url:             http://git-scm.com/
+:git-download-url:    https://www.kernel.org/pub/software/scm/git/
+
+:java-url:            http://www.oracle.com/technetwork/java/javase/downloads/index.html
+:jruby-url:           http://jruby.org/
+:jruby-download-url:  http://jruby.org/download
+
+:jdk-url:             link:jdk.html
+:jruby-version:       1.7.16
+:jruby_1st-url:       link:jruby_1st.html
+
 :netbeans-ide-url: http://netbeans.org/
+:netbeans-url:     link:netbeans.html
+:netbeans_1st-url: link:netbeans_1st.html
 :netbeans-ide-download-url: http://netbeans.org/downloads/
 :netbeans-ide-plugin-url: http://plugins.netbeans.org/PluginPortal/
 :netbeans-ide-plugin-ruby-and-rails-url: http://plugins.netbeans.org/plugin/38549/ruby-and-rails
 
-:jdk-url: link:jdk.html
-:jruby-url: link:jruby.html
-:netbeans_1st-url: link:netbeans_1st.html
 
-
-Version 2.2.1, April 2014
+Version 3.0.0, September 2014
 
 
 Abstract
@@ -37,7 +41,7 @@ Programmiersprachen und -techniken.
 Wobei die Java-basierten Lösungen ausgezeichnet unterstützt werden. 
 
 Der Artikel ist in {asciidoctordocs-url}[AsciiDoc] geschrieben 
-und mit _Asciidoctor 1.5.0.preview3_ erstellt worden.
+und mit _Asciidoctor 1.5.1_ erstellt worden.
 
 [CAUTION]
 ====
@@ -52,14 +56,14 @@ Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr.
 
 Vorraussetzungen
 ----------------
-Die Installation wird für {ubuntu-url}[Ubuntu 12.04 LTS (Precise Pangolin)] 
+Die Installation wird für {ubuntu-url}[Ubuntu 14.04 LTS (Trusty Tahr)] 
 beschrieben. +
 Gleichwohl sind die einzelnen Schritte auch für 
-andere Distributionen übertragbar.
+andere Debian-basierte GNU/Linux Distributionen übertragbar.
 
 [TIP]
 ====
-Ubuntu 12.04 LTS (Precise Pangolin) enthält das Paket _netbeans_7.0.1+dfsg1-4_all_.
+Ubuntu 14.04 LTS (Trusty Tahr) enthält das Paket _netbeans_7.0.1+dfsg1-5ubuntu2_.
 ====
 
 
@@ -85,12 +89,12 @@ Anmerkungen I
   
 ----
 $ java -version
-java version "1.7.0_51"
-OpenJDK Runtime Environment (IcedTea 2.4.4) (7u51-2.4.4-0ubuntu0.12.04.2)
-OpenJDK 64-Bit Server VM (build 24.45-b08, mixed mode)
+java version "1.7.0_65"
+OpenJDK Runtime Environment (IcedTea 2.5.2) (7u65-2.5.2-3~14.04)
+OpenJDK 64-Bit Server VM (build 24.65-b04, mixed mode)
 
 $ jruby -v
-jruby 1.7.11 (1.9.3p392) 2014-02-24 86339bb on OpenJDK 64-Bit Server VM 1.7.0_51-b00 [linux-amd64]
+jruby 1.7.16 (1.9.3p392) 2014-09-25 575b395 on OpenJDK 64-Bit Server VM 1.7.0_65-b32 +jit [linux-amd64]
 ---- 
 
 
@@ -199,8 +203,8 @@ Suche verfügbare JVM auf dem System...
 Extrahiere Installationsdaten...
 Starte Installationassistent...
 ----
-<1> Verwendet wird das von _Ubuntu 12.04 LTS_ bereitgestellte _OpenJDK 7_ +
-    _openjdk-7-jdk (7u51-2.4.4-0ubuntu0.12.04.2) [universe]_
+<1> Verwendet wird das von _Ubuntu 14.04 LTS_ bereitgestellte _OpenJDK 7_ +
+    _openjdk-7-jdk (7u65-2.5.2-3~14.04) [universe]_
 
 Oracle JDK
 ^^^^^^^^^^
@@ -214,7 +218,7 @@ Extrahiere Installationsdaten...
 Starte Installationassistent...
 ----
 <1> Verwendet wird das zusätzlich installierte _Oracle JDK 7_ +
-    _jdk-7u51-linux-x64.tar.gz_
+    _jdk-7u67-linux-x64.tar.gz_
 
 image::images/netbeans/nb00_Installationssystem.jpeg[NetBeans-IDE Installationssystem]
 
@@ -369,9 +373,9 @@ image::images/netbeans/nb15_Ruby_Platform_Manager.jpeg[NetBeans IDE 7.2: Ruby Pl
 .Platforms
 * Der Eintrag 'Built-in JRuby 1.7.3' ist Teil der Installation
   des Plugins 'Ruby on Rails'.
-* Der Eintrag 'JRuby 1.7.11' ist die von mir bereits zuvor installierte
+* Der Eintrag 'JRuby 1.7.16' ist die von mir bereits zuvor installierte
   JRuby-Version. +
-* Der Eintrag 'Ruby 1.8.7-p352' ist die in _Ubuntu 12.04_
+* Der Eintrag 'Ruby 1.8.7-p484' ist die in _Ubuntu 14.04_
   standardmäßig installierte C-Ruby-Version. + 
 
 [NOTE]
@@ -381,27 +385,27 @@ vorhandene Ruby-Installationen automatisch in der
 _NetBeans IDE 7.4_ eingetragen.
 
 Im +PATH+ war zum Zeitpunkt der Installation kein Verweis auf die 
-von mir zusätzlich installierten Versionen _Ruby 1.9.3_ und _Ruby 2.0.0_!
+von mir zusätzlich installierten Versionen _Ruby 1.9.3_ und _Ruby 2.1.3_!
 ==== 
 
 
 &nbsp; +
-*Step 10:* 'Ruby Platform Manager' -> Add Platform -> *Ruby 2.0.0-p451* 
+*Step 10:* 'Ruby Platform Manager' -> Add Platform -> *Ruby 2.1.3-p242* 
 
 image::images/netbeans/nb16_Oeffnen.jpeg[NetBeans IDE 7.4: &Ouml;ffnen]
 
-image::images/netbeans/nb17_Oeffnen.jpeg[NetBeans IDE 7.4: &Ouml;ffnen: Ruby 2.0.0-p451]
+image::images/netbeans/nb17_Oeffnen.jpeg[NetBeans IDE 7.4: &Ouml;ffnen: Ruby 2.1.3-p242]
 
 image::images/netbeans/nb18_Ruby_Platform_Manager.jpeg[NetBeans IDE 7.4: Ruby Platform Manager]
 
 
-NetBeans IDE 7.4: JRuby 1.7.11 Gems
+NetBeans IDE 7.4: JRuby 1.7.16 Gems
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 *Step 11:* 'Ruby Platform Manager' -> Gem Manager
 
 image::images/netbeans/nb19_Ruby_Platform_Manager.jpeg[NetBeans IDE 7.4: Ruby Platform Manager]
 
-image::images/netbeans/nb20_Ruby_Gems.jpeg[NetBeans IDE 7.4: Ruby Gems: JRuby 1.7.11]
+image::images/netbeans/nb20_Ruby_Gems.jpeg[NetBeans IDE 7.4: Ruby Gems: JRuby 1.7.16]
 
 
 NetBeans IDE 7.4: ~/.netbeans

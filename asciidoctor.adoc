@@ -1,0 +1,138 @@
+IiU -- Asciidoctor
+==================
+Installation in Ubuntu — khkoether[at]kahweb[dot]de
+
+:middot: &middot;
+:icons:
+:Author Initials: KHK
+:creativecommons-url: http://creativecommons.org/licenses/by-sa/4.0/deed.de
+:ubuntu-url: http://www.ubuntu.com/
+:asciidoctor-url: http://asciidoctor.org/
+:asciidoctordocs-url: http://asciidoctor.org/docs/
+:asciidoctordocsquick-url: http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/
+
+Version 3.0.0, September 2014 
+
+
+Abstract
+--------
+_Asciidoctor_ ist die Ruby-Implementierung des ursprünglich in 
+Python geschriebenen _AsciiDoc_. 
+
+{asciidoctordocs-url}[AsciiDoc] ist eine einfache Auszeichnungssprache, 
+die dazu dient, +
+Texte in verschiedenen Dokumentenformaten zu veröffentlichen.
+
+Der Artikel ist in {asciidoctor-url}[Asciidoctor] geschrieben 
+und mit _Asciidoctor 1.5.1_ erstellt worden.
+
+[CAUTION]
+====
+Zu beachten ist, dass so ein Dokument zum Einen nie abschließend 
+sein kann, und zum Anderen bestimmte Konfigurationen anders, oder 
+auf einem anderem Weg durchgeführt werden können. +
+Gerne nehme ich Verbesserungsvorschläge entgegen.
+
+Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr.
+====
+
+
+Vorraussetzung
+--------------
+Die Installation wird für {ubuntu-url}[Ubuntu 14.04 LTS (Trusty Tahr)] 
+beschrieben. + 
+Gleichwohl sind die einzelnen Schritte auch für 
+andere Debian-basierte GNU/Linux Distributionen übertragbar.
+
+
+Installation
+------------
+Zur Installation muß auf dem Rechner _Ruby_ installiert sein.
+
+----
+$ gem install asciidoctor
+Successfully installed asciidoctor-1.5.1
+1 gem installed
+----
+
+----
+$ asciidoctor -V
+Asciidoctor 1.5.1 [http://asciidoctor.org]
+Runtime Environment (...)
+----
+
+
+Links
+-----
+* link:{asciidoctor-url}[Asciidoctor]
+* link:{asciidoctordocs-url}[Asciidoctor: Documentation]
+* link:{asciidoctordocsquick-url}[Asciidoctor: Syntax Quick Reference] 
+* link:asciidoc.html[Installation von _AsciiDoc 8.6.9_]
+
+
+Beispiel
+--------
+Mit dem folgenden Kommando erstellen Sie mit _Asciidoctor_ aus der Datei 
+`asciidoctor_1st.adoc` (siehe <<_anhang,[Anhang]>>) die HTML5-Datei `asciidoctor_1st.html`.
+----
+$ asciidoctor -a icons -a toc asciidoc_1st.adoc
+---- 
+
+link:asciidoctor_1st.html[Asciidoctor: Erste Schritte &hellip; mit Asciidoctor]
+ 
+
+Anhang
+------
+.Text-Datei: `asciidoctor_1st.adoc` 
+----
+= Asciidoctor: Erste Schritte &hellip; mit Asciidoctor
+Sid -- sid[at]example[dot]org
+
+Version 3.0.0, September 2014
+
+:icons:
+:Author Initials: sid
+:creativecommons-url: http://creativecommons.org/licenses/by-sa/4.0/deed.de
+:mit-url:             http://opensource.org/licenses/mit-license.php 
+:ubuntu-url:          http://www.ubuntu.com/
+:asciidoctor-url:     http://asciidoctor.org/
+
+
+== Abstract
+Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse 
+molestie consequat, vel illum dolore eu feugiat nulla facilisis.
+
+
+== Opera sine nomine scripta
+Lorem ipsum dolor sit amet, consectetur adipisici elit, 
+sed eiusmod tempor incidunt ut labore et dolore magna aliqua. 
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit 
+in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+
+
+=== Scripta
+Excepteur sint obcaecat cupiditat non proident, sunt in culpa 
+qui officia deserunt mollit anim id est laborum.
+
+
+=== Nomine 
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+
+.Est laborum
+- cupiditat
+- proident
+- deseunt
+
+
+== Links
+* link:{asciidoctor-url}[Asciidoctor]
+* link:http://la.wikisource.org/wiki/Lorem_ipsum[Lorem ipsum]
+* link:{creativecommons-url}[Creative Commens]
+* link:{mit-url}[MIT-License]
+
+''''
+link:asciidoctor.html#_beispiel[zurück]
+----
+
+

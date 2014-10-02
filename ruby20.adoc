@@ -1,5 +1,5 @@
-IiU -- Ruby 2.0.0, Ruby on Rails 4
-==================================
+IiU -- Ruby 2.0.0, Rails 4.0
+============================
 Installation in Ubuntu — khkoether[at]kahweb[dot]de
 
 :icons:
@@ -15,10 +15,16 @@ Installation in Ubuntu — khkoether[at]kahweb[dot]de
 :rubyonrails-url: http://www.rubyonrails.org
 
 :ruby-version: 2.0.0-p451
-:ruby20_1st-url: link:ruby20_1st.html
+:ruby21_1st-url: link:ruby21_1st.html
+
+Version 2.2.0, März 2014 (*unverändert*)
 
 
-Version 2.2.0, März 2014
+[CAUTION]
+====
+Ich werde diese Seite für *Ruby 2.0.0* nicht weiter aktualisieren. + 
+Sie hat im Umfeld von *Rails 4.2.x* keine Bedeutung.
+====
 
 
 Abstract
@@ -299,17 +305,8 @@ $ sudo ln -s ruby-2.0.0-p451 current20
 $ ls -l
 lrwxrwxrwx 1 root root   15 Mär  3 12:37 current19 -> ruby-1.9.3-p545
 lrwxrwxrwx 1 root root   15 Mär  3 12:36 current20 -> ruby-2.0.0-p451
--rw-rw-r-- 1 khk  khk   740 Mär  3 12:28 gem_list_19_484.txt
--rw-rw-r-- 1 khk  khk  1062 Mär  3 12:34 gem_list_20_353.txt
-drwxr-xr-x 7 root root 4096 Jan 22  2013 ruby-1.9.3-p374
-drwxr-xr-x 7 root root 4096 Apr 14  2013 ruby-1.9.3-p392
-drwxr-xr-x 7 root root 4096 Jun  1  2013 ruby-1.9.3-p429
-drwxr-xr-x 7 root root 4096 Okt  8 16:39 ruby-1.9.3-p448
-drwxr-xr-x 7 root root 4096 Dez  8 20:16 ruby-1.9.3-p484
 drwxr-xr-x 6 root root 4096 Mär  3 12:23 ruby-1.9.3-p545
 -rw-r--r-- 1 root root   47 Mär  3 12:38 ruby19.path.sh
-drwxr-xr-x 7 root root 4096 Okt  8 18:59 ruby-2.0.0-p247
-drwxr-xr-x 7 root root 4096 Dez  9 18:45 ruby-2.0.0-p353
 drwxr-xr-x 6 root root 4096 Mär  3 12:30 ruby-2.0.0-p451
 -rw-r--r-- 1 root root   47 Mär  3 12:38 ruby20.path.sh
 ----
@@ -828,7 +825,7 @@ image::images/ruby/rubygems20_documentation_index.jpeg[RubyGems 2.0 Documentatio
 
 Beispiel
 --------
-{ruby20_1st-url}[Rails 4: Erste Schritte &hellip; mit Ruby]
+{ruby21_1st-url}[Rails 4: Erste Schritte &hellip; mit Ruby]
 
 
 Anhang

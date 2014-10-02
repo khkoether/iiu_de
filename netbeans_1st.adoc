@@ -1,30 +1,33 @@
-IiU -- Rails 4: Erste Schritte &hellip; mit NetBeans 
+IiU -- Rails 4.2: Erste Schritte &hellip; mit NetBeans 
 ====================================================
 Installation in Ubuntu — khkoether[at]kahweb[dot]de
 
 :icons:
 :Author Initials: KHK
-:creativecommons-url: http://creativecommons.org/licenses/by-sa/3.0/de/
-:ubuntu-url: http://www.ubuntu.com/
-:asciidoctor-url: http://asciidoctor.org/
+:creativecommons-url: http://creativecommons.org/licenses/by/4.0/deed.de
+:mit-url:             http://opensource.org/licenses/mit-license.php  
+:ubuntu-url:          http://www.ubuntu.com/
+:asciidoctor-url:     http://asciidoctor.org/
 :asciidoctordocs-url: http://asciidoctor.org/docs/
-:ruby-url: https://www.ruby-lang.org/de/
-:ruby-download-url: https://www.ruby-lang.org/de/downloads/
-:rubyonrails-url: http://www.rubyonrails.org
-:java-url: http://www.oracle.com/technetwork/java/javase/downloads/index.html
-:jruby-url: http://jruby.org/
-:jruby-download-url: http://jruby.org/download
+:git-url:             http://git-scm.com/
+:git-download-url:    https://www.kernel.org/pub/software/scm/git/
+
+:java-url:            http://www.oracle.com/technetwork/java/javase/downloads/index.html
+:jruby-url:           http://jruby.org/
+:jruby-download-url:  http://jruby.org/download
+
+:jdk-url:             link:jdk.html
+:jruby-version:       1.7.16
+:jruby_1st-url:       link:jruby_1st.html
+
 :netbeans-ide-url: http://netbeans.org/
+:netbeans-url:     link:netbeans.html
+:netbeans_1st-url: link:netbeans_1st.html
 :netbeans-ide-download-url: http://netbeans.org/downloads/
 :netbeans-ide-plugin-url: http://plugins.netbeans.org/PluginPortal/
 :netbeans-ide-plugin-ruby-and-rails-url: http://plugins.netbeans.org/plugin/38549/ruby-and-rails
 
-:jdk-url: link:jdk.html
-:jruby-url: link:jruby.html
-:netbeans-url: link:netbeans.html
-
-
-Version 2.2.1, April 2014
+Version 3.0.0, September 2014
 
 
 Abstract
@@ -33,7 +36,7 @@ Die folgenden Schritte stellen die Funktionsfähigkeit der Installation
 von _NetBeans IDE 7.4_ (kurz: _NetBeans_) sicher. 
 
 Der Artikel ist in {asciidoctordocs-url}[AsciiDoc] geschrieben 
-und mit _Asciidoctor 1.5.0.preview3_ erstellt worden.
+und mit _Asciidoctor 1.5.1_ erstellt worden.
 
 [CAUTION]
 ====
@@ -98,6 +101,39 @@ image::images/netbeans/ror06_New_Ruby_on_Rails_Application.jpeg[New Ruby on Rail
 
 image::images/netbeans/ror07_RailsApplication1-NetBeans_IDE_7.4.jpeg[RailsApplication1 - NetBeans IDE 7.4 &middot; Output - Generate Rails Project]
 
+[NOTE]
+====
+Die Datei `config/database.yml` ist nicht vollständig erstellt worden. +
+Es fehlt der `default`-Block:
+
+.Datei: `config/database.yml
+[source,yaml]
+----
+default: &default
+  adapter: mysql
+  username: khk
+  password: khk123
+  host: localhost
+
+
+development:
+  <<: *default
+  database: db1_development
+
+test:
+  <<: *default
+  database: db1_test
+
+production:
+  <<: *default
+  database: db1_production
+----
+====
+
+image::images/netbeans/ror07_RailsApplication1-NetBeans_IDE_7.4_default.jpeg[RailsApplication1 - NetBeans IDE 7.4 &middot; Output - Generate Rails Project]
+
+
+
 
 Create Database
 ---------------
@@ -129,12 +165,13 @@ $ cd ~/NetBeansProjects/RailsApplication1
 ----
 $ rails s
 => Booting WEBrick
-=> Rails 4.0.3 application starting in development on http://0.0.0.0:3000
+=> Rails 4.2.0.beta1 application starting in development on http://localhost:3000
 => Run `rails server -h` for more startup options
 => Ctrl-C to shutdown server
-[2014-03-03 22:20:40] INFO  WEBrick 1.3.1
-[2014-03-03 22:20:40] INFO  ruby 1.9.3 (2014-02-24) [java]
-[2014-03-03 22:20:40] INFO  WEBrick::HTTPServer#start: pid=17295 port=3000
+[2014-10-02 20:40:43] INFO  WEBrick 1.3.1
+[2014-10-02 20:40:43] INFO  ruby 1.9.3 (2014-09-25) [java]
+[2014-10-02 20:40:43] INFO  WEBrick::HTTPServer#start: pid=26211 port=3000
+...
 ----
 
 

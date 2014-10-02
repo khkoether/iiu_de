@@ -3,6 +3,8 @@ Installation in Ubuntu
 Die Artikel sind eine Schritt-für-Schritt Anleitung zur Installation 
 verschiedener Programme aus dem QuellCode.
 
+Die Installation wird für Ubuntu 14.04 LTS (Trusty Tahr) beschrieben.
+
 Die Programme sind entsprechend den eigenen Bedürfnissen, Neigungen 
 und Zielen ausgewählt ;-)
 Ich mag Script-Sprachen (Perl, Bash, Ruby), schätze das Framework 
@@ -25,20 +27,22 @@ Ruby on Rails und Git ... und ... Dokumentation ist notwendig.
    Java, die wiederum die Grundlage für das Framework 
    Ruby on Rails bildet. 
 
-Die Artikel sind in ASCII DOC erstellt worden.
- * AsciiDoc 8.6.9
- * AsciiDoc: Erste Schritte 
- * Git 1.9.0
- * Ruby 1.9.3-p545 - Rails 4
- * Ruby 2.0.0-p451 - Rails 4 
+Die Artikel sind in AsciiDoc erstellt worden.
+ * Asciidoctor 1.5.1
+ * AsciiDoc 8.6.9 (unverändert)
+ * Asciidoctor: Erste Schritte ... mit Asciidoctor
+ * Git 2.1.1
+ * Ruby 1.9.3-p547 - Rails 4.2
+ * Ruby 2.0.0-p451 - Rails 4.0 (unverändert)
+ * Ruby 2.1.3-p242 - Rails 4.2 
  * Rails 4: Erste Schritte ... mit Ruby
  * OpenJDK 7, Oracle JDK 7 
- * JRuby 1.7.11 - Rails 4
+ * JRuby 1.7.16 - Rails 4.2
  * Rails 4: Erste Schritte ... mit JRuby 
  * NetBeans 7.4
  * Rails 4: Erste Schritte ... mit der NetBeans IDE
 
-$ asciidoctor -b html5 -a toc NAME.adoc
+$ asciidoctor -a toc NAME.adoc
 
 Verzeichnis-Struktur:
 ./iiu_de.sh         <-- Script zum Erstellen aller HTML-Dateien
@@ -49,10 +53,11 @@ Verzeichnis-Struktur:
 ./images/ruby       <-- Image des RubyGems Documentation Index
 ./images/jruby      <-- Image des RubyGems Documentation Index
  
-NAME = { asciidoc git ruby19 ruby20 ruby20_1st jdk jruby jruby_1st netbeans netbeans_1st}
+NAME = { asciidoctor asciidoc asciidoctor_1st git ruby19 ruby20 ruby20_1st jdk jruby jruby_1st netbeans netbeans_1st}
 
 Die erstellten Seiten finden Sie hier:
 http://www.mygithub.kahweb.de
+
 
 Hinweis:
 Zu beachten ist, dass so ein Dokument zum Einen nie abschliessend 
@@ -61,3 +66,9 @@ auf einem anderem Weg durchgeführt werden können.
 Gerne nehme ich Verbesserungsvorschläge entgegen.
 
 Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr. 
+
+
+Lizenz:
+Dieses Werk ist lizenziert unter einer Creative Commons Namensnennung 4.0 International Lizenz, 
+und der Quellcode zum formatieren und anzeigen des Inhaltes steht unter der MIT-Lizenz. 
+

@@ -5,7 +5,8 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.1">
-<title>Untitled</title>
+<meta name="author" content="Installation in Ubuntu — khkoether[at]kahweb[dot]de">
+<title>IiU&#8201;&#8212;&#8201;Rails 4.2: Erste Schritte &hellip; mit Ruby</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic|Noto+Serif:400,400italic,700,700italic|Droid+Sans+Mono:400">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -411,184 +412,992 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
+<h1>IiU&#8201;&#8212;&#8201;Rails 4.2: Erste Schritte &hellip; mit Ruby</h1>
+<div class="details">
+<span id="author" class="author">Installation in Ubuntu — khkoether[at]kahweb[dot]de</span><br>
+</div>
 <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
-
+<ul class="sectlevel1">
+<li><a href="#_abstract">Abstract</a></li>
+<li><a href="#_vorraussetzung">Vorraussetzung</a></li>
+<li><a href="#_erste_schritte">Erste Schritte &hellip;</a></li>
+<li><a href="#_datenbanksystem_wählen">Datenbanksystem wählen</a></li>
+<li><a href="#_datenbank_erstellen">Datenbank erstellen</a></li>
+<li><a href="#_projektverzeichnis_erstellen">Projektverzeichnis erstellen</a></li>
+<li><a href="#_datenbankadapter_konfigurieren">Datenbankadapter konfigurieren</a></li>
+<li><a href="#_javascript_runtime_installieren">JavaScript-Runtime installieren</a></li>
+<li><a href="#_aufruf_der_webanwendung_im_browser">Aufruf der Webanwendung im Browser</a></li>
+<li><a href="#_anhang">Anhang</a></li>
+</ul>
 </div>
 </div>
 <div id="content">
-<div class="paragraph">
-<p>IiU&#8201;&#8212;&#8201;Rails 4.2: Erste Schritte &hellip; mit NetBeans</p>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>Installation in Ubuntu — khkoether[at]kahweb[dot]de</p>
-</div>
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
 <p>Version 3.0.0, September 2014</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_abstract">Abstract</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>Abstract</p>
+<p>Die folgenden Schritte stellen die Funktionsfähigkeit der Installation
+von <em>Ruby</em> und <em>Ruby on Rails</em> (kurz: <em>Rails</em>) sicher.</p>
+</div>
+<div class="paragraph">
+<p>Der Artikel ist in <a href="http://asciidoctor.org/docs/">AsciiDoc</a> geschrieben
+und mit <em>Asciidoctor 1.5.1</em> erstellt worden.</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<img src="./images/icons/caution.png" alt="Caution">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Zu beachten ist, dass so ein Dokument zum Einen nie abschliessend
+sein kann, und zum Anderen bestimmte Konfigurationen anders, oder
+auf einem anderem Weg durchgeführt werden können.
+Gerne nehme ich Verbesserungsvorschläge entgegen.</p>
+</div>
+<div class="paragraph">
+<p>Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_vorraussetzung">Vorraussetzung</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Die Installation von <em>Ruby</em> und <em>Ruby on Rails</em> ist, wie in</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="ruby19.html">Installation in Ubuntu: Ruby 1.9.3, Rails 4.2</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>oder</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="ruby20.html">Installation in Ubuntu: Ruby 2.1.3, Rails 4.2</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>beschrieben, durchgeführt worden.</p>
+</div>
+<div class="paragraph">
+<p>Die hier aufgeführten Schritte werden beispielhaft für <em>Ruby 2.1.3</em> ausgeführt.
+Gelten aber, auch in dieser Reihenfolge, ebenfalls für <em>Ruby 1.9.3</em>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Ruby 2.1.3</div>
+<div class="content">
+<pre>$ which ruby
+/opt/Ruby/current21/bin/ruby
+
+$ ruby -v
+ruby 2.1.3p242 (2014-09-19 revision 47630) [x86_64-linux]
+
+$ which rails
+/opt/Ruby/current21/bin/rails
+
+$ rails -v
+Rails 4.2.0.beta1</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_erste_schritte">Erste Schritte &hellip;</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Die notwendigen Schritte werden auf der Kommandozeile durchgeführt.</p>
+</div>
+<div class="ulist">
+<div class="title">Vorgehensweise</div>
+<ul>
+<li>
+<p>Datenbanksystem wählen</p>
+</li>
+<li>
+<p>Datenbank erstellen</p>
+</li>
+<li>
+<p>Projektverzeichnis erstellen</p>
+</li>
+<li>
+<p>Datenbankadapter konfigurieren</p>
+</li>
+<li>
+<p>JavaScript-Runtime installieren</p>
+</li>
+<li>
+<p>Aufruf der Webanwendung im Browser</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_datenbanksystem_wählen">Datenbanksystem wählen</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Für <em>Ruby on Rails</em> sind drei Datenbanksysteme zumindest erste Wahl für
+die Entwicklung eines neuen Rails-Projektes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>SqLite3</em><br>
+Ist in <em>Ruby on Rails</em> die Default-Datenbank.</p>
+</li>
+<li>
+<p><em>MySQL</em><br>
+Gut und schnell und überhaupt &#8230;&#8203; überall verfügbar.</p>
+</li>
+<li>
+<p><em>PostgreSQL</em><br>
+Lupenreine OpenSource-Datenbanksystem für professionelle Anforderungen.<br>
+(Ähnliches Vorgehen wie mit MySQL.)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Für die Datenbanksysteme <em>SqLite3</em> und <em>MySQL</em> sind die notwendigen Datenbankadapter
+bereits installiert worden.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_datenbank_erstellen">Datenbank erstellen</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><em>SQLite3</em> ist eine Programmbibliothek, die ein relationales Datenbanksystem enthält.
+Das bedeutet, der notwendige Aufwand an Administration für ein Datenbanksystem, sowie
+für das Anlegen von Benutzern, einer Datenbank und dem Zuweisen von Rechten entfällt.</p>
+</div>
+<div class="paragraph">
+<p><em>MySQL</em> hat für die Administration des Datenbanksystems
+verschiedene Programm-Angebote, unter anderem <em>phpMyAdmin</em> &#8230;&#8203; aber eben auch
+die Kommandozeile.</p>
+</div>
+<div class="paragraph">
+<p><em>PostgreSQL</em> hat für die Administration des Datenbanksystems
+verschiedene Programm-Angebote, unter anderem <em>pgAdmin</em> &#8230;&#8203; aber eben auch
+die Kommandozeile.</p>
+</div>
+<div class="listingblock">
+<div class="title">Anlegen eines Benutzer: <em>sid</em> (in MySQL)</div>
+<div class="content">
+<pre># mysql -uroot -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 74
+Server version: 5.5.35-0ubuntu0.12.04.2 (Ubuntu)
+
+Copyright (c) 2000, 2013, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql&gt; GRANT ALL PRIVILEGES ON *.* to 'sid'@'localhost'
+    -&gt; IDENTIFIED BY 'GEHEIM';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql&gt; exit</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Erstellen einer Datenbank: <em>myapp_development</em> (in MySQL)</div>
+<div class="content">
+<pre>$ mysql -usid -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 75
+Server version: 5.5.35-0ubuntu0.12.04.2 (Ubuntu)
+
+Copyright (c) 2000, 2013, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql&gt; CREATE DATABASE myapp_development;
+Query OK, 1 row affected (0.00 sec)
+
+mysql&gt; exit
+Bye</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_projektverzeichnis_erstellen">Projektverzeichnis erstellen</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre>$ cd
+$ mkdir RailsDir
+
+$ cd RailsDir
+$ rails _4.2.0.beta1_ new MyApp --database=mysql   <img src="./images/icons/callouts/1.png" alt="1">
+      create
+      create  README.rdoc
+      create  Rakefile
+      create  config.ru
+      create  .gitignore
+      create  Gemfile      <img src="./images/icons/callouts/2.png" alt="2">
+      create  app
+      create  app/assets/javascripts/application.js
+ [...]
+      create  bin
+      create  bin/bundle
+      create  bin/rails
+      create  bin/rake
+      create  bin/setup
+[...]
+      create  config/database.yml   <img src="./images/icons/callouts/3.png" alt="3">
+      create  db
+      create  db/seeds.rb
+ [...]
+      create  vendor/assets/javascripts
+      create  vendor/assets/javascripts/.keep
+      create  vendor/assets/stylesheets
+      create  vendor/assets/stylesheets/.keep
+         run  bundle install
+
+
+Your user account isn't allowed to install to the system Rubygems.
+You can cancel this installation and run:
+
+    bundle install --path vendor/bundle
+
+to install the gems into ./vendor/bundle/, or you can enter your password
+and install the bundled gems to Rubygems using sudo.
+
+Password:   <img src="./images/icons/callouts/4.png" alt="4"></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Für das Datenbanksystem <em>sqLite3</em> verkürzt sich der Aufruf:<br>
+<em>rails _4.2.0.beta1</em> new myapp_</td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/2.png" alt="2"></td>
+<td>Die zu diesem Zeitpunkt benötigten RubyGems und deren Abhängigkeiten
+untereinander entnehmen Sie der Datei <code>Gemfile</code>.</td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/3.png" alt="3"></td>
+<td>Konfigurationsdatei mit den Einstellungen für den
+Datenbankzugriff (Datenbankadapter).</td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/4.png" alt="4"></td>
+<td>Wenn Sie nicht berechtigt sind RubyGems zu installieren, müssen Sie
+die benötigten RubyGems installieren lassen! (Abbruch: [CRTL-C])</td>
+</tr>
+</table>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>Die folgenden Schritte stellen die Funktionsfähigkeit der Installation
-von _NetBeans IDE 7.4_ (kurz: _NetBeans_) sicher.
+<pre>$ cd MyApp
 
-Der Artikel ist in {asciidoctordocs-url}[AsciiDoc] geschrieben
-und mit _Asciidoctor 1.5.1_ erstellt worden.
+$ tree -LF 1 .
+.
+├── app/
+├── bin/
+├── config/
+├── config.ru
+├── db/
+├── Gemfile
+├── lib/
+├── log/
+├── public/
+├── Rakefile
+├── README.rdoc
+├── test/
+├── tmp/
+└── vendor/
 
-[CAUTION]
-====
-Zu beachten ist, dass so ein Dokument zum Einen nie abschliessend
-sein kann, und zum Anderen bestimmte Konfigurationen anders, oder
-auf einem anderem Weg durchgeführt werden können.
-Gerne nehme ich Verbesserungsvorschläge entgegen.
-
-Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr.
-====
-
-
-Vorraussetzungen
-----------------
-Die _NetBeans IDE_ ist wie in
-
-* {netbeans-url}[Installation in Ubuntu: NetBeans IDE 7.4]
-
-beschrieben durchgeführt worden.
-
-
-Erste Schritte &amp;hellip;
------------------------
-Die notwendigen Schritte werden in der _NetBeans IDE 7.4_ durchgeführt.
-
-.Vorgehensweise
-- NetBeans IDE 7.4 &amp;middot; New Project
-- 1. Choose Project
-- 2. Name and Location
-- 3. Database Configuration
-- 4. Install Rails
-- Create Database
-- Run Project
-- Aufruf der Webanwendung im Browser
+10 directories, 4 files</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Datei: <code>Gemfile</code></div>
+<div class="content">
+<pre>source 'https://rubygems.org'
 
 
-NetBeans IDE 7.4 &amp;middot; New Project
--------------------------------------
-image::images/netbeans/ror01_NetBeans_IDE_7.4.jpeg[NetBeans-IDE 7.4 &amp;middot; Startpage]
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '4.2.0.beta1'
+# Use mysql as the database for Active Record
+gem 'mysql2'
+# Use SCSS for stylesheets
+gem 'sass-rails', '~&gt; 5.0.0.beta1'
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '&gt;= 1.3.0'
+# Use CoffeeScript for .js.coffee assets and views
+gem 'coffee-rails', '~&gt; 4.0.0'   <img src="./images/icons/callouts/1.png" alt="1">
+# See https://github.com/sstephenson/execjs#readme for more supported runtimes
+# gem 'therubyracer', platforms: :ruby
 
-image::images/netbeans/ror02_NetBeans_IDE_7.4.jpeg[NetBeans-IDE 7.4 &amp;middot; New Project]
+# Use jquery as the JavaScript library
+gem 'jquery-rails'
+# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+gem 'turbolinks'
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jbuilder', '~&gt; 2.0'   <img src="./images/icons/callouts/2.png" alt="2">
+# bundle exec rake doc:rails generates the API under doc/api.
+gem 'sdoc', '~&gt; 0.4.0', group: :doc
 
+# Use ActiveModel has_secure_password
+# gem 'bcrypt', '~&gt; 3.1.7'   <img src="./images/icons/callouts/3.png" alt="3">
 
-1. Choose Project
------------------
-image::images/netbeans/ror03_New_Project.jpeg[Categories &amp;middot; Projects (Next)]
+# Use Rails Html Sanitizer for HTML sanitization
+gem 'rails-html-sanitizer', '~&gt; 1.0'
 
+# Use Unicorn as the app server
+# gem 'unicorn'
 
-2. Name and Location
---------------------
-image::images/netbeans/ror04_New_Ruby_on_Rails_Application.jpeg[New Ruby on Rails Application &amp;middot; Name and Location]
+# Use Capistrano for deployment
+# gem 'capistrano-rails', group: :development
 
+group :development, :test do
+  # Call 'debugger' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug'
 
-3. Database Configuration
--------------------------
-image::images/netbeans/ror05_New_Ruby_on_Rails_Application.jpeg[New Ruby on Rails Application &amp;middot; Database Configuration]
+  # Access an IRB console on exceptions page and /console in development
+  gem 'web-console', '~&gt; 2.0.0.beta2'
 
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring'
+end</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Der Spezifizierer <em>~&gt; 4.0.0</em> ist identisch mit
+den Bedingungen <em>&gt;= 4.0.0</em> und <em>&lt; 4.1</em>.</td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/2.png" alt="2"></td>
+<td>Der Spezifizierer <em>~&gt; 2.0</em> ist identisch mit
+den Bedingungen <em>&gt;= 2.0</em> und <em>&lt; 3</em>.</td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/3.png" alt="3"></td>
+<td>Der Spezifizierer <em>~&gt; 3.1.7</em> ist identisch mit
+den Bedingungen <em>&gt;= 3.1.7</em> und <em>&lt; 3.2</em>.</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Prüfen der Abhängigkeiten im <code>Gemfile</code> (1)</div>
+<div class="content">
+<pre>$ bundle check
+Resolving dependencies...
+Bundler can't satisfy your Gemfile's dependencies.
+Install missing gems with `bundle install`.
 
-4. Install Rails
-----------------
-image::images/netbeans/ror06_New_Ruby_on_Rails_Application.jpeg[New Ruby on Rails Application &amp;middot; Install Rails]
+$ bundle list
+Could not find gem 'sdoc (&gt;= 0) ruby' in the gems available on this machine.</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Installation der fehlenden Gems mit dem zur Installation berechtigten User <em>root</em>!</div>
+<div class="content">
+<pre># cd ~sid/RailsDir/MyApp
 
-image::images/netbeans/ror07_RailsApplication1-NetBeans_IDE_7.4.jpeg[RailsApplication1 - NetBeans IDE 7.4 &amp;middot; Output - Generate Rails Project]
+# bundle check
+Resolving dependencies...
+Bundler can't satisfy your Gemfile's dependencies.
+Install missing gems with `bundle install`.
 
-[NOTE]
-====
-Die Datei `config/database.yml` ist nicht vollständig erstellt worden. +
-Es fehlt der `default`-Block:
+# bundle install    <img src="./images/icons/callouts/1.png" alt="1"> <img src="./images/icons/callouts/2.png" alt="2">
+Don't run Bundler as root. Bundler can ask for sudo if it is needed,
+and installing your bundle as root will break
+this application for all non-root users on this machine.
+Fetching gem metadata from https://rubygems.org/...........
+Resolving dependencies...
+Using rake 10.3.2
+Using i18n 0.7.0.beta1
+Using json 1.8.1
+Using minitest 5.4.2
+Using thread_safe 0.3.4
+Using tzinfo 1.2.2
+Using activesupport 4.2.0.beta1
+Using builder 3.2.2
+Using erubis 2.7.0
+Using rails-deprecated_sanitizer 1.0.3
+Using mini_portile 0.6.0
+Using nokogiri 1.6.3.1
+Using rails-dom-testing 1.0.3
+Using actionview 4.2.0.beta1
+Using rack 1.6.0.beta
+Using rack-test 0.6.2
+Using actionpack 4.2.0.beta1
+Using mime-types 2.3
+Using mail 2.6.1
+Using actionmailer 4.2.0.beta1
+Using globalid 0.3.0
+Using activejob 4.2.0.beta1
+Using activemodel 4.2.0.beta1
+Using arel 6.0.0.beta1
+Using activerecord 4.2.0.beta1
+Installing debug_inspector 0.0.2
+Installing binding_of_caller 0.7.3.pre1
+Using bundler 1.7.3
+Installing columnize 0.8.9
+Installing debugger-linecache 1.2.0
+Installing slop 3.6.0
+Installing byebug 3.4.2
+Installing coffee-script-source 1.8.0
+Installing execjs 2.2.1
+Installing coffee-script 2.3.0
+Using thor 0.19.1
+Using railties 4.2.0.beta1
+Installing coffee-rails 4.0.1
+Using hike 1.2.3
+Using multi_json 1.10.1
+Installing jbuilder 2.1.3
+Installing jquery-rails 3.1.2
+Installing loofah 2.0.1
+Installing mysql2 0.3.16
+Using tilt 1.4.1
+Using sprockets 2.12.2
+Using sprockets-rails 3.0.0.beta1
+Using rails 4.2.0.beta1
+Installing rails-html-sanitizer 1.0.1
+Using rdoc 4.1.2
+Installing sass 3.4.5
+Installing sass-rails 5.0.0.beta1
+Installing sdoc 0.4.1
+Installing spring 1.1.3
+Installing turbolinks 2.3.0
+Installing uglifier 2.5.3
+Installing web-console 2.0.0.beta4
+Your bundle is complete!
+Use `bundle show [gemname]` to see where a bundled gem is installed.</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Die Ausgabe bezieht sich auf Ruby Version 2.1.3!</td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/2.png" alt="2"></td>
+<td>Besser mit einem Benutzer der Root-Rechte zeitweise erlangen kann:<br>
+<em>bundle install</em> und <em>sudo password</em></td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Prüfen der Abhängigkeiten im <code>Gemfile</code> (2)</div>
+<div class="content">
+<pre>$ bundle check
+The Gemfile's dependencies are satisfied
 
-.Datei: `config/database.yml
-[source,yaml]
-----
-default: &amp;default
-  adapter: mysql
-  username: khk
-  password: khk123
-  host: localhost
+$ ls -l Gemfile*
+-rw-rw-r-- 1 sid  sid  1585 Sep 28 20:34 Gemfile
+-rw-r--r-- 1 root root 4210 Sep 28 21:20 Gemfile.lock   <img src="./images/icons/callouts/1.png" alt="1"></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Die Rechte an der Datei <code>Gemfile.lock</code> sind durch den Befehl <em>bundle install</em>
+(als Benutzer <em>root</em>) auf den Benutzer <em>root</em> gesetzt!</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre># rm Gemfile.lock</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ bundle check
+Resolving dependencies...
+The Gemfile's dependencies are satisfied
 
-
+$ ls -l Gemfile*
+-rw-rw-r-- 1 sid sid 1585 Sep 28 20:34 Gemfile
+-rw-rw-r-- 1 sid sid 4210 Sep 28 21:28 Gemfile.lock</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_datenbankadapter_konfigurieren">Datenbankadapter konfigurieren</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="title">Datei: <code>config/database.yml</code> sqlite3</div>
+<div class="content">
+<pre>[...]
 development:
+  adapter: sqlite3
+  database: db/development.sqlite3   <img src="./images/icons/callouts/1.png" alt="1">
+  pool: 5
+  timeout: 5000
+[...]</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Die Datenbank-Datei wird mit dem ersten Aufruf automatisch angelegt.<br>
+Keine Angabe für Benutzer und Passwort!</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Datei: <code>config/database.yml</code> mysql</div>
+<div class="content">
+<pre>[...]
+default: &amp;default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: sid                 &lt;---
+  password: GEHEIM              &lt;---
+  socket: /var/run/mysqld/mysqld.sock
+
+development:   <img src="./images/icons/callouts/1.png" alt="1">
   &lt;&lt;: *default
-  database: db1_development
+  database: myapp_development   <img src="./images/icons/callouts/2.png" alt="2">
+[...]</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Es werden ausschließlich die zu <em>default</em> geänderten Einträge aufgeführt.</td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/2.png" alt="2"></td>
+<td>Der hier vorgeschlagene Datenbank-Name wird von <em>Ruby on Rails</em>
+automatisch aus dem Namen der Applikation und dem Zusatz <em>_development</em>
+gebildet.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_javascript_runtime_installieren">JavaScript-Runtime installieren</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Für die erzeugte <em>Ruby on Rails</em>-Anwendung ist eine JavaScript-Runtime erforderlich.</p>
+</div>
+<div class="listingblock">
+<div class="title">Datei: <code>Gemfile</code></div>
+<div class="content">
+<pre>source 'https://rubygems.org'
 
-test:
-  &lt;&lt;: *default
-  database: db1_test
 
-production:
-  &lt;&lt;: *default
-  database: db1_production
-----
-====
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '4.2.0.beta1'
+# Use mysql as the database for Active Record
+gem 'mysql2'
+# Use SCSS for stylesheets
+gem 'sass-rails', '~&gt; 5.0.0.beta1'
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '&gt;= 1.3.0'
+# Use CoffeeScript for .js.coffee assets and views
+gem 'coffee-rails', '~&gt; 4.0.0'
+# See https://github.com/sstephenson/execjs#readme for more supported runtimes
+gem 'therubyracer', platforms: :ruby   <img src="./images/icons/callouts/1.png" alt="1">
+[...]</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Entfernen Sie das Kommentar-Zeichen <em>#</em>.</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">bundle install (mit dem Benutzer <em>root</em>)</div>
+<div class="content">
+<pre># cd ~sid/80/RailsDir/MyApp
 
-image::images/netbeans/ror07_RailsApplication1-NetBeans_IDE_7.4_default.jpeg[RailsApplication1 - NetBeans IDE 7.4 &amp;middot; Output - Generate Rails Project]
+# bundle install
+Fetching gem metadata from https://rubygems.org/...........
+Resolving dependencies...
+Using rake 10.3.2
+Using i18n 0.7.0.beta1
+Using json 1.8.1
+Using minitest 5.4.2
+Using thread_safe 0.3.4
+Using tzinfo 1.2.2
+Using activesupport 4.2.0.beta1
+Using builder 3.2.2
+Using erubis 2.7.0
+Using rails-deprecated_sanitizer 1.0.3
+Using mini_portile 0.6.0
+Using nokogiri 1.6.3.1
+Using rails-dom-testing 1.0.3
+Using actionview 4.2.0.beta1
+Using rack 1.6.0.beta
+Using rack-test 0.6.2
+Using actionpack 4.2.0.beta1
+Using mime-types 2.3
+Using mail 2.6.1
+Using actionmailer 4.2.0.beta1
+Using globalid 0.3.0
+Using activejob 4.2.0.beta1
+Using activemodel 4.2.0.beta1
+Using arel 6.0.0.beta1
+Using activerecord 4.2.0.beta1
+Using debug_inspector 0.0.2
+Using binding_of_caller 0.7.3.pre1
+Using bundler 1.7.3
+Using columnize 0.8.9
+Using debugger-linecache 1.2.0
+Using slop 3.6.0
+Using byebug 3.4.2
+Using coffee-script-source 1.8.0
+Using execjs 2.2.1
+Using coffee-script 2.3.0
+Using thor 0.19.1
+Using railties 4.2.0.beta1
+Using coffee-rails 4.0.1
+Using hike 1.2.3
+Using multi_json 1.10.1
+Using jbuilder 2.1.3
+Using jquery-rails 3.1.2
+Installing libv8 3.16.14.7   <img src="./images/icons/callouts/1.png" alt="1">
+Using loofah 2.0.1
+Using mysql2 0.3.16
+Using tilt 1.4.1
+Using sprockets 2.12.2
+Using sprockets-rails 3.0.0.beta1
+Using rails 4.2.0.beta1
+Using rails-html-sanitizer 1.0.1
+Using rdoc 4.1.2
+Installing ref 1.0.5   <img src="./images/icons/callouts/1.png" alt="1">
+Using sass 3.4.5
+Using sass-rails 5.0.0.beta1
+Using sdoc 0.4.1
+Using spring 1.1.3
+Installing therubyracer 0.12.1   <img src="./images/icons/callouts/1.png" alt="1"> <img src="./images/icons/callouts/2.png" alt="2"> <img src="./images/icons/callouts/3.png" alt="3">
+Using turbolinks 2.3.0
+Using uglifier 2.5.3
+Using web-console 2.0.0.beta4
+Your bundle is complete!
+Use `bundle show [gemname]` to see where a bundled gem is installed.</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Neu installierte RubyGems.</td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/2.png" alt="2"></td>
+<td><a href="http://rubygems.org/gems/therubyracer">RubyGems.org: therubyracer</a><br>
+Call JavaScript code and manipulate JavaScript objects from Ruby.<br>
+Call Ruby code and manipulate Ruby objects from JavaScript.</td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/3.png" alt="3"></td>
+<td>Das RubyGem <em>therubyracer</em> wird kompiliert!</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre># rm Gemfile.lock
 
-
-
-
-Create Database
----------------
-image::images/netbeans/ror08_RailsApplication1-NetBeans_IDE_7.4.jpeg[RailsApplication1 - NetBeans IDE 7.4 &amp;middot; Run/Debug Rake Task]
-
-image::images/netbeans/ror09_Run-Debug_Rake_Task_RailsApplication1.jpeg[Run-Debug Rake Task (RailsApplication1) &amp;middot; db:create]
-
-image::images/netbeans/ror10_RailsApplication1-NetBeans_IDE_7.4.jpeg[RailsApplication1 - NetBeans IDE 7.4 &amp;middot; Output: RailsApplication1 (db:create)]
-
-
-Run Project
------------
-image::images/netbeans/ror11_RailsApplication1-NetBeans_IDE_7.4.jpeg[RailsApplication1 - NetBeans IDE 7.4 &amp;middot; Run Project (RailsApplication1)]
-
-image::images/netbeans/ror12_RailsApplication1-NetBeans_IDE_7.4.jpeg[RailsApplication1 - NetBeans IDE 7.4 &amp;middot; Output: WEBrick for RailsApplication1 on 3000]
-
-[NOTE]
-====
-Die Erweiterung für die _NetBeans IDE 7.4_ sind noch nicht für
-_Rails&amp;nbsp;4_ angepasst: +
-Das Verzeichnis +script+ wird nicht mehr für den _rails_-Aufruf verwendet.
-====
-
-.Kein Problem. Dann wird die Anwendung auf der Kommando-Zeile gestartet:
-----
-$ cd ~/NetBeansProjects/RailsApplication1
-----
-
-----
-$ rails s
+$ bundle check
+Resolving dependencies...
+The Gemfile's dependencies are satisfied</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Möglichkeit 2: Das Ubuntu-Paket <em>nodejs</em> installieren</div>
+<div class="content">
+<pre>$ sudo apt-get -s install nodejs       <img src="./images/icons/callouts/1.png" alt="1">
+Paketlisten werden gelesen... Fertig
+Abhängigkeitsbaum wird aufgebaut.
+Statusinformationen werden eingelesen.... Fertig
+Die folgenden zusätzlichen Pakete werden installiert:
+  libc-ares2 libv8-3.14.5
+Die folgenden NEUEN Pakete werden installiert:
+  libc-ares2 libv8-3.14.5 nodejs
+0 aktualisiert, 3 neu installiert, 0 zu entfernen und 1 nicht aktualisiert.
+Inst libc-ares2 (1.10.0-2 Ubuntu:14.04/trusty [amd64])
+Inst libv8-3.14.5 (3.14.5.8-5ubuntu2 Ubuntu:14.04/trusty [amd64])
+Inst nodejs (0.10.25~dfsg2-2ubuntu1 Ubuntu:14.04/trusty [amd64])
+Conf libc-ares2 (1.10.0-2 Ubuntu:14.04/trusty [amd64])
+Conf libv8-3.14.5 (3.14.5.8-5ubuntu2 Ubuntu:14.04/trusty [amd64])
+Conf nodejs (0.10.25~dfsg2-2ubuntu1 Ubuntu:14.04/trusty [amd64])</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td><em>apt-get -s &#8230;&#8203; (simulate)</em> ich habe mich dagegen entschieden.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_aufruf_der_webanwendung_im_browser">Aufruf der Webanwendung im Browser</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>WEBrick wird in <em>Ruby on Rails</em> default-mäßig als Testserver für die
+Entwicklungs-Umgebung verwendet.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ rails s
 =&gt; Booting WEBrick
-=&gt; Rails 4.2.0.beta1 application starting in development on http://localhost:3000
+=&gt; Rails 4.2.0.beta1 application starting in development on http://localhost:3000   <img src="./images/icons/callouts/1.png" alt="1">
 =&gt; Run `rails server -h` for more startup options
 =&gt; Ctrl-C to shutdown server
-[2014-10-02 20:40:43] INFO  WEBrick 1.3.1
-[2014-10-02 20:40:43] INFO  ruby 1.9.3 (2014-09-25) [java]
-[2014-10-02 20:40:43] INFO  WEBrick::HTTPServer#start: pid=26211 port=3000
-...
-----
-
-
-Aufruf der Webanwendung im Browser
-----------------------------------
-image::images/netbeans/ror13_Ruby_on_Rails_Welcome_aboard.jpeg[Ruby on Rails: Welcome aboard]
-
-image::images/netbeans/ror14_Ruby_on_Rails_Welcome_aboard.jpeg[Ruby on Rails: Welcome aboard]</pre>
+[2014-09-28 20:39:54] INFO  WEBrick 1.3.1
+[2014-09-28 20:39:54] INFO  ruby 2.1.3 (2014-09-19) [x86_64-linux]   <img src="./images/icons/callouts/2.png" alt="2">
+[2014-09-28 20:39:54] INFO  WEBrick::HTTPServer#start: pid=22778 port=3000
+[...]</pre>
 </div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Der Webserver läuft ohne Port-Angabe (<em>--port</em> &#8230;&#8203;) auf Port 3000.</td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/2.png" alt="2"></td>
+<td>Ruby Version 2.1.3</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Browser&gt; http://localhost:3000/   <img src="./images/icons/callouts/1.png" alt="1">
+         About your application’s environment   <img src="./images/icons/callouts/2.png" alt="2"></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Grundsätzlicher Test der Verbindung!</td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/2.png" alt="2"></td>
+<td>Link zu weiteren Informationen&#8230;&#8203;</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Browser&gt; http://localhost:3000/rails/info/properties/   <img src="./images/icons/callouts/1.png" alt="1"></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Informationen zur ausgeführten Applikation <em>MyApp</em>:<br>
+(Ruby-Version, RubyGems, Verzeichnis, Umgebung, Datenbank, Datenbank-Schema)</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>oder</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ rake about
+[...]</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Ausgabe&#8230;&#8203;</div>
+<div class="content">
+<pre>About your application's environment
+Ruby version              2.1.3-p242 (x86_64-linux)   <img src="./images/icons/callouts/1.png" alt="1">
+RubyGems version          2.2.2
+Rack version              1.5
+Rails version             4.2.0.beta1
+JavaScript Runtime        therubyracer (V8)
+Active Record version     4.2.0.beta1
+Action Pack version       4.2.0.beta1
+Action View version       4.2.0.beta1
+Action Mailer version     4.2.0.beta1
+Active Support version    4.2.0.beta1
+Active Model version      4.2.0.beta1
+Middleware                Rack::Sendfile,
+                          ActionDispatch::Static,
+                          Rack::Lock,
+                          #&lt;ActiveSupport::Cache::Strategy::LocalCache::Middleware:0x...&gt;,
+                          Rack::Runtime,
+                          Rack::MethodOverride,
+                          ActionDispatch::RequestId,
+                          Rails::Rack::Logger,
+                          ActionDispatch::ShowExceptions,
+                          ActionDispatch::DebugExceptions,
+                          ActionDispatch::RemoteIp,
+                          ActionDispatch::Reloader,
+                          ActionDispatch::Callbacks,
+                          ActiveRecord::Migration::CheckPending,
+                          ActiveRecord::ConnectionAdapters::ConnectionManagement,
+                          ActiveRecord::QueryCache,
+                          ActionDispatch::Cookies,
+                          ActionDispatch::Session::CookieStore,
+                          ActionDispatch::Flash,
+                          ActionDispatch::ParamsParser,
+                          Rack::Head,
+                          Rack::ConditionalGet,
+                          Rack::ETag
+Application root          /home/sid/RailsDir/MyApp
+Environment               development
+Database adapter          mysql2
+Database schema version   0</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Ruby Version 2.1.3</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_anhang">Anhang</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Abschließend die Liste der aktuell installierten <em>RubyGems</em>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ gem list --local   <img src="./images/icons/callouts/1.png" alt="1">
+
+*** LOCAL GEMS ***
+
+actionmailer (4.2.0.beta1)
+actionpack (4.2.0.beta1)
+actionview (4.2.0.beta1)
+activejob (4.2.0.beta1)
+activemodel (4.2.0.beta1)
+activerecord (4.2.0.beta1)
+activesupport (4.2.0.beta1)
+arel (6.0.0.beta1)
+bigdecimal (1.2.5, 1.2.4)
+binding_of_caller (0.7.3.pre1)
+builder (3.2.2)
+bundler (1.7.3)
+byebug (3.4.2)
+coffee-rails (4.0.1)
+coffee-script (2.3.0)
+coffee-script-source (1.8.0)
+columnize (0.8.9)
+debug_inspector (0.0.2)
+debugger-linecache (1.2.0)
+erubis (2.7.0)
+execjs (2.2.1)
+globalid (0.3.0)
+hike (1.2.3)
+i18n (0.7.0.beta1)
+io-console (0.4.2)
+jbuilder (2.1.3)
+jquery-rails (3.1.2)
+json (1.8.1)
+libv8 (3.16.14.7 x86_64-linux)
+loofah (2.0.1)
+mail (2.6.1)
+mime-types (2.3)
+mini_portile (0.6.0)
+minitest (5.4.2, 4.7.5)
+multi_json (1.10.1)
+mysql2 (0.3.16)
+nokogiri (1.6.3.1)
+power_assert (0.1.4)
+psych (2.0.6, 2.0.5)
+rack (1.6.0.beta)
+rack-test (0.6.2)
+rails (4.2.0.beta1)
+rails-deprecated_sanitizer (1.0.3)
+rails-dom-testing (1.0.3)
+rails-html-sanitizer (1.0.1)
+railties (4.2.0.beta1)
+rake (10.3.2, 10.1.0)
+rdoc (4.1.2, 4.1.0)
+ref (1.0.5)
+sass (3.4.5)
+sass-rails (5.0.0.beta1)
+sdoc (0.4.1)
+slop (3.6.0)
+spring (1.1.3)
+sprockets (2.12.2)
+sprockets-rails (3.0.0.beta1)
+test-unit (3.0.1, 2.1.3.0)
+therubyracer (0.12.1)
+thor (0.19.1)
+thread_safe (0.3.4)
+tilt (1.4.1)
+turbolinks (2.3.0)
+tzinfo (1.2.2)
+uglifier (2.5.3)
+web-console (2.0.0.beta4)</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Anzahl der installierten RubyGems: <em>62</em></td>
+</tr>
+</table>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-10-02 22:21:09 MESZ
+Last updated 2014-09-28 22:39:15 MESZ
 </div>
 </div>
 </body>

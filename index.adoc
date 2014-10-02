@@ -1,0 +1,127 @@
+IiU -- index  
+============
+Installation in Ubuntu — khkoether[at]kahweb[dot]de  
+
+:middot: &middot;
+:icons:
+:Author Initials: KHK
+:creativecommons-url: http://creativecommons.org/licenses/by/4.0/deed.de
+:mit-url:             http://opensource.org/licenses/mit-license.php  
+:ubuntu-url:          http://www.ubuntu.com/
+
+:index-url:           index.html
+:asciidoc-url:        asciidoc.html
+:asciidoctor-url:     asciidoctor.html
+:asciidoc_1st-url:    asciidoc_1st.html
+:git-url:             git.html
+:jdk-url:             jdk.html
+:jruby_1st-url:       jruby_1st.html
+:jruby-url:           jruby.html
+:netbeans-url:        netbeans_1st.html
+:netbeans-url:        netbeans.html
+:ruby19-url:          ruby19.html
+:ruby20-url:          ruby20.html
+:ruby21_1st-url:      ruby21_1st.html
+:ruby21-url:          ruby21.html
+
+Version 3.0.0, September 2014
+
+
+Abstract
+--------
+Die Artikel sind eine Schritt-für-Schritt Anleitung zur Installation 
+verschiedener Programme aus dem QuellCode.
+
+Die Installation wird für {ubuntu-url}[Ubuntu 14.04 LTS (Trusty Tahr)] beschrieben.
+
+
+Intention
+---------
+Die Programme sind entsprechend den eigenen Bedürfnissen, Neigungen 
+und Zielen ausgewählt ;-) 
+
+- Ich mag Script-Sprachen (Perl, Bash, Ruby), 
+- und schätze das Framework Ruby on Rails 
+- und auch Git  
+- und ... Dokumentation ist notwendig.
+
+.Beschreibung
+* *AsciiDoc* ist eine einfache Auszeichnungssprache, die dazu dient, + 
+   Texte in verschiedenen Dokumentenformaten zu veröffentlichen. +
+* *Asciidoctor* ist die Neu-Implementation von *AsciiDoc* in Ruby.
+* *Git* ist ein freies verteiltes Versionskontrollsystem +
+   (DVCS - Distributed Version Control System).
+* Die Programmiersprache *Ruby* ist die Grundlage für das Framework 
+   *Ruby on Rails*.
+* *NetBeans* bietet eine Unterstützung für verschiedene Programmiersprachen 
+   und -techniken. +
+   Wobei die *Java*-basierten Lösungen ausgezeichnet unterstützt werden.
+* Die Programmiersprache *JRuby* ist die Implementation von *Ruby* in *Java*, +
+   die wiederum die Grundlage für das Framework *Ruby on Rails* bildet. 
+   
+Die Artikel sind in _Asciidoctor_ geschrieben und mit _Asciidoctor 1.5.1_ erstellt worden.
+
+Auswahl
+-------
+* link:{asciidoctor-url}[Asciidoctor 1.5.1]
+* link:{asciidoc_1st-url}[Asciidoctor: Erste Schritte &hellip; mit Asciidoctor] 
+* link:{git-url}[Git 2.1.1]
+* link:{ruby19-url}[Ruby 1.9.3-p547 - Rails 4.2]
+* link:{ruby21-url}[Ruby 2.1.3-p242 - Rails 4.2]
+* link:{ruby21_1st-url}[Rails 4.2: Erste Schritte ... mit Ruby]
+* link:{jdk-url}[OpenJDK 7, Oracle JDK 7] 
+* link:{jruby-url}[JRuby 1.7.16 - Rails 4.2]
+* link:{jruby_1st-url}[Rails 4.2: Erste Schritte ... mit JRuby] 
+* link:{netbeans-url}[NetBeans 7.4]
+* link:{netbeans_1st-url}[Rails 4.2: Erste Schritte ... mit der NetBeans IDE]   
+
+.Unverändert - diese Seiten werden nicht weiter aktualisiert
+* link:{asciidoc-url}[AsciiDoc 8.6.9]
+* link:{ruby20-url}[Ruby 2.0.0-p451 - Rails 4.0]
+
+
+Dateien
+-------
+....
+./iiu_de.sh         <-- Script zum Erstellen aller HTML-Dateien
+./NAME.adoc
+./NAME.html
+./images/icons      <-- Images durch Asciidoctor
+./images/netbeans   <-- Images des Installationsdialogs
+./images/ruby       <-- Image des RubyGems Documentation Index
+./images/jruby      <-- Image des RubyGems Documentation Index
+ 
+NAME = { index asciidoctor asciidoctor_1st asciidoc git 
+               ruby19 ruby20 ruby21 ruby21_1st 
+               jdk jruby jruby_1st netbeans netbeans_1st }
+....
+
+----
+$ asciidoctor -a toc NAME.adoc   <1>
+----
+<1> Output format backend (default: html5)
+
+
+Die erstellten Seiten finden Sie ebenfalls hier: +
+http://www.mygithub.kahweb.de
+
+
+[NOTE]
+====
+Zu beachten ist, dass so ein Dokument zum Einen nie abschliessend 
+sein kann, und zum Anderen bestimmte Konfigurationen anders, oder 
+auf einem anderem Weg durchgeführt werden können. +
+Gerne nehme ich Verbesserungsvorschläge entgegen.
+
+Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr. 
+====
+
+''''
+
+
+Lizenz
+------
+Dieses Werk ist lizenziert unter einer 
+link:{creativecommons-url}[Creative Commons Namensnennung 4.0 International Lizenz], +
+und der Quellcode zum formatieren und anzeigen des Inhaltes steht unter der link:{mit-url}[MIT-Lizenz]. 
+

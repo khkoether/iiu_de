@@ -1,13 +1,14 @@
-= Lorem ipsum
-Sid still-in-development — sid[at]example[dot]org
+= Asciidoctor: Erste Schritte &hellip; mit Asciidoctor 
+Sid -- sid[at]example[dot]org
 
-Version 0.0.1, Dezember 2013 (unverändert)
+Version 3.0.0, September 2014
 
-:icons: 
+:icons:
 :Author Initials: sid
-:creativecommons-url: http://creativecommons.org/licenses/by-sa/3.0/de/
-:asciidoctor-url: http://asciidoctor.org/
-:asciidoctordocs-url: http://asciidoctor.org/docs/
+:creativecommons-url: http://creativecommons.org/licenses/by-sa/4.0/deed.de
+:mit-url:             http://opensource.org/licenses/mit-license.php
+:ubuntu-url:          http://www.ubuntu.com/ 
+:asciidoctor-url:     http://asciidoctor.org/
 
 
 == Abstract
@@ -36,11 +37,12 @@ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
 - proident
 - deseunt
 
-.Links
-* {asciidoc-url}[AsciiDoc]
+
+== Links
+* link:{asciidoctor-url}[Asciidoctor]
 * link:http://la.wikisource.org/wiki/Lorem_ipsum[Lorem ipsum]
-* {creativecommons-url}[Creative Commens]
+* link:{creativecommons-url}[Creative Commens]
+* link:{mit-url}[MIT-License]
 
 ''''
 link:asciidoc.html#_beispiel[zurück]
-

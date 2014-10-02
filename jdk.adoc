@@ -4,22 +4,24 @@ Installation in Ubuntu — khkoether[at]kahweb[dot]de
 
 :icons:
 :Author Initials: KHK
-:creativecommons-url: http://creativecommons.org/licenses/by-sa/3.0/de/
-:ubuntu-url: http://www.ubuntu.com/
-:asciidoctor-url: http://asciidoctor.org/
+:creativecommons-url: http://creativecommons.org/licenses/by/4.0/deed.de
+:mit-url:             http://opensource.org/licenses/mit-license.php  
+:ubuntu-url:          http://www.ubuntu.com/
+:asciidoctor-url:     http://asciidoctor.org/
 :asciidoctordocs-url: http://asciidoctor.org/docs/
-:git-url: http://git-scm.com/
-:git-download-url: http://code.google.com/p/git-core/downloads/list
-:ruby-url: https://www.ruby-lang.org/de/
-:ruby-download-url: https://www.ruby-lang.org/de/downloads/
-:rubyonrails-url: http://www.rubyonrails.org
-:java-url: http://www.oracle.com/technetwork/java/javase/downloads/index.html
+:git-url:             http://git-scm.com/
+:git-download-url:    https://www.kernel.org/pub/software/scm/git/
 
-:plugins-url: about:plugins
-:java-koerper-url: http://www.arndt-bruenner.de/mathe/java/koerper3d.htm
+:ruby-url:            https://www.ruby-lang.org/de/
+:ruby-download-url:   https://www.ruby-lang.org/de/downloads/
+:rubyonrails-url:     http://www.rubyonrails.org
 
+:java-url:            http://www.oracle.com/technetwork/java/javase/downloads/index.html
 
-Version 2.2.0, März 2014
+:plugins-url:         about:plugins
+:java-koerper-url:    http://www.arndt-bruenner.de/mathe/java/koerper3d.htm
+
+Version 3.0.0, September 2014
 
 
 Abstract
@@ -28,7 +30,7 @@ Dieser Artikel ist eine Sammlung von Hinweisen zur Installation
 eines _Java Development Kit (JDK)_ unter GNU/Linux.
  
 Der Artikel ist in {asciidoctordocs-url}[AsciiDoc] geschrieben 
-und mit _Asciidoctor 1.5.0.preview3_ erstellt worden.
+und mit _Asciidoctor 1.5.1_ erstellt worden.
 
 [CAUTION]
 ====
@@ -43,22 +45,21 @@ Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr.
 
 Vorraussetzungen
 ----------------
-Die Installation wird für {ubuntu-url}[Ubuntu 12.04 LTS (Precise Pangolin)] 
+Die Installation wird für {ubuntu-url}[Ubuntu 14.04 LTS (Trusty Tahr)] 
 beschrieben. +
 Gleichwohl sind die einzelnen Schritte auch für 
-andere Distributionen übertragbar.
+andere Debian-basierte GNU/Linux Distributionen übertragbar.
 
 [TIP]
 ====
-In Ubuntu 12.04 LTS (Precise Pangolin) kann über bestehende Abhängigkeiten +
-zu anderen Ubuntu-Paketen bereits das _OpenJDK 6_ installiert sein.
+In Ubuntu 14.04 LTS (Trusty Tahr) kann über bestehende Abhängigkeiten +
+zu anderen Ubuntu-Paketen bereits das _OpenJDK 7_ installiert sein.
 
 ----
-$ dpkg --list | grep openjdk  
-ii  openjdk-6-jdk              6b24-1.11.5-0ubuntu1~12.04.1   OpenJDK Development Kit (JDK)
-ii  openjdk-6-jre              6b24-1.11.5-0ubuntu1~12.04.1   OpenJDK Java runtime, ...
-ii  openjdk-6-jre-headless     6b24-1.11.5-0ubuntu1~12.04.1   OpenJDK Java runtime, ...
-ii  openjdk-6-jre-lib          6b24-1.11.5-0ubuntu1~12.04.1   OpenJDK Java runtime (...)
+$ dpkg --list | grep openjdk 
+ii  openjdk-7-jdk:amd64            7u65-2.5.2-3~14.04   amd64   OpenJDK Development Kit (JDK)
+ii  openjdk-7-jre:amd64            7u65-2.5.2-3~14.04   amd64   OpenJDK Java runtime, using Hotspot JIT
+ii  openjdk-7-jre-headless:amd64   7u65-2.5.2-3~14.04   amd64   OpenJDK Java runtime, using Hotspot JIT (headless)
 ----
 ====
 
@@ -89,8 +90,7 @@ Es gilt, Bugs zu melden, damit _OpenJDK_ ebenso gut wird.
 
 [NOTE]
 ====
-OpenJDK 6 ist die ältere Version, was aber nicht heißen soll, dass sie veraltet ist. 
-OpenJDK 7 ist aktueller, aber im Gegensatz zum Vorgänger nicht für alle 
+OpenJDK 7 ist aktuell, aber im Gegensatz zum Vorgänger nicht für alle 
 Ubuntu-Versionen verfügbar. Wer kann, sollte sich für OpenJDK 7 entscheiden - 
 solange ein spezieller Anwendungszweck wie beispielsweise _ElsterOnline_ nicht 
 dagegen spricht.
@@ -98,101 +98,40 @@ dagegen spricht.
 &rarr; link:http://wiki.ubuntuusers.de/Java[ubunutusers.de: Java]
 ====
 
-[CAUTION]
-====
-Ich habe mich entschlossen das vorhandende _OpenJDK 6_ durch _OpenJDK 7_ zu ersetzen. 
-Das muß nicht von Ihnen gemacht werden! 
-Wenn Sie sich entscheiden _OpenJDK 7_ zusätzlich zu installieren, 
-müssen sie aber die von Ihnen gewünschte Version als systemweiten Standard setzen.
-
-&rarr; http://wiki.ubuntuusers.de/Java/Tipps#Verwendete-Java-Version-einstellen[ubuntuusers.de: Tipps - Verwendete Java-Version einstellen]
-====
 
 Installation: OpenJDK 7
 -----------------------
-----
-$ sudo apt-get remove openjdk-6-jre openjdk-6-jdk openjdk-6-jre-headless openjdk-6-jre-lib  <1>
-Abhängigkeitsbaum wird aufgebaut
-[...]
-Die folgenden Pakete wurden automatisch installiert und werden nicht mehr benötigt:
-  libsm-dev libdb5.1-java-gcj libdb-je-java libice-dev libgcj-bc libpthread-stubs0 libjtidy-java
-  libicu4j-java libcommons-beanutils-java libdb-java javahelp2 libcommons-compress-java x11proto-kb-dev
-  libdb5.1-java xtrans-dev ant x11proto-input-dev ant-optional libxt-dev libxau-dev
-  libswing-layout-java libregexp-java xorg-sgml-doctools liblucene2-java libx11-dev
-  libcommons-collections3-java libx11-doc libxcb1-dev libcommons-digester-java x11proto-core-dev
-  libxdmcp-dev libpthread-stubs0-dev
-Verwenden Sie »apt-get autoremove«, um sie zu entfernen.
-Die folgenden zusätzlichen Pakete werden installiert:
-  icedtea-7-jre-jamvm openjdk-7-jre openjdk-7-jre-headless openjdk-7-jre-lib
-Vorgeschlagene Pakete:
-  icedtea-7-plugin sun-java6-fonts fonts-ipafont-gothic fonts-ipafont-mincho ttf-telugu-fonts
-  ttf-oriya-fonts ttf-kannada-fonts ttf-bengali-fonts
-Die folgenden Pakete werden ENTFERNT:
-  icedtea-6-jre-cacao icedtea-6-jre-jamvm icedtea-netx openjdk-6-jdk openjdk-6-jre
-  openjdk-6-jre-headless openjdk-6-jre-lib pauker
-Die folgenden NEUEN Pakete werden installiert:
-  icedtea-7-jre-jamvm openjdk-7-jre openjdk-7-jre-headless openjdk-7-jre-lib
-0 aktualisiert, 4 neu installiert, 8 zu entfernen und 0 nicht aktualisiert.
-[...]
-----
-<1> Die vier zu entfernenden Pakete werden für das System mit vier _7_-Pakete ersetzt! +
-    _icedtea-7-jre-jamvm_ _openjdk-7-jre_ _openjdk-7-jre-headless_ _openjdk-7-jre-lib_
 
 ----
-$ sudo apt-get autoremove  <1>
-Statusinformationen werden eingelesen... Fertig
-Die folgenden Pakete werden ENTFERNT:
-  ant ant-optional icedtea-netx-common javahelp2 libcommons-beanutils-java libcommons-collections3-java
-  libcommons-compress-java libcommons-digester-java libdb-java libdb-je-java libdb5.1-java
-  libdb5.1-java-gcj libgcj-bc libice-dev libicu4j-java libjtidy-java liblucene2-java libpthread-stubs0
-  libpthread-stubs0-dev libregexp-java libsm-dev libswing-layout-java libx11-dev libx11-doc libxau-dev
-  libxcb1-dev libxdmcp-dev libxt-dev x11proto-core-dev x11proto-input-dev x11proto-kb-dev
-  xorg-sgml-doctools xtrans-dev
-0 aktualisiert, 0 neu installiert, 33 zu entfernen und 0 nicht aktualisiert.
-[...]
-----    
-<1> Die automatisch installierten Pakete (s. o.) werden entfernt!
-
-----
-$ sudo apt-get install icedtea-7-plugin  <1>
+$ sudo apt-get -s install icedtea-7-plugin  <1>
 Paketlisten werden gelesen... Fertig
-Abhängigkeitsbaum wird aufgebaut       
-Statusinformationen werden eingelesen... Fertig
+Abhängigkeitsbaum wird aufgebaut.       
+Statusinformationen werden eingelesen.... Fertig
 Die folgenden zusätzlichen Pakete werden installiert:
   icedtea-netx icedtea-netx-common
 Die folgenden NEUEN Pakete werden installiert:
   icedtea-7-plugin icedtea-netx icedtea-netx-common
-0 aktualisiert, 3 neu installiert, 0 zu entfernen und 0 nicht aktualisiert.
+0 aktualisiert, 3 neu installiert, 0 zu entfernen und 1 nicht aktualisiert.
 [...]
 ----    
-<1> Sie müssen entscheiden ob Sie erneut das Java-Plugin für den Browser installieren, 
+<1> Sie müssen entscheiden ob Sie das Java-Plugin für den Browser installieren, 
     oder aus Sicherheitsgründen darauf verzichten...!?
     
 ----
 $ sudo apt-get install openjdk-7-jdk  <1>
 Paketlisten werden gelesen... Fertig
-Abhängigkeitsbaum wird aufgebaut       
-Statusinformationen werden eingelesen... Fertig
-Die folgenden zusätzlichen Pakete werden installiert:
-  libice-dev libpthread-stubs0 libpthread-stubs0-dev libsm-dev libx11-dev libx11-doc libxau-dev
-  libxcb1-dev libxdmcp-dev libxt-dev x11proto-core-dev x11proto-input-dev x11proto-kb-dev
-  xorg-sgml-doctools xtrans-dev
-Vorgeschlagene Pakete:
-  libxcb-doc openjdk-7-demo openjdk-7-source visualvm
-Die folgenden NEUEN Pakete werden installiert:
-  libice-dev libpthread-stubs0 libpthread-stubs0-dev libsm-dev libx11-dev libx11-doc libxau-dev
-  libxcb1-dev libxdmcp-dev libxt-dev openjdk-7-jdk x11proto-core-dev x11proto-input-dev x11proto-kb-dev
-  xorg-sgml-doctools xtrans-dev
-0 aktualisiert, 16 neu installiert, 0 zu entfernen und 0 nicht aktualisiert.
-[...]
+Abhängigkeitsbaum wird aufgebaut.       
+Statusinformationen werden eingelesen.... Fertig
+openjdk-7-jdk ist schon die neueste Version.
+0 aktualisiert, 0 neu installiert, 0 zu entfernen und 1 nicht aktualisiert.
 ----    
-<1> Ein Teil der oben entfernten Pakete finden sich hier zur erneuten Installation wieder ;-)
+<1> Vielleicht ist das Paket bei Ihnen wie bei mir bereits installiert ;-)
 
 ----
 $ java -version
-java version "1.7.0_51"
-OpenJDK Runtime Environment (IcedTea 2.4.4) (7u51-2.4.4-0ubuntu0.12.04.2)
-OpenJDK 64-Bit Server VM (build 24.45-b08, mixed mode)
+java version "1.7.0_65"
+OpenJDK Runtime Environment (IcedTea 2.5.2) (7u65-2.5.2-3~14.04)
+OpenJDK 64-Bit Server VM (build 24.65-b04, mixed mode)
 ----   
 
  
@@ -200,12 +139,12 @@ Installation: Oracle JDK 7
 --------------------------
 Wie auch immer, einige Ubuntu-Anwender benötigen das Oracle JDK. +
 Empfohlen wird die jeweils neueste Version - zu diesem Zeitpunkt ist das: 
-_Java SE Development Kit 7u51_.
+_Java SE Development Kit 7u67_.
 
 Zusätzliche Software-Pakete  
 sollten im Verzeichnis +/opt+ (Optional) installiert werden. 
 
-*Step 0:* Download JDK 7u51
+*Step 0:* Download JDK 7u67
 
 &rarr; {java-url}[Oracle: Java SE Downloads]
 
@@ -220,9 +159,9 @@ for Java SE to download this software.
 $ sudo mkdir /opt/Java && cd /opt/Java 
 
 $ ls -l
--rw-rw-r-- 1 sid sid 138199690 Mär  3 15:51 jdk-7u51-linux-x64.tar.gz
+-rw-rw-r-- 1 sid sid  142376665 Sep 28 22:13 jdk-7u67-linux-x64.tar.gz
 
-$ sudo tar xvzf jdk-7u51-linux-x64.tar.gz
+$ sudo tar xvzf jdk-7u67-linux-x64.tar.gz
 [...]
 ----
 
@@ -230,14 +169,13 @@ Ein Vorteil bei der gezeigten Lösung ist, daß für das Einspielen einer neuen 
 weder die Konfigurations-Datei noch die +PATH+-Variable angepasst werden müssen.  
 ----
 $ cd /opt/Java
-$ sudo chown -R root.root jdk1.7.0_51
+$ sudo chown -R root.root jdk1.7.0_67
 
-$ sudo ln -s jdk1.7.0_51 current
+$ sudo ln -s jdk1.7.0_67 current
 $ ls -l
-lrwxrwxrwx 1 root root   11 Mär  3 15:57 current -> jdk1.7.0_51
--rw-r--r-- 1 root root  328 Mär  3 15:58 java.path.sh
-drwxr-xr-x 8 root root 4096 Dez 19 04:24 jdk1.7.0_51
-
+lrwxrwxrwx 1 root root         11 Sep 28 22:15 current -> jdk1.7.0_67
+-rw-r--r-- 1 root root        328 Mär  3  2014 java.path.sh
+drwxr-xr-x 8 root root       4096 Jul 25 18:51 jdk1.7.0_67
 ----
 
 *Step 2:* Java-Pfad setzen (von au&szlig;en)
@@ -256,9 +194,9 @@ $ which java
 /opt/Java/current/bin/java
 
 $ java -version
-java version "1.7.0_51"
-Java(TM) SE Runtime Environment (build 1.7.0_51-b13)   <1>
-Java HotSpot(TM) 64-Bit Server VM (build 24.51-b03, mixed mode)
+java version "1.7.0_67"
+Java(TM) SE Runtime Environment (build 1.7.0_67-b01)   <1>
+Java HotSpot(TM) 64-Bit Server VM (build 24.65-b04, mixed mode)
 ----
 <1> _b_ steht für _build_
 
@@ -273,7 +211,7 @@ Java im Browser
   +chrome://plugins/+
 
 Beide Browser greifen bei mir auf das _IcedTea-Web Plugin_ zu: +
-+IcedTea-Web Plugin (using IcedTea-Web 1.2.3 (1.2.3-0ubuntu0.12.04.3))+
++IcedTea-Web Plugin (using IcedTea-Web 1.5 (1.5-1ubuntu1))+
 
 +++ <br /> +++
   
@@ -281,12 +219,20 @@ Mit den folgenden Links können Sie zum Einen die im Browser verwendete
 Java-Version bestimmen, zum Anderem die Funktionsfähigkeit des Plugin
 überprüfen oder -- halt die aktuelle Zeit anzeigen:
 
-* http://javatester.org/[Java Tester] +
-  Test the version of Java your browser is using
 * http://www.arndt-bruenner.de/mathe/java/[Testseiten für Java-Applets - von Arndt Brünner] +
   Platonische und Archimedische Körper (mein Favorit ;-)
 * http://www.w3.org/2000/07/8378/object/java/clock[W3C: Java applet test with applet and object] +
   W3C host clocks: MIT, UTC, INRIA, Keio
+* http://javatester.org/[Java Tester] +
+  Test the version of Java your browser is using
+  
+[CAUTION]
+====
+.[Java Tester] NEW SECURITY IN JAVA 7 UPDATE 51: January 27, 2014.
+Update 51 changed the default security rules for unsigned Java applets such as 
+the one on this page. +
+By default, Java no longer runs any unsigned applets. [...]  
+====
 
 +++ <br /> +++
 
