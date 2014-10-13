@@ -3,7 +3,7 @@ IiU -- Git 2.1.1
 Installation in Ubuntu — khkoether[at]kahweb[dot]de
 
 :icons:
-:Author Initials: KHK
+:Author Initials: khk
 :creativecommons-url: http://creativecommons.org/licenses/by/4.0/deed.de
 :mit-url:             http://opensource.org/licenses/mit-license.php  
 :ubuntu-url:          http://www.ubuntu.com/
@@ -14,7 +14,7 @@ Installation in Ubuntu — khkoether[at]kahweb[dot]de
 :git-download-url:    https://www.kernel.org/pub/software/scm/git/
 :git-version: 2.1.1
 
-Version 3.0.0, September 2014
+Version 3.0.1, Oktober 2014
 
 
 Abstract

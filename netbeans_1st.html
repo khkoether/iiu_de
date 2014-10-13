@@ -5,7 +5,8 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.1">
-<title>Untitled</title>
+<meta name="author" content="Installation in Ubuntu — khkoether[at]kahweb[dot]de">
+<title>IiU&#8201;&#8212;&#8201;Rails 4.2: Erste Schritte &hellip; mit NetBeans</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic|Noto+Serif:400,400italic,700,700italic|Droid+Sans+Mono:400">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -411,106 +412,196 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
+<h1>IiU&#8201;&#8212;&#8201;Rails 4.2: Erste Schritte &hellip; mit NetBeans</h1>
+<div class="details">
+<span id="author" class="author">Installation in Ubuntu — khkoether[at]kahweb[dot]de</span><br>
+</div>
 <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
-
+<ul class="sectlevel1">
+<li><a href="#_abstract">Abstract</a></li>
+<li><a href="#_vorraussetzungen">Vorraussetzungen</a></li>
+<li><a href="#_erste_schritte">Erste Schritte &hellip;</a></li>
+<li><a href="#_netbeans_ide_7_4_new_project">NetBeans IDE 7.4 &middot; New Project</a></li>
+<li><a href="#_1_choose_project">1. Choose Project</a></li>
+<li><a href="#_2_name_and_location">2. Name and Location</a></li>
+<li><a href="#_3_database_configuration">3. Database Configuration</a></li>
+<li><a href="#_4_install_rails">4. Install Rails</a></li>
+<li><a href="#_create_database">Create Database</a></li>
+<li><a href="#_run_project">Run Project</a></li>
+<li><a href="#_aufruf_der_webanwendung_im_browser">Aufruf der Webanwendung im Browser</a></li>
+</ul>
 </div>
 </div>
 <div id="content">
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
-<p>IiU&#8201;&#8212;&#8201;Rails 4.2: Erste Schritte &hellip; mit NetBeans</p>
+<p>Version 3.0.1, Oktober 2014</p>
 </div>
-<div class="exampleblock">
-<div class="content">
+</div>
+</div>
+<div class="sect1">
+<h2 id="_abstract">Abstract</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>Installation in Ubuntu — khkoether[at]kahweb[dot]de</p>
+<p>Die folgenden Schritte stellen die Funktionsfähigkeit der Installation
+von <em>NetBeans IDE 7.4</em> (kurz: <em>NetBeans</em>) sicher.</p>
 </div>
 <div class="paragraph">
-<p>Version 3.0.0, September 2014</p>
+<p>Der Artikel ist in <a href="http://asciidoctor.org/docs/">AsciiDoc</a> geschrieben
+und mit <em>Asciidoctor 1.5.1</em> erstellt worden.</p>
 </div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<img src="./images/icons/caution.png" alt="Caution">
+</td>
+<td class="content">
 <div class="paragraph">
-<p>Abstract</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>Die folgenden Schritte stellen die Funktionsfähigkeit der Installation
-von _NetBeans IDE 7.4_ (kurz: _NetBeans_) sicher.
-
-Der Artikel ist in {asciidoctordocs-url}[AsciiDoc] geschrieben
-und mit _Asciidoctor 1.5.1_ erstellt worden.
-
-[CAUTION]
-====
-Zu beachten ist, dass so ein Dokument zum Einen nie abschliessend
+<p>Zu beachten ist, dass so ein Dokument zum Einen nie abschliessend
 sein kann, und zum Anderen bestimmte Konfigurationen anders, oder
 auf einem anderem Weg durchgeführt werden können.
-Gerne nehme ich Verbesserungsvorschläge entgegen.
-
-Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr.
-====
-
-
-Vorraussetzungen
-----------------
-Die _NetBeans IDE_ ist wie in
-
-* {netbeans-url}[Installation in Ubuntu: NetBeans IDE 7.4]
-
-beschrieben durchgeführt worden.
-
-
-Erste Schritte &amp;hellip;
------------------------
-Die notwendigen Schritte werden in der _NetBeans IDE 7.4_ durchgeführt.
-
-.Vorgehensweise
-- NetBeans IDE 7.4 &amp;middot; New Project
-- 1. Choose Project
-- 2. Name and Location
-- 3. Database Configuration
-- 4. Install Rails
-- Create Database
-- Run Project
-- Aufruf der Webanwendung im Browser
-
-
-NetBeans IDE 7.4 &amp;middot; New Project
--------------------------------------
-image::images/netbeans/ror01_NetBeans_IDE_7.4.jpeg[NetBeans-IDE 7.4 &amp;middot; Startpage]
-
-image::images/netbeans/ror02_NetBeans_IDE_7.4.jpeg[NetBeans-IDE 7.4 &amp;middot; New Project]
-
-
-1. Choose Project
------------------
-image::images/netbeans/ror03_New_Project.jpeg[Categories &amp;middot; Projects (Next)]
-
-
-2. Name and Location
---------------------
-image::images/netbeans/ror04_New_Ruby_on_Rails_Application.jpeg[New Ruby on Rails Application &amp;middot; Name and Location]
-
-
-3. Database Configuration
--------------------------
-image::images/netbeans/ror05_New_Ruby_on_Rails_Application.jpeg[New Ruby on Rails Application &amp;middot; Database Configuration]
-
-
-4. Install Rails
-----------------
-image::images/netbeans/ror06_New_Ruby_on_Rails_Application.jpeg[New Ruby on Rails Application &amp;middot; Install Rails]
-
-image::images/netbeans/ror07_RailsApplication1-NetBeans_IDE_7.4.jpeg[RailsApplication1 - NetBeans IDE 7.4 &amp;middot; Output - Generate Rails Project]
-
-[NOTE]
-====
-Die Datei `config/database.yml` ist nicht vollständig erstellt worden. +
-Es fehlt der `default`-Block:
-
-.Datei: `config/database.yml
-[source,yaml]
-----
-default: &amp;default
+Gerne nehme ich Verbesserungsvorschläge entgegen.</p>
+</div>
+<div class="paragraph">
+<p>Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_vorraussetzungen">Vorraussetzungen</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Die <em>NetBeans IDE</em> ist wie in</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="netbeans.html">Installation in Ubuntu: NetBeans IDE 7.4</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>beschrieben durchgeführt worden.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_erste_schritte">Erste Schritte &hellip;</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Die notwendigen Schritte werden in der <em>NetBeans IDE 7.4</em> durchgeführt.</p>
+</div>
+<div class="ulist">
+<div class="title">Vorgehensweise</div>
+<ul>
+<li>
+<p>NetBeans IDE 7.4 &middot; New Project</p>
+</li>
+<li>
+<p>1. Choose Project</p>
+</li>
+<li>
+<p>2. Name and Location</p>
+</li>
+<li>
+<p>3. Database Configuration</p>
+</li>
+<li>
+<p>4. Install Rails</p>
+</li>
+<li>
+<p>Create Database</p>
+</li>
+<li>
+<p>Run Project</p>
+</li>
+<li>
+<p>Aufruf der Webanwendung im Browser</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_netbeans_ide_7_4_new_project">NetBeans IDE 7.4 &middot; New Project</h2>
+<div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans/ror01_NetBeans_IDE_7.4.jpeg" alt="NetBeans-IDE 7.4 &amp;middot; Startpage">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans/ror02_NetBeans_IDE_7.4.jpeg" alt="NetBeans-IDE 7.4 &amp;middot; New Project">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_1_choose_project">1. Choose Project</h2>
+<div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans/ror03_New_Project.jpeg" alt="Categories &amp;middot; Projects (Next)">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2_name_and_location">2. Name and Location</h2>
+<div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans/ror04_New_Ruby_on_Rails_Application.jpeg" alt="New Ruby on Rails Application &amp;middot; Name and Location">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_database_configuration">3. Database Configuration</h2>
+<div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans/ror05_New_Ruby_on_Rails_Application.jpeg" alt="New Ruby on Rails Application &amp;middot; Database Configuration">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_4_install_rails">4. Install Rails</h2>
+<div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans/ror06_New_Ruby_on_Rails_Application.jpeg" alt="New Ruby on Rails Application &amp;middot; Install Rails">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans/ror07_RailsApplication1-NetBeans_IDE_7.4.jpeg" alt="RailsApplication1 - NetBeans IDE 7.4 &amp;middot; Output - Generate Rails Project">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="./images/icons/note.png" alt="Note">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Die Datei <code>config/database.yml</code> ist nicht vollständig erstellt worden.<br>
+Es fehlt der <code>default</code>-Block:</p>
+</div>
+<div class="listingblock">
+<div class="title">Datei: `config/database.yml</div>
+<div class="content">
+<pre class="highlight"><code class="language-yaml" data-lang="yaml">default: &amp;default
   adapter: mysql
   username: khk
   password: khk123
@@ -527,44 +618,78 @@ test:
 
 production:
   &lt;&lt;: *default
-  database: db1_production
-----
-====
-
-image::images/netbeans/ror07_RailsApplication1-NetBeans_IDE_7.4_default.jpeg[RailsApplication1 - NetBeans IDE 7.4 &amp;middot; Output - Generate Rails Project]
-
-
-
-
-Create Database
----------------
-image::images/netbeans/ror08_RailsApplication1-NetBeans_IDE_7.4.jpeg[RailsApplication1 - NetBeans IDE 7.4 &amp;middot; Run/Debug Rake Task]
-
-image::images/netbeans/ror09_Run-Debug_Rake_Task_RailsApplication1.jpeg[Run-Debug Rake Task (RailsApplication1) &amp;middot; db:create]
-
-image::images/netbeans/ror10_RailsApplication1-NetBeans_IDE_7.4.jpeg[RailsApplication1 - NetBeans IDE 7.4 &amp;middot; Output: RailsApplication1 (db:create)]
-
-
-Run Project
------------
-image::images/netbeans/ror11_RailsApplication1-NetBeans_IDE_7.4.jpeg[RailsApplication1 - NetBeans IDE 7.4 &amp;middot; Run Project (RailsApplication1)]
-
-image::images/netbeans/ror12_RailsApplication1-NetBeans_IDE_7.4.jpeg[RailsApplication1 - NetBeans IDE 7.4 &amp;middot; Output: WEBrick for RailsApplication1 on 3000]
-
-[NOTE]
-====
-Die Erweiterung für die _NetBeans IDE 7.4_ sind noch nicht für
-_Rails&amp;nbsp;4_ angepasst: +
-Das Verzeichnis +script+ wird nicht mehr für den _rails_-Aufruf verwendet.
-====
-
-.Kein Problem. Dann wird die Anwendung auf der Kommando-Zeile gestartet:
-----
-$ cd ~/NetBeansProjects/RailsApplication1
-----
-
-----
-$ rails s
+  database: db1_production</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans/ror07_RailsApplication1-NetBeans_IDE_7.4_default.jpeg" alt="RailsApplication1 - NetBeans IDE 7.4 &amp;middot; Output - Generate Rails Project">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_create_database">Create Database</h2>
+<div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans/ror08_RailsApplication1-NetBeans_IDE_7.4.jpeg" alt="RailsApplication1 - NetBeans IDE 7.4 &amp;middot; Run/Debug Rake Task">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans/ror09_Run-Debug_Rake_Task_RailsApplication1.jpeg" alt="Run-Debug Rake Task (RailsApplication1) &amp;middot; db:create">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans/ror10_RailsApplication1-NetBeans_IDE_7.4.jpeg" alt="RailsApplication1 - NetBeans IDE 7.4 &amp;middot; Output: RailsApplication1 (db:create)">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_run_project">Run Project</h2>
+<div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans/ror11_RailsApplication1-NetBeans_IDE_7.4.jpeg" alt="RailsApplication1 - NetBeans IDE 7.4 &amp;middot; Run Project (RailsApplication1)">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans/ror12_RailsApplication1-NetBeans_IDE_7.4.jpeg" alt="RailsApplication1 - NetBeans IDE 7.4 &amp;middot; Output: WEBrick for RailsApplication1 on 3000">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="./images/icons/note.png" alt="Note">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Die Erweiterung für die <em>NetBeans IDE 7.4</em> sind noch nicht für
+<em>Rails&nbsp;4</em> angepasst:<br>
+Das Verzeichnis <code>script</code> wird nicht mehr für den <em>rails</em>-Aufruf verwendet.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Kein Problem. Dann wird die Anwendung auf der Kommando-Zeile gestartet:</div>
+<div class="content">
+<pre>$ cd ~/NetBeansProjects/RailsApplication1</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ rails s
 =&gt; Booting WEBrick
 =&gt; Rails 4.2.0.beta1 application starting in development on http://localhost:3000
 =&gt; Run `rails server -h` for more startup options
@@ -572,15 +697,22 @@ $ rails s
 [2014-10-02 20:40:43] INFO  WEBrick 1.3.1
 [2014-10-02 20:40:43] INFO  ruby 1.9.3 (2014-09-25) [java]
 [2014-10-02 20:40:43] INFO  WEBrick::HTTPServer#start: pid=26211 port=3000
-...
-----
-
-
-Aufruf der Webanwendung im Browser
-----------------------------------
-image::images/netbeans/ror13_Ruby_on_Rails_Welcome_aboard.jpeg[Ruby on Rails: Welcome aboard]
-
-image::images/netbeans/ror14_Ruby_on_Rails_Welcome_aboard.jpeg[Ruby on Rails: Welcome aboard]</pre>
+...</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_aufruf_der_webanwendung_im_browser">Aufruf der Webanwendung im Browser</h2>
+<div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans/ror13_Ruby_on_Rails_Welcome_aboard.jpeg" alt="Ruby on Rails: Welcome aboard">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans/ror14_Ruby_on_Rails_Welcome_aboard.jpeg" alt="Ruby on Rails: Welcome aboard">
 </div>
 </div>
 </div>
@@ -588,7 +720,7 @@ image::images/netbeans/ror14_Ruby_on_Rails_Welcome_aboard.jpeg[Ruby on Rails: We
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-10-02 22:21:09 MESZ
+Last updated 2014-10-13 17:14:01 MESZ
 </div>
 </div>
 </body>

@@ -19,7 +19,7 @@ Installation in Ubuntu — khkoether[at]kahweb[dot]de
 :jdk-url:             link:jdk.html
 :jruby-version:       1.7.16
 
-Version 3.0.0, September 2014
+Version 3.0.1, Oktober 2014
 
 
 Abstract
@@ -362,7 +362,7 @@ Für die erzeugte _Ruby on Rails_-Anwendung ist eine JavaScript-Runtime erforder
 
 .Möglichkeit 1: Das RubyGem _therubyrhino_
 
-link:http://rubygems.org/gems/therubyrhino[RubyGems.org: therubyrhino] +
+&rarr; http://rubygems.org/gems/therubyrhino[RubyGems.org: therubyrhino] +
 Embed the Mozilla Rhino JavaScript interpreter into Ruby. +
 (Ist bereits installiert ... siehe oben:) 
   

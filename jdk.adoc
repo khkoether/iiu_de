@@ -18,10 +18,9 @@ Installation in Ubuntu — khkoether[at]kahweb[dot]de
 
 :java-url:            http://www.oracle.com/technetwork/java/javase/downloads/index.html
 
-:plugins-url:         about:plugins
 :java-koerper-url:    http://www.arndt-bruenner.de/mathe/java/koerper3d.htm
 
-Version 3.0.0, September 2014
+Version 3.0.1, Oktober 2014
 
 
 Abstract
@@ -78,7 +77,7 @@ Software-Repositories entfernt wurde.
 Ein weiterer Grund war natürlich auch, das Oracle die 
 _Operating System Distributor License for Java (DLJ)_ zurückgezog.
 
-&rarr; link:http://sites.google.com/site/easylinuxtipsproject/java#TOC-Primary-choice:-OpenJDK-6-and-not-Oracle-Sun-Java[Oracle (Sun) Java JRE for Ubuntu, Linux Mint and Debian]
+&rarr; http://sites.google.com/site/easylinuxtipsproject/java#TOC-Primary-choice:-OpenJDK-6-and-not-Oracle-Sun-Java[Oracle (Sun) Java JRE for Ubuntu, Linux Mint and Debian]
 
 [NOTE]
 ====
@@ -95,7 +94,7 @@ Ubuntu-Versionen verfügbar. Wer kann, sollte sich für OpenJDK 7 entscheiden -
 solange ein spezieller Anwendungszweck wie beispielsweise _ElsterOnline_ nicht 
 dagegen spricht.
 
-&rarr; link:http://wiki.ubuntuusers.de/Java[ubunutusers.de: Java]
+&rarr; http://wiki.ubuntuusers.de/Java[ubunutusers.de: Java]
 ====
 
 
@@ -206,7 +205,7 @@ Java im Browser
 Überprüfen Sie die im Browser installierten _Plugins_:
 
 * Mozilla Firefox +
-  +about:plugins+
+  +about:plugins+ 
 * Chromium +
   +chrome://plugins/+
 

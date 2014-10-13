@@ -3,19 +3,21 @@ IiU -- Ruby 2.0.0, Rails 4.0
 Installation in Ubuntu — khkoether[at]kahweb[dot]de
 
 :icons:
-:Author Initials: KHK
-:creativecommons-url: http://creativecommons.org/licenses/by-sa/3.0/de/
-:ubuntu-url: http://www.ubuntu.com/
-:asciidoctor-url: http://asciidoctor.org/
+:Author Initials: khk
+:creativecommons-url: http://creativecommons.org/licenses/by/4.0/deed.de
+:mit-url:             http://opensource.org/licenses/mit-license.php  
+:ubuntu-url:          http://www.ubuntu.com/
+:asciidoctor-url:     http://asciidoctor.org/
 :asciidoctordocs-url: http://asciidoctor.org/docs/
-:git-url: http://git-scm.com/
-:git-download-url: http://code.google.com/p/git-core/downloads/list
-:ruby-url: https://www.ruby-lang.org/de/
-:ruby-download-url: https://www.ruby-lang.org/de/downloads/
-:rubyonrails-url: http://www.rubyonrails.org
+:git-url:             http://git-scm.com/
+:git-download-url:    https://www.kernel.org/pub/software/scm/git/
 
-:ruby-version: 2.0.0-p451
-:ruby21_1st-url: link:ruby21_1st.html
+:ruby-url:            https://www.ruby-lang.org/de/
+:ruby-download-url:   https://www.ruby-lang.org/de/downloads/
+:rubyonrails-url:     http://www.rubyonrails.org
+
+:ruby-version:        2.0.0-p451
+:ruby21_1st-url:      link:ruby21_1st.html
 
 Version 2.2.0, März 2014 (*unverändert*)
 
@@ -412,7 +414,7 @@ Programmiersprache Ruby. Mit ihm hat der Anwender die Möglichkeit,
 mehrere (zum Beispiel ältere oder jüngere) Versionen eines Programmes, 
 Programmteiles oder einer Bibliothek gesteuert nach Bedarf einzurichten, 
 zu verwalten oder auch wieder zu entfernen. +
-&rarr; link:http://de.wikipedia.org/wiki/RubyGems[Wikipedia: RubyGems]
+&rarr; http://de.wikipedia.org/wiki/RubyGems[Wikipedia: RubyGems]
 
 [NOTE]
 ====
@@ -576,7 +578,7 @@ rubygems-update (2.2.2)
 test-unit (2.5.5, 2.0.0.0)
 ----
 <1> Der gezeigte Versionssprung ist kein Fehler ;-) +
-    &rarr; link:https://github.com/jimweirich/rake/blob/next-major-release/doc/release_notes/rake-10.0.0.rdoc[Rake 10.0 Released]
+    &rarr; https://github.com/jimweirich/rake/blob/next-major-release/doc/release_notes/rake-10.0.0.rdoc[Rake 10.0 Released]
 
 *Step 4:* Dokumentation zu den installierten RubyGems aktualisieren
 ----
@@ -788,7 +790,7 @@ Successfully installed sinatra-1.4.4
 <1> *Sinatra* ist eine _freie_ und _open source Webapplikationsbibliothek_ und 
     eine in Ruby geschriebene _domänenspezifische_ Sprache. +
     Sinatra setzt das Rack Webserver-Interface voraus. +
-    &rarr; link:http://de.wikipedia.org/wiki/Sinatra_%28Software%29[Wikipedia: Sinatra (Software)]
+    &rarr; http://de.wikipedia.org/wiki/Sinatra_%28Software%29[Wikipedia: Sinatra (Software)]
 
 http://rubygems.org/gems/asciidoctor/versions/1.5.0.preview3[Download: *asciidoctor* &middot; 1.5.0.preview3] (03.03.2014)
 ----

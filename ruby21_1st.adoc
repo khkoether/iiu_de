@@ -20,7 +20,7 @@ Installation in Ubuntu — khkoether[at]kahweb[dot]de
 :ruby19-url:          link:ruby19.html
 :ruby21-url:          link:ruby20.html
 
-Version 3.0.0, September 2014
+Version 3.0.1, Oktober 2014
 
 
 Abstract
@@ -550,7 +550,7 @@ Your bundle is complete!
 Use `bundle show [gemname]` to see where a bundled gem is installed.
 ----
 <1> Neu installierte RubyGems.
-<2> link:http://rubygems.org/gems/therubyracer[RubyGems.org: therubyracer] +
+<2> http://rubygems.org/gems/therubyracer[RubyGems.org: therubyracer] +
     Call JavaScript code and manipulate JavaScript objects from Ruby. +
     Call Ruby code and manipulate Ruby objects from JavaScript.
 <3> Das RubyGem 'therubyracer' wird kompiliert!

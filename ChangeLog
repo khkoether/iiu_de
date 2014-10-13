@@ -108,4 +108,9 @@ Version 1.8.2
   Die Seite zum installieren von AsciiDoc (python) wird nicht mehr aktualisiert.
   Ruby 2.0.x hat im Umfeld von Rails keine Bedeutung und wird ebenfalls nicht mehr aktualisiert.
    
+.Version 3.0.1
+* Index-Seite korrigiert: netbeans_1st.html
+  Alle lokalen Verweise erhalten das Code-Wort link: vorangestellt,  
+  bei allen externen Verweisen wird das Code-Wort entfernt.
+      
  

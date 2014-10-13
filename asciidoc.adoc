@@ -4,10 +4,11 @@ Installation in Ubuntu — khkoether[at]kahweb[dot]de
 
 :middot: &middot;
 :icons:
-:Author Initials: KHK
+:Author Initials: khk
 :creativecommons-url: http://creativecommons.org/licenses/by-sa/3.0/de/
 :mit-url:             http://opensource.org/licenses/mit-license.php
 :ubuntu-url:          http://www.ubuntu.com/
+
 :asciidoc-url:        http://www.methods.co.nz/asciidoc/
 :asciidoctor-url:     http://asciidoctor.org/
 :asciidoctordocs-url: http://asciidoctor.org/docs/
@@ -338,10 +339,10 @@ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
 
 
 == Links
-* link:{asciidoctor-url}[Asciidoctor]
-* link:http://la.wikisource.org/wiki/Lorem_ipsum[Lorem ipsum]
-* link:{creativecommons-url}[Creative Commens]
-* link:{mit-url}[MIT-License]
+* {asciidoctor-url}[Asciidoctor]
+* http://la.wikisource.org/wiki/Lorem_ipsum[Lorem ipsum]
+* {creativecommons-url}[Creative Commens]
+* {mit-url}[MIT-License]
 
 ''''
 link:asciidoc.html#_beispiel[zurück]

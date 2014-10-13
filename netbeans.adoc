@@ -20,15 +20,14 @@ Installation in Ubuntu — khkoether[at]kahweb[dot]de
 :jruby-version:       1.7.16
 :jruby_1st-url:       link:jruby_1st.html
 
-:netbeans-ide-url: http://netbeans.org/
-:netbeans-url:     link:netbeans.html
-:netbeans_1st-url: link:netbeans_1st.html
-:netbeans-ide-download-url: http://netbeans.org/downloads/
-:netbeans-ide-plugin-url: http://plugins.netbeans.org/PluginPortal/
+:netbeans-url:        link:netbeans.html
+:netbeans_1st-url:    link:netbeans_1st.html
+:netbeans-ide-url:                       http://netbeans.org/
+:netbeans-ide-download-url:              http://netbeans.org/downloads/
+:netbeans-ide-plugin-url:                http://plugins.netbeans.org/PluginPortal/
 :netbeans-ide-plugin-ruby-and-rails-url: http://plugins.netbeans.org/plugin/38549/ruby-and-rails
 
-
-Version 3.0.0, September 2014
+Version 3.0.1, Oktober 2014
 
 
 Abstract

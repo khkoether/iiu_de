@@ -1,13 +1,14 @@
 = Asciidoctor: Erste Schritte &hellip; mit Asciidoctor 
 Sid -- sid[at]example[dot]org
 
-Version 3.0.0, September 2014
+Version 3.0.1, Oktober 2014
 
 :icons:
 :Author Initials: sid
 :creativecommons-url: http://creativecommons.org/licenses/by-sa/4.0/deed.de
 :mit-url:             http://opensource.org/licenses/mit-license.php
 :ubuntu-url:          http://www.ubuntu.com/ 
+
 :asciidoctor-url:     http://asciidoctor.org/
 
 
@@ -39,10 +40,10 @@ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
 
 
 == Links
-* link:{asciidoctor-url}[Asciidoctor]
-* link:http://la.wikisource.org/wiki/Lorem_ipsum[Lorem ipsum]
-* link:{creativecommons-url}[Creative Commens]
-* link:{mit-url}[MIT-License]
+* {asciidoctor-url}[Asciidoctor]
+* http://la.wikisource.org/wiki/Lorem_ipsum[Lorem ipsum]
+* {creativecommons-url}[Creative Commens]
+* {mit-url}[MIT-License]
 
 ''''
 link:asciidoc.html#_beispiel[zurück]

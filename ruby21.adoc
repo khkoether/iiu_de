@@ -3,7 +3,7 @@ IiU -- Ruby 2.1.3, Rails 4.2
 Installation in Ubuntu — khkoether[at]kahweb[dot]de
 
 :icons:
-:Author Initials: KHK
+:Author Initials: khk
 :creativecommons-url: http://creativecommons.org/licenses/by/4.0/deed.de
 :mit-url:             http://opensource.org/licenses/mit-license.php  
 :ubuntu-url:          http://www.ubuntu.com/
@@ -19,7 +19,7 @@ Installation in Ubuntu — khkoether[at]kahweb[dot]de
 :ruby-version:        2.1.3
 :ruby21_1st-url:      link:ruby21_1st.html
 
-Version 3.0.0, September 2014
+Version 3.0.1, Oktober 2014
 
 
 Abstract
@@ -416,7 +416,7 @@ Programmiersprache Ruby. Mit ihm hat der Anwender die Möglichkeit,
 mehrere (zum Beispiel ältere oder jüngere) Versionen eines Programmes, 
 Programmteiles oder einer Bibliothek gesteuert nach Bedarf einzurichten, 
 zu verwalten oder auch wieder zu entfernen. +
-&rarr; link:http://de.wikipedia.org/wiki/RubyGems[Wikipedia: RubyGems]
+&rarr; http://de.wikipedia.org/wiki/RubyGems[Wikipedia: RubyGems]
 
 [NOTE]
 ====
@@ -944,7 +944,7 @@ Successfully installed sinatra-1.4.5
 <1> Sinatra ist eine _freie_ und _open source Webapplikationsbibliothek_ und 
     eine in Ruby geschriebene _domänenspezifische_ Sprache. +
     Sinatra setzt das Rack Webserver-Interface voraus. +
-    &rarr; link:http://de.wikipedia.org/wiki/Sinatra_%28Software%29[Wikipedia: Sinatra (Software)]
+    &rarr; http://de.wikipedia.org/wiki/Sinatra_%28Software%29[Wikipedia: Sinatra (Software)]
 
 ----
 # gem install asciidoctor       <1>

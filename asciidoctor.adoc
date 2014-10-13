@@ -4,14 +4,18 @@ Installation in Ubuntu — khkoether[at]kahweb[dot]de
 
 :middot: &middot;
 :icons:
-:Author Initials: KHK
+:Author Initials: khk
 :creativecommons-url: http://creativecommons.org/licenses/by-sa/4.0/deed.de
-:ubuntu-url: http://www.ubuntu.com/
-:asciidoctor-url: http://asciidoctor.org/
-:asciidoctordocs-url: http://asciidoctor.org/docs/
+:mit-url:             http://opensource.org/licenses/mit-license.php
+:ubuntu-url:          http://www.ubuntu.com/ 
+
+:asciidoctor-url:          http://asciidoctor.org/
+:asciidoctordocs-url:      http://asciidoctor.org/docs/
 :asciidoctordocsquick-url: http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/
 
-Version 3.0.0, September 2014 
+:asciidoctor_1st-url:      link:asciidoctor_1st.html
+
+Version 3.0.1, Oktober 2014 
 
 
 Abstract
@@ -64,9 +68,9 @@ Runtime Environment (...)
 
 Links
 -----
-* link:{asciidoctor-url}[Asciidoctor]
-* link:{asciidoctordocs-url}[Asciidoctor: Documentation]
-* link:{asciidoctordocsquick-url}[Asciidoctor: Syntax Quick Reference] 
+* {asciidoctor-url}[Asciidoctor]
+* {asciidoctordocs-url}[Asciidoctor: Documentation]
+* {asciidoctordocsquick-url}[Asciidoctor: Syntax Quick Reference] 
 * link:asciidoc.html[Installation von _AsciiDoc 8.6.9_]
 
 
@@ -78,7 +82,7 @@ Mit dem folgenden Kommando erstellen Sie mit _Asciidoctor_ aus der Datei
 $ asciidoctor -a icons -a toc asciidoc_1st.adoc
 ---- 
 
-link:asciidoctor_1st.html[Asciidoctor: Erste Schritte &hellip; mit Asciidoctor]
+{asciidoctor_1st-url}[Asciidoctor: Erste Schritte &hellip; mit Asciidoctor]
  
 
 Anhang
@@ -126,10 +130,10 @@ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
 
 
 == Links
-* link:{asciidoctor-url}[Asciidoctor]
-* link:http://la.wikisource.org/wiki/Lorem_ipsum[Lorem ipsum]
-* link:{creativecommons-url}[Creative Commens]
-* link:{mit-url}[MIT-License]
+* {asciidoctor-url}[Asciidoctor]
+* http://la.wikisource.org/wiki/Lorem_ipsum[Lorem ipsum]
+* {creativecommons-url}[Creative Commens]
+* {mit-url}[MIT-License]
 
 ''''
 link:asciidoctor.html#_beispiel[zurück]

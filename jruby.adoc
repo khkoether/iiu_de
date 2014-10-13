@@ -20,7 +20,7 @@ Installation in Ubuntu — khkoether[at]kahweb[dot]de
 :jruby-version:       1.7.16
 :jruby_1st-url:       link:jruby_1st.html
 
-Version 3.0.0, September 2014
+Version 3.0.1, Oktober 2014
 
 
 Abstract
@@ -292,7 +292,7 @@ Happy new JRuby
 ----
 <1> Die Bibliothek _openssl_ ist in JRuby 1.7 bereits enthalten. +
     Eine vorher notwendige zusätzliche Installation entfällt. +
-    &rarr; link:http://jruby.org/openssl[JRuby Builtin OpenSSL Support] 
+    &rarr; http://jruby.org/openssl[JRuby Builtin OpenSSL Support] 
 
 
 Rubygems Aktualisierung
@@ -302,7 +302,7 @@ Programmiersprache Ruby. Mit ihm hat der Anwender die Möglichkeit,
 mehrere (zum Beispiel ältere oder jüngere) Versionen eines Programmes, 
 Programmteiles oder einer Bibliothek gesteuert nach Bedarf einzurichten, 
 zu verwalten oder auch wieder zu entfernen. +
-&rarr; link:http://de.wikipedia.org/wiki/RubyGems[Wikipedia: RubyGems]
+&rarr; http://de.wikipedia.org/wiki/RubyGems[Wikipedia: RubyGems]
 
 [NOTE]
 ====
@@ -677,7 +677,7 @@ Successfully installed sinatra-1.4.5
 ----
 <1> Sinatra ist eine freie und open source Webapplikationsbibliothek und 
     eine in Ruby geschriebene domänenspezifische Sprache. +
-    &rarr; link:http://de.wikipedia.org/wiki/Sinatra_%28Software%29[Wikipedia: Sinatra (Software)]
+    &rarr; http://de.wikipedia.org/wiki/Sinatra_%28Software%29[Wikipedia: Sinatra (Software)]
 
 ----
 $ gem install asciidoctor --no-rdoc --no-ri        <1>
