@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.1">
+<meta name="generator" content="Asciidoctor 1.5.2">
 <meta name="author" content="Installation in Ubuntu — khkoether[at]kahweb[dot]de">
-<title>IiU&#8201;&#8212;&#8201;Ruby 2.0.0, Rails 4.0</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic|Noto+Serif:400,400italic,700,700italic|Droid+Sans+Mono:400">
+<title>IiU&#8201;&#8212;&#8201;Ruby 2.0.0, rails-4.0.3</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
 /* Remove the comments around the @import statement below when using this as a custom stylesheet */
-/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic|Noto+Serif:400,400italic,700,700italic|Droid+Sans+Mono:400";*/
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400";*/
 article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}
 audio,canvas,video{display:inline-block}
 audio:not([controls]){display:none;height:0}
@@ -275,8 +275,8 @@ dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
 ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
 ul.unstyled,ol.unnumbered,ul.checklist,ul.none{list-style-type:none}
 ul.unstyled,ol.unnumbered,ul.checklist{margin-left:.625em}
-ul.checklist li>p:first-child>.fa-check-square-o:first-child,ul.checklist li>p:first-child>input[type="checkbox"]:first-child{margin-right:.25em}
-ul.checklist li>p:first-child>input[type="checkbox"]:first-child{position:relative;top:1px}
+ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1em;font-size:.85em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{width:1em;position:relative;top:1px}
 ul.inline{margin:0 auto .625em auto;margin-left:-1.375em;margin-right:0;padding:0;list-style:none;overflow:hidden}
 ul.inline>li{list-style:none;float:left;margin-left:1.375em;display:block}
 ul.inline>li>*{display:block}
@@ -412,7 +412,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>IiU&#8201;&#8212;&#8201;Ruby 2.0.0, Rails 4.0</h1>
+<h1>IiU&#8201;&#8212;&#8201;Ruby 2.0.0, rails-4.0.3</h1>
 <div class="details">
 <span id="author" class="author">Installation in Ubuntu — khkoether[at]kahweb[dot]de</span><br>
 </div>
@@ -423,10 +423,17 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_vorraussetzung">Vorraussetzung</a></li>
 <li><a href="#_download">Download</a></li>
 <li><a href="#_installation_ruby_2_0_0_p451">Installation: Ruby 2.0.0-p451</a></li>
-<li><a href="#_rubygems_aktualisierung">Rubygems Aktualisierung</a></li>
-<li><a href="#_installation_ruby_on_rails_4_0_3">Installation: Ruby on Rails 4.0.3</a></li>
+<li><a href="#_rubygems">Rubygems</a>
+<ul class="sectlevel2">
+<li><a href="#_update">update</a></li>
+<li><a href="#_installation_rails_4_0_3">Installation: rails-4.0.3</a></li>
+<li><a href="#_asciidoctor">asciidoctor</a></li>
+<li><a href="#_sinatra">sinatra</a></li>
+<li><a href="#_list">list</a></li>
+</ul>
+</li>
 <li><a href="#_rubygems_documentation_index">RubyGems Documentation Index</a></li>
-<li><a href="#_beispiel">Beispiel</a></li>
+<li><a href="#_rails_4_2_erste_schritte_mit_ruby">Rails 4.2: Erste Schritte &hellip; mit Ruby</a></li>
 <li><a href="#_anhang">Anhang</a></li>
 </ul>
 </div>
@@ -467,7 +474,7 @@ Framework <a href="http://www.rubyonrails.org">Ruby on Rails</a>.</p>
 </div>
 <div class="paragraph">
 <p>Der Artikel ist in <a href="http://asciidoctor.org/docs/">AsciiDoc</a> geschrieben
-und mit <em>Asciidoctor 1.5.0.preview3</em> erstellt worden.</p>
+und mit <em>Asciidoctor 1.5.2</em> erstellt worden.</p>
 </div>
 <div class="admonitionblock caution">
 <table>
@@ -608,7 +615,7 @@ Eine bereits vorhandene Ruby-Installation wird überschrieben.</p>
 </div>
 <div class="paragraph">
 <p>Beispiel für die Änderung des Installations-Verzeichnisses:<br>
-<code>./configure --prefix=/opt/wo_auch_immer</code></p>
+<mark>./configure --prefix=/opt/wo_auch_immer</mark></p>
 </div>
 </td>
 </tr>
@@ -635,7 +642,7 @@ $ cd ruby-2.0.0-p451</pre>
 <div class="content">
 <pre>$ ./configure --prefix=/opt/Ruby/ruby-2.0.0-p451 | tee ../log.ruby_configure
 checking build system type... x86_64-unknown-linux-gnu
-[...]
+...
 .ext/include/x86_64-linux/ruby/config.h updated
 verconf.h updated
 ruby library version = 2.0.0
@@ -660,7 +667,7 @@ config.status: creating ruby-2.0.pc</pre>
         DLDFLAGS = -fstack-protector -pie
         SOLIBS =
 compiling main.c
-[...]
+...
 Generating RDoc documentation
 
 Generating RI format into /yggdrasil/PrecisePangolin/Ruby20/ruby-2.0.0-p451/.ext/rdoc...
@@ -682,12 +689,12 @@ Elapsed: 163.2s</pre>
 <div class="listingblock">
 <div class="content">
 <pre>$ make test | tee ../log.ruby_make-test
-[...]
-sample/test.rb:assignment ...................[...viele...]...OK 372   <img src="./images/icons/callouts/1.png" alt="1">
+...
+sample/test.rb:assignment ......................viele......OK 372   <img src="./images/icons/callouts/1.png" alt="1">
 sample/test.rb:condition ..OK 2
 sample/test.rb:if/unless ...OK 3
 sample/test.rb:case .....OK 5
-[...]
+...
 sample/test.rb:gc ....OK 4
 
 test succeeded
@@ -728,7 +735,7 @@ müssen die entsprechenden
 Entwickler-Bibliotheken (libNAME-dev) zusätzlich installiert werden.</p>
 </div>
 <div class="paragraph">
-<p>Führen Sie anschließend die obigen Befehle (make &#8230;&#8203;) erneut aus.</p>
+<p>Führen Sie anschließend die obigen Befehle (<mark>make &#8230;&#8203;</mark>) erneut aus.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -753,7 +760,7 @@ Failed to configure win32ole. It will not be installed.</pre>
 <div class="listingblock">
 <div class="content">
 <pre>$ sudo make install | tee ../log.ruby_make-install
-[...]
+...
 Generating RDoc documentation
 
 No newer files.
@@ -983,7 +990,7 @@ produces:
 </div>
 </div>
 <div class="sect1">
-<h2 id="_rubygems_aktualisierung">Rubygems Aktualisierung</h2>
+<h2 id="_rubygems">Rubygems</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><em>RubyGems</em> (oder kurz Gems) ist das offizielle Paketsystem für die
@@ -1009,7 +1016,7 @@ Benutzer <em>root</em> durchgeführt.</p>
 </table>
 </div>
 <div class="paragraph">
-<p><strong>Step 1:</strong> Vorraussetzung für die nächsten Befehle ist ein
+<p><strong>Step 0:</strong> Vorraussetzung für die nächsten Befehle ist ein
 funktionierender <code>PATH</code>-Eintrag für alle Benutzer (einschliesslich <em>root</em>)
 auf die Ruby2.0-Installation:</p>
 </div>
@@ -1046,8 +1053,10 @@ rdoc (4.0.0)
 test-unit (2.0.0.0)</pre>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_update">update</h3>
 <div class="paragraph">
-<p><strong>Step 2:</strong> Das Programm <em>gem</em> aktualisieren &#8230;&#8203;</p>
+<p><strong>Step 1:</strong> Das Programm <em>gem</em> aktualisieren &#8230;&#8203; (als Benutzer <em>root</em>)</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1063,7 +1072,7 @@ RubyGems 2.2.2 installed
 Parsing documentation for rubygems-2.2.2
 Installing ri documentation for rubygems-2.2.2
 
-[...]
+...
 
  -----------------------------------------------------------------------------
 
@@ -1082,8 +1091,50 @@ If you do not wish to install this documentation in the future, use the
 RubyGems system software updated</pre>
 </div>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip">
+</td>
+<td class="content">
+<div class="title">gem command reference</div>
 <div class="paragraph">
-<p><strong>Step 3:</strong> Installierte RubyGems aktualisieren</p>
+<p><strong>GEM UPDATE</strong></p>
+</div>
+<div class="paragraph">
+<p>Usage</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>gem update REGEXP [REGEXP ...] [options]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>Options</em>:<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>-​-system [VERSION] - Update the RubyGems system software</p>
+</li>
+<li>
+<p>-​-platform PLATFORM - Specify the platform of gem to update</p>
+</li>
+<li>
+<p>-​-[no-]prerelease - Allow prerelease versions of a gem as update targets</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>&#8594; <a href="http://guides.rubygems.org/command-reference/">RubyGems Guides: COMMAND REFERENCE</a></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Step 2:</strong> Installierte RubyGems aktualisieren</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1183,7 +1234,7 @@ minitest (5.3.0, 4.3.2)
 psych (2.0.4, 2.0.0)
 rake (10.1.1, 0.9.6)   <img src="./images/icons/callouts/1.png" alt="1">
 rdoc (4.1.1, 4.0.0)
-rubygems-update (2.2.2)
+rubygems-update (2.2.2)      <img src="./images/icons/callouts/2.png" alt="2">
 test-unit (2.5.5, 2.0.0.0)</pre>
 </div>
 </div>
@@ -1194,10 +1245,14 @@ test-unit (2.5.5, 2.0.0.0)</pre>
 <td>Der gezeigte Versionssprung ist kein Fehler ;-)<br>
 &rarr; <a href="https://github.com/jimweirich/rake/blob/next-major-release/doc/release_notes/rake-10.0.0.rdoc">Rake 10.0 Released</a></td>
 </tr>
+<tr>
+<td><img src="./images/icons/callouts/2.png" alt="2"></td>
+<td>Das RubyGem <em>rubygems_update</em> ist mit <mark>gem update --system</mark> bereits installiert worden.</td>
+</tr>
 </table>
 </div>
 <div class="paragraph">
-<p><strong>Step 4:</strong> Dokumentation zu den installierten RubyGems aktualisieren</p>
+<p><strong>Step 3:</strong> Dokumentation zu den installierten RubyGems aktualisieren</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1261,10 +1316,8 @@ Das neue Verzeichnis belegt ca. 146M Speicherplatz.</td>
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_installation_ruby_on_rails_4_0_3">Installation: Ruby on Rails 4.0.3</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_installation_rails_4_0_3">Installation: rails-4.0.3</h3>
 <div class="paragraph">
 <p><strong>Step 0</strong></p>
 </div>
@@ -1274,12 +1327,19 @@ Das neue Verzeichnis belegt ca. 146M Speicherplatz.</td>
 
 *** REMOTE GEMS ***
 
-rails (4.0.3)</pre>
+rails (4.0.3)   <img src="./images/icons/callouts/1.png" alt="1"></pre>
 </div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Aktuell neueste Version des RubyGem <em>rails</em>.</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p><strong>Step 1:</strong> Wichtig ist hier die Systemweite Installation von
-Rails 4.0.3 mit dem Benutzer <em>root</em>.</p>
+<p>Mit <mark>gem install&#8230;&#8203;</mark> werden auch alle Abhängigkeiten zu anderen RubyGems aufgelöst.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1287,7 +1347,7 @@ Rails 4.0.3 mit dem Benutzer <em>root</em>.</p>
 Fetching: atomic-1.1.15.gem (100%)
 Building native extensions.  This could take a while...
 Successfully installed atomic-1.1.15
-[...]
+...
 Fetching: rails-4.0.3.gem (100%)
 Successfully installed rails-4.0.3
 28 gems installed   <img src="./images/icons/callouts/1.png" alt="1"></pre>
@@ -1297,9 +1357,9 @@ Successfully installed rails-4.0.3
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Für das Framework <em>Ruby on Rails</em> wurden 28 RubyGems installiert.<br>
+<td>Mit dem RubyGem <em>rails-4.0.3</em> wurden insgesamt 28 Gems installiert.<br>
 28 statt 29, da das RubyGem <em>minitest</em> bereits installiert ist!<br>
-Hinweis: Weitere RubyGems müssen installiert werden (Datenbank-Treiber, Erweiterungen).</td>
+Hinweis: Weitere RubyGems müssen müssen für das Framework <strong>Ruby on Rails</strong> installiert werden.</td>
 </tr>
 </table>
 </div>
@@ -1333,190 +1393,9 @@ im Bereich von &gt;= 4.0.3 und &lt; 4.1 installiert wird.</td>
 </tr>
 </table>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre>$ gem list --local
-
-*** LOCAL GEMS ***
-
-actionmailer (4.0.3)
-actionpack (4.0.3)
-activemodel (4.0.3)
-activerecord (4.0.3)
-activerecord-deprecated_finders (1.0.3)
-activesupport (4.0.3)
-arel (4.0.2)
-atomic (1.1.15)
-bigdecimal (1.2.5, 1.2.0)
-builder (3.1.4)
-bundler (1.6.0.rc)
-erubis (2.7.0)
-hike (1.2.3)
-i18n (0.6.9)
-io-console (0.4.2)
-json (1.8.1, 1.7.7)
-mail (2.5.4)
-mime-types (1.25.1)
-minitest (5.3.0, 4.3.2)
-multi_json (1.8.4)
-polyglot (0.3.4)
-psych (2.0.4, 2.0.0)
-rack (1.5.2)
-rack-test (0.6.2)
-rails (4.0.3)
-railties (4.0.3)
-rake (10.1.1, 0.9.6)
-rdoc (4.1.1, 4.0.0)
-rubygems-update (2.2.2)
-sprockets (2.11.0)
-sprockets-rails (2.0.1)
-test-unit (2.5.5, 2.0.0.0)
-thor (0.18.1)
-thread_safe (0.2.0)
-tilt (1.4.1)
-treetop (1.4.15)
-tzinfo (0.3.38)</pre>
 </div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>$ cd /opt/Ruby/current20
-$ ls -l bin
--rwxr-xr-x 1 root root      513 Mär  3 14:40 bundle
--rwxr-xr-x 1 root root      514 Mär  3 14:40 bundler
--rwxr-xr-x 1 root root     4414 Mär  3 12:30 erb
--rwxr-xr-x 1 root root      510 Mär  3 14:40 erubis
--rwxr-xr-x 1 root root      563 Mär  3 12:30 gem
--rwxr-xr-x 1 root root      335 Mär  3 12:30 irb
--rwxr-xr-x 1 root root      504 Mär  3 14:40 rackup
--rwxr-xr-x 1 root root      515 Mär  3 14:40 rails
--rwxr-xr-x 1 root root      502 Mär  3 12:55 rake
--rwxr-xr-x 1 root root      502 Mär  3 12:56 rdoc
--rwxr-xr-x 1 root root      500 Mär  3 12:56 ri
--rwxr-xr-x 1 root root 17680750 Mär  3 12:17 ruby
--rwxr-xr-x 1 root root      522 Mär  3 14:40 sprockets
--rwxr-xr-x 1 root root       95 Mär  3 12:30 testrb
--rwxr-xr-x 1 root root      502 Mär  3 14:40 thor
--rwxr-xr-x 1 root root      502 Mär  3 14:40 tilt
--rwxr-xr-x 1 root root      509 Mär  3 14:40 tt
--rwxr-xr-x 1 root root      511 Mär  3 12:53 update_rubygems</pre>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="./images/icons/note.png" alt="Note">
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Das Erstellen der Dokumentation müßte wiederholt werden&#8230;&#8203;
-aber mit Rails (29 Gems) zusätzlich - ist sie für viele Partitionen (mit ca. 11GB)
- - halt zu groß ;-)</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p><strong>Step 2:</strong> Installation der Datenbank-Treiber mit dem Benutzer <em>root</em>.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre># gem install mysql2 --no-rdoc --no-ri
-Fetching: mysql2-0.3.15.gem (100%)
-Building native extensions.  This could take a while...
-Successfully installed mysql2-0.3.15
-1 gem installed</pre>
-</div>
-</div>
-<div class="admonitionblock caution">
-<table>
-<tr>
-<td class="icon">
-<img src="./images/icons/caution.png" alt="Caution">
-</td>
-<td class="content">
-<div class="paragraph">
-<p><em>mysql2</em> in der Version 0.3.x arbeitet nicht mit <em>Rails 3.0.x</em> zusammen.<br>
-Dementsprechend mu&szlig; f&uuml;r <em>Rails 3.0.x</em> eine älterere Version installiert werden!</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre># gem install mysql2 --version 0.2.11   <img src="./images/icons/callouts/1.png" alt="1">
-[...]</pre>
-</div>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre># gem install sqlite3 --no-rdoc --no-ri   <img src="./images/icons/callouts/1.png" alt="1">
-Fetching: sqlite3-1.3.9.gem (100%)
-Building native extensions.  This could take a while...
-Successfully installed sqlite3-1.3.9
-1 gem installed</pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Rails ist für die Verwendung einer <em>SQLite3</em>-Datenbank vorkonfiguriert.<br>
-Klein, kompakt und dateibasiert – mit diesen Vorzügen glänzt <em>SQLite3</em>.
-Daher haben sich die Rails-Core-Entwickler für <em>SQLite3</em> als
-Default-Datenbank entschieden.</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="./images/icons/note.png" alt="Note">
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Hello! The sqlite3-ruby gem has changed it&#8217;s name to just sqlite3.  Rather than
-installing <code>sqlite3-ruby</code>, you should install <code>sqlite3</code>.  Please update your
-dependencies accordingly.</p>
-</div>
-<div class="paragraph">
-<p>Thanks from the Ruby sqlite3 team!</p>
-</div>
-<div class="paragraph">
-<p>&lt;3 &lt;3 &lt;3 &lt;3</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p><strong>Step 3:</strong> Erweiterungen</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre># gem install sinatra --no-rdoc --no-ri   <img src="./images/icons/callouts/1.png" alt="1">
-Fetching: rack-protection-1.5.2.gem (100%)
-Successfully installed rack-protection-1.5.2
-Fetching: sinatra-1.4.4.gem (100%)
-Successfully installed sinatra-1.4.4
-2 gems installed</pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td><strong>Sinatra</strong> ist eine <em>freie</em> und <em>open source Webapplikationsbibliothek</em> und
-eine in Ruby geschriebene <em>domänenspezifische</em> Sprache.<br>
-Sinatra setzt das Rack Webserver-Interface voraus.<br>
-&rarr; <a href="http://de.wikipedia.org/wiki/Sinatra_%28Software%29">Wikipedia: Sinatra (Software)</a></td>
-</tr>
-</table>
-</div>
+<div class="sect2">
+<h3 id="_asciidoctor">asciidoctor</h3>
 <div class="paragraph">
 <p><a href="http://rubygems.org/gems/asciidoctor/versions/1.5.0.preview3">Download: <strong>asciidoctor</strong> &middot; 1.5.0.preview3</a> (03.03.2014)</p>
 </div>
@@ -1543,6 +1422,131 @@ Done installing documentation for asciidoctor after 5 seconds
 into HTML 5, DocBook 4.5 and other formats.</td>
 </tr>
 </table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sinatra">sinatra</h3>
+<div class="listingblock">
+<div class="content">
+<pre># gem install sinatra --no-rdoc --no-ri   <img src="./images/icons/callouts/1.png" alt="1">
+Fetching: rack-protection-1.5.2.gem (100%)
+Successfully installed rack-protection-1.5.2
+Fetching: sinatra-1.4.4.gem (100%)
+Successfully installed sinatra-1.4.4
+2 gems installed</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td><strong>Sinatra</strong> ist eine <em>freie</em> und <em>open source Webapplikationsbibliothek</em> und
+eine in Ruby geschriebene <em>domänenspezifische</em> Sprache.<br>
+Sinatra setzt das Rack Webserver-Interface voraus.<br>
+&rarr; <a href="http://de.wikipedia.org/wiki/Sinatra_%28Software%29">Wikipedia: Sinatra (Software)</a></td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_list">list</h3>
+<div class="listingblock">
+<div class="content">
+<pre>$ gem list --local
+
+*** LOCAL GEMS ***
+
+actionmailer (4.0.3)
+actionpack (4.0.3)
+activemodel (4.0.3)
+activerecord (4.0.3)
+activerecord-deprecated_finders (1.0.3)
+activesupport (4.0.3)
+arel (4.0.2)
+asciidoctor (1.5.0.preview3)
+atomic (1.1.15)
+bigdecimal (1.2.5, 1.2.0)
+builder (3.1.4)
+bundler (1.6.0.rc)
+erubis (2.7.0)
+hike (1.2.3)
+i18n (0.6.9)
+io-console (0.4.2)
+json (1.8.1, 1.7.7)
+mail (2.5.4)
+mime-types (1.25.1)
+minitest (5.3.0, 4.3.2)
+multi_json (1.8.4)
+polyglot (0.3.4)
+psych (2.0.4, 2.0.0)
+rack (1.5.2)
+rack-protection (1.5.2)
+rack-test (0.6.2)
+rails (4.0.3)
+railties (4.0.3)
+rake (10.1.1, 0.9.6)
+rdoc (4.1.1, 4.0.0)
+rubygems-update (2.2.2)
+sinatra (1.4.4)
+sprockets (2.11.0)
+sprockets-rails (2.0.1)
+test-unit (2.5.5, 2.0.0.0)
+thor (0.18.1)
+thread_safe (0.2.0)
+tilt (1.4.1)
+treetop (1.4.15)
+tzinfo (0.3.38)</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ cd /opt/Ruby/current20
+$ ls -l bin
+-rwxr-xr-x 1 root root      513 Mär  3 14:40 bundle
+-rwxr-xr-x 1 root root      514 Mär  3 14:40 bundler
+-rwxr-xr-x 1 root root     4414 Mär  3 12:30 erb
+-rwxr-xr-x 1 root root      510 Mär  3 14:40 erubis   <img src="./images/icons/callouts/1.png" alt="1">
+-rwxr-xr-x 1 root root      563 Mär  3 12:30 gem
+-rwxr-xr-x 1 root root      335 Mär  3 12:30 irb
+-rwxr-xr-x 1 root root      504 Mär  3 14:40 rackup   <img src="./images/icons/callouts/1.png" alt="1">
+-rwxr-xr-x 1 root root      515 Mär  3 14:40 rails    <img src="./images/icons/callouts/1.png" alt="1">
+-rwxr-xr-x 1 root root      502 Mär  3 12:55 rake
+-rwxr-xr-x 1 root root      502 Mär  3 12:56 rdoc
+-rwxr-xr-x 1 root root      500 Mär  3 12:56 ri
+-rwxr-xr-x 1 root root 17680750 Mär  3 12:17 ruby
+-rwxr-xr-x 1 root root      522 Mär  3 14:40 sprockets   <img src="./images/icons/callouts/1.png" alt="1">
+-rwxr-xr-x 1 root root       95 Mär  3 12:30 testrb
+-rwxr-xr-x 1 root root      502 Mär  3 14:40 thor     <img src="./images/icons/callouts/1.png" alt="1">
+-rwxr-xr-x 1 root root      502 Mär  3 14:40 tilt   <img src="./images/icons/callouts/1.png" alt="1">
+-rwxr-xr-x 1 root root      509 Mär  3 14:40 tt     <img src="./images/icons/callouts/1.png" alt="1">
+-rwxr-xr-x 1 root root      511 Mär  3 12:53 update_rubygems</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Die Kommandos <mark>erubis, &#8230;&#8203;</mark> wurden durch<br>
+<mark>gem install rails --pre</mark> installiert.</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="./images/icons/note.png" alt="Note">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Das Erstellen der Dokumentation müßte/könnte wiederholt werden&#8230;&#8203;
+aber mit Rails (29 Gems) zusätzlich - ist sie für viele Partitionen (mit ca. 11GB)
+ - halt zu groß ;-)</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -1572,10 +1576,10 @@ Server started at http://0.0.0.0:8808</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_beispiel">Beispiel</h2>
+<h2 id="_rails_4_2_erste_schritte_mit_ruby">Rails 4.2: Erste Schritte &hellip; mit Ruby</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="ruby21_1st.html">Rails 4: Erste Schritte &hellip; mit Ruby</a></p>
+<p><a href="ruby21_1st.html">Rails 4.2: Erste Schritte &hellip;</a></p>
 </div>
 </div>
 </div>
@@ -1635,12 +1639,21 @@ echo
 echo "$ME: Ende."</pre>
 </div>
 </div>
+<hr>
+<div class="paragraph">
+<p>
+<a href="#top" title="zum Seitenanfang">
+  <span>&#8679;</span>
+</a>
+
+<span class="small">&middot; Document generated with Asciidoctor 1.5.2.</span></p>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-10-13 17:04:53 MESZ
+Last updated 2014-12-08 23:19:04 MEZ
 </div>
 </div>
 </body>

@@ -112,5 +112,9 @@ Version 1.8.2
 * Index-Seite korrigiert: netbeans_1st.html
   Alle lokalen Verweise erhalten das Code-Wort link: vorangestellt,  
   bei allen externen Verweisen wird das Code-Wort entfernt.
-      
  
+.Version 3.0.2      
+* Neue Programmversion: Git (2.2.0), Ruby (1.9.3, 2.1.5), Java, JRuby, NetBeans
+  Auf allen Seiten wird ein footer eingefügt - mit einem #top-Link und 
+  einem Hinweis auf die verwendete Asciidoctor-Version.
+   

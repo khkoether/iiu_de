@@ -1,5 +1,5 @@
-IiU -- Rails 4.2: Erste Schritte &hellip; mit NetBeans 
-======================================================
+IiU -- NetBeans IDE: Erste Schritte &hellip; 
+============================================
 Installation in Ubuntu — khkoether[at]kahweb[dot]de
 
 :icons:
@@ -17,7 +17,7 @@ Installation in Ubuntu — khkoether[at]kahweb[dot]de
 :jruby-download-url:  http://jruby.org/download
 
 :jdk-url:             link:jdk.html
-:jruby-version:       1.7.16
+:jruby-version:       1.7.16.1
 :jruby_1st-url:       link:jruby_1st.html
 
 :netbeans-url:        link:netbeans.html
@@ -27,7 +27,7 @@ Installation in Ubuntu — khkoether[at]kahweb[dot]de
 :netbeans-ide-plugin-url:                http://plugins.netbeans.org/PluginPortal/
 :netbeans-ide-plugin-ruby-and-rails-url: http://plugins.netbeans.org/plugin/38549/ruby-and-rails
 
-Version 3.0.1, Oktober 2014
+Version 3.0.2, Dezember 2014
 
 
 Abstract
@@ -36,7 +36,7 @@ Die folgenden Schritte stellen die Funktionsfähigkeit der Installation
 von _NetBeans IDE 7.4_ (kurz: _NetBeans_) sicher. 
 
 Der Artikel ist in {asciidoctordocs-url}[AsciiDoc] geschrieben 
-und mit _Asciidoctor 1.5.1_ erstellt worden.
+und mit _Asciidoctor {asciidoctor-version}_ erstellt worden.
 
 [CAUTION]
 ====
@@ -53,7 +53,7 @@ Vorraussetzungen
 ----------------
 Die _NetBeans IDE_ ist wie in
 
-* {netbeans-url}[Installation in Ubuntu: NetBeans IDE 7.4]
+* {netbeans-url}[IiU -- NetBeans IDE 7.4]
  
 beschrieben durchgeführt worden.
 
@@ -64,10 +64,10 @@ Die notwendigen Schritte werden in der _NetBeans IDE 7.4_ durchgeführt.
 
 .Vorgehensweise
 - NetBeans IDE 7.4 &middot; New Project 
-- 1. Choose Project 
-- 2. Name and Location
-- 3. Database Configuration 
-- 4. Install Rails
+  * 1. Choose Project 
+  * 2. Name and Location
+  * 3. Database Configuration 
+  * 4. Install Rails
 - Create Database
 - Run Project
 - Aufruf der Webanwendung im Browser
@@ -75,31 +75,31 @@ Die notwendigen Schritte werden in der _NetBeans IDE 7.4_ durchgeführt.
 
 NetBeans IDE 7.4 &middot; New Project
 -------------------------------------
-image::images/netbeans/ror01_NetBeans_IDE_7.4.jpeg[NetBeans-IDE 7.4 &middot; Startpage] 
+image::images/netbeans/ror01_NetBeans_IDE_7.4.png[NetBeans-IDE 7.4 &middot; Startpage] 
 
-image::images/netbeans/ror02_NetBeans_IDE_7.4.jpeg[NetBeans-IDE 7.4 &middot; New Project]
+image::images/netbeans/ror02_NetBeans_IDE_7.4.png[NetBeans-IDE 7.4 &middot; New Project]
  
 
 1. Choose Project
 -----------------
-image::images/netbeans/ror03_New_Project.jpeg[Categories &middot; Projects (Next)]
+image::images/netbeans/ror03_New_Project.png[Categories &middot; Projects (Next)]
  
 
 2. Name and Location
 --------------------
-image::images/netbeans/ror04_New_Ruby_on_Rails_Application.jpeg[New Ruby on Rails Application &middot; Name and Location] 
+image::images/netbeans/ror04_New_Ruby_on_Rails_Application.png[New Ruby on Rails Application &middot; Name and Location] 
 
 
 3. Database Configuration
 -------------------------
-image::images/netbeans/ror05_New_Ruby_on_Rails_Application.jpeg[New Ruby on Rails Application &middot; Database Configuration]
+image::images/netbeans/ror05_New_Ruby_on_Rails_Application.png[New Ruby on Rails Application &middot; Database Configuration]
 
   
 4. Install Rails
 ----------------
-image::images/netbeans/ror06_New_Ruby_on_Rails_Application.jpeg[New Ruby on Rails Application &middot; Install Rails] 
+image::images/netbeans/ror06_New_Ruby_on_Rails_Application.png[New Ruby on Rails Application &middot; Install Rails] 
 
-image::images/netbeans/ror07_RailsApplication1-NetBeans_IDE_7.4.jpeg[RailsApplication1 - NetBeans IDE 7.4 &middot; Output - Generate Rails Project]
+image::images/netbeans/ror07_RailsApplication1-NetBeans_IDE_7.4.png[RailsApplication1 - NetBeans IDE 7.4 &middot; Output - Generate Rails Project]
 
 [NOTE]
 ====
@@ -111,8 +111,8 @@ Es fehlt der `default`-Block:
 ----
 default: &default
   adapter: mysql
-  username: khk
-  password: khk123
+  username: sid
+  password: g3h3im
   host: localhost
 
 
@@ -130,25 +130,25 @@ production:
 ----
 ====
 
-image::images/netbeans/ror07_RailsApplication1-NetBeans_IDE_7.4_default.jpeg[RailsApplication1 - NetBeans IDE 7.4 &middot; Output - Generate Rails Project]
+image::images/netbeans/ror07_RailsApplication1-NetBeans_IDE_7.4_default.png[RailsApplication1 - NetBeans IDE 7.4 &middot; Output - Generate Rails Project]
 
 
 
 
 Create Database
 ---------------
-image::images/netbeans/ror08_RailsApplication1-NetBeans_IDE_7.4.jpeg[RailsApplication1 - NetBeans IDE 7.4 &middot; Run/Debug Rake Task]
+image::images/netbeans/ror08_RailsApplication1-NetBeans_IDE_7.4.png[RailsApplication1 - NetBeans IDE 7.4 &middot; Run/Debug Rake Task]
 
-image::images/netbeans/ror09_Run-Debug_Rake_Task_RailsApplication1.jpeg[Run-Debug Rake Task (RailsApplication1) &middot; db:create]
+image::images/netbeans/ror09_Run-Debug_Rake_Task_RailsApplication1.png[Run-Debug Rake Task (RailsApplication1) &middot; db:create]
 
-image::images/netbeans/ror10_RailsApplication1-NetBeans_IDE_7.4.jpeg[RailsApplication1 - NetBeans IDE 7.4 &middot; Output: RailsApplication1 (db:create)]
+image::images/netbeans/ror10_RailsApplication1-NetBeans_IDE_7.4.png[RailsApplication1 - NetBeans IDE 7.4 &middot; Output: RailsApplication1 (db:create)]
 
 
 Run Project
 -----------
-image::images/netbeans/ror11_RailsApplication1-NetBeans_IDE_7.4.jpeg[RailsApplication1 - NetBeans IDE 7.4 &middot; Run Project (RailsApplication1)]
+image::images/netbeans/ror11_RailsApplication1-NetBeans_IDE_7.4.png[RailsApplication1 - NetBeans IDE 7.4 &middot; Run Project (RailsApplication1)]
 
-image::images/netbeans/ror12_RailsApplication1-NetBeans_IDE_7.4.jpeg[RailsApplication1 - NetBeans IDE 7.4 &middot; Output: WEBrick for RailsApplication1 on 3000]
+image::images/netbeans/ror12_RailsApplication1-NetBeans_IDE_7.4.png[RailsApplication1 - NetBeans IDE 7.4 &middot; Output: WEBrick for RailsApplication1 on 3000]
 
 [NOTE]
 ====
@@ -165,21 +165,32 @@ $ cd ~/NetBeansProjects/RailsApplication1
 ----
 $ rails s
 => Booting WEBrick
-=> Rails 4.2.0.beta1 application starting in development on http://localhost:3000
+=> Rails 4.2.0.rc1 application starting in development on http://localhost:3000
 => Run `rails server -h` for more startup options
 => Ctrl-C to shutdown server
-[2014-10-02 20:40:43] INFO  WEBrick 1.3.1
-[2014-10-02 20:40:43] INFO  ruby 1.9.3 (2014-09-25) [java]
-[2014-10-02 20:40:43] INFO  WEBrick::HTTPServer#start: pid=26211 port=3000
+[2014-12-08 22:58:35] INFO  WEBrick 1.3.1
+[2014-12-08 22:58:35] INFO  ruby 1.9.3 (2014-10-28) [java]
+[2014-12-08 22:58:35] INFO  WEBrick::HTTPServer#start: pid=9829 port=3000
 ...
 ----
 
 
 Aufruf der Webanwendung im Browser
 ----------------------------------
-image::images/netbeans/ror13_Ruby_on_Rails_Welcome_aboard.jpeg[Ruby on Rails: Welcome aboard]
+image::images/netbeans/ror13_Ruby_on_Rails_Welcome_aboard.png[Ruby on Rails: Welcome aboard]
 
-image::images/netbeans/ror14_Ruby_on_Rails_Welcome_aboard.jpeg[Ruby on Rails: Welcome aboard]
+image::images/netbeans/ror14_Ruby_on_Rails_Welcome_aboard.png[Ruby on Rails: Welcome aboard]
 
+
+
+
+'''
+ 
++++
+<a href="#top" title="zum Seitenanfang">
+  <span>&#8679;</span> 
+</a>
++++
+[small]#&middot; Document generated with Asciidoctor {asciidoctor-version}.#
 
 

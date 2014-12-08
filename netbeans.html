@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.1">
+<meta name="generator" content="Asciidoctor 1.5.2">
 <meta name="author" content="Installation in Ubuntu — khkoether[at]kahweb[dot]de">
 <title>IiU&#8201;&#8212;&#8201;NetBeans IDE 7.4</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic|Noto+Serif:400,400italic,700,700italic|Droid+Sans+Mono:400">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
 /* Remove the comments around the @import statement below when using this as a custom stylesheet */
-/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic|Noto+Serif:400,400italic,700,700italic|Droid+Sans+Mono:400";*/
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400";*/
 article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}
 audio,canvas,video{display:inline-block}
 audio:not([controls]){display:none;height:0}
@@ -275,8 +275,8 @@ dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
 ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
 ul.unstyled,ol.unnumbered,ul.checklist,ul.none{list-style-type:none}
 ul.unstyled,ol.unnumbered,ul.checklist{margin-left:.625em}
-ul.checklist li>p:first-child>.fa-check-square-o:first-child,ul.checklist li>p:first-child>input[type="checkbox"]:first-child{margin-right:.25em}
-ul.checklist li>p:first-child>input[type="checkbox"]:first-child{position:relative;top:1px}
+ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1em;font-size:.85em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{width:1em;position:relative;top:1px}
 ul.inline{margin:0 auto .625em auto;margin-left:-1.375em;margin-right:0;padding:0;list-style:none;overflow:hidden}
 ul.inline>li{list-style:none;float:left;margin-left:1.375em;display:block}
 ul.inline>li>*{display:block}
@@ -440,11 +440,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_netbeans_ide_7_4_plugins">NetBeans IDE 7.4: Plugins</a></li>
 <li><a href="#_netbeans_ide_7_4_neustart">NetBeans IDE 7.4: Neustart</a></li>
 <li><a href="#_netbeans_ide_7_4_ruby_platforms">NetBeans IDE 7.4: Ruby Platforms</a></li>
-<li><a href="#_netbeans_ide_7_4_jruby_1_7_16_gems">NetBeans IDE 7.4: JRuby 1.7.16 Gems</a></li>
+<li><a href="#_netbeans_ide_7_4_jruby_1_7_16_1_gems">NetBeans IDE 7.4: JRuby 1.7.16.1 Gems</a></li>
 <li><a href="#_netbeans_ide_7_4_netbeans">NetBeans IDE 7.4: ~/.netbeans</a></li>
 </ul>
 </li>
-<li><a href="#_beispiel">Beispiel</a></li>
+<li><a href="#_netbeans_ide_erste_schritte">NetBeans IDE: Erste Schritte &hellip;</a></li>
 </ul>
 </div>
 </div>
@@ -452,7 +452,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Version 3.0.1, Oktober 2014</p>
+<p>Version 3.0.2, Dezember 2014</p>
 </div>
 </div>
 </div>
@@ -468,9 +468,24 @@ der <a href="http://netbeans.org/">NetBeans IDE 7.4</a> unter GNU/Linux.</p>
 Programmiersprachen und -techniken.
 Wobei die Java-basierten Lösungen ausgezeichnet unterstützt werden.</p>
 </div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<img src="./images/icons/caution.png" alt="Caution">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Aktuell gibt es bereits <a href="http://netbeans.org/">NetBeans IDE 8.0.2</a>. Sie unterstützt
+die <strong>Java 8</strong>-Technologien. Grundsätzlich soll sie auch mit dem JDK7 funktionieren.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Der Artikel ist in <a href="http://asciidoctor.org/docs/">AsciiDoc</a> geschrieben
-und mit <em>Asciidoctor 1.5.1</em> erstellt worden.</p>
+und mit <em>Asciidoctor 1.5.2</em> erstellt worden.</p>
 </div>
 <div class="admonitionblock caution">
 <table>
@@ -559,13 +574,13 @@ Benutzer <em>sid</em> durchgeführt.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ java -version
+<pre class="nowrap">$ java -version
 java version "1.7.0_65"
-OpenJDK Runtime Environment (IcedTea 2.5.2) (7u65-2.5.2-3~14.04)
+OpenJDK Runtime Environment (IcedTea 2.5.3) (7u71-2.5.3-0ubuntu0.14.04.1)
 OpenJDK 64-Bit Server VM (build 24.65-b04, mixed mode)
 
 $ jruby -v
-jruby 1.7.16 (1.9.3p392) 2014-09-25 575b395 on OpenJDK 64-Bit Server VM 1.7.0_65-b32 +jit [linux-amd64]</pre>
+jruby 1.7.16.1 (1.9.3p392) 2014-10-28 4e93f31 on OpenJDK 64-Bit Server VM 1.7.0_65-b32 +jit [linux-amd64]</pre>
 </div>
 </div>
 </div>
@@ -578,8 +593,8 @@ jruby 1.7.16 (1.9.3p392) 2014-09-25 575b395 on OpenJDK 64-Bit Server VM 1.7.0_65
 <div class="listingblock">
 <div class="content">
 <pre>$ ls -l
--rw-rw-r-- 1 sid sid 206623744 Dez 30 21:52 netbeans-7.4-linux.sh
--rw-rw-r-- 1 sid sid  40949251 Dez 30 21:54 1385326848_archive.zip    <img src="./images/icons/callouts/1.png" alt="1"></pre>
+-rw-rw-r-- 1 sid sid 206623744 Dez  7 17:27 netbeans-7.4-linux.sh
+-rw-rw-r-- 1 sid sid  40949251 Dez  7 17:21 1385326848_archive.zip    <img src="./images/icons/callouts/1.png" alt="1"></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -599,16 +614,16 @@ jruby 1.7.16 (1.9.3p392) 2014-09-25 575b395 on OpenJDK 64-Bit Server VM 1.7.0_65
 <div class="content">
 <pre>$ ls -l
 drwxrwsr-x 3 sid sid      4096 Nov 24 20:43 archive
--rw-rw-r-- 1 sid sid 206623744 Dez 30 21:52 netbeans-7.4-linux.sh
--rw-rw-r-- 1 sid sid  40949251 Dez 30 21:54 1385326848_archive.zip</pre>
+-rw-rw-r-- 1 sid sid 206623744 Dez  7 17:27 netbeans-7.4-linux.sh
+-rw-rw-r-- 1 sid sid  40949251 Dez  7 17:21 1385326848_archive.zip</pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre>$ tree archive
-archive
+archive/
 └── build
-    └── updates   <img src="./images/icons/callouts/1.png" alt="1">
+    └── updates        <img src="./images/icons/callouts/1.png" alt="1">
         ├── licenses
         │   └── CF174EE3.license
         ├── org-jruby-distro.nbm
@@ -729,7 +744,7 @@ Starte Installationassistent...</pre>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
 <td>Verwendet wird das von <em>Ubuntu 14.04 LTS</em> bereitgestellte <em>OpenJDK 7</em><br>
-<em>openjdk-7-jdk (7u65-2.5.2-3~14.04) [universe]</em></td>
+<em>openjdk-7-jdk (7u71-2.5.3-0ubuntu0.14.04.1) [universe]</em></td>
 </tr>
 </table>
 </div>
@@ -752,13 +767,13 @@ Starte Installationassistent...</pre>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
 <td>Verwendet wird das zusätzlich installierte <em>Oracle JDK 7</em><br>
-<em>jdk-7u67-linux-x64.tar.gz</em></td>
+<em>jdk-7u71-linux-x64.tar.gz</em></td>
 </tr>
 </table>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/nb00_Installationssystem.jpeg" alt="NetBeans-IDE Installationssystem">
+<img src="images/netbeans/nb00_Installationssystem.png" alt="NetBeans-IDE Installationssystem">
 </div>
 </div>
 </div>
@@ -866,12 +881,12 @@ JUnit library will be downloaded and installed during installation of NetBeans I
 <div class="title">~/.nbi</div>
 <div class="content">
 <pre>$ ls -l ~/.nbi
-drwxrwxr-x 2 sid sid  4096 Dez 31 15:33 downloads
-drwxrwxr-x 2 sid sid  4096 Dez 31 15:36 log
-drwxrwxr-x 8 sid sid  4096 Dez 31 15:39 product-cache
--rw-rw-r-- 1 sid sid 39399 Dez 31 15:43 registry.xml
-drwxrwxr-x 2 sid sid  4096 Dez 31 15:43 tmp
-drwxrwxr-x 2 sid sid  4096 Dez 31 15:33 wd</pre>
+drwxrwxr-x 2 sid sid  4096 Dez  7 21:12 downloads
+drwxrwxr-x 2 sid sid  4096 Dez  7 21:12 log
+drwxrwxr-x 8 sid sid  4096 Dez  7 21:19 product-cache
+-rw-rw-r-- 1 sid sid 39320 Dez  7 22:02 registry.xml
+drwxrwxr-x 2 sid sid  4096 Dez  7 22:02 tmp
+drwxrwxr-x 2 sid sid  4096 Dez  7 21:12 wd</pre>
 </div>
 </div>
 </div>
@@ -892,7 +907,7 @@ drwxrwxr-x 2 sid sid  4096 Dez 31 15:33 wd</pre>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/nb01_NetBeans_IDE_7.4.jpeg" alt="NetBeans IDE 7.4: Startseite">
+<img src="images/netbeans/nb01_NetBeans_IDE_7.4.png" alt="NetBeans IDE 7.4: Startseite">
 </div>
 </div>
 </div>
@@ -903,25 +918,40 @@ drwxrwxr-x 2 sid sid  4096 Dez 31 15:33 wd</pre>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/nb02_NetBeans_IDE_7.4.jpeg" alt="NetBeans IDE 7.4: Plugins">
+<img src="images/netbeans/nb02_NetBeans_IDE_7.4.png" alt="NetBeans IDE 7.4: Plugins">
 </div>
 </div>
 <div class="paragraph">
 <p>&nbsp;<br>
-<strong>Step 3:</strong> Plugins <em>Check for Updates</em></p>
+<strong>Step 3:</strong> Plugins <em>Updates</em> &#8594; <em>Update</em></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/nb03_Plugins.jpeg" alt="NetBeans IDE 7.4 Plugins (Check for Updates)">
+<img src="images/netbeans/nb03_Plugins.png" alt="NetBeans IDE 7.4 Plugins (Check for Updates)">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans/nb03a_NetBeans_IDE_Installer.png" alt="nb03a NetBeans IDE Installer">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans/nb03b_NetBeans_IDE_Installer.png" alt="nb03b NetBeans IDE Installer">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans/nb03c_NetBeans_IDE_Installer.png" alt="nb03c NetBeans IDE Installer">
 </div>
 </div>
 <div class="paragraph">
 <p>&nbsp;<br>
-<strong>Step 4:</strong> Plugins <em>Downloaded</em> &#8594; Add Plugins&#8230;&#8203;</p>
+<strong>Step 4:</strong> NB IDE → Tools → Plugins &#8594; <em>Downloaded</em> &#8594; Add Plugins&#8230;&#8203;</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/nb04_Plugins.jpeg" alt="NetBeans IDE 7.4: Plugins (Downloaded)">
+<img src="images/netbeans/nb04_Plugins.png" alt="NetBeans IDE 7.4: Plugins (Downloaded)">
 </div>
 </div>
 <div class="paragraph">
@@ -930,7 +960,7 @@ drwxrwxr-x 2 sid sid  4096 Dez 31 15:33 wd</pre>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/nb05_Add_Plugins.jpeg" alt="NetBeans IDE 7.4: Add Plugins (Alle markieren -&gt; &amp;Ouml;ffnen">
+<img src="images/netbeans/nb05_Add_Plugins.png" alt="NetBeans IDE 7.4: Add Plugins (Alle markieren -&gt; &amp;Ouml;ffnen">
 </div>
 </div>
 <div class="admonitionblock note">
@@ -962,7 +992,7 @@ ausgewählt sein!</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/nb06_Plugins.jpeg" alt="NetBeans IDE 7.4: Plugins (Downloaded (23))">
+<img src="images/netbeans/nb06_Plugins.png" alt="NetBeans IDE 7.4: Plugins (Downloaded (23))">
 </div>
 </div>
 <div class="paragraph">
@@ -970,27 +1000,27 @@ ausgewählt sein!</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/nb07_NetBeans_IDE_Installer.jpeg" alt="NetBeans IDE 7.4: NetBeans IDE Installer (Next)">
+<img src="images/netbeans/nb07_NetBeans_IDE_Installer.png" alt="NetBeans IDE 7.4: NetBeans IDE Installer (Next)">
 </div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/nb08_NetBeans_IDE_Installer.jpeg" alt="NetBeans IDE 7.4: NetBeans IDE Installer (Install)">
+<img src="images/netbeans/nb08_NetBeans_IDE_Installer.png" alt="NetBeans IDE 7.4: NetBeans IDE Installer (Install)">
 </div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/nb09_NetBeans_IDE_Installer.jpeg" alt="NetBeans IDE 7.4: NetBeans IDE Installer (Validate)">
+<img src="images/netbeans/nb09_NetBeans_IDE_Installer.png" alt="NetBeans IDE 7.4: NetBeans IDE Installer (Validate)">
 </div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/nb10_Validation_Warning.jpeg" alt="NetBeans IDE 7.4: Validation Warning (Continue)">
+<img src="images/netbeans/nb10_Validation_Warning.png" alt="NetBeans IDE 7.4: Validation Warning (Continue)">
 </div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/nb11_NetBeans_IDE_Installer.jpeg" alt="NetBeans IDE 7.4: NetBeans IDE Installer (Finish)">
+<img src="images/netbeans/nb11_NetBeans_IDE_Installer.png" alt="NetBeans IDE 7.4: NetBeans IDE Installer (Finish)">
 </div>
 </div>
 </div>
@@ -1005,12 +1035,12 @@ werden Sie jetzt erneut (ein letztes Mal) gebeten zuzustimmen: <em>Ihre Entschei
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/nb12_Usage_Statistics.jpeg" alt="NetBeans IDE 7.2: Usage Statistics (I Agree/ No" width="Thank You)">
+<img src="images/netbeans/nb12_Usage_Statistics.png" alt="NetBeans IDE 7.2: Usage Statistics (I Agree/ No" width="Thank You)">
 </div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/nb13_NetBeans_7.4.jpeg" alt="NetBeans IDE 7.4: My NetBeans">
+<img src="images/netbeans/nb13_NetBeans_7.4.png" alt="NetBeans IDE 7.4: My NetBeans">
 </div>
 </div>
 </div>
@@ -1021,7 +1051,7 @@ werden Sie jetzt erneut (ein letztes Mal) gebeten zuzustimmen: <em>Ihre Entschei
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/nb14_NetBeans_IDE_7.4_Ruby_Platforms.jpeg" alt="NetBeans IDE 7.4: NetBeans IDE 7.4 - Ruby Plaforms">
+<img src="images/netbeans/nb14_NetBeans_IDE_7.4_Ruby_Platforms.png" alt="NetBeans IDE 7.4: NetBeans IDE 7.4 - Ruby Plaforms">
 </div>
 </div>
 <div class="paragraph">
@@ -1030,7 +1060,7 @@ werden Sie jetzt erneut (ein letztes Mal) gebeten zuzustimmen: <em>Ihre Entschei
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/nb15_Ruby_Platform_Manager.jpeg" alt="NetBeans IDE 7.2: Ruby Platform Manager">
+<img src="images/netbeans/nb15_Ruby_Platform_Manager.png" alt="NetBeans IDE 7.2: Ruby Platform Manager">
 </div>
 </div>
 <div class="ulist">
@@ -1041,7 +1071,7 @@ werden Sie jetzt erneut (ein letztes Mal) gebeten zuzustimmen: <em>Ihre Entschei
 des Plugins <em>Ruby on Rails</em>.</p>
 </li>
 <li>
-<p>Der Eintrag <em>JRuby 1.7.16</em> ist die von mir bereits zuvor installierte
+<p>Der Eintrag <em>JRuby 1.7.16.1</em> ist die von mir bereits zuvor installierte
 JRuby-Version.<br></p>
 </li>
 <li>
@@ -1064,7 +1094,7 @@ vorhandene Ruby-Installationen automatisch in der
 </div>
 <div class="paragraph">
 <p>Im <code>PATH</code> war zum Zeitpunkt der Installation kein Verweis auf die
-von mir zusätzlich installierten Versionen <em>Ruby 1.9.3</em> und <em>Ruby 2.1.3</em>!</p>
+von mir zusätzlich installierten Versionen <em>Ruby 1.9.3-p551</em> und <em>Ruby 2.1.5</em>!</p>
 </div>
 </td>
 </tr>
@@ -1072,37 +1102,37 @@ von mir zusätzlich installierten Versionen <em>Ruby 1.9.3</em> und <em>Ruby 2.1
 </div>
 <div class="paragraph">
 <p>&nbsp;<br>
-<strong>Step 10:</strong> <em>Ruby Platform Manager</em> &#8594; Add Platform &#8594; <strong>Ruby 2.1.3-p242</strong></p>
+<strong>Step 10:</strong> <em>Ruby Platform Manager</em> &#8594; Add Platform &#8594; <strong>Ruby 2.1.5-p273</strong></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/nb16_Oeffnen.jpeg" alt="NetBeans IDE 7.4: &amp;Ouml;ffnen">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/netbeans/nb17_Oeffnen.jpeg" alt="NetBeans IDE 7.4: &amp;Ouml;ffnen: Ruby 2.1.3-p242">
+<img src="images/netbeans/nb16_Oeffnen.png" alt="NetBeans IDE 7.4: &amp;Ouml;ffnen">
 </div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/nb18_Ruby_Platform_Manager.jpeg" alt="NetBeans IDE 7.4: Ruby Platform Manager">
+<img src="images/netbeans/nb17_Oeffnen.png" alt="NetBeans IDE 7.4: &amp;Ouml;ffnen: Ruby 2.1.5-p273">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans/nb18_Ruby_Platform_Manager.png" alt="NetBeans IDE 7.4: Ruby Platform Manager">
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_netbeans_ide_7_4_jruby_1_7_16_gems">NetBeans IDE 7.4: JRuby 1.7.16 Gems</h3>
+<h3 id="_netbeans_ide_7_4_jruby_1_7_16_1_gems">NetBeans IDE 7.4: JRuby 1.7.16.1 Gems</h3>
 <div class="paragraph">
 <p><strong>Step 11:</strong> <em>Ruby Platform Manager</em> &#8594; Gem Manager</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/nb19_Ruby_Platform_Manager.jpeg" alt="NetBeans IDE 7.4: Ruby Platform Manager">
+<img src="images/netbeans/nb19_Ruby_Platform_Manager.png" alt="NetBeans IDE 7.4: Ruby Platform Manager">
 </div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/nb20_Ruby_Gems.jpeg" alt="NetBeans IDE 7.4: Ruby Gems: JRuby 1.7.16">
+<img src="images/netbeans/nb20_Ruby_Gems.png" alt="NetBeans IDE 7.4: Ruby Gems: JRuby 1.7.16">
 </div>
 </div>
 </div>
@@ -1114,47 +1144,59 @@ von mir zusätzlich installierten Versionen <em>Ruby 1.9.3</em> und <em>Ruby 2.1
 <div class="listingblock">
 <div class="title">~/.netbeans</div>
 <div class="content">
-<pre>$ ls -la ~/.netbeans
-drwxrwxr-x 10 sid sid 4096 Dez 31 17:16 7.4
--rw-rw-r--  1 sid sid   36 Dez 31 17:16 .superId</pre>
+<pre>$ ls -la ~/.netbeans/
+drwxrwxr-x  3 sid sid 4096 Dez  7 21:04 .
+drwxr-xr-x 26 sid sid 4096 Dez  8 21:14 ..
+drwxrwxr-x 10 sid sid 4096 Dez  8 21:27 7.4
+-rw-rw-r--  1 sid sid   36 Dez  7 21:04 .superId</pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre>$ ls -la ../.netbeans/7.4
--rw-rw-r--  1 sid sid 1592 Dez 31 17:24 build.properties
-drwxrwxr-x  7 sid sid 4096 Dez 31 16:17 config
-drwxrwxr-x  7 sid sid 4096 Dez 31 16:17 jruby
--rw-rw-r--  1 sid sid    0 Dez 31 17:16 .lastModified
--rw--w----  1 sid sid   18 Dez 31 17:16 lock
-drwxrwxr-x  2 sid sid 4096 Dez 31 15:45 .metadata
-drwxrwxr-x  4 sid sid 4096 Dez 31 16:17 modules
--rw-rw-r--  1 sid sid 1406 Dez 31 16:17 platform_info.rb
--rw-rw-r--  1 sid sid 3220 Dez 31 16:17 plugin.rb
--rw-rw-r--  1 sid sid  524 Dez 31 16:17 rake
-drwxrwxr-x  3 sid sid 4096 Dez 31 16:17 ruby
-drwxrwxr-x  3 sid sid 4096 Dez 31 16:17 rubystubs
--rw-rw-r--  1 sid sid  220 Dez 31 16:17 sync-stdio.rb
-drwxrwxr-x  2 sid sid 4096 Dez 31 16:17 update_tracking
-drwxrwxr-x  3 sid sid 4096 Dez 31 15:45 var
--rw-rw-r--  1 sid sid   41 Dez 31 16:17 VERSION.txt</pre>
+drwxrwxr-x 10 sid sid 4096 Dez  8 21:27 .
+drwxrwxr-x  3 sid sid 4096 Dez  7 21:04 ..
+-rw-rw-r--  1 sid sid 1595 Dez  8 21:23 build.properties
+drwxrwxr-x  7 sid sid 4096 Dez  8 21:11 config
+drwxrwxr-x  7 sid sid 4096 Dez  8 21:11 jruby
+-rw-rw-r--  1 sid sid    0 Dez  8 21:12 .lastModified
+drwxrwxr-x  3 sid sid 4096 Dez  8 21:13 .metadata
+drwxrwxr-x  4 sid sid 4096 Dez  8 21:12 modules
+-rw-rw-r--  1 sid sid 1406 Dez  8 21:11 platform_info.rb
+-rw-rw-r--  1 sid sid 3220 Dez  8 21:11 plugin.rb
+-rw-rw-r--  1 sid sid  524 Dez  8 21:11 rake
+drwxrwxr-x  3 sid sid 4096 Dez  8 21:11 ruby
+drwxrwxr-x  3 sid sid 4096 Dez  8 21:11 rubystubs
+-rw-rw-r--  1 sid sid  220 Dez  8 21:11 sync-stdio.rb
+drwxrwxr-x  2 sid sid 4096 Dez  8 21:12 update_tracking
+drwxrwxr-x  3 sid sid 4096 Dez  7 21:04 var
+-rw-rw-r--  1 sid sid   41 Dez  8 21:11 VERSION.txt</pre>
 </div>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_beispiel">Beispiel</h2>
+<h2 id="_netbeans_ide_erste_schritte">NetBeans IDE: Erste Schritte &hellip;</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="netbeans_1st.html">Rails 4: Erste Schritte &hellip; mit der NetBeans IDE</a></p>
+<p><a href="netbeans_1st.html">NetBeans IDE: Erste Schritte &hellip;</a></p>
+</div>
+<hr>
+<div class="paragraph">
+<p>
+<a href="#top" title="zum Seitenanfang">
+  <span>&#8679;</span>
+</a>
+
+<span class="small">&middot; Document generated with Asciidoctor 1.5.2.</span></p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-10-13 17:14:01 MESZ
+Last updated 2014-12-08 23:10:12 MEZ
 </div>
 </div>
 </body>

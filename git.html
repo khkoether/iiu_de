@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.1">
+<meta name="generator" content="Asciidoctor 1.5.2">
 <meta name="author" content="Installation in Ubuntu — khkoether[at]kahweb[dot]de">
-<title>IiU&#8201;&#8212;&#8201;Git 2.1.1</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic|Noto+Serif:400,400italic,700,700italic|Droid+Sans+Mono:400">
+<title>IiU&#8201;&#8212;&#8201;Git 2.2.0</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
 /* Remove the comments around the @import statement below when using this as a custom stylesheet */
-/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic|Noto+Serif:400,400italic,700,700italic|Droid+Sans+Mono:400";*/
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400";*/
 article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}
 audio,canvas,video{display:inline-block}
 audio:not([controls]){display:none;height:0}
@@ -275,8 +275,8 @@ dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
 ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
 ul.unstyled,ol.unnumbered,ul.checklist,ul.none{list-style-type:none}
 ul.unstyled,ol.unnumbered,ul.checklist{margin-left:.625em}
-ul.checklist li>p:first-child>.fa-check-square-o:first-child,ul.checklist li>p:first-child>input[type="checkbox"]:first-child{margin-right:.25em}
-ul.checklist li>p:first-child>input[type="checkbox"]:first-child{position:relative;top:1px}
+ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1em;font-size:.85em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{width:1em;position:relative;top:1px}
 ul.inline{margin:0 auto .625em auto;margin-left:-1.375em;margin-right:0;padding:0;list-style:none;overflow:hidden}
 ul.inline>li{list-style:none;float:left;margin-left:1.375em;display:block}
 ul.inline>li>*{display:block}
@@ -412,7 +412,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>IiU&#8201;&#8212;&#8201;Git 2.1.1</h1>
+<h1>IiU&#8201;&#8212;&#8201;Git 2.2.0</h1>
 <div class="details">
 <span id="author" class="author">Installation in Ubuntu — khkoether[at]kahweb[dot]de</span><br>
 </div>
@@ -431,7 +431,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Version 3.0.1, Oktober 2014</p>
+<p>Version 3.0.2, Dezember 2014</p>
 </div>
 </div>
 </div>
@@ -448,7 +448,7 @@ des Programms <a href="http://git-scm.com/">Git</a> aus dem QuellCode.</p>
 </div>
 <div class="paragraph">
 <p>Der Artikel ist in <a href="http://asciidoctor.org/docs/">AsciiDoc</a> geschrieben
-und mit <em>Asciidoctor 1.5.1</em> erstellt worden.</p>
+und mit <em>Asciidoctor 1.5.2</em> erstellt worden.</p>
 </div>
 <div class="admonitionblock caution">
 <table>
@@ -504,10 +504,10 @@ andere Debian-basierte GNU/Linux Distributionen übertragbar.</p>
 <ul>
 <li>
 <p><a href="https://www.kernel.org/pub/software/scm/git/">Git</a><br>
-<code>git-2.1.1.tar.gz</code>  (ca. 4.9M)<br>
-<code>git-htmldocs-2.1.1.tar.gz</code>  (ca. 2.3M)<br>
-<code>git-manpages-2.1.1.tar.gz</code>  (ca. 564K)<br>
-2014-09-19 (Release date)</p>
+<code>git-{git-version}.tar.gz</code>  (ca. 5.0M)<br>
+<code>git-htmldocs-{git-version}.tar.gz</code>  (ca. 2.3M)<br>
+<code>git-manpages-{git-version}.tar.gz</code>  (ca. 576K)<br>
+2014-11-26 (Release date)</p>
 </li>
 </ul>
 </div>
@@ -526,10 +526,10 @@ Benutzer <em>root</em> für das System durchgeführt.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ ls -l
--rw-rw-r-- 1 sid sid 5084177 Sep 28 12:30 git-2.1.1.tar.gz
--rw-rw-r-- 1 sid sid 2321155 Sep 28 12:30 git-htmldocs-2.1.1.tar.gz
--rw-rw-r-- 1 sid sid  577497 Sep 28 12:31 git-manpages-2.1.1.tar.gz</pre>
+<pre>$ ls -lh
+-rw-rw-r--  1 sid sid    5,0M Dec 01 12:47 git-2.2.0.tar.gz
+-rw-rw-r--  1 sid sid    2,3M Dec 01 12:47 git-htmldocs-2.2.0.tar.gz
+-rw-rw-r--  1 sid sid    576K Dec 01 12:47 git-manpages-2.2.0.tar.gz</pre>
 </div>
 </div>
 </td>
@@ -572,12 +572,12 @@ Programm-Pakete installiert sind.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Ohne die Angabe eines Verzeichnisses wird <code>/usr/local/&#8230;&#8203;</code> automatisch verwendet.<br>
+<p>Ohne die Angabe eines Verzeichnisses wird <code>/usr/local/...</code> automatisch verwendet.<br>
 Eine bereits vorhandene Git-Installation wird überschrieben.</p>
 </div>
 <div class="paragraph">
 <p>Beispiel für die Änderung des Installations-Verzeichnisses:<br>
-<code>./configure --prefix=/opt/wo_auch_immer</code></p>
+<mark>./configure --prefix=/opt/wo_auch_immer</mark></p>
 </div>
 </td>
 </tr>
@@ -588,8 +588,8 @@ Eine bereits vorhandene Git-Installation wird überschrieben.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ tar xvzf git-2.1.1.tar.gz
-$ cd git-2.1.1</pre>
+<pre>$ tar xvzf git-2.2.0.tar.gz
+$ cd git-2.2.0</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -598,7 +598,7 @@ $ cd git-2.1.1</pre>
 <div class="listingblock">
 <div class="content">
 <pre>$ make configure | tee ../log.git_make-configure
-GIT_VERSION = 2.1.1
+GIT_VERSION = 2.2.0
     GEN configure
 
 $ ./configure | tee ../log.git_configure
@@ -627,12 +627,20 @@ config.status: executing config.mak.autogen commands</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ sudo make install | tee ../log.git_make-install
+<pre>$ sudo make install | tee ../log.git_make-install   <img src="./images/icons/callouts/1.png" alt="1">
     GEN perl/PM.stamp
     SUBDIR perl
     [...]
     ./check_bindir "z$bindir" "z$execdir" "$bindir/git-add"</pre>
 </div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Die Installation wird bei mir im Verzeichnis <code>/usr/local/bin</code> ausgeführt.</td>
+</tr>
+</table>
 </div>
 <div class="listingblock">
 <div class="title">Documentation: web-pages</div>
@@ -641,7 +649,7 @@ config.status: executing config.mak.autogen commands</pre>
 $ sudo mkdir git-doc
 
 $ cd git-doc
-$ sudo tar xvzf git-htmldocs-2.1.1.tar.gz
+$ sudo tar xvzf git-htmldocs-2.2.0.tar.gz
 [...]
 ./git-unpack-file.html
 
@@ -650,7 +658,7 @@ $ sudo chown -R root.root git-doc   <img src="./images/icons/callouts/1.png" alt
 $ sudo chmod -R a+rx git-doc
 
 $ ls -l
-drwxr-xr-x 5 root root 20480 Sep 19 23:46 git-doc</pre>
+drwxr-xr-x 5 root root 20480 Nov 26 20:47 git-doc</pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -665,19 +673,19 @@ drwxr-xr-x 5 root root 20480 Sep 19 23:46 git-doc</pre>
 <div class="title">Documentation: man-pages</div>
 <div class="content">
 <pre>$ cd /usr/local/share/man
-$ sudo tar xvzf git-manpages-2.1.1.tar.gz
+$ sudo tar xvzf git-manpages-2.2.0.tar.gz
 [...]
-./man7/gitnamespaces.7
+./man7/giteveryday.7
 
 $ cd ..
 $ sudo chown -R root.root man   <img src="./images/icons/callouts/1.png" alt="1">
-$ sudo chmod -R a+rX man
+$ sudo chmod -R a+rx man
 
 $ ls -l man
-drwxr-xr-x 2 root root 4096 Sep 19 23:47 man1
-drwxrwxr-x 2 root root 4096 Sep 28 12:45 man3
-drwxr-xr-x 2 root root 4096 Sep 19 23:47 man5
-drwxr-xr-x 2 root root 4096 Sep 19 23:47 man7</pre>
+drwxr-xr-x 2 root root 4096 Nov 26 23:42 man1
+drwxrwxr-x 2 root root 4096 Nov 29 12:56 man3
+drwxr-xr-x 2 root root 4096 Nov 26 23:42 man5
+drwxr-xr-x 2 root root 4096 Nov 26 23:42 man7</pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -695,13 +703,13 @@ drwxr-xr-x 2 root root 4096 Sep 19 23:47 man7</pre>
 <div class="content">
 <pre>$ cd /usr/local/bin
 $ ls -l git*
--rwxr-xr-x 112 root root 8932152 Sep 28 12:45 git
--rwxr-xr-x   2 root root  162423 Sep 28 12:45 git-cvsserver
--rwxr-xr-x   1 root root  346039 Sep 28 12:45 gitk
--rwxr-xr-x 112 root root 8932152 Sep 28 12:45 git-receive-pack
--rwxr-xr-x   2 root root 4343267 Sep 28 12:45 git-shell
--rwxr-xr-x 112 root root 8932152 Sep 28 12:45 git-upload-archive
--rwxr-xr-x   2 root root 4428545 Sep 28 12:45 git-upload-pack</pre>
+-rwxr-xr-x 113 root root 9037129 Dec 01 12:56 git
+-rwxr-xr-x   2 root root  162423 Dec 01 12:56 git-cvsserver
+-rwxr-xr-x   1 root root  343666 Dec 01 12:56 gitk
+-rwxr-xr-x 113 root root 9037129 Dec 01 12:56 git-receive-pack
+-rwxr-xr-x   2 root root 4359165 Dec 01 12:56 git-shell
+-rwxr-xr-x 113 root root 9037129 Dec 01 12:56 git-upload-archive
+-rwxr-xr-x   2 root root 4445952 Dec 01 12:56 git-upload-pack</pre>
 </div>
 </div>
 <div class="listingblock">
@@ -781,7 +789,7 @@ NOTES
         6. git@vger.kernel.org
            mailto:git@vger.kernel.org
 
-Git 2.1.1                         09/19/2014                            GIT(1)</pre>
+Git                               11/26/2014                            GIT(1)</pre>
 </div>
 </div>
 <div class="listingblock">
@@ -822,7 +830,7 @@ SEE ALSO
 GIT
        Part of the git(1) suite
 
-Git 2.1.1                         09/19/2014                           GITK(1)</pre>
+Git                               11/26/2014                           GITK(1)</pre>
 </div>
 </div>
 <div class="listingblock">
@@ -855,6 +863,7 @@ Git 2.1.1                         09/19/2014                           GITK(1)</
 /usr/local/share/locale/bg/LC_MESSAGES
 /usr/local/share/locale/zh_CN
 /usr/local/share/locale/zh_CN/LC_MESSAGES
+/usr/local/share/perl/5.18.2
 /usr/local/share/perl/5.18.2/Git
 /usr/local/share/perl/5.18.2/Git/SVN
 /usr/local/share/git-gui/lib
@@ -865,7 +874,6 @@ Git 2.1.1                         09/19/2014                           GITK(1)</
 /usr/local/share/man/man3
 /usr/local/share/man/man5
 /usr/local/share/man/man7
-/usr/local/share/doc
 /usr/local/share/doc/git-doc
 /usr/local/share/doc/git-doc/RelNotes
 /usr/local/share/doc/git-doc/howto
@@ -924,8 +932,8 @@ Git 2.1.1                         09/19/2014                           GITK(1)</
 <h2 id="_anhang">Anhang</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Script zum Installieren von Git 2.1.1 (ohne weitere Erläuterung).
-Die Dokumentation wird mit diesem Script <em>nicht</em> installiert.</p>
+<p>Script zum Installieren von <a href="http://git-scm.com/">Git</a> 2.2.0 (ohne weitere Erläuterung).<br>
+Die Dokumentation zu <a href="http://git-scm.com/">Git</a> wird mit diesem Script <em>nicht</em> installiert.</p>
 </div>
 <div class="listingblock">
 <div class="title">Datei: <code>git-install.sh</code></div>
@@ -933,7 +941,7 @@ Die Dokumentation wird mit diesem Script <em>nicht</em> installiert.</p>
 <pre>#!/bin/bash
 #
 ME=make_git
-NAME=git-2.1.1
+NAME=git-2.2.0
 
 ls -l git*.tar.gz
 echo
@@ -973,12 +981,21 @@ echo
 echo "$ME: Ende."</pre>
 </div>
 </div>
+<hr>
+<div class="paragraph">
+<p>
+<a href="#top" title="zum Seitenanfang">
+  <span>&#8679;</span>
+</a>
+
+<span class="small">&middot; Document generated with Asciidoctor 1.5.2.</span></p>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-10-13 17:14:01 MESZ
+Last updated 2014-12-03 14:44:49 MEZ
 </div>
 </div>
 </body>

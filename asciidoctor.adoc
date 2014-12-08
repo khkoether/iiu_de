@@ -2,7 +2,6 @@ IiU -- Asciidoctor
 ==================
 Installation in Ubuntu — khkoether[at]kahweb[dot]de
 
-:middot: &middot;
 :icons:
 :Author Initials: khk
 :creativecommons-url: http://creativecommons.org/licenses/by-sa/4.0/deed.de
@@ -15,20 +14,20 @@ Installation in Ubuntu — khkoether[at]kahweb[dot]de
 
 :asciidoctor_1st-url:      link:asciidoctor_1st.html
 
-Version 3.0.1, Oktober 2014 
+Version 3.0.2, Dezember 2014 
 
 
 Abstract
 --------
-_Asciidoctor_ ist die Ruby-Implementierung des ursprünglich in 
-Python geschriebenen _AsciiDoc_. 
+{asciidoctor-url}[Asciidoctor] ist die Ruby-Implementierung des ursprünglich in 
+_Python_ geschriebenen _AsciiDoc_. 
 
 {asciidoctordocs-url}[AsciiDoc] ist eine einfache Auszeichnungssprache, 
 die dazu dient, +
 Texte in verschiedenen Dokumentenformaten zu veröffentlichen.
 
 Der Artikel ist in {asciidoctor-url}[Asciidoctor] geschrieben 
-und mit _Asciidoctor 1.5.1_ erstellt worden.
+und mit _Asciidoctor {asciidoctor-version}_ erstellt worden.
 
 [CAUTION]
 ====
@@ -55,44 +54,44 @@ Zur Installation muß auf dem Rechner _Ruby_ installiert sein.
 
 ----
 $ gem install asciidoctor
-Successfully installed asciidoctor-1.5.1
+Successfully installed asciidoctor-1.5.2
 1 gem installed
 ----
 
 ----
 $ asciidoctor -V
-Asciidoctor 1.5.1 [http://asciidoctor.org]
+Asciidoctor 1.5.2 [http://asciidoctor.org]
 Runtime Environment (...)
 ----
 
 
-Links
------
+Asciidoctor: Links
+------------------
 * {asciidoctor-url}[Asciidoctor]
 * {asciidoctordocs-url}[Asciidoctor: Documentation]
 * {asciidoctordocsquick-url}[Asciidoctor: Syntax Quick Reference] 
 * link:asciidoc.html[Installation von _AsciiDoc 8.6.9_]
 
 
-Beispiel
---------
+Asciidoctor: Erste Schritte &hellip;
+------------------------------------
 Mit dem folgenden Kommando erstellen Sie mit _Asciidoctor_ aus der Datei 
 `asciidoctor_1st.adoc` (siehe <<_anhang,[Anhang]>>) die HTML5-Datei `asciidoctor_1st.html`.
 ----
 $ asciidoctor -a icons -a toc asciidoc_1st.adoc
 ---- 
 
-{asciidoctor_1st-url}[Asciidoctor: Erste Schritte &hellip; mit Asciidoctor]
+{asciidoctor_1st-url}[Asciidoctor: Erste Schritte &hellip;]
  
 
 Anhang
 ------
 .Text-Datei: `asciidoctor_1st.adoc` 
 ----
-= Asciidoctor: Erste Schritte &hellip; mit Asciidoctor
+= Asciidoctor: Erste Schritte &hellip;
 Sid -- sid[at]example[dot]org
 
-Version 3.0.0, September 2014
+Version 3.0.2, Dezember 2014
 
 :icons:
 :Author Initials: sid
@@ -135,8 +134,32 @@ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
 * {creativecommons-url}[Creative Commens]
 * {mit-url}[MIT-License]
 
-''''
+'''
 link:asciidoctor.html#_beispiel[zurück]
+
+
+
+
+'''
+ 
++++
+<a href="#top" title="zum Seitenanfang">
+  <span>&#8679;</span> 
+</a>
++++
+[small]#&middot; Document generated with Asciidoctor {asciidoctor-version}.#
 ----
+
+
+
+
+'''
+ 
++++
+<a href="#top" title="zum Seitenanfang">
+  <span>&#8679;</span> 
+</a>
++++
+[small]#&middot; Document generated with Asciidoctor {asciidoctor-version}.#
 
 

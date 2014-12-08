@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.1">
+<meta name="generator" content="Asciidoctor 1.5.2">
 <meta name="author" content="Installation in Ubuntu — khkoether[at]kahweb[dot]de">
 <title>IiU&#8201;&#8212;&#8201;index</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic|Noto+Serif:400,400italic,700,700italic|Droid+Sans+Mono:400">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
 /* Remove the comments around the @import statement below when using this as a custom stylesheet */
-/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic|Noto+Serif:400,400italic,700,700italic|Droid+Sans+Mono:400";*/
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400";*/
 article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}
 audio,canvas,video{display:inline-block}
 audio:not([controls]){display:none;height:0}
@@ -275,8 +275,8 @@ dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
 ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
 ul.unstyled,ol.unnumbered,ul.checklist,ul.none{list-style-type:none}
 ul.unstyled,ol.unnumbered,ul.checklist{margin-left:.625em}
-ul.checklist li>p:first-child>.fa-check-square-o:first-child,ul.checklist li>p:first-child>input[type="checkbox"]:first-child{margin-right:.25em}
-ul.checklist li>p:first-child>input[type="checkbox"]:first-child{position:relative;top:1px}
+ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1em;font-size:.85em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{width:1em;position:relative;top:1px}
 ul.inline{margin:0 auto .625em auto;margin-left:-1.375em;margin-right:0;padding:0;list-style:none;overflow:hidden}
 ul.inline>li{list-style:none;float:left;margin-left:1.375em;display:block}
 ul.inline>li>*{display:block}
@@ -431,7 +431,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Version 3.0.1, Oktober 2014</p>
+<p>Version 3.0.2, Dezember 2014</p>
 </div>
 </div>
 </div>
@@ -439,11 +439,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_abstract">Abstract</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Die Artikel sind eine Schritt-für-Schritt Anleitung zur Installation
+<p>Eine Sammlung von Schritt-für-Schritt Anleitungen zur Installation
 verschiedener Programme aus dem QuellCode.</p>
 </div>
 <div class="paragraph">
-<p>Die Installation wird für <a href="http://www.ubuntu.com/">Ubuntu 14.04 LTS (Trusty Tahr)</a> beschrieben.</p>
+<p>Die Installationen werden für <a href="http://www.ubuntu.com/">Ubuntu 14.04 LTS (Trusty Tahr)</a> beschrieben.</p>
 </div>
 </div>
 </div>
@@ -500,7 +500,8 @@ die wiederum die Grundlage für das Framework <strong>Ruby on Rails</strong> bil
 </ul>
 </div>
 <div class="paragraph">
-<p>Die Artikel sind in <em>Asciidoctor</em> geschrieben und mit <em>Asciidoctor 1.5.1</em> erstellt worden.</p>
+<p>Die Artikel sind in <a href="asciidoctor.html">Asciidoctor</a> geschrieben
+und mit <em>Asciidoctor 1.5.2</em> erstellt worden.</p>
 </div>
 </div>
 </div>
@@ -510,37 +511,37 @@ die wiederum die Grundlage für das Framework <strong>Ruby on Rails</strong> bil
 <div class="ulist">
 <ul>
 <li>
-<p><a href="asciidoctor.html">Asciidoctor 1.5.1</a></p>
+<p><a href="asciidoctor.html">Asciidoctor 1.5.2</a></p>
 </li>
 <li>
-<p><a href="asciidoc_1st.html">Asciidoctor: Erste Schritte &hellip; mit Asciidoctor</a></p>
+<p><a href="asciidoctor_1st.html">Asciidoctor: Erste Schritte &hellip;</a></p>
 </li>
 <li>
-<p><a href="git.html">Git 2.1.1</a></p>
+<p><a href="git.html">Git 2.2.0</a></p>
 </li>
 <li>
-<p><a href="ruby19.html">Ruby 1.9.3-p547 - Rails 4.2</a></p>
+<p><a href="ruby19.html">Ruby 1.9.3, rails-4.2.0.rc1</a></p>
 </li>
 <li>
-<p><a href="ruby21.html">Ruby 2.1.3-p242 - Rails 4.2</a></p>
+<p><a href="ruby21.html">Ruby 2.1.5, rails-4.2.0.rc1</a></p>
 </li>
 <li>
-<p><a href="ruby21_1st.html">Rails 4.2: Erste Schritte &#8230;&#8203; mit Ruby</a></p>
+<p><a href="ruby21_1st.html">Ruby on Rails 4.2: Erste Schritte &hellip;</a></p>
 </li>
 <li>
 <p><a href="jdk.html">OpenJDK 7, Oracle JDK 7</a></p>
 </li>
 <li>
-<p><a href="jruby.html">JRuby 1.7.16 - Rails 4.2</a></p>
+<p><a href="jruby.html">JRuby 1.7.16.1 - rails-4.2.0.rc1</a></p>
 </li>
 <li>
-<p><a href="jruby_1st.html">Rails 4.2: Erste Schritte &#8230;&#8203; mit JRuby</a></p>
+<p><a href="jruby_1st.html">JRuby on Rails 4.2: Erste Schritte &hellip;</a></p>
 </li>
 <li>
-<p><a href="netbeans.html">NetBeans 7.4</a></p>
+<p><a href="netbeans.html">NetBeans IDE 7.4</a></p>
 </li>
 <li>
-<p><a href="netbeans_1st.html">Rails 4.2: Erste Schritte &#8230;&#8203; mit der NetBeans IDE</a></p>
+<p><a href="netbeans_1st.html">NetBeans IDE: Erste Schritte &hellip;</a></p>
 </li>
 </ul>
 </div>
@@ -551,7 +552,7 @@ die wiederum die Grundlage für das Framework <strong>Ruby on Rails</strong> bil
 <p><a href="asciidoc.html">AsciiDoc 8.6.9</a></p>
 </li>
 <li>
-<p><a href="ruby20.html">Ruby 2.0.0-p451 - Rails 4.0</a></p>
+<p><a href="ruby20.html">Ruby 2.0.0, rails-4.0.3</a></p>
 </li>
 </ul>
 </div>
@@ -623,12 +624,21 @@ Gerne nehme ich Verbesserungsvorschläge entgegen.</p>
 <a href="http://creativecommons.org/licenses/by/4.0/deed.de">Creative Commons Namensnennung 4.0 International Lizenz</a>,<br>
 und der Quellcode zum formatieren und anzeigen des Inhaltes steht unter der <a href="http://opensource.org/licenses/mit-license.php">MIT-Lizenz</a>.</p>
 </div>
+<hr>
+<div class="paragraph">
+<p>
+<a href="#top" title="zum Seitenanfang">
+  <span>&#8679;</span>
+</a>
+
+<span class="small">&middot; Document generated with Asciidoctor 1.5.2.</span></p>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-10-13 17:14:01 MESZ
+Last updated 2014-12-07 22:11:21 MEZ
 </div>
 </div>
 </body>

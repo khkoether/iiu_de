@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.1">
+<meta name="generator" content="Asciidoctor 1.5.2">
 <meta name="author" content="Installation in Ubuntu — khkoether[at]kahweb[dot]de">
 <title>IiU&#8201;&#8212;&#8201;Asciidoctor</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic|Noto+Serif:400,400italic,700,700italic|Droid+Sans+Mono:400">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
 /* Remove the comments around the @import statement below when using this as a custom stylesheet */
-/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic|Noto+Serif:400,400italic,700,700italic|Droid+Sans+Mono:400";*/
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400";*/
 article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}
 audio,canvas,video{display:inline-block}
 audio:not([controls]){display:none;height:0}
@@ -275,8 +275,8 @@ dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
 ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
 ul.unstyled,ol.unnumbered,ul.checklist,ul.none{list-style-type:none}
 ul.unstyled,ol.unnumbered,ul.checklist{margin-left:.625em}
-ul.checklist li>p:first-child>.fa-check-square-o:first-child,ul.checklist li>p:first-child>input[type="checkbox"]:first-child{margin-right:.25em}
-ul.checklist li>p:first-child>input[type="checkbox"]:first-child{position:relative;top:1px}
+ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1em;font-size:.85em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{width:1em;position:relative;top:1px}
 ul.inline{margin:0 auto .625em auto;margin-left:-1.375em;margin-right:0;padding:0;list-style:none;overflow:hidden}
 ul.inline>li{list-style:none;float:left;margin-left:1.375em;display:block}
 ul.inline>li>*{display:block}
@@ -422,8 +422,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_abstract">Abstract</a></li>
 <li><a href="#_vorraussetzung">Vorraussetzung</a></li>
 <li><a href="#_installation">Installation</a></li>
-<li><a href="#_links">Links</a></li>
-<li><a href="#_beispiel">Beispiel</a></li>
+<li><a href="#_asciidoctor_links">Asciidoctor: Links</a></li>
+<li><a href="#_asciidoctor_erste_schritte">Asciidoctor: Erste Schritte &hellip;</a></li>
 <li><a href="#_anhang">Anhang</a></li>
 </ul>
 </div>
@@ -432,7 +432,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Version 3.0.1, Oktober 2014</p>
+<p>Version 3.0.2, Dezember 2014</p>
 </div>
 </div>
 </div>
@@ -440,8 +440,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_abstract">Abstract</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><em>Asciidoctor</em> ist die Ruby-Implementierung des ursprünglich in
-Python geschriebenen <em>AsciiDoc</em>.</p>
+<p><a href="http://asciidoctor.org/">Asciidoctor</a> ist die Ruby-Implementierung des ursprünglich in
+<em>Python</em> geschriebenen <em>AsciiDoc</em>.</p>
 </div>
 <div class="paragraph">
 <p><a href="http://asciidoctor.org/docs/">AsciiDoc</a> ist eine einfache Auszeichnungssprache,
@@ -450,7 +450,7 @@ Texte in verschiedenen Dokumentenformaten zu veröffentlichen.</p>
 </div>
 <div class="paragraph">
 <p>Der Artikel ist in <a href="http://asciidoctor.org/">Asciidoctor</a> geschrieben
-und mit <em>Asciidoctor 1.5.1</em> erstellt worden.</p>
+und mit <em>Asciidoctor 1.5.2</em> erstellt worden.</p>
 </div>
 <div class="admonitionblock caution">
 <table>
@@ -494,21 +494,21 @@ andere Debian-basierte GNU/Linux Distributionen übertragbar.</p>
 <div class="listingblock">
 <div class="content">
 <pre>$ gem install asciidoctor
-Successfully installed asciidoctor-1.5.1
+Successfully installed asciidoctor-1.5.2
 1 gem installed</pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre>$ asciidoctor -V
-Asciidoctor 1.5.1 [http://asciidoctor.org]
+Asciidoctor 1.5.2 [http://asciidoctor.org]
 Runtime Environment (...)</pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_links">Links</h2>
+<h2 id="_asciidoctor_links">Asciidoctor: Links</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -529,7 +529,7 @@ Runtime Environment (...)</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_beispiel">Beispiel</h2>
+<h2 id="_asciidoctor_erste_schritte">Asciidoctor: Erste Schritte &hellip;</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Mit dem folgenden Kommando erstellen Sie mit <em>Asciidoctor</em> aus der Datei
@@ -541,7 +541,7 @@ Runtime Environment (...)</pre>
 </div>
 </div>
 <div class="paragraph">
-<p><a href="asciidoctor_1st.html">Asciidoctor: Erste Schritte &hellip; mit Asciidoctor</a></p>
+<p><a href="asciidoctor_1st.html">Asciidoctor: Erste Schritte &hellip;</a></p>
 </div>
 </div>
 </div>
@@ -551,10 +551,10 @@ Runtime Environment (...)</pre>
 <div class="listingblock">
 <div class="title">Text-Datei: <code>asciidoctor_1st.adoc</code></div>
 <div class="content">
-<pre>= Asciidoctor: Erste Schritte &amp;hellip; mit Asciidoctor
+<pre>= Asciidoctor: Erste Schritte &amp;hellip;
 Sid -- sid[at]example[dot]org
 
-Version 3.0.0, September 2014
+Version 3.0.2, Dezember 2014
 
 :icons:
 :Author Initials: sid
@@ -597,16 +597,37 @@ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
 * {creativecommons-url}[Creative Commens]
 * {mit-url}[MIT-License]
 
-''''
-link:asciidoctor.html#_beispiel[zurück]</pre>
+'''
+link:asciidoctor.html#_beispiel[zurück]
+
+
+
+
+'''
+
++++
+&lt;a href="#top" title="zum Seitenanfang"&gt;
+  &lt;span&gt;&amp;#8679;&lt;/span&gt;
+&lt;/a&gt;
++++
+[small]#&amp;middot; Document generated with Asciidoctor {asciidoctor-version}.#</pre>
 </div>
+</div>
+<hr>
+<div class="paragraph">
+<p>
+<a href="#top" title="zum Seitenanfang">
+  <span>&#8679;</span>
+</a>
+
+<span class="small">&middot; Document generated with Asciidoctor 1.5.2.</span></p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-10-13 17:14:01 MESZ
+Last updated 2014-12-05 15:58:30 MEZ
 </div>
 </div>
 </body>

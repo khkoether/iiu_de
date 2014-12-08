@@ -1,7 +1,7 @@
-= Asciidoctor: Erste Schritte &hellip; mit Asciidoctor 
+= Asciidoctor: Erste Schritte &hellip; 
 Sid -- sid[at]example[dot]org
 
-Version 3.0.1, Oktober 2014
+Version 3.0.2, Dezember 2014
 
 :icons:
 :Author Initials: sid
@@ -45,5 +45,18 @@ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
 * {creativecommons-url}[Creative Commens]
 * {mit-url}[MIT-License]
 
-''''
+'''
 link:asciidoc.html#_beispiel[zurück]
+
+
+
+
+'''
+ 
++++
+<a href="#top" title="zum Seitenanfang">
+  <span>&#8679;</span> 
+</a>
++++
+[small]#&middot; Document generated with Asciidoctor {asciidoctor-version}.#
+

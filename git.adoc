@@ -1,4 +1,4 @@
-IiU -- Git 2.1.1
+IiU -- Git 2.2.0
 ================
 Installation in Ubuntu — khkoether[at]kahweb[dot]de
 
@@ -12,9 +12,9 @@ Installation in Ubuntu — khkoether[at]kahweb[dot]de
 
 :git-url:             http://git-scm.com/
 :git-download-url:    https://www.kernel.org/pub/software/scm/git/
-:git-version: 2.1.1
+:git-version: 2.2.0
 
-Version 3.0.1, Oktober 2014
+Version 3.0.2, Dezember 2014
 
 
 Abstract
@@ -26,7 +26,7 @@ des Programms {git-url}[Git] aus dem QuellCode.
 (DVCS - Distributed Version Control System).
 
 Der Artikel ist in {asciidoctordocs-url}[AsciiDoc] geschrieben 
-und mit _Asciidoctor 1.5.1_ erstellt worden.
+und mit _Asciidoctor {asciidoctor-version}_ erstellt worden.
 
 [CAUTION]
 ====
@@ -55,10 +55,10 @@ Ubuntu 14.04 LTS (Trusty Tahr) enthält das Paket _git-core_1.9.1-1_all_.
 Download
 --------
 * {git-download-url}[Git] +    
-  +git-{git-version}.tar.gz+  (ca. 4.9M) +
-  +git-htmldocs-{git-version}.tar.gz+  (ca. 2.3M) +
-  +git-manpages-{git-version}.tar.gz+  (ca. 564K) +
-  2014-09-19 (Release date)
+  `git-{git-version}.tar.gz`  (ca. 5.0M) +
+  `git-htmldocs-{git-version}.tar.gz`  (ca. 2.3M) +
+  `git-manpages-{git-version}.tar.gz`  (ca. 576K) +
+  2014-11-26 (Release date)
   
 [NOTE] 
 ====
@@ -67,10 +67,10 @@ durchgeführt. +
 Die eigentliche Installation von Git wird vom  
 Benutzer 'root' für das System durchgeführt.
 ----
-$ ls -l
--rw-rw-r-- 1 sid sid 5084177 Sep 28 12:30 git-2.1.1.tar.gz
--rw-rw-r-- 1 sid sid 2321155 Sep 28 12:30 git-htmldocs-2.1.1.tar.gz
--rw-rw-r-- 1 sid sid  577497 Sep 28 12:31 git-manpages-2.1.1.tar.gz
+$ ls -lh
+-rw-rw-r--  1 sid sid    5,0M Dec 01 12:47 git-2.2.0.tar.gz
+-rw-rw-r--  1 sid sid    2,3M Dec 01 12:47 git-htmldocs-2.2.0.tar.gz
+-rw-rw-r--  1 sid sid    576K Dec 01 12:47 git-manpages-2.2.0.tar.gz
 ----
 ====
 
@@ -91,23 +91,23 @@ Installation
 ------------
 [IMPORTANT]
 ====
-Ohne die Angabe eines Verzeichnisses wird +/usr/local/...+ automatisch verwendet. +
+Ohne die Angabe eines Verzeichnisses wird `/usr/local/...` automatisch verwendet. +
 Eine bereits vorhandene Git-Installation wird überschrieben. 
  
 Beispiel für die Änderung des Installations-Verzeichnisses: +
-+./configure --prefix=/opt/wo_auch_immer+
+#./configure --prefix=/opt/wo_auch_immer#
 ====
 
 *Step 1:* Auspacken des Source-Code
 ----
-$ tar xvzf git-2.1.1.tar.gz
-$ cd git-2.1.1
+$ tar xvzf git-2.2.0.tar.gz
+$ cd git-2.2.0
 ----
 
 *Step 2:* Konfiguration erstellen und kompilieren
 ----
 $ make configure | tee ../log.git_make-configure
-GIT_VERSION = 2.1.1
+GIT_VERSION = 2.2.0
     GEN configure
 
 $ ./configure | tee ../log.git_configure
@@ -132,12 +132,13 @@ $ make | tee ../log.git_make
 
 *Step 3:* Installation (als Benutzer 'root')
 ----
-$ sudo make install | tee ../log.git_make-install
+$ sudo make install | tee ../log.git_make-install   <1>
     GEN perl/PM.stamp
     SUBDIR perl
     [...]
     ./check_bindir "z$bindir" "z$execdir" "$bindir/git-add"
 ----
+<1> Die Installation wird bei mir im Verzeichnis `/usr/local/bin` ausgeführt.
 
 .Documentation: web-pages
 ----
@@ -145,7 +146,7 @@ $ cd /usr/local/share/doc
 $ sudo mkdir git-doc
 
 $ cd git-doc
-$ sudo tar xvzf git-htmldocs-2.1.1.tar.gz
+$ sudo tar xvzf git-htmldocs-2.2.0.tar.gz
 [...]
 ./git-unpack-file.html
 
@@ -154,26 +155,26 @@ $ sudo chown -R root.root git-doc   <1>
 $ sudo chmod -R a+rx git-doc
 
 $ ls -l 
-drwxr-xr-x 5 root root 20480 Sep 19 23:46 git-doc
+drwxr-xr-x 5 root root 20480 Nov 26 20:47 git-doc
 ----
 <1> Unbedingt die Rechte an den Dateien und den Ordnern anpassen!
 
 .Documentation: man-pages
 ----
 $ cd /usr/local/share/man  
-$ sudo tar xvzf git-manpages-2.1.1.tar.gz 
+$ sudo tar xvzf git-manpages-2.2.0.tar.gz 
 [...]
-./man7/gitnamespaces.7
+./man7/giteveryday.7
 
 $ cd ..
 $ sudo chown -R root.root man   <1>
-$ sudo chmod -R a+rX man
+$ sudo chmod -R a+rx man
 
 $ ls -l man
-drwxr-xr-x 2 root root 4096 Sep 19 23:47 man1
-drwxrwxr-x 2 root root 4096 Sep 28 12:45 man3
-drwxr-xr-x 2 root root 4096 Sep 19 23:47 man5
-drwxr-xr-x 2 root root 4096 Sep 19 23:47 man7
+drwxr-xr-x 2 root root 4096 Nov 26 23:42 man1
+drwxrwxr-x 2 root root 4096 Nov 29 12:56 man3
+drwxr-xr-x 2 root root 4096 Nov 26 23:42 man5
+drwxr-xr-x 2 root root 4096 Nov 26 23:42 man7
 ----
 <1> Unbedingt die Rechte an den Dateien und den Ordnern anpassen!
 
@@ -181,13 +182,13 @@ drwxr-xr-x 2 root root 4096 Sep 19 23:47 man7
 ----
 $ cd /usr/local/bin
 $ ls -l git*
--rwxr-xr-x 112 root root 8932152 Sep 28 12:45 git
--rwxr-xr-x   2 root root  162423 Sep 28 12:45 git-cvsserver
--rwxr-xr-x   1 root root  346039 Sep 28 12:45 gitk
--rwxr-xr-x 112 root root 8932152 Sep 28 12:45 git-receive-pack
--rwxr-xr-x   2 root root 4343267 Sep 28 12:45 git-shell
--rwxr-xr-x 112 root root 8932152 Sep 28 12:45 git-upload-archive
--rwxr-xr-x   2 root root 4428545 Sep 28 12:45 git-upload-pack
+-rwxr-xr-x 113 root root 9037129 Dec 01 12:56 git
+-rwxr-xr-x   2 root root  162423 Dec 01 12:56 git-cvsserver
+-rwxr-xr-x   1 root root  343666 Dec 01 12:56 gitk
+-rwxr-xr-x 113 root root 9037129 Dec 01 12:56 git-receive-pack
+-rwxr-xr-x   2 root root 4359165 Dec 01 12:56 git-shell
+-rwxr-xr-x 113 root root 9037129 Dec 01 12:56 git-upload-archive
+-rwxr-xr-x   2 root root 4445952 Dec 01 12:56 git-upload-pack
 ----
 
 ----
@@ -266,7 +267,7 @@ NOTES
         6. git@vger.kernel.org
            mailto:git@vger.kernel.org
 
-Git 2.1.1                         09/19/2014                            GIT(1)
+Git                               11/26/2014                            GIT(1)
 ----
  
 ----
@@ -306,7 +307,7 @@ SEE ALSO
 GIT
        Part of the git(1) suite
 
-Git 2.1.1                         09/19/2014                           GITK(1)
+Git                               11/26/2014                           GITK(1)
 ----
 
 ----
@@ -338,6 +339,7 @@ $ find /usr/local -type d -cmin -10
 /usr/local/share/locale/bg/LC_MESSAGES
 /usr/local/share/locale/zh_CN
 /usr/local/share/locale/zh_CN/LC_MESSAGES
+/usr/local/share/perl/5.18.2
 /usr/local/share/perl/5.18.2/Git
 /usr/local/share/perl/5.18.2/Git/SVN
 /usr/local/share/git-gui/lib
@@ -348,7 +350,6 @@ $ find /usr/local -type d -cmin -10
 /usr/local/share/man/man3
 /usr/local/share/man/man5
 /usr/local/share/man/man7
-/usr/local/share/doc
 /usr/local/share/doc/git-doc
 /usr/local/share/doc/git-doc/RelNotes
 /usr/local/share/doc/git-doc/howto
@@ -393,15 +394,15 @@ Browser> file:///usr/local/share/doc/git-doc/git-config.html
 
 Anhang
 ------
-Script zum Installieren von Git {git-version} (ohne weitere Erläuterung).
-Die Dokumentation wird mit diesem Script _nicht_ installiert.
+Script zum Installieren von {git-url}[Git] {git-version} (ohne weitere Erläuterung). +
+Die Dokumentation zu {git-url}[Git] wird mit diesem Script _nicht_ installiert.
 
-.Datei: +git-install.sh+
+.Datei: `git-install.sh`
 ----
 #!/bin/bash
 #
 ME=make_git
-NAME=git-2.1.1
+NAME=git-2.2.0
 
 ls -l git*.tar.gz
 echo 
@@ -440,3 +441,17 @@ ls -l git*
 echo 
 echo "$ME: Ende."
 ----
+
+
+
+
+'''
+ 
++++
+<a href="#top" title="zum Seitenanfang">
+  <span>&#8679;</span> 
+</a>
++++
+[small]#&middot; Document generated with Asciidoctor {asciidoctor-version}.#
+
+

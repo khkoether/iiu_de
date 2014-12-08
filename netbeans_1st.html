@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.1">
+<meta name="generator" content="Asciidoctor 1.5.2">
 <meta name="author" content="Installation in Ubuntu — khkoether[at]kahweb[dot]de">
-<title>IiU&#8201;&#8212;&#8201;Rails 4.2: Erste Schritte &hellip; mit NetBeans</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic|Noto+Serif:400,400italic,700,700italic|Droid+Sans+Mono:400">
+<title>IiU&#8201;&#8212;&#8201;NetBeans IDE: Erste Schritte &hellip;</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
 /* Remove the comments around the @import statement below when using this as a custom stylesheet */
-/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic|Noto+Serif:400,400italic,700,700italic|Droid+Sans+Mono:400";*/
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400";*/
 article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}
 audio,canvas,video{display:inline-block}
 audio:not([controls]){display:none;height:0}
@@ -275,8 +275,8 @@ dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
 ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
 ul.unstyled,ol.unnumbered,ul.checklist,ul.none{list-style-type:none}
 ul.unstyled,ol.unnumbered,ul.checklist{margin-left:.625em}
-ul.checklist li>p:first-child>.fa-check-square-o:first-child,ul.checklist li>p:first-child>input[type="checkbox"]:first-child{margin-right:.25em}
-ul.checklist li>p:first-child>input[type="checkbox"]:first-child{position:relative;top:1px}
+ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1em;font-size:.85em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{width:1em;position:relative;top:1px}
 ul.inline{margin:0 auto .625em auto;margin-left:-1.375em;margin-right:0;padding:0;list-style:none;overflow:hidden}
 ul.inline>li{list-style:none;float:left;margin-left:1.375em;display:block}
 ul.inline>li>*{display:block}
@@ -412,7 +412,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>IiU&#8201;&#8212;&#8201;Rails 4.2: Erste Schritte &hellip; mit NetBeans</h1>
+<h1>IiU&#8201;&#8212;&#8201;NetBeans IDE: Erste Schritte &hellip;</h1>
 <div class="details">
 <span id="author" class="author">Installation in Ubuntu — khkoether[at]kahweb[dot]de</span><br>
 </div>
@@ -437,7 +437,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Version 3.0.1, Oktober 2014</p>
+<p>Version 3.0.2, Dezember 2014</p>
 </div>
 </div>
 </div>
@@ -450,7 +450,7 @@ von <em>NetBeans IDE 7.4</em> (kurz: <em>NetBeans</em>) sicher.</p>
 </div>
 <div class="paragraph">
 <p>Der Artikel ist in <a href="http://asciidoctor.org/docs/">AsciiDoc</a> geschrieben
-und mit <em>Asciidoctor 1.5.1</em> erstellt worden.</p>
+und mit <em>Asciidoctor 1.5.2</em> erstellt worden.</p>
 </div>
 <div class="admonitionblock caution">
 <table>
@@ -483,7 +483,7 @@ Gerne nehme ich Verbesserungsvorschläge entgegen.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="netbeans.html">Installation in Ubuntu: NetBeans IDE 7.4</a></p>
+<p><a href="netbeans.html">IiU&#8201;&#8212;&#8201;NetBeans IDE 7.4</a></p>
 </li>
 </ul>
 </div>
@@ -503,7 +503,8 @@ Gerne nehme ich Verbesserungsvorschläge entgegen.</p>
 <ul>
 <li>
 <p>NetBeans IDE 7.4 &middot; New Project</p>
-</li>
+<div class="ulist">
+<ul>
 <li>
 <p>1. Choose Project</p>
 </li>
@@ -515,6 +516,9 @@ Gerne nehme ich Verbesserungsvorschläge entgegen.</p>
 </li>
 <li>
 <p>4. Install Rails</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>Create Database</p>
@@ -534,12 +538,12 @@ Gerne nehme ich Verbesserungsvorschläge entgegen.</p>
 <div class="sectionbody">
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/ror01_NetBeans_IDE_7.4.jpeg" alt="NetBeans-IDE 7.4 &amp;middot; Startpage">
+<img src="images/netbeans/ror01_NetBeans_IDE_7.4.png" alt="NetBeans-IDE 7.4 &amp;middot; Startpage">
 </div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/ror02_NetBeans_IDE_7.4.jpeg" alt="NetBeans-IDE 7.4 &amp;middot; New Project">
+<img src="images/netbeans/ror02_NetBeans_IDE_7.4.png" alt="NetBeans-IDE 7.4 &amp;middot; New Project">
 </div>
 </div>
 </div>
@@ -549,7 +553,7 @@ Gerne nehme ich Verbesserungsvorschläge entgegen.</p>
 <div class="sectionbody">
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/ror03_New_Project.jpeg" alt="Categories &amp;middot; Projects (Next)">
+<img src="images/netbeans/ror03_New_Project.png" alt="Categories &amp;middot; Projects (Next)">
 </div>
 </div>
 </div>
@@ -559,7 +563,7 @@ Gerne nehme ich Verbesserungsvorschläge entgegen.</p>
 <div class="sectionbody">
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/ror04_New_Ruby_on_Rails_Application.jpeg" alt="New Ruby on Rails Application &amp;middot; Name and Location">
+<img src="images/netbeans/ror04_New_Ruby_on_Rails_Application.png" alt="New Ruby on Rails Application &amp;middot; Name and Location">
 </div>
 </div>
 </div>
@@ -569,7 +573,7 @@ Gerne nehme ich Verbesserungsvorschläge entgegen.</p>
 <div class="sectionbody">
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/ror05_New_Ruby_on_Rails_Application.jpeg" alt="New Ruby on Rails Application &amp;middot; Database Configuration">
+<img src="images/netbeans/ror05_New_Ruby_on_Rails_Application.png" alt="New Ruby on Rails Application &amp;middot; Database Configuration">
 </div>
 </div>
 </div>
@@ -579,12 +583,12 @@ Gerne nehme ich Verbesserungsvorschläge entgegen.</p>
 <div class="sectionbody">
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/ror06_New_Ruby_on_Rails_Application.jpeg" alt="New Ruby on Rails Application &amp;middot; Install Rails">
+<img src="images/netbeans/ror06_New_Ruby_on_Rails_Application.png" alt="New Ruby on Rails Application &amp;middot; Install Rails">
 </div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/ror07_RailsApplication1-NetBeans_IDE_7.4.jpeg" alt="RailsApplication1 - NetBeans IDE 7.4 &amp;middot; Output - Generate Rails Project">
+<img src="images/netbeans/ror07_RailsApplication1-NetBeans_IDE_7.4.png" alt="RailsApplication1 - NetBeans IDE 7.4 &amp;middot; Output - Generate Rails Project">
 </div>
 </div>
 <div class="admonitionblock note">
@@ -603,8 +607,8 @@ Es fehlt der <code>default</code>-Block:</p>
 <div class="content">
 <pre class="highlight"><code class="language-yaml" data-lang="yaml">default: &amp;default
   adapter: mysql
-  username: khk
-  password: khk123
+  username: sid
+  password: g3h3im
   host: localhost
 
 
@@ -627,7 +631,7 @@ production:
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/ror07_RailsApplication1-NetBeans_IDE_7.4_default.jpeg" alt="RailsApplication1 - NetBeans IDE 7.4 &amp;middot; Output - Generate Rails Project">
+<img src="images/netbeans/ror07_RailsApplication1-NetBeans_IDE_7.4_default.png" alt="RailsApplication1 - NetBeans IDE 7.4 &amp;middot; Output - Generate Rails Project">
 </div>
 </div>
 </div>
@@ -637,17 +641,17 @@ production:
 <div class="sectionbody">
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/ror08_RailsApplication1-NetBeans_IDE_7.4.jpeg" alt="RailsApplication1 - NetBeans IDE 7.4 &amp;middot; Run/Debug Rake Task">
+<img src="images/netbeans/ror08_RailsApplication1-NetBeans_IDE_7.4.png" alt="RailsApplication1 - NetBeans IDE 7.4 &amp;middot; Run/Debug Rake Task">
 </div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/ror09_Run-Debug_Rake_Task_RailsApplication1.jpeg" alt="Run-Debug Rake Task (RailsApplication1) &amp;middot; db:create">
+<img src="images/netbeans/ror09_Run-Debug_Rake_Task_RailsApplication1.png" alt="Run-Debug Rake Task (RailsApplication1) &amp;middot; db:create">
 </div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/ror10_RailsApplication1-NetBeans_IDE_7.4.jpeg" alt="RailsApplication1 - NetBeans IDE 7.4 &amp;middot; Output: RailsApplication1 (db:create)">
+<img src="images/netbeans/ror10_RailsApplication1-NetBeans_IDE_7.4.png" alt="RailsApplication1 - NetBeans IDE 7.4 &amp;middot; Output: RailsApplication1 (db:create)">
 </div>
 </div>
 </div>
@@ -657,12 +661,12 @@ production:
 <div class="sectionbody">
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/ror11_RailsApplication1-NetBeans_IDE_7.4.jpeg" alt="RailsApplication1 - NetBeans IDE 7.4 &amp;middot; Run Project (RailsApplication1)">
+<img src="images/netbeans/ror11_RailsApplication1-NetBeans_IDE_7.4.png" alt="RailsApplication1 - NetBeans IDE 7.4 &amp;middot; Run Project (RailsApplication1)">
 </div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/ror12_RailsApplication1-NetBeans_IDE_7.4.jpeg" alt="RailsApplication1 - NetBeans IDE 7.4 &amp;middot; Output: WEBrick for RailsApplication1 on 3000">
+<img src="images/netbeans/ror12_RailsApplication1-NetBeans_IDE_7.4.png" alt="RailsApplication1 - NetBeans IDE 7.4 &amp;middot; Output: WEBrick for RailsApplication1 on 3000">
 </div>
 </div>
 <div class="admonitionblock note">
@@ -691,12 +695,12 @@ Das Verzeichnis <code>script</code> wird nicht mehr für den <em>rails</em>-Aufr
 <div class="content">
 <pre>$ rails s
 =&gt; Booting WEBrick
-=&gt; Rails 4.2.0.beta1 application starting in development on http://localhost:3000
+=&gt; Rails 4.2.0.rc1 application starting in development on http://localhost:3000
 =&gt; Run `rails server -h` for more startup options
 =&gt; Ctrl-C to shutdown server
-[2014-10-02 20:40:43] INFO  WEBrick 1.3.1
-[2014-10-02 20:40:43] INFO  ruby 1.9.3 (2014-09-25) [java]
-[2014-10-02 20:40:43] INFO  WEBrick::HTTPServer#start: pid=26211 port=3000
+[2014-12-08 22:58:35] INFO  WEBrick 1.3.1
+[2014-12-08 22:58:35] INFO  ruby 1.9.3 (2014-10-28) [java]
+[2014-12-08 22:58:35] INFO  WEBrick::HTTPServer#start: pid=9829 port=3000
 ...</pre>
 </div>
 </div>
@@ -707,20 +711,29 @@ Das Verzeichnis <code>script</code> wird nicht mehr für den <em>rails</em>-Aufr
 <div class="sectionbody">
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/ror13_Ruby_on_Rails_Welcome_aboard.jpeg" alt="Ruby on Rails: Welcome aboard">
+<img src="images/netbeans/ror13_Ruby_on_Rails_Welcome_aboard.png" alt="Ruby on Rails: Welcome aboard">
 </div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/ror14_Ruby_on_Rails_Welcome_aboard.jpeg" alt="Ruby on Rails: Welcome aboard">
+<img src="images/netbeans/ror14_Ruby_on_Rails_Welcome_aboard.png" alt="Ruby on Rails: Welcome aboard">
 </div>
+</div>
+<hr>
+<div class="paragraph">
+<p>
+<a href="#top" title="zum Seitenanfang">
+  <span>&#8679;</span>
+</a>
+
+<span class="small">&middot; Document generated with Asciidoctor 1.5.2.</span></p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-10-13 17:14:01 MESZ
+Last updated 2014-12-08 23:10:23 MEZ
 </div>
 </div>
 </body>

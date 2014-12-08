@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.1">
+<meta name="generator" content="Asciidoctor 1.5.2">
 <meta name="author" content="Installation in Ubuntu — khkoether[at]kahweb[dot]de">
-<title>IiU&#8201;&#8212;&#8201;JRuby 1.7.16, Rails 4.2</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic|Noto+Serif:400,400italic,700,700italic|Droid+Sans+Mono:400">
+<title>IiU&#8201;&#8212;&#8201;JRuby 1.7.16.1, rails-4.2.0.rc1</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
 /* Remove the comments around the @import statement below when using this as a custom stylesheet */
-/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic|Noto+Serif:400,400italic,700,700italic|Droid+Sans+Mono:400";*/
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400";*/
 article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}
 audio,canvas,video{display:inline-block}
 audio:not([controls]){display:none;height:0}
@@ -275,8 +275,8 @@ dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
 ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
 ul.unstyled,ol.unnumbered,ul.checklist,ul.none{list-style-type:none}
 ul.unstyled,ol.unnumbered,ul.checklist{margin-left:.625em}
-ul.checklist li>p:first-child>.fa-check-square-o:first-child,ul.checklist li>p:first-child>input[type="checkbox"]:first-child{margin-right:.25em}
-ul.checklist li>p:first-child>input[type="checkbox"]:first-child{position:relative;top:1px}
+ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1em;font-size:.85em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{width:1em;position:relative;top:1px}
 ul.inline{margin:0 auto .625em auto;margin-left:-1.375em;margin-right:0;padding:0;list-style:none;overflow:hidden}
 ul.inline>li{list-style:none;float:left;margin-left:1.375em;display:block}
 ul.inline>li>*{display:block}
@@ -412,7 +412,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>IiU&#8201;&#8212;&#8201;JRuby 1.7.16, Rails 4.2</h1>
+<h1>IiU&#8201;&#8212;&#8201;JRuby 1.7.16.1, rails-4.2.0.rc1</h1>
 <div class="details">
 <span id="author" class="author">Installation in Ubuntu — khkoether[at]kahweb[dot]de</span><br>
 </div>
@@ -422,10 +422,18 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_abstract">Abstract</a></li>
 <li><a href="#_vorraussetzungen">Vorraussetzungen</a></li>
 <li><a href="#_download">Download</a></li>
-<li><a href="#_installation_jruby_1_7_16">Installation: JRuby 1.7.16</a></li>
-<li><a href="#_rubygems_aktualisierung">Rubygems Aktualisierung</a></li>
-<li><a href="#_installation_ruby_on_rails_4_2_0_beta1">Installation: Ruby on Rails 4.2.0.beta1</a></li>
-<li><a href="#_beispiel">Beispiel</a></li>
+<li><a href="#_installation_jruby_1_7_16_1">Installation: JRuby 1.7.16.1</a></li>
+<li><a href="#_rubygems">Rubygems</a>
+<ul class="sectlevel2">
+<li><a href="#_update">update</a></li>
+<li><a href="#_installation_ruby_on_rails_4_2_0_rc1">Installation: Ruby on rails-4.2.0.rc1</a></li>
+<li><a href="#_asciidoctor">asciidoctor</a></li>
+<li><a href="#_sinatra">sinatra</a></li>
+<li><a href="#_list">list</a></li>
+</ul>
+</li>
+<li><a href="#_rubygems_documentation_index">RubyGems Documentation Index</a></li>
+<li><a href="#_jruby_on_rails_4_2_erste_schritte">JRuby on Rails 4.2: Erste Schritte &hellip;</a></li>
 <li><a href="#_anhang">Anhang</a></li>
 </ul>
 </div>
@@ -434,7 +442,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Version 3.0.1, Oktober 2014</p>
+<p>Version 3.0.2, Dezember 2014</p>
 </div>
 </div>
 </div>
@@ -443,16 +451,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sectionbody">
 <div class="paragraph">
 <p>Dieser Artikel ist eine Schritt-für-Schritt Anleitung zur Installation
-von <a href="http://jruby.org/">JRuby 1.7.16</a> unter GNU/Linux.</p>
+von <a href="http://jruby.org/">JRuby 1.7.16.1</a> unter GNU/Linux.</p>
 </div>
 <div class="paragraph">
-<p>Die Programmiersprache {ruby-url}[JRuby] ist die Implementation
+<p>Die Programmiersprache <a href="http://jruby.org/">JRuby</a> ist die Implementation
 von {ruby-url}[Ruby] in Java, die wiederum die Grundlage für das
 WebApplication Framework {rubyonrails-url}[Ruby on Rails] bildet.</p>
 </div>
 <div class="paragraph">
 <p>Der Artikel ist in <a href="http://asciidoctor.org/docs/">AsciiDoc</a> geschrieben
-und mit <em>Asciidoctor 1.5.1</em> erstellt worden.</p>
+und mit <em>Asciidoctor 1.5.2</em> erstellt worden.</p>
 </div>
 <div class="admonitionblock caution">
 <table>
@@ -507,9 +515,9 @@ andere Debian-basierte GNU/Linux Distributionen übertragbar.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="http://jruby.org/download">JRuby 1.7.16</a><br>
-<code>jruby-bin-1.7.16.tar.gz</code>  (ca. 31M)<br>
-2014-09-25 (Release date)&#8201;&#8212;&#8201;Expect a new release about every 3 weeks</p>
+<p><a href="http://jruby.org/download">JRuby 1.7.16.1</a><br>
+<code>jruby-bin-1.7.16.1.tar.gz</code>  (ca. 31M)<br>
+2014-10-28 (Release date)&#8201;&#8212;&#8201;Expect a new release about every 3 weeks</p>
 </li>
 </ul>
 </div>
@@ -541,14 +549,19 @@ andere Debian-basierte GNU/Linux Distributionen übertragbar.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p>Mein Bauchgefühl sagt:
-. JRuby 1.6.x &#8594; JDK 6
-. JRuby 1.7.x &#8594; JDK 7</p>
+<div class="olist arabic">
+<div class="title">Mein Bauchgefühl sagt:</div>
+<ol class="arabic">
+<li>
+<p>JRuby 1.6.x &#8594; JDK 6</p>
+</li>
+<li>
+<p>JRuby 1.7.x &#8594; JDK 7</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
-<p>Andere mögliche Kombinationen erhöhen einfach den Beschreibungs-Aufwand
-für Support.</p>
+<p>Andere mögliche Kombinationen erhöhen einfach den Beschreibungs-Aufwand für Support.</p>
 </div>
 </td>
 </tr>
@@ -562,15 +575,16 @@ für Support.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Die Installation des <em>OpenJDK</em> (<em>Oracle JDK</em>) wurde vom Benutzer <em>root</em> für
-das System durchgeführt &rarr; <a href="jdk.html">JDK</a>.<br>
-Während die anschließende Installation von <em>JRuby</em> und <em>Ruby on Rails</em> für
-den Benutzer <em>sid</em> ausgeführt wird.</p>
+<p>Die Installation des <em>OpenJDK</em> (<em>Oracle JDK</em>) wurde vom Benutzer <em>root</em>
+systemweit durchgeführt<br>
+&rarr; <a href="jdk.html">JDK</a>.<br>
+Die Installation von <em>JRuby</em> und <em>Ruby on Rails</em> wird vom
+Benutzer <em>sid</em> ausgeführt.</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre>$ ls -l
--rw-rw-r-- 1 sid sid 32366265 Sep 28 22:50 jruby-bin-1.7.16.tar.gz</pre>
+-rw-rw-r-- 1 sid sid 32367197 Dez  5 16:43 jruby-bin-1.7.16.1.tar.gz</pre>
 </div>
 </div>
 </td>
@@ -580,99 +594,131 @@ den Benutzer <em>sid</em> ausgeführt wird.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_installation_jruby_1_7_16">Installation: JRuby 1.7.16</h2>
+<h2 id="_installation_jruby_1_7_16_1">Installation: JRuby 1.7.16.1</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Zusätzliche Software-Pakete
 sollten im Verzeichnis <code>/opt</code> (Optional) installiert werden.</p>
 </div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<img src="./images/icons/caution.png" alt="Caution">
+</td>
+<td class="content">
 <div class="paragraph">
-<p><strong>Step 1:</strong> Installation im Verzeichnis <code>/opt/JRuby/sid</code> (mit Benutzer <em>sid</em>)</p>
+<p>Installation im Verzeichnis <code>/opt/JRuby/sid</code> (mit dem Benutzer <em>sid</em>)</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Step 1</strong>: Auspacken des Source-Code</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ mkdir -p /opt/JRuby/sid &amp;&amp; chown sid.sid /opt/JRuby/sid</pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>$ cd /opt/JRuby/sid
-
-$ tar xvzf jruby-bin-1.7.16.tar.gz
+<pre>$ tar xvzf jruby-bin-1.7.16.1.tar.gz
 [...]
 
-$ ln -s jruby-1.7.16 current
-$ ls -l
-lrwxrwxrwx 1 sid sid       12 Sep 28 23:00 current -&gt; jruby-1.7.16
--rw-r--r-- 1 sid sid      433 Sep 28 23:01 java.jruby.path.sh
-drwxr-xr-x 7 sid sid     4096 Sep 28 22:59 jruby-1.7.16
--rw-r--r-- 1 sid sid      131 Sep 28 23:02 jruby.path.sh</pre>
+$ ls -l jruby-*
+drwxr-xr-x 7 sid sid 4096 Okt 28 19:54 jruby-1.7.16.1</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Das Programm <em>tree</em> ist ein wunderbares Hilfsmittel zur Darstellung von Verzeichnissen.</p>
+<p><strong>Step 2</strong>: Ziel-Verzeichnis anlegen, JRuby-Verzeichnis verschieben</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ tree -d -L 2 current
-current   <img src="./images/icons/callouts/1.png" alt="1">
-├── bin
-├── docs
-│   ├── jvyaml
-│   └── man
-├── lib
-│   ├── jni
-│   └── ruby
-├── samples
-│   ├── ext
-│   ├── ffi
-│   ├── jnlp
-│   └── jrubyc_java
-└── tool
-    └── nailgun
-
-14 directories</pre>
+<pre>$ sudo mkdir -p /opt/JRuby/sid
+$ sudo chown sid.sid /opt/JRuby/sid</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ mv jruby-1.7.16.1/ /opt/JRuby/sid</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Step 3</strong>: Installation verifizieren</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ cd /opt/JRuby/sid/jruby-1.7.16.1
+$ ls -l
+drwxr-xr-x 2 sid sid   4096 Dez  5 16:51 bin
+-rw-r--r-- 1 sid sid 137174 Okt 28 19:45 COPYING
+drwxrwxr-x 4 sid sid   4096 Dez  5 16:51 docs
+drwxr-xr-x 4 sid sid   4096 Dez  5 16:51 lib
+-rw-r--r-- 1 sid sid   2572 Okt 28 19:45 LICENSE.RUBY
+drwxrwxr-x 6 sid sid   4096 Dez  5 16:51 samples
+drwxrwxr-x 3 sid sid   4096 Dez  5 16:51 tool</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ ls -l bin
+-rwxr-xr-x 1 sid sid   5670 Okt 28 19:54 ast       <img src="./images/icons/callouts/1.png" alt="1">
+-rw-r--r-- 1 sid sid     40 Okt 28 19:54 ast.bat   <img src="./images/icons/callouts/2.png" alt="2">
+-rwxr-xr-x 1 sid sid    123 Okt 28 19:54 gem
+-rw-r--r-- 1 sid sid     40 Okt 28 19:54 gem.bat
+-rwxr-xr-x 1 sid sid    323 Okt 28 19:54 irb
+-rw-r--r-- 1 sid sid     40 Okt 28 19:54 irb.bat
+-rwxr-xr-x 1 sid sid    547 Okt 28 19:54 jgem
+-rw-r--r-- 1 sid sid     41 Okt 28 19:54 jgem.bat
+-rwxr-xr-x 1 sid sid    357 Okt 28 19:54 jirb
+-rw-r--r-- 1 sid sid     41 Okt 28 19:54 jirb.bat
+-rwxr-xr-x 1 sid sid   1935 Okt 28 19:54 jirb_swing
+-rw-r--r-- 1 sid sid     47 Okt 28 19:54 jirb_swing.bat
+-rwxr-xr-x 1 sid sid  11474 Okt 28 19:54 jruby
+-rwxr-xr-x 1 sid sid  11474 Okt 28 19:54 jruby.bash
+-rw-r--r-- 1 sid sid    125 Okt 28 19:54 jruby.bat
+-rwxr-xr-x 1 sid sid    188 Okt 28 19:54 jrubyc
+-rw-r--r-- 1 sid sid     43 Okt 28 19:54 jrubyc.bat
+-rw-r--r-- 1 sid sid    245 Okt 28 19:54 jrubyd.bat
+-rw-r--r-- 1 sid sid 742400 Okt 28 19:54 jruby.dll
+-rw-r--r-- 1 sid sid 680448 Okt 28 19:54 jruby.exe
+-rwxr-xr-x 1 sid sid   8979 Okt 28 19:54 jruby.sh
+-rw-r--r-- 1 sid sid 682496 Okt 28 19:54 jrubyw.exe
+-rwxr-xr-x 1 sid sid    451 Okt 28 19:54 rake
+-rw-r--r-- 1 sid sid     41 Okt 28 19:54 rake.bat
+-rwxr-xr-x 1 sid sid    451 Okt 28 19:54 rdoc
+-rw-r--r-- 1 sid sid     41 Okt 28 19:54 rdoc.bat
+-rwxr-xr-x 1 sid sid    449 Okt 28 19:54 ri
+-rw-r--r-- 1 sid sid     39 Okt 28 19:54 ri.bat
+-rwxr-xr-x 1 sid sid    152 Okt 28 19:54 testrb
+-rw-r--r-- 1 sid sid     43 Okt 28 19:54 testrb.bat</pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>JRuby 1.7.16</td>
+<td>Kommando <mark>ast</mark> für ein <em>GNU/Linux-System</em></td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/2.png" alt="2"></td>
+<td>Kommando <mark>ast.bat</mark> für ein <em>MS Windows-System</em></td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Die zu diesem Zeitpunkt in JRuby enthaltenen RubyGems.</p>
+<p><strong>Step 4:</strong> Der Pfad zum Verzeichnis <code>/opt/JRuby/sid</code> muß gesetzt werden.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ tree -d -L 3 current/lib/ruby/gems/
-current/lib/ruby/gems/
-└── shared
-    ├── cache
-    ├── gems
-    │   ├── axiom-types-0.1.1
-    │   ├── coercible-1.0.0
-    │   ├── descendants_tracker-0.0.4
-    │   ├── equalizer-0.0.9
-    │   ├── ice_nine-0.11.0
-    │   ├── maven-tools-1.0.5
-    │   ├── rake-10.1.0
-    │   ├── rdoc-4.0.1
-    │   ├── ruby-maven-3.1.1.0.8
-    │   ├── ruby-maven-libs-3.1.1
-    │   ├── thread_safe-0.3.4-java
-    │   └── virtus-1.0.3
-    └── specifications
-        └── default
-
-17 directories</pre>
+<pre>$ cd /opt/JRuby/sid
+$ ln -s jruby-1.7.16.1 current
+$ ls -l
+lrwxrwxrwx 1 sid sid   15 Dez  5 16:53 current -&gt; jruby-1.7.16.1/
+drwxr-xr-x 7 sid sid 4096 Okt 28 19:54 jruby-1.7.16.1
+-rw-r--r-- 1 sid sid  131 Dez  5 16:52 jruby.path.sh</pre>
 </div>
 </div>
 <div class="paragraph">
-<p><strong>Step 2:</strong> JRuby-Pfad setzen (von au&szlig;en)
-Erstellen Sie eine Datei <code>jruby.path.sh</code> (siehe <a href="#_anhang">[Anhang]</a>).</p>
+<div class="title">Lokal in der aktuellen Shell</div>
+<p>Erstellen Sie eine Datei <code>jruby.path.sh</code> (siehe <a href="#_anhang">[Anhang]</a>).</p>
 </div>
 <div class="admonitionblock caution">
 <table>
@@ -714,7 +760,7 @@ Datei setzen.</p>
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Oder mit dem Bash-Builtin Kommando: <em>source jruby.path.sh</em></td>
+<td>Oder mit dem Bash-Builtin Kommando: <mark>source &nbsp; jruby.path.sh</mark></td>
 </tr>
 </table>
 </div>
@@ -723,26 +769,31 @@ Datei setzen.</p>
 </table>
 </div>
 <div class="paragraph">
-<p><strong>Step 3:</strong> Installation verifizieren</p>
+<p><strong>Step 5:</strong> Check</p>
 </div>
 <div class="listingblock">
+<div class="title">Die Java-Version</div>
 <div class="content">
-<pre>$ which jruby
+<pre>$ java -version
+java version "1.7.0_65"
+OpenJDK Runtime Environment (IcedTea 2.5.3) (7u71-2.5.3-0ubuntu0.14.04.1)
+OpenJDK 64-Bit Server VM (build 24.65-b04, mixed mode)</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Die JRuby-Version &#8230;&#8203;</div>
+<div class="content">
+<pre class="nowrap">$ which jruby
 /opt/JRuby/sid/current/bin/jruby
 
-$ java -version
-java version "1.7.0_65"
-OpenJDK Runtime Environment (IcedTea 2.5.2) (7u65-2.5.2-3~14.04)
-OpenJDK 64-Bit Server VM (build 24.65-b04, mixed mode)
-
 $ jruby --version
-jruby 1.7.16 (1.9.3p392) 2014-09-25 575b395 on OpenJDK 64-Bit Server VM 1.7.0_65-b32 +jit [linux-amd64]
+jruby 1.7.16.1 (1.9.3p392) 2014-10-28 4e93f31 on OpenJDK 64-Bit Server VM 1.7.0_65-b32 +jit [linux-amd64]
 
 $ jruby --version --1.8   <img src="./images/icons/callouts/1.png" alt="1">
-jruby 1.7.16 (ruby-1.8.7p370) 2014-09-25 575b395 on OpenJDK 64-Bit Server VM 1.7.0_65-b32 +jit [linux-amd64]
+jruby 1.7.16.1 (ruby-1.8.7p370) 2014-10-28 4e93f31 on OpenJDK 64-Bit Server VM 1.7.0_65-b32 +jit [linux-amd64]
 
 $ jruby -v --2.0   <img src="./images/icons/callouts/2.png" alt="2">
-jruby 1.7.16 (2.0.0p195) 2014-09-25 575b395 on OpenJDK 64-Bit Server VM 1.7.0_65-b32 +jit [linux-amd64]</pre>
+jruby 1.7.16.1 (2.0.0p195) 2014-10-28 4e93f31 on OpenJDK 64-Bit Server VM 1.7.0_65-b32 +jit [linux-amd64]</pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -750,7 +801,7 @@ jruby 1.7.16 (2.0.0p195) 2014-09-25 575b395 on OpenJDK 64-Bit Server VM 1.7.0_65
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
 <td>Weitere Möglichkeit:<br>
-<code>$ JRUBY_OPTS=--1.8 jruby --version</code></td>
+<mark>JRUBY_OPTS=--1.8 &nbsp; jruby --version</mark></td>
 </tr>
 <tr>
 <td><img src="./images/icons/callouts/2.png" alt="2"></td>
@@ -759,91 +810,7 @@ jruby 1.7.16 (2.0.0p195) 2014-09-25 575b395 on OpenJDK 64-Bit Server VM 1.7.0_65
 </table>
 </div>
 <div class="listingblock">
-<div class="title">Interactive Ruby: <em>irb</em>, <em>jirb</em></div>
-<div class="content">
-<pre>$ jirb
-irb(main):001:0&gt; RUBY_VERSION
-=&gt; "1.9.3"
-irb(main):002:0&gt; RUBY_PATCHLEVEL
-=&gt; 392
-irb(main):003:0&gt; Time.now.to_s
-=&gt; "2014-09-28 20:07:44 +0200"
-irb(main):004:0&gt; Time.now.friday?
-=&gt; false
-irb(main):005:0&gt; Time.now.sunday?
-=&gt; true
-irb(main):006:0&gt; exit</pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">RubyGems: <em>gem</em>, <em>jgem</em></div>
-<div class="content">
-<pre>$ gem -v
-2.1.9</pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>$ gem list --local
-
-*** LOCAL GEMS ***
-
-axiom-types (0.1.1)
-coercible (1.0.0)
-descendants_tracker (0.0.4)
-equalizer (0.0.9)
-ffi (1.9.3 java)
-ice_nine (0.11.0)
-jar-dependencies (0.1.2)
-jruby-openssl (0.9.5 java)
-json (1.8.0 java)
-krypt (0.0.2)
-krypt-core (0.0.2 universal-java)
-krypt-provider-jdk (0.0.2)
-maven-tools (1.0.5)
-rake (10.1.0)
-rdoc (4.0.1)
-ruby-maven (3.1.1.0.8)
-ruby-maven-libs (3.1.1)
-thread_safe (0.3.4 java)
-virtus (1.0.3)</pre>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="./images/icons/note.png" alt="Note">
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Der Schalter <em>-S</em> führt dazu, daß für das Script zuerst
-das Verzeichnis <code>JRUBY_HOME/bin</code> geprüft wird - und
-erst im Anschluß der gesetzte <code>PATH</code>.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>$ jruby -S gem list --local</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Mit der Umgebungsvariablen <em>JRUBY_OPTS</em> kann der ausgeführte Ruby-Modus
-(<em>1.8</em> oder <em>1.9</em> oder <em>2.0</em>) gesteuert werden.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>$ export JRUBY_OPTS=--1.9</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Mit der JRuby-Version 1.7.x ist der Wert <em>--1.9</em> der Standard!</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="listingblock">
-<div class="title">Ein Test auf Vollständigkeit</div>
+<div class="title">Vollständigkeit</div>
 <div class="content">
 <pre>$ jruby -ropenssl -rzlib -rreadline -e "puts 'Happy new JRuby'"   <img src="./images/icons/callouts/1.png" alt="1">
 Happy new JRuby</pre>
@@ -859,10 +826,73 @@ Eine vorher notwendige zusätzliche Installation entfällt.<br>
 </tr>
 </table>
 </div>
+<div class="listingblock">
+<div class="title">JRuby 1.7.16.1: <em>irb</em>, <em>jirb</em></div>
+<div class="content">
+<pre>$ jirb   <img src="./images/icons/callouts/1.png" alt="1">
+irb(main):001:0&gt; RUBY_VERSION
+=&gt; "1.9.3"
+irb(main):002:0&gt; RUBY_PATCHLEVEL
+=&gt; 392
+irb(main):003:0&gt; Time.now.to_s
+=&gt; "2014-12-05 16:59:02 +0100"
+irb(main):004:0&gt; Time.now.sunday?
+=&gt; false
+irb(main):005:0&gt; Time.now.friday?
+=&gt; true
+irb(main):006:0&gt; exit</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Verwendet: Ruby 1.9.3p392 (default)</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="./images/icons/note.png" alt="Note">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Der Schalter <mark>-S</mark> führt dazu, daß für das Script zuerst
+das Verzeichnis <code>${JRUBY_HOME}/bin</code> geprüft wird&#8201;&#8212;&#8201;und
+erst im Anschluß der gesetzte <code>PATH</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ jruby -S ...</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Mit der Umgebungsvariablen <em>JRUBY_OPTS</em> kann der ausgeführte Ruby-Modus
+(<em>1.8</em> oder <em>1.9</em> oder <em>2.0</em>) gesteuert werden.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ export JRUBY_OPTS=--1.9   <img src="./images/icons/callouts/1.png" alt="1"></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Mit der JRuby-Version 1.7.x ist der Wert <em>--1.9</em> der Standard!</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_rubygems_aktualisierung">Rubygems Aktualisierung</h2>
+<h2 id="_rubygems">Rubygems</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><em>RubyGems</em> (oder kurz Gems) ist das offizielle Paketsystem für die
@@ -880,75 +910,147 @@ zu verwalten oder auch wieder zu entfernen.<br>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Vorraussetzung für die nächsten Befehle ist ein
-funktionierender <code>PATH</code>-Eintrag für den Benutzer <em>sid</em>
-auf die <em>JRuby 1.7.16</em>-Installation:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>$ jruby -v
-jruby 1.7.16 (1.9.3p392) 2014-09-25 575b395 on OpenJDK 64-Bit Server VM 1.7.0_65-b32 +jit [linux-amd64]
-
-$ which jruby
-/opt/JRuby/sid/current/bin/jruby
-
-$ which gem
-/opt/JRuby/sid/current/bin/gem
-
-$ which jgem
-/opt/JRuby/sid/current/bin/jgem</pre>
-</div>
+<p>Die Aktualisierung der JRuby-Installation wird mit dem Benutzer <em>sid</em> durchgeführt.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p><strong>Step 1:</strong> Das Programm <em>(j)gem</em> aktualisieren</p>
+<p><strong>Step 0:</strong> Vorraussetzung für die nächsten Befehle ist ein
+funktionierender <code>PATH</code>-Eintrag für den Benutzer <em>sid</em>
+auf die <em>JRuby 1.7.16.1</em>-Installation:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ jgem -v
+<pre class="nowrap">$ which gem
+/opt/JRuby/sid/current/bin/gem
+
+$ which jgem
+/opt/JRuby/sid/current/bin/jgem</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dann gehen auch die folgenden Befehle</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ gem -v
 2.1.9
 
-$ jgem install rubygems-update --version=2.2.2   <img src="./images/icons/callouts/1.png" alt="1">
-Fetching: rubygems-update-2.2.2.gem (100%)
-Successfully installed rubygems-update-2.2.2
-1 gem installed</pre>
+$ gem list --local
+
+*** LOCAL GEMS ***
+
+axiom-types (0.1.1)
+coercible (1.0.0)
+descendants_tracker (0.0.4)
+equalizer (0.0.9)
+ffi (1.9.3 java)    <img src="./images/icons/callouts/1.png" alt="1">
+ice_nine (0.11.0)
+jar-dependencies (0.1.2)
+jruby-openssl (0.9.5 java)
+json (1.8.0 java)
+krypt (0.0.2)
+krypt-core (0.0.2 universal-java)
+krypt-provider-jdk (0.0.2)
+maven-tools (1.0.5)
+rake (10.1.0)
+rdoc (4.0.1)
+ruby-maven (3.1.1.0.8)
+ruby-maven-libs (3.1.1)
+thread_safe (0.3.4 java)
+virtus (1.0.3)</pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>RubyGems 2.4.x enthält Fehler im Zusammenhang mit Rails 4.2.x</td>
+<td>In <em>Java</em> implementierte <em>Ruby</em>-Bibliothek!</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_update">update</h3>
+<div class="paragraph">
+<p><strong>Step 1:</strong> Das Programm <em>(j)gem</em> aktualisieren (als Benutzer <em>sid</em>)</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ jgem update --system
+Updating rubygems-update
+Fetching: rubygems-update-2.4.5.gem (100%)
+Successfully installed rubygems-update-2.4.5
+Installing RubyGems 2.4.5
+RubyGems 2.4.5 installed
+
+=== 2.4.5 / 2014-12-03
+
+Bug fixes:
+
+* Improved speed of requiring gems.  (Around 25% for a 60 gem test).  Pull
+  request #1060 by unak.
+
+...
+
+ -----------------------------------------------------------------------------
+
+RubyGems installed the following executables:
+	/opt/JRuby/sid/jruby-1.7.16.1/bin/jgem
+
+RubyGems system software updated</pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip">
+</td>
+<td class="content">
+<div class="title">gem command reference</div>
+<div class="paragraph">
+<p><strong>GEM UPDATE</strong></p>
+</div>
+<div class="paragraph">
+<p>Usage</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>gem update REGEXP [REGEXP ...] [options]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>Options</em>:<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>-​-system [VERSION] - Update the RubyGems system software</p>
+</li>
+<li>
+<p>-​-platform PLATFORM - Specify the platform of gem to update</p>
+</li>
+<li>
+<p>-​-[no-]prerelease - Allow prerelease versions of a gem as update targets</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>&#8594; <a href="http://guides.rubygems.org/command-reference/">RubyGems Guides: COMMAND REFERENCE</a></p>
+</div>
+</td>
 </tr>
 </table>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ update_rubygems
-RubyGems 2.2.2 installed
-Parsing documentation for rubygems-2.2.2
-Installing ri documentation for rubygems-2.2.2
-[...]
-
- ------------------------------------------------------------------------------
-
-RubyGems installed the following executables:
-	/opt/JRuby/sid/jruby-1.7.16/bin/jgem
-
-Ruby Interactive (ri) documentation was installed. ri is kind of like man
-pages for ruby libraries. You may access it like this:
-  ri Classname
-  ri Classname.class_method
-  ri Classname#instance_method
-If you do not wish to install this documentation in the future, use the
---no-document flag, or set it as the default in your ~/.gemrc file. See
-'gem help env' for details.
+<pre>$ gem -v
+2.4.5
 
 $ jgem -v
-2.2.2</pre>
+2.4.5</pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -981,21 +1083,30 @@ das Angebot <strong>jgem</strong> ist <em>mehr?</em> up-to-date &#8230;&#8203;</
 </table>
 </div>
 <div class="paragraph">
-<p><strong>Step 2:</strong> Die bereits installierten RubyGems aktualisieren (update)</p>
+<p><strong>Step 2:</strong> Installierte RubyGems aktualisieren</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre>$ gem update
 Updating installed gems
 Updating ffi
-Fetching: ffi-1.9.5-java.gem (100%)
-Successfully installed ffi-1.9.5-java
+Fetching: ffi-1.9.6-java.gem (100%)
+Successfully installed ffi-1.9.6-java
+Updating ice_nine
+Fetching: ice_nine-0.11.1.gem (100%)
+Successfully installed ice_nine-0.11.1
+Updating jar-dependencies
+Fetching: jar-dependencies-0.1.7.gem (100%)
+Successfully installed jar-dependencies-0.1.7
 Updating json
 Fetching: json-1.8.1-java.gem (100%)
 Successfully installed json-1.8.1-java
+Updating maven-tools
+Fetching: maven-tools-1.0.7.gem (100%)
+Successfully installed maven-tools-1.0.7
 Updating rake
-Fetching: rake-10.3.2.gem (100%)
-Successfully installed rake-10.3.2
+Fetching: rake-10.4.2.gem (100%)
+Successfully installed rake-10.4.2
 Updating rdoc
 Fetching: rdoc-4.1.2.gem (100%)
 Depending on your version of ruby, you may need to install ruby rdoc/ri data:
@@ -1005,18 +1116,14 @@ Depending on your version of ruby, you may need to install ruby rdoc/ri data:
  = 1.9.1 : gem install rdoc-data; rdoc-data --install
 &gt;= 1.9.2 : nothing to do! Yay!
 Successfully installed rdoc-4.1.2
-Updating rubygems-update
-Fetching: rubygems-update-2.4.1.gem (100%)
-Successfully installed rubygems-update-2.4.1
-Gems updated: ffi json rake rdoc rubygems-update   <img src="./images/icons/callouts/1.png" alt="1"></pre>
+Gems updated: ffi ice_nine jar-dependencies json maven-tools rake rdoc   <img src="./images/icons/callouts/1.png" alt="1"></pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Fünf <em>Gems</em> aktualisiert!<br>
-Das Gem <em>rubygems-update</em> wird nicht ausgeführt. Siehe oben!</td>
+<td>Sieben <em>Gems</em> aktualisiert!</td>
 </tr>
 </table>
 </div>
@@ -1030,20 +1137,20 @@ axiom-types (0.1.1)
 coercible (1.0.0)
 descendants_tracker (0.0.4)
 equalizer (0.0.9)
-ffi (1.9.5 java, 1.9.3 java)
-ice_nine (0.11.0)
-jar-dependencies (0.1.2)
+ffi (1.9.6 java, 1.9.3 java)
+ice_nine (0.11.1, 0.11.0)
+jar-dependencies (0.1.7, 0.1.2)
 jruby-openssl (0.9.5 java)
 json (1.8.1 java, 1.8.0 java)
 krypt (0.0.2)
 krypt-core (0.0.2 universal-java)
 krypt-provider-jdk (0.0.2)
-maven-tools (1.0.5)
-rake (10.3.2, 10.1.0)
+maven-tools (1.0.7, 1.0.5)
+rake (10.4.2, 10.1.0)
 rdoc (4.1.2, 4.0.1)
 ruby-maven (3.1.1.0.8)
 ruby-maven-libs (3.1.1)
-rubygems-update (2.4.1, 2.2.2)
+rubygems-update (2.4.5)
 thread_safe (0.3.4 java)
 virtus (1.0.3)</pre>
 </div>
@@ -1057,7 +1164,7 @@ virtus (1.0.3)</pre>
 Fetching: rdoc-data-4.0.1.gem (100%)
 rdoc-data is only required for C ruby 1.8.7 or 1.9.1.
 
-rdoc-data is required for JRuby.
+rdoc-data is required for JRuby.   <img src="./images/icons/callouts/1.png" alt="1">
 
 To install ri data for RDoc 4.0+ run:
 
@@ -1067,12 +1174,22 @@ Successfully installed rdoc-data-4.0.1
 1 gem installed</pre>
 </div>
 </div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Notwendig für <em>JRuby</em>!</td>
+</tr>
+</table>
+</div>
 <div class="listingblock">
 <div class="content">
-<pre>$ which rdoc-data
+<pre class="nowrap">$ which rdoc-data
 /opt/JRuby/sid/current/bin/rdoc-data
 
-$ rdoc-data --install   <img src="./images/icons/callouts/1.png" alt="1"></pre>
+$ rdoc-data --install   <img src="./images/icons/callouts/1.png" alt="1">
+/opt/JRuby/sid/jruby-1.7.16.1/lib/ruby/gems/shared/gems/rdoc-4.1.2/lib/rdoc/ri/paths.rb:15 warning: already initialized constant BASE
+/opt/JRuby/sid/jruby-1.7.16.1/lib/ruby/gems/shared/gems/rdoc-4.1.2/lib/rdoc/ri/paths.rb:29 warning: already initialized constant HOMEDIR</pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -1108,35 +1225,311 @@ produces:
   a -- b -- c --</pre>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_installation_ruby_on_rails_4_2_0_rc1">Installation: Ruby on rails-4.2.0.rc1</h3>
+<div class="paragraph">
+<p><strong>Step 0</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre># gem search ^rails$ --remote
+
+*** REMOTE GEMS ***
+
+rails (4.1.8)   <img src="./images/icons/callouts/1.png" alt="1"></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Aktuell neueste Version von <em>rails</em>.<br>
+Ich installiere aber die oben genannte Version <strong>4.2.0.rc1</strong>!</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Die Installation der Dokumentation kann ausgelassen werden.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre># gem install rails --pre --no-rdoc --no-ri   <img src="./images/icons/callouts/1.png" alt="1"> <img src="./images/icons/callouts/2.png" alt="2"></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td><mark>--pre</mark>  installiert die letzte nicht-offizielle Version: <em>rails-4.2.0.rc1</em></td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/2.png" alt="2"></td>
+<td><mark>--no-rdoc --no-ri</mark> In der Regel wird die offizielle Dokumentation genutzt:<br>
+&#8594; <a href="http://guides.rubyonrails.org/" class="bare">http://guides.rubyonrails.org/</a></td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Mit <mark>gem install &#8230;&#8203;</mark> werden auch alle Abhängigkeiten zu anderen RubyGems aufgelöst.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ gem install rails --pre --no-rdoc --no-ri
+Fetching: minitest-5.4.3.gem (100%)
+Successfully installed minitest-5.4.3
+...
+Fetching: rails-4.2.0.rc1.gem (100%)
+Successfully installed rails-4.2.0.rc1
+32 gems installed   <img src="./images/icons/callouts/1.png" alt="1"></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Mit dem RubyGem <em>rails-4.2.0.rc1</em> wurden insgesamt 32 Gems installiert.<br>
+Hinweis: Weitere RubyGems müssen für das Framework <strong>Ruby on Rails</strong> installiert werden.</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="./images/icons/note.png" alt="Note">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Alternativ kann <em>Rails</em> mit der Angabe einer Version installiert werden.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre># gem install rails --version 4.1.8
+
+# gem install rails --version '~&gt; 4.1.8'   <img src="./images/icons/callouts/1.png" alt="1"></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Twiddle Wakka: <em>~&gt; 4.1.8</em> bedeutet, das die höchste Gem-Version von Rails<br>
+im Bereich von &gt;= 4.1.8 und &lt; 4.2 installiert wird.</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_asciidoctor">asciidoctor</h3>
+<div class="listingblock">
+<div class="content">
+<pre>$ gem install asciidoctor       <img src="./images/icons/callouts/1.png" alt="1"> <img src="./images/icons/callouts/2.png" alt="2">
+Fetching: asciidoctor-1.5.2.gem (100%)
+Successfully installed asciidoctor-1.5.2
+1 gem installed
+
+$ gem install coderay         <img src="./images/icons/callouts/2.png" alt="2"> <img src="./images/icons/callouts/3.png" alt="3">
+Fetching: coderay-1.1.0.gem (100%)
+Successfully installed coderay-1.1.0
+1 gem installed</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td><strong>Asciidoctor</strong> is an open source Ruby processor for converting <em>AsciiDoc</em> markup<br>
+into HTML 5, DocBook 4.5 and other formats.</td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/2.png" alt="2"></td>
+<td>Dokumentation wurde ebenfalls erstellt.</td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/3.png" alt="3"></td>
+<td><strong>CodeRay</strong> is a fast and easy syntax highlighting for selected languages, written in Ruby.<br>
+Comes with RedCloth integration and LOC counter.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sinatra">sinatra</h3>
+<div class="listingblock">
+<div class="content">
+<pre># gem install sinatra --no-rdoc --no-ri   <img src="./images/icons/callouts/1.png" alt="1">
+Fetching: rack-1.5.2.gem (100%)
+Successfully installed rack-1.5.2
+Fetching: rack-protection-1.5.3.gem (100%)
+Successfully installed rack-protection-1.5.3
+Fetching: sinatra-1.4.5.gem (100%)
+Successfully installed sinatra-1.4.5
+3 gems installed</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td><strong>Sinatra</strong> ist eine <em>freie</em> und <em>open source Webapplikationsbibliothek</em> und<br>
+eine in Ruby geschriebene <em>domänenspezifische</em> Sprache.<br>
+<strong>Sinatra</strong> setzt das Rack Webserver-Interface voraus.<br>
+&rarr; <a href="http://de.wikipedia.org/wiki/Sinatra_%28Software%29">Wikipedia: Sinatra (Software)</a></td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_list">list</h3>
+<div class="paragraph">
+<p><strong>Step 5:</strong> Liste der installierte RubyGems</p>
+</div>
 <div class="listingblock">
 <div class="content">
 <pre>$ gem list --local
 
 *** LOCAL GEMS ***
 
+actionmailer (4.2.0.rc1)
+actionpack (4.2.0.rc1)
+actionview (4.2.0.rc1)
+activejob (4.2.0.rc1)
+activemodel (4.2.0.rc1)
+activerecord (4.2.0.rc1)
+activesupport (4.2.0.rc1)
+arel (6.0.0)
+asciidoctor (1.5.2)
 axiom-types (0.1.1)
+builder (3.2.2)
+bundler (1.7.7)
+coderay (1.1.0)
 coercible (1.0.0)
 descendants_tracker (0.0.4)
 equalizer (0.0.9)
-ffi (1.9.5 java, 1.9.3 java)
-ice_nine (0.11.0)
-jar-dependencies (0.1.2)
+erubis (2.7.0)
+ffi (1.9.6 java, 1.9.3 java)
+globalid (0.3.0)
+hike (1.2.3)
+i18n (0.7.0.beta1)
+ice_nine (0.11.1, 0.11.0)
+jar-dependencies (0.1.7, 0.1.2)
 jruby-openssl (0.9.5 java)
 json (1.8.1 java, 1.8.0 java)
 krypt (0.0.2)
 krypt-core (0.0.2 universal-java)
 krypt-provider-jdk (0.0.2)
-maven-tools (1.0.5)
-rake (10.3.2, 10.1.0)
+loofah (2.0.1)
+mail (2.6.3)
+maven-tools (1.0.7, 1.0.5)
+mime-types (2.4.3)
+minitest (5.4.3)
+multi_json (1.10.1)
+nokogiri (1.6.5 java)
+rack (1.6.0.beta2, 1.5.2)
+rack-protection (1.5.3)
+rack-test (0.6.2)
+rails (4.2.0.rc1)
+rails-deprecated_sanitizer (1.0.3)
+rails-dom-testing (1.0.5)
+rails-html-sanitizer (1.0.1)
+railties (4.2.0.rc1)
+rake (10.4.2, 10.1.0)
 rdoc (4.1.2, 4.0.1)
 rdoc-data (4.0.1)
 ruby-maven (3.1.1.0.8)
 ruby-maven-libs (3.1.1)
-rubygems-update (2.4.1, 2.2.2)
+rubygems-update (2.4.5)
+sinatra (1.4.5)
+sprockets (2.12.3)
+sprockets-rails (2.2.2)
+thor (0.19.1)
 thread_safe (0.3.4 java)
+tilt (1.4.1)
+tzinfo (1.2.2)
 virtus (1.0.3)</pre>
 </div>
 </div>
+<div class="listingblock">
+<div class="content">
+<pre>$ ls -lrt /opt/JRuby/sid/jruby-1.7.16.1/bin
+-rw-r--r-- 1 sid sid     43 Okt 28 19:54 testrb.bat
+-rwxr-xr-x 1 sid sid    152 Okt 28 19:54 testrb
+-rw-r--r-- 1 sid sid     39 Okt 28 19:54 ri.bat
+-rw-r--r-- 1 sid sid     41 Okt 28 19:54 rdoc.bat
+-rw-r--r-- 1 sid sid     41 Okt 28 19:54 rake.bat
+-rw-r--r-- 1 sid sid 682496 Okt 28 19:54 jrubyw.exe
+-rwxr-xr-x 1 sid sid   8979 Okt 28 19:54 jruby.sh
+-rw-r--r-- 1 sid sid 680448 Okt 28 19:54 jruby.exe
+-rw-r--r-- 1 sid sid 742400 Okt 28 19:54 jruby.dll
+-rw-r--r-- 1 sid sid    245 Okt 28 19:54 jrubyd.bat
+-rw-r--r-- 1 sid sid     43 Okt 28 19:54 jrubyc.bat
+-rwxr-xr-x 1 sid sid    188 Okt 28 19:54 jrubyc
+-rw-r--r-- 1 sid sid    125 Okt 28 19:54 jruby.bat
+-rwxr-xr-x 1 sid sid  11474 Okt 28 19:54 jruby.bash
+-rwxr-xr-x 1 sid sid  11474 Okt 28 19:54 jruby
+-rw-r--r-- 1 sid sid     47 Okt 28 19:54 jirb_swing.bat
+-rwxr-xr-x 1 sid sid   1935 Okt 28 19:54 jirb_swing
+-rw-r--r-- 1 sid sid     41 Okt 28 19:54 jirb.bat
+-rwxr-xr-x 1 sid sid    357 Okt 28 19:54 jirb
+-rw-r--r-- 1 sid sid     41 Okt 28 19:54 jgem.bat
+-rw-r--r-- 1 sid sid     40 Okt 28 19:54 irb.bat
+-rwxr-xr-x 1 sid sid    323 Okt 28 19:54 irb
+-rw-r--r-- 1 sid sid     40 Okt 28 19:54 gem.bat
+-rwxr-xr-x 1 sid sid    123 Okt 28 19:54 gem
+-rw-r--r-- 1 sid sid     40 Okt 28 19:54 ast.bat
+-rwxr-xr-x 1 sid sid   5670 Okt 28 19:54 ast
+-rwxr-xr-x 1 sid sid    495 Dez  5 22:16 update_rubygems
+-rwxr-xr-x 1 sid sid    568 Dez  5 22:16 jgem
+-rwxr-xr-x 1 sid sid    534 Dez  5 22:21 bundle-with-jars
+-rwxr-xr-x 1 sid sid    486 Dez  5 22:21 rake
+-rwxr-xr-x 1 sid sid    484 Dez  5 22:21 ri
+-rwxr-xr-x 1 sid sid    486 Dez  5 22:21 rdoc
+-rwxr-xr-x 1 sid sid    567 Dez  5 22:27 rdoc-data
+-rwxr-xr-x 1 sid sid    502 Dez  5 22:45 nokogiri    <img src="./images/icons/callouts/1.png" alt="1">
+-rwxr-xr-x 1 sid sid    494 Dez  5 22:46 erubis
+-rwxr-xr-x 1 sid sid    486 Dez  5 22:46 tilt
+-rwxr-xr-x 1 sid sid    506 Dez  5 22:46 sprockets
+-rwxr-xr-x 1 sid sid    498 Dez  5 22:46 bundler
+-rwxr-xr-x 1 sid sid    497 Dez  5 22:46 bundle
+-rwxr-xr-x 1 sid sid    486 Dez  5 22:46 thor
+-rwxr-xr-x 1 sid sid    499 Dez  5 22:46 rails   <img src="./images/icons/callouts/1.png" alt="1">
+-rwxr-xr-x 1 sid sid    519 Dez  5 22:51 asciidoctor-safe
+-rwxr-xr-x 1 sid sid    514 Dez  5 22:51 asciidoctor
+-rwxr-xr-x 1 sid sid    498 Dez  5 22:52 coderay
+-rwxr-xr-x 1 sid sid    488 Dez  5 22:53 rackup</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Die Kommandos <mark>nokigiri, &#8230;&#8203;, rails</mark> wurden durch<br>
+<mark>gem install rails --pre</mark> installiert.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_rubygems_documentation_index">RubyGems Documentation Index</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Auf die installierte Dokumentation zugreifen.</p>
 </div>
@@ -1154,333 +1547,16 @@ Server started at http://[0:0:0:0:0:0:0:0]:8808</pre>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/jruby/rubygems_documentation_index.jpeg" alt="RubyGems Documentation Index">
+<img src="images/jruby/rubygems_documentation_index.png" alt="RubyGems Documentation Index">
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_installation_ruby_on_rails_4_2_0_beta1">Installation: Ruby on Rails 4.2.0.beta1</h2>
+<h2 id="_jruby_on_rails_4_2_erste_schritte">JRuby on Rails 4.2: Erste Schritte &hellip;</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>Step 0</strong></p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre># gem search ^rails$ --remote
-
-*** REMOTE GEMS ***
-
-rails (4.1.6)   <img src="./images/icons/callouts/1.png" alt="1"></pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Aktuell neueste Version von Rails.<br>
-Ich installiere aber die oben genannte Version 4.2.0.beta1!</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<img src="./images/icons/tip.png" alt="Tip">
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Die Installation der Dokumentation kann ausgelassen werden.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre># gem install rails --pre --no-rdoc --no-ri</pre>
-</div>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p><strong>Step 1:</strong> Grundinstallation von <em>Ruby on Rails</em></p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>$ gem install rails --pre --no-rdoc --no-ri
-Fetching: minitest-5.4.2.gem (100%)
-Successfully installed minitest-5.4.2
-Fetching: tzinfo-1.2.2.gem (100%)
-Successfully installed tzinfo-1.2.2
-Fetching: i18n-0.7.0.beta1.gem (100%)
-Successfully installed i18n-0.7.0.beta1
-Fetching: activesupport-4.2.0.beta1.gem (100%)
-Successfully installed activesupport-4.2.0.beta1
-Fetching: rails-deprecated_sanitizer-1.0.3.gem (100%)
-Successfully installed rails-deprecated_sanitizer-1.0.3
-Fetching: nokogiri-1.6.3.1-java.gem (100%)
-Successfully installed nokogiri-1.6.3.1-java
-Fetching: rails-dom-testing-1.0.3.gem (100%)
-Successfully installed rails-dom-testing-1.0.3
-Fetching: erubis-2.7.0.gem (100%)
-Successfully installed erubis-2.7.0
-Fetching: builder-3.2.2.gem (100%)
-Successfully installed builder-3.2.2
-Fetching: actionview-4.2.0.beta1.gem (100%)
-Successfully installed actionview-4.2.0.beta1
-Fetching: rack-1.6.0.beta.gem (100%)
-Successfully installed rack-1.6.0.beta
-Fetching: rack-test-0.6.2.gem (100%)
-Successfully installed rack-test-0.6.2
-Fetching: actionpack-4.2.0.beta1.gem (100%)
-Successfully installed actionpack-4.2.0.beta1
-Fetching: activemodel-4.2.0.beta1.gem (100%)
-Successfully installed activemodel-4.2.0.beta1
-Fetching: arel-6.0.0.beta1.gem (100%)
-Successfully installed arel-6.0.0.beta1
-Fetching: activerecord-4.2.0.beta1.gem (100%)
-Successfully installed activerecord-4.2.0.beta1
-Fetching: mime-types-2.3.gem (100%)
-Successfully installed mime-types-2.3
-Fetching: mail-2.6.1.gem (100%)
-Successfully installed mail-2.6.1
-Fetching: actionmailer-4.2.0.beta1.gem (100%)
-Successfully installed actionmailer-4.2.0.beta1
-Fetching: globalid-0.3.0.gem (100%)
-Successfully installed globalid-0.3.0
-Fetching: activejob-4.2.0.beta1.gem (100%)
-Successfully installed activejob-4.2.0.beta1
-Fetching: thor-0.19.1.gem (100%)
-Successfully installed thor-0.19.1
-Fetching: railties-4.2.0.beta1.gem (100%)
-Successfully installed railties-4.2.0.beta1
-Fetching: bundler-1.7.3.gem (100%)
-Successfully installed bundler-1.7.3
-Fetching: tilt-1.4.1.gem (100%)
-Successfully installed tilt-1.4.1
-Fetching: multi_json-1.10.1.gem (100%)
-Successfully installed multi_json-1.10.1
-Fetching: hike-1.2.3.gem (100%)
-Successfully installed hike-1.2.3
-Fetching: sprockets-2.12.2.gem (100%)
-Successfully installed sprockets-2.12.2
-Fetching: sprockets-rails-3.0.0.beta1.gem (100%)
-Successfully installed sprockets-rails-3.0.0.beta1
-Fetching: rails-4.2.0.beta1.gem (100%)
-Successfully installed rails-4.2.0.beta1
-30 gems installed   <img src="./images/icons/callouts/1.png" alt="1"></pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Für das Framework <em>Ruby on Rails</em> wurden 30 RubyGems installiert.<br>
-Hinweis: Weitere RubyGems müssen installiert werden (Datenbank-Treiber, Erweiterungen).</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="./images/icons/note.png" alt="Note">
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Alternativ kann <em>Rails</em> mit der Angabe einer Version installiert werden.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre># gem install rails --version 4.1.6
-
-# gem install rails --version '~&gt; 4.1.6'   <img src="./images/icons/callouts/1.png" alt="1"></pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Twiddle Wakka: <em>~&gt; 4.1.6</em> bedeutet, das die höchste Gem-Version von Rails<br>
-im Bereich von &gt;= 4.1.6 und &lt; 4.2 installiert wird.</td>
-</tr>
-</table>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p><strong>Step 2:</strong> Datenbankzugriff (via JDBC)</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>$ gem install activerecord-jdbc-adapter --no-rdoc --no-ri
-Fetching: activerecord-jdbc-adapter-1.3.10.gem (100%)
-Successfully installed activerecord-jdbc-adapter-1.3.10
-1 gem installed</pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>$ gem install activerecord-jdbcmysql-adapter activerecord-jdbcsqlite3-adapter --no-rdoc --no-ri   <img src="./images/icons/callouts/1.png" alt="1">
-Fetching: jdbc-mysql-5.1.31.gem (100%)
-Successfully installed jdbc-mysql-5.1.31
-Fetching: activerecord-jdbcmysql-adapter-1.3.10.gem (100%)
-Successfully installed activerecord-jdbcmysql-adapter-1.3.10
-Fetching: jdbc-sqlite3-3.7.15.SNAPSHOT.gem (100%)
-Successfully installed jdbc-sqlite3-3.7.15.SNAPSHOT
-Fetching: activerecord-jdbcsqlite3-adapter-1.3.10.gem (100%)
-Successfully installed activerecord-jdbcsqlite3-adapter-1.3.10
-4 gems installed</pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>DBMS: <em>MySQL</em>, <em>SQLite3</em></td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p><strong>Step 3:</strong> WAR (WAR ist ein Dateiformat und steht für Web Application Archive)</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>$ gem install warbler --no-rdoc --no-ri
-Fetching: jruby-jars-1.7.16.gem (100%)
-Successfully installed jruby-jars-1.7.16
-Fetching: jruby-rack-1.1.16.gem (100%)
-Successfully installed jruby-rack-1.1.16
-Fetching: rubyzip-1.1.6.gem (100%)
-Successfully installed rubyzip-1.1.6
-Fetching: warbler-1.4.4.gem (100%)
-Successfully installed warbler-1.4.4
-4 gems installed</pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Step 4:</strong> Erweiterungen</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>$ gem install sinatra --no-rdoc --no-ri   <img src="./images/icons/callouts/1.png" alt="1">
-Fetching: rack-protection-1.5.3.gem (100%)
-Successfully installed rack-protection-1.5.3
-Fetching: sinatra-1.4.5.gem (100%)
-Successfully installed sinatra-1.4.5
-2 gems installed</pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Sinatra ist eine freie und open source Webapplikationsbibliothek und
-eine in Ruby geschriebene domänenspezifische Sprache.<br>
-&rarr; <a href="http://de.wikipedia.org/wiki/Sinatra_%28Software%29">Wikipedia: Sinatra (Software)</a></td>
-</tr>
-</table>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>$ gem install asciidoctor --no-rdoc --no-ri        <img src="./images/icons/callouts/1.png" alt="1">
-Fetching: asciidoctor-1.5.1.gem (100%)
-Successfully installed asciidoctor-1.5.1
-1 gem installed</pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td><strong>Asciidoctor</strong> is an open source Ruby processor for converting AsciiDoc markup
-into HTML 5, DocBook 4.5 and other formats.</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p><strong>Step 5:</strong> Liste der installierte RubyGems</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>$ gem list --local
-
-*** LOCAL GEMS ***
-
-actionmailer (4.2.0.beta1)
-actionpack (4.2.0.beta1)
-actionview (4.2.0.beta1)
-activejob (4.2.0.beta1)
-activemodel (4.2.0.beta1)
-activerecord (4.2.0.beta1)
-activerecord-jdbc-adapter (1.3.10)
-activerecord-jdbcmysql-adapter (1.3.10)
-activerecord-jdbcsqlite3-adapter (1.3.10)
-activesupport (4.2.0.beta1)
-arel (6.0.0.beta1)
-asciidoctor (1.5.1)
-axiom-types (0.1.1)
-builder (3.2.2)
-bundler (1.7.3)
-coercible (1.0.0)
-descendants_tracker (0.0.4)
-equalizer (0.0.9)
-erubis (2.7.0)
-ffi (1.9.5 java, 1.9.3 java)
-globalid (0.3.0)
-hike (1.2.3)
-i18n (0.7.0.beta1)
-ice_nine (0.11.0)
-jar-dependencies (0.1.2)
-jdbc-mysql (5.1.31)
-jdbc-sqlite3 (3.7.15.SNAPSHOT)
-jruby-jars (1.7.16)
-jruby-openssl (0.9.5 java)
-jruby-rack (1.1.16)
-json (1.8.1 java, 1.8.0 java)
-krypt (0.0.2)
-krypt-core (0.0.2 universal-java)
-krypt-provider-jdk (0.0.2)
-mail (2.6.1)
-maven-tools (1.0.5)
-mime-types (2.3)
-minitest (5.4.2)
-multi_json (1.10.1)
-nokogiri (1.6.3.1 java)
-rack (1.6.0.beta)
-rack-protection (1.5.3)
-rack-test (0.6.2)
-rails (4.2.0.beta1)
-rails-deprecated_sanitizer (1.0.3)
-rails-dom-testing (1.0.3)
-railties (4.2.0.beta1)
-rake (10.3.2, 10.1.0)
-rdoc (4.1.2, 4.0.1)
-rdoc-data (4.0.1)
-ruby-maven (3.1.1.0.8)
-ruby-maven-libs (3.1.1)
-rubygems-update (2.4.1, 2.2.2)
-rubyzip (1.1.6)
-sinatra (1.4.5)
-sprockets (2.12.2)
-sprockets-rails (3.0.0.beta1)
-thor (0.19.1)
-thread_safe (0.3.4 java)
-tilt (1.4.1)
-tzinfo (1.2.2)
-virtus (1.0.3)
-warbler (1.4.4)</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_beispiel">Beispiel</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><a href="jruby_1st.html">Rails 4: Erste Schritte &hellip; mit JRuby</a></p>
+<p><a href="jruby_1st.html">JRuby on Rails 4.2: Erste Schritte &hellip;</a></p>
 </div>
 </div>
 </div>
@@ -1553,12 +1629,21 @@ export PATH</pre>
 </tr>
 </table>
 </div>
+<hr>
+<div class="paragraph">
+<p>
+<a href="#top" title="zum Seitenanfang">
+  <span>&#8679;</span>
+</a>
+
+<span class="small">&middot; Document generated with Asciidoctor 1.5.2.</span></p>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-10-13 17:14:01 MESZ
+Last updated 2014-12-05 23:10:33 MEZ
 </div>
 </div>
 </body>

@@ -1,5 +1,5 @@
-IiU -- Ruby 2.0.0, Rails 4.0
-============================
+IiU -- Ruby 2.0.0, rails-4.0.3
+==============================
 Installation in Ubuntu — khkoether[at]kahweb[dot]de
 
 :icons:
@@ -38,7 +38,7 @@ Die Programmiersprache {ruby-url}[Ruby] ist die Grundlage für das
 Framework {rubyonrails-url}[Ruby on Rails].
 
 Der Artikel ist in {asciidoctordocs-url}[AsciiDoc] geschrieben 
-und mit _Asciidoctor 1.5.0.preview3_ erstellt worden.
+und mit _Asciidoctor {asciidoctor-version}_ erstellt worden.
 
 [CAUTION]
 ====
@@ -117,7 +117,7 @@ Ohne die Angabe eines Verzeichnisses wird +/usr/local/...+ automatisch verwendet
 Eine bereits vorhandene Ruby-Installation wird überschrieben. 
  
 Beispiel für die Änderung des Installations-Verzeichnisses: +
-+./configure --prefix=/opt/wo_auch_immer+
+#./configure --prefix=/opt/wo_auch_immer#
 ====
 
 *Step 1:* Auspacken des Source-Code
@@ -134,7 +134,7 @@ $ sudo mkdir -p /opt/Ruby/ruby-2.0.0-p451
 ----
 $ ./configure --prefix=/opt/Ruby/ruby-2.0.0-p451 | tee ../log.ruby_configure
 checking build system type... x86_64-unknown-linux-gnu
-[...]
+...
 .ext/include/x86_64-linux/ruby/config.h updated
 verconf.h updated
 ruby library version = 2.0.0
@@ -158,7 +158,7 @@ $ make all | tee ../log.ruby_make-all
         DLDFLAGS = -fstack-protector -pie  
         SOLIBS = 
 compiling main.c
-[...]
+...
 Generating RDoc documentation  
 
 Generating RI format into /yggdrasil/PrecisePangolin/Ruby20/ruby-2.0.0-p451/.ext/rdoc...
@@ -179,12 +179,12 @@ Elapsed: 163.2s
 
 ----
 $ make test | tee ../log.ruby_make-test
-[...]
-sample/test.rb:assignment ...................[...viele...]...OK 372   <1>
+...
+sample/test.rb:assignment ......................viele......OK 372   <1>
 sample/test.rb:condition ..OK 2
 sample/test.rb:if/unless ...OK 3
 sample/test.rb:case .....OK 5
-[...]
+...
 sample/test.rb:gc ....OK 4
 
 test succeeded
@@ -208,7 +208,7 @@ Installation. Sollten Sie sie benötigen, +
 müssen die entsprechenden
 Entwickler-Bibliotheken (libNAME-dev) zusätzlich installiert werden. 
  
-Führen Sie anschließend die obigen Befehle (make ...) erneut aus.
+Führen Sie anschließend die obigen Befehle (#make ...#) erneut aus.
 ----
 $ grep Failed ../log.ruby_make-all
 Failed to configure -test-/win32/dln. It will not be installed.
@@ -225,7 +225,7 @@ Failed to configure win32ole. It will not be installed.
 (Dokumentation wird mitinstalliert: install-doc entfällt)
 ----
 $ sudo make install | tee ../log.ruby_make-install
-[...]
+...
 Generating RDoc documentation
 
 No newer files.
@@ -407,8 +407,8 @@ produces:
 ----
 
 
-Rubygems Aktualisierung
------------------------
+Rubygems
+--------
 _RubyGems_ (oder kurz Gems) ist das offizielle Paketsystem für die 
 Programmiersprache Ruby. Mit ihm hat der Anwender die Möglichkeit, 
 mehrere (zum Beispiel ältere oder jüngere) Versionen eines Programmes, 
@@ -422,7 +422,7 @@ Die Aktualisierung der Ruby2.0-Installation wird mit dem
 Benutzer 'root' durchgeführt.
 ====
 
-*Step 1:* Vorraussetzung für die nächsten Befehle ist ein 
+*Step 0:* Vorraussetzung für die nächsten Befehle ist ein 
 funktionierender +PATH+-Eintrag für alle Benutzer (einschliesslich 'root') 
 auf die Ruby2.0-Installation:
 ----
@@ -454,7 +454,10 @@ rdoc (4.0.0)
 test-unit (2.0.0.0)
 ----
 
-*Step 2:* Das Programm 'gem' aktualisieren ...
+
+update
+~~~~~~
+*Step 1:* Das Programm 'gem' aktualisieren ... (als Benutzer 'root')
 ----
 # gem update --system      
 Updating rubygems-update
@@ -468,7 +471,7 @@ RubyGems 2.2.2 installed
 Parsing documentation for rubygems-2.2.2
 Installing ri documentation for rubygems-2.2.2
 
-[...]
+...
 
  -----------------------------------------------------------------------------
 
@@ -486,8 +489,27 @@ If you do not wish to install this documentation in the future, use the
 
 RubyGems system software updated
 ----
+
+[TIP]
+.gem command reference
+====
+*GEM UPDATE*
+
+Usage
+----
+gem update REGEXP [REGEXP ...] [options]
+----
+
+_Options_: +
+
+* -​-system [VERSION] - Update the RubyGems system software
+* -​-platform PLATFORM - Specify the platform of gem to update
+* -​-[no-]prerelease - Allow prerelease versions of a gem as update targets
+
+-> http://guides.rubygems.org/command-reference/[RubyGems Guides: COMMAND REFERENCE]
+====
  
-*Step 3:* Installierte RubyGems aktualisieren
+*Step 2:* Installierte RubyGems aktualisieren
 ----
 # gem update
 Updating installed gems
@@ -574,13 +596,14 @@ minitest (5.3.0, 4.3.2)
 psych (2.0.4, 2.0.0)
 rake (10.1.1, 0.9.6)   <1>
 rdoc (4.1.1, 4.0.0)
-rubygems-update (2.2.2)
+rubygems-update (2.2.2)      <2>
 test-unit (2.5.5, 2.0.0.0)
 ----
 <1> Der gezeigte Versionssprung ist kein Fehler ;-) +
     &rarr; https://github.com/jimweirich/rake/blob/next-major-release/doc/release_notes/rake-10.0.0.rdoc[Rake 10.0 Released]
+<2> Das RubyGem _rubygems_update_ ist mit #gem update --system# bereits installiert worden.    
 
-*Step 4:* Dokumentation zu den installierten RubyGems aktualisieren
+*Step 3:* Dokumentation zu den installierten RubyGems aktualisieren
 ----
 # cd /opt/Ruby/current20   <1>  
 # rdoc .
@@ -623,32 +646,32 @@ Browser> file:///opt/Ruby/current20/doc/index.html
 ----
 
 
-Installation: Ruby on Rails 4.0.3
----------------------------------
+Installation: rails-4.0.3
+~~~~~~~~~~~~~~~~~~~~~~~~~
 *Step 0* 
 ----
 # gem search ^rails$ --remote
 
 *** REMOTE GEMS ***
 
-rails (4.0.3)
+rails (4.0.3)   <1>
 ----
+<1> Aktuell neueste Version des RubyGem _rails_.
 
-*Step 1:* Wichtig ist hier die Systemweite Installation von 
-Rails 4.0.3 mit dem Benutzer 'root'.
+Mit #gem install...# werden auch alle Abhängigkeiten zu anderen RubyGems aufgelöst. 
 ---- 
 # gem install rails --no-rdoc --no-ri
 Fetching: atomic-1.1.15.gem (100%)
 Building native extensions.  This could take a while...
 Successfully installed atomic-1.1.15
-[...]
+...
 Fetching: rails-4.0.3.gem (100%)
 Successfully installed rails-4.0.3
 28 gems installed   <1>
 ----
-<1> Für das Framework _Ruby on Rails_ wurden 28 RubyGems installiert. +
+<1> Mit dem RubyGem _rails-4.0.3_ wurden insgesamt 28 Gems installiert. +
     28 statt 29, da das RubyGem _minitest_ bereits installiert ist! +
-    Hinweis: Weitere RubyGems müssen installiert werden (Datenbank-Treiber, Erweiterungen). 
+    Hinweis: Weitere RubyGems müssen müssen für das Framework *Ruby on Rails* installiert werden.  
 
 [NOTE]
 ====
@@ -662,6 +685,44 @@ Alternativ kann Rails mit der Angabe einer Version installiert werden.
     im Bereich von >= 4.0.3 und < 4.1 installiert wird. 
 ====
 
+
+asciidoctor
+~~~~~~~~~~~
+http://rubygems.org/gems/asciidoctor/versions/1.5.0.preview3[Download: *asciidoctor* &middot; 1.5.0.preview3] (03.03.2014)
+----
+-rw-r--r-- 1 sid  sid  266240 Mär  3 15:05 asciidoctor-1.5.0.preview3.gem
+----
+
+----
+# gem install asciidoctor-1.5.0.preview3.gem        <1>
+Successfully installed asciidoctor-1.5.0.preview3
+Parsing documentation for asciidoctor-1.5.0.preview3
+Installing ri documentation for asciidoctor-1.5.0.preview3
+Done installing documentation for asciidoctor after 5 seconds
+1 gem installed
+----
+<1> *Asciidoctor* is an open source Ruby processor for converting AsciiDoc markup 
+    into HTML 5, DocBook 4.5 and other formats.
+
+
+sinatra
+~~~~~~~    
+----
+# gem install sinatra --no-rdoc --no-ri   <1>
+Fetching: rack-protection-1.5.2.gem (100%)
+Successfully installed rack-protection-1.5.2
+Fetching: sinatra-1.4.4.gem (100%)
+Successfully installed sinatra-1.4.4
+2 gems installed
+----
+<1> *Sinatra* ist eine _freie_ und _open source Webapplikationsbibliothek_ und 
+    eine in Ruby geschriebene _domänenspezifische_ Sprache. +
+    Sinatra setzt das Rack Webserver-Interface voraus. +
+    &rarr; http://de.wikipedia.org/wiki/Sinatra_%28Software%29[Wikipedia: Sinatra (Software)]
+
+
+list
+~~~~
 ----
 $ gem list --local 
 
@@ -674,6 +735,7 @@ activerecord (4.0.3)
 activerecord-deprecated_finders (1.0.3)
 activesupport (4.0.3)
 arel (4.0.2)
+asciidoctor (1.5.0.preview3)
 atomic (1.1.15)
 bigdecimal (1.2.5, 1.2.0)
 builder (3.1.4)
@@ -690,12 +752,14 @@ multi_json (1.8.4)
 polyglot (0.3.4)
 psych (2.0.4, 2.0.0)
 rack (1.5.2)
+rack-protection (1.5.2)
 rack-test (0.6.2)
 rails (4.0.3)
 railties (4.0.3)
 rake (10.1.1, 0.9.6)
 rdoc (4.1.1, 4.0.0)
 rubygems-update (2.2.2)
+sinatra (1.4.4)
 sprockets (2.11.0)
 sprockets-rails (2.0.1)
 test-unit (2.5.5, 2.0.0.0)
@@ -712,101 +776,32 @@ $ ls -l bin
 -rwxr-xr-x 1 root root      513 Mär  3 14:40 bundle
 -rwxr-xr-x 1 root root      514 Mär  3 14:40 bundler
 -rwxr-xr-x 1 root root     4414 Mär  3 12:30 erb
--rwxr-xr-x 1 root root      510 Mär  3 14:40 erubis
+-rwxr-xr-x 1 root root      510 Mär  3 14:40 erubis   <1>
 -rwxr-xr-x 1 root root      563 Mär  3 12:30 gem
 -rwxr-xr-x 1 root root      335 Mär  3 12:30 irb
--rwxr-xr-x 1 root root      504 Mär  3 14:40 rackup
--rwxr-xr-x 1 root root      515 Mär  3 14:40 rails
+-rwxr-xr-x 1 root root      504 Mär  3 14:40 rackup   <1>
+-rwxr-xr-x 1 root root      515 Mär  3 14:40 rails    <1>
 -rwxr-xr-x 1 root root      502 Mär  3 12:55 rake
 -rwxr-xr-x 1 root root      502 Mär  3 12:56 rdoc
 -rwxr-xr-x 1 root root      500 Mär  3 12:56 ri
 -rwxr-xr-x 1 root root 17680750 Mär  3 12:17 ruby
--rwxr-xr-x 1 root root      522 Mär  3 14:40 sprockets
+-rwxr-xr-x 1 root root      522 Mär  3 14:40 sprockets   <1>
 -rwxr-xr-x 1 root root       95 Mär  3 12:30 testrb
--rwxr-xr-x 1 root root      502 Mär  3 14:40 thor
--rwxr-xr-x 1 root root      502 Mär  3 14:40 tilt
--rwxr-xr-x 1 root root      509 Mär  3 14:40 tt
+-rwxr-xr-x 1 root root      502 Mär  3 14:40 thor     <1>
+-rwxr-xr-x 1 root root      502 Mär  3 14:40 tilt   <1>
+-rwxr-xr-x 1 root root      509 Mär  3 14:40 tt     <1>
 -rwxr-xr-x 1 root root      511 Mär  3 12:53 update_rubygems
 ----
+<1> Die Kommandos #erubis, ...# wurden durch +
+    #gem install rails --pre# installiert.
+
 
 [NOTE]
 ====
-Das Erstellen der Dokumentation müßte wiederholt werden... 
+Das Erstellen der Dokumentation müßte/könnte wiederholt werden... 
 aber mit Rails (29 Gems) zusätzlich - ist sie für viele Partitionen (mit ca. 11GB)
  - halt zu groß ;-)
 ====
-
-*Step 2:* Installation der Datenbank-Treiber mit dem Benutzer 'root'.
----- 
-# gem install mysql2 --no-rdoc --no-ri
-Fetching: mysql2-0.3.15.gem (100%)
-Building native extensions.  This could take a while...
-Successfully installed mysql2-0.3.15
-1 gem installed
-----
-
-[CAUTION]
-====
-_mysql2_ in der Version 0.3.x arbeitet nicht mit _Rails 3.0.x_ zusammen. +
-Dementsprechend mu&szlig; f&uuml;r _Rails 3.0.x_ eine älterere Version installiert werden!
-----
-# gem install mysql2 --version 0.2.11   <1>
-[...]
-----  
-====
-
-----
-# gem install sqlite3 --no-rdoc --no-ri   <1>
-Fetching: sqlite3-1.3.9.gem (100%)
-Building native extensions.  This could take a while...
-Successfully installed sqlite3-1.3.9
-1 gem installed
-----
-<1> Rails ist für die Verwendung einer 'SQLite3'-Datenbank vorkonfiguriert. + 
-    Klein, kompakt und dateibasiert – mit diesen Vorzügen glänzt 'SQLite3'. 
-    Daher haben sich die Rails-Core-Entwickler für 'SQLite3' als 
-    Default-Datenbank entschieden.
- 
-[NOTE]
-====
-Hello! The sqlite3-ruby gem has changed it's name to just sqlite3.  Rather than
-installing `sqlite3-ruby`, you should install `sqlite3`.  Please update your
-dependencies accordingly.
-
-Thanks from the Ruby sqlite3 team!
-
-<3 <3 <3 <3
-====
-
-*Step 3:* Erweiterungen
-----
-# gem install sinatra --no-rdoc --no-ri   <1>
-Fetching: rack-protection-1.5.2.gem (100%)
-Successfully installed rack-protection-1.5.2
-Fetching: sinatra-1.4.4.gem (100%)
-Successfully installed sinatra-1.4.4
-2 gems installed
-----
-<1> *Sinatra* ist eine _freie_ und _open source Webapplikationsbibliothek_ und 
-    eine in Ruby geschriebene _domänenspezifische_ Sprache. +
-    Sinatra setzt das Rack Webserver-Interface voraus. +
-    &rarr; http://de.wikipedia.org/wiki/Sinatra_%28Software%29[Wikipedia: Sinatra (Software)]
-
-http://rubygems.org/gems/asciidoctor/versions/1.5.0.preview3[Download: *asciidoctor* &middot; 1.5.0.preview3] (03.03.2014)
-----
--rw-r--r-- 1 sid  sid  266240 Mär  3 15:05 asciidoctor-1.5.0.preview3.gem
-----
-
-----
-# gem install asciidoctor-1.5.0.preview3.gem        <1>
-Successfully installed asciidoctor-1.5.0.preview3
-Parsing documentation for asciidoctor-1.5.0.preview3
-Installing ri documentation for asciidoctor-1.5.0.preview3
-Done installing documentation for asciidoctor after 5 seconds
-1 gem installed
-----
-<1> *Asciidoctor* is an open source Ruby processor for converting AsciiDoc markup 
-    into HTML 5, DocBook 4.5 and other formats.
 
 
 RubyGems Documentation Index
@@ -825,9 +820,9 @@ Browser> http://localhost:8808/
 image::images/ruby/rubygems20_documentation_index.jpeg[RubyGems 2.0 Documentation Index]
 
 
-Beispiel
---------
-{ruby21_1st-url}[Rails 4: Erste Schritte &hellip; mit Ruby]
+Rails 4.2: Erste Schritte &hellip; mit Ruby
+-------------------------------------------
+{ruby21_1st-url}[Rails 4.2: Erste Schritte &hellip;]
 
 
 Anhang
@@ -882,3 +877,16 @@ ls -l $TARGET
 echo 
 echo "$ME: Ende."
 ----
+
+
+
+
+'''
+ 
++++
+<a href="#top" title="zum Seitenanfang">
+  <span>&#8679;</span> 
+</a>
++++
+[small]#&middot; Document generated with Asciidoctor {asciidoctor-version}.#
+

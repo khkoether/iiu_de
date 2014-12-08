@@ -20,16 +20,16 @@ Installation in Ubuntu — khkoether[at]kahweb[dot]de
 
 :java-koerper-url:    http://www.arndt-bruenner.de/mathe/java/koerper3d.htm
 
-Version 3.0.1, Oktober 2014
+Version 3.0.2, Dezember 2014
 
 
 Abstract
 --------
-Dieser Artikel ist eine Sammlung von Hinweisen zur Installation 
-eines _Java Development Kit (JDK)_ unter GNU/Linux.
+Dieser Artikel ist eine Schritt-für-Schritt Anleitung zur Installation 
+eines _Java Development Kit (JDK)_ unter _GNU/Linux_.
  
 Der Artikel ist in {asciidoctordocs-url}[AsciiDoc] geschrieben 
-und mit _Asciidoctor 1.5.1_ erstellt worden.
+und mit _Asciidoctor {asciidoctor-version}_ erstellt worden.
 
 [CAUTION]
 ====
@@ -54,11 +54,12 @@ andere Debian-basierte GNU/Linux Distributionen übertragbar.
 In Ubuntu 14.04 LTS (Trusty Tahr) kann über bestehende Abhängigkeiten +
 zu anderen Ubuntu-Paketen bereits das _OpenJDK 7_ installiert sein.
 
+[options="nowrap"]
 ----
 $ dpkg --list | grep openjdk 
-ii  openjdk-7-jdk:amd64            7u65-2.5.2-3~14.04   amd64   OpenJDK Development Kit (JDK)
-ii  openjdk-7-jre:amd64            7u65-2.5.2-3~14.04   amd64   OpenJDK Java runtime, using Hotspot JIT
-ii  openjdk-7-jre-headless:amd64   7u65-2.5.2-3~14.04   amd64   OpenJDK Java runtime, using Hotspot JIT (headless)
+ii  openjdk-7-jdk:amd64            7u71-2.5.3-0ubuntu0.14.04.1   amd64   OpenJDK Development Kit (JDK)
+ii  openjdk-7-jre:amd64            7u71-2.5.3-0ubuntu0.14.04.1   amd64   OpenJDK Java runtime, using Hotspot JIT
+ii  openjdk-7-jre-headless:amd64   7u71-2.5.3-0ubuntu0.14.04.1   amd64   OpenJDK Java runtime, using Hotspot JIT (headless)
 ----
 ====
 
@@ -128,22 +129,23 @@ openjdk-7-jdk ist schon die neueste Version.
 
 ----
 $ java -version
-java version "1.7.0_65"
-OpenJDK Runtime Environment (IcedTea 2.5.2) (7u65-2.5.2-3~14.04)
+java version "1.7.0_65"   <1>
+OpenJDK Runtime Environment (IcedTea 2.5.3) (7u71-2.5.2-3~14.04)
 OpenJDK 64-Bit Server VM (build 24.65-b04, mixed mode)
 ----   
+<1> Hier sollte ansich _"1.7.0_71"_ stehen!?
 
  
 Installation: Oracle JDK 7
 --------------------------
 Wie auch immer, einige Ubuntu-Anwender benötigen das Oracle JDK. +
 Empfohlen wird die jeweils neueste Version - zu diesem Zeitpunkt ist das: 
-_Java SE Development Kit 7u67_.
+_Java SE Development Kit 7u71_.
 
 Zusätzliche Software-Pakete  
 sollten im Verzeichnis +/opt+ (Optional) installiert werden. 
 
-*Step 0:* Download JDK 7u67
+*Step 0:* Download JDK 7u71
 
 &rarr; {java-url}[Oracle: Java SE Downloads]
 
@@ -155,26 +157,28 @@ for Java SE to download this software.
 
 *Step 1:* Installation im Verzeichnis +/opt/Java+ (mit Benutzer 'root')
 ----
-$ sudo mkdir /opt/Java && cd /opt/Java 
+$ sudo mkdir /opt/Java
+$ sudo mv jdk-7u71-linux-x64.tar.gz /opt/Java  
+$ cd /opt/Java 
 
 $ ls -l
--rw-rw-r-- 1 sid sid  142376665 Sep 28 22:13 jdk-7u67-linux-x64.tar.gz
+-rw-rw-r-- 1 sid sid  142216602 Dez  5 16:23 jdk-7u71-linux-x64.tar.gz
 
-$ sudo tar xvzf jdk-7u67-linux-x64.tar.gz
-[...]
+$ sudo tar xvzf jdk-7u71-linux-x64.tar.gz
+...
 ----
 
 Ein Vorteil bei der gezeigten Lösung ist, daß für das Einspielen einer neuen Version 
 weder die Konfigurations-Datei noch die +PATH+-Variable angepasst werden müssen.  
 ----
-$ cd /opt/Java
-$ sudo chown -R root.root jdk1.7.0_67
+$ sudo chown -R root.root jdk1.7.0_71
 
-$ sudo ln -s jdk1.7.0_67 current
+$ sudo ln -s jdk1.7.0_71 current
 $ ls -l
-lrwxrwxrwx 1 root root         11 Sep 28 22:15 current -> jdk1.7.0_67
--rw-r--r-- 1 root root        328 Mär  3  2014 java.path.sh
-drwxr-xr-x 8 root root       4096 Jul 25 18:51 jdk1.7.0_67
+lrwxrwxrwx 1 root root        11 Dez  5 16:26 current -> jdk1.7.0_71
+-rw-r--r-- 1 root root       328 Mär  3  2014 java.path.sh
+drwxr-xr-x 8 root root      4096 Sep 27 02:14 jdk1.7.0_71
+-rw-rw-r-- 1 sid  sid  142216602 Dez  5 16:23 jdk-7u71-linux-x64.tar.gz
 ----
 
 *Step 2:* Java-Pfad setzen (von au&szlig;en)
@@ -193,9 +197,9 @@ $ which java
 /opt/Java/current/bin/java
 
 $ java -version
-java version "1.7.0_67"
-Java(TM) SE Runtime Environment (build 1.7.0_67-b01)   <1>
-Java HotSpot(TM) 64-Bit Server VM (build 24.65-b04, mixed mode)
+java version "1.7.0_71"
+Java(TM) SE Runtime Environment (build 1.7.0_71-b14)
+Java HotSpot(TM) 64-Bit Server VM (build 24.71-b01, mixed mode)   <1>
 ----
 <1> _b_ steht für _build_
 
