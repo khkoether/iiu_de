@@ -27,28 +27,31 @@ Ruby on Rails und Git ... und ... Dokumentation ist notwendig.
    Java, die wiederum die Grundlage für das Framework 
    Ruby on Rails bildet. 
 
-Die Artikel sind in AsciiDoc erstellt worden.
- * Asciidoctor 1.5.1
- * AsciiDoc 8.6.9 (unverändert)
- * Asciidoctor: Erste Schritte ... mit Asciidoctor
- * Git 2.1.1
- * Ruby 1.9.3-p547 - Rails 4.2
- * Ruby 2.0.0-p451 - Rails 4.0 (unverändert)
- * Ruby 2.1.3-p242 - Rails 4.2 
- * Rails 4: Erste Schritte ... mit Ruby
+Die Artikel sind in AsciiDoc geschrieben und mit Asciidoctor erstellt worden.
+ * Asciidoctor 1.5.2
+ * Asciidoctor: Erste Schritte ... 
+ * Git 2.2.0
+ * Ruby 1.9.3-p551 - rails-4.2.0.rc1
+ * Ruby 2.1.3-p273 - rails-4.2.0.rc1 
+ * Ruby on Rails 4.2: Erste Schritte ... 
  * OpenJDK 7, Oracle JDK 7 
- * JRuby 1.7.16 - Rails 4.2
- * Rails 4: Erste Schritte ... mit JRuby 
- * NetBeans 7.4
- * Rails 4: Erste Schritte ... mit der NetBeans IDE
+ * JRuby 1.7.16.1 - rails-4.2.0.rc1
+ * JRuby on Rails 4.2: Erste Schritte ...  
+ * NetBeans IDE 7.4
+ * NetBeans IDE: Erste Schritte ... 
 
+Unverändert - diese Seiten werden nicht weiter aktualisiert
+ * AsciiDoc 8.6.9 (unverändert)
+ * Ruby 2.0.0-p451 - rails-4.0.3.rc1 (unverändert)
+
+Dateien
 $ asciidoctor -a toc NAME.adoc
 
 Verzeichnis-Struktur:
 ./iiu_de.sh         <-- Script zum Erstellen aller HTML-Dateien
 ./NAME.adoc
 ./NAME.html
-./images/icons      <-- Images durch AsciiDoc
+./images/icons      <-- Images durch Asciidoctor
 ./images/netbeans   <-- Images des Installationsdialogs
 ./images/ruby       <-- Image des RubyGems Documentation Index
 ./images/jruby      <-- Image des RubyGems Documentation Index
