@@ -41,8 +41,8 @@ Die Artikel sind in AsciiDoc geschrieben und mit Asciidoctor erstellt worden.
  * NetBeans IDE: Erste Schritte ... 
 
 Unverändert - diese Seiten werden nicht weiter aktualisiert
- * AsciiDoc 8.6.9 (unverändert)
- * Ruby 2.0.0-p451 - rails-4.0.3.rc1 (unverändert)
+ * AsciiDoc 8.6.9 
+ * Ruby 2.0.0-p451 - rails-4.0.3
 
 Dateien
 $ asciidoctor -a toc NAME.adoc
