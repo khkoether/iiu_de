@@ -55,9 +55,9 @@ Ubuntu 14.04 LTS (Trusty Tahr) enthält das Paket _git-core_1.9.1-1_all_.
 Download
 --------
 * {git-download-url}[Git] +    
-  `git-{git-version}.tar.gz`  (ca. 5.0M) +
-  `git-htmldocs-{git-version}.tar.gz`  (ca. 2.3M) +
-  `git-manpages-{git-version}.tar.gz`  (ca. 576K) +
+  `git-2.2.1.tar.gz`  (ca. 5.0M) +
+  `git-htmldocs-2.2.1.tar.gz`  (ca. 2.3M) +
+  `git-manpages-2.2.1.tar.gz`  (ca. 576K) +
   2014-12-18 (Release date)
   
 [NOTE] 
@@ -391,7 +391,7 @@ Browser> file:///usr/local/share/doc/git-doc/git-config.html
 
 Anhang
 ------
-Script zum Installieren von {git-url}[Git] {git-version} (ohne weitere Erläuterung). +
+Script zum Installieren von {git-url}[Git] 2.2.1 (ohne weitere Erläuterung). +
 Die Dokumentation zu {git-url}[Git] wird mit diesem Script _nicht_ installiert.
 
 .Datei: `git-install.sh`
