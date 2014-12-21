@@ -118,3 +118,7 @@ Version 1.8.2
   Auf allen Seiten wird ein footer eingefügt - mit einem #top-Link und 
   einem Hinweis auf die verwendete Asciidoctor-Version.
    
+.Version 3.0.3
+* Neue Programmversion: Git (2.2.1) -- Security-fix, which affects users on Windows
+  and Mac OS X but not typical UNIX users.
+   

@@ -66,7 +66,7 @@ Auswahl
 -------
 * {asciidoctor-url}[Asciidoctor 1.5.2]
 * {asciidoctor_1st-url}[Asciidoctor: Erste Schritte &hellip;] 
-* {git-url}[Git 2.2.0]
+* {git-url}[Git 2.2.1]
 * {ruby19-url}[Ruby 1.9.3, rails-4.2.0.rc1]
 * {ruby21-url}[Ruby 2.1.5, rails-4.2.0.rc1]
 * {ruby21_1st-url}[Ruby on Rails 4.2: Erste Schritte &hellip;]
