@@ -24,7 +24,7 @@ Installation in Ubuntu — khkoether[at]kahweb[dot]de
 :ruby21_1st-url:      link:ruby21_1st.html
 :ruby21-url:          link:ruby21.html
 
-Version 3.0.2, Dezember 2014
+Version 3.0.4, Dezember 2014
 
 
 Abstract
@@ -67,11 +67,11 @@ Auswahl
 * {asciidoctor-url}[Asciidoctor 1.5.2]
 * {asciidoctor_1st-url}[Asciidoctor: Erste Schritte &hellip;] 
 * {git-url}[Git 2.2.1]
-* {ruby19-url}[Ruby 1.9.3, rails-4.2.0.rc1]
-* {ruby21-url}[Ruby 2.1.5, rails-4.2.0.rc1]
+* {ruby19-url}[Ruby 1.9.3, rails-4.2.0]
+* {ruby21-url}[Ruby 2.1.5, rails-4.2.0]
 * {ruby21_1st-url}[Ruby on Rails 4.2: Erste Schritte &hellip;]
 * {jdk-url}[OpenJDK 7, Oracle JDK 7] 
-* {jruby-url}[JRuby 1.7.16.1 - rails-4.2.0.rc1]
+* {jruby-url}[JRuby 1.7.18 - rails-4.2.0]
 * {jruby_1st-url}[JRuby on Rails 4.2: Erste Schritte &hellip;] 
 * {netbeans-url}[NetBeans IDE 7.4]
 * {netbeans_1st-url}[NetBeans IDE: Erste Schritte &hellip;]   

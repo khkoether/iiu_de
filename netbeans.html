@@ -440,7 +440,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_netbeans_ide_7_4_plugins">NetBeans IDE 7.4: Plugins</a></li>
 <li><a href="#_netbeans_ide_7_4_neustart">NetBeans IDE 7.4: Neustart</a></li>
 <li><a href="#_netbeans_ide_7_4_ruby_platforms">NetBeans IDE 7.4: Ruby Platforms</a></li>
-<li><a href="#_netbeans_ide_7_4_jruby_1_7_16_1_gems">NetBeans IDE 7.4: JRuby 1.7.16.1 Gems</a></li>
+<li><a href="#_netbeans_ide_7_4_jruby_1_7_18_gems">NetBeans IDE 7.4: JRuby 1.7.18 Gems</a></li>
 <li><a href="#_netbeans_ide_7_4_netbeans">NetBeans IDE 7.4: ~/.netbeans</a></li>
 </ul>
 </li>
@@ -452,7 +452,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Version 3.0.2, Dezember 2014</p>
+<p>Version 3.0.4, Dezember 2014</p>
 </div>
 </div>
 </div>
@@ -580,7 +580,7 @@ OpenJDK Runtime Environment (IcedTea 2.5.3) (7u71-2.5.3-0ubuntu0.14.04.1)
 OpenJDK 64-Bit Server VM (build 24.65-b04, mixed mode)
 
 $ jruby -v
-jruby 1.7.16.1 (1.9.3p392) 2014-10-28 4e93f31 on OpenJDK 64-Bit Server VM 1.7.0_65-b32 +jit [linux-amd64]</pre>
+jruby 1.7.18 (1.9.3p551) 2014-12-22 625381c on OpenJDK 64-Bit Server VM 1.7.0_65-b32 +jit [linux-amd64]</pre>
 </div>
 </div>
 </div>
@@ -1094,7 +1094,8 @@ vorhandene Ruby-Installationen automatisch in der
 </div>
 <div class="paragraph">
 <p>Im <code>PATH</code> war zum Zeitpunkt der Installation kein Verweis auf die
-von mir zusätzlich installierten Versionen <em>Ruby 1.9.3-p551</em> und <em>Ruby 2.1.5</em>!</p>
+von mir zusätzlich installierte Versionen von <em>JRuby 1.7.18</em>,
+sowie den C-Versionen <em>Ruby 1.9.3-p551</em> und <em>Ruby 2.1.5</em>!</p>
 </div>
 </td>
 </tr>
@@ -1102,7 +1103,7 @@ von mir zusätzlich installierten Versionen <em>Ruby 1.9.3-p551</em> und <em>Rub
 </div>
 <div class="paragraph">
 <p>&nbsp;<br>
-<strong>Step 10:</strong> <em>Ruby Platform Manager</em> &#8594; Add Platform &#8594; <strong>Ruby 2.1.5-p273</strong></p>
+<strong>Step 10:</strong> <em>Ruby Platform Manager</em> &#8594; Add Platform &#8594; <strong>JRuby 1.7.18</strong></p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1121,7 +1122,7 @@ von mir zusätzlich installierten Versionen <em>Ruby 1.9.3-p551</em> und <em>Rub
 </div>
 </div>
 <div class="sect2">
-<h3 id="_netbeans_ide_7_4_jruby_1_7_16_1_gems">NetBeans IDE 7.4: JRuby 1.7.16.1 Gems</h3>
+<h3 id="_netbeans_ide_7_4_jruby_1_7_18_gems">NetBeans IDE 7.4: JRuby 1.7.18 Gems</h3>
 <div class="paragraph">
 <p><strong>Step 11:</strong> <em>Ruby Platform Manager</em> &#8594; Gem Manager</p>
 </div>
@@ -1132,7 +1133,7 @@ von mir zusätzlich installierten Versionen <em>Ruby 1.9.3-p551</em> und <em>Rub
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/nb20_Ruby_Gems.png" alt="NetBeans IDE 7.4: Ruby Gems: JRuby 1.7.16">
+<img src="images/netbeans/nb20_Ruby_Gems.png" alt="NetBeans IDE 7.4: Ruby Gems: JRuby 1.7.18">
 </div>
 </div>
 </div>
@@ -1145,32 +1146,33 @@ von mir zusätzlich installierten Versionen <em>Ruby 1.9.3-p551</em> und <em>Rub
 <div class="title">~/.netbeans</div>
 <div class="content">
 <pre>$ ls -la ~/.netbeans/
-drwxrwxr-x  3 sid sid 4096 Dez  7 21:04 .
-drwxr-xr-x 26 sid sid 4096 Dez  8 21:14 ..
-drwxrwxr-x 10 sid sid 4096 Dez  8 21:27 7.4
--rw-rw-r--  1 sid sid   36 Dez  7 21:04 .superId</pre>
+drwxrwxr-x  3 sid sid 4096 Dez  7 22:04 .
+drwxr-xr-x 27 sid sid 4096 Dez 23 18:07 ..
+drwxrwxr-x 10 sid sid 4096 Dez 23 19:12 7.4
+-rw-rw-r--  1 sid sid   36 Dez  7 22:04 .superId</pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre>$ ls -la ../.netbeans/7.4
-drwxrwxr-x 10 sid sid 4096 Dez  8 21:27 .
-drwxrwxr-x  3 sid sid 4096 Dez  7 21:04 ..
--rw-rw-r--  1 sid sid 1595 Dez  8 21:23 build.properties
-drwxrwxr-x  7 sid sid 4096 Dez  8 21:11 config
-drwxrwxr-x  7 sid sid 4096 Dez  8 21:11 jruby
--rw-rw-r--  1 sid sid    0 Dez  8 21:12 .lastModified
-drwxrwxr-x  3 sid sid 4096 Dez  8 21:13 .metadata
-drwxrwxr-x  4 sid sid 4096 Dez  8 21:12 modules
--rw-rw-r--  1 sid sid 1406 Dez  8 21:11 platform_info.rb
--rw-rw-r--  1 sid sid 3220 Dez  8 21:11 plugin.rb
--rw-rw-r--  1 sid sid  524 Dez  8 21:11 rake
-drwxrwxr-x  3 sid sid 4096 Dez  8 21:11 ruby
-drwxrwxr-x  3 sid sid 4096 Dez  8 21:11 rubystubs
--rw-rw-r--  1 sid sid  220 Dez  8 21:11 sync-stdio.rb
-drwxrwxr-x  2 sid sid 4096 Dez  8 21:12 update_tracking
-drwxrwxr-x  3 sid sid 4096 Dez  7 21:04 var
--rw-rw-r--  1 sid sid   41 Dez  8 21:11 VERSION.txt</pre>
+drwxrwxr-x 10 sid sid 4096 Dez 23 19:12 .
+drwxrwxr-x  3 sid sid 4096 Dez  7 22:04 ..
+-rw-rw-r--  1 sid sid 2149 Dez 23 19:21 build.properties
+drwxrwxr-x  7 sid sid 4096 Dez  8 22:11 config
+drwxrwxr-x  7 sid sid 4096 Dez  8 22:11 jruby
+-rw-rw-r--  1 sid sid    0 Dez  8 22:37 .lastModified
+-rw--w----  1 sid sid   18 Dez 23 19:12 lock
+drwxrwxr-x  3 sid sid 4096 Dez  8 22:13 .metadata
+drwxrwxr-x  4 sid sid 4096 Dez  8 22:12 modules
+-rw-rw-r--  1 sid sid 1406 Dez  8 22:11 platform_info.rb
+-rw-rw-r--  1 sid sid 3220 Dez  8 22:11 plugin.rb
+-rw-rw-r--  1 sid sid  524 Dez  8 22:11 rake
+drwxrwxr-x  3 sid sid 4096 Dez  8 22:11 ruby
+drwxrwxr-x  3 sid sid 4096 Dez  8 22:11 rubystubs
+-rw-rw-r--  1 sid sid  220 Dez  8 22:11 sync-stdio.rb
+drwxrwxr-x  2 sid sid 4096 Dez  8 22:12 update_tracking
+drwxrwxr-x  4 sid sid 4096 Dez  8 22:45 var
+-rw-rw-r--  1 sid sid   41 Dez  8 22:11 VERSION.txt</pre>
 </div>
 </div>
 </div>
@@ -1196,7 +1198,7 @@ drwxrwxr-x  3 sid sid 4096 Dez  7 21:04 var
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-12-08 23:10:12 MEZ
+Last updated 2014-12-23 20:05:00 MEZ
 </div>
 </div>
 </body>

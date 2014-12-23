@@ -17,7 +17,7 @@ Installation in Ubuntu — khkoether[at]kahweb[dot]de
 :jruby-download-url:  http://jruby.org/download
 
 :jdk-url:             link:jdk.html
-:jruby-version:       1.7.16.1
+:jruby-version:       1.7.18
 :jruby_1st-url:       link:jruby_1st.html
 
 :netbeans-url:        link:netbeans.html
@@ -27,7 +27,7 @@ Installation in Ubuntu — khkoether[at]kahweb[dot]de
 :netbeans-ide-plugin-url:                http://plugins.netbeans.org/PluginPortal/
 :netbeans-ide-plugin-ruby-and-rails-url: http://plugins.netbeans.org/plugin/38549/ruby-and-rails
 
-Version 3.0.2, Dezember 2014
+Version 3.0.4, Dezember 2014
 
 
 Abstract
@@ -165,12 +165,12 @@ $ cd ~/NetBeansProjects/RailsApplication1
 ----
 $ rails s
 => Booting WEBrick
-=> Rails 4.2.0.rc1 application starting in development on http://localhost:3000
+=> Rails 4.2.0 application starting in development on http://localhost:3000
 => Run `rails server -h` for more startup options
 => Ctrl-C to shutdown server
-[2014-12-08 22:58:35] INFO  WEBrick 1.3.1
-[2014-12-08 22:58:35] INFO  ruby 1.9.3 (2014-10-28) [java]
-[2014-12-08 22:58:35] INFO  WEBrick::HTTPServer#start: pid=9829 port=3000
+[2014-12-23 20:00:09] INFO  WEBrick 1.3.1
+[2014-12-23 20:00:09] INFO  ruby 1.9.3 (2014-12-22) [java]
+[2014-12-23 20:00:09] INFO  WEBrick::HTTPServer#start: pid=9329 port=3000
 ...
 ----
 

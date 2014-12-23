@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.2">
 <meta name="author" content="Installation in Ubuntu — khkoether[at]kahweb[dot]de">
-<title>IiU&#8201;&#8212;&#8201;Ruby 1.9.3, rails-4.2.0.rc1</title>
+<title>IiU&#8201;&#8212;&#8201;Ruby 1.9.3, rails-4.2.0</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -412,7 +412,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>IiU&#8201;&#8212;&#8201;Ruby 1.9.3, rails-4.2.0.rc1</h1>
+<h1>IiU&#8201;&#8212;&#8201;Ruby 1.9.3, rails-4.2.0</h1>
 <div class="details">
 <span id="author" class="author">Installation in Ubuntu — khkoether[at]kahweb[dot]de</span><br>
 </div>
@@ -426,7 +426,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_rubygems">RubyGems</a>
 <ul class="sectlevel2">
 <li><a href="#_update">update</a></li>
-<li><a href="#_rails_4_2_0_rc1">rails-4.2.0.rc1</a></li>
+<li><a href="#_rails_4_2_0">rails-4.2.0</a></li>
 <li><a href="#_asciidoctor">asciidoctor</a></li>
 <li><a href="#_sinatra">sinatra</a></li>
 <li><a href="#_list">list</a></li>
@@ -442,7 +442,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Version 3.0.2, Dezember 2014</p>
+<p>Version 3.0.4, Dezember 2014</p>
 </div>
 </div>
 </div>
@@ -846,23 +846,23 @@ installing default gems:      /opt/Ruby/ruby-1.9.3-p551/lib/ruby/gems/1.9.1 (cac
 <div class="content">
 <pre>$ cd /opt/Ruby/ruby-1.9.3-p551
 $ ls -l
-drwxr-xr-x 2 root root 4096 Dez  3 14:54 bin
-drwxr-xr-x 3 root root 4096 Dez  3 14:54 include
-drwxr-xr-x 4 root root 4096 Dez  3 14:54 lib
-drwxr-xr-x 5 root root 4096 Dez  3 14:54 share</pre>
+drwxr-xr-x 2 root root 4096 Dez 22 18:11 bin
+drwxr-xr-x 3 root root 4096 Dez 22 18:11 include
+drwxr-xr-x 4 root root 4096 Dez 22 18:11 lib
+drwxr-xr-x 5 root root 4096 Dez 22 18:11 share</pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre>$ ls -l bin
--rwxr-xr-x 1 root root     4414 Dez  3 14:54 erb
--rwxr-xr-x 1 root root      563 Dez  3 14:54 gem
--rwxr-xr-x 1 root root      335 Dez  3 14:54 irb
--rwxr-xr-x 1 root root     1248 Dez  3 14:54 rake
--rwxr-xr-x 1 root root      805 Dez  3 14:54 rdoc
--rwxr-xr-x 1 root root      205 Dez  3 14:54 ri
--rwxr-xr-x 1 root root 10610012 Dez  3 14:50 ruby
--rwxr-xr-x 1 root root      315 Dez  3 14:54 testrb</pre>
+-rwxr-xr-x 1 root root     4414 Dez 22 18:11 erb
+-rwxr-xr-x 1 root root      563 Dez 22 18:11 gem
+-rwxr-xr-x 1 root root      335 Dez 22 18:11 irb
+-rwxr-xr-x 1 root root     1248 Dez 22 18:11 rake
+-rwxr-xr-x 1 root root      805 Dez 22 18:11 rdoc
+-rwxr-xr-x 1 root root      205 Dez 22 18:11 ri
+-rwxr-xr-x 1 root root 10610012 Dez 22 15:16 ruby
+-rwxr-xr-x 1 root root      315 Dez 22 18:11 testrb</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -874,10 +874,10 @@ drwxr-xr-x 5 root root 4096 Dez  3 14:54 share</pre>
 $ sudo ln -s ruby-1.9.3-p551 current19
 
 $ ls -l
-lrwxrwxrwx 1 root root   15 Dez  3 14:56 current19 -&gt; ruby-1.9.3-p551
+lrwxrwxrwx 1 root root   15 Dez 22 18:25 current19 -&gt; ruby-1.9.3-p551
 lrwxrwxrwx 1 root root   15 Mär  2 12:36 current20 -&gt; ruby-2.0.0-p451
-drwxr-xr-x 6 root root 4096 Dez  3 14:55 ruby-1.9.3-p551
--rw-r--r-- 1 root root   47 Dez  3 12:38 ruby19.path.sh
+drwxr-xr-x 6 root root 4096 Dez 22 18:22 ruby-1.9.3-p551
+-rw-r--r-- 1 root root   47 Dez 22 18:25 ruby19.path.sh
 drwxr-xr-x 6 root root 4096 Mär  2 12:30 ruby-2.0.0-p451
 -rw-r--r-- 1 root root   47 Mär  2 12:38 ruby20.path.sh</pre>
 </div>
@@ -975,10 +975,10 @@ irb(main):001:0&gt; RUBY_VERSION
 irb(main):002:0&gt; RUBY_PATCHLEVEL
 =&gt; 551
 irb(main):003:0&gt; Time.now.to_s
-=&gt; "2014-12-03 15:00:06 +0100"
+=&gt; "2014-12-22 18:14:09 +0100"
 irb(main):004:0&gt; Time.now.sunday?
 =&gt; false
-irb(main):005:0&gt; Time.now.wednesday?
+irb(main):005:0&gt; Time.now.monday?
 =&gt; true
 irb(main):006:0&gt; exit</pre>
 </div>
@@ -1195,10 +1195,10 @@ Successfully installed json-1.8.1
 Installing ri documentation for json-1.8.1
 Installing darkfish documentation for json-1.8.1
 Updating minitest
-Fetching: minitest-5.4.3.gem (100%)
-Successfully installed minitest-5.4.3
-Installing ri documentation for minitest-5.4.3
-Installing darkfish documentation for minitest-5.4.3
+Fetching: minitest-5.5.0.gem (100%)
+Successfully installed minitest-5.5.0
+Installing ri documentation for minitest-5.5.0
+Installing darkfish documentation for minitest-5.5.0
 Updating rake
 Fetching: rake-10.4.2.gem (100%)
 rake's executable "rake" conflicts with /opt/Ruby/ruby-1.9.3-p551/bin/rake
@@ -1207,7 +1207,7 @@ Successfully installed rake-10.4.2
 Installing ri documentation for rake-10.4.2
 Installing darkfish documentation for rake-10.4.2
 Updating rdoc
-Fetching: rdoc-4.1.2.gem (100%)
+Fetching: rdoc-4.2.0.gem (100%)
 rdoc's executable "rdoc" conflicts with /opt/Ruby/ruby-1.9.3-p551/bin/rdoc
 Overwrite the executable? [yN]  y   <img src="./images/icons/callouts/1.png" alt="1">
 rdoc's executable "ri" conflicts with /opt/Ruby/ruby-1.9.3-p551/bin/ri
@@ -1218,9 +1218,9 @@ Depending on your version of ruby, you may need to install ruby rdoc/ri data:
  = 1.8.7 : gem install rdoc-data; rdoc-data --install
  = 1.9.1 : gem install rdoc-data; rdoc-data --install
 &gt;= 1.9.2 : nothing to do! Yay!
-Successfully installed rdoc-4.1.2
-Installing ri documentation for rdoc-4.1.2
-Installing darkfish documentation for rdoc-4.1.2
+Successfully installed rdoc-4.2.0
+Installing ri documentation for rdoc-4.2.0
+Installing darkfish documentation for rdoc-4.2.0
 Gems updated: bigdecimal io-console json minitest rake rdoc   <img src="./images/icons/callouts/2.png" alt="2"></pre>
 </div>
 </div>
@@ -1245,9 +1245,9 @@ Gems updated: bigdecimal io-console json minitest rake rdoc   <img src="./images
 bigdecimal (1.2.5, 1.1.0)
 io-console (0.4.2, 0.3)
 json (1.8.1, 1.5.5)
-minitest (5.4.3, 2.5.1)
+minitest (5.5.0, 2.5.1)
 rake (10.4.2, 0.9.2.2)    <img src="./images/icons/callouts/1.png" alt="1">
-rdoc (4.1.2, 3.9.5)
+rdoc (4.2.0, 3.9.5)
 rubygems-update (2.4.5)   <img src="./images/icons/callouts/2.png" alt="2"></pre>
 </div>
 </div>
@@ -1273,24 +1273,31 @@ rubygems-update (2.4.5)   <img src="./images/icons/callouts/2.png" alt="2"></pre
 # rdoc .
 Parsing sources...
 Couldn't find file to include 'README.txt' from lib/ruby/1.9.1/minitest/unit.rb
-unknown encoding name "&lt;%= @options.charset %&gt;" for lib/ruby/1.9.1/rdoc/generator/template/darkfish/classpage.rhtml, skipping
-Couldn't find file to include 'README.txt' from lib/ruby/gems/1.9.1/gems/minitest-5.4.3/lib/minitest.rb
-100% [21046/21046]  share/ri/1.9.1/system/fatal/cdesc-fatal.ri
+   unknown encoding name "&lt;%= @options.charset %&gt;" for lib/ruby/1.9.1/rdoc/generator/template/darkfish/classpage.rhtml, skipping
+Couldn't find file to include 'README.txt' from lib/ruby/gems/1.9.1/gems/minitest-5.5.0/lib/minitest.rb
+100% [7479/7479]  share/man/man1/ruby.1
 
 Generating Darkfish format into /opt/Ruby/ruby-1.9.3-p551/doc...   <img src="./images/icons/callouts/2.png" alt="2">
+(eval):11: warning: regular expression has ']' without escape: /span&gt;].&lt;span class="ruby-identifier"&gt;include?&lt;/
+(eval):12: warning: regular expression has ']' without escape: /span&gt; &lt;span class="ruby-string"&gt;']'&lt;/
+(eval):13: warning: regular expression has ']' without escape: /span&gt;])
+  &lt;span class="ruby-keyword"&gt;elsif&lt;/
+(eval):10: warning: invalid character syntax; use ?\s
+(eval):3: warning: string literal in condition
+(eval):2: warning: string literal in condition
 
-  Files:      21046
+  Files:       7479
 
-  Classes:     1303 ( 663 undocumented)
-  Modules:      262 ( 135 undocumented)
-  Constants:   1049 ( 716 undocumented)
-  Attributes:  1198 ( 442 undocumented)
-  Methods:     8557 (3388 undocumented)
+  Classes:     1384 ( 737 undocumented)
+  Modules:      316 ( 186 undocumented)
+  Constants:   1066 ( 732 undocumented)
+  Attributes:  1210 ( 452 undocumented)
+  Methods:     8735 (3511 undocumented)
 
-  Total:      12369 (5344 undocumented)
-   56.80% documented
+  Total:      12711 (5618 undocumented)
+   55.80% documented
 
-  Elapsed: 1789.2s   <img src="./images/icons/callouts/2.png" alt="2"></pre>
+  Elapsed: 2026.8s   <img src="./images/icons/callouts/2.png" alt="2"></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -1308,11 +1315,11 @@ Generating Darkfish format into /opt/Ruby/ruby-1.9.3-p551/doc...   <img src="./i
 <div class="listingblock">
 <div class="content">
 <pre># ls -l
-drwxr-xr-x  2 root root  4096 Dez  3 15:09 bin
-drwxr-xr-x 83 root root 16384 Dez  3 15:41 doc       <img src="./images/icons/callouts/1.png" alt="1">
-drwxr-xr-x  3 root root  4096 Dez  3 14:54 include
-drwxr-xr-x  4 root root  4096 Dez  3 14:54 lib
-drwxr-xr-x  5 root root  4096 Dez  3 14:54 share</pre>
+drwxr-xr-x  2 root root  4096 Dez 22 18:18 bin
+drwxr-xr-x 84 root root 12288 Dez 22 18:54 doc       <img src="./images/icons/callouts/1.png" alt="1">
+drwxr-xr-x  3 root root  4096 Dez 22 18:11 include
+drwxr-xr-x  4 root root  4096 Dez 22 18:11 lib
+drwxr-xr-x  5 root root  4096 Dez 22 18:11 share</pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -1320,7 +1327,7 @@ drwxr-xr-x  5 root root  4096 Dez  3 14:54 share</pre>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
 <td>Das Dokumentations-Verzeichnis enthält die Datei <code>index.html</code>.<br>
-Das neue Verzeichnis belegt ca. 187M Speicherplatz.</td>
+Das neue Verzeichnis belegt ca. 185M Speicherplatz.</td>
 </tr>
 </table>
 </div>
@@ -1331,7 +1338,7 @@ Das neue Verzeichnis belegt ca. 187M Speicherplatz.</td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_rails_4_2_0_rc1">rails-4.2.0.rc1</h3>
+<h3 id="_rails_4_2_0">rails-4.2.0</h3>
 <div class="paragraph">
 <p>Die Installation wird mit dem Benutzer <em>root</em> durchgeführt.</p>
 </div>
@@ -1344,15 +1351,14 @@ Das neue Verzeichnis belegt ca. 187M Speicherplatz.</td>
 
 *** REMOTE GEMS ***
 
-rails (4.1.8)   <img src="./images/icons/callouts/1.png" alt="1"></pre>
+rails (4.2.0)   <img src="./images/icons/callouts/1.png" alt="1"></pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Aktuell neueste Version des RubyGem <em>rails</em>.<br>
-Ich installiere aber die oben genannte Version <strong>4.2.0.rc1</strong>!</td>
+<td>Seit dem 19.12.2014 ist das die neueste Version des RubyGem <em>rails</em>.</td>
 </tr>
 </table>
 </div>
@@ -1368,17 +1374,13 @@ Ich installiere aber die oben genannte Version <strong>4.2.0.rc1</strong>!</td>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre># gem install rails --pre --no-rdoc --no-ri   <img src="./images/icons/callouts/1.png" alt="1"> <img src="./images/icons/callouts/2.png" alt="2"></pre>
+<pre># gem install rails --no-rdoc --no-ri   <img src="./images/icons/callouts/1.png" alt="1"></pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td><mark>--pre</mark>  installiert die letzte nicht-offizielle Version: <em>rails-4.2.0.rc1</em></td>
-</tr>
-<tr>
-<td><img src="./images/icons/callouts/2.png" alt="2"></td>
 <td><mark>--no-rdoc --no-ri</mark> In der Regel wird die offizielle Dokumentation genutzt:<br>
 &#8594; <a href="http://guides.rubyonrails.org/" class="bare">http://guides.rubyonrails.org/</a></td>
 </tr>
@@ -1393,12 +1395,12 @@ Ich installiere aber die oben genannte Version <strong>4.2.0.rc1</strong>!</td>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre># gem install rails --pre --no-rdoc --no-ri
+<pre># gem install rails --no-rdoc --no-ri
 Fetching: thread_safe-0.3.4.gem (100%)
 Successfully installed thread_safe-0.3.4
 ...
-Fetching: rails-4.2.0.rc1.gem (100%)
-Successfully installed rails-4.2.0.rc1
+Fetching: rails-4.2.0.gem (100%)
+Successfully installed rails-4.2.0
 33 gems installed   <img src="./images/icons/callouts/1.png" alt="1"></pre>
 </div>
 </div>
@@ -1406,7 +1408,7 @@ Successfully installed rails-4.2.0.rc1
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Mit dem RubyGem <em>rails-4.2.0.rc1</em> wurden insgesamt 33 Gems installiert.<br>
+<td>Mit dem RubyGem <em>rails-4.2.0</em> wurden insgesamt 33 Gems installiert.<br>
 Hinweis: Weitere RubyGems müssen für das Framework <strong>Ruby on Rails</strong> installiert werden.</td>
 </tr>
 </table>
@@ -1446,22 +1448,14 @@ im Bereich von &gt;= 4.1.8 und &lt; 4.2 installiert wird.</td>
 <h3 id="_asciidoctor">asciidoctor</h3>
 <div class="listingblock">
 <div class="content">
-<pre># gem install asciidoctor       <img src="./images/icons/callouts/1.png" alt="1"> <img src="./images/icons/callouts/2.png" alt="2">
+<pre># gem install asciidoctor --no-rdoc --no-ri   <img src="./images/icons/callouts/1.png" alt="1"> <img src="./images/icons/callouts/2.png" alt="2">
 Fetching: asciidoctor-1.5.2.gem (100%)
 Successfully installed asciidoctor-1.5.2
-Parsing documentation for asciidoctor-1.5.2
-Installing ri documentation for asciidoctor-1.5.2
-Done installing documentation for asciidoctor after 5 seconds
 1 gem installed
 
-# gem install coderay         <img src="./images/icons/callouts/2.png" alt="2"> <img src="./images/icons/callouts/3.png" alt="3">
+# gem install coderay --no-rdoc --no-ri   <img src="./images/icons/callouts/2.png" alt="2"> <img src="./images/icons/callouts/3.png" alt="3">
 Fetching: coderay-1.1.0.gem (100%)
 Successfully installed coderay-1.1.0
-invalid options: -SNw2
-(invalid options are ignored)
-Parsing documentation for coderay-1.1.0
-Installing ri documentation for coderay-1.1.0
-Done installing documentation for coderay after 3 seconds
 1 gem installed</pre>
 </div>
 </div>
@@ -1489,13 +1483,11 @@ Comes with RedCloth integration and LOC counter.</td>
 <div class="listingblock">
 <div class="content">
 <pre># gem install sinatra --no-rdoc --no-ri   <img src="./images/icons/callouts/1.png" alt="1">
-Fetching: rack-1.5.2.gem (100%)
-Successfully installed rack-1.5.2
 Fetching: rack-protection-1.5.3.gem (100%)
 Successfully installed rack-protection-1.5.3
 Fetching: sinatra-1.4.5.gem (100%)
 Successfully installed sinatra-1.4.5
-3 gems installed</pre>
+2 gems installed</pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -1518,42 +1510,42 @@ eine in Ruby geschriebene <em>domänenspezifische</em> Sprache.<br>
 
 *** LOCAL GEMS ***
 
-actionmailer (4.2.0.rc1)
-actionpack (4.2.0.rc1)
-actionview (4.2.0.rc1)
-activejob (4.2.0.rc1)
-activemodel (4.2.0.rc1)
-activerecord (4.2.0.rc1)
-activesupport (4.2.0.rc1)
+actionmailer (4.2.0)
+actionpack (4.2.0)
+actionview (4.2.0)
+activejob (4.2.0)
+activemodel (4.2.0)
+activerecord (4.2.0)
+activesupport (4.2.0)
 arel (6.0.0)
 asciidoctor (1.5.2)
 bigdecimal (1.2.5, 1.1.0)
 builder (3.2.2)
-bundler (1.7.7)
+bundler (1.7.9)
 coderay (1.1.0)
 erubis (2.7.0)
 globalid (0.3.0)
 hike (1.2.3)
-i18n (0.7.0.beta1)
+i18n (0.7.0)
 io-console (0.4.2, 0.3)
 json (1.8.1, 1.5.5)
 loofah (2.0.1)
 mail (2.6.3)
 mime-types (2.4.3)
 mini_portile (0.6.1)
-minitest (5.4.3, 2.5.1)
+minitest (5.5.0, 2.5.1)
 multi_json (1.10.1)
 nokogiri (1.6.5)
-rack (1.6.0.beta2, 1.5.2)
+rack (1.6.0)
 rack-protection (1.5.3)
 rack-test (0.6.2)
-rails (4.2.0.rc1)
+rails (4.2.0)
 rails-deprecated_sanitizer (1.0.3)
 rails-dom-testing (1.0.5)
 rails-html-sanitizer (1.0.1)
-railties (4.2.0.rc1)
+railties (4.2.0)
 rake (10.4.2, 0.9.2.2)
-rdoc (4.1.2, 3.9.5)
+rdoc (4.2.0, 3.9.5)
 rubygems-update (2.4.5)
 sinatra (1.4.5)
 sprockets (2.12.3)
@@ -1568,27 +1560,27 @@ tzinfo (1.2.2)</pre>
 <div class="content">
 <pre>$ cd /opt/Ruby/current19
 $ ls -lrt bin
--rwxr-xr-x 1 root root 10610012 Dez  3 14:50 ruby
--rwxr-xr-x 1 root root      335 Dez  3 14:54 irb
--rwxr-xr-x 1 root root     4414 Dez  3 14:54 erb
--rwxr-xr-x 1 root root      315 Dez  3 14:54 testrb
--rwxr-xr-x 1 root root      563 Dez  3 14:54 gem
--rwxr-xr-x 1 root root      511 Dez  3 15:05 update_rubygems
--rwxr-xr-x 1 root root      502 Dez  3 15:09 rake
--rwxr-xr-x 1 root root      502 Dez  3 15:09 rdoc
--rwxr-xr-x 1 root root      500 Dez  3 15:09 ri
--rwxr-xr-x 1 root root      518 Dez  3 15:57 nokogiri   <img src="./images/icons/callouts/1.png" alt="1">
--rwxr-xr-x 1 root root      510 Dez  3 15:57 erubis
--rwxr-xr-x 1 root root      502 Dez  3 15:58 tilt
--rwxr-xr-x 1 root root      522 Dez  3 15:58 sprockets
--rwxr-xr-x 1 root root      514 Dez  3 15:58 bundler
--rwxr-xr-x 1 root root      513 Dez  3 15:58 bundle
--rwxr-xr-x 1 root root      502 Dez  3 15:58 thor
--rwxr-xr-x 1 root root      515 Dez  3 15:58 rails   <img src="./images/icons/callouts/1.png" alt="1">
--rwxr-xr-x 1 root root      504 Dez  3 16:20 rackup
--rwxr-xr-x 1 root root      535 Dez  3 16:21 asciidoctor-safe
--rwxr-xr-x 1 root root      530 Dez  3 16:21 asciidoctor
--rwxr-xr-x 1 root root      514 Dez  3 16:21 coderay</pre>
+-rwxr-xr-x 1 root root 10610012 Dec 22 15:16 ruby
+-rwxr-xr-x 1 root root      315 Dez 22 18:11 testrb
+-rwxr-xr-x 1 root root      335 Dez 22 18:11 irb
+-rwxr-xr-x 1 root root      563 Dez 22 18:11 gem
+-rwxr-xr-x 1 root root     4414 Dez 22 18:11 erb
+-rwxr-xr-x 1 root root      511 Dez 22 18:16 update_rubygems
+-rwxr-xr-x 1 root root      502 Dez 22 18:17 rake
+-rwxr-xr-x 1 root root      502 Dez 22 18:18 rdoc
+-rwxr-xr-x 1 root root      500 Dez 22 18:18 ri
+-rwxr-xr-x 1 root root      518 Dez 22 21:24 nokogiri   <img src="./images/icons/callouts/1.png" alt="1">
+-rwxr-xr-x 1 root root      510 Dez 22 21:24 erubis
+-rwxr-xr-x 1 root root      504 Dez 22 21:24 rackup
+-rwxr-xr-x 1 root root      502 Dez 22 21:24 tilt
+-rwxr-xr-x 1 root root      522 Dez 22 21:24 sprockets
+-rwxr-xr-x 1 root root      514 Dez 22 21:24 bundler
+-rwxr-xr-x 1 root root      513 Dez 22 21:24 bundle
+-rwxr-xr-x 1 root root      502 Dez 22 21:24 thor
+-rwxr-xr-x 1 root root      515 Dez 22 21:24 rails   <img src="./images/icons/callouts/1.png" alt="1">
+-rwxr-xr-x 1 root root      535 Dez 22 21:25 asciidoctor-safe
+-rwxr-xr-x 1 root root      530 Dez 22 21:25 asciidoctor
+-rwxr-xr-x 1 root root      514 Dez 22 21:26 coderay</pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -1722,7 +1714,7 @@ echo "$ME: Ende."</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-12-05 11:15:02 MEZ
+Last updated 2014-12-23 18:33:59 MEZ
 </div>
 </div>
 </body>

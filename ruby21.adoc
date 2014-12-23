@@ -1,5 +1,5 @@
-IiU -- Ruby 2.1.5, rails-4.2.0.rc1
-==================================
+IiU -- Ruby 2.1.5, rails-4.2.0
+==============================
 Installation in Ubuntu — khkoether[at]kahweb[dot]de
 
 :icons:
@@ -19,7 +19,7 @@ Installation in Ubuntu — khkoether[at]kahweb[dot]de
 :ruby-version:        2.1.5
 :ruby21_1st-url:      link:ruby21_1st.html
 
-Version 3.0.2, Dezember 2014
+Version 3.0.4, Dezember 2014
 
 
 Abstract
@@ -282,22 +282,22 @@ installing capi-docs:         /opt/Ruby/ruby-2.1.5/share/doc/ruby
 ----
 $ cd /opt/Ruby/ruby-2.1.5
 $ ls -l
-drwxr-xr-x 2 root root 4096 Dez  5 09:55 bin
-drwxr-xr-x 3 root root 4096 Dez  5 09:55 include
-drwxr-xr-x 4 root root 4096 Dez  5 09:55 lib
-drwxr-xr-x 5 root root 4096 Dez  5 09:55 share
+drwxr-xr-x 2 root root 4096 Dez 22 21:34 bin
+drwxr-xr-x 3 root root 4096 Dez 22 21:34 include
+drwxr-xr-x 4 root root 4096 Dez 22 21:34 lib
+drwxr-xr-x 5 root root 4096 Dez 22 21:34 share
 ----
 
 ----
 $ ls -l bin
--rwxr-xr-x 1 root root     4409 Dez  5 09:55 erb
--rwxr-xr-x 1 root root      558 Dez  5 09:55 gem
--rwxr-xr-x 1 root root      202 Dez  5 09:55 irb
--rwxr-xr-x 1 root root     1256 Dez  5 09:55 rake
--rwxr-xr-x 1 root root      950 Dez  5 09:55 rdoc
--rwxr-xr-x 1 root root      200 Dez  5 09:55 ri
--rwxr-xr-x 1 root root 14080474 Dez  5 09:49 ruby
--rwxr-xr-x 1 root root       90 Dez  5 09:55 testrb
+-rwxr-xr-x 1 root root     4409 Dez 22 21:34 erb
+-rwxr-xr-x 1 root root      558 Dez 22 21:34 gem
+-rwxr-xr-x 1 root root      202 Dez 22 21:34 irb
+-rwxr-xr-x 1 root root     1256 Dez 22 21:34 rake
+-rwxr-xr-x 1 root root      950 Dez 22 21:34 rdoc
+-rwxr-xr-x 1 root root      200 Dez 22 21:34 ri
+-rwxr-xr-x 1 root root 14080474 Dez 22 21:34 ruby
+-rwxr-xr-x 1 root root       90 Dez 22 21:34 testrb
 ----
 
 *Step 5:* Der Pfad zum Verzeichnis `/opt/Ruby/ruby-2.1.5/bin` muß gesetzt werden. 
@@ -306,15 +306,15 @@ $ cd /opt/Ruby/
 $ sudo ln -s ruby-2.1.5 current21
 
 $ ls -l
-lrwxrwxrwx 1 root root   15 Dez  3 14:56 current19 -> ruby-1.9.3-p551
+lrwxrwxrwx 1 root root   15 Dez 22 18:25 current19 -> ruby-1.9.3-p551
 lrwxrwxrwx 1 root root   15 Mär  2 12:36 current20 -> ruby-2.0.0-p451
-lrwxrwxrwx 1 root root   10 Dez  5 10:03 current21 -> ruby-2.1.5
-drwxr-xr-x 6 root root 4096 Dez  3 14:55 ruby-1.9.3-p551
--rw-r--r-- 1 root root   47 Dez  3 12:38 ruby19.path.sh
+lrwxrwxrwx 1 root root   10 Dez 22 21:38 current21 -> ruby-2.1.5
+drwxr-xr-x 6 root root 4096 Dez 22 18:22 ruby-1.9.3-p551
+-rw-r--r-- 1 root root   47 Dez 22 18:25 ruby19.path.sh
 drwxr-xr-x 6 root root 4096 Mär  2 12:30 ruby-2.0.0-p451
 -rw-r--r-- 1 root root   47 Mär  2 12:38 ruby20.path.sh
-drwxr-xr-x 6 root root 4096 Dez  5 09:55 ruby-2.1.5
--rw-r--r-- 1 root root   47 Dez  5 10:05 ruby21.path.sh
+drwxr-xr-x 6 root root 4096 Dez 22 21:34 ruby-2.1.5
+-rw-r--r-- 1 root root   47 Dez 22 21:38 ruby21.path.sh
 ----
 
 .Lokal in der aktuellen Shell (1)
@@ -373,10 +373,10 @@ irb(main):001:0> RUBY_VERSION
 irb(main):002:0> RUBY_PATCHLEVEL
 => 273
 irb(main):003:0> Time.now.to_s
-=> "2014-12-05 10:08:01 +0100"
+=> "2014-12-22 21:41:12 +0100"
 irb(main):004:0> Time.now.sunday?
 => false
-irb(main):005:0> Time.now.friday?
+irb(main):005:0> Time.now.monday?
 => true
 irb(main):006:0> exit
 ----
@@ -543,13 +543,13 @@ Done installing documentation for bigdecimal after 2 seconds
 Parsing documentation for bigdecimal-1.2.5
 Done installing documentation for bigdecimal after 1 seconds
 Updating minitest
-Fetching: minitest-5.4.3.gem (100%)
-Successfully installed minitest-5.4.3
-Parsing documentation for minitest-5.4.3
-Installing ri documentation for minitest-5.4.3
-Installing darkfish documentation for minitest-5.4.3
+Fetching: minitest-5.5.0.gem (100%)
+Successfully installed minitest-5.5.0
+Parsing documentation for minitest-5.5.0
+Installing ri documentation for minitest-5.5.0
+Installing darkfish documentation for minitest-5.5.0
 Done installing documentation for minitest after 2 seconds
-Parsing documentation for minitest-5.4.3
+Parsing documentation for minitest-5.5.0
 Done installing documentation for minitest after 0 seconds
 Updating psych
 Fetching: psych-2.0.8.gem (100%)
@@ -573,7 +573,7 @@ Done installing documentation for rake after 4 seconds
 Parsing documentation for rake-10.4.2
 Done installing documentation for rake after 0 seconds
 Updating rdoc
-Fetching: rdoc-4.1.2.gem (100%)
+Fetching: rdoc-4.2.0.gem (100%)
 rdoc's executable "rdoc" conflicts with /opt/Ruby/ruby-2.1.5/bin/rdoc
 Overwrite the executable? [yN]  y   <1>
 rdoc's executable "ri" conflicts with /opt/Ruby/ruby-2.1.5/bin/ri
@@ -584,27 +584,27 @@ Depending on your version of ruby, you may need to install ruby rdoc/ri data:
  = 1.8.7 : gem install rdoc-data; rdoc-data --install
  = 1.9.1 : gem install rdoc-data; rdoc-data --install
 >= 1.9.2 : nothing to do! Yay!
-Successfully installed rdoc-4.1.2
-Parsing documentation for rdoc-4.1.2
-Installing ri documentation for rdoc-4.1.2
-Installing darkfish documentation for rdoc-4.1.2
+Successfully installed rdoc-4.2.0
+Parsing documentation for rdoc-4.2.0
+Installing ri documentation for rdoc-4.2.0
+Installing darkfish documentation for rdoc-4.2.0
 Done installing documentation for rdoc after 16 seconds
-Parsing documentation for rdoc-4.1.2
+Parsing documentation for rdoc-4.2.0
 Done installing documentation for rdoc after 9 seconds
 Updating test-unit
 Fetching: power_assert-0.2.2.gem (100%)
 Successfully installed power_assert-0.2.2
 Fetching: test-unit-3.0.7.gem (100%)
-Successfully installed test-unit-3.0.7
+Successfully installed test-unit-3.0.8
 Parsing documentation for power_assert-0.2.2
 Installing ri documentation for power_assert-0.2.2
 Installing darkfish documentation for power_assert-0.2.2
-Parsing documentation for test-unit-3.0.7
-Installing ri documentation for test-unit-3.0.7
-Installing darkfish documentation for test-unit-3.0.7
+Parsing documentation for test-unit-3.0.8
+Installing ri documentation for test-unit-3.0.8
+Installing darkfish documentation for test-unit-3.0.8
 Done installing documentation for power_assert, test-unit after 4 seconds
 Parsing documentation for power_assert-0.2.2
-Parsing documentation for test-unit-3.0.7
+Parsing documentation for test-unit-3.0.8
 Done installing documentation for power_assert, test-unit after 2 seconds
 Gems updated: bigdecimal minitest psych rake rdoc power_assert test-unit    <2>
 ----
@@ -619,13 +619,13 @@ Gems updated: bigdecimal minitest psych rake rdoc power_assert test-unit    <2>
 bigdecimal (1.2.5, 1.2.4)
 io-console (0.4.2)
 json (1.8.1)
-minitest (5.4.3, 4.7.5)
+minitest (5.5.0, 4.7.5)
 power_assert (0.2.2)
 psych (2.0.8, 2.0.5)
 rake (10.4.2, 10.1.0)
-rdoc (4.1.2, 4.1.0)
+rdoc (4.2.0, 4.1.0)
 rubygems-update (2.4.5)      <1>
-test-unit (3.0.7, 2.1.5.0)
+test-unit (3.0.8, 2.1.5.0)
 ----
 <1> Das RubyGem _rubygems_update_ ist mit #gem update --system# bereits installiert worden.
 
@@ -636,77 +636,84 @@ test-unit (3.0.7, 2.1.5.0)
 Parsing sources...
 Couldn't find file to include 'README.txt' from lib/ruby/2.1.0/minitest/unit.rb 
 Couldn't find file to include 'README.txt' from lib/ruby/gems/2.1.0/gems/minitest-5.4.3/lib/minitest.rb
-100% [21011/21011]  share/ri/2.1.0/system/unknown/cdesc-unknown.ri        
+100% [7340/7340]  share/man/man1/ruby.1        
                 
 Generating Darkfish format into /opt/Ruby/ruby-2.1.5/doc...   <2>
+(eval):2: warning: regular expression has ']' without escape: /var>] [--output-file=<var>filename</
+(eval):2: warning: character class has '-' without escape: /var>] [--output-file=<var>filename</
+(eval):3: warning: regular expression has ']' without escape: /var>] [--embedded=<var>rubypath</
+(eval):3: warning: character class has '-' without escape: /var>] [--embedded=<var>rubypath</
+(eval):5: warning: regular expression has ']' without escape: /var>] [--log-file=<var>filename</
+(eval):5: warning: character class has '-' without escape: /var>] [--log-file=<var>filename</
+(eval):3: warning: string literal in condition
+(eval):2: warning: string literal in condition
 
-  Files:      21031
 
-  Classes:     1567 ( 859 undocumented)
-  Modules:      273 ( 118 undocumented)
-  Constants:   1000 ( 621 undocumented)
-  Attributes:  1244 ( 389 undocumented)
-  Methods:     9244 (3883 undocumented)
+  Files:       7340
 
-  Total:      13328 (5870 undocumented)
-   55.96% documented
+  Classes:     1605 ( 889 undocumented)
+  Modules:      327 ( 168 undocumented)
+  Constants:   1004 ( 624 undocumented)
+  Attributes:  1249 ( 391 undocumented)
+  Methods:     9381 (3951 undocumented)
 
-  Elapsed: 665.6s   <2>
+  Total:      13566 (6023 undocumented)
+   55.60% documented
+
+  Elapsed: 683.1s   <2>
 ----
 <1> Entspricht: _/opt/Ruby/ruby-2.1.5_
 <2> _Generating Darkfish_ dauert lange...
 
 ----
 # ls -l
-drwxr-xr-x  2 root root  4096 Dez  5 10:15 bin
-drwxr-xr-x 94 root root 20480 Dez  5 10:42 doc       <1>
-drwxr-xr-x  3 root root  4096 Dez  5 09:55 include
-drwxr-xr-x  4 root root  4096 Dez  5 09:55 lib
-drwxr-xr-x  5 root root  4096 Dez  5 09:55 share
+drwxr-xr-x  2 root root  4096 Dez 22 21:44 bin
+drwxr-xr-x 95 root root 20480 Dez 22 21:57 doc       <1>
+drwxr-xr-x  3 root root  4096 Dez 22 21:34 include
+drwxr-xr-x  4 root root  4096 Dez 22 21:34 lib
+drwxr-xr-x  5 root root  4096 Dez 22 21:34 share
 ----
 <1> Das Dokumentations-Verzeichnis enthält die Datei _index.html_. +
-    Das neue Verzeichnis belegt ca. 123M Speicherplatz.
+    Das neue Verzeichnis belegt ca. 122M Speicherplatz.
 
 ----
 Browser> file:///opt/Ruby/current21/doc/index.html
 ----
 
 
-Installation: rails-4.2.0.rc1
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Installation: rails-4.2.0
+~~~~~~~~~~~~~~~~~~~~~~~~~
 *Step 0* 
 ----
 # gem search ^rails$ --remote
 
 *** REMOTE GEMS ***
 
-rails (4.1.8)   <1>
+rails (4.2.0)   <1>
 ----
-<1> Aktuell neueste Version des RubyGem _rails_. +
-    Ich installiere aber die oben genannte Version *4.2.0.rc1*!
+<1> Seit dem 19.12.2014 ist das die neueste Version des RubyGem _rails_. 
 
 [TIP]
 ====
 Die Installation der Dokumentation kann ausgelassen werden.
 ----
-# gem install rails --pre --no-rdoc --no-ri   <1> <2>
+# gem install rails --no-rdoc --no-ri   <1>
 ---- 
-<1> #--pre#  installiert die letzte nicht-offizielle Version: _rails-4.2.0.rc1_ 
-<2> #--no-rdoc --no-ri# In der Regel wird die offizielle Dokumentation genutzt: +
+<1> #--no-rdoc --no-ri# In der Regel wird die offizielle Dokumentation genutzt: +
     -> http://guides.rubyonrails.org/ 
 ====
 
 Mit #gem install ...# werden auch alle Abhängigkeiten zu anderen RubyGems aufgelöst.
 ---- 
-# gem install rails --pre --no-rdoc --no-ri
+# gem install rails --no-rdoc --no-ri
 Fetching: thread_safe-0.3.4.gem (100%)
 Successfully installed thread_safe-0.3.4
 ...
-Fetching: rails-4.2.0.rc1.gem (100%)
-Successfully installed rails-4.2.0.rc1
+Fetching: rails-4.2.0.gem (100%)
+Successfully installed rails-4.2.0
 33 gems installed   <1>
 ----
-<1> Mit dem RubyGem _rails-4.2.0.rc1_ wurden insgesamt 33 Gems installiert. +
+<1> Mit dem RubyGem _rails-4.2.0_ wurden insgesamt 33 Gems installiert. +
     Hinweis: Weitere RubyGems müssen für das Framework *Ruby on Rails* installiert werden. 
 
 [NOTE]
@@ -725,22 +732,14 @@ Alternativ kann _Rails_ mit der Angabe einer Version installiert werden.
 asciidoctor
 ~~~~~~~~~~~ 
 ----
-# gem install asciidoctor       <1> <2>
+# gem install asciidoctor --no-rdoc --no-ri   <1> <2>
 Fetching: asciidoctor-1.5.2.gem (100%)
 Successfully installed asciidoctor-1.5.2
-Parsing documentation for asciidoctor-1.5.2
-Installing ri documentation for asciidoctor-1.5.2
-Done installing documentation for asciidoctor after 4 seconds
 1 gem installed
 
-# gem install coderay         <2> <3>   
+# gem install coderay --no-rdoc --no-ri   <2> <3>   
 Fetching: coderay-1.1.0.gem (100%)
 Successfully installed coderay-1.1.0
-invalid options: -SNw2
-(invalid options are ignored)
-Parsing documentation for coderay-1.1.0
-Installing ri documentation for coderay-1.1.0
-Done installing documentation for coderay after 2 seconds
 1 gem installed
 ----
 <1> *Asciidoctor* is an open source Ruby processor for converting _AsciiDoc_ markup +
@@ -750,18 +749,15 @@ Done installing documentation for coderay after 2 seconds
     Comes with RedCloth integration and LOC counter.
 
 
-
 sinatra
 ~~~~~~~ 
 ----
 # gem install sinatra --no-rdoc --no-ri   <1>
-Fetching: rack-1.5.2.gem (100%)
-Successfully installed rack-1.5.2
 Fetching: rack-protection-1.5.3.gem (100%)
 Successfully installed rack-protection-1.5.3
 Fetching: sinatra-1.4.5.gem (100%)
 Successfully installed sinatra-1.4.5
-3 gems installed
+2 gems installed
 ----
 <1> *Sinatra* ist eine _freie_ und _open source Webapplikationsbibliothek_ und + 
     eine in Ruby geschriebene _domänenspezifische_ Sprache. +
@@ -776,49 +772,49 @@ $ gem list --local
  
 *** LOCAL GEMS ***
 
-actionmailer (4.2.0.rc1)
-actionpack (4.2.0.rc1)
-actionview (4.2.0.rc1)
-activejob (4.2.0.rc1)
-activemodel (4.2.0.rc1)
-activerecord (4.2.0.rc1)
-activesupport (4.2.0.rc1)
+actionmailer (4.2.0)
+actionpack (4.2.0)
+actionview (4.2.0)
+activejob (4.2.0)
+activemodel (4.2.0)
+activerecord (4.2.0)
+activesupport (4.2.0)
 arel (6.0.0)
 asciidoctor (1.5.2)
 bigdecimal (1.2.5, 1.2.4)
 builder (3.2.2)
-bundler (1.7.7)
+bundler (1.7.9)
 coderay (1.1.0)
 erubis (2.7.0)
 globalid (0.3.0)
 hike (1.2.3)
-i18n (0.7.0.beta1)
+i18n (0.7.0)
 io-console (0.4.2)
 json (1.8.1)
 loofah (2.0.1)
 mail (2.6.3)
 mime-types (2.4.3)
 mini_portile (0.6.1)
-minitest (5.4.3, 4.7.5)
+minitest (5.5.0, 4.7.5)
 multi_json (1.10.1)
 nokogiri (1.6.5)
 power_assert (0.2.2)
 psych (2.0.8, 2.0.5)
-rack (1.6.0.beta2, 1.5.2)
+rack (1.6.0)
 rack-protection (1.5.3)
 rack-test (0.6.2)
-rails (4.2.0.rc1)
+rails (4.2.0)
 rails-deprecated_sanitizer (1.0.3)
 rails-dom-testing (1.0.5)
 rails-html-sanitizer (1.0.1)
-railties (4.2.0.rc1)
+railties (4.2.0)
 rake (10.4.2, 10.1.0)
-rdoc (4.1.2, 4.1.0)
+rdoc (4.2.0, 4.1.0)
 rubygems-update (2.4.5)
 sinatra (1.4.5)
 sprockets (2.12.3)
 sprockets-rails (2.2.2)
-test-unit (3.0.7, 2.1.5.0)
+test-unit (3.0.8, 2.1.5.0)
 thor (0.19.1)
 thread_safe (0.3.4)
 tilt (1.4.1)
@@ -828,27 +824,28 @@ tzinfo (1.2.2)
 ----
 $ cd /opt/Ruby/current21
 $ ls -lrt bin   
--rwxr-xr-x 1 root root 14080474 Dez  5 09:49 ruby
--rwxr-xr-x 1 root root       90 Dez  5 09:55 testrb
--rwxr-xr-x 1 root root      202 Dez  5 09:55 irb
--rwxr-xr-x 1 root root      558 Dez  5 09:55 gem
--rwxr-xr-x 1 root root     4409 Dez  5 09:55 erb
--rwxr-xr-x 1 root root      541 Dez  5 10:11 update_rubygems
--rwxr-xr-x 1 root root      497 Dez  5 10:15 rake
--rwxr-xr-x 1 root root      497 Dez  5 10:15 rdoc
--rwxr-xr-x 1 root root      495 Dez  5 10:15 ri
--rwxr-xr-x 1 root root      513 Dez  5 11:02 nokogiri   <1>
--rwxr-xr-x 1 root root      505 Dez  5 11:02 erubis
--rwxr-xr-x 1 root root      497 Dez  5 11:02 tilt
--rwxr-xr-x 1 root root      517 Dez  5 11:02 sprockets
--rwxr-xr-x 1 root root      509 Dez  5 11:02 bundler
--rwxr-xr-x 1 root root      508 Dez  5 11:02 bundle
--rwxr-xr-x 1 root root      497 Dez  5 11:02 thor
--rwxr-xr-x 1 root root      510 Dez  5 11:02 rails   <1>
--rwxr-xr-x 1 root root      530 Dez  5 11:04 asciidoctor-safe
--rwxr-xr-x 1 root root      525 Dez  5 11:04 asciidoctor
--rwxr-xr-x 1 root root      509 Dez  5 11:05 coderay
--rwxr-xr-x 1 root root      499 Dez  5 11:05 rackup
+-rwxr-xr-x 1 root root 14080474 Dez 22 21:34 ruby
+-rwxr-xr-x 1 root root       90 Dez 22 21:34 testrb
+-rwxr-xr-x 1 root root      202 Dez 22 21:34 irb
+-rwxr-xr-x 1 root root     4409 Dez 22 21:34 erb
+-rwxr-xr-x 1 root root      558 Dez 22 21:34 gem
+-rwxr-xr-x 1 root root      541 Dez 22 21:42 update_rubygems
+-rwxr-xr-x 1 root root      497 Dez 22 21:43 rake
+-rwxr-xr-x 1 root root      497 Dez 22 21:44 rdoc
+-rwxr-xr-x 1 root root      495 Dez 22 21:44 ri
+-rwxr-xr-x 1 root root      513 Dez 22 22:02 nokogiri   <1>
+-rwxr-xr-x 1 root root      505 Dez 22 22:02 erubis
+-rwxr-xr-x 1 root root      499 Dez 22 22:02 rackup
+-rwxr-xr-x 1 root root      497 Dez 22 22:02 tilt
+-rwxr-xr-x 1 root root      517 Dez 22 22:02 sprockets
+-rwxr-xr-x 1 root root      509 Dez 22 22:02 bundler
+-rwxr-xr-x 1 root root      508 Dez 22 22:02 bundle
+-rwxr-xr-x 1 root root      497 Dez 22 22:02 thor
+-rwxr-xr-x 1 root root      510 Dez 22 22:02 rails         <1>
+-rwxr-xr-x 1 root root      525 Dez 22 22:02 asciidoctor
+-rwxr-xr-x 1 root root      530 Dez 22 22:02 asciidoctor-safe
+-rwxr-xr-x 1 root root      509 Dez 22 22:02 coderay
+
 ----
 <1> Die Kommandos #nokogiri, ..., rails# wurden durch +
     #gem install rails --pre# installiert.

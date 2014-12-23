@@ -122,3 +122,8 @@ Version 1.8.2
 * Neue Programmversion: Git (2.2.1) -- Security-fix, which affects users on Windows
   and Mac OS X but not typical UNIX users.
    
+.Version 3.0.4
+* Neue Programmversion: Ruby (1.9.3, 2.1.5), JRuby (1.7.18), NetBeans (JRuby 1.7.18)
+  Beispiele zu: Rails (4.2.0) mit [Ruby, JRuby, NetBeans]
+   
+   
