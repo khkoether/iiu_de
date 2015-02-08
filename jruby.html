@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.2">
 <meta name="author" content="Installation in Ubuntu — khkoether[at]kahweb[dot]de">
-<title>IiU&#8201;&#8212;&#8201;JRuby 1.7.18, rails-4.2.0</title>
+<title>IiU&#8201;&#8212;&#8201;JRuby 1.7.19, rails-4.2.0</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -412,7 +412,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>IiU&#8201;&#8212;&#8201;JRuby 1.7.18, rails-4.2.0</h1>
+<h1>IiU&#8201;&#8212;&#8201;JRuby 1.7.19, rails-4.2.0</h1>
 <div class="details">
 <span id="author" class="author">Installation in Ubuntu — khkoether[at]kahweb[dot]de</span><br>
 </div>
@@ -422,12 +422,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_abstract">Abstract</a></li>
 <li><a href="#_vorraussetzungen">Vorraussetzungen</a></li>
 <li><a href="#_download">Download</a></li>
-<li><a href="#_installation_jruby_1_7_18">Installation: JRuby 1.7.18</a></li>
+<li><a href="#_installation_jruby_1_7_19">Installation: JRuby 1.7.19</a></li>
 <li><a href="#_rubygems">Rubygems</a>
 <ul class="sectlevel2">
 <li><a href="#_update">update</a></li>
 <li><a href="#_installation_ruby_on_rails_4_2_0">Installation: Ruby on rails-4.2.0</a></li>
 <li><a href="#_asciidoctor">asciidoctor</a></li>
+<li><a href="#_pry">pry</a></li>
 <li><a href="#_sinatra">sinatra</a></li>
 <li><a href="#_list">list</a></li>
 </ul>
@@ -442,7 +443,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Version 3.0.4, Dezember 2014</p>
+<p>Version 3.1.0, Februar 2015</p>
 </div>
 </div>
 </div>
@@ -451,7 +452,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sectionbody">
 <div class="paragraph">
 <p>Dieser Artikel ist eine Schritt-für-Schritt Anleitung zur Installation
-von <a href="http://jruby.org/">JRuby 1.7.18</a> unter GNU/Linux.</p>
+von <a href="http://jruby.org/">JRuby 1.7.19</a> unter GNU/Linux.</p>
 </div>
 <div class="paragraph">
 <p>Die Programmiersprache <a href="http://jruby.org/">JRuby</a> ist die Implementation
@@ -515,10 +516,14 @@ andere Debian-basierte GNU/Linux Distributionen übertragbar.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="http://jruby.org/download">JRuby 1.7.18</a><br>
-<code>jruby-bin-1.7.18.tar.gz</code>  (ca. 32M)<br>
-2014-12-22 (Release date)&#8201;&#8212;&#8201;Expect a new release about every 3 weeks<br>
-JRuby 1.7.18 is our twenty-first update release since JRuby 1.7.0.</p>
+<p><a href="http://jruby.org/download">JRuby 1.7.19</a><br>
+<code>jruby-bin-1.7.19.tar.gz</code>  (ca. 32M)<br>
+2015-01-30 (Release date)&#8201;&#8212;&#8201;Expect a new release about every 3 weeks<br>
+JRuby 1.7.19 is our twenty-second update release since JRuby 1.7.0.<br>
+The primary goal of 1.7 point releases is to fill out any missing
+compatibility issues with Ruby 1.9.3.<br>
++
+This release was pushed forward quicker than planned to address issues running Rails 4.2!</p>
 </li>
 </ul>
 </div>
@@ -585,7 +590,7 @@ Benutzer <em>sid</em> ausgeführt.</p>
 <div class="listingblock">
 <div class="content">
 <pre>$ ls -l
--rw-rw-r-- 1 sid sid 32667948 Dez 23 17:56 jruby-bin-1.7.18.tar.gz</pre>
+-rw-rw-r-- 1 sid sid 32742143 Feb  8 13:54 jruby-bin-1.7.19.tar.gz</pre>
 </div>
 </div>
 </td>
@@ -595,7 +600,7 @@ Benutzer <em>sid</em> ausgeführt.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_installation_jruby_1_7_18">Installation: JRuby 1.7.18</h2>
+<h2 id="_installation_jruby_1_7_19">Installation: JRuby 1.7.19</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Zusätzliche Software-Pakete
@@ -620,11 +625,11 @@ sollten im Verzeichnis <code>/opt</code> (Optional) installiert werden.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ tar xvzf jruby-bin-1.7.18.tar.gz
+<pre>$ tar xvzf jruby-bin-1.7.19.tar.gz
 [...]
 
 $ ls -l jruby-*
-drwxr-xr-x 7 sid sid 4096 Okt 28 19:54 jruby-1.7.18</pre>
+drwxr-xr-x 7 sid sid 4096 Jan 29 18:35 jruby-1.7.19</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -638,7 +643,7 @@ $ sudo chown sid.sid /opt/JRuby/sid</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ mv jruby-1.7.18/ /opt/JRuby/sid</pre>
+<pre>$ mv jruby-1.7.19/ /opt/JRuby/sid</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -646,50 +651,50 @@ $ sudo chown sid.sid /opt/JRuby/sid</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ cd /opt/JRuby/sid/jruby-1.7.18
+<pre>$ cd /opt/JRuby/sid/jruby-1.7.19
 $ ls -l
-drwxr-xr-x 2 sid sid   4096 Dez 23 18:01 bin
--rw-r--r-- 1 sid sid 137174 Dez 22 20:26 COPYING
-drwxrwxr-x 4 sid sid   4096 Dez 23 18:01 docs
-drwxr-xr-x 4 sid sid   4096 Dez 23 18:01 lib
--rw-r--r-- 1 sid sid   2572 Dez 22 20:26 LICENSE.RUBY
-drwxrwxr-x 6 sid sid   4096 Dez 23 18:01 samples
-drwxrwxr-x 3 sid sid   4096 Dez 23 18:01 tool</pre>
+drwxr-xr-x 2 sid sid   4096 Feb  8 13:56 bin
+-rw-r--r-- 1 sid sid 137174 Jan 29 18:27 COPYING
+drwxrwxr-x 4 sid sid   4096 Feb  8 13:56 docs
+drwxr-xr-x 4 sid sid   4096 Feb  8 13:56 lib
+-rw-r--r-- 1 sid sid   2572 Jan 29 18:27 LICENSE.RUBY
+drwxrwxr-x 6 sid sid   4096 Feb  8 13:56 samples
+drwxrwxr-x 3 sid sid   4096 Feb  8 13:56 tool</pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre>$ ls -l bin
--rwxr-xr-x 1 sid sid   5670 Dez 22 20:30 ast       <img src="./images/icons/callouts/1.png" alt="1">
--rw-r--r-- 1 sid sid     40 Dez 22 20:30 ast.bat   <img src="./images/icons/callouts/2.png" alt="2">
--rwxr-xr-x 1 sid sid    123 Dez 22 20:30 gem
--rw-r--r-- 1 sid sid     40 Dez 22 20:30 gem.bat
--rwxr-xr-x 1 sid sid    323 Dez 22 20:30 irb
--rw-r--r-- 1 sid sid     40 Dez 22 20:30 irb.bat
--rwxr-xr-x 1 sid sid    547 Dez 22 20:30 jgem
--rw-r--r-- 1 sid sid     41 Dez 22 20:30 jgem.bat
--rwxr-xr-x 1 sid sid    390 Dez 22 20:30 jirb
--rw-r--r-- 1 sid sid     41 Dez 22 20:30 jirb.bat
--rwxr-xr-x 1 sid sid   1935 Dez 22 20:30 jirb_swing
--rw-r--r-- 1 sid sid     47 Dez 22 20:30 jirb_swing.bat
--rwxr-xr-x 1 sid sid  11474 Dez 22 20:30 jruby
--rwxr-xr-x 1 sid sid  11474 Dez 22 20:30 jruby.bash
--rw-r--r-- 1 sid sid    125 Dez 22 20:30 jruby.bat
--rwxr-xr-x 1 sid sid    188 Dez 22 20:30 jrubyc
--rw-r--r-- 1 sid sid     43 Dez 22 20:30 jrubyc.bat
--rw-r--r-- 1 sid sid    245 Dez 22 20:30 jrubyd.bat
--rw-r--r-- 1 sid sid 742400 Dez 22 20:30 jruby.dll
--rw-r--r-- 1 sid sid 680448 Dez 22 20:30 jruby.exe
--rwxr-xr-x 1 sid sid   8979 Dez 22 20:30 jruby.sh
--rw-r--r-- 1 sid sid 682496 Dez 22 20:30 jrubyw.exe
--rwxr-xr-x 1 sid sid    451 Dez 22 20:30 rake
--rw-r--r-- 1 sid sid     41 Dez 22 20:30 rake.bat
--rwxr-xr-x 1 sid sid    451 Dez 22 20:30 rdoc
--rw-r--r-- 1 sid sid     41 Dez 22 20:30 rdoc.bat
--rwxr-xr-x 1 sid sid    449 Dez 22 20:30 ri
--rw-r--r-- 1 sid sid     39 Dez 22 20:30 ri.bat
--rwxr-xr-x 1 sid sid    152 Dez 22 20:30 testrb
--rw-r--r-- 1 sid sid     43 Dez 22 20:30 testrb.bat</pre>
+-rwxr-xr-x 1 sid sid   5670 Jan 29 18:32 ast       <img src="./images/icons/callouts/1.png" alt="1">
+-rw-r--r-- 1 sid sid     40 Jan 29 18:32 ast.bat   <img src="./images/icons/callouts/2.png" alt="2">
+-rwxr-xr-x 1 sid sid    123 Jan 29 18:32 gem
+-rw-r--r-- 1 sid sid     40 Jan 29 18:32 gem.bat
+-rwxr-xr-x 1 sid sid    323 Jan 29 18:32 irb
+-rw-r--r-- 1 sid sid     40 Jan 29 18:32 irb.bat
+-rwxr-xr-x 1 sid sid    547 Jan 29 18:32 jgem
+-rw-r--r-- 1 sid sid     41 Jan 29 18:32 jgem.bat
+-rwxr-xr-x 1 sid sid    390 Jan 29 18:32 jirb
+-rw-r--r-- 1 sid sid     41 Jan 29 18:32 jirb.bat
+-rwxr-xr-x 1 sid sid   1935 Jan 29 18:32 jirb_swing
+-rw-r--r-- 1 sid sid     47 Jan 29 18:32 jirb_swing.bat
+-rwxr-xr-x 1 sid sid  11474 Jan 29 18:32 jruby
+-rwxr-xr-x 1 sid sid  11474 Jan 29 18:32 jruby.bash
+-rw-r--r-- 1 sid sid    125 Jan 29 18:32 jruby.bat
+-rwxr-xr-x 1 sid sid    188 Jan 29 18:32 jrubyc
+-rw-r--r-- 1 sid sid     43 Jan 29 18:32 jrubyc.bat
+-rw-r--r-- 1 sid sid    245 Jan 29 18:32 jrubyd.bat
+-rw-r--r-- 1 sid sid 742400 Jan 29 18:32 jruby.dll
+-rw-r--r-- 1 sid sid 680448 Jan 29 18:32 jruby.exe
+-rwxr-xr-x 1 sid sid   8979 Jan 29 18:32 jruby.sh
+-rw-r--r-- 1 sid sid 682496 Jan 29 18:32 jrubyw.exe
+-rwxr-xr-x 1 sid sid    451 Jan 29 18:32 rake
+-rw-r--r-- 1 sid sid     41 Jan 29 18:32 rake.bat
+-rwxr-xr-x 1 sid sid    451 Jan 29 18:32 rdoc
+-rw-r--r-- 1 sid sid     41 Jan 29 18:32 rdoc.bat
+-rwxr-xr-x 1 sid sid    449 Jan 29 18:32 ri
+-rw-r--r-- 1 sid sid     39 Jan 29 18:32 ri.bat
+-rwxr-xr-x 1 sid sid    152 Jan 29 18:32 testrb
+-rw-r--r-- 1 sid sid     43 Jan 29 18:32 testrb.bat</pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -710,16 +715,20 @@ drwxrwxr-x 3 sid sid   4096 Dez 23 18:01 tool</pre>
 <div class="listingblock">
 <div class="content">
 <pre>$ cd /opt/JRuby/sid
-$ ln -s jruby-1.7.18 current18
+$ ln -s jruby-1.7.19 current19
+
 $ ls -lv
 lrwxrwxrwx 1 sid sid   15 Dez  5 16:53 current -&gt; jruby-1.7.16.1/     <img src="./images/icons/callouts/1.png" alt="1">
 lrwxrwxrwx 1 sid sid   15 Dez  5 16:53 current16 -&gt; jruby-1.7.16.1/   <img src="./images/icons/callouts/1.png" alt="1">
 lrwxrwxrwx 1 sid sid   12 Dez 23 18:03 current18 -&gt; jruby-1.7.18
+lrwxrwxrwx 1 sid sid   12 Feb  8 14:01 current19 -&gt; jruby-1.7.19
 -rw-r--r-- 1 sid sid  131 Dez  5 16:52 jruby.path.sh
 -rw-r--r-- 1 sid sid  133 Dez  5 16:52 jruby16.path.sh
--rw-r--r-- 1 sid sid  133 Dez 23 18:07 jruby18.path.sh   <img src="./images/icons/callouts/2.png" alt="2">
+-rw-r--r-- 1 sid sid  133 Dez 23 18:07 jruby18.path.sh
+-rw-r--r-- 1 sid sid  133 Feb  8 14:14 jruby19.path.sh   <img src="./images/icons/callouts/2.png" alt="2">
 drwxr-xr-x 8 sid sid 4096 Dez  5 16:51 jruby-1.7.16.1
-drwxr-xr-x 7 sid sid 4096 Dez 23 18:07 jruby-1.7.18</pre>
+drwxr-xr-x 7 sid sid 4096 Dez 23 18:07 jruby-1.7.18
+drwxr-xr-x 7 sid sid 4096 Feb  8 14:09 jruby-1.7.19</pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -731,7 +740,7 @@ JRuby-Installation <em>jruby-1.7.16.1</em>&#8201;&#8212;&#8201;meine <em>default
 </tr>
 <tr>
 <td><img src="./images/icons/callouts/2.png" alt="2"></td>
-<td>Erstellen Sie eine Datei <code>jruby18.path.sh</code> (siehe <a href="#_anhang">[Anhang]</a>).</td>
+<td>Erstellen Sie eine Datei <code>jruby19.path.sh</code> (siehe <a href="#_anhang">[Anhang]</a>).</td>
 </tr>
 </table>
 </div>
@@ -768,14 +777,14 @@ Datei setzen.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ . jruby18.path.sh   <img src="./images/icons/callouts/1.png" alt="1"></pre>
+<pre>$ . jruby19.path.sh   <img src="./images/icons/callouts/1.png" alt="1"></pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Oder mit dem Bash-Builtin Kommando: <mark>source &nbsp; jruby18.path.sh</mark></td>
+<td>Oder mit dem Bash-Builtin Kommando: <mark>source &nbsp; jruby19.path.sh</mark></td>
 </tr>
 </table>
 </div>
@@ -790,25 +799,25 @@ Datei setzen.</p>
 <div class="title">Die Java-Version</div>
 <div class="content">
 <pre>$ java -version
-java version "1.7.0_65"
-OpenJDK Runtime Environment (IcedTea 2.5.3) (7u71-2.5.3-0ubuntu0.14.04.1)
-OpenJDK 64-Bit Server VM (build 24.65-b04, mixed mode)</pre>
+java version "1.7.0_75"
+OpenJDK Runtime Environment (IcedTea 2.5.4) (7u75-2.5.4-1~trusty1)
+OpenJDK 64-Bit Server VM (build 24.75-b04, mixed mode)</pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Die JRuby-Version &#8230;&#8203;</div>
 <div class="content">
 <pre class="nowrap">$ which jruby
-/opt/JRuby/sid/current/bin/jruby
+/opt/JRuby/sid/current19/bin/jruby
 
 $ jruby --version
-jruby 1.7.18 (1.9.3p551) 2014-12-22 625381c on OpenJDK 64-Bit Server VM 1.7.0_65-b32 +jit [linux-amd64]
+jruby 1.7.19 (1.9.3p551) 2015-01-29 20786bd on OpenJDK 64-Bit Server VM 1.7.0_75-b13 +jit [linux-amd64]
 
 $ jruby --version --1.8   <img src="./images/icons/callouts/1.png" alt="1">
-jruby 1.7.18 (ruby-1.8.7p376) 2014-12-22 625381c on OpenJDK 64-Bit Server VM 1.7.0_65-b32 +jit [linux-amd64]
+jruby 1.7.19 (ruby-1.8.7p376) 2015-01-29 20786bd on OpenJDK 64-Bit Server VM 1.7.0_75-b13 +jit [linux-amd64]
 
-$ jruby -v --2.0   <img src="./images/icons/callouts/2.png" alt="2">
-jruby 1.7.18 (2.0.0p598) 2014-12-22 625381c on OpenJDK 64-Bit Server VM 1.7.0_65-b32 +jit [linux-amd64]</pre>
+$ jruby --version --2.0   <img src="./images/icons/callouts/2.png" alt="2">
+jruby 1.7.19 (2.0.0p598) 2015-01-29 20786bd on OpenJDK 64-Bit Server VM 1.7.0_75-b13 +jit [linux-amd64]</pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -842,7 +851,7 @@ Eine vorher notwendige zusätzliche Installation entfällt.<br>
 </table>
 </div>
 <div class="listingblock">
-<div class="title">JRuby 1.7.18: <em>irb</em>, <em>jirb</em></div>
+<div class="title">JRuby 1.7.19: <em>irb</em>, <em>jirb</em></div>
 <div class="content">
 <pre>$ jirb   <img src="./images/icons/callouts/1.png" alt="1">
 irb(main):001:0&gt; RUBY_VERSION
@@ -850,12 +859,11 @@ irb(main):001:0&gt; RUBY_VERSION
 irb(main):002:0&gt; RUBY_PATCHLEVEL
 =&gt; 551
 irb(main):003:0&gt; Time.now.to_s
-=&gt; "2014-12-23 18:19:22 +0100"
-irb(main):004:0&gt; Time.now.sunday?
+=&gt; "2015-02-08 14:08:40 +0100"
+irb(main):004:0&gt; Time.now.tuesday?
 =&gt; false
-irb(main):005:0&gt; Time.now.tuesday?
-=&gt; true
-irb(main):006:0&gt; exit</pre>
+irb(main):005:0&gt; Time.now.sunday?
+=&gt; true</pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -934,15 +942,15 @@ zu verwalten oder auch wieder zu entfernen.<br>
 <div class="paragraph">
 <p><strong>Step 0:</strong> Vorraussetzung für die nächsten Befehle ist ein
 funktionierender <code>PATH</code>-Eintrag für den Benutzer <em>sid</em>
-auf die <em>JRuby 1.7.18</em>-Installation:</p>
+auf die <em>JRuby 1.7.19</em>-Installation:</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="nowrap">$ which gem
-/opt/JRuby/sid/current/bin/gem
+/opt/JRuby/sid/current19/bin/gem
 
 $ which jgem
-/opt/JRuby/sid/current/bin/jgem</pre>
+/opt/JRuby/sid/current19/bin/jgem</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -951,7 +959,7 @@ $ which jgem
 <div class="listingblock">
 <div class="content">
 <pre>$ gem -v
-2.1.9
+2.4.5
 
 $ gem list --local
 
@@ -975,7 +983,7 @@ rdoc (4.1.2)
 ruby-maven (3.1.1.0.8)
 ruby-maven-libs (3.1.1)
 thread_safe (0.3.4 java)
-virtus (1.0.3)</pre>
+virtus (1.0.4)</pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -993,29 +1001,17 @@ virtus (1.0.3)</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ jgem update --system
-Updating rubygems-update
-Fetching: rubygems-update-2.4.5.gem (100%)
-Successfully installed rubygems-update-2.4.5
-Installing RubyGems 2.4.5
-RubyGems 2.4.5 installed
-
-=== 2.4.5 / 2014-12-03
-
-Bug fixes:
-
-* Improved speed of requiring gems.  (Around 25% for a 60 gem test).  Pull
-  request #1060 by unak.
-
-...
-
- -----------------------------------------------------------------------------
-
-RubyGems installed the following executables:
-	/opt/JRuby/sid/jruby-1.7.18/bin/jgem
-
-RubyGems system software updated</pre>
+<pre>$ gem update --system
+Latest version currently installed. Aborting.   <img src="./images/icons/callouts/1.png" alt="1"></pre>
 </div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td><em>gem</em> ist aktuell!</td>
+</tr>
+</table>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -1114,8 +1110,8 @@ Updating jruby-openssl
 Fetching: jruby-openssl-0.9.6-java.gem (100%)
 Successfully installed jruby-openssl-0.9.6-java
 Updating json
-Fetching: json-1.8.1-java.gem (100%)
-Successfully installed json-1.8.1-java
+Fetching: json-1.8.2-java.gem (100%)
+Successfully installed json-1.8.2-java
 Updating rake
 Fetching: rake-10.4.2.gem (100%)
 Successfully installed rake-10.4.2
@@ -1153,7 +1149,7 @@ ffi (1.9.6 java, 1.9.3 java)
 ice_nine (0.11.1)
 jar-dependencies (0.1.7, 0.1.2)
 jruby-openssl (0.9.6 java, 0.9.5 java)
-json (1.8.1 java, 1.8.0 java)
+json (1.8.2 java, 1.8.0 java)
 krypt (0.0.2)
 krypt-core (0.0.2 universal-java)
 krypt-provider-jdk (0.0.2)
@@ -1162,9 +1158,8 @@ rake (10.4.2, 10.1.0)
 rdoc (4.2.0, 4.1.2)
 ruby-maven (3.1.1.0.8)
 ruby-maven-libs (3.1.1)
-rubygems-update (2.4.5)
 thread_safe (0.3.4 java)
-virtus (1.0.3)</pre>
+virtus (1.0.4)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1197,11 +1192,11 @@ Successfully installed rdoc-data-4.0.1
 <div class="listingblock">
 <div class="content">
 <pre class="nowrap">$ which rdoc-data
-/opt/JRuby/sid/current/bin/rdoc-data
+/opt/JRuby/sid/current19/bin/rdoc-data
 
 $ rdoc-data --install   <img src="./images/icons/callouts/1.png" alt="1">
-/opt/JRuby/sid/jruby-1.7.18/lib/ruby/gems/shared/gems/rdoc-4.2.0/lib/rdoc/ri/paths.rb:15 warning: already initialized constant BASE
-/opt/JRuby/sid/jruby-1.7.18/lib/ruby/gems/shared/gems/rdoc-4.2.0/lib/rdoc/ri/paths.rb:29 warning: already initialized constant HOMEDIR</pre>
+/opt/JRuby/sid/jruby-1.7.19/lib/ruby/gems/shared/gems/rdoc-4.2.0/lib/rdoc/ri/paths.rb:15 warning: already initialized constant BASE
+/opt/JRuby/sid/jruby-1.7.19/lib/ruby/gems/shared/gems/rdoc-4.2.0/lib/rdoc/ri/paths.rb:29 warning: already initialized constant HOMEDIR</pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -1268,18 +1263,31 @@ rails (4.2.0)   <img src="./images/icons/callouts/1.png" alt="1"></pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Die Installation der Dokumentation kann ausgelassen werden.</p>
+<p>Eine mögliche lokale RubyGems-Dokumentation wird nicht durchgeführt.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre># gem install rails --no-rdoc --no-ri   <img src="./images/icons/callouts/1.png" alt="1"></pre>
+<pre>$ gem env
+RubyGems Environment:
+  - RUBYGEMS VERSION: 2.4.5
+  - RUBY VERSION: 1.9.3 (2015-01-29 patchlevel 551) [java]
+  ...
+  - GEM CONFIGURATION:
+     - :update_sources =&gt; true
+     - :verbose =&gt; true
+     - :backtrace =&gt; false
+     - :bulk_threshold =&gt; 1000
+     - "install" =&gt; "--no-rdoc --no-ri --env-shebang"   <img src="./images/icons/callouts/1.png" alt="1">
+     - "update" =&gt; "--no-rdoc --no-ri --env-shebang"
+  ...</pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td><mark>--no-rdoc --no-ri</mark> In der Regel wird die offizielle Dokumentation genutzt:<br>
+<td>In der Regel wird die offizielle Dokumentation im Internet genutzt:<br>
+&#8594; <a href="http://rubygems.org/" class="bare">http://rubygems.org/</a><br>
 &#8594; <a href="http://guides.rubyonrails.org/" class="bare">http://guides.rubyonrails.org/</a></td>
 </tr>
 </table>
@@ -1293,8 +1301,8 @@ rails (4.2.0)   <img src="./images/icons/callouts/1.png" alt="1"></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ gem install rails --no-rdoc --no-ri
-Fetching: minitest-5.5.0.gem (100%)
+<pre>$ gem install rails
+Fetching: minitest-5.5.1.gem (100%)
 Successfully installed minitest-5.5.0
 ...
 Fetching: rails-4.2.0.gem (100%)
@@ -1323,17 +1331,17 @@ Hinweis: Weitere RubyGems müssen für das Framework <strong>Ruby on Rails</stro
 </div>
 <div class="listingblock">
 <div class="content">
-<pre># gem install rails --version 4.1.8
+<pre># gem install rails --version 4.1.9
 
-# gem install rails --version '~&gt; 4.1.8'   <img src="./images/icons/callouts/1.png" alt="1"></pre>
+# gem install rails --version '~&gt; 4.1.9'   <img src="./images/icons/callouts/1.png" alt="1"></pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Twiddle Wakka: <em>~&gt; 4.1.8</em> bedeutet, das die höchste Gem-Version von Rails<br>
-im Bereich von &gt;= 4.1.8 und &lt; 4.2 installiert wird.</td>
+<td>Twiddle Wakka: <em>~&gt; 4.1.9</em> bedeutet, das die höchste Gem-Version von Rails<br>
+im Bereich von &gt;= 4.1.9 und &lt; 4.2 installiert wird.</td>
 </tr>
 </table>
 </div>
@@ -1346,12 +1354,12 @@ im Bereich von &gt;= 4.1.8 und &lt; 4.2 installiert wird.</td>
 <h3 id="_asciidoctor">asciidoctor</h3>
 <div class="listingblock">
 <div class="content">
-<pre>$ gem install asciidoctor --no-rdoc --no-ri   <img src="./images/icons/callouts/1.png" alt="1"> <img src="./images/icons/callouts/2.png" alt="2">
+<pre>$ gem install asciidoctor   <img src="./images/icons/callouts/1.png" alt="1">
 Fetching: asciidoctor-1.5.2.gem (100%)
 Successfully installed asciidoctor-1.5.2
 1 gem installed
 
-$ gem install coderay --no-rdoc --no-ri   <img src="./images/icons/callouts/2.png" alt="2"> <img src="./images/icons/callouts/3.png" alt="3">
+$ gem install coderay   <img src="./images/icons/callouts/2.png" alt="2">
 Fetching: coderay-1.1.0.gem (100%)
 Successfully installed coderay-1.1.0
 1 gem installed</pre>
@@ -1366,12 +1374,33 @@ into HTML 5, DocBook 4.5 and other formats.</td>
 </tr>
 <tr>
 <td><img src="./images/icons/callouts/2.png" alt="2"></td>
-<td>Dokumentation wurde ebenfalls erstellt.</td>
-</tr>
-<tr>
-<td><img src="./images/icons/callouts/3.png" alt="3"></td>
 <td><strong>CodeRay</strong> is a fast and easy syntax highlighting for selected languages, written in Ruby.<br>
 Comes with RedCloth integration and LOC counter.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_pry">pry</h3>
+<div class="listingblock">
+<div class="content">
+<pre>$ gem install pry   <img src="./images/icons/callouts/1.png" alt="1">
+Fetching: spoon-0.0.4.gem (100%)
+Successfully installed spoon-0.0.4
+Fetching: method_source-0.8.2.gem (100%)
+Successfully installed method_source-0.8.2
+Fetching: slop-3.6.0.gem (100%)
+Successfully installed slop-3.6.0
+Fetching: pry-0.10.1-java.gem (100%)
+Successfully installed pry-0.10.1-java
+4 gems installed</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>An IRB alternative and runtime developer console.</td>
 </tr>
 </table>
 </div>
@@ -1380,7 +1409,7 @@ Comes with RedCloth integration and LOC counter.</td>
 <h3 id="_sinatra">sinatra</h3>
 <div class="listingblock">
 <div class="content">
-<pre># gem install sinatra --no-rdoc --no-ri   <img src="./images/icons/callouts/1.png" alt="1">
+<pre># gem install sinatra   <img src="./images/icons/callouts/1.png" alt="1">
 Fetching: rack-protection-1.5.3.gem (100%)
 Successfully installed rack-protection-1.5.3
 Fetching: sinatra-1.4.5.gem (100%)
@@ -1422,33 +1451,35 @@ arel (6.0.0)
 asciidoctor (1.5.2)
 axiom-types (0.1.1)
 builder (3.2.2)
-bundler (1.7.9)
+bundler (1.7.12)
 coderay (1.1.0)
 coercible (1.0.0)
 descendants_tracker (0.0.4)
 equalizer (0.0.9)
 erubis (2.7.0)
 ffi (1.9.6 java, 1.9.3 java)
-globalid (0.3.0)
+globalid (0.3.2)
 hike (1.2.3)
 i18n (0.7.0)
 ice_nine (0.11.1)
 jar-dependencies (0.1.7, 0.1.2)
 jruby-openssl (0.9.6 java, 0.9.5 java)
-json (1.8.1 java, 1.8.0 java)
+json (1.8.2 java, 1.8.0 java)
 krypt (0.0.2)
 krypt-core (0.0.2 universal-java)
 krypt-provider-jdk (0.0.2)
 loofah (2.0.1)
 mail (2.6.3)
 maven-tools (1.0.7)
+method_source (0.8.2)
 mime-types (2.4.3)
-minitest (5.5.0)
+minitest (5.5.1)
 multi_json (1.10.1)
-nokogiri (1.6.5 java)
+nokogiri (1.6.6.2 java)
+pry (0.10.1 java)
 rack (1.6.0)
 rack-protection (1.5.3)
-rack-test (0.6.2)
+rack-test (0.6.3)
 rails (4.2.0)
 rails-deprecated_sanitizer (1.0.3)
 rails-dom-testing (1.0.5)
@@ -1459,65 +1490,66 @@ rdoc (4.2.0, 4.1.2)
 rdoc-data (4.0.1)
 ruby-maven (3.1.1.0.8)
 ruby-maven-libs (3.1.1)
-rubygems-update (2.4.5)
 sinatra (1.4.5)
+slop (3.6.0)
+spoon (0.0.4)
 sprockets (2.12.3)
-sprockets-rails (2.2.2)
+sprockets-rails (2.2.4)
 thor (0.19.1)
 thread_safe (0.3.4 java)
 tilt (1.4.1)
 tzinfo (1.2.2)
-virtus (1.0.3)</pre>
+virtus (1.0.4)</pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ ls -lrt /opt/JRuby/sid/jruby-1.7.18/bin
--rw-r--r-- 1 sid sid     43 Dez 22 20:30 testrb.bat
--rwxr-xr-x 1 sid sid    152 Dez 22 20:30 testrb
--rw-r--r-- 1 sid sid     39 Dez 22 20:30 ri.bat
--rw-r--r-- 1 sid sid     41 Dez 22 20:30 rdoc.bat
--rw-r--r-- 1 sid sid     41 Dez 22 20:30 rake.bat
--rw-r--r-- 1 sid sid 682496 Dez 22 20:30 jrubyw.exe
--rwxr-xr-x 1 sid sid   8979 Dez 22 20:30 jruby.sh
--rw-r--r-- 1 sid sid 680448 Dez 22 20:30 jruby.exe
--rw-r--r-- 1 sid sid 742400 Dez 22 20:30 jruby.dll
--rw-r--r-- 1 sid sid    245 Dez 22 20:30 jrubyd.bat
--rw-r--r-- 1 sid sid     43 Dez 22 20:30 jrubyc.bat
--rwxr-xr-x 1 sid sid    188 Dez 22 20:30 jrubyc
--rw-r--r-- 1 sid sid    125 Dez 22 20:30 jruby.bat
--rwxr-xr-x 1 sid sid  11474 Dez 22 20:30 jruby.bash
--rw-r--r-- 1 sid sid     47 Dez 22 20:30 jirb_swing.bat
--rwxr-xr-x 1 sid sid   1935 Dez 22 20:30 jirb_swing
--rw-r--r-- 1 sid sid     41 Dez 22 20:30 jirb.bat
--rwxr-xr-x 1 sid sid    390 Dez 22 20:30 jirb
--rw-r--r-- 1 sid sid     41 Dez 22 20:30 jgem.bat
--rw-r--r-- 1 sid sid     40 Dez 22 20:30 irb.bat
--rwxr-xr-x 1 sid sid    323 Dez 22 20:30 irb
--rw-r--r-- 1 sid sid     40 Dez 22 20:30 gem.bat
--rwxr-xr-x 1 sid sid    123 Dez 22 20:30 gem
--rw-r--r-- 1 sid sid     40 Dez 22 20:30 ast.bat
--rwxr-xr-x 1 sid sid   5670 Dez 22 20:30 ast
--rwxr-xr-x 1 sid sid  11474 Dez 22 20:30 jruby
--rwxr-xr-x 1 sid sid    495 Dez 23 18:22 update_rubygems
--rwxr-xr-x 1 sid sid    566 Dez 23 18:23 jgem
--rwxr-xr-x 1 sid sid    534 Dez 23 18:24 bundle-with-jars
--rwxr-xr-x 1 sid sid    486 Dez 23 18:24 rake
--rwxr-xr-x 1 sid sid    486 Dez 23 18:24 rdoc
--rwxr-xr-x 1 sid sid    484 Dez 23 18:24 ri
--rwxr-xr-x 1 sid sid    565 Dez 23 18:29 rdoc-data
--rwxr-xr-x 1 sid sid    502 Dez 23 18:35 nokogiri    <img src="./images/icons/callouts/1.png" alt="1">
--rwxr-xr-x 1 sid sid    494 Dez 23 18:35 erubis
--rwxr-xr-x 1 sid sid    488 Dez 23 18:35 rackup
--rwxr-xr-x 1 sid sid    486 Dez 23 18:35 tilt
--rwxr-xr-x 1 sid sid    506 Dez 23 18:35 sprockets
--rwxr-xr-x 1 sid sid    497 Dez 23 18:35 bundle
--rwxr-xr-x 1 sid sid    498 Dez 23 18:35 bundler
--rwxr-xr-x 1 sid sid    486 Dez 23 18:35 thor
--rwxr-xr-x 1 sid sid    499 Dez 23 18:35 rails   <img src="./images/icons/callouts/1.png" alt="1">
--rwxr-xr-x 1 sid sid    514 Dez 23 18:37 asciidoctor
--rwxr-xr-x 1 sid sid    519 Dez 23 18:37 asciidoctor-safe
--rwxr-xr-x 1 sid sid    498 Dez 23 18:37 coderay</pre>
+<pre>$ ls -lrt /opt/JRuby/sid/jruby-1.7.19/bin
+-rw-r--r-- 1 khk khk     43 Jan 29 18:32 testrb.bat
+-rwxr-xr-x 1 khk khk    152 Jan 29 18:32 testrb
+-rw-r--r-- 1 khk khk     39 Jan 29 18:32 ri.bat
+-rw-r--r-- 1 khk khk     41 Jan 29 18:32 rdoc.bat
+-rw-r--r-- 1 khk khk     41 Jan 29 18:32 rake.bat
+-rw-r--r-- 1 khk khk 682496 Jan 29 18:32 jrubyw.exe
+-rwxr-xr-x 1 khk khk   8979 Jan 29 18:32 jruby.sh
+-rw-r--r-- 1 khk khk 680448 Jan 29 18:32 jruby.exe
+-rw-r--r-- 1 khk khk 742400 Jan 29 18:32 jruby.dll
+-rw-r--r-- 1 khk khk    245 Jan 29 18:32 jrubyd.bat
+-rw-r--r-- 1 khk khk     43 Jan 29 18:32 jrubyc.bat
+-rwxr-xr-x 1 khk khk    188 Jan 29 18:32 jrubyc
+-rw-r--r-- 1 khk khk    125 Jan 29 18:32 jruby.bat
+-rwxr-xr-x 1 khk khk  11474 Jan 29 18:32 jruby.bash
+-rw-r--r-- 1 khk khk     47 Jan 29 18:32 jirb_swing.bat
+-rwxr-xr-x 1 khk khk   1935 Jan 29 18:32 jirb_swing
+-rw-r--r-- 1 khk khk     41 Jan 29 18:32 jirb.bat
+-rwxr-xr-x 1 khk khk    390 Jan 29 18:32 jirb
+-rw-r--r-- 1 khk khk     41 Jan 29 18:32 jgem.bat
+-rwxr-xr-x 1 khk khk    547 Jan 29 18:32 jgem
+-rw-r--r-- 1 khk khk     40 Jan 29 18:32 irb.bat
+-rwxr-xr-x 1 khk khk    323 Jan 29 18:32 irb
+-rw-r--r-- 1 khk khk     40 Jan 29 18:32 gem.bat
+-rwxr-xr-x 1 khk khk    123 Jan 29 18:32 gem
+-rw-r--r-- 1 khk khk     40 Jan 29 18:32 ast.bat
+-rwxr-xr-x 1 khk khk   5670 Jan 29 18:32 ast
+-rwxr-xr-x 1 khk khk  11474 Jan 29 18:32 jruby
+-rwxr-xr-x 1 khk khk    534 Feb  8 14:13 bundle-with-jars
+-rwxr-xr-x 1 khk khk    486 Feb  8 14:13 rake
+-rwxr-xr-x 1 khk khk    486 Feb  8 14:13 rdoc
+-rwxr-xr-x 1 khk khk    484 Feb  8 14:13 ri
+-rwxr-xr-x 1 khk khk    565 Feb  8 14:18 rdoc-data
+-rwxr-xr-x 1 khk khk    502 Feb  8 14:29 nokogiri    <img src="./images/icons/callouts/1.png" alt="1">
+-rwxr-xr-x 1 khk khk    494 Feb  8 14:29 erubis
+-rwxr-xr-x 1 khk khk    488 Feb  8 14:29 rackup
+-rwxr-xr-x 1 khk khk    486 Feb  8 14:29 tilt
+-rwxr-xr-x 1 khk khk    506 Feb  8 14:29 sprockets
+-rwxr-xr-x 1 khk khk    498 Feb  8 14:29 bundler
+-rwxr-xr-x 1 khk khk    497 Feb  8 14:29 bundle
+-rwxr-xr-x 1 khk khk    486 Feb  8 14:29 thor
+-rwxr-xr-x 1 khk khk    499 Feb  8 14:29 rails   <img src="./images/icons/callouts/1.png" alt="1">
+-rwxr-xr-x 1 khk khk    514 Feb  8 14:37 asciidoctor
+-rwxr-xr-x 1 khk khk    519 Feb  8 14:37 asciidoctor-safe
+-rwxr-xr-x 1 khk khk    498 Feb  8 14:38 coderay
+-rwxr-xr-x 1 khk khk    482 Feb  8 14:39 pry</pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -1574,7 +1606,7 @@ Server started at http://[0:0:0:0:0:0:0:0]:8808</pre>
 <div class="listingblock">
 <div class="title">JRuby (mit System-JDK )</div>
 <div class="content">
-<pre>JRUBY_HOME=/opt/JRuby/sid/current18
+<pre>JRUBY_HOME=/opt/JRuby/sid/current19
 #JRUBY_OPTS=--1.8   <img src="./images/icons/callouts/1.png" alt="1">
 
 PATH=$JRUBY_HOME/bin:$PATH
@@ -1601,7 +1633,7 @@ JAVA_HOME=/opt/Java/current
 JDK_HOME=/opt/Java/current
 JRE_HOME=/opt/Java/current
 
-JRUBY_HOME=/opt/JRuby/sid/current18
+JRUBY_HOME=/opt/JRuby/sid/current19
 #JRUBY_OPTS=--1.8   <img src="./images/icons/callouts/2.png" alt="2">
 
 # Tomcat
@@ -1648,7 +1680,7 @@ export PATH</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-12-23 18:42:19 MEZ
+Last updated 2015-02-08 16:54:34 MEZ
 </div>
 </div>
 </body>

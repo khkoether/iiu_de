@@ -126,4 +126,5 @@ Version 1.8.2
 * Neue Programmversion: Ruby (1.9.3, 2.1.5), JRuby (1.7.18), NetBeans (JRuby 1.7.18)
   Beispiele zu: Rails (4.2.0) mit [Ruby, JRuby, NetBeans]
    
-   
+.Version 3.1.0
+* Neue Programmversion: JRuby (1.7.19)   

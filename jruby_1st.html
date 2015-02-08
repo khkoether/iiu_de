@@ -427,6 +427,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_datenbankadapter_installieren">Datenbankadapter installieren</a></li>
 <li><a href="#_datenbank_erstellen">Datenbank erstellen</a></li>
 <li><a href="#_projektverzeichnis_erstellen">Projektverzeichnis erstellen</a></li>
+<li><a href="#_rubygems_installieren">RubyGems installieren</a></li>
 <li><a href="#_datenbankadapter_konfigurieren">Datenbankadapter konfigurieren</a></li>
 <li><a href="#_javascript_runtime_installieren">JavaScript-Runtime installieren</a></li>
 <li><a href="#_warbler_installieren">Warbler installieren</a></li>
@@ -441,7 +442,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Version 3.0.4, Dezember 2014</p>
+<p>Version 3.1.0, Februar 2015</p>
 </div>
 </div>
 </div>
@@ -487,7 +488,7 @@ Gerne nehme ich Verbesserungsvorschläge entgegen.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="http://jruby.org/">IiU&#8201;&#8212;&#8201;JRuby 1.7.18, rails-4.2.0</a></p>
+<p><a href="http://jruby.org/">IiU&#8201;&#8212;&#8201;JRuby 1.7.19, rails-4.2.0</a></p>
 </li>
 </ul>
 </div>
@@ -495,16 +496,16 @@ Gerne nehme ich Verbesserungsvorschläge entgegen.</p>
 <p>beschrieben durchgeführt worden.</p>
 </div>
 <div class="listingblock">
-<div class="title">JRuby 1.7.18</div>
+<div class="title">JRuby 1.7.19</div>
 <div class="content">
 <pre>$ which jruby
-/opt/JRuby/sid/current/bin/jruby
+/opt/JRuby/sid/current19/bin/jruby
 
 $ jruby -v
-jruby 1.7.18 (1.9.3p551) 2014-12-22 625381c on OpenJDK 64-Bit Server VM 1.7.0_65-b32 +jit [linux-amd64]
+jruby 1.7.19 (1.9.3p551) 2015-01-29 20786bd on OpenJDK 64-Bit Server VM 1.7.0_75-b13 +jit [linux-amd64]
 
 $ which rails
-/opt/JRuby/sid/current18/bin/rails
+/opt/JRuby/sid/current19/bin/rails
 
 $ jruby -S rails -v   <img src="./images/icons/callouts/1.png" alt="1">
 Rails 4.2.0
@@ -550,6 +551,9 @@ werden, kann auf <mark>jruby -S</mark> verzichtet werden.</td>
 </li>
 <li>
 <p>Projektverzeichnis erstellen</p>
+</li>
+<li>
+<p>RubyGems installieren</p>
 </li>
 <li>
 <p>Datenbankadapter konfigurieren</p>
@@ -611,39 +615,40 @@ In der Vorgehensweise sind sie ähnlich derer für <strong>MySQL</strong></p>
 <div class="listingblock">
 <div class="title">Datenbankzugriff (via JDBC)</div>
 <div class="content">
-<pre>$ gem install activerecord-jdbc-adapter --no-rdoc --no-ri
-Fetching: activerecord-jdbc-adapter-1.3.13.gem (100%)
-Successfully installed activerecord-jdbc-adapter-1.3.13
+<pre>$ gem install activerecord-jdbc-adapter
+Fetching: activerecord-jdbc-adapter-1.3.14.gem (100%)
+Successfully installed activerecord-jdbc-adapter-1.3.14
 1 gem installed</pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">MySQL</div>
 <div class="content">
-<pre>$ gem install activerecord-jdbcmysql-adapter --no-rdoc --no-ri
+<pre>$ gem install activerecord-jdbcmysql-adapter
 Fetching: jdbc-mysql-5.1.33.gem (100%)
 Successfully installed jdbc-mysql-5.1.33
-Fetching: activerecord-jdbcmysql-adapter-1.3.13.gem (100%)
-Successfully installed activerecord-jdbcmysql-adapter-1.3.13
+Fetching: activerecord-jdbcmysql-adapter-1.3.14.gem (100%)
+Successfully installed activerecord-jdbcmysql-adapter-1.3.14
 2 gems installed</pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">SQLite3</div>
 <div class="content">
-<pre>Fetching: jdbc-sqlite3-3.8.7.gem (100%)
+<pre>$ gem install activerecord-jdbcsqlite3-adapter
+Fetching: jdbc-sqlite3-3.8.7.gem (100%)
 Successfully installed jdbc-sqlite3-3.8.7
-Fetching: activerecord-jdbcsqlite3-adapter-1.3.13.gem (100%)
-Successfully installed activerecord-jdbcsqlite3-adapter-1.3.13
+Fetching: activerecord-jdbcsqlite3-adapter-1.3.14.gem (100%)
+Successfully installed activerecord-jdbcsqlite3-adapter-1.3.14
 2 gems installed</pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre>$ gem list --local | grep jdbc
-activerecord-jdbc-adapter (1.3.13)
-activerecord-jdbcmysql-adapter (1.3.13)
-activerecord-jdbcsqlite3-adapter (1.3.13)
+activerecord-jdbc-adapter (1.3.14)
+activerecord-jdbcmysql-adapter (1.3.14)
+activerecord-jdbcsqlite3-adapter (1.3.14)
 jdbc-mysql (5.1.33)
 jdbc-sqlite3 (3.8.7)</pre>
 </div>
@@ -722,88 +727,43 @@ Bye</pre>
 $ mkdir RailsDir
 
 $ cd RailsDir
-$ rails _4.2.0_ new jMyApp --database=mysql   <img src="./images/icons/callouts/1.png" alt="1"> <img src="./images/icons/callouts/2.png" alt="2">
+$ rails _4.2.0_ new jMyApp --database=mysql -B  <img src="./images/icons/callouts/1.png" alt="1"> <img src="./images/icons/callouts/2.png" alt="2"> <img src="./images/icons/callouts/3.png" alt="3">
       create
       create  README.rdoc
       create  Rakefile
       create  config.ru
       create  .gitignore
-      create  Gemfile      <img src="./images/icons/callouts/3.png" alt="3">
+      create  Gemfile      <img src="./images/icons/callouts/4.png" alt="4">
       create  app
       create  app/assets/javascripts/application.js
- [...]
+      ...
       create  bin
       create  bin/bundle
       create  bin/rails
       create  bin/rake
       create  bin/setup
-[...]
-      create  config/database.yml   <img src="./images/icons/callouts/4.png" alt="4">
+      create  config
+      create  config/routes.rb
+      ...
+      create  config/database.yml   <img src="./images/icons/callouts/5.png" alt="5">
       create  db
       create  db/seeds.rb
-[...]
+      create  lib
+      create  lib/tasks
+      ...
+      create  log
+      ...
+      create  public
+      create  public/404.html
+      ...
+      create  test/fixtures
+      ...
+      create  tmp/cache
+      ...
       create  vendor/assets/javascripts
       create  vendor/assets/javascripts/.keep
       create  vendor/assets/stylesheets
-      create  vendor/assets/stylesheets/.keep
-         run  bundle install
-Fetching gem metadata from https://rubygems.org/...........
-Resolving dependencies....
-Using rake 10.4.2
-Using i18n 0.7.0
-Using json 1.8.1
-Using minitest 5.5.0
-Using thread_safe 0.3.4
-Using tzinfo 1.2.2
-Using activesupport 4.2.0
-Using builder 3.2.2
-Using erubis 2.7.0
-Using nokogiri 1.6.5
-Using rails-deprecated_sanitizer 1.0.3
-Using rails-dom-testing 1.0.5
-Using loofah 2.0.1
-Using rails-html-sanitizer 1.0.1
-Using actionview 4.2.0
-Using rack 1.6.0
-Using rack-test 0.6.2
-Using actionpack 4.2.0
-Using globalid 0.3.0
-Using activejob 4.2.0
-Using mime-types 2.4.3
-Using mail 2.6.3
-Using actionmailer 4.2.0
-Using activemodel 4.2.0
-Using arel 6.0.0
-Using activerecord 4.2.0
-Using activerecord-jdbc-adapter 1.3.13   <img src="./images/icons/callouts/5.png" alt="5">
-Using jdbc-mysql 5.1.33
-Using activerecord-jdbcmysql-adapter 1.3.13   <img src="./images/icons/callouts/6.png" alt="6">
-Using bundler 1.7.9
-Installing coffee-script-source 1.8.0
-Installing execjs 2.2.2
-Installing coffee-script 2.3.0
-Using thor 0.19.1
-Using railties 4.2.0
-Installing coffee-rails 4.1.0
-Using hike 1.2.3
-Using multi_json 1.10.1
-Installing jbuilder 2.2.6
-Installing jquery-rails 4.0.2
-Using tilt 1.4.1
-Using sprockets 2.12.3
-Using sprockets-rails 2.2.2
-Using rails 4.2.0
-Using rdoc 4.2.0
-Installing sass 3.4.9
-Installing sass-rails 5.0.0
-Installing sdoc 0.4.1
-Installing therubyrhino_jar 1.7.4
-Installing therubyrhino 2.0.4
-Installing turbolinks 2.5.3
-Installing tzinfo-data 1.2014.10
-Installing uglifier 2.6.0
-Your bundle is complete!
-Use `bundle show [gemname]` to see where a bundled gem is installed.</pre>
+      create  vendor/assets/stylesheets/.keep</pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -820,22 +780,18 @@ Use `bundle show [gemname]` to see where a bundled gem is installed.</pre>
 </tr>
 <tr>
 <td><img src="./images/icons/callouts/3.png" alt="3"></td>
-<td>Die zu diesem Zeitpunkt benötigten RubyGems und deren Abhängigkeiten
-untereinander entnehmen Sie der Datei <code>Gemfile</code>.</td>
+<td><mark>-B</mark> Don&#8217;t run bundle install<br>
+Kein automatisches <em>install</em> und <em>update</em> von RubyGems!</td>
 </tr>
 <tr>
 <td><img src="./images/icons/callouts/4.png" alt="4"></td>
-<td>Konfigurationsdatei mit den Einstellungen für den
-Datenbankzugriff (Datenbankadapter).</td>
+<td>Die zu diesem Zeitpunkt für <em>Ruby on Rails</em> benötigten RubyGems
+und deren Abhängigkeiten untereinander sind in der Datei <code>Gemfile</code> beschrieben.</td>
 </tr>
 <tr>
 <td><img src="./images/icons/callouts/5.png" alt="5"></td>
-<td>Im Netz gibt es möglicherweise aktuell <em>neuere</em> Versionen für den
-Zugriff mit <em>Java</em> &#8230;&#8203;</td>
-</tr>
-<tr>
-<td><img src="./images/icons/callouts/6.png" alt="6"></td>
-<td>&#8230;&#8203;auf die Datenbank <em>MySQL</em>.</td>
+<td>Die Konfiguration für den Datenbankzugriff (Datenbankadapter) steht in der
+Datei <code>config/database.yml</code>.</td>
 </tr>
 </table>
 </div>
@@ -859,7 +815,7 @@ $ tree -LF 1 .
 ├── config/
 │   ├── application.rb
 │   ├── boot.rb
-│   ├── database.yml
+│   ├── database.yml     <img src="./images/icons/callouts/1.png" alt="1">
 │   ├── environment.rb
 │   ├── environments/
 │   ├── initializers/
@@ -869,8 +825,7 @@ $ tree -LF 1 .
 ├── config.ru
 ├── db/
 │   └── seeds.rb
-├── Gemfile        <img src="./images/icons/callouts/1.png" alt="1">
-├── Gemfile.lock
+├── Gemfile        <img src="./images/icons/callouts/2.png" alt="2">
 ├── lib/
 │   ├── assets/
 │   └── tasks/
@@ -896,16 +851,32 @@ $ tree -LF 1 .
 └── vendor/
     └── assets/
 
-29 directories, 22 files</pre>
+29 directories, 21 files</pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Datei: <code>config/database.yml</code></td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/2.png" alt="2"></td>
 <td>Datei: <code>Gemfile</code></td>
 </tr>
 </table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_rubygems_installieren">RubyGems installieren</h3>
+<div class="listingblock">
+<div class="title">Prüfen der in der Datei <code>Gemfile</code> genannten Abhängigkeiten</div>
+<div class="content">
+<pre>$ bundle check
+Resolving dependencies...
+Bundler can't satisfy your Gemfile's dependencies.
+Install missing gems with `bundle install`.</pre>
+</div>
 </div>
 <div class="listingblock">
 <div class="title">Datei: <code>Gemfile</code></div>
@@ -916,15 +887,15 @@ $ tree -LF 1 .
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use jdbcmysql as the database for Active Record
-gem 'activerecord-jdbcmysql-adapter'
+gem 'activerecord-jdbcmysql-adapter'                <img src="./images/icons/callouts/1.png" alt="1">
 # Use SCSS for stylesheets
 gem 'sass-rails', '~&gt; 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '&gt;= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~&gt; 4.1.0'   <img src="./images/icons/callouts/1.png" alt="1">
+gem 'coffee-rails', '~&gt; 4.1.0'                    <img src="./images/icons/callouts/2.png" alt="2">
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-gem 'therubyrhino'   <img src="./images/icons/callouts/2.png" alt="2">
+gem 'therubyrhino'                       <img src="./images/icons/callouts/3.png" alt="3">
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -954,31 +925,110 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]</pre>
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Zugriff über JDBC auf das DBMS <em>MySQL</em></td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/2.png" alt="2"></td>
 <td>Twiddle Waka <em>~&gt; 4.1.0</em> ist identisch mit
 den Bedingungen <em>&gt;= 4.1.0</em> und <em>&lt; 4.2</em>.</td>
 </tr>
 <tr>
-<td><img src="./images/icons/callouts/2.png" alt="2"></td>
+<td><img src="./images/icons/callouts/3.png" alt="3"></td>
 <td>RubyGem <em>therubyrhino</em>: JavaScript-Interpreter</td>
 </tr>
 </table>
 </div>
 <div class="listingblock">
-<div class="title">Prüfen der Abhängigkeiten im <code>Gemfile</code></div>
+<div class="title">RubyGems installieren</div>
+<div class="content">
+<pre>$ bundle install
+Fetching gem metadata from https://rubygems.org/............
+Resolving dependencies....
+Using rake 10.4.2   <img src="./images/icons/callouts/1.png" alt="1">
+Using i18n 0.7.0
+Using json 1.8.2
+Using minitest 5.5.1
+Using thread_safe 0.3.4
+Using tzinfo 1.2.2
+Using activesupport 4.2.0
+Using builder 3.2.2
+Using erubis 2.7.0
+Using nokogiri 1.6.6.2
+Using rails-deprecated_sanitizer 1.0.3
+Using rails-dom-testing 1.0.5
+Using loofah 2.0.1
+Using rails-html-sanitizer 1.0.1
+Using actionview 4.2.0
+Using rack 1.6.0
+Using rack-test 0.6.3
+Using actionpack 4.2.0
+Using globalid 0.3.2
+Using activejob 4.2.0
+Using mime-types 2.4.3
+Using mail 2.6.3
+Using actionmailer 4.2.0
+Using activemodel 4.2.0
+Using arel 6.0.0
+Using activerecord 4.2.0
+Using activerecord-jdbc-adapter 1.3.14
+Using jdbc-mysql 5.1.33
+Using activerecord-jdbcmysql-adapter 1.3.14
+Using bundler 1.7.12
+Installing coffee-script-source 1.9.0   <img src="./images/icons/callouts/2.png" alt="2">
+Installing execjs 2.3.0
+Installing coffee-script 2.3.0
+Using thor 0.19.1
+Using railties 4.2.0
+Installing coffee-rails 4.1.0
+Using hike 1.2.3
+Using multi_json 1.10.1
+Installing jbuilder 2.2.6
+Installing jquery-rails 4.0.3
+Using tilt 1.4.1
+Using sprockets 2.12.3
+Using sprockets-rails 2.2.4
+Using rails 4.2.0
+Using rdoc 4.2.0
+Installing sass 3.4.11
+Installing sass-rails 5.0.1
+Installing sdoc 0.4.1
+Installing therubyrhino_jar 1.7.4
+Installing therubyrhino 2.0.4
+Installing turbolinks 2.5.3
+Installing tzinfo-data 1.2015.1
+Installing uglifier 2.7.0
+Your bundle is complete!
+Use `bundle show [gemname]` to see where a bundled gem is installed.</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td><em>Using</em>: Bereits installierte RubyGems</td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/2.png" alt="2"></td>
+<td><em>Installing</em>: Neu installierte RubyGems</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Prüfen der Abhängigkeiten im <code>Gemfile</code> (II)</div>
 <div class="content">
 <pre>$ bundle check
 The Gemfile's dependencies are satisfied
 
 $ ls -l Gemfile*
--rw-rw-r-- 1 sid sid 1268 Dez 23 18:50 Gemfile
--rw-rw-r-- 1 sid sid 3911 Dez 23 18:51 Gemfile.lock</pre>
+-rw-rw-r-- 1 sid sid 1268 Feb  8 16:01 Gemfile
+-rw-rw-r-- 1 sid sid 3913 Feb  8 16:23 Gemfile.lock</pre>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_datenbankadapter_konfigurieren">Datenbankadapter konfigurieren</h3>
 <div class="listingblock">
-<div class="title">config/database.yml: sqlite3</div>
+<div class="title">Datei: <code>config/database.yml</code> sqlite3</div>
 <div class="content">
 <pre>[...]
 development:
@@ -1078,15 +1128,15 @@ Conf nodejs (0.10.25~dfsg2-2ubuntu1 Ubuntu:14.04/trusty [amd64])</pre>
 <div class="listingblock">
 <div class="title">WAR (WAR ist ein Dateiformat und steht für Web Application Archive)</div>
 <div class="content">
-<pre>$ gem install warbler --no-rdoc --no-ri
-Fetching: rubyzip-1.1.6.gem (100%)
-Successfully installed rubyzip-1.1.6
-Fetching: jruby-rack-1.1.16.gem (100%)
-Successfully installed jruby-rack-1.1.16
-Fetching: jruby-jars-1.7.18.gem (100%)     <img src="./images/icons/callouts/1.png" alt="1">
-Successfully installed jruby-jars-1.7.18
-Fetching: warbler-1.4.4.gem (100%)
-Successfully installed warbler-1.4.4
+<pre>$ gem install warbler
+Fetching: rubyzip-1.1.7.gem (100%)
+Successfully installed rubyzip-1.1.7
+Fetching: jruby-rack-1.1.18.gem (100%)
+Successfully installed jruby-rack-1.1.18
+Fetching: jruby-jars-1.7.19.gem (100%)     <img src="./images/icons/callouts/1.png" alt="1">
+Successfully installed jruby-jars-1.7.19
+Fetching: warbler-1.4.5.gem (100%)
+Successfully installed warbler-1.4.5
 4 gems installed</pre>
 </div>
 </div>
@@ -1094,7 +1144,7 @@ Successfully installed warbler-1.4.4
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td><strong>jruby-jars 1.7.18</strong> includes the core JRuby code and the
+<td><strong>jruby-jars 1.7.19</strong> includes the core JRuby code and the
 JRuby 1.8/1.9 stdlib as jar files. It provides a way to have
 other gems depend on JRuby without including (and freezing to)
 a specific jruby-complete jar version.</td>
@@ -1110,14 +1160,15 @@ Entwicklungs-Umgebung verwendet.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ jruby bin/rails s
+<pre class="nowrap">$ jruby bin/rails s
+NOTE: ActiveRecord 4.2 is not (yet) fully supported by AR-JDBC, please help us finish 4.2 support - check http://bit.ly/jruby-42 for starters   <img src="./images/icons/callouts/1.png" alt="1">
 =&gt; Booting WEBrick
-=&gt; Rails 4.2.0 application starting in development on http://localhost:3000   <img src="./images/icons/callouts/1.png" alt="1">
+=&gt; Rails 4.2.0 application starting in development on http://localhost:3000   <img src="./images/icons/callouts/2.png" alt="2">
 =&gt; Run `rails server -h` for more startup options
 =&gt; Ctrl-C to shutdown server
-[2014-12-23 19:06:40] INFO  WEBrick 1.3.1
-[2014-12-23 19:06:40] INFO  ruby 1.9.3 (2014-12-22) [java]   <img src="./images/icons/callouts/2.png" alt="2">
-[2014-12-23 19:06:40] INFO  WEBrick::HTTPServer#start: pid=7729 port=3000
+[2015-02-08 16:39:13] INFO  WEBrick 1.3.1
+[2015-02-08 16:39:13] INFO  ruby 1.9.3 (2015-01-29) [java]   <img src="./images/icons/callouts/3.png" alt="3">
+[2015-02-08 16:39:13] INFO  WEBrick::HTTPServer#start: pid=7550 port=3000
 ...</pre>
 </div>
 </div>
@@ -1125,10 +1176,14 @@ Entwicklungs-Umgebung verwendet.</p>
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Der Webserver läuft ohne Port-Angabe (<em>--port</em> &#8230;&#8203;) auf Port 3000.</td>
+<td>Bitte um Unterstützung&#8230;&#8203;</td>
 </tr>
 <tr>
 <td><img src="./images/icons/callouts/2.png" alt="2"></td>
+<td>Der Webserver läuft ohne Port-Angabe (<em>--port</em> &#8230;&#8203;) auf Port 3000.</td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/3.png" alt="3"></td>
 <td>Ruby Version 1.9.3</td>
 </tr>
 </table>
@@ -1171,38 +1226,39 @@ Entwicklungs-Umgebung verwendet.</p>
 <div class="listingblock">
 <div class="content">
 <pre>$ rake about
+NOTE: ActiveRecord 4.2 is not (yet) fully supported by AR-JDBC, please help us finish 4.2 support - check http://bit.ly/jruby-42 for starters
 About your application's environment
-Rails version        4.2.0
-Ruby version         1.9.3-p551 (java)   <img src="./images/icons/callouts/1.png" alt="1">
-RubyGems version     2.4.5
-Rack version         1.5
-JavaScript Runtime   therubyrhino (Rhino)
-Middleware           Rack::Sendfile,
-                     ActionDispatch::Static,
-                     Rack::Lock,
-                     #&lt;ActiveSupport::Cache::Strategy::LocalCache::Middleware:0x...&gt;,
-                     Rack::Runtime,
-                     Rack::MethodOverride,
-                     ActionDispatch::RequestId,
-                     Rails::Rack::Logger,
-                     ActionDispatch::ShowExceptions,
-                     ActionDispatch::DebugExceptions,
-                     ActionDispatch::RemoteIp,
-                     ActionDispatch::Reloader,
-                     ActionDispatch::Callbacks,
-                     ActiveRecord::Migration::CheckPending,
-                     ActiveRecord::ConnectionAdapters::ConnectionManagement,
-                     ActiveRecord::QueryCache,
-                     ActionDispatch::Cookies,
-                     ActionDispatch::Session::CookieStore,
-                     ActionDispatch::Flash,
-                     ActionDispatch::ParamsParser,
-                     Rack::Head,
-                     Rack::ConditionalGet,
-                     Rack::ETag
-Application root     /home/sid/RailsDir/jMyApp
-Environment          development
-Database adapter     mysql</pre>
+Rails version             4.2.0
+Ruby version              1.9.3-p551 (java)   <img src="./images/icons/callouts/1.png" alt="1">
+RubyGems version          2.4.5
+Rack version              1.5
+JavaScript Runtime        therubyrhino (Rhino)
+Middleware                Rack::Sendfile,
+                          ActionDispatch::Static,
+                          Rack::Lock,
+                          #&lt;ActiveSupport::Cache::Strategy::LocalCache::Middleware:0x...&gt;,
+                          Rack::Runtime,
+                          Rack::MethodOverride,
+                          ActionDispatch::RequestId,
+                          Rails::Rack::Logger,
+                          ActionDispatch::ShowExceptions,
+                          ActionDispatch::DebugExceptions,
+                          ActionDispatch::RemoteIp,
+                          ActionDispatch::Reloader,
+                          ActionDispatch::Callbacks,
+                          ActiveRecord::Migration::CheckPending,
+                          ActiveRecord::ConnectionAdapters::ConnectionManagement,
+                          ActiveRecord::QueryCache, ActionDispatch::Cookies,
+                          ActionDispatch::Session::CookieStore,
+                          ActionDispatch::Flash,
+                          ActionDispatch::ParamsParser,
+                          Rack::Head,
+                          Rack::ConditionalGet,
+                          Rack::ETag
+Application root          /home/sid/RailsDir/jMyApp
+Environment               development
+Database adapter          mysql
+Database schema version   0</pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -1234,26 +1290,26 @@ actionview (4.2.0)
 activejob (4.2.0)
 activemodel (4.2.0)
 activerecord (4.2.0)
-activerecord-jdbc-adapter (1.3.13)
-activerecord-jdbcmysql-adapter (1.3.13)
-activerecord-jdbcsqlite3-adapter (1.3.13)
+activerecord-jdbc-adapter (1.3.14)
+activerecord-jdbcmysql-adapter (1.3.14)
+activerecord-jdbcsqlite3-adapter (1.3.14)
 activesupport (4.2.0)
 arel (6.0.0)
 asciidoctor (1.5.2)
 axiom-types (0.1.1)
 builder (3.2.2)
-bundler (1.7.9)
+bundler (1.7.12)
 coderay (1.1.0)
 coercible (1.0.0)
 coffee-rails (4.1.0)
 coffee-script (2.3.0)
-coffee-script-source (1.8.0)
+coffee-script-source (1.9.0)
 descendants_tracker (0.0.4)
 equalizer (0.0.9)
 erubis (2.7.0)
-execjs (2.2.2)
+execjs (2.3.0)
 ffi (1.9.6 java, 1.9.3 java)
-globalid (0.3.0)
+globalid (0.3.2)
 hike (1.2.3)
 i18n (0.7.0)
 ice_nine (0.11.1)
@@ -1261,24 +1317,26 @@ jar-dependencies (0.1.7, 0.1.2)
 jbuilder (2.2.6)
 jdbc-mysql (5.1.33)
 jdbc-sqlite3 (3.8.7)
-jquery-rails (4.0.2)
-jruby-jars (1.7.18)
+jquery-rails (4.0.3)
+jruby-jars (1.7.19)
 jruby-openssl (0.9.6 java, 0.9.5 java)
-jruby-rack (1.1.16)
-json (1.8.1 java, 1.8.0 java)
+jruby-rack (1.1.18)
+json (1.8.2 java, 1.8.0 java)
 krypt (0.0.2)
 krypt-core (0.0.2 universal-java)
 krypt-provider-jdk (0.0.2)
 loofah (2.0.1)
 mail (2.6.3)
 maven-tools (1.0.7)
+method_source (0.8.2)
 mime-types (2.4.3)
-minitest (5.5.0)
+minitest (5.5.1)
 multi_json (1.10.1)
-nokogiri (1.6.5 java)
+nokogiri (1.6.6.2 java)
+pry (0.10.1 java)
 rack (1.6.0)
 rack-protection (1.5.3)
-rack-test (0.6.2)
+rack-test (0.6.3)
 rails (4.2.0)
 rails-deprecated_sanitizer (1.0.3)
 rails-dom-testing (1.0.5)
@@ -1289,14 +1347,15 @@ rdoc (4.2.0, 4.1.2)
 rdoc-data (4.0.1)
 ruby-maven (3.1.1.0.8)
 ruby-maven-libs (3.1.1)
-rubygems-update (2.4.5)
-rubyzip (1.1.6)
-sass (3.4.9)
-sass-rails (5.0.0)
+rubyzip (1.1.7)
+sass (3.4.11)
+sass-rails (5.0.1)
 sdoc (0.4.1)
 sinatra (1.4.5)
+slop (3.6.0)
+spoon (0.0.4)
 sprockets (2.12.3)
-sprockets-rails (2.2.2)
+sprockets-rails (2.2.4)
 therubyrhino (2.0.4)
 therubyrhino_jar (1.7.4)
 thor (0.19.1)
@@ -1304,10 +1363,10 @@ thread_safe (0.3.4 java)
 tilt (1.4.1)
 turbolinks (2.5.3)
 tzinfo (1.2.2)
-tzinfo-data (1.2014.10)
-uglifier (2.6.0)
-virtus (1.0.3)
-warbler (1.4.4)</pre>
+tzinfo-data (1.2015.1)
+uglifier (2.7.0)
+virtus (1.0.4)
+warbler (1.4.5)</pre>
 </div>
 </div>
 <hr>
@@ -1324,7 +1383,7 @@ warbler (1.4.4)</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-12-23 19:10:07 MEZ
+Last updated 2015-02-08 16:55:03 MEZ
 </div>
 </div>
 </body>
