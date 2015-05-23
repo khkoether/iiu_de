@@ -19,7 +19,13 @@ Installation in Ubuntu — khkoether[at]kahweb[dot]de
 :ruby-version:        1.9.3-p551
 :ruby21_1st-url:      link:ruby21_1st.html
 
-Version 3.0.4, Dezember 2014
+Version 3.0.4, Dezember 2014 (*unverändert*)
+
+[CAUTION]
+====
+Ich werde diese Seite für *Ruby 1.9.3* nicht weiter aktualisieren. +
+Die Unterstützung für die *1.9*-Version lief am 22.03.2015 aus!
+====
 
 
 Abstract

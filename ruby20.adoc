@@ -24,8 +24,8 @@ Version 2.2.0, März 2014 (*unverändert*)
 
 [CAUTION]
 ====
-Ich werde diese Seite für *Ruby 2.0.0* nicht weiter aktualisieren. + 
-Sie hat im Umfeld von *Rails 4.2.x* keine Bedeutung.
+Ich werde diese Seite für *Ruby 2.0.x* nicht weiter aktualisieren. + 
+Sie hat im Hinblick auf *Rails 5.0* keine Bedeutung mehr.
 ====
 
 

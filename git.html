@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.2">
 <meta name="author" content="Installation in Ubuntu — khkoether[at]kahweb[dot]de">
-<title>IiU&#8201;&#8212;&#8201;Git 2.2.1</title>
+<title>IiU&#8201;&#8212;&#8201;Git 2.4.0</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -412,7 +412,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>IiU&#8201;&#8212;&#8201;Git 2.2.1</h1>
+<h1>IiU&#8201;&#8212;&#8201;Git 2.4.0</h1>
 <div class="details">
 <span id="author" class="author">Installation in Ubuntu — khkoether[at]kahweb[dot]de</span><br>
 </div>
@@ -431,7 +431,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Version 3.0.3, Dezember 2014</p>
+<p>Version 3.2.0, Mai 2015</p>
 </div>
 </div>
 </div>
@@ -504,10 +504,10 @@ andere Debian-basierte GNU/Linux Distributionen übertragbar.</p>
 <ul>
 <li>
 <p><a href="https://www.kernel.org/pub/software/scm/git/">Git</a><br>
-<code>git-2.2.1.tar.gz</code>  (ca. 5.0M)<br>
-<code>git-htmldocs-2.2.1.tar.gz</code>  (ca. 2.3M)<br>
-<code>git-manpages-2.2.1.tar.gz</code>  (ca. 576K)<br>
-2014-12-18 (Release date)</p>
+<code>git-2.4.0.tar.gz</code>  (ca. 5.1M)<br>
+<code>git-htmldocs-2.4.0.tar.gz</code>  (ca. 2.3M)<br>
+<code>git-manpages-2.4.0.tar.gz</code>  (ca. 579K)<br>
+2015-04-30 (Release date)</p>
 </li>
 </ul>
 </div>
@@ -527,9 +527,9 @@ Benutzer <em>root</em> für das System durchgeführt.</p>
 <div class="listingblock">
 <div class="content">
 <pre>$ ls -lh
--rw-rw-r-- 1 sid sid 5,0M Dez 21 19:55 git-2.2.1.tar.gz
--rw-rw-r-- 1 sid sid 2,3M Dez 21 19:55 git-htmldocs-2.2.1.tar.gz
--rw-rw-r-- 1 sid sid 576K Dez 21 19:55 git-manpages-2.2.1.tar.gz</pre>
+-rw-rw-r--  1 sid sid 5,1M Mai  6 14:21 git-2.4.0.tar.gz
+-rw-rw-r--  1 sid sid 2,3M Mai  6 14:21 git-htmldocs-2.4.0.tar.gz
+-rw-rw-r--  1 sid sid 580K Mai  6 14:21 git-manpages-2.4.0.tar.gz</pre>
 </div>
 </div>
 </td>
@@ -588,8 +588,8 @@ Eine bereits vorhandene Git-Installation wird überschrieben.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ tar xvzf git-2.2.1.tar.gz
-$ cd git-2.2.1</pre>
+<pre>$ tar xvzf git-2.4.0.tar.gz
+$ cd git-2.4.0</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -598,7 +598,7 @@ $ cd git-2.2.1</pre>
 <div class="listingblock">
 <div class="content">
 <pre>$ make configure | tee ../log.git_make-configure
-GIT_VERSION = 2.2.1
+GIT_VERSION = 2.4.0
     GEN configure
 
 $ ./configure | tee ../log.git_configure
@@ -649,7 +649,7 @@ config.status: executing config.mak.autogen commands</pre>
 $ sudo mkdir git-doc
 
 $ cd git-doc
-$ sudo tar xvzf git-htmldocs-2.2.1.tar.gz
+$ sudo tar xvzf git-htmldocs-2.4.0.tar.gz
 [...]
 ./git-unpack-file.html
 
@@ -673,7 +673,7 @@ drwxr-xr-x 5 root root 20480 Dez 18 19:46 git-doc</pre>
 <div class="title">Documentation: man-pages</div>
 <div class="content">
 <pre>$ cd /usr/local/share/man
-$ sudo tar xvzf git-manpages-2.2.1.tar.gz
+$ sudo tar xvzf git-manpages-2.4.0.tar.gz
 [...]
 ./man7/giteveryday.7
 
@@ -682,10 +682,10 @@ $ sudo chown -R root.root man   <img src="./images/icons/callouts/1.png" alt="1"
 $ sudo chmod -R a+rx man
 
 $ ls -l man
-drwxr-xr-x 2 root root 4096 Dez 18 19:47 man1
-drwxrwxr-x 2 root root 4096 Dez 21 20:02 man3
-drwxr-xr-x 2 root root 4096 Dez 18 19:47 man5
-drwxr-xr-x 2 root root 4096 Dez 18 19:47 man7</pre>
+drwxr-xr-x 2 root root 4096 Apr 30 21:15 man1
+drwxrwxr-x 2 root root 4096 Mai  6 14:31 man3
+drwxr-xr-x 2 root root 4096 Apr 30 21:15 man5
+drwxr-xr-x 2 root root 4096 Apr 30 21:15 man7</pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -703,13 +703,13 @@ drwxr-xr-x 2 root root 4096 Dez 18 19:47 man7</pre>
 <div class="content">
 <pre>$ cd /usr/local/bin
 $ ls -l git*
--rwxr-xr-x 113 root root 9041227 Dez 21 20:02 git
--rwxr-xr-x   2 root root  162423 Dez 21 20:02 git-cvsserver
--rwxr-xr-x   1 root root  343666 Dez 21 20:02 gitk
--rwxr-xr-x 113 root root 9041227 Dez 21 20:02 git-receive-pack
--rwxr-xr-x   2 root root 4367207 Dez 21 20:02 git-shell
--rwxr-xr-x 113 root root 9041227 Dez 21 20:02 git-upload-archive
--rwxr-xr-x   2 root root 4453994 Dez 21 20:02 git-upload-pack</pre>
+-rwxr-xr-x 113 root root 9100486 Mai  6 14:31 git
+-rwxr-xr-x   2 root root  162423 Mai  6 14:31 git-cvsserver
+-rwxr-xr-x   1 root root  346683 Mai  6 14:31 gitk
+-rwxr-xr-x 113 root root 9100486 Mai  6 14:31 git-receive-pack
+-rwxr-xr-x   2 root root 4382748 Mai  6 14:31 git-shell
+-rwxr-xr-x 113 root root 9100486 Mai  6 14:31 git-upload-archive
+-rwxr-xr-x   2 root root 4472176 Mai  6 14:31 git-upload-pack</pre>
 </div>
 </div>
 <div class="listingblock">
@@ -789,7 +789,7 @@ NOTES
         6. git@vger.kernel.org
            mailto:git@vger.kernel.org
 
-Git                               12/18/2014                            GIT(1)</pre>
+Git 2.4.0                         04/30/2015                            GIT(1)</pre>
 </div>
 </div>
 <div class="listingblock">
@@ -830,7 +830,7 @@ SEE ALSO
 GIT
        Part of the git(1) suite
 
-Git                               12/18/2014                           GITK(1)</pre>
+Git 2.4.0                         04/30/2015                           GITK(1)</pre>
 </div>
 </div>
 <div class="listingblock">
@@ -843,6 +843,8 @@ Git                               12/18/2014                           GITK(1)</
 /usr/local/share/git-core/templates/info
 /usr/local/share/git-core/templates/branches
 /usr/local/share/locale
+/usr/local/share/locale/ru
+/usr/local/share/locale/ru/LC_MESSAGES
 /usr/local/share/locale/ca
 /usr/local/share/locale/ca/LC_MESSAGES
 /usr/local/share/locale/it
@@ -863,6 +865,9 @@ Git                               12/18/2014                           GITK(1)</
 /usr/local/share/locale/bg/LC_MESSAGES
 /usr/local/share/locale/zh_CN
 /usr/local/share/locale/zh_CN/LC_MESSAGES
+/usr/local/share/perl/5.18.2
+/usr/local/share/perl/5.18.2/Git
+/usr/local/share/perl/5.18.2/Git/SVN
 /usr/local/share/git-gui/lib
 /usr/local/share/git-gui/lib/msgs
 /usr/local/share/gitk/lib/msgs
@@ -871,6 +876,7 @@ Git                               12/18/2014                           GITK(1)</
 /usr/local/share/man/man3
 /usr/local/share/man/man5
 /usr/local/share/man/man7
+/usr/local/share/doc
 /usr/local/share/doc/git-doc
 /usr/local/share/doc/git-doc/RelNotes
 /usr/local/share/doc/git-doc/howto
@@ -929,7 +935,7 @@ Git                               12/18/2014                           GITK(1)</
 <h2 id="_anhang">Anhang</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Script zum Installieren von <a href="http://git-scm.com/">Git</a> 2.2.1 (ohne weitere Erläuterung).<br>
+<p>Script zum Installieren von <a href="http://git-scm.com/">Git</a> 2.4.0 (ohne weitere Erläuterung).<br>
 Die Dokumentation zu <a href="http://git-scm.com/">Git</a> wird mit diesem Script <em>nicht</em> installiert.</p>
 </div>
 <div class="listingblock">
@@ -938,7 +944,7 @@ Die Dokumentation zu <a href="http://git-scm.com/">Git</a> wird mit diesem Scrip
 <pre>#!/bin/bash
 #
 ME=make_git
-NAME=git-2.2.1
+NAME=git-2.4.0
 
 ls -l git*.tar.gz
 echo
@@ -992,7 +998,7 @@ echo "$ME: Ende."</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-12-21 22:51:24 MEZ
+Last updated 2015-05-06 14:38:39 MESZ
 </div>
 </div>
 </body>

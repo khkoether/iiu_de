@@ -77,7 +77,7 @@ Ubuntu 12.04 LTS (Precise Pangolin) enthält das Paket _asciidoc_8.6.6-1ubuntu1_
 Download
 --------
 * {sourceforge-url}[AsciiDoc] +    
-  +asciidoc-8.6.9.tar.gz+  (ca. 907.3K) +
+  `asciidoc-8.6.9.tar.gz`   (ca. 907.3K) +
   2013-11-09 (Release date)
   
 [NOTE] 
@@ -297,12 +297,12 @@ link:asciidoctor_1st.html[AsciiDoc: Erste Schritte &hellip; mit Asciidoctor]
 
 Anhang
 ------
-.Text-Datei: +asciidoc_1st.adoc+ 
+.Text-Datei: `asciidoc_1st.adoc`  
 ----
 = AsciiDoc: Erste Schritte &hellip; mit AsciiDoc
-Sid -- sid[at]example[dot]org
+Opera sine nomine scripta — sid[at]example[dot]org
 
-Version 3.0.0, September 2014
+Version 3.2.0, Mai 2015
 
 :icons:
 :Author Initials: sid

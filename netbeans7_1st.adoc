@@ -1,5 +1,5 @@
-IiU -- NetBeans IDE: Erste Schritte &hellip; 
-============================================
+IiU -- NetBeans IDE 7.4: Erste Schritte &hellip; 
+================================================
 Installation in Ubuntu — khkoether[at]kahweb[dot]de
 
 :icons:
@@ -20,15 +20,20 @@ Installation in Ubuntu — khkoether[at]kahweb[dot]de
 :jruby-version:       1.7.18
 :jruby_1st-url:       link:jruby_1st.html
 
-:netbeans-url:        link:netbeans.html
-:netbeans_1st-url:    link:netbeans_1st.html
+:netbeans7-url:        link:netbeans7.html
+:netbeans7_1st-url:    link:netbeans7_1st.html
 :netbeans-ide-url:                       http://netbeans.org/
 :netbeans-ide-download-url:              http://netbeans.org/downloads/
 :netbeans-ide-plugin-url:                http://plugins.netbeans.org/PluginPortal/
 :netbeans-ide-plugin-ruby-and-rails-url: http://plugins.netbeans.org/plugin/38549/ruby-and-rails
 
-Version 3.0.4, Dezember 2014
+Version 3.0.4, Dezember 2014 (*unverändert*)
 
+[CAUTION]
+====
+Ich werde diese Seite für *NetBeans IDE 7.4* nicht weiter aktualisieren. + 
+Sie hat im Hinblick auf die Veröffentlichung der *NetBeans IDE 8.0/ 8.1* keine Bedeutung mehr.
+====
 
 Abstract
 --------
@@ -53,7 +58,7 @@ Vorraussetzungen
 ----------------
 Die _NetBeans IDE_ ist wie in
 
-* {netbeans-url}[IiU -- NetBeans IDE 7.4]
+* {netbeans7-url}[IiU -- NetBeans IDE 7.4]
  
 beschrieben durchgeführt worden.
 
@@ -75,31 +80,31 @@ Die notwendigen Schritte werden in der _NetBeans IDE 7.4_ durchgeführt.
 
 NetBeans IDE 7.4 &middot; New Project
 -------------------------------------
-image::images/netbeans/ror01_NetBeans_IDE_7.4.png[NetBeans-IDE 7.4 &middot; Startpage] 
+image::images/netbeans7/ror01_NetBeans_IDE_7.4.png[NetBeans-IDE 7.4 &middot; Startpage] 
 
-image::images/netbeans/ror02_NetBeans_IDE_7.4.png[NetBeans-IDE 7.4 &middot; New Project]
+image::images/netbeans7/ror02_NetBeans_IDE_7.4.png[NetBeans-IDE 7.4 &middot; New Project]
  
 
 1. Choose Project
 -----------------
-image::images/netbeans/ror03_New_Project.png[Categories &middot; Projects (Next)]
+image::images/netbeans7/ror03_New_Project.png[Categories &middot; Projects (Next)]
  
 
 2. Name and Location
 --------------------
-image::images/netbeans/ror04_New_Ruby_on_Rails_Application.png[New Ruby on Rails Application &middot; Name and Location] 
+image::images/netbeans7/ror04_New_Ruby_on_Rails_Application.png[New Ruby on Rails Application &middot; Name and Location] 
 
 
 3. Database Configuration
 -------------------------
-image::images/netbeans/ror05_New_Ruby_on_Rails_Application.png[New Ruby on Rails Application &middot; Database Configuration]
+image::images/netbeans7/ror05_New_Ruby_on_Rails_Application.png[New Ruby on Rails Application &middot; Database Configuration]
 
   
 4. Install Rails
 ----------------
-image::images/netbeans/ror06_New_Ruby_on_Rails_Application.png[New Ruby on Rails Application &middot; Install Rails] 
+image::images/netbeans7/ror06_New_Ruby_on_Rails_Application.png[New Ruby on Rails Application &middot; Install Rails] 
 
-image::images/netbeans/ror07_RailsApplication1-NetBeans_IDE_7.4.png[RailsApplication1 - NetBeans IDE 7.4 &middot; Output - Generate Rails Project]
+image::images/netbeans7/ror07_RailsApplication1-NetBeans_IDE_7.4.png[RailsApplication1 - NetBeans IDE 7.4 &middot; Output - Generate Rails Project]
 
 [NOTE]
 ====
@@ -130,25 +135,25 @@ production:
 ----
 ====
 
-image::images/netbeans/ror07_RailsApplication1-NetBeans_IDE_7.4_default.png[RailsApplication1 - NetBeans IDE 7.4 &middot; Output - Generate Rails Project]
+image::images/netbeans7/ror07_RailsApplication1-NetBeans_IDE_7.4_default.png[RailsApplication1 - NetBeans IDE 7.4 &middot; Output - Generate Rails Project]
 
 
 
 
 Create Database
 ---------------
-image::images/netbeans/ror08_RailsApplication1-NetBeans_IDE_7.4.png[RailsApplication1 - NetBeans IDE 7.4 &middot; Run/Debug Rake Task]
+image::images/netbeans7/ror08_RailsApplication1-NetBeans_IDE_7.4.png[RailsApplication1 - NetBeans IDE 7.4 &middot; Run/Debug Rake Task]
 
-image::images/netbeans/ror09_Run-Debug_Rake_Task_RailsApplication1.png[Run-Debug Rake Task (RailsApplication1) &middot; db:create]
+image::images/netbeans7/ror09_Run-Debug_Rake_Task_RailsApplication1.png[Run-Debug Rake Task (RailsApplication1) &middot; db:create]
 
-image::images/netbeans/ror10_RailsApplication1-NetBeans_IDE_7.4.png[RailsApplication1 - NetBeans IDE 7.4 &middot; Output: RailsApplication1 (db:create)]
+image::images/netbeans7/ror10_RailsApplication1-NetBeans_IDE_7.4.png[RailsApplication1 - NetBeans IDE 7.4 &middot; Output: RailsApplication1 (db:create)]
 
 
 Run Project
 -----------
-image::images/netbeans/ror11_RailsApplication1-NetBeans_IDE_7.4.png[RailsApplication1 - NetBeans IDE 7.4 &middot; Run Project (RailsApplication1)]
+image::images/netbeans7/ror11_RailsApplication1-NetBeans_IDE_7.4.png[RailsApplication1 - NetBeans IDE 7.4 &middot; Run Project (RailsApplication1)]
 
-image::images/netbeans/ror12_RailsApplication1-NetBeans_IDE_7.4.png[RailsApplication1 - NetBeans IDE 7.4 &middot; Output: WEBrick for RailsApplication1 on 3000]
+image::images/netbeans7/ror12_RailsApplication1-NetBeans_IDE_7.4.png[RailsApplication1 - NetBeans IDE 7.4 &middot; Output: WEBrick for RailsApplication1 on 3000]
 
 [NOTE]
 ====
@@ -177,9 +182,9 @@ $ rails s
 
 Aufruf der Webanwendung im Browser
 ----------------------------------
-image::images/netbeans/ror13_Ruby_on_Rails_Welcome_aboard.png[Ruby on Rails: Welcome aboard]
+image::images/netbeans7/ror13_Ruby_on_Rails_Welcome_aboard.png[Ruby on Rails: Welcome aboard]
 
-image::images/netbeans/ror14_Ruby_on_Rails_Welcome_aboard.png[Ruby on Rails: Welcome aboard]
+image::images/netbeans7/ror14_Ruby_on_Rails_Welcome_aboard.png[Ruby on Rails: Welcome aboard]
 
 
 

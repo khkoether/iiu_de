@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.2">
 <meta name="author" content="Installation in Ubuntu — khkoether[at]kahweb[dot]de">
-<title>IiU&#8201;&#8212;&#8201;NetBeans IDE 7.4</title>
+<title>IiU&#8201;&#8212;&#8201;NetBeans IDE 8.0: Erste Schritte &hellip;</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -412,7 +412,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>IiU&#8201;&#8212;&#8201;NetBeans IDE 7.4</h1>
+<h1>IiU&#8201;&#8212;&#8201;NetBeans IDE 8.0: Erste Schritte &hellip;</h1>
 <div class="details">
 <span id="author" class="author">Installation in Ubuntu — khkoether[at]kahweb[dot]de</span><br>
 </div>
@@ -421,30 +421,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel1">
 <li><a href="#_abstract">Abstract</a></li>
 <li><a href="#_vorraussetzungen">Vorraussetzungen</a></li>
-<li><a href="#_download">Download</a>
-<ul class="sectlevel2">
-<li><a href="#_anmerkungen_i">Anmerkungen I</a></li>
-<li><a href="#_anmerkungen_ii">Anmerkungen II</a></li>
-</ul>
-</li>
-<li><a href="#_installation">Installation</a>
-<ul class="sectlevel2">
-<li><a href="#_netbeans_ide_7_4_graphical_installer">NetBeans IDE 7.4: Graphical Installer</a></li>
-<li><a href="#_netbeans_ide_7_4_installation">NetBeans IDE 7.4: Installation</a></li>
-<li><a href="#_netbeans_ide_7_4_nbi">NetBeans IDE 7.4: ~/.nbi</a></li>
-</ul>
-</li>
-<li><a href="#_start_und_konfiguration">Start und Konfiguration</a>
-<ul class="sectlevel2">
-<li><a href="#_netbeans_ide_7_4">NetBeans IDE 7.4</a></li>
-<li><a href="#_netbeans_ide_7_4_plugins">NetBeans IDE 7.4: Plugins</a></li>
-<li><a href="#_netbeans_ide_7_4_neustart">NetBeans IDE 7.4: Neustart</a></li>
-<li><a href="#_netbeans_ide_7_4_ruby_platforms">NetBeans IDE 7.4: Ruby Platforms</a></li>
-<li><a href="#_netbeans_ide_7_4_jruby_1_7_18_gems">NetBeans IDE 7.4: JRuby 1.7.18 Gems</a></li>
-<li><a href="#_netbeans_ide_7_4_netbeans">NetBeans IDE 7.4: ~/.netbeans</a></li>
-</ul>
-</li>
-<li><a href="#_netbeans_ide_erste_schritte">NetBeans IDE: Erste Schritte &hellip;</a></li>
+<li><a href="#_erste_schritte">Erste Schritte &hellip;</a></li>
+<li><a href="#_netbeans_ide_8_0_new_project">NetBeans IDE 8.0 &middot; New Project</a></li>
+<li><a href="#_1_choose_project">1. Choose Project</a></li>
+<li><a href="#_2_name_and_location">2. Name and Location</a></li>
+<li><a href="#_3_database_configuration">3. Database Configuration</a></li>
+<li><a href="#_4_install_rails">4. Install Rails</a></li>
+<li><a href="#_create_database">Create Database</a></li>
+<li><a href="#_run_project">Run Project</a></li>
+<li><a href="#_aufruf_der_webanwendung_im_browser">Aufruf der Webanwendung im Browser</a></li>
 </ul>
 </div>
 </div>
@@ -452,7 +437,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Version 3.0.4, Dezember 2014</p>
+<p>Version 3.2.0, Mai 2015</p>
 </div>
 </div>
 </div>
@@ -460,28 +445,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_abstract">Abstract</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Dieser Artikel ist eine Schritt-für-Schritt Anleitung zur Installation
-der <a href="http://netbeans.org/">NetBeans IDE 7.4</a> unter GNU/Linux.</p>
-</div>
-<div class="paragraph">
-<p>Die <a href="http://netbeans.org/">NetBeans IDE 7.4</a> bietet eine Unterstützung für verschiedene
-Programmiersprachen und -techniken.
-Wobei die Java-basierten Lösungen ausgezeichnet unterstützt werden.</p>
-</div>
-<div class="admonitionblock caution">
-<table>
-<tr>
-<td class="icon">
-<img src="./images/icons/caution.png" alt="Caution">
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Aktuell gibt es bereits <a href="http://netbeans.org/">NetBeans IDE 8.0.2</a>. Sie unterstützt
-die <strong>Java 8</strong>-Technologien. Grundsätzlich soll sie auch mit dem JDK7 funktionieren.</p>
-</div>
-</td>
-</tr>
-</table>
+<p>Die folgenden Schritte stellen die Funktionsfähigkeit der Installation
+von <em>NetBeans IDE 8.0</em> (kurz: <em>NetBeans</em>) sicher.</p>
 </div>
 <div class="paragraph">
 <p>Der Artikel ist in <a href="http://asciidoctor.org/docs/">AsciiDoc</a> geschrieben
@@ -513,454 +478,117 @@ Gerne nehme ich Verbesserungsvorschläge entgegen.</p>
 <h2 id="_vorraussetzungen">Vorraussetzungen</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Die Installation wird für <a href="http://www.ubuntu.com/">Ubuntu 14.04 LTS (Trusty Tahr)</a>
-beschrieben.<br>
-Gleichwohl sind die einzelnen Schritte auch für
-andere Debian-basierte GNU/Linux Distributionen übertragbar.</p>
+<p>Die <em>NetBeans IDE</em> ist wie in</p>
 </div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<img src="./images/icons/tip.png" alt="Tip">
-</td>
-<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="netbeans8.html">IiU&#8201;&#8212;&#8201;NetBeans IDE 8.0</a></p>
+</li>
+</ul>
+</div>
 <div class="paragraph">
-<p>Ubuntu 14.04 LTS (Trusty Tahr) enthält das Paket <em>netbeans_7.0.1+dfsg1-5ubuntu2</em>.</p>
-</div>
-</td>
-</tr>
-</table>
+<p>beschrieben durchgeführt worden.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_download">Download</h2>
+<h2 id="_erste_schritte">Erste Schritte &hellip;</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>Die notwendigen Schritte werden in der <em>NetBeans IDE 8.0</em> durchgeführt.</p>
+</div>
+<div class="ulist">
+<div class="title">Vorgehensweise</div>
+<ul>
+<li>
+<p>NetBeans IDE 8.0 &middot; New Project</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="http://netbeans.org/downloads/">NetBeans 7.4</a><br>
-<code>netbeans-7.4-ml-linux.sh</code> (ca. 198 MB) (IDE-Sprache: Englisch) (All)<br>
-2013-10-15 (Release date)</p>
+<p>1. Choose Project</p>
 </li>
 <li>
-<p><a href="http://plugins.netbeans.org/plugin/38549/ruby-and-rails">NetBeans: Plugin Ruby on Rails</a><br>
-<code>1367260843_updates.zip</code> (ca. 40 MB)<br>
-2013-11-24 (Release date)</p>
+<p>2. Name and Location</p>
+</li>
+<li>
+<p>3. Database Configuration</p>
+</li>
+<li>
+<p>4. Install Rails</p>
 </li>
 </ul>
 </div>
-<div class="sect2">
-<h3 id="_anmerkungen_i">Anmerkungen I</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>Die Installation des <em>OpenJDK 7</em> (<em>Oracle JDK 7</em>) wurde vom
-Benutzer <em>root</em> für das System durchgeführt &rarr; <a href="jdk.html">JDK</a>.</p>
 </li>
 <li>
-<p>Die Installation von <em>JRuby</em> und <em>Ruby on Rails</em> wurde vom
-Benutzer <em>sid</em> durchgeführt &rarr; <a href="http://jruby.org/">JRuby</a>.</p>
+<p>Create Database</p>
 </li>
 <li>
-<p>Die Installation der <em>NetBeans IDE 7.4</em> wird ebenfalls mit dem
-Benutzer <em>sid</em> durchgeführt.</p>
+<p>Run Project</p>
 </li>
 <li>
-<p>Ich verwende das <em>OpenJDK 7</em>!</p>
+<p>Aufruf der Webanwendung im Browser</p>
 </li>
 </ul>
 </div>
-<div class="listingblock">
+</div>
+</div>
+<div class="sect1">
+<h2 id="_netbeans_ide_8_0_new_project">NetBeans IDE 8.0 &middot; New Project</h2>
+<div class="sectionbody">
+<div class="imageblock">
 <div class="content">
-<pre class="nowrap">$ java -version
-java version "1.7.0_65"
-OpenJDK Runtime Environment (IcedTea 2.5.3) (7u71-2.5.3-0ubuntu0.14.04.1)
-OpenJDK 64-Bit Server VM (build 24.65-b04, mixed mode)
-
-$ jruby -v
-jruby 1.7.18 (1.9.3p551) 2014-12-22 625381c on OpenJDK 64-Bit Server VM 1.7.0_65-b32 +jit [linux-amd64]</pre>
+<img src="images/netbeans8/ror01_NetBeans_IDE_8.0.png" alt="NetBeans-IDE 8.0 &amp;middot; Startpage">
 </div>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_anmerkungen_ii">Anmerkungen II</h3>
-<div class="paragraph">
-<p>Die <em>NetBeans IDE 7.4</em> wird nach der Installation um das Plugin
- <em>Ruby on Rails</em> erweitert.</p>
-</div>
-<div class="listingblock">
+<div class="imageblock">
 <div class="content">
-<pre>$ ls -l
--rw-rw-r-- 1 sid sid 206623744 Dez  7 17:27 netbeans-7.4-linux.sh
--rw-rw-r-- 1 sid sid  40949251 Dez  7 17:21 1385326848_archive.zip    <img src="./images/icons/callouts/1.png" alt="1"></pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>NetBeans IDE Plugin: <em>Ruby on Rails</em></td>
-</tr>
-</table>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>$ unzip 1385326848_archive.zip</pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>$ ls -l
-drwxrwsr-x 3 sid sid      4096 Nov 24 20:43 archive
--rw-rw-r-- 1 sid sid 206623744 Dez  7 17:27 netbeans-7.4-linux.sh
--rw-rw-r-- 1 sid sid  40949251 Dez  7 17:21 1385326848_archive.zip</pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>$ tree archive
-archive/
-└── build
-    └── updates        <img src="./images/icons/callouts/1.png" alt="1">
-        ├── licenses
-        │   └── CF174EE3.license
-        ├── org-jruby-distro.nbm
-        ├── org-jruby-jruby.jar
-        ├── org-kxml2.nbm
-        ├── org-netbeans-libs-jrubyparser.nbm
-        ├── org-netbeans-libs-yydebug.nbm
-        ├── org-netbeans-modules-jellytools-ruby.nbm
-        ├── org-netbeans-modules-ruby-codecoverage.nbm
-        ├── org-netbeans-modules-ruby-debugger.nbm
-        ├── org-netbeans-modules-ruby-extrahints.nbm
-        ├── org-netbeans-modules-ruby-help.nbm
-        ├── org-netbeans-modules-ruby-hints.nbm
-        ├── org-netbeans-modules-ruby-javaint.nbm
-        ├── org-netbeans-modules-ruby-kit.nbm
-        ├── org-netbeans-modules-ruby.nbm
-        ├── org-netbeans-modules-ruby-platform.nbm
-        ├── org-netbeans-modules-ruby-project.nbm
-        ├── org-netbeans-modules-ruby-railsprojects.nbm
-        ├── org-netbeans-modules-ruby-rakeproject.nbm
-        ├── org-netbeans-modules-ruby-refactoring.nbm
-        ├── org-netbeans-modules-ruby-rhtml.nbm
-        ├── org-netbeans-modules-ruby-samples-depot.nbm
-        ├── org-netbeans-modules-spellchecker-bindings-ruby.nbm
-        ├── org-rubyforge-debugcommons.nbm
-        └── updates.xml
-
-3 directories, 25 files</pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Für das installieren des Plugins <em>Ruby on Rails</em> wird
-genau dieses Verzeichnis angegeben!</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock caution">
-<table>
-<tr>
-<td class="icon">
-<img src="./images/icons/caution.png" alt="Caution">
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Am 27.01.2011 wurde der offizielle Support für Ruby on Rails aus
-der in der Entwicklung befindlichen NetBeans IDE 7.0 gestrichen.<br></p>
-</div>
-<div class="paragraph">
-<p><a href="http://wiki.netbeans.org/RubySupport">NetBeans-Wiki: RubySupport</a></p>
-</div>
-<div class="paragraph">
-<p><a href="http://www.heise.de/developer/meldung/NetBeans-7-Rails-Unterstuetzung-faellt-raus-1179098.html">heise Developer: NetBeans 7: Rails-Unterstützung fällt raus</a></p>
-</div>
-<div class="paragraph">
-<p>Knapp drei Wochen später wurde die Übernahme des Supports durch die
-Community von Thomas Enebro (und Freunden und Kollegen) angekündigt.</p>
-</div>
-<div class="paragraph">
-<p><a href="http://it-republik.de/jaxenter/news/Rettung-naht-Ruby-auf-NetBeans-geht-weiter-058404.html">it republik: Rettung naht: Ruby auf NetBeans geht weiter</a></p>
-</div>
-<div class="paragraph">
-<p><a href="http://java.dzone.com/news/ruby-netbeans-lives">DZone: Ruby On NetBeans Lives!</a></p>
-</div>
-</td>
-</tr>
-</table>
+<img src="images/netbeans8/ror02_NetBeans_IDE_8.0.png" alt="NetBeans-IDE 8.0 &amp;middot; New Project">
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_installation">Installation</h2>
+<h2 id="_1_choose_project">1. Choose Project</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Zusätzliche (große) Software-Pakete
-sollten im Verzeichnis <code>/opt</code> (Optional) installiert werden.</p>
-</div>
-<div class="sect2">
-<h3 id="_netbeans_ide_7_4_graphical_installer">NetBeans IDE 7.4: Graphical Installer</h3>
-<div class="listingblock">
-<div class="title">Installations-Verzeichnisse anlegen</div>
-<div class="content">
-<pre>$ sudo mkdir -p /opt/NetBeans/sid &amp;&amp; chown sid.sid /opt/NetBeans/sid   <img src="./images/icons/callouts/1.png" alt="1">
-
-$ sudo mkdir -p /opt/Tomcat/sid   &amp;&amp; chown sid.sid /opt/Tomcat/sid     <img src="./images/icons/callouts/2.png" alt="2"></pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Das <em>Anlegen</em> der Verzeichnisse in <code>/opt</code> muß der Benutzer <em>root</em> durchführen.</td>
-</tr>
-<tr>
-<td><img src="./images/icons/callouts/2.png" alt="2"></td>
-<td>Falls das Software-Paket <em>Tomcat</em> ebenfalls installiert werden soll.</td>
-</tr>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_openjdk">OpenJDK</h4>
-<div class="listingblock">
-<div class="content">
-<pre>$ cd /opt/NetBeans/sid
-
-$ sh netbeans-7.4-linux.sh   <img src="./images/icons/callouts/1.png" alt="1">
-Konfiguriere Installation...
-Suche verfügbare JVM auf dem System...
-Extrahiere Installationsdaten...
-Starte Installationassistent...</pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Verwendet wird das von <em>Ubuntu 14.04 LTS</em> bereitgestellte <em>OpenJDK 7</em><br>
-<em>openjdk-7-jdk (7u71-2.5.3-0ubuntu0.14.04.1) [universe]</em></td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_oracle_jdk">Oracle JDK</h4>
-<div class="listingblock">
-<div class="content">
-<pre>$ cd /opt/NetBeans/sid
-
-$ sh netbeans-7.4-linux.sh --javahome /opt/Java/current/   <img src="./images/icons/callouts/1.png" alt="1">
-Konfiguriere Installation...
-Suche verfügbare JVM auf dem System...
-Extrahiere Installationsdaten...
-Starte Installationassistent...</pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Verwendet wird das zusätzlich installierte <em>Oracle JDK 7</em><br>
-<em>jdk-7u71-linux-x64.tar.gz</em></td>
-</tr>
-</table>
-</div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/nb00_Installationssystem.png" alt="NetBeans-IDE Installationssystem">
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_netbeans_ide_7_4_installation">NetBeans IDE 7.4: Installation</h3>
-<div class="paragraph">
-<p>Installationsschritte (in Textform)</p>
-</div>
-<div class="ulist">
-<div class="title">Anpassen</div>
-<ul>
-<li>
-<p>Basis IDE/ Base IDE</p>
-</li>
-<li>
-<p>Java SE</p>
-</li>
-<li>
-<p>HTML5</p>
-</li>
-<li>
-<p>Funktionen bei Bedarf<br>
-Features on Demand</p>
-</li>
-<li>
-<p>Apache Tomcat 7.0.41                  (Optional)
-Installationsgröße: 336,3 MB</p>
-</li>
-</ul>
-</div>
-<div class="ulist">
-<div class="title">Lizenzvereinbarung/ License Agreement</div>
-<ul>
-<li>
-<p>Ich akzeptiere die Bedingungen des Lizenzabkommens<br>
-I accept the terms in the license agreement</p>
-</li>
-</ul>
-</div>
-<div class="ulist">
-<div class="title">JUnit-Lizenzvereinbarung/ JUnit License Agreement</div>
-<ul>
-<li>
-<p>Ich akzeptiere die Bedingungen des Lizenzvereinbarung JUnit installieren<br>
-I accept the terms in the license agreement. Install JUnit</p>
-</li>
-</ul>
-</div>
-<div class="ulist">
-<div class="title">NetBeans-IDE 7.4 Installation</div>
-<ul>
-<li>
-<p><code>/opt/NetBeans/sid/netbeans-7.4</code></p>
-</li>
-<li>
-<p><code>/usr/lib/jvm/java-7-openjdk-amd64</code>   &#8592; <em>OpenJDK</em><br>
-<code>/opt/Java/current</code>                   &#8592; <em>Oracle JDK</em></p>
-</li>
-</ul>
-</div>
-<div class="ulist">
-<div class="title">Apache Tomcat 7.0.41 Installation</div>
-<ul>
-<li>
-<p><code>/opt/Tomcat/sid/apache-tomcat-7.0.41</code>  (Optional)</p>
-</li>
-</ul>
-</div>
-<div class="ulist">
-<div class="title">Zusammenfassung</div>
-<ul>
-<li>
-<p>NetBeans-Installationsverzeichnis/ NetBeans IDE Installation Folder:<br>
-<code>/opt/NetBeans/sid/netbeans-7.4</code></p>
-</li>
-<li>
-<p>Apache Tomcat 7.0.41 Installationsverzeichnis/ Apache Tomcat 7.0.34 Installation Folder:<br>
-<code>/opt/Tomcat/sid/apache-tomcat-7.0.41</code></p>
-</li>
-<li>
-<p>JUnit wird beim ersten Start der NetBeans IDE heruntergeladen und installiert.<br>
-JUnit library will be downloaded and installed during installation of NetBeans IDE.</p>
-</li>
-<li>
-<p>Check for Updates</p>
-</li>
-<li>
-<p>Installationsgröße (gesamt)/ Total Installation Size:<br>
-336,3 MB</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<div class="title">Einrichtung vollständig/ Setup Complete</div>
-<p>Zum Ende der Installation werden Sie gebeten <em>Anonyme Nutzungsdaten</em> freizugeben.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_netbeans_ide_7_4_nbi">NetBeans IDE 7.4: ~/.nbi</h3>
-<div class="paragraph">
-<p>Das <em>NetBeans Installer</em>-Verzeichnis enthält Informationen zur durchgeführten Installation.</p>
-</div>
-<div class="listingblock">
-<div class="title">~/.nbi</div>
-<div class="content">
-<pre>$ ls -l ~/.nbi
-drwxrwxr-x 2 sid sid  4096 Dez  7 21:12 downloads
-drwxrwxr-x 2 sid sid  4096 Dez  7 21:12 log
-drwxrwxr-x 8 sid sid  4096 Dez  7 21:19 product-cache
--rw-rw-r-- 1 sid sid 39320 Dez  7 22:02 registry.xml
-drwxrwxr-x 2 sid sid  4096 Dez  7 22:02 tmp
-drwxrwxr-x 2 sid sid  4096 Dez  7 21:12 wd</pre>
-</div>
+<img src="images/netbeans8/ror03_New_Project.png" alt="Categories &amp;middot; Projects (Next)">
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_start_und_konfiguration">Start und Konfiguration</h2>
+<h2 id="_2_name_and_location">2. Name and Location</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="_netbeans_ide_7_4">NetBeans IDE 7.4</h3>
-<div class="paragraph">
-<p><strong>Step 1:</strong> <em>netbeans</em> ausführen &#8230;&#8203;</p>
-</div>
-<div class="listingblock">
+<div class="imageblock">
 <div class="content">
-<pre>$ /opt/NetBeans/sid/netbeans-7.4/bin/netbeans</pre>
+<img src="images/netbeans8/ror04_New_Ruby_on_Rails_Application.png" alt="New Ruby on Rails Application &amp;middot; Name and Location">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_database_configuration">3. Database Configuration</h2>
+<div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans8/ror05_New_Ruby_on_Rails_Application.png" alt="New Ruby on Rails Application &amp;middot; Database Configuration">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_4_install_rails">4. Install Rails</h2>
+<div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans8/ror06_New_Ruby_on_Rails_Application.png" alt="New Ruby on Rails Application &amp;middot; Install Rails">
 </div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/nb01_NetBeans_IDE_7.4.png" alt="NetBeans IDE 7.4: Startseite">
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_netbeans_ide_7_4_plugins">NetBeans IDE 7.4: Plugins</h3>
-<div class="paragraph">
-<p><strong>Step 2:</strong> NB IDE &#8594; Tools &#8594; Plugins</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/netbeans/nb02_NetBeans_IDE_7.4.png" alt="NetBeans IDE 7.4: Plugins">
-</div>
-</div>
-<div class="paragraph">
-<p>&nbsp;<br>
-<strong>Step 3:</strong> Plugins <em>Updates</em> &#8594; <em>Update</em></p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/netbeans/nb03_Plugins.png" alt="NetBeans IDE 7.4 Plugins (Check for Updates)">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/netbeans/nb03a_NetBeans_IDE_Installer.png" alt="nb03a NetBeans IDE Installer">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/netbeans/nb03b_NetBeans_IDE_Installer.png" alt="nb03b NetBeans IDE Installer">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/netbeans/nb03c_NetBeans_IDE_Installer.png" alt="nb03c NetBeans IDE Installer">
-</div>
-</div>
-<div class="paragraph">
-<p>&nbsp;<br>
-<strong>Step 4:</strong> NB IDE → Tools → Plugins &#8594; <em>Downloaded</em> &#8594; Add Plugins&#8230;&#8203;</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/netbeans/nb04_Plugins.png" alt="NetBeans IDE 7.4: Plugins (Downloaded)">
-</div>
-</div>
-<div class="paragraph">
-<p>&nbsp;<br>
-<strong>Step 5:</strong> Add Plugins <em>updates</em> &#8594; <em>Alle Dateien</em> markieren &#8594; &Ouml;ffnen</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/netbeans/nb05_Add_Plugins.png" alt="NetBeans IDE 7.4: Add Plugins (Alle markieren -&gt; &amp;Ouml;ffnen">
+<img src="images/netbeans8/ror07_RailsApplication1-NetBeans_IDE_8.0.png" alt="RailsApplication1 - NetBeans IDE 8.0 &amp;middot; Output - Generate Rails Project">
 </div>
 </div>
 <div class="admonitionblock note">
@@ -970,115 +598,61 @@ drwxrwxr-x 2 sid sid  4096 Dez  7 21:12 wd</pre>
 <img src="./images/icons/note.png" alt="Note">
 </td>
 <td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Das Verzeichnis &nbsp; <code>updates</code> &nbsp; befindet sich
-sich in dem entpackten Archiv &nbsp; <code>1385326848_archive.zip</code>.</p>
-</li>
-<li>
-<p>Um <em>alle</em> Dateien markieren zu können muß im Dialog <em>Dateityp: Alle Dateien</em>
-ausgewählt sein!</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>Die Datei <code>config/database.yml</code> ist nicht vollständig erstellt worden.<br>
+Es fehlt der <code>default</code>-Block:</p>
+</div>
+<div class="listingblock">
+<div class="title">Datei: `config/database.yml</div>
+<div class="content">
+<pre class="highlight"><code class="language-yaml" data-lang="yaml">default: &amp;default
+  adapter: mysql
+  username: sid
+  password: g3h3im
+  host: localhost
+
+
+development:
+  &lt;&lt;: *default
+  database: db42_development
+
+test:
+  &lt;&lt;: *default
+  database: db42_test
+
+production:
+  &lt;&lt;: *default
+  database: db42_production</code></pre>
+</div>
 </div>
 </td>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>&nbsp;<br>
-<strong>Step 6:</strong> Plugins <em>Downloaded (23)</em> &#8594; Install<br></p>
-</div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/nb06_Plugins.png" alt="NetBeans IDE 7.4: Plugins (Downloaded (23))">
+<img src="images/netbeans8/ror07_RailsApplication1-NetBeans_IDE_8.0_default.png" alt="RailsApplication1 - NetBeans IDE 8.0 &amp;middot; Output - Generate Rails Project">
 </div>
 </div>
-<div class="paragraph">
-<p>&nbsp;</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="_create_database">Create Database</h2>
+<div class="sectionbody">
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/nb07_NetBeans_IDE_Installer.png" alt="NetBeans IDE 7.4: NetBeans IDE Installer (Next)">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/netbeans/nb08_NetBeans_IDE_Installer.png" alt="NetBeans IDE 7.4: NetBeans IDE Installer (Install)">
+<img src="images/netbeans8/ror08_RailsApplication1-NetBeans_IDE_8.0.png" alt="RailsApplication1 - NetBeans IDE 8.0 &amp;middot; Run/Debug Rake Task">
 </div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/nb09_NetBeans_IDE_Installer.png" alt="NetBeans IDE 7.4: NetBeans IDE Installer (Validate)">
+<img src="images/netbeans8/ror09_Run-Debug_Rake_Task_RailsApplication1.png" alt="Run-Debug Rake Task (RailsApplication1) &amp;middot; db:create">
 </div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/netbeans/nb10_Validation_Warning.png" alt="NetBeans IDE 7.4: Validation Warning (Continue)">
+<img src="images/netbeans8/ror10_RailsApplication1-NetBeans_IDE_8.0.png" alt="RailsApplication1 - NetBeans IDE 8.0 &amp;middot; Output: RailsApplication1 (db:create)">
 </div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/netbeans/nb11_NetBeans_IDE_Installer.png" alt="NetBeans IDE 7.4: NetBeans IDE Installer (Finish)">
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_netbeans_ide_7_4_neustart">NetBeans IDE 7.4: Neustart</h3>
-<div class="paragraph">
-<p><strong>Step 7:</strong> <em>My NetBeans</em></p>
-</div>
-<div class="paragraph">
-<p>Falls Sie während der Installation dem Punkt <em>Statistics</em> nicht zugestimmt haben
-werden Sie jetzt erneut (ein letztes Mal) gebeten zuzustimmen: <em>Ihre Entscheidung</em>!</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/netbeans/nb12_Usage_Statistics.png" alt="NetBeans IDE 7.2: Usage Statistics (I Agree/ No" width="Thank You)">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/netbeans/nb13_NetBeans_7.4.png" alt="NetBeans IDE 7.4: My NetBeans">
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_netbeans_ide_7_4_ruby_platforms">NetBeans IDE 7.4: Ruby Platforms</h3>
-<div class="paragraph">
-<p><strong>Step 8:</strong> NB IDE &#8594; Tools &#8594; Ruby Platforms</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/netbeans/nb14_NetBeans_IDE_7.4_Ruby_Platforms.png" alt="NetBeans IDE 7.4: NetBeans IDE 7.4 - Ruby Plaforms">
-</div>
-</div>
-<div class="paragraph">
-<p>&nbsp;<br>
-<strong>Step 9:</strong> <em>Ruby Platform Manager</em></p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/netbeans/nb15_Ruby_Platform_Manager.png" alt="NetBeans IDE 7.2: Ruby Platform Manager">
-</div>
-</div>
-<div class="ulist">
-<div class="title">Platforms</div>
-<ul>
-<li>
-<p>Der Eintrag <em>Built-in JRuby 1.7.3</em> ist Teil der Installation
-des Plugins <em>Ruby on Rails</em>.</p>
-</li>
-<li>
-<p>Der Eintrag <em>JRuby 1.7.16.1</em> ist die von mir bereits zuvor installierte
-JRuby-Version.<br></p>
-</li>
-<li>
-<p>Der Eintrag <em>Ruby 1.8.7-p484</em> ist die in <em>Ubuntu 14.04</em>
-standardmäßig installierte C-Ruby-Version.<br></p>
-</li>
-</ul>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1088,101 +662,80 @@ standardmäßig installierte C-Ruby-Version.<br></p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Die <code>PATH</code>-Variable wird während der Installation ausgewertet und
-vorhandene Ruby-Installationen automatisch in der
-<em>NetBeans IDE 7.4</em> eingetragen.</p>
+<p>Der Hinweis im Ausgabefenster ist keine Fehlermeldung!</p>
 </div>
 <div class="paragraph">
-<p>Im <code>PATH</code> war zum Zeitpunkt der Installation kein Verweis auf die
-von mir zusätzlich installierte Versionen von <em>JRuby 1.7.18</em>,
-sowie den C-Versionen <em>Ruby 1.9.3-p551</em> und <em>Ruby 2.1.5</em>!</p>
+<p>Es wird um Unterstützung bei der Verbesserung von <em>AR-JDBC</em> (ActiveRecord JDBC) gebeten.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_run_project">Run Project</h2>
+<div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans8/ror11_RailsApplication1-NetBeans_IDE_8.0.png" alt="RailsApplication1 - NetBeans IDE 8.0 &amp;middot; Run Project (RailsApplication1)">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans8/ror12_RailsApplication1-NetBeans_IDE_8.0.png" alt="RailsApplication1 - NetBeans IDE 8.0 &amp;middot; Output: WEBrick for RailsApplication1 on 3000">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="./images/icons/note.png" alt="Note">
+</td>
+<td class="content">
 <div class="paragraph">
-<p>&nbsp;<br>
-<strong>Step 10:</strong> <em>Ruby Platform Manager</em> &#8594; Add Platform &#8594; <strong>JRuby 1.7.18</strong></p>
+<p>Die Erweiterung für die <em>NetBeans IDE 8.0</em> sind noch nicht für
+<em>Rails&nbsp;4</em> angepasst:<br>
+Das Verzeichnis <code>script</code> wird nicht mehr für den <em>rails</em>-Aufruf verwendet.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/netbeans/nb16_Oeffnen.png" alt="NetBeans IDE 7.4: &amp;Ouml;ffnen">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/netbeans/nb17_Oeffnen.png" alt="NetBeans IDE 7.4: &amp;Ouml;ffnen: Ruby 2.1.5-p273">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/netbeans/nb18_Ruby_Platform_Manager.png" alt="NetBeans IDE 7.4: Ruby Platform Manager">
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_netbeans_ide_7_4_jruby_1_7_18_gems">NetBeans IDE 7.4: JRuby 1.7.18 Gems</h3>
-<div class="paragraph">
-<p><strong>Step 11:</strong> <em>Ruby Platform Manager</em> &#8594; Gem Manager</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/netbeans/nb19_Ruby_Platform_Manager.png" alt="NetBeans IDE 7.4: Ruby Platform Manager">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/netbeans/nb20_Ruby_Gems.png" alt="NetBeans IDE 7.4: Ruby Gems: JRuby 1.7.18">
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_netbeans_ide_7_4_netbeans">NetBeans IDE 7.4: ~/.netbeans</h3>
-<div class="paragraph">
-<p>Das <em>NetBeans</em>-Verzeichnis enthält Informationen zur aktuellen Konfiguration.</p>
+</td>
+</tr>
+</table>
 </div>
 <div class="listingblock">
-<div class="title">~/.netbeans</div>
+<div class="title">Kein Problem. Dann wird die Anwendung auf der Kommando-Zeile gestartet:</div>
 <div class="content">
-<pre>$ ls -la ~/.netbeans/
-drwxrwxr-x  3 sid sid 4096 Dez  7 22:04 .
-drwxr-xr-x 27 sid sid 4096 Dez 23 18:07 ..
-drwxrwxr-x 10 sid sid 4096 Dez 23 19:12 7.4
--rw-rw-r--  1 sid sid   36 Dez  7 22:04 .superId</pre>
+<pre>$ cd ~/NetBeansProjects/RailsApplication1</pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ ls -la ../.netbeans/7.4
-drwxrwxr-x 10 sid sid 4096 Dez 23 19:12 .
-drwxrwxr-x  3 sid sid 4096 Dez  7 22:04 ..
--rw-rw-r--  1 sid sid 2149 Dez 23 19:21 build.properties
-drwxrwxr-x  7 sid sid 4096 Dez  8 22:11 config
-drwxrwxr-x  7 sid sid 4096 Dez  8 22:11 jruby
--rw-rw-r--  1 sid sid    0 Dez  8 22:37 .lastModified
--rw--w----  1 sid sid   18 Dez 23 19:12 lock
-drwxrwxr-x  3 sid sid 4096 Dez  8 22:13 .metadata
-drwxrwxr-x  4 sid sid 4096 Dez  8 22:12 modules
--rw-rw-r--  1 sid sid 1406 Dez  8 22:11 platform_info.rb
--rw-rw-r--  1 sid sid 3220 Dez  8 22:11 plugin.rb
--rw-rw-r--  1 sid sid  524 Dez  8 22:11 rake
-drwxrwxr-x  3 sid sid 4096 Dez  8 22:11 ruby
-drwxrwxr-x  3 sid sid 4096 Dez  8 22:11 rubystubs
--rw-rw-r--  1 sid sid  220 Dez  8 22:11 sync-stdio.rb
-drwxrwxr-x  2 sid sid 4096 Dez  8 22:12 update_tracking
-drwxrwxr-x  4 sid sid 4096 Dez  8 22:45 var
--rw-rw-r--  1 sid sid   41 Dez  8 22:11 VERSION.txt</pre>
-</div>
+<pre class="nowrap">$ rails s
+NOTE: ActiveRecord 4.2 is not (yet) fully supported by AR-JDBC, please help us finish 4.2 support - check http://bit.ly/jruby-42 for starters
+=&gt; Booting WEBrick
+=&gt; Rails 4.2.1 application starting in development on http://localhost:3000
+=&gt; Run `rails server -h` for more startup options
+=&gt; Ctrl-C to shutdown server
+[2015-05-23 15:19:40] INFO  WEBrick 1.3.1
+[2015-05-23 15:19:40] INFO  ruby 1.9.3 (2015-05-04) [java]
+[2015-05-23 15:19:40] INFO  WEBrick::HTTPServer#start: pid=13978 port=3000
+...</pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_netbeans_ide_erste_schritte">NetBeans IDE: Erste Schritte &hellip;</h2>
+<h2 id="_aufruf_der_webanwendung_im_browser">Aufruf der Webanwendung im Browser</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p><a href="netbeans_1st.html">NetBeans IDE: Erste Schritte &hellip;</a></p>
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans8/ror13_Ruby_on_Rails_Welcome_aboard.png" alt="Ruby on Rails: Welcome aboard">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/netbeans8/ror14_Ruby_on_Rails_Welcome_aboard.png" alt="Ruby on Rails: Welcome aboard">
+</div>
 </div>
 <hr>
 <div class="paragraph">
@@ -1198,7 +751,7 @@ drwxrwxr-x  4 sid sid 4096 Dez  8 22:45 var
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-12-23 20:05:00 MEZ
+Last updated 2015-05-23 20:14:35 MESZ
 </div>
 </div>
 </body>

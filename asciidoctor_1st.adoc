@@ -1,7 +1,7 @@
 = Asciidoctor: Erste Schritte &hellip; 
-Sid -- sid[at]example[dot]org
+Opera sine nomine scripta — sid[at]example[dot]org
 
-Version 3.0.2, Dezember 2014
+Version 3.2.0, Mai 2015
 
 :icons:
 :Author Initials: sid

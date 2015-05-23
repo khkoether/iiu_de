@@ -19,8 +19,13 @@ Installation in Ubuntu — khkoether[at]kahweb[dot]de
 :ruby-version:        2.1.5
 :ruby21_1st-url:      link:ruby21_1st.html
 
-Version 3.0.4, Dezember 2014
+Version 3.0.4, Dezember 2014 (*unverändert*)
 
+[CAUTION]
+====
+Ich werde diese Seite für *Ruby 2.1.x* nicht weiter aktualisieren. + 
+Sie hat im Hinblick auf *Rails 5.0* keine Bedeutung mehr.
+====
 
 Abstract
 --------

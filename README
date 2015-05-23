@@ -31,18 +31,22 @@ Die Artikel sind in AsciiDoc geschrieben und mit Asciidoctor erstellt worden.
  * Asciidoctor 1.5.2
  * Asciidoctor: Erste Schritte ... 
  * Git 2.2.1
- * Ruby 1.9.3-p551 - rails-4.2.0
- * Ruby 2.1.5-p273 - rails-4.2.0 
-  * Ruby on Rails 4.2: Erste Schritte ... 
+ * Ruby 2.2.2-p95 - rails-4.2.1
+ * Ruby on Rails 4.2: Erste Schritte ... 
  * OpenJDK 7, Oracle JDK 7 
- * JRuby 1.7.19 - rails-4.2.0
+ * JRuby 1.7.20 - rails-4.2.1
  * JRuby on Rails 4.2: Erste Schritte ...  
- * NetBeans IDE 7.4
- * NetBeans IDE: Erste Schritte ... 
+ * NetBeans IDE 8.0
+ * NetBeans IDE 8.0: Erste Schritte ... 
 
-Unverändert - diese Seiten werden nicht weiter aktualisiert
+*Unverändert* -- diese Seiten werden nicht weiter aktualisiert!
  * AsciiDoc 8.6.9 
+ * Ruby 1.9.3-p551 - rails-4.2.0
  * Ruby 2.0.0-p451 - rails-4.0.3
+ * Ruby 2.1.5-p273 - rails-4.2.0 
+ * Ruby on Rails 4.2: Erste Schritte ...
+ * NetBeans IDE 7.4
+ * NetBeans IDE 7.4: Erste Schritte ... 
 
 Dateien
 $ asciidoctor -a toc NAME.adoc

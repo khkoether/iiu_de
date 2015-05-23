@@ -14,7 +14,7 @@ Installation in Ubuntu — khkoether[at]kahweb[dot]de
 
 :asciidoctor_1st-url:      link:asciidoctor_1st.html
 
-Version 3.0.2, Dezember 2014 
+Version 3.2.0, Mai 2015 
 
 
 Abstract
@@ -91,7 +91,7 @@ Anhang
 = Asciidoctor: Erste Schritte &hellip;
 Sid -- sid[at]example[dot]org
 
-Version 3.0.2, Dezember 2014
+Version 3.2.0, Mai 2015
 
 :icons:
 :Author Initials: sid

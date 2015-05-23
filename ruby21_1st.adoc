@@ -20,7 +20,13 @@ Installation in Ubuntu — khkoether[at]kahweb[dot]de
 :ruby19-url:          link:ruby19.html
 :ruby21-url:          link:ruby21.html
 
-Version 3.0.4, Dezember 2014
+Version 3.0.4, Dezember 2014 (*unverändert*)
+
+[CAUTION]
+====
+Ich werde diese Seite für *Ruby 2.1.x* nicht weiter aktualisieren. + 
+Sie hat im Hinblick auf *Rails 5.0* keine Bedeutung mehr.
+====
 
 
 Abstract
