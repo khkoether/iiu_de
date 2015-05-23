@@ -60,7 +60,7 @@ Verzeichnis-Struktur:
 ./images/ruby       <-- Image des RubyGems Documentation Index
 ./images/jruby      <-- Image des RubyGems Documentation Index
  
-NAME = { asciidoctor asciidoc asciidoctor_1st git ruby22 ruby20_1st jdk jruby jruby_1st netbeans8 netbeans8_1st}
+NAME = { asciidoctor asciidoc asciidoctor_1st git ruby22 ruby22_1st jdk jruby jruby_1st netbeans8 netbeans8_1st}
 
 Die erstellten Seiten finden Sie hier:
 http://www.mygithub.kahweb.de
