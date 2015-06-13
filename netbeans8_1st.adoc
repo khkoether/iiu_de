@@ -27,7 +27,7 @@ Installation in Ubuntu — khkoether[at]kahweb[dot]de
 :netbeans-ide-plugin-url:                http://plugins.netbeans.org/PluginPortal/
 :netbeans-ide-plugin-ruby-and-rails-url: http://plugins.netbeans.org/plugin/38549/ruby-and-rails
 
-Version 3.3.0, Juni 2015
+Version 3.3.0, Juni 2015 
 
 
 Abstract

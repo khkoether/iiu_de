@@ -20,7 +20,7 @@ Installation in Ubuntu — khkoether[at]kahweb[dot]de
 :jruby-version:       1.7.20.1
 :jruby_1st-url:       link:jruby_1st.html
 
-Version 3.3.0, Juni 2015
+Version 3.3.0, Juni 2015 
 
 
 Abstract

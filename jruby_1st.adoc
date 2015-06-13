@@ -22,7 +22,7 @@ Installation in Ubuntu — khkoether[at]kahweb[dot]de
 :jdk-url:             link:jdk.html
 :jruby-version:       1.7.20.1
 
-Version 3.3.0, Juni 2015
+Version 3.3.0, Juni 2015 
 
 
 Abstract
