@@ -75,7 +75,7 @@ Auswahl
 * {ruby22-url}[Ruby 2.2.2, rails-4.2.1]
 * {ruby22_1st-url}[Ruby on Rails 4.2: Erste Schritte &hellip;]
 * {jdk-url}[OpenJDK 7, Oracle JDK 7] 
-* {jruby-url}[JRuby 1.7.20 - rails-4.2.1]
+* {jruby-url}[JRuby 1.7.20.1 - rails-4.2.1]
 * {jruby_1st-url}[JRuby on Rails 4.2: Erste Schritte &hellip;] 
 * {netbeans8-url}[NetBeans IDE 8.0]
 * {netbeans8_1st-url}[NetBeans IDE 8.0: Erste Schritte &hellip;]   
