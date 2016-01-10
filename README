@@ -28,14 +28,15 @@ Ruby on Rails und Git ... und ... Dokumentation ist notwendig.
    Ruby on Rails bildet. 
 
 Die Artikel sind in AsciiDoc geschrieben und mit Asciidoctor erstellt worden.
- * Asciidoctor 1.5.2
+ * Asciidoctor 1.5.4
  * Asciidoctor: Erste Schritte ... 
- * Git 2.2.1
- * Ruby 2.2.2-p95 - rails-4.2.1
- * Ruby on Rails 4.2: Erste Schritte ... 
- * OpenJDK 7, Oracle JDK 7 
- * JRuby 1.7.20.1 - rails-4.2.1
- * JRuby on Rails 4.2: Erste Schritte ...  
+ * Git 2.7.0
+ * Ruby 2.2.4
+ * Ruby 2.3.0
+ * Ruby on Rails 4.2 
+ * OpenJDK 7, Oracle JDK 8 
+ * JRuby 1.7.23 
+ * JRuby on Rails 4.2  
  * NetBeans IDE 8.0
  * NetBeans IDE 8.0: Erste Schritte ... 
 
