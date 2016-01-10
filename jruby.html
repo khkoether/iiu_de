@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.2">
+<meta name="generator" content="Asciidoctor 1.5.4">
 <meta name="author" content="Installation in Ubuntu — khkoether[at]kahweb[dot]de">
-<title>IiU&#8201;&#8212;&#8201;JRuby 1.7.20.1, rails-4.2.1</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400">
+<title>IiU&#8201;&#8212;&#8201;JRuby 1.7.23</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
-/* Remove the comments around the @import statement below when using this as a custom stylesheet */
-/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400";*/
+/* Remove comment around @import statement below when using as a custom stylesheet */
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";*/
 article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}
 audio,canvas,video{display:inline-block}
 audio:not([controls]){display:none;height:0}
@@ -58,7 +58,6 @@ a:hover{cursor:pointer}
 img,object,embed{max-width:100%;height:auto}
 object,embed{height:100%}
 img{-ms-interpolation-mode:bicubic}
-#map_canvas img,#map_canvas embed,#map_canvas object,.map_canvas img,.map_canvas embed,.map_canvas object{max-width:none!important}
 .left{float:left!important}
 .right{float:right!important}
 .text-left{text-align:left!important}
@@ -66,10 +65,12 @@ img{-ms-interpolation-mode:bicubic}
 .text-center{text-align:center!important}
 .text-justify{text-align:justify!important}
 .hide{display:none}
-.antialiased,body{-webkit-font-smoothing:antialiased}
-img{display:inline-block;vertical-align:middle}
+body{-webkit-font-smoothing:antialiased}
+img,object,svg{display:inline-block;vertical-align:middle}
 textarea{height:auto;min-height:50px}
 select{width:100%}
+.center{margin-left:auto;margin-right:auto}
+.spread{width:100%}
 p.lead,.paragraph.lead>p,#preamble>.sectionbody>.paragraph:first-of-type p{font-size:1.21875em;line-height:1.6}
 .subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
 div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
@@ -112,12 +113,14 @@ blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
 h1{font-size:2.75em}
 h2{font-size:2.3125em}
 h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
-h4{font-size:1.4375em}}table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
 table thead,table tfoot{background:#f7f8f7;font-weight:bold}
 table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
 table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
 table tr.even,table tr.alt,table tr:nth-of-type(even){background:#f8f8f7}
 table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
+body{tab-size:4}
 h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
 h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
 .clearfix:before,.clearfix:after,.float-group:before,.float-group:after{content:" ";display:table}
@@ -125,7 +128,7 @@ h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title str
 *:not(pre)>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background-color:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
 pre,pre>code{line-height:1.45;color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;text-rendering:optimizeSpeed}
 .keyseq{color:rgba(51,51,51,.8)}
-kbd{display:inline-block;color:rgba(0,0,0,.8);font-size:.75em;line-height:1.4;background-color:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:-.15em .15em 0 .15em;padding:.2em .6em .2em .5em;vertical-align:middle;white-space:nowrap}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background-color:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
 .keyseq kbd:first-child{margin-left:0}
 .keyseq kbd:last-child{margin-right:0}
 .menuseq,.menu{color:rgba(0,0,0,.8)}
@@ -156,29 +159,33 @@ p a>code:hover{color:rgba(0,0,0,.9)}
 #toc ul.sectlevel0>li>a{font-style:italic}
 #toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
 #toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
 #toc a{text-decoration:none}
 #toc a:active{text-decoration:underline}
 #toctitle{color:#7a2518;font-size:1.2em}
 @media only screen and (min-width:768px){#toctitle{font-size:1.375em}
 body.toc2{padding-left:15em;padding-right:0}
 #toc.toc2{margin-top:0!important;background-color:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #efefed;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
-#toc.toc2 #toctitle{margin-top:0;font-size:1.2em}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
 #toc.toc2>ul{font-size:.9em;margin-bottom:0}
 #toc.toc2 ul ul{margin-left:0;padding-left:1em}
 #toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
 body.toc2.toc-right{padding-left:0;padding-right:15em}
-body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #efefed;left:auto;right:0}}@media only screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #efefed;left:auto;right:0}}
+@media only screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
 #toc.toc2{width:20em}
 #toc.toc2 #toctitle{font-size:1.375em}
 #toc.toc2>ul{font-size:.95em}
 #toc.toc2 ul ul{padding-left:1.25em}
-body.toc2.toc-right{padding-left:0;padding-right:20em}}#content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
 #content #toc>:first-child{margin-top:0}
 #content #toc>:last-child{margin-bottom:0}
 #footer{max-width:100%;background-color:rgba(0,0,0,.8);padding:1.25em}
 #footer-text{color:rgba(255,255,255,.8);line-height:1.44}
 .sect1{padding-bottom:.625em}
-@media only screen and (min-width:768px){.sect1{padding-bottom:1.25em}}.sect1+.sect1{border-top:1px solid #efefed}
+@media only screen and (min-width:768px){.sect1{padding-bottom:1.25em}}
+.sect1+.sect1{border-top:1px solid #efefed}
 #content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
 #content h1>a.anchor:before,h2>a.anchor:before,h3>a.anchor:before,#toctitle>a.anchor:before,.sidebarblock>.content>.title>a.anchor:before,h4>a.anchor:before,h5>a.anchor:before,h6>a.anchor:before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
 #content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
@@ -207,7 +214,9 @@ table.tableblock #preamble>.sectionbody>.paragraph:first-of-type p{font-size:inh
 .sidebarblock .literalblock pre,.sidebarblock .listingblock pre:not(.highlight),.sidebarblock .listingblock pre[class="highlight"],.sidebarblock .listingblock pre[class^="highlight "],.sidebarblock .listingblock pre.CodeRay,.sidebarblock .listingblock pre.prettyprint{background:#f2f1f1}
 .literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;padding:1em;font-size:.8125em}
 .literalblock pre.nowrap,.literalblock pre[class].nowrap,.listingblock pre.nowrap,.listingblock pre[class].nowrap{overflow-x:auto;white-space:pre;word-wrap:normal}
-@media only screen and (min-width:768px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:.90625em}}@media only screen and (min-width:1280px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:1em}}.literalblock.output pre{color:#f7f7f8;background-color:rgba(0,0,0,.9)}
+@media only screen and (min-width:768px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:.90625em}}
+@media only screen and (min-width:1280px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:1em}}
+.literalblock.output pre{color:#f7f7f8;background-color:rgba(0,0,0,.9)}
 .listingblock pre.highlightjs{padding:0}
 .listingblock pre.highlightjs>code{padding:1em;-webkit-border-radius:4px;border-radius:4px}
 .listingblock pre.prettyprint{border-width:0}
@@ -217,7 +226,7 @@ table.tableblock #preamble>.sectionbody>.paragraph:first-of-type p{font-size:inh
 .listingblock.terminal pre .command:before{content:attr(data-prompt);padding-right:.5em;color:#999}
 .listingblock.terminal pre .command:not([data-prompt]):before{content:"$"}
 table.pyhltable{border-collapse:separate;border:0;margin-bottom:0;background:none}
-table.pyhltable td{vertical-align:top;padding-top:0;padding-bottom:0}
+table.pyhltable td{vertical-align:top;padding-top:0;padding-bottom:0;line-height:1.45}
 table.pyhltable td.code{padding-left:.75em;padding-right:0}
 pre.pygments .lineno,table.pyhltable td:not(.code){color:#999;padding-left:0;padding-right:.5em;border-right:1px solid #ddddd8}
 pre.pygments .lineno{display:inline-block;margin-right:.25em}
@@ -238,13 +247,12 @@ table.pyhltable .linenodiv{background:none!important;padding-right:0!important}
 .verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
 .quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
 .quoteblock .attribution br,.verseblock .attribution br{display:none}
-.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.05em;color:rgba(0,0,0,.6)}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
 .quoteblock.abstract{margin:0 0 1.25em 0;display:block}
 .quoteblock.abstract blockquote,.quoteblock.abstract blockquote p{text-align:left;word-spacing:0}
 .quoteblock.abstract blockquote:before,.quoteblock.abstract blockquote p:first-of-type:before{display:none}
 table.tableblock{max-width:100%;border-collapse:separate}
 table.tableblock td>.paragraph:last-child p>p:last-child,table.tableblock th>p:last-child,table.tableblock td>p:last-child{margin-bottom:0}
-table.spread{width:100%}
 table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
 table.grid-all th.tableblock,table.grid-all td.tableblock{border-width:0 1px 1px 0}
 table.grid-all tfoot>tr>th.tableblock,table.grid-all tfoot>tr>td.tableblock{border-width:1px 1px 0 0}
@@ -290,8 +298,8 @@ ol.upperroman{list-style-type:upper-roman}
 ol.lowergreek{list-style-type:lower-greek}
 .hdlist>table,.colist>table{border:0;background:none}
 .hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
-td.hdlist1{padding-right:.75em;font-weight:bold}
-td.hdlist1,td.hdlist2{vertical-align:top}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
 .literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
 .colist>table tr>td:first-of-type{padding:0 .75em;line-height:1}
 .colist>table tr>td:last-of-type{padding:.25em 0}
@@ -304,13 +312,14 @@ td.hdlist1,td.hdlist2{vertical-align:top}
 .image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
 .image.left{margin-right:.625em}
 .image.right{margin-left:.625em}
-a.image{text-decoration:none}
-span.footnote,span.footnoteref{vertical-align:super;font-size:.875em}
-span.footnote a,span.footnoteref a{text-decoration:none}
-span.footnote a:active,span.footnoteref a:active{text-decoration:underline}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
 #footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
 #footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em 0;border-width:1px 0 0 0}
-#footnotes .footnote{padding:0 .375em;line-height:1.3;font-size:.875em;margin-left:1.2em;text-indent:-1.2em;margin-bottom:.2em}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;text-indent:-1.05em;margin-bottom:.2em}
 #footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none}
 #footnotes .footnote:last-of-type{margin-bottom:0}
 #content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
@@ -368,11 +377,10 @@ span.icon>.fa{cursor:default}
 pre .conum[data-value]{position:relative;top:-.125em}
 b.conum *{color:inherit!important}
 .conum:not([data-value]):empty{display:none}
-h1,h2{letter-spacing:-.01em}
-dt,th.tableblock,td.content{text-rendering:optimizeLegibility}
-p,td.content{letter-spacing:-.01em}
-p strong,td.content strong{letter-spacing:-.005em}
-p,blockquote,dt,td.content{font-size:1.0625rem}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,span.alt{font-size:1.0625rem}
 p{margin-bottom:1.25rem}
 .sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
 .exampleblock>.content{background-color:#fffef7;border-color:#e0e0dc;-webkit-box-shadow:0 1px 4px #e0e0dc;box-shadow:0 1px 4px #e0e0dc}
@@ -383,9 +391,9 @@ a{color:inherit!important;text-decoration:underline!important}
 a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
 a[href^="http:"]:not(.bare):after,a[href^="https:"]:not(.bare):after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
 abbr[title]:after{content:" (" attr(title) ")"}
-pre,blockquote,tr,img{page-break-inside:avoid}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
 thead{display:table-header-group}
-img{max-width:100%!important}
+svg{max-width:100%}
 p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
 h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
 #toc,.sidebarblock,.exampleblock>.content{background:none!important}
@@ -412,7 +420,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>IiU&#8201;&#8212;&#8201;JRuby 1.7.20.1, rails-4.2.1</h1>
+<h1>IiU&#8201;&#8212;&#8201;JRuby 1.7.23</h1>
 <div class="details">
 <span id="author" class="author">Installation in Ubuntu — khkoether[at]kahweb[dot]de</span><br>
 </div>
@@ -422,11 +430,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_abstract">Abstract</a></li>
 <li><a href="#_vorraussetzungen">Vorraussetzungen</a></li>
 <li><a href="#_download">Download</a></li>
-<li><a href="#_installation_jruby_1_7_20_1">Installation: JRuby 1.7.20.1</a></li>
+<li><a href="#_installation_jruby_1_7_23">Installation: JRuby 1.7.23</a></li>
 <li><a href="#_rubygems">Rubygems</a>
 <ul class="sectlevel2">
 <li><a href="#_update">update</a></li>
-<li><a href="#_installation_ruby_on_rails_4_2_1">Installation: Ruby on rails-4.2.1</a></li>
 <li><a href="#_asciidoctor">asciidoctor</a></li>
 <li><a href="#_awesome_print">awesome_print</a></li>
 <li><a href="#_pry">pry</a></li>
@@ -435,7 +442,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#_rubygems_documentation_index">RubyGems Documentation Index</a></li>
-<li><a href="#_jruby_on_rails_4_2_erste_schritte">JRuby on Rails 4.2: Erste Schritte &hellip;</a></li>
 <li><a href="#_anhang">Anhang</a></li>
 </ul>
 </div>
@@ -444,7 +450,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Version 3.3.0, Juni 2015</p>
+<p>Version 4.0.0, Januar 2016</p>
 </div>
 </div>
 </div>
@@ -453,16 +459,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sectionbody">
 <div class="paragraph">
 <p>Dieser Artikel ist eine Schritt-für-Schritt Anleitung zur Installation
-von <a href="http://jruby.org/">JRuby 1.7.20.1</a> unter GNU/Linux.</p>
+von <a href="http://jruby.org/">JRuby 1.7.23</a> unter GNU/Linux.</p>
 </div>
 <div class="paragraph">
 <p>Die Programmiersprache <a href="http://jruby.org/">JRuby</a> ist die Implementation
-von {ruby-url}[Ruby] in Java, die wiederum die Grundlage für das
-WebApplication Framework {rubyonrails-url}[Ruby on Rails] bildet.</p>
+von <a href="https://www.ruby-lang.org/de/">Ruby</a> in Java, die wiederum die Grundlage für das
+WebApplication Framework <a href="http://www.rubyonrails.org">Ruby on Rails</a> bildet.</p>
 </div>
 <div class="paragraph">
-<p>Der Artikel ist in <a href="http://asciidoctor.org/docs/">AsciiDoc</a> geschrieben
-und mit <em>Asciidoctor 1.5.2</em> erstellt worden.</p>
+<p>Der Artikel ist in <a href="http://asciidoctor.org/docs/">Asciidoctor</a> geschrieben
+und mit <em>Asciidoctor 1.5.4</em> erstellt worden.</p>
 </div>
 <div class="admonitionblock caution">
 <table>
@@ -520,17 +526,12 @@ andere Debian-basierte GNU/Linux Distributionen übertragbar.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="http://jruby.org/download">JRuby 1.7.20.1</a><br>
-<code>jruby-bin-1.7.20.1.tar.gz</code>  (ca. 33M)<br>
-<strong>2015-06-10 (Release date)</strong><br>
-JRuby 1.7.20.1 is our twenty-fourth update release since JRuby 1.7.0.
+<p><a href="http://jruby.org/download">JRuby 1.7.23</a><br>
+  <code>jruby-bin-1.7.23.tar.gz</code>  (ca. 33M)<br>
+  <strong>2015-11-24 (Release date)</strong><br>
+JRuby 1.7.23 is our twenty-seventh update release since JRuby 1.7.0.
 The primary goal of 1.7 point releases is to fill out any missing
-compatibility issues with Ruby 1.9.3.<br>
-This security release only updated Rubygems to version 2.4.8.
-Rubygems 2.4.8 addresses CVE-2015-1855 to resolve some problems
-with wildcard matching of hostnames.<br>
-See &#8594; <a href="https://www.ruby-lang.org/en/news/2015/04/13/ruby-openssl-hostname-matching-vulnerability/">ruby-lang.org’s</a>
-description for more info. All users are recommended to upgrade.</p>
+compatibility issues with Ruby 1.9.3.</p>
 </li>
 </ul>
 </div>
@@ -597,7 +598,7 @@ Benutzer <em>sid</em> lokal durchgeführt.</p>
 <div class="listingblock">
 <div class="content">
 <pre>$ ls -l
--rw-rw-r-- 1 sid sid 33893026 Jun 12 21:47 jruby-bin-1.7.20.1.tar.gz</pre>
+-rw-rw-r-- 1 sid sid 21630974 Jan  6 11:25 jruby-bin-1.7.23.tar.gz</pre>
 </div>
 </div>
 </td>
@@ -607,7 +608,7 @@ Benutzer <em>sid</em> lokal durchgeführt.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_installation_jruby_1_7_20_1">Installation: JRuby 1.7.20.1</h2>
+<h2 id="_installation_jruby_1_7_23">Installation: JRuby 1.7.23</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Zusätzliche Software-Pakete
@@ -632,8 +633,8 @@ sollten im Verzeichnis <code>/opt</code> (Optional) installiert werden.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ tar xvzf jruby-bin-1.7.20.1.tar.gz
-[...]</pre>
+<pre>$ tar xvzf jruby-bin-1.7.23.tar.gz
+...</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -647,7 +648,7 @@ $ sudo chown sid.sid /opt/JRuby/sid</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ mv jruby-1.7.20.1/ /opt/JRuby/sid</pre>
+<pre>$ mv jruby-1.7.23/ /opt/JRuby/sid</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -655,50 +656,50 @@ $ sudo chown sid.sid /opt/JRuby/sid</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ cd /opt/JRuby/sid/jruby-1.7.20.1
+<pre>$ cd /opt/JRuby/sid/jruby-1.7.23
 $ ls -l
-drwxr-xr-x 2 sid sid   4096 Jun 12 21:55 bin
--rw-r--r-- 1 sid sid 137174 Jun 12 21:55 COPYING
-drwxrwxr-x 4 sid sid   4096 Jun 12 21:55 docs
-drwxr-xr-x 4 sid sid   4096 Jun 12 21:55 lib
--rw-r--r-- 1 sid sid   2572 Jun 12 21:55 LICENSE.RUBY
-drwxrwxr-x 6 sid sid   4096 Jun 12 21:55 samples
-drwxrwxr-x 3 sid sid   4096 Jun 12 21:55 tool</pre>
+drwxr-xr-x 2 sid sid   4096 Jan  6 11:28 bin
+-rw-r--r-- 1 sid sid 137174 Nov 24 16:18 COPYING
+drwxrwxr-x 4 sid sid   4096 Jan  6 11:28 docs
+drwxr-xr-x 4 sid sid   4096 Jan  6 11:28 lib
+-rw-r--r-- 1 sid sid   2572 Nov 24 16:18 LICENSE.RUBY
+drwxrwxr-x 6 sid sid   4096 Jan  6 11:28 samples
+drwxrwxr-x 3 sid sid   4096 Jan  6 11:28 tool</pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre>$ ls -l bin
--rwxr-xr-x 1 sid sid   5670 Jun 12 21:55 ast       <img src="./images/icons/callouts/1.png" alt="1">
--rw-r--r-- 1 sid sid     40 Jun 12 21:55 ast.bat   <img src="./images/icons/callouts/2.png" alt="2">
--rwxr-xr-x 1 sid sid    123 Jun 12 21:55 gem
--rw-r--r-- 1 sid sid     40 Jun 12 21:55 gem.bat
--rwxr-xr-x 1 sid sid    323 Jun 12 21:55 irb
--rw-r--r-- 1 sid sid     40 Jun 12 21:55 irb.bat
--rwxr-xr-x 1 sid sid    547 Jun 12 21:55 jgem
--rw-r--r-- 1 sid sid     41 Jun 12 21:55 jgem.bat
--rwxr-xr-x 1 sid sid    390 Jun 12 21:55 jirb
--rw-r--r-- 1 sid sid     41 Jun 12 21:55 jirb.bat
--rwxr-xr-x 1 sid sid   1935 Jun 12 21:55 jirb_swing
--rw-r--r-- 1 sid sid     47 Jun 12 21:55 jirb_swing.bat
--rwxr-xr-x 1 sid sid  11474 Jun 12 21:55 jruby
--rwxr-xr-x 1 sid sid  11474 Jun 12 21:55 jruby.bash
--rw-r--r-- 1 sid sid    125 Jun 12 21:55 jruby.bat
--rwxr-xr-x 1 sid sid    188 Jun 12 21:55 jrubyc
--rw-r--r-- 1 sid sid     43 Jun 12 21:55 jrubyc.bat
--rw-r--r-- 1 sid sid    245 Jun 12 21:55 jrubyd.bat
--rw-r--r-- 1 sid sid 742400 Jun 12 21:55 jruby.dll
--rw-r--r-- 1 sid sid 680448 Jun 12 21:55 jruby.exe
--rwxr-xr-x 1 sid sid   8979 Jun 12 21:55 jruby.sh
--rw-r--r-- 1 sid sid 682496 Jun 12 21:55 jrubyw.exe
--rwxr-xr-x 1 sid sid    451 Jun 12 21:55 rake
--rw-r--r-- 1 sid sid     41 Jun 12 21:55 rake.bat
--rwxr-xr-x 1 sid sid    451 Jun 12 21:55 rdoc
--rw-r--r-- 1 sid sid     41 Jun 12 21:55 rdoc.bat
--rwxr-xr-x 1 sid sid    449 Jun 12 21:55 ri
--rw-r--r-- 1 sid sid     39 Jun 12 21:55 ri.bat
--rwxr-xr-x 1 sid sid    152 Jun 12 21:55 testrb
--rw-r--r-- 1 sid sid     43 Jun 12 21:55 testrb.bat</pre>
+-rwxr-xr-x 1 sid sid   5670 Nov 24 16:23 ast       <img src="./images/icons/callouts/1.png" alt="1">
+-rw-r--r-- 1 sid sid     40 Nov 24 16:23 ast.bat   <img src="./images/icons/callouts/2.png" alt="2">
+-rwxr-xr-x 1 sid sid    123 Nov 24 16:23 gem
+-rw-r--r-- 1 sid sid     40 Nov 24 16:23 gem.bat
+-rwxr-xr-x 1 sid sid    323 Nov 24 16:23 irb
+-rw-r--r-- 1 sid sid     40 Nov 24 16:23 irb.bat
+-rwxr-xr-x 1 sid sid    547 Nov 24 16:23 jgem
+-rw-r--r-- 1 sid sid     41 Nov 24 16:23 jgem.bat
+-rwxr-xr-x 1 sid sid    390 Nov 24 16:23 jirb
+-rw-r--r-- 1 sid sid     41 Nov 24 16:23 jirb.bat
+-rwxr-xr-x 1 sid sid   1935 Nov 24 16:23 jirb_swing
+-rw-r--r-- 1 sid sid     47 Nov 24 16:23 jirb_swing.bat
+-rwxr-xr-x 1 sid sid  11474 Nov 24 16:23 jruby
+-rwxr-xr-x 1 sid sid  11474 Nov 24 16:23 jruby.bash
+-rw-r--r-- 1 sid sid    125 Nov 24 16:23 jruby.bat
+-rwxr-xr-x 1 sid sid    188 Nov 24 16:23 jrubyc
+-rw-r--r-- 1 sid sid     43 Nov 24 16:23 jrubyc.bat
+-rw-r--r-- 1 sid sid    245 Nov 24 16:23 jrubyd.bat
+-rw-r--r-- 1 sid sid 742400 Nov 24 16:23 jruby.dll
+-rw-r--r-- 1 sid sid 680448 Nov 24 16:23 jruby.exe
+-rwxr-xr-x 1 sid sid   8979 Nov 24 16:23 jruby.sh
+-rw-r--r-- 1 sid sid 682496 Nov 24 16:23 jrubyw.exe
+-rwxr-xr-x 1 sid sid    486 Nov 24 16:23 rake
+-rw-r--r-- 1 sid sid     41 Nov 24 16:23 rake.bat
+-rwxr-xr-x 1 sid sid    486 Nov 24 16:23 rdoc
+-rw-r--r-- 1 sid sid     41 Nov 24 16:23 rdoc.bat
+-rwxr-xr-x 1 sid sid    484 Nov 24 16:23 ri
+-rw-r--r-- 1 sid sid     39 Nov 24 16:23 ri.bat
+-rwxr-xr-x 1 sid sid    152 Nov 24 16:23 testrb
+-rw-r--r-- 1 sid sid     43 Nov 24 16:23 testrb.bat</pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -714,44 +715,32 @@ drwxrwxr-x 3 sid sid   4096 Jun 12 21:55 tool</pre>
 </table>
 </div>
 <div class="paragraph">
-<p><strong>Step 4:</strong> Der Pfad zum Verzeichnis <code>/opt/JRuby/sid/jruby-1.7.20.1</code> muß gesetzt werden.</p>
+<p><strong>Step 4:</strong> Der Pfad zum Verzeichnis <code>/opt/JRuby/sid/jruby-1.7.23</code> muß gesetzt werden.</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre>$ cd /opt/JRuby/sid
-$ ln -s jruby-1.7.20.1 current201
+$ ln -s jruby-1.7.23 current23
 
 $ ls -lv
-lrwxrwxrwx 1 sid sid   15 Dez  5 16:53 current -&gt; jruby-1.7.16.1/     <img src="./images/icons/callouts/1.png" alt="1">
-lrwxrwxrwx 1 sid sid   15 Dez  5 16:53 current16 -&gt; jruby-1.7.16.1/   <img src="./images/icons/callouts/1.png" alt="1">
-lrwxrwxrwx 1 sid sid   12 Dez 23 18:03 current18 -&gt; jruby-1.7.18
-lrwxrwxrwx 1 sid sid   12 Feb  8 14:01 current19 -&gt; jruby-1.7.19
-lrwxrwxrwx 1 sid sid   12 Mai 22 22:32 current20 -&gt; jruby-1.7.20
-lrwxrwxrwx 1 sid sid   15 Jun 12 21:58 current201 -&gt; jruby-1.7.20.1/
--rw-r--r-- 1 sid sid  131 Dez  5 16:52 jruby.path.sh
--rw-r--r-- 1 sid sid  133 Dez  5 16:52 jruby16.path.sh
--rw-r--r-- 1 sid sid  133 Dez 23 18:07 jruby18.path.sh
--rw-r--r-- 1 sid sid  133 Feb  8 14:14 jruby19.path.sh
--rw-r--r-- 1 sid sid  133 Mai 22 22:12 jruby20.path.sh
--rw-r--r-- 1 sid sid  133 Jun 12 22:00 jruby201.path.sh   <img src="./images/icons/callouts/2.png" alt="2">
-drwxr-xr-x 8 sid sid 4096 Dez  5 16:51 jruby-1.7.16.1
-drwxr-xr-x 7 sid sid 4096 Dez 23 18:07 jruby-1.7.18
-drwxr-xr-x 7 sid sid 4096 Feb  8 14:09 jruby-1.7.19
-drwxr-xr-x 7 sid sid 4096 Mai  5 00:04 jruby-1.7.20
-drwxr-xr-x 7 sid sid 4096 Jun 12 21:55 jruby-1.7.20.1</pre>
+lrwxrwxrwx 1 sid sid   12 Jan  6 11:34 current -&gt; jruby-1.7.23     <img src="./images/icons/callouts/1.png" alt="1">
+lrwxrwxrwx 1 sid sid   12 Jan  6 11:31 current23 -&gt; jruby-1.7.23   <img src="./images/icons/callouts/1.png" alt="1">
+-rw-r--r-- 1 sid sid  131 Jan  6 11:33 jruby.path.sh
+-rw-r--r-- 1 sid sid  134 Jan  6 11:32 jruby23.path.sh   <img src="./images/icons/callouts/2.png" alt="2">
+drwxr-xr-x 7 sid sid 4096 Nov 24 16:25 jruby-1.7.23</pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Die symbolischen links <em>current</em> und <em>current16</em> zeigen auf die gleiche
+<td>Die symbolischen links <em>current</em> und <em>current23</em> zeigen auf die gleiche
 JRuby-Installation:<br>
-<em>jruby-1.7.16.1</em>&#8201;&#8212;&#8201;meine <em>default</em>-Installation.</td>
+<em>jruby-1.7.23</em>&#8201;&#8212;&#8201;meine <em>default</em>-Installation.</td>
 </tr>
 <tr>
 <td><img src="./images/icons/callouts/2.png" alt="2"></td>
-<td>Erstellen Sie eine Datei <code>jruby201.path.sh</code> (siehe <a href="#_anhang">[Anhang]</a>).</td>
+<td>Erstellen Sie eine Datei <code>jruby23.path.sh</code> (siehe <a href="#_anhang">[Anhang]</a>).</td>
 </tr>
 </table>
 </div>
@@ -788,14 +777,14 @@ Datei setzen.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ . jruby201.path.sh   <img src="./images/icons/callouts/1.png" alt="1"></pre>
+<pre>$ . jruby23.path.sh   <img src="./images/icons/callouts/1.png" alt="1"></pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Oder mit dem Bash-Builtin Kommando: <mark>source &nbsp; jruby201.path.sh</mark></td>
+<td>Oder mit dem Bash-Builtin Kommando: <mark>source &nbsp; jruby23.path.sh</mark></td>
 </tr>
 </table>
 </div>
@@ -810,25 +799,25 @@ Datei setzen.</p>
 <div class="title">Die Java-Version</div>
 <div class="content">
 <pre>$ java -version
-java version "1.7.0_79"
-OpenJDK Runtime Environment (IcedTea 2.5.5) (7u79-2.5.5-0ubuntu0.14.04.2)
-OpenJDK 64-Bit Server VM (build 24.79-b02, mixed mode)</pre>
+java version "1.7.0_91"
+OpenJDK Runtime Environment (IcedTea 2.6.3) (7u91-2.6.3-0ubuntu0.14.04.1)
+OpenJDK 64-Bit Server VM (build 24.91-b01, mixed mode)</pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Die JRuby-Version &#8230;&#8203;</div>
 <div class="content">
 <pre class="nowrap">$ which jruby
-/opt/JRuby/sid/current201/bin/jruby
+/opt/JRuby/sid/current23/bin/jruby
 
 $ jruby --version
-jruby 1.7.20.1 (1.9.3p551) 2015-06-10 d7c8c27 on OpenJDK 64-Bit Server VM 1.7.0_79-b14 +jit [linux-amd64]
+jruby 1.7.23 (1.9.3p551) 2015-11-24 f496dd5 on OpenJDK 64-Bit Server VM 1.7.0_91-b02 +jit [linux-amd64]
 
 $ jruby --version --1.8   <img src="./images/icons/callouts/1.png" alt="1">
-jruby 1.7.20.1 (ruby-1.8.7p376) 2015-06-10 d7c8c27 on OpenJDK 64-Bit Server VM 1.7.0_79-b14 +jit [linux-amd64]
+jruby 1.7.23 (ruby-1.8.7p376) 2015-11-24 f496dd5 on OpenJDK 64-Bit Server VM 1.7.0_91-b02 +jit [linux-amd64]
 
 $ jruby --version --2.0   <img src="./images/icons/callouts/2.png" alt="2">
-jruby 1.7.20.1 (2.0.0p598) 2015-06-10 d7c8c27 on OpenJDK 64-Bit Server VM 1.7.0_79-b14 +jit [linux-amd64]</pre>
+jruby 1.7.23 (2.0.0p598) 2015-11-24 f496dd5 on OpenJDK 64-Bit Server VM 1.7.0_91-b02 +jit [linux-amd64]</pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -862,7 +851,7 @@ Eine vorher notwendige zusätzliche Installation entfällt.<br>
 </table>
 </div>
 <div class="listingblock">
-<div class="title">JRuby 1.7.20.1: <em>irb</em>, <em>jirb</em></div>
+<div class="title">JRuby 1.7.23: <em>irb</em>, <em>jirb</em></div>
 <div class="content">
 <pre>$ jirb   <img src="./images/icons/callouts/1.png" alt="1">
 irb(main):001:0&gt; RUBY_VERSION
@@ -870,10 +859,10 @@ irb(main):001:0&gt; RUBY_VERSION
 irb(main):002:0&gt; RUBY_PATCHLEVEL
 =&gt; 551
 irb(main):003:0&gt; Time.now.to_s
-=&gt; "2015-06-12 22:06:56 +0200"
-irb(main):004:0&gt; Time.now.tuesday?
+=&gt; "2016-01-06 11:39:51 +0100"
+irb(main):004:0&gt; Time.now.monday?
 =&gt; false
-irb(main):005:0&gt; Time.now.friday?
+irb(main):005:0&gt; Time.now.wednesday?
 =&gt; true
 irb(main):006:0&gt; exit</pre>
 </div>
@@ -977,39 +966,52 @@ $ gem list --local
 
 *** LOCAL GEMS ***
 
-axiom-types (0.1.1)
-coercible (1.0.0)
-descendants_tracker (0.0.4)
-equalizer (0.0.11)
-ice_nine (0.11.1)
-jar-dependencies (0.1.13)
-jruby-openssl (0.9.7 java)
+jar-dependencies (0.2.6)
+jruby-openssl (0.9.11 java)
 json (1.8.0 java)
-maven-tools (1.0.9)
 rake (10.1.0)
-rdoc (4.1.2)
-ruby-maven (3.1.1.0.8)
-ruby-maven-libs (3.1.1)
-thread_safe (0.3.5 java)
-virtus (1.0.5)</pre>
+rdoc (4.1.2)</pre>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_update">update</h3>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<img src="./images/icons/caution.png" alt="Caution">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Das standardmäßig an dieser Stelle von mir durchgeführte UPDATE
+von <strong>gem</strong> führt im Nachhinein zu einem Fehler.</p>
+</div>
+<div class="paragraph">
+<p>Das Programm <strong>gem v2.5.1</strong> kann für einzelne Gems die Platform <em>java</em>
+nicht erkennen - und lädt stattdessen die C-Variante herunter, die
+wiederum zu einem offensichtlichem Kompilierfehler führt.</p>
+</div>
+<div class="paragraph">
+<p>Bleiben Sie bei dem mitgelieferten <strong>gem v2.4.8</strong>!</p>
+</div>
 <div class="paragraph">
 <p><strong>Step 1:</strong> Das Programm <code>(j)gem</code> aktualisieren (als Benutzer <em>sid</em>)</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ gem update --system
-Latest version currently installed. Aborting.   <img src="./images/icons/callouts/1.png" alt="1"></pre>
+<pre>$ gem update --system   <img src="./images/icons/callouts/1.png" alt="1">
+...</pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Stand: 2015-06-12&#8201;&#8212;&#8201;Keine <em>neue</em> Version vorhanden (Ausführung dauerte über 30s)!</td>
+<td>Nicht ausführen!</td>
+</tr>
+</table>
+</div>
+</td>
 </tr>
 </table>
 </div>
@@ -1044,15 +1046,6 @@ Usage: gem update REGEXP [REGEXP ...] [options]
 </tr>
 </table>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre>$ gem -v
-2.4.8
-
-$ jgem -v
-2.4.8</pre>
-</div>
-</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -1083,43 +1076,53 @@ das Angebot <strong>jgem</strong> ist <em>mehr?</em> up-to-date &#8230;&#8203;</
 </table>
 </div>
 <div class="paragraph">
-<p><strong>Step 2:</strong> Installierte RubyGems aktualisieren</p>
+<p><strong>Step 2:</strong> Installierte RubyGems aktualisieren
+CAUTION: Das aktualisieren des RubyGem <em>json-1.8.0-java</em> muß von Hand ausgeführt werden.</p>
+</div>
+<div class="paragraph">
+<p>Download: <a href="https://rubygems.org/gems/json/versions/1.8.3-java" class="bare">https://rubygems.org/gems/json/versions/1.8.3-java</a></p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre>$ gem update
 Updating installed gems
 Updating jar-dependencies
-Fetching: jar-dependencies-0.1.14.gem (100%)
-Successfully installed jar-dependencies-0.1.14
+Fetching: jar-dependencies-0.3.1.gem (100%)
+
+if you want to use the executable lock_jars then install ruby-maven gem before using lock_jars
+
+   $ gem install ruby-maven -v '~&gt; 3.3.3'
+
+or add it as deveopment dependency to your Gemfile
+
+   gem 'ruby-maven', '~&gt; 3.3.3'
+
+Successfully installed jar-dependencies-0.3.1
+Updating jruby-openssl
+Fetching: jruby-openssl-0.9.13-java.gem (100%)
+Successfully installed jruby-openssl-0.9.13-java
 Updating json
-Fetching: json-1.8.3-java.gem (100%)
 Successfully installed json-1.8.3-java
 Updating rake
 Fetching: rake-10.4.2.gem (100%)
 Successfully installed rake-10.4.2
 Updating rdoc
-Fetching: rdoc-4.2.0.gem (100%)
+Fetching: rdoc-4.2.1.gem (100%)
 Depending on your version of ruby, you may need to install ruby rdoc/ri data:
 
 &lt;= 1.8.6 : unsupported
  = 1.8.7 : gem install rdoc-data; rdoc-data --install
  = 1.9.1 : gem install rdoc-data; rdoc-data --install
 &gt;= 1.9.2 : nothing to do! Yay!
-Successfully installed rdoc-4.2.0
-Updating ruby-maven
-Fetching: ruby-maven-libs-3.3.3.gem (100%)
-Successfully installed ruby-maven-libs-3.3.3
-Fetching: ruby-maven-3.3.2.gem (100%)
-Successfully installed ruby-maven-3.3.2
-Gems updated: jar-dependencies json rake rdoc ruby-maven ruby-maven-libs   <img src="./images/icons/callouts/1.png" alt="1"></pre>
+Successfully installed rdoc-4.2.1
+Gems updated: jar-dependencies jruby-openssl json rake rdoc   <img src="./images/icons/callouts/1.png" alt="1"></pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Sechs <em>Gems</em> aktualisiert!</td>
+<td><em>Fünf</em> Gems aktualisiert!</td>
 </tr>
 </table>
 </div>
@@ -1129,21 +1132,10 @@ Gems updated: jar-dependencies json rake rdoc ruby-maven ruby-maven-libs   <img 
 
 *** LOCAL GEMS ***
 
-axiom-types (0.1.1)
-coercible (1.0.0)
-descendants_tracker (0.0.4)
-equalizer (0.0.11)
-ice_nine (0.11.1)
-jar-dependencies (0.1.14, 0.1.13)
-jruby-openssl (0.9.7 java)
+jruby-openssl (0.9.13 java, 0.9.11 java)
 json (1.8.3 java, 1.8.0 java)
-maven-tools (1.0.9)
 rake (10.4.2, 10.1.0)
-rdoc (4.2.0, 4.1.2)
-ruby-maven (3.3.2, 3.1.1.0.8)
-ruby-maven-libs (3.3.3, 3.1.1)
-thread_safe (0.3.5 java)
-virtus (1.0.5)</pre>
+rdoc (4.2.1, 4.1.2)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1152,7 +1144,7 @@ virtus (1.0.5)</pre>
 <div class="listingblock">
 <div class="content">
 <pre>$ gem install rdoc-data
-Fetching: rdoc-data-4.0.1.gem (100%)
+Fetching: rdoc-data-4.1.0.gem (100%)
 rdoc-data is only required for C ruby 1.8.7 or 1.9.1.
 
 rdoc-data is required for JRuby.   <img src="./images/icons/callouts/1.png" alt="1">
@@ -1178,18 +1170,23 @@ Successfully installed rdoc-data-4.0.1
 <pre class="nowrap">$ which rdoc-data
 /opt/JRuby/sid/current201/bin/rdoc-data
 
-$ rdoc-data --install   <img src="./images/icons/callouts/1.png" alt="1"></pre>
+$ rdoc-data --install   <img src="./images/icons/callouts/1.png" alt="1">
+jruby: no Ruby script found in input (LoadError)</pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Installs updated ruby 1.9.3 system ri data (core + stdlib)</td>
+<td>Fehlermeldung!<br>
+Den Grund hierfür habe ich nicht herausgefunden.<br>
+Das Script ist unverändert! Schaade.<br>
+Unter <strong>Windows 7</strong> gab es an dieser Stelle keinen Fehler!</td>
 </tr>
 </table>
 </div>
 <div class="listingblock">
+<div class="title">Leider funktioniert damit der nächste Befehl nicht&#8230;&#8203; Keine lokale Dokumentation!</div>
 <div class="content">
 <pre>$ ri Array#each
 = Array#each
@@ -1216,154 +1213,15 @@ produces:
 </div>
 </div>
 <div class="sect2">
-<h3 id="_installation_ruby_on_rails_4_2_1">Installation: Ruby on rails-4.2.1</h3>
-<div class="paragraph">
-<p><strong>Step 0</strong></p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre># gem search ^rails$ --remote
-
-*** REMOTE GEMS ***
-
-rails (4.2.1)   <img src="./images/icons/callouts/1.png" alt="1"></pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Seit dem 19.03.2015 ist das die neueste Version des RubyGem <em>rails</em>.</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<img src="./images/icons/tip.png" alt="Tip">
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Eine mögliche Installation von zusätzlicher Dokumentation oder aktualisieren
-der vorhandenen wird nicht durchgeführt.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>$ gem env
-RubyGems Environment:
-  - RUBYGEMS VERSION: 2.4.8
-  - RUBY VERSION: 1.9.3 (2015-06-10 patchlevel 551) [java]
-  - INSTALLATION DIRECTORY: /opt/JRuby/sid/jruby-1.7.20.1/lib/ruby/gems/shared
-  - RUBY EXECUTABLE: /opt/JRuby/sid/jruby-1.7.20.1/bin/jruby
-  - EXECUTABLE DIRECTORY: /opt/JRuby/sid/jruby-1.7.20.1/bin
-  - SPEC CACHE DIRECTORY: /home/sid/.gem/specs
-  - SYSTEM CONFIGURATION DIRECTORY: /opt/JRuby/sid/jruby-1.7.20.1/etc
-  - RUBYGEMS PLATFORMS:
-    - ruby
-    - universal-java-1.7
-  - GEM PATHS:
-     - /opt/JRuby/sid/jruby-1.7.20.1/lib/ruby/gems/shared
-     - /home/sid/.gem/jruby/1.9
-  - GEM CONFIGURATION:
-     - :update_sources =&gt; true
-     - :verbose =&gt; true
-     - :backtrace =&gt; false
-     - :bulk_threshold =&gt; 1000
-     - "install" =&gt; "--no-rdoc --no-ri --env-shebang"   <img src="./images/icons/callouts/1.png" alt="1">
-     - "update" =&gt; "--no-rdoc --no-ri --env-shebang"    <img src="./images/icons/callouts/1.png" alt="1">
-  - REMOTE SOURCES:
-     - https://rubygems.org/
-  - SHELL PATH:
-     - /opt/JRuby/sid/current201/bin
-     - /usr/local/bin
-     - /usr/bin
-     - /bin
-     - /usr/local/games
-     - /usr/games</pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>In der Regel wird die offizielle Dokumentation im Internet genutzt:<br>
-&#8594; <a href="http://rubygems.org/" class="bare">http://rubygems.org/</a><br>
-&#8594; <a href="http://guides.rubyonrails.org/" class="bare">http://guides.rubyonrails.org/</a></td>
-</tr>
-</table>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Mit <mark>gem install &#8230;&#8203;</mark> werden auch alle Abhängigkeiten zu anderen RubyGems aufgelöst.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>$ gem install rails
-Fetching: minitest-5.7.0.gem (100%)
-Successfully installed minitest-5.7.0
-...
-Fetching: rails-4.2.1.gem (100%)
-Successfully installed rails-4.2.1
-29 gems installed   <img src="./images/icons/callouts/1.png" alt="1"></pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Mit dem RubyGem <em>rails-4.2.1</em> wurden insgesamt 29 Gems installiert.<br>
-Hinweis: Weitere RubyGems müssen für das Framework <strong>Ruby on Rails</strong> installiert werden.</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="./images/icons/note.png" alt="Note">
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Alternativ kann <em>Rails</em> mit der Angabe einer Version installiert werden.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre># gem install rails --version 4.2.1
-
-# gem install rails --version '~&gt; 4.2.1'   <img src="./images/icons/callouts/1.png" alt="1"></pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Twiddle Wakka: <em>~&gt; 4.2.1</em> bedeutet, das die höchste Gem-Version von Rails<br>
-im Bereich von &gt;= 4.2.1 und &lt; 4.3 installiert wird.</td>
-</tr>
-</table>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
 <h3 id="_asciidoctor">asciidoctor</h3>
 <div class="listingblock">
 <div class="content">
-<pre>$ gem install asciidoctor   <img src="./images/icons/callouts/1.png" alt="1">
-Fetching: asciidoctor-1.5.2.gem (100%)
-Successfully installed asciidoctor-1.5.2
-1 gem installed
-
-$ gem install coderay   <img src="./images/icons/callouts/2.png" alt="2">
+<pre>$ gem install asciidoctor coderay --no-rdoc --no-ri  <img src="./images/icons/callouts/1.png" alt="1"> <img src="./images/icons/callouts/2.png" alt="2"> <img src="./images/icons/callouts/3.png" alt="3">
+Fetching: asciidoctor-1.5.4.gem (100%)
+Successfully installed asciidoctor-1.5.4
 Fetching: coderay-1.1.0.gem (100%)
 Successfully installed coderay-1.1.0
-1 gem installed</pre>
+2 gems installed</pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -1377,6 +1235,11 @@ into HTML 5, DocBook 4.5 and other formats.</td>
 <td><img src="./images/icons/callouts/2.png" alt="2"></td>
 <td><strong>CodeRay</strong> is a fast and easy syntax highlighting for selected languages, written in Ruby.<br>
 Comes with RedCloth integration and LOC counter.</td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/3.png" alt="3"></td>
+<td>Die Parameter <mark>--no-rdoc --no-ri</mark> können entfallen.<br>
+Die Einstellungen für das Programm <strong>gem</strong> sind entsprechend gesetzt, siehe: <mark>gem env</mark></td>
 </tr>
 </table>
 </div>
@@ -1406,16 +1269,16 @@ their structure. Supports custom object formatting via plugins</td>
 <div class="listingblock">
 <div class="content">
 <pre>$ gem install pry   <img src="./images/icons/callouts/1.png" alt="1">
-Fetching: ffi-1.9.8-java.gem (100%)
-Successfully installed ffi-1.9.8-java
-Fetching: spoon-0.0.4.gem (100%)
-Successfully installed spoon-0.0.4
 Fetching: method_source-0.8.2.gem (100%)
 Successfully installed method_source-0.8.2
 Fetching: slop-3.6.0.gem (100%)
 Successfully installed slop-3.6.0
-Fetching: pry-0.10.1-java.gem (100%)
-Successfully installed pry-0.10.1-java
+Fetching: ffi-1.9.10-java.gem (100%)
+Successfully installed ffi-1.9.10-java
+Fetching: spoon-0.0.4.gem (100%)
+Successfully installed spoon-0.0.4
+Fetching: pry-0.10.3-java.gem (100%)
+Successfully installed pry-0.10.3-java
 5 gems installed</pre>
 </div>
 </div>
@@ -1433,13 +1296,15 @@ Successfully installed pry-0.10.1-java
 <div class="listingblock">
 <div class="content">
 <pre># gem install sinatra   <img src="./images/icons/callouts/1.png" alt="1">
+Fetching: rack-1.6.4.gem (100%)
+Successfully installed rack-1.6.4
 Fetching: rack-protection-1.5.3.gem (100%)
 Successfully installed rack-protection-1.5.3
-Fetching: tilt-2.0.1.gem (100%)
-Successfully installed tilt-2.0.1
+Fetching: tilt-2.0.2.gem (100%)
+Successfully installed tilt-2.0.2
 Fetching: sinatra-1.4.6.gem (100%)
 Successfully installed sinatra-1.4.6
-3 gems installed</pre>
+4 gems installed</pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -1465,120 +1330,75 @@ eine in Ruby geschriebene <em>domänenspezifische</em> Sprache.<br>
 
 *** LOCAL GEMS ***
 
-actionmailer (4.2.1)
-actionpack (4.2.1)
-actionview (4.2.1)
-activejob (4.2.1)
-activemodel (4.2.1)
-activerecord (4.2.1)
-activesupport (4.2.1)
-arel (6.0.0)
-asciidoctor (1.5.2)
+asciidoctor (1.5.4)
 awesome_print (1.6.1)
-axiom-types (0.1.1)
-builder (3.2.2)
-bundler (1.10.3)
 coderay (1.1.0)
-coercible (1.0.0)
-descendants_tracker (0.0.4)
-equalizer (0.0.11)
-erubis (2.7.0)
-ffi (1.9.8 java)
-globalid (0.3.5)
-i18n (0.7.0)
-ice_nine (0.11.1)
-jar-dependencies (0.1.14, 0.1.13)
-jruby-openssl (0.9.7 java)
+ffi (1.9.10 java)
+jar-dependencies (0.3.1, 0.2.6)
+jruby-openssl (0.9.13 java, 0.9.11 java)
 json (1.8.3 java, 1.8.0 java)
-loofah (2.0.2)
-mail (2.6.3)
-maven-tools (1.0.9)
 method_source (0.8.2)
-mime-types (2.6.1)
-minitest (5.7.0)
-nokogiri (1.6.6.2 java)
-pry (0.10.1 java)
-rack (1.6.1)
+pry (0.10.3 java)
+rack (1.6.4)
 rack-protection (1.5.3)
-rack-test (0.6.3)
-rails (4.2.1)
-rails-deprecated_sanitizer (1.0.3)
-rails-dom-testing (1.0.6)
-rails-html-sanitizer (1.0.2)
-railties (4.2.1)
 rake (10.4.2, 10.1.0)
-rdoc (4.2.0, 4.1.2)
-rdoc-data (4.0.1)
-ruby-maven (3.3.2, 3.1.1.0.8)
-ruby-maven-libs (3.3.3, 3.1.1)
+rdoc (4.2.1, 4.1.2)
+rdoc-data (4.1.0)
 sinatra (1.4.6)
 slop (3.6.0)
 spoon (0.0.4)
-sprockets (3.2.0)
-sprockets-rails (2.3.1)
-thor (0.19.1)
-thread_safe (0.3.5 java)
-tilt (2.0.1)
-tzinfo (1.2.2)
-virtus (1.0.5)</pre>
+tilt (2.0.2)</pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ ls -lrt /opt/JRuby/sid/jruby-1.7.20.1/bin
--rw-r--r-- 1 sid sid     43 Jun 12 21:55 testrb.bat
--rw-r--r-- 1 sid sid     39 Jun 12 21:55 ri.bat
--rw-r--r-- 1 sid sid     41 Jun 12 21:55 rake.bat
--rwxr-xr-x 1 sid sid   8979 Jun 12 21:55 jruby.sh
--rw-r--r-- 1 sid sid    245 Jun 12 21:55 jrubyd.bat
--rw-r--r-- 1 sid sid     43 Jun 12 21:55 jrubyc.bat
--rwxr-xr-x 1 sid sid  11474 Jun 12 21:55 jruby
--rwxr-xr-x 1 sid sid   1935 Jun 12 21:55 jirb_swing
--rw-r--r-- 1 sid sid     41 Jun 12 21:55 jgem.bat
--rwxr-xr-x 1 sid sid    547 Jun 12 21:55 jgem
--rw-r--r-- 1 sid sid     40 Jun 12 21:55 irb.bat
--rwxr-xr-x 1 sid sid    323 Jun 12 21:55 irb
--rw-r--r-- 1 sid sid     40 Jun 12 21:55 gem.bat
--rw-r--r-- 1 sid sid     40 Jun 12 21:55 ast.bat
--rwxr-xr-x 1 sid sid   5670 Jun 12 21:55 ast
--rwxr-xr-x 1 sid sid    152 Jun 12 21:55 testrb
--rw-r--r-- 1 sid sid     41 Jun 12 21:55 rdoc.bat
--rw-r--r-- 1 sid sid 682496 Jun 12 21:55 jrubyw.exe
--rw-r--r-- 1 sid sid 680448 Jun 12 21:55 jruby.exe
--rwxr-xr-x 1 sid sid    188 Jun 12 21:55 jrubyc
--rw-r--r-- 1 sid sid     41 Jun 12 21:55 jirb.bat
--rw-r--r-- 1 sid sid 742400 Jun 12 21:55 jruby.dll
--rw-r--r-- 1 sid sid    125 Jun 12 21:55 jruby.bat
--rwxr-xr-x 1 sid sid  11474 Jun 12 21:55 jruby.bash
--rw-r--r-- 1 sid sid     47 Jun 12 21:55 jirb_swing.bat
--rwxr-xr-x 1 sid sid    390 Jun 12 21:55 jirb
--rwxr-xr-x 1 sid sid    123 Jun 12 21:55 gem
--rwxr-xr-x 1 sid sid    486 Jun 12 22:20 rake
--rwxr-xr-x 1 sid sid    486 Jun 12 22:20 rdoc
--rwxr-xr-x 1 sid sid    484 Jun 12 22:20 ri
--rwxr-xr-x 1 sid sid    504 Jun 12 22:21 rmvn
--rwxr-xr-x 1 sid sid    567 Jun 12 22:25 rdoc-data
--rwxr-xr-x 1 sid sid    502 Jun 12 22:30 nokogiri    <img src="./images/icons/callouts/1.png" alt="1">
--rwxr-xr-x 1 sid sid    494 Jun 12 22:30 erubis
--rwxr-xr-x 1 sid sid    488 Jun 12 22:30 rackup
--rwxr-xr-x 1 sid sid    506 Jun 12 22:30 sprockets
--rwxr-xr-x 1 sid sid    497 Jun 12 22:30 bundle
--rwxr-xr-x 1 sid sid    498 Jun 12 22:30 bundler
--rwxr-xr-x 1 sid sid    486 Jun 12 22:30 thor
--rwxr-xr-x 1 sid sid    499 Jun 12 22:30 rails              <img src="./images/icons/callouts/1.png" alt="1">
--rwxr-xr-x 1 sid sid    519 Jun 12 22:33 asciidoctor-safe
--rwxr-xr-x 1 sid sid    514 Jun 12 22:33 asciidoctor
--rwxr-xr-x 1 sid sid    498 Jun 12 22:33 coderay
--rwxr-xr-x 1 sid sid    482 Jun 12 22:34 pry
--rwxr-xr-x 1 sid sid    486 Jun 12 22:34 tilt</pre>
+<pre>$ ls -lrt /opt/JRuby/sid/jruby-1.7.23/bin
+-rw-r--r-- 1 sid sid     43 Nov 24 16:23 testrb.bat
+-rwxr-xr-x 1 sid sid    152 Nov 24 16:23 testrb
+-rw-r--r-- 1 sid sid     39 Nov 24 16:23 ri.bat
+-rw-r--r-- 1 sid sid     41 Nov 24 16:23 rdoc.bat
+-rw-r--r-- 1 sid sid     41 Nov 24 16:23 rake.bat
+-rw-r--r-- 1 sid sid 682496 Nov 24 16:23 jrubyw.exe
+-rwxr-xr-x 1 sid sid   8979 Nov 24 16:23 jruby.sh
+-rw-r--r-- 1 sid sid 680448 Nov 24 16:23 jruby.exe
+-rw-r--r-- 1 sid sid 742400 Nov 24 16:23 jruby.dll
+-rw-r--r-- 1 sid sid    245 Nov 24 16:23 jrubyd.bat
+-rw-r--r-- 1 sid sid     43 Nov 24 16:23 jrubyc.bat
+-rwxr-xr-x 1 sid sid    188 Nov 24 16:23 jrubyc
+-rw-r--r-- 1 sid sid    125 Nov 24 16:23 jruby.bat
+-rwxr-xr-x 1 sid sid  11474 Nov 24 16:23 jruby.bash
+-rw-r--r-- 1 sid sid     47 Nov 24 16:23 jirb_swing.bat
+-rwxr-xr-x 1 sid sid   1935 Nov 24 16:23 jirb_swing
+-rw-r--r-- 1 sid sid     41 Nov 24 16:23 jirb.bat
+-rwxr-xr-x 1 sid sid    390 Nov 24 16:23 jirb
+-rw-r--r-- 1 sid sid     41 Nov 24 16:23 jgem.bat
+-rwxr-xr-x 1 sid sid    547 Nov 24 16:23 jgem
+-rw-r--r-- 1 sid sid     40 Nov 24 16:23 irb.bat
+-rwxr-xr-x 1 sid sid    323 Nov 24 16:23 irb
+-rw-r--r-- 1 sid sid     40 Nov 24 16:23 gem.bat
+-rwxr-xr-x 1 sid sid    123 Nov 24 16:23 gem
+-rw-r--r-- 1 sid sid     40 Nov 24 16:23 ast.bat
+-rwxr-xr-x 1 sid sid   5670 Nov 24 16:23 ast
+-rwxr-xr-x 1 sid sid  11474 Nov 24 16:23 jruby
+-rwxr-xr-x 1 sid sid    527 Jan  8 10:25 lock_jars   <img src="./images/icons/callouts/1.png" alt="1">
+-rwxr-xr-x 1 sid sid    486 Jan  8 10:25 rake
+-rwxr-xr-x 1 sid sid    486 Jan  8 10:25 rdoc
+-rwxr-xr-x 1 sid sid    484 Jan  8 10:25 ri
+-rwxr-xr-x 1 sid sid    565 Jan  8 10:32 rdoc-data
+-rwxr-xr-x 1 sid sid    514 Jan  8 14:22 asciidoctor
+-rwxr-xr-x 1 sid sid    519 Jan  8 14:22 asciidoctor-safe
+-rwxr-xr-x 1 sid sid    498 Jan  8 14:22 coderay
+-rwxr-xr-x 1 sid sid    482 Jan  8 14:25 pry
+-rwxr-xr-x 1 sid sid    488 Jan  8 14:27 rackup
+-rwxr-xr-x 1 sid sid    486 Jan  8 14:27 tilt</pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Die Kommandos <mark>nokigiri, &#8230;&#8203;, thor</mark> und natürlich auch <mark>rails</mark> wurden durch<br>
-<mark>gem install rails</mark> installiert.</td>
+<td>Die Kommandos <mark>lock_jars, &#8230;&#8203;, tilt</mark> wurden durch
+die zusätzlich installierten <em>RubyGems</em> installiert.</td>
 </tr>
 </table>
 </div>
@@ -1605,16 +1425,8 @@ Server started at http://[0:0:0:0:0:0:0:0]:8808</pre>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/jruby/rubygems_documentation_index.png" alt="RubyGems Documentation Index">
+<img src="images/jruby/rubygems_documentation_index.jpg" alt="RubyGems Documentation Index">
 </div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_jruby_on_rails_4_2_erste_schritte">JRuby on Rails 4.2: Erste Schritte &hellip;</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><a href="jruby_1st.html">JRuby on Rails 4.2: Erste Schritte &hellip;</a></p>
 </div>
 </div>
 </div>
@@ -1649,8 +1461,8 @@ export CATALINA_OPTS</pre>
 <div class="listingblock">
 <div class="title">JRuby (mit System-JDK )</div>
 <div class="content">
-<pre>JRUBY_HOME=/opt/JRuby/sid/current201
-#JRUBY_OPTS=--1.8   <img src="./images/icons/callouts/1.png" alt="1">
+<pre>JRUBY_HOME=/opt/JRuby/sid/current23   <img src="./images/icons/callouts/1.png" alt="1">
+#JRUBY_OPTS=--1.8   <img src="./images/icons/callouts/2.png" alt="2">
 
 PATH=$JRUBY_HOME/bin:$PATH
 
@@ -1664,6 +1476,11 @@ export PATH</pre>
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Installation von JRuby für den Benutzer <em>sid</em>.<br>
+Default-Installation wird mit <code>current</code> gesetzt.</td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/2.png" alt="2"></td>
 <td>JRuby wird im Modus <em>Ruby 1.8.7</em> ausgeführt.</td>
 </tr>
 </table>
@@ -1676,7 +1493,7 @@ JAVA_HOME=/opt/Java/current
 JDK_HOME=/opt/Java/current
 JRE_HOME=/opt/Java/current
 
-JRUBY_HOME=/opt/JRuby/sid/current201
+JRUBY_HOME=/opt/JRuby/sid/current23
 #JRUBY_OPTS=--1.8   <img src="./images/icons/callouts/2.png" alt="2">
 
 PATH=$JAVA_BINDIR:$JRUBY_HOME/bin:$PATH
@@ -1711,14 +1528,14 @@ export PATH</pre>
   <span>&#8679;</span>
 </a>
 
-<span class="small">&middot; Document generated with Asciidoctor 1.5.2.</span></p>
+<span class="small">&middot; Document generated with Asciidoctor 1.5.4.</span></p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-06-13 15:53:12 MESZ
+Last updated 2016-01-10 10:46:31 MEZ
 </div>
 </div>
 </body>

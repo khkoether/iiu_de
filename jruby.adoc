@@ -1,38 +1,43 @@
-IiU -- JRuby 1.7.20.1, rails-4.2.1
-==================================
+IiU -- JRuby 1.7.23
+===================
 Installation in Ubuntu — khkoether[at]kahweb[dot]de
 
 :icons:
 :Author Initials: KHK
-:creativecommons-url: http://creativecommons.org/licenses/by/4.0/deed.de
-:mit-url:             http://opensource.org/licenses/mit-license.php  
-:ubuntu-url:          http://www.ubuntu.com/
-:asciidoctor-url:     http://asciidoctor.org/
-:asciidoctordocs-url: http://asciidoctor.org/docs/
-:git-url:             http://git-scm.com/
-:git-download-url:    https://www.kernel.org/pub/software/scm/git/
+:creativecommons-url:    http://creativecommons.org/licenses/by/4.0/deed.de
+:mit-url:                http://opensource.org/licenses/mit-license.php  
+:ubuntu-url:             http://www.ubuntu.com/
+:asciidoctor-url:        http://asciidoctor.org/
+:asciidoctordocs-url:    http://asciidoctor.org/docs/
+:git-url:                http://git-scm.com/
+:git-download-url:       https://www.kernel.org/pub/software/scm/git/
 
-:java-url:            http://www.oracle.com/technetwork/java/javase/downloads/index.html
-:jruby-url:           http://jruby.org/
-:jruby-download-url:  http://jruby.org/download
+:ruby-url:              https://www.ruby-lang.org/de/
+:ruby-download-url:     https://www.ruby-lang.org/de/downloads/
+:rubyonrails-url:       http://www.rubyonrails.org
 
-:jdk-url:             link:jdk.html
-:jruby-version:       1.7.20.1
-:jruby_1st-url:       link:jruby_1st.html
+:java-url:               http://www.oracle.com/technetwork/java/javase/downloads/index.html
+:jruby-url:              http://jruby.org/
+:jruby-download-url:     http://jruby.org/download
 
-Version 3.3.0, Juni 2015 
+:jdk-url:                link:jdk.html
+:jruby-version:          1.7.23
+:jruby23-url:            link:jruby.html
+:jruby_on_rails42-url:   link:jruby_on_rails42.html
+
+Version 4.0.0, Januar 2016 
 
 
 Abstract
 --------
 Dieser Artikel ist eine Schritt-für-Schritt Anleitung zur Installation 
-von {jruby-url}[JRuby 1.7.20.1] unter GNU/Linux.
+von {jruby-url}[JRuby 1.7.23] unter GNU/Linux.
  
 Die Programmiersprache {jruby-url}[JRuby] ist die Implementation 
 von {ruby-url}[Ruby] in Java, die wiederum die Grundlage für das 
 WebApplication Framework {rubyonrails-url}[Ruby on Rails] bildet. 
 
-Der Artikel ist in {asciidoctordocs-url}[AsciiDoc] geschrieben 
+Der Artikel ist in {asciidoctordocs-url}[Asciidoctor] geschrieben 
 und mit _Asciidoctor {asciidoctor-version}_ erstellt worden.
 
 [CAUTION]
@@ -63,17 +68,12 @@ Nicht installieren!
 
 Download
 --------
-* {jruby-download-url}[JRuby 1.7.20.1] +    
-  `jruby-bin-1.7.20.1.tar.gz`  (ca. 33M) +
-  *2015-06-10 (Release date)* + 
-  JRuby 1.7.20.1 is our twenty-fourth update release since JRuby 1.7.0. 
-  The primary goal of 1.7 point releases is to fill out any missing 
-  compatibility issues with Ruby 1.9.3. +
-  This security release only updated Rubygems to version 2.4.8. 
-  Rubygems 2.4.8 addresses CVE-2015-1855 to resolve some problems 
-  with wildcard matching of hostnames. +
-  See -> https://www.ruby-lang.org/en/news/2015/04/13/ruby-openssl-hostname-matching-vulnerability/[ruby-lang.org’s] 
-  description for more info. All users are recommended to upgrade.
+* {jruby-download-url}[JRuby 1.7.23] +    
+  `jruby-bin-1.7.23.tar.gz`  (ca. 33M) +
+  *2015-11-24 (Release date)* + 
+JRuby 1.7.23 is our twenty-seventh update release since JRuby 1.7.0. 
+The primary goal of 1.7 point releases is to fill out any missing 
+compatibility issues with Ruby 1.9.3.
   
 [NOTE] 
 ====
@@ -102,7 +102,7 @@ Die Installation von _JRuby_ und _Ruby on Rails_ wird vom
 Benutzer 'sid' lokal durchgeführt. 
 ----
 $ ls -l 
--rw-rw-r-- 1 sid sid 33893026 Jun 12 21:47 jruby-bin-1.7.20.1.tar.gz
+-rw-rw-r-- 1 sid sid 21630974 Jan  6 11:25 jruby-bin-1.7.23.tar.gz
 ----
 ====
 
@@ -119,8 +119,8 @@ Installation im Verzeichnis `/opt/JRuby/sid` (mit dem Benutzer 'sid')
 
 *Step 1*: Auspacken des Source-Code
 ----
-$ tar xvzf jruby-bin-1.7.20.1.tar.gz
-[...]
+$ tar xvzf jruby-bin-1.7.23.tar.gz
+...
 ----
 
 *Step 2*: Ziel-Verzeichnis anlegen, JRuby-Verzeichnis verschieben
@@ -130,86 +130,74 @@ $ sudo chown sid.sid /opt/JRuby/sid
 ----
 
 ----
-$ mv jruby-1.7.20.1/ /opt/JRuby/sid
+$ mv jruby-1.7.23/ /opt/JRuby/sid
 ----
 
 *Step 3*: Installation verifizieren
 ----
-$ cd /opt/JRuby/sid/jruby-1.7.20.1
+$ cd /opt/JRuby/sid/jruby-1.7.23
 $ ls -l 
-drwxr-xr-x 2 sid sid   4096 Jun 12 21:55 bin
--rw-r--r-- 1 sid sid 137174 Jun 12 21:55 COPYING
-drwxrwxr-x 4 sid sid   4096 Jun 12 21:55 docs
-drwxr-xr-x 4 sid sid   4096 Jun 12 21:55 lib
--rw-r--r-- 1 sid sid   2572 Jun 12 21:55 LICENSE.RUBY
-drwxrwxr-x 6 sid sid   4096 Jun 12 21:55 samples
-drwxrwxr-x 3 sid sid   4096 Jun 12 21:55 tool
+drwxr-xr-x 2 sid sid   4096 Jan  6 11:28 bin
+-rw-r--r-- 1 sid sid 137174 Nov 24 16:18 COPYING
+drwxrwxr-x 4 sid sid   4096 Jan  6 11:28 docs
+drwxr-xr-x 4 sid sid   4096 Jan  6 11:28 lib
+-rw-r--r-- 1 sid sid   2572 Nov 24 16:18 LICENSE.RUBY
+drwxrwxr-x 6 sid sid   4096 Jan  6 11:28 samples
+drwxrwxr-x 3 sid sid   4096 Jan  6 11:28 tool
 ----
 
 ----
 $ ls -l bin
--rwxr-xr-x 1 sid sid   5670 Jun 12 21:55 ast       <1>
--rw-r--r-- 1 sid sid     40 Jun 12 21:55 ast.bat   <2>
--rwxr-xr-x 1 sid sid    123 Jun 12 21:55 gem
--rw-r--r-- 1 sid sid     40 Jun 12 21:55 gem.bat
--rwxr-xr-x 1 sid sid    323 Jun 12 21:55 irb
--rw-r--r-- 1 sid sid     40 Jun 12 21:55 irb.bat
--rwxr-xr-x 1 sid sid    547 Jun 12 21:55 jgem
--rw-r--r-- 1 sid sid     41 Jun 12 21:55 jgem.bat
--rwxr-xr-x 1 sid sid    390 Jun 12 21:55 jirb
--rw-r--r-- 1 sid sid     41 Jun 12 21:55 jirb.bat
--rwxr-xr-x 1 sid sid   1935 Jun 12 21:55 jirb_swing
--rw-r--r-- 1 sid sid     47 Jun 12 21:55 jirb_swing.bat
--rwxr-xr-x 1 sid sid  11474 Jun 12 21:55 jruby
--rwxr-xr-x 1 sid sid  11474 Jun 12 21:55 jruby.bash
--rw-r--r-- 1 sid sid    125 Jun 12 21:55 jruby.bat
--rwxr-xr-x 1 sid sid    188 Jun 12 21:55 jrubyc
--rw-r--r-- 1 sid sid     43 Jun 12 21:55 jrubyc.bat
--rw-r--r-- 1 sid sid    245 Jun 12 21:55 jrubyd.bat
--rw-r--r-- 1 sid sid 742400 Jun 12 21:55 jruby.dll
--rw-r--r-- 1 sid sid 680448 Jun 12 21:55 jruby.exe
--rwxr-xr-x 1 sid sid   8979 Jun 12 21:55 jruby.sh
--rw-r--r-- 1 sid sid 682496 Jun 12 21:55 jrubyw.exe
--rwxr-xr-x 1 sid sid    451 Jun 12 21:55 rake
--rw-r--r-- 1 sid sid     41 Jun 12 21:55 rake.bat
--rwxr-xr-x 1 sid sid    451 Jun 12 21:55 rdoc
--rw-r--r-- 1 sid sid     41 Jun 12 21:55 rdoc.bat
--rwxr-xr-x 1 sid sid    449 Jun 12 21:55 ri
--rw-r--r-- 1 sid sid     39 Jun 12 21:55 ri.bat
--rwxr-xr-x 1 sid sid    152 Jun 12 21:55 testrb
--rw-r--r-- 1 sid sid     43 Jun 12 21:55 testrb.bat
+-rwxr-xr-x 1 sid sid   5670 Nov 24 16:23 ast       <1>
+-rw-r--r-- 1 sid sid     40 Nov 24 16:23 ast.bat   <2>
+-rwxr-xr-x 1 sid sid    123 Nov 24 16:23 gem
+-rw-r--r-- 1 sid sid     40 Nov 24 16:23 gem.bat
+-rwxr-xr-x 1 sid sid    323 Nov 24 16:23 irb
+-rw-r--r-- 1 sid sid     40 Nov 24 16:23 irb.bat
+-rwxr-xr-x 1 sid sid    547 Nov 24 16:23 jgem
+-rw-r--r-- 1 sid sid     41 Nov 24 16:23 jgem.bat
+-rwxr-xr-x 1 sid sid    390 Nov 24 16:23 jirb
+-rw-r--r-- 1 sid sid     41 Nov 24 16:23 jirb.bat
+-rwxr-xr-x 1 sid sid   1935 Nov 24 16:23 jirb_swing
+-rw-r--r-- 1 sid sid     47 Nov 24 16:23 jirb_swing.bat
+-rwxr-xr-x 1 sid sid  11474 Nov 24 16:23 jruby
+-rwxr-xr-x 1 sid sid  11474 Nov 24 16:23 jruby.bash
+-rw-r--r-- 1 sid sid    125 Nov 24 16:23 jruby.bat
+-rwxr-xr-x 1 sid sid    188 Nov 24 16:23 jrubyc
+-rw-r--r-- 1 sid sid     43 Nov 24 16:23 jrubyc.bat
+-rw-r--r-- 1 sid sid    245 Nov 24 16:23 jrubyd.bat
+-rw-r--r-- 1 sid sid 742400 Nov 24 16:23 jruby.dll
+-rw-r--r-- 1 sid sid 680448 Nov 24 16:23 jruby.exe
+-rwxr-xr-x 1 sid sid   8979 Nov 24 16:23 jruby.sh
+-rw-r--r-- 1 sid sid 682496 Nov 24 16:23 jrubyw.exe
+-rwxr-xr-x 1 sid sid    486 Nov 24 16:23 rake
+-rw-r--r-- 1 sid sid     41 Nov 24 16:23 rake.bat
+-rwxr-xr-x 1 sid sid    486 Nov 24 16:23 rdoc
+-rw-r--r-- 1 sid sid     41 Nov 24 16:23 rdoc.bat
+-rwxr-xr-x 1 sid sid    484 Nov 24 16:23 ri
+-rw-r--r-- 1 sid sid     39 Nov 24 16:23 ri.bat
+-rwxr-xr-x 1 sid sid    152 Nov 24 16:23 testrb
+-rw-r--r-- 1 sid sid     43 Nov 24 16:23 testrb.bat
 ----
 <1> Kommando #ast# für ein _GNU/Linux-System_
 <2> Kommando #ast.bat# für ein _MS Windows-System_
 
-*Step 4:* Der Pfad zum Verzeichnis `/opt/JRuby/sid/jruby-1.7.20.1` muß gesetzt werden.
+*Step 4:* Der Pfad zum Verzeichnis `/opt/JRuby/sid/jruby-1.7.23` muß gesetzt werden.
 ----
 $ cd /opt/JRuby/sid
-$ ln -s jruby-1.7.20.1 current201
+$ ln -s jruby-1.7.23 current23
 
 $ ls -lv
-lrwxrwxrwx 1 sid sid   15 Dez  5 16:53 current -> jruby-1.7.16.1/     <1>
-lrwxrwxrwx 1 sid sid   15 Dez  5 16:53 current16 -> jruby-1.7.16.1/   <1>
-lrwxrwxrwx 1 sid sid   12 Dez 23 18:03 current18 -> jruby-1.7.18
-lrwxrwxrwx 1 sid sid   12 Feb  8 14:01 current19 -> jruby-1.7.19
-lrwxrwxrwx 1 sid sid   12 Mai 22 22:32 current20 -> jruby-1.7.20
-lrwxrwxrwx 1 sid sid   15 Jun 12 21:58 current201 -> jruby-1.7.20.1/
--rw-r--r-- 1 sid sid  131 Dez  5 16:52 jruby.path.sh
--rw-r--r-- 1 sid sid  133 Dez  5 16:52 jruby16.path.sh
--rw-r--r-- 1 sid sid  133 Dez 23 18:07 jruby18.path.sh   
--rw-r--r-- 1 sid sid  133 Feb  8 14:14 jruby19.path.sh
--rw-r--r-- 1 sid sid  133 Mai 22 22:12 jruby20.path.sh       
--rw-r--r-- 1 sid sid  133 Jun 12 22:00 jruby201.path.sh   <2>
-drwxr-xr-x 8 sid sid 4096 Dez  5 16:51 jruby-1.7.16.1
-drwxr-xr-x 7 sid sid 4096 Dez 23 18:07 jruby-1.7.18
-drwxr-xr-x 7 sid sid 4096 Feb  8 14:09 jruby-1.7.19
-drwxr-xr-x 7 sid sid 4096 Mai  5 00:04 jruby-1.7.20
-drwxr-xr-x 7 sid sid 4096 Jun 12 21:55 jruby-1.7.20.1
+lrwxrwxrwx 1 sid sid   12 Jan  6 11:34 current -> jruby-1.7.23     <1>
+lrwxrwxrwx 1 sid sid   12 Jan  6 11:31 current23 -> jruby-1.7.23   <1>
+-rw-r--r-- 1 sid sid  131 Jan  6 11:33 jruby.path.sh
+-rw-r--r-- 1 sid sid  134 Jan  6 11:32 jruby23.path.sh   <2>
+drwxr-xr-x 7 sid sid 4096 Nov 24 16:25 jruby-1.7.23   
 ----
-<1> Die symbolischen links 'current' und 'current16' zeigen auf die gleiche
+<1> Die symbolischen links 'current' und 'current23' zeigen auf die gleiche
     JRuby-Installation: +
-    'jruby-1.7.16.1' -- meine 'default'-Installation.
-<2> Erstellen Sie eine Datei `jruby201.path.sh` (siehe <<_anhang,[Anhang]>>). 
+    'jruby-1.7.23' -- meine 'default'-Installation.
+<2> Erstellen Sie eine Datei `jruby23.path.sh` (siehe <<_anhang,[Anhang]>>). 
 
 [CAUTION]
 ====
@@ -226,9 +214,9 @@ Datei setzen.
 =========================================================
 Achtung: Ausführen der Datei mit dem Punkt-Operator!
 ----
-$ . jruby201.path.sh   <1>
+$ . jruby23.path.sh   <1>
 ---- 
-<1> Oder mit dem Bash-Builtin Kommando: #source &nbsp; jruby201.path.sh#
+<1> Oder mit dem Bash-Builtin Kommando: #source &nbsp; jruby23.path.sh#
 =========================================================
 
 
@@ -237,25 +225,25 @@ $ . jruby201.path.sh   <1>
 .Die Java-Version
 ----
 $ java -version
-java version "1.7.0_79"
-OpenJDK Runtime Environment (IcedTea 2.5.5) (7u79-2.5.5-0ubuntu0.14.04.2)
-OpenJDK 64-Bit Server VM (build 24.79-b02, mixed mode)
+java version "1.7.0_91"
+OpenJDK Runtime Environment (IcedTea 2.6.3) (7u91-2.6.3-0ubuntu0.14.04.1)
+OpenJDK 64-Bit Server VM (build 24.91-b01, mixed mode)
 ----
 
 .Die JRuby-Version ...
 [options="nowrap"]
 ----
 $ which jruby
-/opt/JRuby/sid/current201/bin/jruby
+/opt/JRuby/sid/current23/bin/jruby
 
 $ jruby --version
-jruby 1.7.20.1 (1.9.3p551) 2015-06-10 d7c8c27 on OpenJDK 64-Bit Server VM 1.7.0_79-b14 +jit [linux-amd64]
+jruby 1.7.23 (1.9.3p551) 2015-11-24 f496dd5 on OpenJDK 64-Bit Server VM 1.7.0_91-b02 +jit [linux-amd64]
 
 $ jruby --version --1.8   <1>
-jruby 1.7.20.1 (ruby-1.8.7p376) 2015-06-10 d7c8c27 on OpenJDK 64-Bit Server VM 1.7.0_79-b14 +jit [linux-amd64]
+jruby 1.7.23 (ruby-1.8.7p376) 2015-11-24 f496dd5 on OpenJDK 64-Bit Server VM 1.7.0_91-b02 +jit [linux-amd64]
 
 $ jruby --version --2.0   <2>
-jruby 1.7.20.1 (2.0.0p598) 2015-06-10 d7c8c27 on OpenJDK 64-Bit Server VM 1.7.0_79-b14 +jit [linux-amd64]
+jruby 1.7.23 (2.0.0p598) 2015-11-24 f496dd5 on OpenJDK 64-Bit Server VM 1.7.0_91-b02 +jit [linux-amd64]
 ----
 <1> Weitere Möglichkeit: + 
     #JRUBY_OPTS=--1.8 &nbsp; jruby --version#
@@ -270,7 +258,7 @@ Happy new JRuby
     Eine vorher notwendige zusätzliche Installation entfällt. +
     &rarr; http://jruby.org/openssl[JRuby Builtin OpenSSL Support] 
 
-.JRuby 1.7.20.1: _irb_, _jirb_
+.JRuby 1.7.23: _irb_, _jirb_
 ----
 $ jirb   <1>
 irb(main):001:0> RUBY_VERSION
@@ -278,10 +266,10 @@ irb(main):001:0> RUBY_VERSION
 irb(main):002:0> RUBY_PATCHLEVEL
 => 551
 irb(main):003:0> Time.now.to_s
-=> "2015-06-12 22:06:56 +0200"
-irb(main):004:0> Time.now.tuesday?
+=> "2016-01-06 11:39:51 +0100"
+irb(main):004:0> Time.now.monday?
 => false
-irb(main):005:0> Time.now.friday?
+irb(main):005:0> Time.now.wednesday?
 => true
 irb(main):006:0> exit
 ----
@@ -343,32 +331,34 @@ $ gem list --local
 
 *** LOCAL GEMS ***
 
-axiom-types (0.1.1)
-coercible (1.0.0)
-descendants_tracker (0.0.4)
-equalizer (0.0.11)
-ice_nine (0.11.1)
-jar-dependencies (0.1.13)
-jruby-openssl (0.9.7 java)
+jar-dependencies (0.2.6)
+jruby-openssl (0.9.11 java)
 json (1.8.0 java)
-maven-tools (1.0.9)
 rake (10.1.0)
 rdoc (4.1.2)
-ruby-maven (3.1.1.0.8)
-ruby-maven-libs (3.1.1)
-thread_safe (0.3.5 java)
-virtus (1.0.5)
 ----
 
 
 update
 ~~~~~~
+[CAUTION]
+====
+Das standardmäßig an dieser Stelle von mir durchgeführte UPDATE 
+von *gem* führt im Nachhinein zu einem Fehler.
+
+Das Programm *gem v2.5.1* kann für einzelne Gems die Platform _java_ 
+nicht erkennen - und lädt stattdessen die C-Variante herunter, die
+wiederum zu einem offensichtlichem Kompilierfehler führt.
+
+Bleiben Sie bei dem mitgelieferten *gem v2.4.8*!
+
 *Step 1:* Das Programm `(j)gem` aktualisieren (als Benutzer 'sid')
 ----
-$ gem update --system
-Latest version currently installed. Aborting.   <1>
+$ gem update --system   <1>
+...
 ----
-<1> Stand: 2015-06-12 -- Keine _neue_ Version vorhanden (Ausführung dauerte über 30s)!
+<1> Nicht ausführen!
+====
 
 [TIP]
 .gem command reference
@@ -390,14 +380,6 @@ Usage: gem update REGEXP [REGEXP ...] [options]
 -> http://guides.rubygems.org/command-reference/[RubyGems Guides: COMMAND REFERENCE]
 ====
 
-----
-$ gem -v
-2.4.8 
-
-$ jgem -v
-2.4.8
-----
-
 [NOTE]
 ====
 .(j)gem  
@@ -417,63 +399,62 @@ Persönlich favorisiere ich *jruby -S gem ...* -- aber *jgem ...* äh *gem ...* 
 
 
 *Step 2:* Installierte RubyGems aktualisieren
+CAUTION: Das aktualisieren des RubyGem _json-1.8.0-java_ muß von Hand ausgeführt werden.
+
+Download: https://rubygems.org/gems/json/versions/1.8.3-java
+
 ----
 $ gem update
 Updating installed gems
 Updating jar-dependencies
-Fetching: jar-dependencies-0.1.14.gem (100%)
-Successfully installed jar-dependencies-0.1.14
+Fetching: jar-dependencies-0.3.1.gem (100%)
+
+if you want to use the executable lock_jars then install ruby-maven gem before using lock_jars 
+
+   $ gem install ruby-maven -v '~> 3.3.3'
+
+or add it as deveopment dependency to your Gemfile
+
+   gem 'ruby-maven', '~> 3.3.3'
+
+Successfully installed jar-dependencies-0.3.1
+Updating jruby-openssl
+Fetching: jruby-openssl-0.9.13-java.gem (100%)
+Successfully installed jruby-openssl-0.9.13-java
 Updating json
-Fetching: json-1.8.3-java.gem (100%)
 Successfully installed json-1.8.3-java
 Updating rake
 Fetching: rake-10.4.2.gem (100%)
 Successfully installed rake-10.4.2
 Updating rdoc
-Fetching: rdoc-4.2.0.gem (100%)
+Fetching: rdoc-4.2.1.gem (100%)
 Depending on your version of ruby, you may need to install ruby rdoc/ri data:
 
 <= 1.8.6 : unsupported
  = 1.8.7 : gem install rdoc-data; rdoc-data --install
  = 1.9.1 : gem install rdoc-data; rdoc-data --install
 >= 1.9.2 : nothing to do! Yay!
-Successfully installed rdoc-4.2.0
-Updating ruby-maven
-Fetching: ruby-maven-libs-3.3.3.gem (100%)
-Successfully installed ruby-maven-libs-3.3.3
-Fetching: ruby-maven-3.3.2.gem (100%)
-Successfully installed ruby-maven-3.3.2
-Gems updated: jar-dependencies json rake rdoc ruby-maven ruby-maven-libs   <1>
+Successfully installed rdoc-4.2.1
+Gems updated: jar-dependencies jruby-openssl json rake rdoc   <1>
 ----
-<1> Sechs _Gems_ aktualisiert! 
+<1> _Fünf_ Gems aktualisiert! 
    
 ----
 $ gem list --local
 
 *** LOCAL GEMS ***
 
-axiom-types (0.1.1)
-coercible (1.0.0)
-descendants_tracker (0.0.4)
-equalizer (0.0.11)
-ice_nine (0.11.1)
-jar-dependencies (0.1.14, 0.1.13)
-jruby-openssl (0.9.7 java)
+jruby-openssl (0.9.13 java, 0.9.11 java)
 json (1.8.3 java, 1.8.0 java)
-maven-tools (1.0.9)
 rake (10.4.2, 10.1.0)
-rdoc (4.2.0, 4.1.2)
-ruby-maven (3.3.2, 3.1.1.0.8)
-ruby-maven-libs (3.3.3, 3.1.1)
-thread_safe (0.3.5 java)
-virtus (1.0.5)
+rdoc (4.2.1, 4.1.2)
 ----
 
 
 *Step 3:* Die _Ruby-Documentation_ installieren
 ----
 $ gem install rdoc-data
-Fetching: rdoc-data-4.0.1.gem (100%)
+Fetching: rdoc-data-4.1.0.gem (100%)
 rdoc-data is only required for C ruby 1.8.7 or 1.9.1.
 
 rdoc-data is required for JRuby.   <1>
@@ -493,9 +474,14 @@ $ which rdoc-data
 /opt/JRuby/sid/current201/bin/rdoc-data
 
 $ rdoc-data --install   <1>
+jruby: no Ruby script found in input (LoadError)
 ----
-<1> Installs updated ruby 1.9.3 system ri data (core + stdlib)
+<1> Fehlermeldung! +
+    Den Grund hierfür habe ich nicht herausgefunden. +
+    Das Script ist unverändert! Schaade. +
+    Unter *Windows 7* gab es an dieser Stelle keinen Fehler!
 
+.Leider funktioniert damit der nächste Befehl nicht... Keine lokale Dokumentation!
 ----
 $ ri Array#each
 = Array#each
@@ -521,110 +507,28 @@ produces:
 ----
 
 
-Installation: Ruby on rails-4.2.1
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-*Step 0* 
-----
-# gem search ^rails$ --remote
-
-*** REMOTE GEMS ***
-
-rails (4.2.1)   <1>
-----
-<1> Seit dem 19.03.2015 ist das die neueste Version des RubyGem _rails_. 
-
-[TIP]
-====
-Eine mögliche Installation von zusätzlicher Dokumentation oder aktualisieren 
-der vorhandenen wird nicht durchgeführt. 
-----
-$ gem env
-RubyGems Environment:
-  - RUBYGEMS VERSION: 2.4.8
-  - RUBY VERSION: 1.9.3 (2015-06-10 patchlevel 551) [java]
-  - INSTALLATION DIRECTORY: /opt/JRuby/sid/jruby-1.7.20.1/lib/ruby/gems/shared
-  - RUBY EXECUTABLE: /opt/JRuby/sid/jruby-1.7.20.1/bin/jruby
-  - EXECUTABLE DIRECTORY: /opt/JRuby/sid/jruby-1.7.20.1/bin
-  - SPEC CACHE DIRECTORY: /home/sid/.gem/specs
-  - SYSTEM CONFIGURATION DIRECTORY: /opt/JRuby/sid/jruby-1.7.20.1/etc
-  - RUBYGEMS PLATFORMS:
-    - ruby
-    - universal-java-1.7
-  - GEM PATHS:
-     - /opt/JRuby/sid/jruby-1.7.20.1/lib/ruby/gems/shared
-     - /home/sid/.gem/jruby/1.9
-  - GEM CONFIGURATION:
-     - :update_sources => true
-     - :verbose => true
-     - :backtrace => false
-     - :bulk_threshold => 1000
-     - "install" => "--no-rdoc --no-ri --env-shebang"   <1>
-     - "update" => "--no-rdoc --no-ri --env-shebang"    <1>
-  - REMOTE SOURCES:
-     - https://rubygems.org/
-  - SHELL PATH:
-     - /opt/JRuby/sid/current201/bin
-     - /usr/local/bin
-     - /usr/bin
-     - /bin
-     - /usr/local/games
-     - /usr/games
----- 
-<1> In der Regel wird die offizielle Dokumentation im Internet genutzt: +
-    -> http://rubygems.org/ +
-    -> http://guides.rubyonrails.org/ 
-====
-
-Mit #gem install ...# werden auch alle Abhängigkeiten zu anderen RubyGems aufgelöst. 
-
-----
-$ gem install rails   
-Fetching: minitest-5.7.0.gem (100%)
-Successfully installed minitest-5.7.0
-...
-Fetching: rails-4.2.1.gem (100%)
-Successfully installed rails-4.2.1
-29 gems installed   <1>
-----
-<1> Mit dem RubyGem _rails-4.2.1_ wurden insgesamt 29 Gems installiert. +
-    Hinweis: Weitere RubyGems müssen für das Framework *Ruby on Rails* installiert werden.
-
-[NOTE]
-====
-Alternativ kann _Rails_ mit der Angabe einer Version installiert werden.
-----
-# gem install rails --version 4.2.1
-
-# gem install rails --version '~> 4.2.1'   <1>
-----
-<1> Twiddle Wakka: '~> 4.2.1' bedeutet, das die höchste Gem-Version von Rails +
-    im Bereich von >= 4.2.1 und < 4.3 installiert wird. 
-====
-
-
 asciidoctor
 ~~~~~~~~~~~ 
 ----
-$ gem install asciidoctor   <1> 
-Fetching: asciidoctor-1.5.2.gem (100%)
-Successfully installed asciidoctor-1.5.2
-1 gem installed
-
-$ gem install coderay   <2>  
+$ gem install asciidoctor coderay --no-rdoc --no-ri  <1> <2> <3> 
+Fetching: asciidoctor-1.5.4.gem (100%)
+Successfully installed asciidoctor-1.5.4
 Fetching: coderay-1.1.0.gem (100%)
 Successfully installed coderay-1.1.0
-1 gem installed
+2 gems installed
 ----
 <1> *Asciidoctor* is an open source Ruby processor for converting _AsciiDoc_ markup +
     into HTML 5, DocBook 4.5 and other formats.
 <2> *CodeRay* is a fast and easy syntax highlighting for selected languages, written in Ruby. +
     Comes with RedCloth integration and LOC counter.
+<3> Die Parameter #--no-rdoc --no-ri# können entfallen. +
+    Die Einstellungen für das Programm *gem* sind entsprechend gesetzt, siehe: #gem env#
 
 
 awesome_print
 ~~~~~~~~~~~~~
 ----
-$ gem install awesome_print   <1>
+$ gem install awesome_print   <1> 
 Fetching: awesome_print-1.6.1.gem (100%)
 Successfully installed awesome_print-1.6.1
 1 gem installed
@@ -637,16 +541,16 @@ pry
 ~~~~
 ----
 $ gem install pry   <1>
-Fetching: ffi-1.9.8-java.gem (100%)
-Successfully installed ffi-1.9.8-java
-Fetching: spoon-0.0.4.gem (100%)
-Successfully installed spoon-0.0.4
 Fetching: method_source-0.8.2.gem (100%)
 Successfully installed method_source-0.8.2
 Fetching: slop-3.6.0.gem (100%)
 Successfully installed slop-3.6.0
-Fetching: pry-0.10.1-java.gem (100%)
-Successfully installed pry-0.10.1-java
+Fetching: ffi-1.9.10-java.gem (100%)
+Successfully installed ffi-1.9.10-java
+Fetching: spoon-0.0.4.gem (100%)
+Successfully installed spoon-0.0.4
+Fetching: pry-0.10.3-java.gem (100%)
+Successfully installed pry-0.10.3-java
 5 gems installed
 ----
 <1> An IRB alternative and runtime developer console.
@@ -656,13 +560,15 @@ sinatra
 ~~~~~~~ 
 ----
 # gem install sinatra   <1>
+Fetching: rack-1.6.4.gem (100%)
+Successfully installed rack-1.6.4
 Fetching: rack-protection-1.5.3.gem (100%)
 Successfully installed rack-protection-1.5.3
-Fetching: tilt-2.0.1.gem (100%)
-Successfully installed tilt-2.0.1
+Fetching: tilt-2.0.2.gem (100%)
+Successfully installed tilt-2.0.2
 Fetching: sinatra-1.4.6.gem (100%)
 Successfully installed sinatra-1.4.6
-3 gems installed
+4 gems installed
 ----
 <1> *Sinatra* ist eine _freie_ und _open source Webapplikationsbibliothek_ und + 
     eine in Ruby geschriebene _domänenspezifische_ Sprache. +
@@ -678,114 +584,69 @@ $ gem list --local
 
 *** LOCAL GEMS ***
 
-actionmailer (4.2.1)
-actionpack (4.2.1)
-actionview (4.2.1)
-activejob (4.2.1)
-activemodel (4.2.1)
-activerecord (4.2.1)
-activesupport (4.2.1)
-arel (6.0.0)
-asciidoctor (1.5.2)
+asciidoctor (1.5.4)
 awesome_print (1.6.1)
-axiom-types (0.1.1)
-builder (3.2.2)
-bundler (1.10.3)
 coderay (1.1.0)
-coercible (1.0.0)
-descendants_tracker (0.0.4)
-equalizer (0.0.11)
-erubis (2.7.0)
-ffi (1.9.8 java)
-globalid (0.3.5)
-i18n (0.7.0)
-ice_nine (0.11.1)
-jar-dependencies (0.1.14, 0.1.13)
-jruby-openssl (0.9.7 java)
+ffi (1.9.10 java)
+jar-dependencies (0.3.1, 0.2.6)
+jruby-openssl (0.9.13 java, 0.9.11 java)
 json (1.8.3 java, 1.8.0 java)
-loofah (2.0.2)
-mail (2.6.3)
-maven-tools (1.0.9)
 method_source (0.8.2)
-mime-types (2.6.1)
-minitest (5.7.0)
-nokogiri (1.6.6.2 java)
-pry (0.10.1 java)
-rack (1.6.1)
+pry (0.10.3 java)
+rack (1.6.4)
 rack-protection (1.5.3)
-rack-test (0.6.3)
-rails (4.2.1)
-rails-deprecated_sanitizer (1.0.3)
-rails-dom-testing (1.0.6)
-rails-html-sanitizer (1.0.2)
-railties (4.2.1)
 rake (10.4.2, 10.1.0)
-rdoc (4.2.0, 4.1.2)
-rdoc-data (4.0.1)
-ruby-maven (3.3.2, 3.1.1.0.8)
-ruby-maven-libs (3.3.3, 3.1.1)
+rdoc (4.2.1, 4.1.2)
+rdoc-data (4.1.0)
 sinatra (1.4.6)
 slop (3.6.0)
 spoon (0.0.4)
-sprockets (3.2.0)
-sprockets-rails (2.3.1)
-thor (0.19.1)
-thread_safe (0.3.5 java)
-tilt (2.0.1)
-tzinfo (1.2.2)
-virtus (1.0.5)
+tilt (2.0.2)
 ----
 
 ----
-$ ls -lrt /opt/JRuby/sid/jruby-1.7.20.1/bin
--rw-r--r-- 1 sid sid     43 Jun 12 21:55 testrb.bat
--rw-r--r-- 1 sid sid     39 Jun 12 21:55 ri.bat
--rw-r--r-- 1 sid sid     41 Jun 12 21:55 rake.bat
--rwxr-xr-x 1 sid sid   8979 Jun 12 21:55 jruby.sh
--rw-r--r-- 1 sid sid    245 Jun 12 21:55 jrubyd.bat
--rw-r--r-- 1 sid sid     43 Jun 12 21:55 jrubyc.bat
--rwxr-xr-x 1 sid sid  11474 Jun 12 21:55 jruby
--rwxr-xr-x 1 sid sid   1935 Jun 12 21:55 jirb_swing
--rw-r--r-- 1 sid sid     41 Jun 12 21:55 jgem.bat
--rwxr-xr-x 1 sid sid    547 Jun 12 21:55 jgem
--rw-r--r-- 1 sid sid     40 Jun 12 21:55 irb.bat
--rwxr-xr-x 1 sid sid    323 Jun 12 21:55 irb
--rw-r--r-- 1 sid sid     40 Jun 12 21:55 gem.bat
--rw-r--r-- 1 sid sid     40 Jun 12 21:55 ast.bat
--rwxr-xr-x 1 sid sid   5670 Jun 12 21:55 ast
--rwxr-xr-x 1 sid sid    152 Jun 12 21:55 testrb
--rw-r--r-- 1 sid sid     41 Jun 12 21:55 rdoc.bat
--rw-r--r-- 1 sid sid 682496 Jun 12 21:55 jrubyw.exe
--rw-r--r-- 1 sid sid 680448 Jun 12 21:55 jruby.exe
--rwxr-xr-x 1 sid sid    188 Jun 12 21:55 jrubyc
--rw-r--r-- 1 sid sid     41 Jun 12 21:55 jirb.bat
--rw-r--r-- 1 sid sid 742400 Jun 12 21:55 jruby.dll
--rw-r--r-- 1 sid sid    125 Jun 12 21:55 jruby.bat
--rwxr-xr-x 1 sid sid  11474 Jun 12 21:55 jruby.bash
--rw-r--r-- 1 sid sid     47 Jun 12 21:55 jirb_swing.bat
--rwxr-xr-x 1 sid sid    390 Jun 12 21:55 jirb
--rwxr-xr-x 1 sid sid    123 Jun 12 21:55 gem
--rwxr-xr-x 1 sid sid    486 Jun 12 22:20 rake
--rwxr-xr-x 1 sid sid    486 Jun 12 22:20 rdoc
--rwxr-xr-x 1 sid sid    484 Jun 12 22:20 ri
--rwxr-xr-x 1 sid sid    504 Jun 12 22:21 rmvn
--rwxr-xr-x 1 sid sid    567 Jun 12 22:25 rdoc-data
--rwxr-xr-x 1 sid sid    502 Jun 12 22:30 nokogiri    <1>
--rwxr-xr-x 1 sid sid    494 Jun 12 22:30 erubis
--rwxr-xr-x 1 sid sid    488 Jun 12 22:30 rackup
--rwxr-xr-x 1 sid sid    506 Jun 12 22:30 sprockets
--rwxr-xr-x 1 sid sid    497 Jun 12 22:30 bundle
--rwxr-xr-x 1 sid sid    498 Jun 12 22:30 bundler
--rwxr-xr-x 1 sid sid    486 Jun 12 22:30 thor
--rwxr-xr-x 1 sid sid    499 Jun 12 22:30 rails              <1>
--rwxr-xr-x 1 sid sid    519 Jun 12 22:33 asciidoctor-safe
--rwxr-xr-x 1 sid sid    514 Jun 12 22:33 asciidoctor
--rwxr-xr-x 1 sid sid    498 Jun 12 22:33 coderay
--rwxr-xr-x 1 sid sid    482 Jun 12 22:34 pry
--rwxr-xr-x 1 sid sid    486 Jun 12 22:34 tilt
+$ ls -lrt /opt/JRuby/sid/jruby-1.7.23/bin
+-rw-r--r-- 1 sid sid     43 Nov 24 16:23 testrb.bat
+-rwxr-xr-x 1 sid sid    152 Nov 24 16:23 testrb
+-rw-r--r-- 1 sid sid     39 Nov 24 16:23 ri.bat
+-rw-r--r-- 1 sid sid     41 Nov 24 16:23 rdoc.bat
+-rw-r--r-- 1 sid sid     41 Nov 24 16:23 rake.bat
+-rw-r--r-- 1 sid sid 682496 Nov 24 16:23 jrubyw.exe
+-rwxr-xr-x 1 sid sid   8979 Nov 24 16:23 jruby.sh
+-rw-r--r-- 1 sid sid 680448 Nov 24 16:23 jruby.exe
+-rw-r--r-- 1 sid sid 742400 Nov 24 16:23 jruby.dll
+-rw-r--r-- 1 sid sid    245 Nov 24 16:23 jrubyd.bat
+-rw-r--r-- 1 sid sid     43 Nov 24 16:23 jrubyc.bat
+-rwxr-xr-x 1 sid sid    188 Nov 24 16:23 jrubyc
+-rw-r--r-- 1 sid sid    125 Nov 24 16:23 jruby.bat
+-rwxr-xr-x 1 sid sid  11474 Nov 24 16:23 jruby.bash
+-rw-r--r-- 1 sid sid     47 Nov 24 16:23 jirb_swing.bat
+-rwxr-xr-x 1 sid sid   1935 Nov 24 16:23 jirb_swing
+-rw-r--r-- 1 sid sid     41 Nov 24 16:23 jirb.bat
+-rwxr-xr-x 1 sid sid    390 Nov 24 16:23 jirb
+-rw-r--r-- 1 sid sid     41 Nov 24 16:23 jgem.bat
+-rwxr-xr-x 1 sid sid    547 Nov 24 16:23 jgem
+-rw-r--r-- 1 sid sid     40 Nov 24 16:23 irb.bat
+-rwxr-xr-x 1 sid sid    323 Nov 24 16:23 irb
+-rw-r--r-- 1 sid sid     40 Nov 24 16:23 gem.bat
+-rwxr-xr-x 1 sid sid    123 Nov 24 16:23 gem
+-rw-r--r-- 1 sid sid     40 Nov 24 16:23 ast.bat
+-rwxr-xr-x 1 sid sid   5670 Nov 24 16:23 ast
+-rwxr-xr-x 1 sid sid  11474 Nov 24 16:23 jruby
+-rwxr-xr-x 1 sid sid    527 Jan  8 10:25 lock_jars   <1>
+-rwxr-xr-x 1 sid sid    486 Jan  8 10:25 rake
+-rwxr-xr-x 1 sid sid    486 Jan  8 10:25 rdoc
+-rwxr-xr-x 1 sid sid    484 Jan  8 10:25 ri
+-rwxr-xr-x 1 sid sid    565 Jan  8 10:32 rdoc-data
+-rwxr-xr-x 1 sid sid    514 Jan  8 14:22 asciidoctor
+-rwxr-xr-x 1 sid sid    519 Jan  8 14:22 asciidoctor-safe
+-rwxr-xr-x 1 sid sid    498 Jan  8 14:22 coderay
+-rwxr-xr-x 1 sid sid    482 Jan  8 14:25 pry
+-rwxr-xr-x 1 sid sid    488 Jan  8 14:27 rackup
+-rwxr-xr-x 1 sid sid    486 Jan  8 14:27 tilt
 ----
-<1> Die Kommandos #nokigiri, ..., thor# und natürlich auch #rails# wurden durch +
-    #gem install rails# installiert.
+<1> Die Kommandos #lock_jars, ..., tilt# wurden durch 
+    die zusätzlich installierten _RubyGems_ installiert.
 
 
 RubyGems Documentation Index
@@ -801,12 +662,7 @@ Browser> http://localhost:8808/
          RubyGems Documentation Index   
 ----
 
-image::images/jruby/rubygems_documentation_index.png[RubyGems Documentation Index]
-
-
-JRuby on Rails 4.2: Erste Schritte &hellip;
--------------------------------------------
-{jruby_1st-url}[JRuby on Rails 4.2: Erste Schritte &hellip;]
+image::images/jruby/rubygems_documentation_index.jpg[RubyGems Documentation Index]
 
 
 Anhang
@@ -827,8 +683,8 @@ export CATALINA_OPTS
 
 .JRuby (mit System-JDK )
 ----
-JRUBY_HOME=/opt/JRuby/sid/current201
-#JRUBY_OPTS=--1.8   <1>
+JRUBY_HOME=/opt/JRuby/sid/current23   <1>
+#JRUBY_OPTS=--1.8   <2>
 
 PATH=$JRUBY_HOME/bin:$PATH
 
@@ -837,7 +693,9 @@ export JRUBY_HOME
 
 export PATH
 ----
-<1> JRuby wird im Modus _Ruby 1.8.7_ ausgeführt.
+<1> Installation von JRuby für den Benutzer _sid_. +
+    Default-Installation wird mit `current` gesetzt.
+<2> JRuby wird im Modus _Ruby 1.8.7_ ausgeführt.
 
 
 .JRuby (mit separatem JDK)
@@ -847,7 +705,7 @@ JAVA_HOME=/opt/Java/current
 JDK_HOME=/opt/Java/current
 JRE_HOME=/opt/Java/current
 
-JRUBY_HOME=/opt/JRuby/sid/current201
+JRUBY_HOME=/opt/JRuby/sid/current23
 #JRUBY_OPTS=--1.8   <2>
 
 PATH=$JAVA_BINDIR:$JRUBY_HOME/bin:$PATH

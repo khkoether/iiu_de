@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.2">
+<meta name="generator" content="Asciidoctor 1.5.4">
 <meta name="author" content="Installation in Ubuntu — khkoether[at]kahweb[dot]de">
-<title>IiU&#8201;&#8212;&#8201;Ruby on Rails 4.2: Erste Schritte &hellip;</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400">
+<title>IiU&#8201;&#8212;&#8201;JRuby on Rails 4.2</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
-/* Remove the comments around the @import statement below when using this as a custom stylesheet */
-/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400";*/
+/* Remove comment around @import statement below when using as a custom stylesheet */
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";*/
 article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}
 audio,canvas,video{display:inline-block}
 audio:not([controls]){display:none;height:0}
@@ -58,7 +58,6 @@ a:hover{cursor:pointer}
 img,object,embed{max-width:100%;height:auto}
 object,embed{height:100%}
 img{-ms-interpolation-mode:bicubic}
-#map_canvas img,#map_canvas embed,#map_canvas object,.map_canvas img,.map_canvas embed,.map_canvas object{max-width:none!important}
 .left{float:left!important}
 .right{float:right!important}
 .text-left{text-align:left!important}
@@ -66,10 +65,12 @@ img{-ms-interpolation-mode:bicubic}
 .text-center{text-align:center!important}
 .text-justify{text-align:justify!important}
 .hide{display:none}
-.antialiased,body{-webkit-font-smoothing:antialiased}
-img{display:inline-block;vertical-align:middle}
+body{-webkit-font-smoothing:antialiased}
+img,object,svg{display:inline-block;vertical-align:middle}
 textarea{height:auto;min-height:50px}
 select{width:100%}
+.center{margin-left:auto;margin-right:auto}
+.spread{width:100%}
 p.lead,.paragraph.lead>p,#preamble>.sectionbody>.paragraph:first-of-type p{font-size:1.21875em;line-height:1.6}
 .subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
 div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
@@ -112,12 +113,14 @@ blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
 h1{font-size:2.75em}
 h2{font-size:2.3125em}
 h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
-h4{font-size:1.4375em}}table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
 table thead,table tfoot{background:#f7f8f7;font-weight:bold}
 table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
 table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
 table tr.even,table tr.alt,table tr:nth-of-type(even){background:#f8f8f7}
 table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
+body{tab-size:4}
 h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
 h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
 .clearfix:before,.clearfix:after,.float-group:before,.float-group:after{content:" ";display:table}
@@ -125,7 +128,7 @@ h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title str
 *:not(pre)>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background-color:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
 pre,pre>code{line-height:1.45;color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;text-rendering:optimizeSpeed}
 .keyseq{color:rgba(51,51,51,.8)}
-kbd{display:inline-block;color:rgba(0,0,0,.8);font-size:.75em;line-height:1.4;background-color:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:-.15em .15em 0 .15em;padding:.2em .6em .2em .5em;vertical-align:middle;white-space:nowrap}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background-color:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
 .keyseq kbd:first-child{margin-left:0}
 .keyseq kbd:last-child{margin-right:0}
 .menuseq,.menu{color:rgba(0,0,0,.8)}
@@ -156,29 +159,33 @@ p a>code:hover{color:rgba(0,0,0,.9)}
 #toc ul.sectlevel0>li>a{font-style:italic}
 #toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
 #toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
 #toc a{text-decoration:none}
 #toc a:active{text-decoration:underline}
 #toctitle{color:#7a2518;font-size:1.2em}
 @media only screen and (min-width:768px){#toctitle{font-size:1.375em}
 body.toc2{padding-left:15em;padding-right:0}
 #toc.toc2{margin-top:0!important;background-color:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #efefed;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
-#toc.toc2 #toctitle{margin-top:0;font-size:1.2em}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
 #toc.toc2>ul{font-size:.9em;margin-bottom:0}
 #toc.toc2 ul ul{margin-left:0;padding-left:1em}
 #toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
 body.toc2.toc-right{padding-left:0;padding-right:15em}
-body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #efefed;left:auto;right:0}}@media only screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #efefed;left:auto;right:0}}
+@media only screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
 #toc.toc2{width:20em}
 #toc.toc2 #toctitle{font-size:1.375em}
 #toc.toc2>ul{font-size:.95em}
 #toc.toc2 ul ul{padding-left:1.25em}
-body.toc2.toc-right{padding-left:0;padding-right:20em}}#content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
 #content #toc>:first-child{margin-top:0}
 #content #toc>:last-child{margin-bottom:0}
 #footer{max-width:100%;background-color:rgba(0,0,0,.8);padding:1.25em}
 #footer-text{color:rgba(255,255,255,.8);line-height:1.44}
 .sect1{padding-bottom:.625em}
-@media only screen and (min-width:768px){.sect1{padding-bottom:1.25em}}.sect1+.sect1{border-top:1px solid #efefed}
+@media only screen and (min-width:768px){.sect1{padding-bottom:1.25em}}
+.sect1+.sect1{border-top:1px solid #efefed}
 #content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
 #content h1>a.anchor:before,h2>a.anchor:before,h3>a.anchor:before,#toctitle>a.anchor:before,.sidebarblock>.content>.title>a.anchor:before,h4>a.anchor:before,h5>a.anchor:before,h6>a.anchor:before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
 #content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
@@ -207,7 +214,9 @@ table.tableblock #preamble>.sectionbody>.paragraph:first-of-type p{font-size:inh
 .sidebarblock .literalblock pre,.sidebarblock .listingblock pre:not(.highlight),.sidebarblock .listingblock pre[class="highlight"],.sidebarblock .listingblock pre[class^="highlight "],.sidebarblock .listingblock pre.CodeRay,.sidebarblock .listingblock pre.prettyprint{background:#f2f1f1}
 .literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;padding:1em;font-size:.8125em}
 .literalblock pre.nowrap,.literalblock pre[class].nowrap,.listingblock pre.nowrap,.listingblock pre[class].nowrap{overflow-x:auto;white-space:pre;word-wrap:normal}
-@media only screen and (min-width:768px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:.90625em}}@media only screen and (min-width:1280px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:1em}}.literalblock.output pre{color:#f7f7f8;background-color:rgba(0,0,0,.9)}
+@media only screen and (min-width:768px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:.90625em}}
+@media only screen and (min-width:1280px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:1em}}
+.literalblock.output pre{color:#f7f7f8;background-color:rgba(0,0,0,.9)}
 .listingblock pre.highlightjs{padding:0}
 .listingblock pre.highlightjs>code{padding:1em;-webkit-border-radius:4px;border-radius:4px}
 .listingblock pre.prettyprint{border-width:0}
@@ -217,7 +226,7 @@ table.tableblock #preamble>.sectionbody>.paragraph:first-of-type p{font-size:inh
 .listingblock.terminal pre .command:before{content:attr(data-prompt);padding-right:.5em;color:#999}
 .listingblock.terminal pre .command:not([data-prompt]):before{content:"$"}
 table.pyhltable{border-collapse:separate;border:0;margin-bottom:0;background:none}
-table.pyhltable td{vertical-align:top;padding-top:0;padding-bottom:0}
+table.pyhltable td{vertical-align:top;padding-top:0;padding-bottom:0;line-height:1.45}
 table.pyhltable td.code{padding-left:.75em;padding-right:0}
 pre.pygments .lineno,table.pyhltable td:not(.code){color:#999;padding-left:0;padding-right:.5em;border-right:1px solid #ddddd8}
 pre.pygments .lineno{display:inline-block;margin-right:.25em}
@@ -238,13 +247,12 @@ table.pyhltable .linenodiv{background:none!important;padding-right:0!important}
 .verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
 .quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
 .quoteblock .attribution br,.verseblock .attribution br{display:none}
-.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.05em;color:rgba(0,0,0,.6)}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
 .quoteblock.abstract{margin:0 0 1.25em 0;display:block}
 .quoteblock.abstract blockquote,.quoteblock.abstract blockquote p{text-align:left;word-spacing:0}
 .quoteblock.abstract blockquote:before,.quoteblock.abstract blockquote p:first-of-type:before{display:none}
 table.tableblock{max-width:100%;border-collapse:separate}
 table.tableblock td>.paragraph:last-child p>p:last-child,table.tableblock th>p:last-child,table.tableblock td>p:last-child{margin-bottom:0}
-table.spread{width:100%}
 table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
 table.grid-all th.tableblock,table.grid-all td.tableblock{border-width:0 1px 1px 0}
 table.grid-all tfoot>tr>th.tableblock,table.grid-all tfoot>tr>td.tableblock{border-width:1px 1px 0 0}
@@ -290,8 +298,8 @@ ol.upperroman{list-style-type:upper-roman}
 ol.lowergreek{list-style-type:lower-greek}
 .hdlist>table,.colist>table{border:0;background:none}
 .hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
-td.hdlist1{padding-right:.75em;font-weight:bold}
-td.hdlist1,td.hdlist2{vertical-align:top}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
 .literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
 .colist>table tr>td:first-of-type{padding:0 .75em;line-height:1}
 .colist>table tr>td:last-of-type{padding:.25em 0}
@@ -304,13 +312,14 @@ td.hdlist1,td.hdlist2{vertical-align:top}
 .image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
 .image.left{margin-right:.625em}
 .image.right{margin-left:.625em}
-a.image{text-decoration:none}
-span.footnote,span.footnoteref{vertical-align:super;font-size:.875em}
-span.footnote a,span.footnoteref a{text-decoration:none}
-span.footnote a:active,span.footnoteref a:active{text-decoration:underline}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
 #footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
 #footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em 0;border-width:1px 0 0 0}
-#footnotes .footnote{padding:0 .375em;line-height:1.3;font-size:.875em;margin-left:1.2em;text-indent:-1.2em;margin-bottom:.2em}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;text-indent:-1.05em;margin-bottom:.2em}
 #footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none}
 #footnotes .footnote:last-of-type{margin-bottom:0}
 #content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
@@ -368,11 +377,10 @@ span.icon>.fa{cursor:default}
 pre .conum[data-value]{position:relative;top:-.125em}
 b.conum *{color:inherit!important}
 .conum:not([data-value]):empty{display:none}
-h1,h2{letter-spacing:-.01em}
-dt,th.tableblock,td.content{text-rendering:optimizeLegibility}
-p,td.content{letter-spacing:-.01em}
-p strong,td.content strong{letter-spacing:-.005em}
-p,blockquote,dt,td.content{font-size:1.0625rem}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,span.alt{font-size:1.0625rem}
 p{margin-bottom:1.25rem}
 .sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
 .exampleblock>.content{background-color:#fffef7;border-color:#e0e0dc;-webkit-box-shadow:0 1px 4px #e0e0dc;box-shadow:0 1px 4px #e0e0dc}
@@ -383,9 +391,9 @@ a{color:inherit!important;text-decoration:underline!important}
 a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
 a[href^="http:"]:not(.bare):after,a[href^="https:"]:not(.bare):after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
 abbr[title]:after{content:" (" attr(title) ")"}
-pre,blockquote,tr,img{page-break-inside:avoid}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
 thead{display:table-header-group}
-img{max-width:100%!important}
+svg{max-width:100%}
 p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
 h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
 #toc,.sidebarblock,.exampleblock>.content{background:none!important}
@@ -412,7 +420,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>IiU&#8201;&#8212;&#8201;Ruby on Rails 4.2: Erste Schritte &hellip;</h1>
+<h1>IiU&#8201;&#8212;&#8201;JRuby on Rails 4.2</h1>
 <div class="details">
 <span id="author" class="author">Installation in Ubuntu — khkoether[at]kahweb[dot]de</span><br>
 </div>
@@ -420,15 +428,18 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#_abstract">Abstract</a></li>
-<li><a href="#_vorraussetzung">Vorraussetzung</a></li>
+<li><a href="#_vorraussetzungen">Vorraussetzungen</a></li>
+<li><a href="#_rubygem_rails_4_2_5">RubyGem: rails-4.2.5</a></li>
 <li><a href="#_erste_schritte">Erste Schritte &hellip;</a>
 <ul class="sectlevel2">
 <li><a href="#_datenbanksystem_wählen">Datenbanksystem wählen</a></li>
 <li><a href="#_datenbankadapter_installieren">Datenbankadapter installieren</a></li>
 <li><a href="#_datenbank_erstellen">Datenbank erstellen</a></li>
 <li><a href="#_projektverzeichnis_erstellen">Projektverzeichnis erstellen</a></li>
+<li><a href="#_rubygems_installieren">RubyGems installieren</a></li>
 <li><a href="#_datenbankadapter_konfigurieren">Datenbankadapter konfigurieren</a></li>
 <li><a href="#_javascript_runtime_installieren">JavaScript-Runtime installieren</a></li>
+<li><a href="#_warbler_installieren">Warbler installieren</a></li>
 <li><a href="#_aufruf_der_webanwendung_im_browser">Aufruf der Webanwendung im Browser</a></li>
 </ul>
 </li>
@@ -440,22 +451,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Version 3.0.4, Dezember 2014 (<strong>unverändert</strong>)</p>
-</div>
-<div class="admonitionblock caution">
-<table>
-<tr>
-<td class="icon">
-<img src="./images/icons/caution.png" alt="Caution">
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Ich werde diese Seite für <strong>Ruby 2.1.x</strong> nicht weiter aktualisieren.<br>
-Sie hat im Hinblick auf <strong>Rails 5.0</strong> keine Bedeutung mehr.</p>
-</div>
-</td>
-</tr>
-</table>
+<p>Version 4.0.0, Januar 2016</p>
 </div>
 </div>
 </div>
@@ -464,11 +460,11 @@ Sie hat im Hinblick auf <strong>Rails 5.0</strong> keine Bedeutung mehr.</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Die folgenden Schritte stellen die Funktionsfähigkeit der Installation
-von <a href="https://www.ruby-lang.org/de/">Ruby</a> und <a href="http://www.rubyonrails.org">Ruby on Rails</a> (kurz: <em>Rails</em>) sicher.</p>
+von <a href="http://jruby.org/">JRuby</a> und <a href="http://www.rubyonrails.org">Ruby on Rails</a> (kurz: <em>Rails</em>) sicher.</p>
 </div>
 <div class="paragraph">
-<p>Der Artikel ist in <a href="http://asciidoctor.org/docs/">AsciiDoc</a> geschrieben
-und mit <em>Asciidoctor 1.5.2</em> erstellt worden.</p>
+<p>Der Artikel ist in <a href="http://asciidoctor.org/docs/">Asciidoctor</a> geschrieben
+und mit <em>Asciidoctor 1.5.4</em> erstellt worden.</p>
 </div>
 <div class="admonitionblock caution">
 <table>
@@ -493,30 +489,20 @@ Gerne nehme ich Verbesserungsvorschläge entgegen.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_vorraussetzung">Vorraussetzung</h2>
+<h2 id="_vorraussetzungen">Vorraussetzungen</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Die Installation von <em>Ruby</em> und <em>Ruby on Rails</em> ist, wie in</p>
+<p><em>JRuby</em> und <em>Ruby on Rails</em> sind wie in</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="ruby19.html">IiU&#8201;&#8212;&#8201;Ruby 1.9.3, rails-4.2.0</a></p>
+<p><a href="jruby.html">IiU&#8201;&#8212;&#8201;JRuby 1.7.23</a></p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>oder</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="ruby21.html">IiU&#8201;&#8212;&#8201;Ruby 2.1.5, rails-4.2.0</a></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>beschrieben, durchgeführt worden.</p>
+<p>beschrieben durchgeführt worden.</p>
 </div>
 <div class="admonitionblock caution">
 <table>
@@ -526,30 +512,184 @@ Gerne nehme ich Verbesserungsvorschläge entgegen.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Die hier aufgeführten Schritte werden beispielhaft für <strong>Ruby 2.1.5</strong> ausgeführt.</p>
+<p>Die hier aufgeführten Schritte werden beispielhaft für <strong>JRuby 1.7.3</strong> ausgeführt.</p>
 </div>
 <div class="paragraph">
-<p>Gelten aber, auch in dieser Reihenfolge, ebenfalls für <strong>Ruby 1.9.3</strong>.</p>
+<p>Gelten aber, auch in dieser Reihenfolge, ebenfalls für die <strong>JRuby-Version &gt;= 9.0.0.0</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Eine Installation von <strong>Ruby on Rails 5.0</strong> ist nur mit <strong>Ruby-Versionen &gt;= 2.2</strong> (<strong>JRuby 9</strong>) möglich!</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
 <div class="listingblock">
-<div class="title">Ruby 2.1.5</div>
+<div class="title">JRuby 1.7.23</div>
 <div class="content">
-<pre>$ which ruby
-/opt/Ruby/current21/bin/ruby
+<pre class="nowrap">$ which jruby
+/opt/JRuby/sid/current23/bin/jruby
 
-$ ruby -v
-ruby 2.1.5p273 (2014-11-13 revision 48405) [x86_64-linux]
+$ jruby -v
+jruby 1.7.23 (1.9.3p551) 2015-11-24 f496dd5 on OpenJDK 64-Bit Server VM 1.7.0_91-b02 +jit [linux-amd64]
 
-$ which rails
-/opt/Ruby/current21/bin/rails
-
-$ rails -v
-Rails 4.2.0</pre>
+$ jruby -S gem -v   <img src="./images/icons/callouts/1.png" alt="1"> <img src="./images/icons/callouts/2.png" alt="2">
+2.4.8</pre>
 </div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Der Schalter <mark>-S</mark> führt dazu, daß für das Script zuerst
+das Verzeichnis <code>${JRUBY_HOME}/bin</code> geprüft wird - und
+dann der <code>PATH</code>.</td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/2.png" alt="2"></td>
+<td>Solange wie die ausführbaren Programme von <em>JRuby on Rails</em> im <code>PATH</code> vorangestellt
+werden, kann auf <mark>jruby -S</mark> verzichtet werden.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_rubygem_rails_4_2_5">RubyGem: rails-4.2.5</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Step 0</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ gem search ^rails$ --remote
+
+*** REMOTE GEMS ***
+
+rails (4.2.5)   <img src="./images/icons/callouts/1.png" alt="1"></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Seit dem 12.11.2015 ist das die neueste Version des RubyGem <em>rails</em>.</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Eine mögliche Installation von zusätzlicher Dokumentation oder aktualisieren
+der vorhandenen wird nicht durchgeführt.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ gem env
+RubyGems Environment:
+RubyGems Environment:
+  - RUBYGEMS VERSION: 2.4.8
+  - RUBY VERSION: 1.9.3 (2015-11-24 patchlevel 551) [java]
+  - INSTALLATION DIRECTORY: /opt/JRuby/sid/jruby-1.7.23/lib/ruby/gems/shared
+  - RUBY EXECUTABLE: /opt/JRuby/sid/jruby-1.7.23/bin/jruby
+  - EXECUTABLE DIRECTORY: /opt/JRuby/sid/jruby-1.7.23/bin
+  - SPEC CACHE DIRECTORY: /home/sid/.gem/specs
+  - SYSTEM CONFIGURATION DIRECTORY: /opt/JRuby/sid/jruby-1.7.23/etc
+  - RUBYGEMS PLATFORMS:
+    - ruby
+    - universal-java-1.7
+  - GEM PATHS:
+     - /opt/JRuby/sid/jruby-1.7.23/lib/ruby/gems/shared
+     - /home/sid/.gem/jruby/1.9
+  - GEM CONFIGURATION:
+     - :update_sources =&gt; true
+     - :verbose =&gt; true
+     - :backtrace =&gt; false
+     - :bulk_threshold =&gt; 1000
+     - "install" =&gt; "--no-rdoc --no-ri --env-shebang"   <img src="./images/icons/callouts/1.png" alt="1">
+     - "update" =&gt; "--no-rdoc --no-ri --env-shebang"    <img src="./images/icons/callouts/1.png" alt="1">
+  - REMOTE SOURCES:
+     - https://rubygems.org/
+  - SHELL PATH:
+     - /opt/JRuby/sid/current23/bin
+     - /usr/local/bin
+     - /usr/bin
+     - /bin
+     - /usr/local/games
+     - /usr/games</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>In der Regel wird die offizielle Dokumentation im Internet genutzt:<br>
+&#8594; <a href="http://rubygems.org/" class="bare">http://rubygems.org/</a><br>
+&#8594; <a href="http://guides.rubyonrails.org/" class="bare">http://guides.rubyonrails.org/</a></td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Mit <mark>gem install &#8230;&#8203;</mark> werden auch alle Abhängigkeiten zu anderen RubyGems aufgelöst.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ gem install rails
+Fetching: i18n-0.7.0.gem (100%)
+Successfully installed i18n-0.7.0
+...
+Fetching: rails-4.2.5.gem (100%)
+Successfully installed rails-4.2.5
+30 gems installed   <img src="./images/icons/callouts/1.png" alt="1"></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Mit dem RubyGem <em>rails-4.2.5</em> wurden insgesamt 30 Gems installiert.<br>
+Hinweis: Weitere RubyGems müssen für das Framework <strong>Ruby on Rails</strong> installiert werden.</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="./images/icons/note.png" alt="Note">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Alternativ kann das RubyGem <em>rails</em> mit der Angabe einer Version installiert werden.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre># gem install rails --version 4.1.14
+
+# gem install rails --version '~&gt; 4.1.14'   <img src="./images/icons/callouts/1.png" alt="1"></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Twiddle Wakka: <em>~&gt; 4.1.14</em> bedeutet, das die höchste Gem-Version von Rails<br>
+im Bereich von &gt;= 4.1.14 und &lt; 4.2 installiert wird.</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -575,10 +715,16 @@ Rails 4.2.0</pre>
 <p>Projektverzeichnis erstellen</p>
 </li>
 <li>
+<p>RubyGems installieren</p>
+</li>
+<li>
 <p>Datenbankadapter konfigurieren</p>
 </li>
 <li>
 <p>JavaScript-Runtime installieren</p>
+</li>
+<li>
+<p>Warbler installieren</p>
 </li>
 <li>
 <p>Aufruf der Webanwendung im Browser</p>
@@ -629,21 +775,44 @@ In der Vorgehensweise sind sie ähnlich derer für <strong>MySQL</strong></p>
 <div class="sect2">
 <h3 id="_datenbankadapter_installieren">Datenbankadapter installieren</h3>
 <div class="listingblock">
+<div class="title">Datenbankzugriff (via JDBC)</div>
 <div class="content">
-<pre># gem install mysql2 --no-rdoc --no-ri
-Fetching: mysql2-0.3.17.gem (100%)
-Building native extensions.  This could take a while...
-Successfully installed mysql2-0.3.17
+<pre>$ gem install activerecord-jdbc-adapter
+Fetching: activerecord-jdbc-adapter-1.3.19.gem (100%)
+Successfully installed activerecord-jdbc-adapter-1.3.19
 1 gem installed</pre>
 </div>
 </div>
 <div class="listingblock">
+<div class="title">MySQL</div>
 <div class="content">
-<pre># gem install sqlite3 --no-rdoc --no-ri
-Fetching: sqlite3-1.3.10.gem (100%)
-Building native extensions.  This could take a while...
-Successfully installed sqlite3-1.3.10
-1 gem installed</pre>
+<pre>$ gem install activerecord-jdbcmysql-adapter
+Fetching: jdbc-mysql-5.1.37.gem (100%)
+Successfully installed jdbc-mysql-5.1.37
+Fetching: activerecord-jdbcmysql-adapter-1.3.19.gem (100%)
+Successfully installed activerecord-jdbcmysql-adapter-1.3.19
+2 gems installed</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">SQLite3</div>
+<div class="content">
+<pre>$ gem install activerecord-jdbcsqlite3-adapter
+Fetching: jdbc-sqlite3-3.8.11.2.gem (100%)
+Successfully installed jdbc-sqlite3-3.8.11.2
+Fetching: activerecord-jdbcsqlite3-adapter-1.3.19.gem (100%)
+Successfully installed activerecord-jdbcsqlite3-adapter-1.3.19
+2 gems installed</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ gem list --local | grep jdbc
+activerecord-jdbc-adapter (1.3.19)
+activerecord-jdbcmysql-adapter (1.3.19)
+activerecord-jdbcsqlite3-adapter (1.3.19)
+jdbc-mysql (5.1.37)
+jdbc-sqlite3 (3.8.11.2)</pre>
 </div>
 </div>
 </div>
@@ -651,7 +820,7 @@ Successfully installed sqlite3-1.3.10
 <h3 id="_datenbank_erstellen">Datenbank erstellen</h3>
 <div class="paragraph">
 <p><em>SQLite3</em> ist eine Programmbibliothek, die ein relationales Datenbanksystem enthält.
-Das bedeutet, der notwendige Aufwand an Administration für ein Datenbanksystem, sowie
+Das bedeutet, der normale Aufwand an Administration für ein Datenbanksystem, sowie
 für das Anlegen von Benutzern, einer Datenbank und dem Zuweisen von Rechten entfällt.</p>
 </div>
 <div class="paragraph">
@@ -665,10 +834,10 @@ die Kommandozeile.</p>
 <pre>$ mysql -uroot -p
 Enter password:
 Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 78
-Server version: 5.5.40-0ubuntu0.14.04.1 (Ubuntu)
+Your MySQL connection id is 79
+Server version: 5.5.46-0ubuntu0.14.04.2 (Ubuntu)
 
-Copyright (c) 2000, 2014, Oracle and/or its affiliates. All rights reserved.
+Copyright (c) 2000, 2015, Oracle and/or its affiliates. All rights reserved.
 
 Oracle is a registered trademark of Oracle Corporation and/or its
 affiliates. Other names may be trademarks of their respective
@@ -688,15 +857,15 @@ Bye</pre>
 </div>
 </div>
 <div class="listingblock">
-<div class="title">Erstellen einer Datenbank: <em>myapp_development</em> (in MySQL)</div>
+<div class="title">Erstellen einer Datenbank: <em>jmyapp_development</em> (in MySQL)</div>
 <div class="content">
 <pre>$ mysql -usid -p
 Enter password:
 Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 80
-Server version: 5.5.40-0ubuntu0.14.04.1 (Ubuntu)
+Your MySQL connection id is 79
+Server version: 5.5.46-0ubuntu0.14.04.2 (Ubuntu)
 
-Copyright (c) 2000, 2014, Oracle and/or its affiliates. All rights reserved.
+Copyright (c) 2000, 2015, Oracle and/or its affiliates. All rights reserved.
 
 Oracle is a registered trademark of Oracle Corporation and/or its
 affiliates. Other names may be trademarks of their respective
@@ -720,76 +889,77 @@ Bye</pre>
 $ mkdir RailsDir
 
 $ cd RailsDir
-$ rails _4.2.0_ new MyApp --database=mysql   <img src="./images/icons/callouts/1.png" alt="1"> <img src="./images/icons/callouts/2.png" alt="2">
+$ rails _4.2.5_ new jMyApp --database=mysql -B  <img src="./images/icons/callouts/1.png" alt="1"> <img src="./images/icons/callouts/2.png" alt="2"> <img src="./images/icons/callouts/3.png" alt="3">
       create
       create  README.rdoc
       create  Rakefile
       create  config.ru
       create  .gitignore
-      create  Gemfile      <img src="./images/icons/callouts/3.png" alt="3">
+      create  Gemfile      <img src="./images/icons/callouts/4.png" alt="4">
       create  app
       create  app/assets/javascripts/application.js
- [...]
+      ...
       create  bin
       create  bin/bundle
       create  bin/rails
       create  bin/rake
       create  bin/setup
-[...]
-      create  config/database.yml   <img src="./images/icons/callouts/4.png" alt="4">
+      create  config
+      create  config/routes.rb
+      ...
+      create  config/database.yml   <img src="./images/icons/callouts/5.png" alt="5">
       create  db
       create  db/seeds.rb
- [...]
+      create  lib
+      create  lib/tasks
+      ...
+      create  log
+      ...
+      create  public
+      create  public/404.html
+      ...
+      create  test/fixtures
+      ...
+      create  tmp/cache
+      ...
       create  vendor/assets/javascripts
       create  vendor/assets/javascripts/.keep
       create  vendor/assets/stylesheets
-      create  vendor/assets/stylesheets/.keep
-         run  bundle install
-
-
-Your user account isn't allowed to install to the system Rubygems.
-You can cancel this installation and run:
-
-    bundle install --path vendor/bundle
-
-to install the gems into ./vendor/bundle/, or you can enter your password
-and install the bundled gems to Rubygems using sudo.
-
-Password:   <img src="./images/icons/callouts/5.png" alt="5"></pre>
+      create  vendor/assets/stylesheets/.keep</pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td><mark><em>4.2.0</em></mark>&#8201;&#8212;&#8201;Festlegen, welche Rails-Version verwendet werden soll.<br>
+<td><mark><em>4.2.5</em></mark>&#8201;&#8212;&#8201;Festlegen, welche Rails-Version verwendet werden soll.<br>
 <mark>--database=mysql</mark>&#8201;&#8212;&#8201;Festlegen, welches DBMS verwendet werden soll.</td>
 </tr>
 <tr>
 <td><img src="./images/icons/callouts/2.png" alt="2"></td>
 <td>Für das Datenbanksystem <em>SQLite3</em> verkürzt sich der Aufruf:<br>
-<mark>rails <em>4.2.0</em> new myapp</mark></td>
+<mark>rails <em>4.2.5</em> new myapp</mark></td>
 </tr>
 <tr>
 <td><img src="./images/icons/callouts/3.png" alt="3"></td>
-<td>Die zu diesem Zeitpunkt benötigten RubyGems und deren Abhängigkeiten
-untereinander entnehmen Sie der Datei <code>Gemfile</code>.</td>
+<td><mark>-B</mark> Don&#8217;t run bundle install<br>
+Kein automatisches <em>install</em> und <em>update</em> von RubyGems!</td>
 </tr>
 <tr>
 <td><img src="./images/icons/callouts/4.png" alt="4"></td>
-<td>Konfigurationsdatei mit den Einstellungen für den
-Datenbankzugriff (Datenbankadapter).</td>
+<td>Die zu diesem Zeitpunkt für <em>Ruby on Rails</em> benötigten RubyGems
+und deren Abhängigkeiten untereinander sind in der Datei <code>Gemfile</code> beschrieben.</td>
 </tr>
 <tr>
 <td><img src="./images/icons/callouts/5.png" alt="5"></td>
-<td>Wenn Sie nicht berechtigt sind RubyGems zu installieren, müssen Sie
-die benötigten RubyGems installieren lassen! (Abbruch: [CRTL-C])</td>
+<td>Die Konfiguration für den Datenbankzugriff (Datenbankadapter) steht in der
+Datei <code>config/database.yml</code>.</td>
 </tr>
 </table>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ cd MyApp
+<pre>$ cd jMyApp
 $ tree -LF 2 .
 .
 ├── app/
@@ -807,7 +977,7 @@ $ tree -LF 2 .
 ├── config/
 │   ├── application.rb
 │   ├── boot.rb
-│   ├── database.yml
+│   ├── database.yml     <img src="./images/icons/callouts/1.png" alt="1">
 │   ├── environment.rb
 │   ├── environments/
 │   ├── initializers/
@@ -817,7 +987,7 @@ $ tree -LF 2 .
 ├── config.ru
 ├── db/
 │   └── seeds.rb
-├── Gemfile   <img src="./images/icons/callouts/1.png" alt="1">
+├── Gemfile        <img src="./images/icons/callouts/2.png" alt="2">
 ├── lib/
 │   ├── assets/
 │   └── tasks/
@@ -850,9 +1020,29 @@ $ tree -LF 2 .
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Datei: <code>config/database.yml</code></td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/2.png" alt="2"></td>
 <td>Datei: <code>Gemfile</code></td>
 </tr>
 </table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_rubygems_installieren">RubyGems installieren</h3>
+<div class="listingblock">
+<div class="title">Prüfen der in der Datei <code>Gemfile</code> genannten Abhängigkeiten</div>
+<div class="content">
+<pre>$ bundle check
+Resolving dependencies...
+Bundler can't satisfy your Gemfile's dependencies.
+Install missing gems with `bundle install`.
+
+$ bundle list
+Could not find gem 'sass-rails (~&gt; 5.0) java' in any of the gem sources listed
+in your Gemfile or installed on this machine.</pre>
+</div>
 </div>
 <div class="listingblock">
 <div class="title">Datei: <code>Gemfile</code></div>
@@ -861,29 +1051,28 @@ $ tree -LF 2 .
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.0'
-# Use mysql as the database for Active Record
-gem 'mysql2'
+gem 'rails', '4.2.5'
+# Use jdbcmysql as the database for Active Record
+gem 'activerecord-jdbcmysql-adapter'                <img src="./images/icons/callouts/1.png" alt="1">
 # Use SCSS for stylesheets
 gem 'sass-rails', '~&gt; 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '&gt;= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~&gt; 4.1.0'   <img src="./images/icons/callouts/1.png" alt="1">
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-
+gem 'coffee-rails', '~&gt; 4.1.0'                    <img src="./images/icons/callouts/2.png" alt="2">
+# See https://github.com/rails/execjs#readme for more supported runtimes
+gem 'therubyrhino'                       <img src="./images/icons/callouts/3.png" alt="3">
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~&gt; 2.0'   <img src="./images/icons/callouts/2.png" alt="2">
+gem 'jbuilder', '~&gt; 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~&gt; 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~&gt; 3.1.7'   <img src="./images/icons/callouts/3.png" alt="3">
+# gem 'bcrypt', '~&gt; 3.1.7'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -891,147 +1080,90 @@ gem 'sdoc', '~&gt; 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
 
-  # Access an IRB console on exception pages or by using &lt;%= console %&gt; in views
-  gem 'web-console', '~&gt; 2.0'
-
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-end</pre>
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]</pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Zugriff über JDBC auf das DBMS <em>MySQL</em></td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/2.png" alt="2"></td>
 <td>Twiddle Waka <em>~&gt; 4.1.0</em> ist identisch mit
 den Bedingungen <em>&gt;= 4.1.0</em> und <em>&lt; 4.2</em>.</td>
 </tr>
 <tr>
-<td><img src="./images/icons/callouts/2.png" alt="2"></td>
-<td>Twiddle Waka <em>~&gt; 2.0</em> ist identisch mit
-den Bedingungen <em>&gt;= 2.0</em> und <em>&lt; 3</em>.</td>
-</tr>
-<tr>
 <td><img src="./images/icons/callouts/3.png" alt="3"></td>
-<td>Twiddle Waka <em>~&gt; 3.1.7</em> ist identisch mit
-den Bedingungen <em>&gt;= 3.1.7</em> und <em>&lt; 3.2</em>.</td>
+<td>RubyGem <em>therubyrhino</em>: JavaScript-Interpreter</td>
 </tr>
 </table>
 </div>
 <div class="listingblock">
-<div class="title">Prüfen der Abhängigkeiten im <code>Gemfile</code> (1)</div>
+<div class="title">RubyGems installieren</div>
 <div class="content">
-<pre>$ bundle check
-Resolving dependencies...
-Bundler can't satisfy your Gemfile's dependencies.
-Install missing gems with `bundle install`.
-
-$ bundle list
-Could not find gem 'spring (&gt;= 0) ruby' in the gems available on this machine.</pre>
-</div>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<img src="./images/icons/tip.png" alt="Tip">
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Don&#8217;t run Bundler as root. Bundler can ask for sudo if it is needed,
-and installing your bundle as root will break
-this application for all non-root users on this machine.</p>
-</div>
-<div class="paragraph">
-<p>In <strong>Ubuntu</strong> verfügt der bei der Installation angelegte Benutzer über alle Privilegien,
-um das System zu administrieren, d.h. zu verwalten.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<div class="title">Installation der fehlenden Gems mit dem zur Installation berechtigten User!</div>
-<p>Annahme: Der User <em>sid</em> besitzt das Recht das System zu administrieren&#8230;&#8203;</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>$ bundle install   <img src="./images/icons/callouts/1.png" alt="1">
-Fetching gem metadata from https://rubygems.org/...........
-Resolving dependencies...
-Using rake 10.4.2
+<pre>$ bundle install
+Fetching gem metadata from https://rubygems.org/............
+Fetching version metadata from https://rubygems.org/...
+Fetching dependency metadata from https://rubygems.org/..
+Resolving dependencies..........
+Using rake 10.4.2   <img src="./images/icons/callouts/1.png" alt="1">
 Using i18n 0.7.0
-Using json 1.8.1
-Using minitest 5.5.0
-Using thread_safe 0.3.4
-Using tzinfo 1.2.2
-Using activesupport 4.2.0
+Using json 1.8.3
+Using minitest 5.8.3
+Using thread_safe 0.3.5
 Using builder 3.2.2
 Using erubis 2.7.0
-Using mini_portile 0.6.1
-Using nokogiri 1.6.5
-Using rails-deprecated_sanitizer 1.0.3
-Using rails-dom-testing 1.0.5
-Using loofah 2.0.1
-Using rails-html-sanitizer 1.0.1
-Using actionview 4.2.0
-Using rack 1.6.0
-Using rack-test 0.6.2
-Using actionpack 4.2.0
-Using globalid 0.3.0
-Using activejob 4.2.0
-Using mime-types 2.4.3
-Using mail 2.6.3
-Using actionmailer 4.2.0
-Using activemodel 4.2.0
-Using arel 6.0.0
-Using activerecord 4.2.0
-
-
-Your user account isn't allowed to install to the system Rubygems.
-You can cancel this installation and run:
-
-    bundle install --path vendor/bundle
-
-to install the gems into ./vendor/bundle/, or you can enter your password
-and install the bundled gems to Rubygems using sudo.
-
-Password: ******   <img src="./images/icons/callouts/2.png" alt="2">
-Installing debug_inspector 0.0.2
-Installing binding_of_caller 0.7.2
-Using bundler 1.7.9
-Installing columnize 0.9.0
-Installing debugger-linecache 1.2.0
-Installing slop 3.6.0
-Installing byebug 3.5.1
-Installing coffee-script-source 1.8.0
-Installing execjs 2.2.2
-Installing coffee-script 2.3.0
+Using nokogiri 1.6.7.1
+Using rack 1.6.4
+Using mime-types 2.99
+Using arel 6.0.3
+Using jdbc-mysql 5.1.37
+Using bundler 1.11.2
+Installing coffee-script-source 1.10.0   <img src="./images/icons/callouts/2.png" alt="2">
+Installing execjs 2.6.0
 Using thor 0.19.1
-Using railties 4.2.0
-Installing coffee-rails 4.1.0
-Using hike 1.2.3
-Using multi_json 1.10.1
-Installing jbuilder 2.2.6
-Installing jquery-rails 4.0.2
-Using mysql2 0.3.17
-Using tilt 1.4.1
-Using sprockets 2.12.3
-Using sprockets-rails 2.2.2
-Using rails 4.2.0
-Using rdoc 4.2.0
-Installing sass 3.4.9
-Installing sass-rails 5.0.0
+Using concurrent-ruby 1.0.0
+Installing multi_json 1.11.2
+Installing sass 3.4.20
+Using tilt 2.0.2
+Installing therubyrhino_jar 1.7.6
+Using rdoc 4.2.1
+Using tzinfo 1.2.2
+Using loofah 2.0.3
+Using rack-test 0.6.3
+Using mail 2.6.3
+Installing coffee-script 2.4.1
+Installing uglifier 2.7.2
+Using sprockets 3.5.2
+Installing therubyrhino 2.0.4
 Installing sdoc 0.4.1
-Installing spring 1.2.0
+Using activesupport 4.2.5
+Installing tzinfo-data 1.2015.7
+Using rails-html-sanitizer 1.0.2
+Using rails-deprecated_sanitizer 1.0.3
+Using globalid 0.3.6
+Using activemodel 4.2.5
+Installing jbuilder 2.4.0
+Using rails-dom-testing 1.0.7
+Using activejob 4.2.5
+Using activerecord 4.2.5
+Using actionview 4.2.5
+Using activerecord-jdbc-adapter 1.3.19
+Using actionpack 4.2.5
+Using activerecord-jdbcmysql-adapter 1.3.19
+Using actionmailer 4.2.5
+Using railties 4.2.5
+Using sprockets-rails 3.0.0
+Installing coffee-rails 4.1.1
+Installing jquery-rails 4.0.5
+Using rails 4.2.5
+Installing sass-rails 5.0.4
 Installing turbolinks 2.5.3
-Installing uglifier 2.6.0
-Installing web-console 2.0.0
-Your bundle is complete!
+Bundle complete! 11 Gemfile dependencies, 53 gems now installed.
 Use `bundle show [gemname]` to see where a bundled gem is installed.</pre>
 </div>
 </div>
@@ -1039,23 +1171,82 @@ Use `bundle show [gemname]` to see where a bundled gem is installed.</pre>
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Die Ausgabe bezieht sich auf Ruby Version 2.1.5!</td>
+<td><em>Using</em>: Bereits installierte RubyGems</td>
 </tr>
 <tr>
 <td><img src="./images/icons/callouts/2.png" alt="2"></td>
-<td>Eingabe des Password.</td>
+<td><em>Installing</em>: Neu installierte RubyGems</td>
 </tr>
 </table>
 </div>
 <div class="listingblock">
-<div class="title">Prüfen der Abhängigkeiten im <code>Gemfile</code> (2)</div>
+<div class="title">Prüfen der Abhängigkeiten im <code>Gemfile</code> (II)</div>
 <div class="content">
-<pre>$ bundle check <img src="./images/icons/callouts/1.png" alt="1">
+<pre>$ bundle check
 The Gemfile's dependencies are satisfied
 
 $ ls -l Gemfile*
--rw-rw-r-- 1 sid sid 1479 Dez 23 16:32 Gemfile
--rw-rw-r-- 1 sid sid 4037 Dez 23 17:31 Gemfile.lock</pre>
+-rw-rw-r-- 1 sid sid 1229 Jan  8 17:37 Gemfile
+-rw-rw-r-- 1 sid sid 3911 Jan  8 17:41 Gemfile.lock</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ bundle list
+Gems included by the bundle:
+  * actionmailer (4.2.5)
+  * actionpack (4.2.5)
+  * actionview (4.2.5)
+  * activejob (4.2.5)
+  * activemodel (4.2.5)
+  * activerecord (4.2.5)
+  * activerecord-jdbc-adapter (1.3.19)
+  * activerecord-jdbcmysql-adapter (1.3.19)
+  * activesupport (4.2.5)
+  * arel (6.0.3)
+  * builder (3.2.2)
+  * bundler (1.11.2)
+  * coffee-rails (4.1.1)
+  * coffee-script (2.4.1)
+  * coffee-script-source (1.10.0)
+  * concurrent-ruby (1.0.0)
+  * erubis (2.7.0)
+  * execjs (2.6.0)
+  * globalid (0.3.6)
+  * i18n (0.7.0)
+  * jbuilder (2.4.0)
+  * jdbc-mysql (5.1.37)
+  * jquery-rails (4.0.5)
+  * json (1.8.3)
+  * loofah (2.0.3)
+  * mail (2.6.3)
+  * mime-types (2.99)
+  * minitest (5.8.3)
+  * multi_json (1.11.2)
+  * nokogiri (1.6.7.1)
+  * rack (1.6.4)
+  * rack-test (0.6.3)
+  * rails (4.2.5)
+  * rails-deprecated_sanitizer (1.0.3)
+  * rails-dom-testing (1.0.7)
+  * rails-html-sanitizer (1.0.2)
+  * railties (4.2.5)
+  * rake (10.4.2)
+  * rdoc (4.2.1)
+  * sass (3.4.20)
+  * sass-rails (5.0.4)
+  * sdoc (0.4.1)
+  * sprockets (3.5.2)
+  * sprockets-rails (3.0.0)
+  * therubyrhino (2.0.4)
+  * therubyrhino_jar (1.7.6)
+  * thor (0.19.1)
+  * thread_safe (0.3.5)
+  * tilt (2.0.2)
+  * turbolinks (2.5.3)
+  * tzinfo (1.2.2)
+  * tzinfo-data (1.2015.7)
+  * uglifier (2.7.2)</pre>
 </div>
 </div>
 </div>
@@ -1068,8 +1259,6 @@ $ ls -l Gemfile*
 development:
   adapter: sqlite3
   database: db/development.sqlite3   <img src="./images/icons/callouts/1.png" alt="1">
-  pool: 5
-  timeout: 5000
 [...]</pre>
 </div>
 </div>
@@ -1083,20 +1272,20 @@ Keine Angabe für Benutzer und Passwort!</td>
 </table>
 </div>
 <div class="listingblock">
-<div class="title">Datei: <code>config/database.yml</code> mysql</div>
+<div class="title">Datei: <code>config/database.yml</code>&#8201;&#8212;&#8201;mysql</div>
 <div class="content">
 <pre>[...]
 default: &amp;default
-  adapter: mysql2
-  encoding: utf8
-  pool: 5
+  adapter: mysql
+  #encoding: utf8   <img src="./images/icons/callouts/2.png" alt="2">
+  #pool: 5          <img src="./images/icons/callouts/2.png" alt="2">
   username: sid                 &lt;---
-  password: GEHEIM              &lt;---
-  socket: /var/run/mysqld/mysqld.sock
+  password: g3h3im              &lt;---
+  host: localhost
 
 development:   <img src="./images/icons/callouts/1.png" alt="1">
   &lt;&lt;: *default
-  database: myapp_development   <img src="./images/icons/callouts/2.png" alt="2">
+  database: jmyapp_development   <img src="./images/icons/callouts/3.png" alt="3">
 [...]</pre>
 </div>
 </div>
@@ -1108,6 +1297,10 @@ development:   <img src="./images/icons/callouts/1.png" alt="1">
 </tr>
 <tr>
 <td><img src="./images/icons/callouts/2.png" alt="2"></td>
+<td>Bei Bedarf das Kommentarzeichen entfernen.</td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/3.png" alt="3"></td>
 <td>Der hier vorgeschlagene Datenbank-Name wird von <em>Ruby on Rails</em>
 automatisch gebildet:<br>
 Name der Applikation <em>MyApp</em> und dem Zusatz <em>_development</em></td>
@@ -1120,98 +1313,11 @@ Name der Applikation <em>MyApp</em> und dem Zusatz <em>_development</em></td>
 <div class="paragraph">
 <p>Für die erzeugte <em>Ruby on Rails</em>-Anwendung ist eine JavaScript-Runtime erforderlich.</p>
 </div>
-<div class="listingblock">
-<div class="title">Datei: <code>Gemfile</code></div>
-<div class="content">
-<pre>source 'https://rubygems.org'
-
-
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.0'
-# Use mysql as the database for Active Record
-gem 'mysql2'
-# Use SCSS for stylesheets
-gem 'sass-rails', '~&gt; 5.0'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '&gt;= 1.3.0'
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~&gt; 4.1.0'
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-gem 'therubyracer', platforms: :ruby   <img src="./images/icons/callouts/1.png" alt="1">
-[...]</pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Entfernen Sie das Kommentar-Zeichen <em>#</em>.</td>
-</tr>
-</table>
-</div>
-<div class="listingblock">
-<div class="title">bundle install</div>
-<div class="content">
-<pre>$ bundle install
-Fetching gem metadata from https://rubygems.org/...........
-Resolving dependencies...
-Using rake 10.4.2
-...
-Using jquery-rails 4.0.2
-
-
-Your user account isn't allowed to install to the system Rubygems.
-You can cancel this installation and run:
-
-    bundle install --path vendor/bundle
-
-to install the gems into ./vendor/bundle/, or you can enter your password
-and install the bundled gems to Rubygems using sudo.
-
-Password: ******
-Installing libv8 3.16.14.7   <img src="./images/icons/callouts/1.png" alt="1">
-Using mysql2 0.3.17
-Using tilt 1.4.1
-Using sprockets 2.12.3
-Using sprockets-rails 2.2.2
-Using rails 4.2.0
-Using rdoc 4.2.0
-Installing ref 1.0.5   <img src="./images/icons/callouts/2.png" alt="2">
-Using sass 3.4.9
-Using sass-rails 5.0.0
-Using sdoc 0.4.1
-Using spring 1.2.0
-Installing therubyracer 0.12.1   <img src="./images/icons/callouts/1.png" alt="1"> <img src="./images/icons/callouts/2.png" alt="2"> <img src="./images/icons/callouts/3.png" alt="3">
-Using turbolinks 2.5.3
-Using uglifier 2.6.0
-Using web-console 2.0.0
-Your bundle is complete!
-Use `bundle show [gemname]` to see where a bundled gem is installed.</pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Neu installierte RubyGems: <em>libv8</em>, <em>ref</em> und <em>therubyracer</em></td>
-</tr>
-<tr>
-<td><img src="./images/icons/callouts/2.png" alt="2"></td>
-<td>&#8594; <a href="http://rubygems.org/gems/therubyracer">RubyGems.org: therubyracer</a><br>
-Call JavaScript code and manipulate JavaScript objects from Ruby.<br>
-Call Ruby code and manipulate Ruby objects from JavaScript.</td>
-</tr>
-<tr>
-<td><img src="./images/icons/callouts/3.png" alt="3"></td>
-<td>Das RubyGem <em>therubyracer</em> wird kompiliert!</td>
-</tr>
-</table>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>$ bundle check
-The Gemfile's dependencies are satisfied</pre>
-</div>
+<div class="paragraph">
+<div class="title">Möglichkeit 1: Das RubyGem <em>therubyrhino</em></div>
+<p>&#8594; <a href="http://rubygems.org/gems/therubyrhino">RubyGems.org: therubyrhino</a><br>
+Embed the Mozilla Rhino JavaScript interpreter into Ruby.<br>
+(Ist bereits installiert &#8230;&#8203; siehe oben:)</p>
 </div>
 <div class="listingblock">
 <div class="title">Möglichkeit 2: Das Ubuntu-Paket <em>nodejs</em> installieren</div>
@@ -1237,7 +1343,40 @@ Conf nodejs (0.10.25~dfsg2-2ubuntu1 Ubuntu:14.04/trusty [amd64])</pre>
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td><em>apt-get -s &#8230;&#8203; (simulate)</em> ich habe mich dagegen entschieden.</td>
+<td><mark>apt-get -s &#8230;&#8203;</mark> (simulate) ich habe mich dagegen entschieden.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_warbler_installieren">Warbler installieren</h3>
+<div class="paragraph">
+<p><strong>Warbler</strong> chirpily constructs <code>.war</code> files of your Ruby applications.<br>
+&#8594; <a href="https://github.com/jruby/warbler">GitHub: jruby / warbler</a></p>
+</div>
+<div class="listingblock">
+<div class="title">WAR (WAR ist ein Dateiformat und steht für Web Application Archive)</div>
+<div class="content">
+<pre>$ gem install warbler
+Fetching: jruby-jars-1.7.23.gem (100%)     <img src="./images/icons/callouts/1.png" alt="1">
+Successfully installed jruby-jars-1.7.23
+Fetching: jruby-rack-1.1.19.gem (100%)
+Successfully installed jruby-rack-1.1.19
+Fetching: rubyzip-1.1.7.gem (100%)
+Successfully installed rubyzip-1.1.7
+Fetching: warbler-1.4.9.gem (100%)
+Successfully installed warbler-1.4.9
+4 gems installed</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td><strong>jruby-jars-1.7.23</strong> includes the core JRuby code and the
+JRuby 1.8/1.9 stdlib as jar files. It provides a way to have
+other gems depend on JRuby without including (and freezing to)
+a specific jruby-complete jar version.</td>
 </tr>
 </table>
 </div>
@@ -1250,14 +1389,14 @@ Entwicklungs-Umgebung verwendet.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ rails s
+<pre class="nowrap">$ jruby bin/rails s
 =&gt; Booting WEBrick
-=&gt; Rails 4.2.0 application starting in development on http://localhost:3000   <img src="./images/icons/callouts/1.png" alt="1">
+=&gt; Rails 4.2.5 application starting in development on http://localhost:3000   <img src="./images/icons/callouts/1.png" alt="1">
 =&gt; Run `rails server -h` for more startup options
 =&gt; Ctrl-C to shutdown server
-[2014-12-23 17:42:50] INFO  WEBrick 1.3.1
-[2014-12-23 17:42:50] INFO  ruby 2.1.5 (2014-11-13) [x86_64-linux]   <img src="./images/icons/callouts/2.png" alt="2">
-[2014-12-23 17:42:50] INFO  WEBrick::HTTPServer#start: pid=5873 port=3000
+[2016-01-08 17:53:19] INFO  WEBrick 1.3.1
+[2016-01-08 17:53:19] INFO  ruby 1.9.3 (2015-11-24) [java]   <img src="./images/icons/callouts/2.png" alt="2">
+[2016-01-08 17:53:19] INFO  WEBrick::HTTPServer#start: pid=11252 port=3000
 ...</pre>
 </div>
 </div>
@@ -1269,7 +1408,7 @@ Entwicklungs-Umgebung verwendet.</p>
 </tr>
 <tr>
 <td><img src="./images/icons/callouts/2.png" alt="2"></td>
-<td>Ruby Version 2.1.5</td>
+<td>Ruby Version 1.9.3</td>
 </tr>
 </table>
 </div>
@@ -1292,35 +1431,19 @@ Entwicklungs-Umgebung verwendet.</p>
 </table>
 </div>
 <div class="listingblock">
+<div class="title">Ausgabe der weiteren Informationen im Terminal</div>
 <div class="content">
-<pre>BROWSER&gt; http://localhost:3000/rails/info/properties/   <img src="./images/icons/callouts/1.png" alt="1"></pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Informationen zur ausgeführten Applikation <em>MyApp</em>:<br>
-(Ruby-Version, RubyGems, Verzeichnis, Umgebung, Datenbank, Datenbank-Schema)</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>oder</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>$ rake about
+<pre class="nowrap">$ rake about
 About your application's environment
-Rails version             4.2.0
-Ruby version              2.1.5-p273 (x86_64-linux)   <img src="./images/icons/callouts/1.png" alt="1">
-RubyGems version          2.4.5
-Rack version              1.5
-JavaScript Runtime        therubyracer (V8)
+Rails version             4.2.5
+Ruby version              1.9.3-p551 (java)   <img src="./images/icons/callouts/1.png" alt="1">
+RubyGems version          2.4.8
+Rack version              1.6.4
+JavaScript Runtime        therubyrhino (Rhino)
 Middleware                Rack::Sendfile,
                           ActionDispatch::Static,
                           Rack::Lock,
-                          #&lt;ActiveSupport::Cache::Strategy::LocalCache::Middleware:0x...&gt;,
+                          #&lt;ActiveSupport::Cache::Strategy::LocalCache::Middleware:0x2dc584da&gt;,
                           Rack::Runtime,
                           Rack::MethodOverride,
                           ActionDispatch::RequestId,
@@ -1340,9 +1463,9 @@ Middleware                Rack::Sendfile,
                           Rack::Head,
                           Rack::ConditionalGet,
                           Rack::ETag
-Application root          /home/sid/RailsDir/MyApp
+Application root          /home/sid/RailsDir/jMyApp
 Environment               development
-Database adapter          mysql2
+Database adapter          mysql
 Database schema version   0</pre>
 </div>
 </div>
@@ -1350,7 +1473,7 @@ Database schema version   0</pre>
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Ruby Version 2.1.5</td>
+<td>Ruby Version 1.9.3 (java)</td>
 </tr>
 </table>
 </div>
@@ -1365,90 +1488,83 @@ Database schema version   0</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ gem list --local   <img src="./images/icons/callouts/1.png" alt="1">
+<pre>$ gem list --local
 
 *** LOCAL GEMS ***
 
-actionmailer (4.2.0)
-actionpack (4.2.0)
-actionview (4.2.0)
-activejob (4.2.0)
-activemodel (4.2.0)
-activerecord (4.2.0)
-activesupport (4.2.0)
-arel (6.0.0)
-asciidoctor (1.5.2)
-bigdecimal (1.2.5, 1.2.4)
-binding_of_caller (0.7.2)
+actionmailer (4.2.5)
+actionpack (4.2.5)
+actionview (4.2.5)
+activejob (4.2.5)
+activemodel (4.2.5)
+activerecord (4.2.5)
+activerecord-jdbc-adapter (1.3.19)
+activerecord-jdbcmysql-adapter (1.3.19)
+activerecord-jdbcsqlite3-adapter (1.3.19)
+activesupport (4.2.5)
+arel (6.0.3)
+asciidoctor (1.5.4)
+awesome_print (1.6.1)
 builder (3.2.2)
-bundler (1.7.9)
-byebug (3.5.1)
+bundler (1.11.2)
 coderay (1.1.0)
-coffee-rails (4.1.0)
-coffee-script (2.3.0)
-coffee-script-source (1.8.0)
-columnize (0.9.0)
-debug_inspector (0.0.2)
-debugger-linecache (1.2.0)
+coffee-rails (4.1.1)
+coffee-script (2.4.1)
+coffee-script-source (1.10.0)
+concurrent-ruby (1.0.0 java)
 erubis (2.7.0)
-execjs (2.2.2)
-globalid (0.3.0)
-hike (1.2.3)
+execjs (2.6.0)
+ffi (1.9.10 java)
+globalid (0.3.6)
 i18n (0.7.0)
-io-console (0.4.2)
-jbuilder (2.2.6)
-jquery-rails (4.0.2)
-json (1.8.1)
-libv8 (3.16.14.7 x86_64-linux)
-loofah (2.0.1)
+jar-dependencies (0.3.1, 0.2.6)
+jbuilder (2.4.0)
+jdbc-mysql (5.1.37)
+jdbc-sqlite3 (3.8.11.2)
+jquery-rails (4.0.5)
+jruby-jars (1.7.23)
+jruby-openssl (0.9.13 java, 0.9.11 java)
+jruby-rack (1.1.19)
+json (1.8.3 java, 1.8.0 java)
+loofah (2.0.3)
 mail (2.6.3)
-mime-types (2.4.3)
-mini_portile (0.6.1)
-minitest (5.5.0, 4.7.5)
-multi_json (1.10.1)
-mysql2 (0.3.17)
-nokogiri (1.6.5)
-power_assert (0.2.2)
-psych (2.0.8, 2.0.5)
-rack (1.6.0)
+method_source (0.8.2)
+mime-types (2.99)
+minitest (5.8.3)
+multi_json (1.11.2)
+nokogiri (1.6.7.1 java)
+pry (0.10.3 java)
+rack (1.6.4)
 rack-protection (1.5.3)
-rack-test (0.6.2)
-rails (4.2.0)
+rack-test (0.6.3)
+rails (4.2.5)
 rails-deprecated_sanitizer (1.0.3)
-rails-dom-testing (1.0.5)
-rails-html-sanitizer (1.0.1)
-railties (4.2.0)
+rails-dom-testing (1.0.7)
+rails-html-sanitizer (1.0.2)
+railties (4.2.5)
 rake (10.4.2, 10.1.0)
-rdoc (4.2.0, 4.1.0)
-ref (1.0.5)
-rubygems-update (2.4.5)
-sass (3.4.9)
-sass-rails (5.0.0)
+rdoc (4.2.1, 4.1.2)
+rdoc-data (4.1.0)
+rubyzip (1.1.7)
+sass (3.4.20)
+sass-rails (5.0.4)
 sdoc (0.4.1)
-sinatra (1.4.5)
+sinatra (1.4.6)
 slop (3.6.0)
-spring (1.2.0)
-sprockets (2.12.3)
-sprockets-rails (2.2.2)
-sqlite3 (1.3.10)
-test-unit (3.0.8, 2.1.5.0)
-therubyracer (0.12.1)
+spoon (0.0.4)
+sprockets (3.5.2)
+sprockets-rails (3.0.0)
+therubyrhino (2.0.4)
+therubyrhino_jar (1.7.6)
 thor (0.19.1)
-thread_safe (0.3.4)
-tilt (1.4.1)
+thread_safe (0.3.5 java)
+tilt (2.0.2)
 turbolinks (2.5.3)
 tzinfo (1.2.2)
-uglifier (2.6.0)
-web-console (2.0.0)</pre>
+tzinfo-data (1.2015.7)
+uglifier (2.7.2)
+warbler (1.4.9)</pre>
 </div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Anzahl der installierten RubyGems: <em>71</em></td>
-</tr>
-</table>
 </div>
 <hr>
 <div class="paragraph">
@@ -1457,14 +1573,14 @@ web-console (2.0.0)</pre>
   <span>&#8679;</span>
 </a>
 
-<span class="small">&middot; Document generated with Asciidoctor 1.5.2.</span></p>
+<span class="small">&middot; Document generated with Asciidoctor 1.5.4.</span></p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-05-23 20:37:21 MESZ
+Last updated 2016-01-09 19:14:33 MEZ
 </div>
 </div>
 </body>

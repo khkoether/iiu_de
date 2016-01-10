@@ -1,40 +1,43 @@
-IiU -- index  
+IiU -- index
 ============
-Installation in Ubuntu — khkoether[at]kahweb[dot]de  
+Installation in Ubuntu — khkoether[at]kahweb[dot]de
 
 :middot: &middot;
 :icons:
 :Author Initials: khk
-:creativecommons-url: http://creativecommons.org/licenses/by/4.0/deed.de
-:mit-url:             http://opensource.org/licenses/mit-license.php  
-:ubuntu-url:          http://www.ubuntu.com/
+:creativecommons-url:  http://creativecommons.org/licenses/by/4.0/deed.de
+:mit-url:              http://opensource.org/licenses/mit-license.php
+:ubuntu-url:           http://www.ubuntu.com/
 
-:index-url:           link:index.html
-:asciidoc-url:        link:asciidoc.html
-:asciidoctor-url:     link:asciidoctor.html
-:asciidoctor_1st-url: link:asciidoctor_1st.html
-:git-url:             link:git.html
-:jdk-url:             link:jdk.html
-:jruby_1st-url:       link:jruby_1st.html
-:jruby-url:           link:jruby.html
-:netbeans7-url:       link:netbeans7.html
-:netbeans7_1st-url:   link:netbeans7_1st.html
-:netbeans8-url:       link:netbeans8.html
-:netbeans8_1st-url:   link:netbeans8_1st.html
-:ruby19-url:          link:ruby19.html
-:ruby20-url:          link:ruby20.html
-:ruby21_1st-url:      link:ruby21_1st.html
-:ruby21-url:          link:ruby21.html
-:ruby22_1st-url:      link:ruby22_1st.html
-:ruby22-url:          link:ruby22.html
+:index-url:            link:index.html
+:asciidoc-url:         link:asciidoc.html
+:asciidoctor-url:      link:asciidoctor.html
+:asciidoctor_1st-url:  link:asciidoctor_1st.html
+:git-url:              link:git.html
+:jdk-url:              link:jdk.html
+:jruby_1st-url:        link:jruby_1st.html
+:jruby-url:            link:jruby.html
+:netbeans7-url:        link:netbeans7.html
+:netbeans7_1st-url:    link:netbeans7_1st.html
+:netbeans8-url:        link:netbeans8.html
+:netbeans8_1st-url:    link:netbeans8_1st.html
+:ruby19-url:           link:ruby19.html
+:ruby20-url:           link:ruby20.html
+:ruby21_1st-url:       link:ruby21_1st.html
+:ruby21-url:           link:ruby21.html
+:ruby22-url:           link:ruby22.html
+:ruby23-url:           link:ruby23.html
+:ruby_on_rails42-url:  link:ruby_on_rails42.html
+:jruby23-url:          link:jruby.html
+:jruby_on_rails42-url: link:jruby_on_rails42.html
 
 
-Version 3.3.0, Juni 2015 
+Version 4.0.0, Januar 2016
 
 
 Abstract
 --------
-Eine Sammlung von Schritt-für-Schritt Anleitungen zur Installation 
+Eine Sammlung von Schritt-für-Schritt Anleitungen zur Installation
 verschiedener Programme aus dem QuellCode.
 
 Die Installationen werden für {ubuntu-url}[Ubuntu 14.04 LTS (Trusty Tahr)] beschrieben.
@@ -42,43 +45,44 @@ Die Installationen werden für {ubuntu-url}[Ubuntu 14.04 LTS (Trusty Tahr)] besc
 
 Intention
 ---------
-Die Programme sind entsprechend den eigenen Bedürfnissen, Neigungen 
-und Zielen ausgewählt ;-) 
+Die Programme sind entsprechend den eigenen Bedürfnissen, Neigungen
+und Zielen ausgewählt ;-)
 
-- Ich mag Script-Sprachen (Perl, Bash, Ruby), 
-- und schätze das Framework Ruby on Rails 
-- und auch Git  
+- Ich mag Script-Sprachen (Perl, Bash, Ruby),
+- und schätze das Framework Ruby on Rails
+- und auch Git
 - und ... Dokumentation ist notwendig.
 
 .Beschreibung
-* *AsciiDoc* ist eine einfache Auszeichnungssprache, die dazu dient, + 
+* *AsciiDoc* ist eine einfache Auszeichnungssprache, die dazu dient, +
    Texte in verschiedenen Dokumentenformaten zu veröffentlichen. +
 * *Asciidoctor* ist die Neu-Implementation von *AsciiDoc* in Ruby.
 * *Git* ist ein freies verteiltes Versionskontrollsystem +
    (DVCS - Distributed Version Control System).
-* Die Programmiersprache *Ruby* ist die Grundlage für das Framework 
+* Die Programmiersprache *Ruby* ist die Grundlage für das Framework
    *Ruby on Rails*.
-* *NetBeans* bietet eine Unterstützung für verschiedene Programmiersprachen 
+* *NetBeans* bietet eine Unterstützung für verschiedene Programmiersprachen
    und -techniken. +
    Wobei die *Java*-basierten Lösungen ausgezeichnet unterstützt werden.
 * Die Programmiersprache *JRuby* ist die Implementation von *Ruby* in *Java*, +
-   die wiederum die Grundlage für das Framework *Ruby on Rails* bildet. 
-   
-Die Artikel sind in {asciidoctor-url}[Asciidoctor] geschrieben 
+   die wiederum die Grundlage für das Framework *Ruby on Rails* bildet.
+
+Die Artikel sind in http://asciidoctor.org/[Asciidoctor] geschrieben
 und mit _Asciidoctor {asciidoctor-version}_ erstellt worden.
 
 Auswahl
 -------
-* {asciidoctor-url}[Asciidoctor 1.5.2]
-* {asciidoctor_1st-url}[Asciidoctor: Erste Schritte &hellip;] 
-* {git-url}[Git 2.4.0]
-* {ruby22-url}[Ruby 2.2.2, rails-4.2.1]
-* {ruby22_1st-url}[Ruby on Rails 4.2: Erste Schritte &hellip;]
-* {jdk-url}[OpenJDK 7, Oracle JDK 7] 
-* {jruby-url}[JRuby 1.7.20.1 - rails-4.2.1]
-* {jruby_1st-url}[JRuby on Rails 4.2: Erste Schritte &hellip;] 
+* {asciidoctor-url}[Asciidoctor 1.5.4]
+* {asciidoctor_1st-url}[Asciidoctor: Erste Schritte &hellip;]
+* {git-url}[Git 2.7.0]
+* {ruby22-url}[Ruby 2.2.4]
+* {ruby23-url}[Ruby 2.3.0]
+* {ruby_on_rails42-url}[Ruby on Rails 4.2]
+* {jdk-url}[OpenJDK 7, Oracle JDK 8]
+* {jruby-url}[JRuby 1.7.23]
+* {jruby_on_rails42-url}[JRuby on Rails 4.2]
 * {netbeans8-url}[NetBeans IDE 8.0]
-* {netbeans8_1st-url}[NetBeans IDE 8.0: Erste Schritte &hellip;]   
+* {netbeans8_1st-url}[NetBeans IDE 8.0: Erste Schritte &hellip;]
 
 [CAUTION]
 ====
@@ -88,7 +92,7 @@ Auswahl
 * {ruby20-url}[Ruby 2.0.0, rails-4.0.3]
 * {ruby21-url}[Ruby 2.1.5, rails-4.2.0]
 * {netbeans7-url}[NetBeans IDE 7.4]
-* {netbeans7_1st-url}[NetBeans IDE 7.4: Erste Schritte &hellip;]   
+* {netbeans7_1st-url}[NetBeans IDE 7.4: Erste Schritte &hellip;]
 ====
 
 
@@ -102,8 +106,8 @@ Dateien
 ./images/netbeans   <-- Images des Installationsdialogs
 ./images/ruby       <-- Image des RubyGems Documentation Index
 ./images/jruby      <-- Image des RubyGems Documentation Index
- 
-NAME = { index asciidoctor asciidoctor_1st asciidoc git 
+
+NAME = { index asciidoctor asciidoctor_1st asciidoc git
                ruby19 ruby20 ruby21 ruby21_1st  ruby22 ruby22_1st
                jdk jruby jruby_1st netbeans netbeans_1st }
 ....
@@ -120,12 +124,12 @@ http://www.mygithub.kahweb.de
 
 [NOTE]
 ====
-Zu beachten ist, dass so ein Dokument zum Einen nie abschliessend 
-sein kann, und zum Anderen bestimmte Konfigurationen anders, oder 
+Zu beachten ist, dass so ein Dokument zum Einen nie abschliessend
+sein kann, und zum Anderen bestimmte Konfigurationen anders, oder
 auf einem anderem Weg durchgeführt werden können. +
 Gerne nehme ich Verbesserungsvorschläge entgegen.
 
-Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr. 
+Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr.
 ====
 
 
@@ -135,19 +139,18 @@ Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr.
 
 Lizenz
 ------
-Dieses Werk ist lizenziert unter einer 
+Dieses Werk ist lizenziert unter einer
 {creativecommons-url}[Creative Commons Namensnennung 4.0 International Lizenz], +
-und der Quellcode zum formatieren und anzeigen des Inhaltes steht unter der {mit-url}[MIT-Lizenz]. 
+und der Quellcode zum formatieren und anzeigen des Inhaltes steht unter der {mit-url}[MIT-Lizenz].
 
 
 
 
 '''
- 
+
 +++
 <a href="#top" title="zum Seitenanfang">
-  <span>&#8679;</span> 
+  <span>&#8679;</span>
 </a>
 +++
 [small]#&middot; Document generated with Asciidoctor {asciidoctor-version}.#
-

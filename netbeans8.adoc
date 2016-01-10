@@ -12,24 +12,46 @@ Installation in Ubuntu — khkoether[at]kahweb[dot]de
 :git-url:             http://git-scm.com/
 :git-download-url:    https://www.kernel.org/pub/software/scm/git/
 
+:ruby-url:            https://www.ruby-lang.org/de/
+:ruby-download-url:   https://www.ruby-lang.org/de/downloads/
+:rubyonrails-url:     http://www.rubyonrails.org
+
 :java-url:            http://www.oracle.com/technetwork/java/javase/downloads/index.html
 :jruby-url:           http://jruby.org/
 :jruby-download-url:  http://jruby.org/download
 
-:jdk-url:             link:jdk.html
-:jruby-version:       1.7.20.1
-:jruby_1st-url:       link:jruby_1st.html
+:jdk-url:                link:jdk.html
+:jruby-version:          1.7.23
+:jruby23-url:            link:jruby.html
+:jruby_on_rails42-url:   link:jruby_on_rails42.html 
 
-:netbeans8-url:        link:netbeans8.html
-:netbeans8_1st-url:    link:netbeans8_1st.html
+:netbeans8-url:          link:netbeans8.html
+:netbeans8_1st-url:      link:netbeans8_1st.html
 
 :netbeans-ide-url:                       http://netbeans.org/
 :netbeans-ide-download-url:              http://netbeans.org/downloads/
 :netbeans-ide-plugin-url:                http://plugins.netbeans.org/PluginPortal/
 :netbeans-ide-plugin-ruby-and-rails-url: http://plugins.netbeans.org/plugin/38549/ruby-and-rails
 
-Version 3.3.0, Juni 2015 
+Version 4.0.0, Januar 2016 
 
+[NOTE]
+.Unverändert - diese Seite wurde nicht aktualisiert!
+==== 
+Für die aktuelle Version der *NetBeans IDE v8.1* gibt es zur Zeit (09.01.2016) +
+kein verfügbares Plugin für _Ruby on Rails_.
+
+-> http://plugins.netbeans.org/plugin/38549/ruby-and-rails[NetBeans: Plugin Portal -- Ruby on Rails]
+
+Das ist ein Grund die _NetBeans_-Seiten nicht zu aktualisieren... +
+Der andere Grund ist, daß für das Erstellen von Rails-Applikationen eine _IDE_ nicht nötig ist. 
+
+Ich empfehle inzwischen eher den von der Firma GitHub entwickelten Editor *Atom* zu installieren. + 
+Wirklich schöner Editor. 
+
+-> https://atom.io/[Atom].
+====
+ 
 
 Abstract
 --------
@@ -40,7 +62,7 @@ Die {netbeans-ide-url}[NetBeans IDE 8.0] bietet eine Unterstützung für verschi
 Programmiersprachen und -techniken. 
 Wobei die Java-basierten Lösungen ausgezeichnet unterstützt werden. 
 
-Der Artikel ist in {asciidoctordocs-url}[AsciiDoc] geschrieben 
+Der Artikel ist in {asciidoctordocs-url}[Asciidoctor] geschrieben 
 und mit _Asciidoctor {asciidoctor-version}_ erstellt worden.
 
 [CAUTION]
@@ -82,7 +104,7 @@ Anmerkungen I
 * Die Installation des _OpenJDK 7_ (_Oracle JDK 7_) wurde vom 
   Benutzer 'root' für das System durchgeführt &rarr; {jdk-url}[JDK]. 
 * Die Installation von _JRuby_ und _Ruby on Rails_ wurde vom
-  Benutzer 'sid' durchgeführt &rarr; {jruby-url}[JRuby].  
+  Benutzer 'sid' durchgeführt &rarr; {jruby23-url}[JRuby].  
 * Die Installation der _NetBeans IDE 8.0_ wird ebenfalls mit dem 
   Benutzer 'sid' durchgeführt. 
 * Ich verwende das _OpenJDK 7_!

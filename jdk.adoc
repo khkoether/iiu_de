@@ -1,4 +1,4 @@
-IiU -- OpenJDK 7, Oracle JDK 7
+IiU -- OpenJDK 7, Oracle JDK 8
 ==============================
 Installation in Ubuntu — khkoether[at]kahweb[dot]de
 
@@ -20,7 +20,7 @@ Installation in Ubuntu — khkoether[at]kahweb[dot]de
 
 :java-koerper-url:    http://www.arndt-bruenner.de/mathe/java/koerper3d.htm
 
-Version 3.2.0, Mai 2015
+Version 4.0.0, Januar 2016
 
 
 Abstract
@@ -28,7 +28,7 @@ Abstract
 Dieser Artikel ist eine Schritt-für-Schritt Anleitung zur Installation 
 eines _Java Development Kit (JDK)_ unter _GNU/Linux_.
  
-Der Artikel ist in {asciidoctordocs-url}[AsciiDoc] geschrieben 
+Der Artikel ist in {asciidoctordocs-url}[Asciidoctor] geschrieben 
 und mit _Asciidoctor {asciidoctor-version}_ erstellt worden.
 
 [CAUTION]
@@ -57,16 +57,16 @@ zu anderen Ubuntu-Paketen bereits das _OpenJDK 7_ installiert sein.
 [options="nowrap"]
 ----
 $ dpkg --list | grep openjdk 
-ii  openjdk-7-jdk:amd64            7u79-2.5.5-0ubuntu0.14.04.2   amd64   OpenJDK Development Kit (JDK)
-ii  openjdk-7-jre:amd64            7u79-2.5.5-0ubuntu0.14.04.2   amd64   OpenJDK Java runtime, using Hotspot JIT
-ii  openjdk-7-jre-headless:amd64   7u79-2.5.5-0ubuntu0.14.04.2   amd64   OpenJDK Java runtime, using Hotspot JIT (headless)
+ii  openjdk-7-jdk:amd64            7u91-2.6.3-0ubuntu0.14.04.1   amd64   OpenJDK Development Kit (JDK)
+ii  openjdk-7-jre:amd64            7u91-2.6.3-0ubuntu0.14.04.1   amd64   OpenJDK Java runtime, using Hotspot JIT
+ii  openjdk-7-jre-headless:amd64   7u91-2.6.3-0ubuntu0.14.04.1   amd64   OpenJDK Java runtime, using Hotspot JIT (headless)
 ----
 ====
 
 
 Wahlmöglichkeiten
 -----------------
-.OpenJDK 7 .vs Oracle JDK 7
+.OpenJDK 7 .vs Oracle JDK 8
 Für Java steht eine gute OpenSource-Anwendung zur Verfügung: das _OpenJDK 7_ und
 das _IcedTea-Plugin_ für den Browser. Sie sind erhältlich in den regulären 
 Ubuntu-Repositories und erhalten regelmäßig Sicherheits-Updates.
@@ -129,22 +129,22 @@ openjdk-7-jdk ist schon die neueste Version.
 
 ----
 $ java -version
-java version "1.7.0_79"   
-OpenJDK Runtime Environment (IcedTea 2.5.5) (7u79-2.5.5-0ubuntu0~14.04.02)
-OpenJDK 64-Bit Server VM (build 24.79-b02, mixed mode)
+java version "1.7.0_91"
+OpenJDK Runtime Environment (IcedTea 2.6.3) (7u91-2.6.3-0ubuntu0.14.04.1)
+OpenJDK 64-Bit Server VM (build 24.91-b01, mixed mode)
 ----   
 
  
-Installation: Oracle JDK 7
+Installation: Oracle JDK 8
 --------------------------
 Wie auch immer, einige Ubuntu-Anwender benötigen das Oracle JDK. +
 Empfohlen wird die jeweils neueste Version - zu diesem Zeitpunkt ist das: 
-_Java SE Development Kit 7u79_.
+_Java SE Development Kit 8u65_.
 
 Zusätzliche Software-Pakete  
 sollten im Verzeichnis `/opt` &nbsp; (Optional) installiert werden. 
 
-*Step 0:* Download JDK 7u79
+*Step 0:* Download JDK 8u65
 
 &rarr; {java-url}[Oracle: Java SE Downloads]
 
@@ -157,28 +157,27 @@ for Java SE to download this software.
 *Step 1:* Installation im Verzeichnis `/opt/Java` &nbsp; (mit Benutzer 'root')
 ----
 $ sudo mkdir /opt/Java
-$ sudo mv jdk-7u79-linux-x64.tar.gz /opt/Java  
+$ sudo mv jdk-8u65-linux-x64.tar.gz /opt/Java  
 $ cd /opt/Java 
 
 $ ls -l
--rw-rw-r-- 1 sid sid  154773078 Mai  8 21:34 jdk-7u79-linux-i586.tar.gz
+-rw-rw-r-- 1 sid  sid  181260798 Jan  6 11:07 jdk-8u65-linux-x64.tar.gz
 
-$ sudo tar xvzf jdk-7u79-linux-x64.tar.gz
+$ sudo tar xvzf jdk-8u65-linux-x64.tar.gz
 ...
 ----
 
 Ein Vorteil bei der gezeigten Lösung ist, daß für das Einspielen einer neuen Version 
 weder die Konfigurations-Datei noch die +PATH+-Variable angepasst werden müssen.  
 ----
-$ sudo chown -R root.root jdk1.7.0_79
+$ sudo chown -R root.root jdk1.8.0_65
 
-$ sudo ln -s jdk1.7.0_79 current
+$ sudo ln -s jdk1.8.0_65 current
 $ ls -l
-lrwxrwxrwx 1 root root        11 Mai  8 21:42 current -> jdk1.7.0_79
+lrwxrwxrwx 1 root root        11 Jan  6 11:10 current -> jdk1.8.0_65
 -rw-r--r-- 1 root root       328 Mär  3  2014 java.path.sh
-drwxr-xr-x 8 root root      4096 Apr 10 20:53 jdk1.7.0_79
--rw-rw-r-- 1 sid  sid  153512879 Mai  8 21:41 jdk-7u79-linux-x64.tar.gz
-
+drwxr-xr-x 8 root root      4096 Okt  7 02:29 jdk1.8.0_65
+-rw-rw-r-- 1 sid  sid  181260798 Jan  6 11:07 jdk-8u65-linux-x64.tar.gz
 ----
 
 *Step 2:* Java-Pfad setzen (von au&szlig;en)
@@ -197,9 +196,9 @@ $ which java
 /opt/Java/current/bin/java
 
 $ java -version
-java version "1.7.0_79"
-Java(TM) SE Runtime Environment (build 1.7.0_79-b15)
-Java HotSpot(TM) 64-Bit Server VM (build 24.79-b02, mixed mode)   <1>
+java version "1.8.0_65"
+Java(TM) SE Runtime Environment (build 1.8.0_65-b17)
+Java HotSpot(TM) 64-Bit Server VM (build 25.65-b01, mixed mode)   <1>
 ----
 <1> _b_ steht für _build_
 
@@ -222,19 +221,19 @@ Mit den folgenden Links können Sie zum Einen die im Browser verwendete
 Java-Version bestimmen, zum Anderem die Funktionsfähigkeit des Plugin
 überprüfen oder -- halt die aktuelle Zeit anzeigen:
 
-* http://www.arndt-bruenner.de/mathe/java/[Testseiten für Java-Applets - von Arndt Brünner] +
-  Platonische und Archimedische Körper (mein Favorit ;-)
-* http://www.w3.org/2000/07/8378/object/java/clock[W3C: Java applet test with applet and object] +
-  W3C host clocks: MIT, UTC, INRIA, Keio
 * http://javatester.org/[Java Tester] +
   Test the version of Java your browser is using
   
 [CAUTION]
 ====
-.[Java Tester] NEW SECURITY IN JAVA 7 UPDATE 51: January 27, 2014.
-Update 51 changed the default security rules for unsigned Java applets such as 
-the one on this page. +
-By default, Java no longer runs any unsigned applets. [...]  
+.[Java Tester] 
+November 16, 2015: Java 8 Update 66 is released. +
+Although the Release Notes say "This release contains fixes for security vulnerabilities," the security baseline, however, remains at Update 65. Update 66 is scheduled to expire on January 19, 2016.
+
+October 20, 2015: Java 8 Update 65 is released. +
+It fixes a bunch of bugs and is the new security baseline. It is due to expire January 19, 2016.
+
+...
 ====
 
 +++ <br /> +++
@@ -266,4 +265,16 @@ export JDK_HOME
 export JRE_HOME
 export PATH
 ----
+
+
+
+
+'''
+
++++
+<a href="#top" title="zum Seitenanfang">
+  <span>&#8679;</span>
+</a>
++++
+[small]#&middot; Document generated with Asciidoctor {asciidoctor-version}.#
 

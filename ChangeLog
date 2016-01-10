@@ -1,138 +1,145 @@
-# ChangeLog für iiu_de (21. November 2010)
+# ChangeLog für iiu_de (02. Januar 2016)
 
-. Version 0.2
-* Erste öffentliche Version
+.Version 4.0.0
+* Neue Programmversion: Asciidoctor (1.5.4), Git (2.7.0)), Ruby (2.2.4), Ruby (2.3.0), 
+  Rails (4.2.5), JDK (7/8), JRuby (1.7.23)       
+  Beispiele zu: Rails (4.2.5) mit [Ruby/ JRuby]
+  Unverändert:  NetBeans (8.0), NetBeans: Erste Schritte... (Rails 4.2.1)
 
-.Version 0.4
-* Anpassung an Ubuntu 09.10 (Karmic Koala)
+.Version 3.3.0
+* Neue Programmversion: JRuby (1.7.20.1), NetBeans (8.0) (JRuby 1.7.20.1),
+  Beispiele zu: Rails (4.2.1) mit [JRuby, NetBeans]
 
-.Version 0.6
-* Kleine Korrekturen am Text
+.Version 3.2.0
+* Neue Programmversion: Ruby (2.2.2), JRuby (1.7.20), NetBeans (8.0) (JRuby 1.7.20),
+  Beispiele zu: Rails (4.2.1) mit [Ruby, JRuby, NetBeans]
 
-.Version 0.8
-* Hinweis zur Verwendung
+.Version 3.1.0
+* Neue Programmversion: JRuby (1.7.19)
 
-.Version 0.8.1
-* Aktualisierung der Installation
+.Version 3.0.4
+* Neue Programmversion: Ruby (1.9.3, 2.1.5), JRuby (1.7.18), NetBeans (JRuby 1.7.18)
+  Beispiele zu: Rails (4.2.0) mit [Ruby, JRuby, NetBeans]
 
-.Version 0.8.2
-* Aktualisierung von Git und Ruby
+.Version 3.0.3
+* Neue Programmversion: Git (2.2.1) -- Security-fix, which affects users on Windows
+  and Mac OS X but not typical UNIX users.
 
-.Version 1.0.0
-* Anpassung an Ubuntu 10.04 (Lucid Lynx)
-  Neue Programmversionen
-  
-.Version 1.0.1
-* Veröffentlichung von NetBeans 6.9   
+.Version 3.0.2
+* Neue Programmversion: Git (2.2.0), Ruby (1.9.3, 2.1.5), Java, JRuby, NetBeans
+  Auf allen Seiten wird ein footer eingefügt - mit einem #top-Link und
+  einem Hinweis auf die verwendete Asciidoctor-Version.
 
-.Version 1.0.2
-* Korrektur für AsciiDoc
-
-.Version 1.1.1
-* Neue Programmversionen: Git, Ruby, JDK, JRuby
-
-.Version 1.1.2
-* Neue Programmversionen: Ruby RC2
-
-.Version 1.2.0
-* Neue Programmversionen: Git, Ruby -> Rails RC, JRuby -> Rails RC
-
-.Version 1.3.0
-* Neue Programmversionen: AsciiDoc, Git, Ruby, NetBeans, JRuby
-  Veröffentlichung von Rails 3.0.0
- 
-.Version 1.3.1
-* Neue Programmversionen: Git, JRuby
-
-.Version 1.4.0
-* Neue Programmversionen: AsciiDoc, Git, JDK 6U22, JRuby
-  Veröffentlichung von Rails 3.0.3 
-  
-.Version 1.4.2
-* Neue Programmversionen: Git, Ruby, JDK 6U22, JRuby   
-
-.Version 1.5.0
-* Neue Programmversion: AsciiDoc, Ruby, OpenJDK 7, Oracle JDK 7, JRuby
-  Veröffentlichung von Rails 3.2.8
-  Die Beschreibung der Installation des JDK und NetBeans wird getrennt.
-  Neue Dateien für die Beispiele zu Ruby on Rails:
-  Ruby on Rails: Erste Schritte (mit Ruby)  
-  Ruby on Rails: Erste Schritte (mit JRuby)  
-  Das Changelog in den einzelnen Dateien wurde entfernt.
-  
-.Version 1.6.0
-* Neue Programmversion: Git, Ruby, JDK, JRuby 
-
-.Version 1.6.1
-* Neue Programmversion: Ruby, Rails, JRuby 
-
-.Version 1.6.2
-* Neue Programmversion: Git, Ruby, Java, JRuby 
-
-.Version 1.7.0
-* Neues Jahr, neue Versionen: Git, Ruby on Rails, Java, JRuby
-
-.Version 1.8.0
-* Neue Programmversion: Git, Ruby, Ruby on Rails, Java, JRuby  
-
-.Version 1.8.1
-* Neue Programmversion: Git, Ruby, JRuby  
-
-Version 1.8.2
-* JRuby: Patch für WEBrick
-
-.Version 2.0.0
-* Neue Programmversion: Git, Ruby (1.9.3, 2.0.0), Java, JRuby, NetBeans 
-  Beispiele zu: AsciiDoc, Rails 4 mit [Ruby, JRuby, NetBeans] 
-
-.Version 2.0.1
-* Neue Programmversion: Java, JRuby
-  Beispiel zu: Rails 4 mit JRuby
-
-.Version 2.0.2
-* Neue Programmversion: AsciiDoc, Git, Ruby (1.9.3, 2.0.0), Java, JRuby, NetBeans
-  Beispiele zu: AsciiDoc, Rails 4 mit [Ruby, JRuby, NetBeans] 
-  
-.Version 2.2.0
-* Neue Programmversion: Git, Ruby (1.9.3, 2.0.0), Java, JRuby, NetBeans
-  Beispiele zu: AsciiDoc, Rails 4 mit [Ruby, JRuby, NetBeans]
-  Die AsciiDoc-Quell-Dateien wurden alle auf das Suffix .adoc umbenannt.
-  Die HTML5-Seiten werden jetzt mit Asciidoctor (v1.5.0-preview3)erstellt.  
-  
-.Version 2.2.1
-* AsciiDoc-Compiler-Fehler: image::images/dir/file.jpeg[Text [Text2]] -> ...[Text (Text2)]
+.Version 3.0.1
+* Index-Seite korrigiert: netbeans_1st.html
+  Alle lokalen Verweise erhalten das Code-Wort link: vorangestellt,
+  bei allen externen Verweisen wird das Code-Wort entfernt.
 
 .Version 3.0.0
 * Neue Programmversion: Asciidoctor, Git (2.1.x), Ruby (1.9.3, 2.1.x), Java, JRuby, NetBeans
   Beispiele zu: Asciidoctor, Rails (4.2.x) mit [Ruby, JRuby, NetBeans]
   Die Seite zum installieren von AsciiDoc (python) wird nicht mehr aktualisiert.
   Ruby 2.0.x hat im Umfeld von Rails keine Bedeutung und wird ebenfalls nicht mehr aktualisiert.
-   
-.Version 3.0.1
-* Index-Seite korrigiert: netbeans_1st.html
-  Alle lokalen Verweise erhalten das Code-Wort link: vorangestellt,  
-  bei allen externen Verweisen wird das Code-Wort entfernt.
- 
-.Version 3.0.2      
-* Neue Programmversion: Git (2.2.0), Ruby (1.9.3, 2.1.5), Java, JRuby, NetBeans
-  Auf allen Seiten wird ein footer eingefügt - mit einem #top-Link und 
-  einem Hinweis auf die verwendete Asciidoctor-Version.
-   
-.Version 3.0.3
-* Neue Programmversion: Git (2.2.1) -- Security-fix, which affects users on Windows
-  and Mac OS X but not typical UNIX users.
-   
-.Version 3.0.4
-* Neue Programmversion: Ruby (1.9.3, 2.1.5), JRuby (1.7.18), NetBeans (JRuby 1.7.18)
-  Beispiele zu: Rails (4.2.0) mit [Ruby, JRuby, NetBeans]
-   
-.Version 3.1.0
-* Neue Programmversion: JRuby (1.7.19)   
 
-.Version 3.2.0
-* Neue Programmversion: Ruby (2.2.2), JRuby (1.7.20), NetBeans (8.0) (JRuby 1.7.20),
-  Beispiele zu: Rails (4.2.1) mit [Ruby, JRuby, NetBeans]
+.Version 2.2.1
+* AsciiDoc-Compiler-Fehler: image::images/dir/file.jpeg[Text [Text2]] -> ...[Text (Text2)]
 
-.Version 3.3.0    
-* Neue Programmversion: JRuby (1.7.20.1), NetBeans (8.0) (JRuby 1.7.20.1),       
-  Beispiele zu: Rails (4.2.1) mit [JRuby, NetBeans]
+.Version 2.2.0
+* Neue Programmversion: Git, Ruby (1.9.3, 2.0.0), Java, JRuby, NetBeans
+  Beispiele zu: AsciiDoc, Rails 4 mit [Ruby, JRuby, NetBeans]
+  Die AsciiDoc-Quell-Dateien wurden alle auf das Suffix .adoc umbenannt.
+  Die HTML5-Seiten werden jetzt mit Asciidoctor (v1.5.0-preview3)erstellt.
+
+.Version 2.0.2
+* Neue Programmversion: AsciiDoc, Git, Ruby (1.9.3, 2.0.0), Java, JRuby, NetBeans
+  Beispiele zu: AsciiDoc, Rails 4 mit [Ruby, JRuby, NetBeans]
+
+.Version 2.0.1
+* Neue Programmversion: Java, JRuby
+  Beispiel zu: Rails 4 mit JRuby
+
+.Version 2.0.0
+* Neue Programmversion: Git, Ruby (1.9.3, 2.0.0), Java, JRuby, NetBeans
+  Beispiele zu: AsciiDoc, Rails 4 mit [Ruby, JRuby, NetBeans]
+
+Version 1.8.2
+* JRuby: Patch für WEBrick
+
+.Version 1.8.1
+* Neue Programmversion: Git, Ruby, JRuby
+
+.Version 1.8.0
+* Neue Programmversion: Git, Ruby, Ruby on Rails, Java, JRuby
+
+.Version 1.7.0
+* Neues Jahr, neue Versionen: Git, Ruby on Rails, Java, JRuby
+
+.Version 1.6.2
+* Neue Programmversion: Git, Ruby, Java, JRuby
+
+.Version 1.6.1
+* Neue Programmversion: Ruby, Rails, JRuby
+
+.Version 1.6.0
+* Neue Programmversion: Git, Ruby, JDK, JRuby
+
+.Version 1.5.0
+* Neue Programmversion: AsciiDoc, Ruby, OpenJDK 7, Oracle JDK 7, JRuby
+  Veröffentlichung von Rails 3.2.8
+  Die Beschreibung der Installation des JDK und NetBeans wird getrennt.
+  Neue Dateien für die Beispiele zu Ruby on Rails:
+  Ruby on Rails: Erste Schritte (mit Ruby)
+  Ruby on Rails: Erste Schritte (mit JRuby)
+  Das Changelog in den einzelnen Dateien wurde entfernt.
+
+.Version 1.4.2
+* Neue Programmversionen: Git, Ruby, JDK 6U22, JRuby
+
+.Version 1.4.0
+* Neue Programmversionen: AsciiDoc, Git, JDK 6U22, JRuby
+  Veröffentlichung von Rails 3.0.3
+
+.Version 1.3.1
+* Neue Programmversionen: Git, JRuby
+
+.Version 1.3.0
+* Neue Programmversionen: AsciiDoc, Git, Ruby, NetBeans, JRuby
+  Veröffentlichung von Rails 3.0.0
+
+.Version 1.2.0
+* Neue Programmversionen: Git, Ruby -> Rails RC, JRuby -> Rails RC
+
+.Version 1.1.2
+* Neue Programmversionen: Ruby RC2
+
+.Version 1.1.1
+* Neue Programmversionen: Git, Ruby, JDK, JRuby
+
+.Version 1.0.2
+* Korrektur für AsciiDoc
+
+.Version 1.0.1
+* Veröffentlichung von NetBeans 6.9
+
+.Version 1.0.0
+* Anpassung an Ubuntu 10.04 (Lucid Lynx)
+  Neue Programmversionen
+
+.Version 0.8.2
+* Aktualisierung von Git und Ruby
+
+.Version 0.8.1
+* Aktualisierung der Installation
+
+.Version 0.8
+* Hinweis zur Verwendung
+
+.Version 0.6
+* Kleine Korrekturen am Text
+
+.Version 0.4
+* Anpassung an Ubuntu 09.10 (Karmic Koala)
+
+. Version 0.2
+* Erste öffentliche Version
+

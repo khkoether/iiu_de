@@ -14,7 +14,7 @@ Installation in Ubuntu — khkoether[at]kahweb[dot]de
 
 :asciidoctor_1st-url:      link:asciidoctor_1st.html
 
-Version 3.2.0, Mai 2015 
+Version 4.0.0, Januar 2016 
 
 
 Abstract
@@ -50,17 +50,24 @@ andere Debian-basierte GNU/Linux Distributionen übertragbar.
 
 Installation
 ------------
-Zur Installation muß auf dem Rechner _Ruby_ installiert sein.
+[CAUTION]
+====
+Zur Installation von {asciidoctor-url}[Asciidoctor] muß auf dem Rechner *Ruby* installiert sein.
+====
 
 ----
-$ gem install asciidoctor
-Successfully installed asciidoctor-1.5.2
+$ sudo gem install asciidoctor
+Successfully installed asciidoctor-1.5.4
+1 gem installed
+
+$ sudo gem install coderay
+Successfully installed coderay-1.1.0
 1 gem installed
 ----
 
 ----
 $ asciidoctor -V
-Asciidoctor 1.5.2 [http://asciidoctor.org]
+Asciidoctor 1.5.4 [http://asciidoctor.org]
 Runtime Environment (...)
 ----
 
@@ -91,7 +98,7 @@ Anhang
 = Asciidoctor: Erste Schritte &hellip;
 Sid -- sid[at]example[dot]org
 
-Version 3.2.0, Mai 2015
+Version 4.0.0, Januar 2016
 
 :icons:
 :Author Initials: sid
@@ -135,7 +142,7 @@ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
 * {mit-url}[MIT-License]
 
 '''
-link:asciidoctor.html#_beispiel[zurück]
+link:asciidoctor.html[Asciidoctor: Erste Schritte &hellip;]
 
 
 

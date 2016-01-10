@@ -1,5 +1,5 @@
-IiU -- Ruby on Rails 4.2: Erste Schritte &hellip;
-=================================================
+IiU -- Ruby on Rails 4.2
+========================
 Installation in Ubuntu — khkoether[at]kahweb[dot]de
 
 :icons:
@@ -16,12 +16,13 @@ Installation in Ubuntu — khkoether[at]kahweb[dot]de
 :ruby-download-url:   https://www.ruby-lang.org/de/downloads/
 :rubyonrails-url:     http://www.rubyonrails.org
 
-:ruby-version:        2.2.2
+:ruby-version:        2.2.4
 :ruby19-url:          link:ruby19.html
 :ruby21-url:          link:ruby21.html
 :ruby22-url:          link:ruby22.html
+:ruby23-url:          link:ruby23.html
 
-Version 3.2.0, Mai 2015
+Version 4.0.0, Januar 2016
 
 
 Abstract
@@ -29,7 +30,7 @@ Abstract
 Die folgenden Schritte stellen die Funktionsfähigkeit der Installation 
 von {ruby-url}[Ruby] und {rubyonrails-url}[Ruby on Rails] (kurz: _Rails_) sicher. 
 
-Der Artikel ist in {asciidoctordocs-url}[AsciiDoc] geschrieben 
+Der Artikel ist in {asciidoctordocs-url}[Asciidoctor] geschrieben 
 und mit _Asciidoctor {asciidoctor-version}_ erstellt worden.
 
 
@@ -46,37 +47,88 @@ Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr.
 
 Vorraussetzung
 --------------
-Die Installation von _Ruby_ und _Ruby on Rails_ ist, wie in
+Die Installation von *Ruby* und ist, wie in
 
-* {ruby22-url}[IiU -- Ruby 2.2.2, rails-4.2.1] 
+* {ruby22-url}[IiU -- Ruby 2.2.4]  
+
+oder
+
+* {ruby23-url}[IiU -- Ruby 2.3.0]
+
 
 beschrieben, durchgeführt worden.
 
 [CAUTION]
 ====
-Die hier aufgeführten Schritte werden beispielhaft für *Ruby 2.2.2* ausgeführt.
+Die hier aufgeführten Schritte werden beispielhaft für *Ruby 2.2.4* ausgeführt.
 
 Gelten aber, auch in dieser Reihenfolge, ebenfalls für die *Ruby-Versionen >= 1.9.3*.
+
+Eine Installation von *Ruby on Rails 5.0* ist nur mit *Ruby-Versionen >= 2.2* möglich!
 ==== 
 
-.Ruby 2.2.2
+.Ruby 2.2.4
 ----
 $ which ruby
 /opt/Ruby/current22/bin/ruby
 
 $ ruby -v 
-ruby 2.2.2p95 (2015-04-13 revision 50295) [x86_64-linux]
-
-$ which rails
-/opt/Ruby/current22/bin/rails
-
-$ rails -v    
-Rails 4.2.1
+ruby 2.2.4p230 (2015-12-16 revision 53155) [x86_64-linux]
 ----
 
-  
-Erste Schritte &hellip;
------------------------
+
+RubyGem: rails-4.2.5
+--------------------
+*Step 0* 
+----
+$ gem search ^rails$ --remote
+
+*** REMOTE GEMS ***
+
+rails (4.2.5)   <1>
+----
+<1> Seit dem 12.11.2015 ist das die neueste Version des RubyGem _rails_. 
+
+[TIP]
+====
+Die Installation der Dokumentation kann ausgelassen werden.
+----
+$ sudo su -
+# . /opt/Ruby/ruby22.path.sh
+# gem install rails --no-rdoc --no-ri   <1>
+---- 
+<1> #- -no-rdoc - -no-ri# &nbsp; In der Regel wird die offizielle Dokumentation genutzt: +
+    -> http://guides.rubyonrails.org/ 
+====
+
+Mit #gem install ...# werden auch alle Abhängigkeiten zu anderen RubyGems aufgelöst.
+---- 
+# gem install rails --no-rdoc --no-ri
+Fetching: concurrent-ruby-1.0.0.gem (100%)
+Successfully installed concurrent-ruby-1.0.0
+...
+Fetching: rails-4.2.5.gem (100%)
+Successfully installed rails-4.2.5
+30 gems installed   <1>
+----
+<1> Mit dem RubyGem _rails-4.2.5_ wurden insgesamt 30 Gems installiert. +
+    Hinweis: Weitere RubyGems müssen für das Framework *Ruby on Rails* installiert werden. 
+
+[NOTE]
+====
+Alternativ kann das RubyGem _rails_ mit der Angabe einer Version installiert werden.
+----
+# gem install rails --version 4.1.14
+
+# gem install rails --version '~> 4.1.14'   <1>
+----
+<1> Twiddle Wakka: '~> 4.1.14' bedeutet, das die höchste Gem-Version von Rails +
+    im Bereich von >= 4.1.14 und < 4.2 installiert wird. 
+====
+
+
+Ruby on Rails 4.2.5
+-------------------
 Die notwendigen Schritte werden auf der Kommandozeile durchgeführt.
 
 .Vorgehensweise 
@@ -115,17 +167,17 @@ Datenbankadapter installieren
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ---- 
 # gem install mysql2 --no-rdoc --no-ri
-Fetching: mysql2-0.3.18.gem (100%)
+Fetching: mysql2-0.4.2.gem (100%)
 Building native extensions.  This could take a while...
-Successfully installed mysql2-0.3.18
+Successfully installed mysql2-0.4.2
 1 gem installed
 ----
 
 ----
 # gem install sqlite3 --no-rdoc --no-ri  
-Fetching: sqlite3-1.3.10.gem (100%)
+Fetching: sqlite3-1.3.11.gem (100%)
 Building native extensions.  This could take a while...
-Successfully installed sqlite3-1.3.10
+Successfully installed sqlite3-1.3.11
 1 gem installed
 ----
 
@@ -145,8 +197,8 @@ die Kommandozeile.
 $ mysql -uroot -p
 Enter password: 
 Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 78
-Server version: 5.5.43-0ubuntu0.14.04.1 (Ubuntu)
+Your MySQL connection id is 79
+Server version: 5.5.46-0ubuntu0.14.04.2 (Ubuntu)
 
 Copyright (c) 2000, 2015, Oracle and/or its affiliates. All rights reserved.
 
@@ -172,8 +224,8 @@ Bye
 $ mysql -usid -p
 Enter password: 
 Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 80
-Server version: 5.5.43-0ubuntu0.14.04.1 (Ubuntu)
+Your MySQL connection id is 79
+Server version: 5.5.46-0ubuntu0.14.04.2 (Ubuntu)
 
 Copyright (c) 2000, 2015, Oracle and/or its affiliates. All rights reserved.
 
@@ -198,7 +250,7 @@ $ cd
 $ mkdir RailsDir
 
 $ cd RailsDir
-$ rails _4.2.1_ new MyApp --database=mysql -B  <1> <2> <3>
+$ rails _4.2.5_ new MyApp --database=mysql -B  <1> <2> <3>
       create  
       create  README.rdoc
       create  Rakefile
@@ -207,26 +259,26 @@ $ rails _4.2.1_ new MyApp --database=mysql -B  <1> <2> <3>
       create  Gemfile      <4>
       create  app
       create  app/assets/javascripts/application.js
- [...]
+ ...
       create  bin
       create  bin/bundle
       create  bin/rails
       create  bin/rake
       create  bin/setup
-[...]
+...
       create  config/database.yml   <5>
       create  db
       create  db/seeds.rb      
- [...]
+...
       create  vendor/assets/javascripts
       create  vendor/assets/javascripts/.keep
       create  vendor/assets/stylesheets
       create  vendor/assets/stylesheets/.keep
 ----
-<1> #_4.2.1_# -- Festlegen, welche Rails-Version verwendet werden soll. +
+<1> #_4.2.5_# -- Festlegen, welche Rails-Version verwendet werden soll. +
     #--database=mysql# -- Festlegen, welches DBMS verwendet werden soll.
 <2> Für das Datenbanksystem _SQLite3_ verkürzt sich der Aufruf: +
-    #rails _4.2.1_ new myapp#
+    #rails _4.2.5_ new myapp#
 <3> #-B# Don't run bundle install +
     Kein automatisches 'install' und 'update' von RubyGems!   
 <4> Die zu diesem Zeitpunkt benötigten RubyGems und deren Abhängigkeiten
@@ -300,7 +352,6 @@ RubyGems installieren
 .Prüfen der in der Datei `Gemfile` genannten Abhängigkeiten
 ----
 $ bundle check  
-Resolving dependencies...
 Bundler can't satisfy your Gemfile's dependencies.
 Install missing gems with `bundle install`.
 
@@ -310,15 +361,20 @@ in your Gemfile or installed on this machine.
 ----
 <1> Der User 'root' muß die fehlenden Gems installieren
 
+----
+$ ls -l Gemfile*
+-rw-rw-r-- 1 sid sid 1521 Jan  4 19:56 Gemfile
+----
+
 .Datei: `Gemfile`
 ----
 source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.1'
+gem 'rails', '4.2.5'
 # Use mysql as the database for Active Record
-gem 'mysql2'
+gem 'mysql2', '>= 0.3.13', '< 0.5'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -349,7 +405,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+end
 
+group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
@@ -368,79 +426,76 @@ end
 $ sudo su -
 [sudo] password for sid:   <1>
 
-# . /opt/Ruby/ruby22.path.sh
+# ruby -v                  <2>
+ruby 2.2.4p230 (2015-12-16 revision 53155) [x86_64-linux]
 
-# cd ~sid/RailsDir/MyApp
-
-# ls -l Gemfile*
--rw-rw-r-- 1 sid sid 1473 Mai  8 18:08 Gemfile
+# exit
 ----
 <1> Annahme: Der User 'sid' besitzt das Recht das System zu administrieren...
+<2> Test, das der Benutzer 'root' den entsprechenden Ruby-Pfad gesetzt hat.
 
 .Installation der fehlenden Gems mit dem zur Installation berechtigten User!  
 [options="nowrap"]
 ----
-$ bundle install   
-Don't run Bundler as root. Bundler can ask for sudo if it is needed, and installing      <1> 
-your bundle as root will break this application for all non-root users on this machine.
-Fetching gem metadata from https://rubygems.org/............
+$ bundle install   <1>   
+Fetching gem metadata from https://rubygems.org/...........
 Fetching version metadata from https://rubygems.org/...
 Fetching dependency metadata from https://rubygems.org/..
-Resolving dependencies...
+Resolving dependencies......
 Using rake 10.4.2   <2>
 Using i18n 0.7.0
-Using json 1.8.2
-Using minitest 5.6.1
+Using json 1.8.3
+Using minitest 5.8.3
 Using thread_safe 0.3.5
-Using tzinfo 1.2.2
-Using activesupport 4.2.1
 Using builder 3.2.2
 Using erubis 2.7.0
-Using mini_portile 0.6.2
-Using nokogiri 1.6.6.2
-Using rails-deprecated_sanitizer 1.0.3
-Using rails-dom-testing 1.0.6
-Using loofah 2.0.2
-Using rails-html-sanitizer 1.0.2
-Using actionview 4.2.1
-Using rack 1.6.1
-Using rack-test 0.6.3
-Using actionpack 4.2.1
-Using globalid 0.3.5
-Using activejob 4.2.1
-Using mime-types 2.5
-Using mail 2.6.3
-Using actionmailer 4.2.1
-Using activemodel 4.2.1
-Using arel 6.0.0
-Using activerecord 4.2.1
-Installing debug_inspector 0.0.2     <3>
-Installing binding_of_caller 0.7.2
-Using bundler 1.9.6
-Installing columnize 0.9.0
-Installing byebug 4.0.5
-Installing coffee-script-source 1.9.1.1
-Installing execjs 2.5.2
-Installing coffee-script 2.4.1
+Using mini_portile2 2.0.0
+Using rack 1.6.4
+Using mime-types 2.99
+Using arel 6.0.3
+Installing debug_inspector 0.0.2 with native extensions   <3>
+Using bundler 1.11.2
+Installing byebug 8.2.1 with native extensions
+Installing coffee-script-source 1.10.0
+Installing execjs 2.6.0
 Using thor 0.19.1
-Using railties 4.2.1
-Installing coffee-rails 4.1.0
-Installing multi_json 1.11.0
-Installing jbuilder 2.2.13
-Installing jquery-rails 4.0.3
-Using mysql2 0.3.18
-Using sprockets 3.0.3
-Using sprockets-rails 2.3.0
-Using rails 4.2.1
-Using rdoc 4.2.0
-Installing sass 3.4.13
-Installing tilt 1.4.1
-Installing sass-rails 5.0.3
+Using concurrent-ruby 1.0.0
+Installing multi_json 1.11.2
+Using mysql2 0.4.2
+Installing sass 3.4.20
+Using tilt 2.0.1
+Installing spring 1.6.1
+Using rdoc 4.2.1
+Using tzinfo 1.2.2
+Using nokogiri 1.6.7.1
+Using rack-test 0.6.3
+Using mail 2.6.3
+Installing binding_of_caller 0.7.2 with native extensions
+Installing coffee-script 2.4.1
+Installing uglifier 2.7.2
+Using sprockets 3.5.2
 Installing sdoc 0.4.1
-Installing spring 1.3.6
+Using activesupport 4.2.5
+Using loofah 2.0.3
+Using rails-deprecated_sanitizer 1.0.3
+Using globalid 0.3.6
+Using activemodel 4.2.5
+Installing jbuilder 2.4.0
+Using rails-html-sanitizer 1.0.2
+Using rails-dom-testing 1.0.7
+Using activejob 4.2.5
+Using activerecord 4.2.5
+Using actionview 4.2.5
+Using actionpack 4.2.5
+Using actionmailer 4.2.5
+Using railties 4.2.5
+Using sprockets-rails 3.0.0
+Installing coffee-rails 4.1.1
+Installing jquery-rails 4.0.5
+Using rails 4.2.5
+Installing sass-rails 5.0.4
+Installing web-console 2.2.1
 Installing turbolinks 2.5.3
-Installing uglifier 2.7.1
-Installing web-console 2.1.2
 Bundle complete! 12 Gemfile dependencies, 54 gems now installed.
 Use `bundle show [gemname]` to see where a bundled gem is installed.
 ----     
@@ -454,9 +509,9 @@ Use `bundle show [gemname]` to see where a bundled gem is installed.
 $ bundle check <1>
 The Gemfile's dependencies are satisfied
 
-$ ls -l Gemfile*
--rw-rw-r-- 1 sid sid 1473 Mai  8 18:08 Gemfile
--rw-r--r-- 1 sid sid 3824 Mai  8 18:27 Gemfile.lock
+$ ls -l Gemfile*   <1>
+-rw-rw-r-- 1 sid sid 1521 Jan  4 19:56 Gemfile
+-rw-rw-r-- 1 sid sid 3908 Jan  4 20:05 Gemfile.lock
 ----
 <1> Als Benutzer 'sid'!
 
@@ -510,9 +565,9 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.1'
+gem 'rails', '4.2.5'
 # Use mysql as the database for Active Record
-gem 'mysql2'
+gem 'mysql2', '>= 0.3.13', '< 0.5'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -525,38 +580,102 @@ gem 'therubyracer', platforms: :ruby   <1>
 ----
 <1> Entfernen Sie das Kommentar-Zeichen am Zeilen-Anfang: '#'.
 
-.bundle install 
+[options="nowrap"]
 ----
-# bundle install
-...
-Installing libv8 3.16.14.7       <1>
-Using mysql2 0.3.18
-Using sprockets 3.0.3
-Using sprockets-rails 2.3.0
-Using rails 4.2.1
-Using rdoc 4.2.0
-Installing ref 1.0.5             <1>
-Using sass 3.4.13
-Using tilt 1.4.1
-Using sass-rails 5.0.3
+$ bundle check
+Bundler can't satisfy your Gemfile's dependencies.
+Install missing gems with `bundle install`.
+
+$ bundle show
+Could not find gem 'therubyracer' in any of the gem sources listed in your Gemfile or available on this machine.
+----
+
+----
+$ bundle install
+Fetching gem metadata from https://rubygems.org/...........
+Fetching version metadata from https://rubygems.org/...
+Fetching dependency metadata from https://rubygems.org/..
+Resolving dependencies...
+Using rake 10.4.2
+Using i18n 0.7.0
+Using json 1.8.3
+Using minitest 5.8.3
+Using thread_safe 0.3.5
+Using builder 3.2.2
+Using erubis 2.7.0
+Using mini_portile2 2.0.0
+Using rack 1.6.4
+Using mime-types 2.99
+Using arel 6.0.3
+Using debug_inspector 0.0.2
+Using bundler 1.11.2
+Using byebug 8.2.1
+Using coffee-script-source 1.10.0
+Using execjs 2.6.0
+Using thor 0.19.1
+Using concurrent-ruby 1.0.0
+Using multi_json 1.11.2
+
+
+Your user account isn't allowed to install to the system Rubygems.
+  You can cancel this installation and run:
+
+      bundle install --path vendor/bundle
+
+  to install the gems into ./vendor/bundle/, or you can enter your password
+  and install the bundled gems to Rubygems using sudo.
+
+  Password: 
+Installing libv8 3.16.14.13   <1>
+Using mysql2 0.4.2
+Installing ref 2.0.0   <1>
+Using sass 3.4.20
+Using tilt 2.0.1
+Using spring 1.6.1
+Using rdoc 4.2.1
+Using tzinfo 1.2.2
+Using nokogiri 1.6.7.1
+Using rack-test 0.6.3
+Using mail 2.6.3
+Using binding_of_caller 0.7.2
+Using coffee-script 2.4.1
+Using uglifier 2.7.2
+Using sprockets 3.5.2
+Installing therubyracer 0.12.2 with native extensions   <1>
 Using sdoc 0.4.1
-Using spring 1.3.6
-Installing therubyracer 0.12.2   <1> <2> <3>
+Using activesupport 4.2.5
+Using loofah 2.0.3
+Using rails-deprecated_sanitizer 1.0.3
+Using globalid 0.3.6
+Using activemodel 4.2.5
+Using jbuilder 2.4.0
+Using rails-html-sanitizer 1.0.2
+Using rails-dom-testing 1.0.7
+Using activejob 4.2.5
+Using activerecord 4.2.5
+Using actionview 4.2.5
+Using actionpack 4.2.5
+Using actionmailer 4.2.5
+Using railties 4.2.5
+Using sprockets-rails 3.0.0
+Using coffee-rails 4.1.1
+Using jquery-rails 4.0.5
+Using rails 4.2.5
+Using sass-rails 5.0.4
+Using web-console 2.2.1
 Using turbolinks 2.5.3
-Using uglifier 2.7.1
-Using web-console 2.1.2
 Bundle complete! 13 Gemfile dependencies, 57 gems now installed.
 Use `bundle show [gemname]` to see where a bundled gem is installed.
 ----
-<1> Neu installierte RubyGems: 'libv8', 'ref' und 'therubyracer'
-<2> -> http://rubygems.org/gems/therubyracer[RubyGems.org: therubyracer] +
-    Call JavaScript code and manipulate JavaScript objects from Ruby. +
-    Call Ruby code and manipulate Ruby objects from JavaScript.
-<3> Das RubyGem 'therubyracer' wird kompiliert!
+<1> _Installing_: Neu installierte RubyGems
 
 ----
 $ bundle check
 The Gemfile's dependencies are satisfied
+
+$ ls -l Gemfile*
+-rw-rw-r-- 1 sid sid 1519 Jan  4 21:11 Gemfile
+-rw-rw-r-- 1 sid sid 4025 Jan  4 21:14 Gemfile.lock
 ----
 
 .Möglichkeit 2: Das Ubuntu-Paket 'nodejs' installieren
@@ -590,13 +709,13 @@ $ rails s
 => Rails 4.2.1 application starting in development on http://localhost:3000   <1>
 => Run `rails server -h` for more startup options
 => Ctrl-C to shutdown server
-[2015-05-08 18:39:12] INFO  WEBrick 1.3.1
-[2015-05-08 18:39:12] INFO  ruby 2.2.2 (2015-04-13) [x86_64-linux]   <2>
-[2015-05-08 18:39:12] INFO  WEBrick::HTTPServer#start: pid=31746 port=3000
+[2016-01-04 21:17:22] INFO  WEBrick 1.3.1
+[2016-01-04 21:17:22] INFO  ruby 2.2.4 (2015-12-16) [x86_64-linux]   <2>
+[2016-01-04 21:17:22] INFO  WEBrick::HTTPServer#start: pid=25444 port=3000
 ...
 ----
 <1> Der Webserver läuft ohne Port-Angabe (_--port_ ...) auf Port 3000.
-<2> Ruby Version 2.2.2
+<2> Ruby Version 2.2.4
 
 ----
 BROWSER> http://localhost:3000/   <1>
@@ -616,15 +735,15 @@ oder
 ----
 $ rake about
 About your application's environment
-Rails version             4.2.1
-Ruby version              2.2.2-p95 (x86_64-linux)   <1>
-RubyGems version          2.4.6
-Rack version              1.6.1
+Rails version             4.2.5
+Ruby version              2.2.4-p230 (x86_64-linux)   <1>
+RubyGems version          2.5.1
+Rack version              1.6.4
 JavaScript Runtime        therubyracer (V8)
 Middleware                Rack::Sendfile, 
                           ActionDispatch::Static, 
                           Rack::Lock, 
-                          #<ActiveSupport::Cache::Strategy::LocalCache::Middleware:0x...>, 
+                          #<ActiveSupport::Cache::Strategy::LocalCache::Middleware:0x007f88a6d868b0>, 
                           Rack::Runtime, 
                           Rack::MethodOverride, 
                           ActionDispatch::RequestId, 
@@ -650,7 +769,7 @@ Environment               development
 Database adapter          mysql2
 Database schema version   0
 ----
-<1> Ruby Version 2.2.2
+<1> Ruby Version 2.2.4
 
 
 Anhang
@@ -662,68 +781,79 @@ $ gem list --local   <1>
 
 *** LOCAL GEMS ***
 
-actionmailer (4.0.3)
-actionpack (4.0.3)
-activemodel (4.0.3)
-activerecord (4.0.3)
-activerecord-deprecated_finders (1.0.3)
-activesupport (4.0.3)
-arel (4.0.2)
-asciidoctor (1.5.0.preview3)
-atomic (1.1.15)
-bigdecimal (1.2.5, 1.2.0)
-builder (3.1.4)
-bundler (1.6.0.rc)
+actionmailer (4.2.5)
+actionpack (4.2.5)
+actionview (4.2.5)
+activejob (4.2.5)
+activemodel (4.2.5)
+activerecord (4.2.5)
+activesupport (4.2.5)
+arel (6.0.3)
+asciidoctor (1.5.3)
+bigdecimal (1.2.7, 1.2.6)
+binding_of_caller (0.7.2)
+builder (3.2.2)
+bundler (1.11.2)
+byebug (8.2.1)
 coderay (1.1.0)
-coffee-rails (4.0.1)
-coffee-script (2.2.0)
-coffee-script-source (1.7.0)
+coffee-rails (4.1.1)
+coffee-script (2.4.1)
+coffee-script-source (1.10.0)
+concurrent-ruby (1.0.0)
+debug_inspector (0.0.2)
 erubis (2.7.0)
-execjs (2.0.2)
-hike (1.2.3)
-i18n (0.6.9)
-io-console (0.4.2)
-jbuilder (1.5.3)
-jquery-rails (3.1.0)
-json (1.8.1, 1.7.7)
-libv8 (3.16.14.3 x86_64-linux)
-mail (2.5.4)
+execjs (2.6.0)
+globalid (0.3.6)
+i18n (0.7.0)
+io-console (0.4.5, 0.4.3)
+jbuilder (2.4.0)
+jquery-rails (4.0.5)
+json (1.8.3, 1.8.1)
+libv8 (3.16.14.13 x86_64-linux)
+loofah (2.0.3)
+mail (2.6.3)
 method_source (0.8.2)
-mime-types (1.25.1)
-minitest (5.3.0, 4.7.5, 4.3.2)
-multi_json (1.8.4)
-mysql2 (0.3.15)
-polyglot (0.3.4)
-pry (0.10.1)
-psych (2.0.4, 2.0.0)
-rack (1.5.2)
-rack-protection (1.5.2)
-rack-test (0.6.2)
-rails (4.0.3)
-railties (4.0.3)
-rake (10.1.1, 0.9.6)
-rdoc (4.1.1, 4.0.0)
-ref (1.0.5)
-rubygems-update (2.2.2)
-sass (3.2.14)
-sass-rails (4.0.1)
-sdoc (0.4.0)
-sinatra (1.4.6, 1.4.4)
+mime-types (2.99)
+mini_portile2 (2.0.0)
+minitest (5.8.3, 5.4.3)
+multi_json (1.11.2)
+mysql2 (0.4.2)
+nokogiri (1.6.7.1)
+power_assert (0.2.6, 0.2.2)
+pry (0.10.3)
+psych (2.0.17, 2.0.8)
+rack (1.6.4)
+rack-protection (1.5.3)
+rack-test (0.6.3)
+rails (4.2.5)
+rails-deprecated_sanitizer (1.0.3)
+rails-dom-testing (1.0.7)
+rails-html-sanitizer (1.0.2)
+railties (4.2.5)
+rake (10.4.2)
+rdoc (4.2.1, 4.2.0)
+ref (2.0.0)
+rubygems-update (2.5.1)
+sass (3.4.20)
+sass-rails (5.0.4)
+sdoc (0.4.1)
+sinatra (1.4.6)
 slop (3.6.0)
-sprockets (2.11.0)
-sprockets-rails (2.0.1)
-sqlite3 (1.3.9)
-test-unit (2.5.5, 2.0.0.0)
-therubyracer (0.12.1)
-thor (0.18.1)
-thread_safe (0.2.0)
-tilt (1.4.1)
-treetop (1.4.15)
-turbolinks (2.2.1)
-tzinfo (0.3.38)
-uglifier (2.4.0)
+spring (1.6.1)
+sprockets (3.5.2)
+sprockets-rails (3.0.0)
+sqlite3 (1.3.11)
+test-unit (3.1.5, 3.0.8)
+therubyracer (0.12.2)
+thor (0.19.1)
+thread_safe (0.3.5)
+tilt (2.0.1)
+turbolinks (2.5.3)
+tzinfo (1.2.2)
+uglifier (2.7.2)
+web-console (2.2.1)
 ----
-<1> Anzahl der installierten RubyGems: _57_
+<1> Anzahl der installierten RubyGems: _71_
 
 
 

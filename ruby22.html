@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.2">
+<meta name="generator" content="Asciidoctor 1.5.4">
 <meta name="author" content="Installation in Ubuntu — khkoether[at]kahweb[dot]de">
-<title>IiU&#8201;&#8212;&#8201;Ruby 2.2.2, rails-4.2.1</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400">
+<title>IiU&#8201;&#8212;&#8201;Ruby 2.2.4</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
-/* Remove the comments around the @import statement below when using this as a custom stylesheet */
-/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400";*/
+/* Remove comment around @import statement below when using as a custom stylesheet */
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";*/
 article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}
 audio,canvas,video{display:inline-block}
 audio:not([controls]){display:none;height:0}
@@ -58,7 +58,6 @@ a:hover{cursor:pointer}
 img,object,embed{max-width:100%;height:auto}
 object,embed{height:100%}
 img{-ms-interpolation-mode:bicubic}
-#map_canvas img,#map_canvas embed,#map_canvas object,.map_canvas img,.map_canvas embed,.map_canvas object{max-width:none!important}
 .left{float:left!important}
 .right{float:right!important}
 .text-left{text-align:left!important}
@@ -66,10 +65,12 @@ img{-ms-interpolation-mode:bicubic}
 .text-center{text-align:center!important}
 .text-justify{text-align:justify!important}
 .hide{display:none}
-.antialiased,body{-webkit-font-smoothing:antialiased}
-img{display:inline-block;vertical-align:middle}
+body{-webkit-font-smoothing:antialiased}
+img,object,svg{display:inline-block;vertical-align:middle}
 textarea{height:auto;min-height:50px}
 select{width:100%}
+.center{margin-left:auto;margin-right:auto}
+.spread{width:100%}
 p.lead,.paragraph.lead>p,#preamble>.sectionbody>.paragraph:first-of-type p{font-size:1.21875em;line-height:1.6}
 .subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
 div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
@@ -112,12 +113,14 @@ blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
 h1{font-size:2.75em}
 h2{font-size:2.3125em}
 h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
-h4{font-size:1.4375em}}table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
 table thead,table tfoot{background:#f7f8f7;font-weight:bold}
 table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
 table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
 table tr.even,table tr.alt,table tr:nth-of-type(even){background:#f8f8f7}
 table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
+body{tab-size:4}
 h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
 h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
 .clearfix:before,.clearfix:after,.float-group:before,.float-group:after{content:" ";display:table}
@@ -125,7 +128,7 @@ h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title str
 *:not(pre)>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background-color:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
 pre,pre>code{line-height:1.45;color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;text-rendering:optimizeSpeed}
 .keyseq{color:rgba(51,51,51,.8)}
-kbd{display:inline-block;color:rgba(0,0,0,.8);font-size:.75em;line-height:1.4;background-color:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:-.15em .15em 0 .15em;padding:.2em .6em .2em .5em;vertical-align:middle;white-space:nowrap}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background-color:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
 .keyseq kbd:first-child{margin-left:0}
 .keyseq kbd:last-child{margin-right:0}
 .menuseq,.menu{color:rgba(0,0,0,.8)}
@@ -156,29 +159,33 @@ p a>code:hover{color:rgba(0,0,0,.9)}
 #toc ul.sectlevel0>li>a{font-style:italic}
 #toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
 #toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
 #toc a{text-decoration:none}
 #toc a:active{text-decoration:underline}
 #toctitle{color:#7a2518;font-size:1.2em}
 @media only screen and (min-width:768px){#toctitle{font-size:1.375em}
 body.toc2{padding-left:15em;padding-right:0}
 #toc.toc2{margin-top:0!important;background-color:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #efefed;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
-#toc.toc2 #toctitle{margin-top:0;font-size:1.2em}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
 #toc.toc2>ul{font-size:.9em;margin-bottom:0}
 #toc.toc2 ul ul{margin-left:0;padding-left:1em}
 #toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
 body.toc2.toc-right{padding-left:0;padding-right:15em}
-body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #efefed;left:auto;right:0}}@media only screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #efefed;left:auto;right:0}}
+@media only screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
 #toc.toc2{width:20em}
 #toc.toc2 #toctitle{font-size:1.375em}
 #toc.toc2>ul{font-size:.95em}
 #toc.toc2 ul ul{padding-left:1.25em}
-body.toc2.toc-right{padding-left:0;padding-right:20em}}#content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
 #content #toc>:first-child{margin-top:0}
 #content #toc>:last-child{margin-bottom:0}
 #footer{max-width:100%;background-color:rgba(0,0,0,.8);padding:1.25em}
 #footer-text{color:rgba(255,255,255,.8);line-height:1.44}
 .sect1{padding-bottom:.625em}
-@media only screen and (min-width:768px){.sect1{padding-bottom:1.25em}}.sect1+.sect1{border-top:1px solid #efefed}
+@media only screen and (min-width:768px){.sect1{padding-bottom:1.25em}}
+.sect1+.sect1{border-top:1px solid #efefed}
 #content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
 #content h1>a.anchor:before,h2>a.anchor:before,h3>a.anchor:before,#toctitle>a.anchor:before,.sidebarblock>.content>.title>a.anchor:before,h4>a.anchor:before,h5>a.anchor:before,h6>a.anchor:before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
 #content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
@@ -207,7 +214,9 @@ table.tableblock #preamble>.sectionbody>.paragraph:first-of-type p{font-size:inh
 .sidebarblock .literalblock pre,.sidebarblock .listingblock pre:not(.highlight),.sidebarblock .listingblock pre[class="highlight"],.sidebarblock .listingblock pre[class^="highlight "],.sidebarblock .listingblock pre.CodeRay,.sidebarblock .listingblock pre.prettyprint{background:#f2f1f1}
 .literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;padding:1em;font-size:.8125em}
 .literalblock pre.nowrap,.literalblock pre[class].nowrap,.listingblock pre.nowrap,.listingblock pre[class].nowrap{overflow-x:auto;white-space:pre;word-wrap:normal}
-@media only screen and (min-width:768px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:.90625em}}@media only screen and (min-width:1280px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:1em}}.literalblock.output pre{color:#f7f7f8;background-color:rgba(0,0,0,.9)}
+@media only screen and (min-width:768px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:.90625em}}
+@media only screen and (min-width:1280px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:1em}}
+.literalblock.output pre{color:#f7f7f8;background-color:rgba(0,0,0,.9)}
 .listingblock pre.highlightjs{padding:0}
 .listingblock pre.highlightjs>code{padding:1em;-webkit-border-radius:4px;border-radius:4px}
 .listingblock pre.prettyprint{border-width:0}
@@ -217,7 +226,7 @@ table.tableblock #preamble>.sectionbody>.paragraph:first-of-type p{font-size:inh
 .listingblock.terminal pre .command:before{content:attr(data-prompt);padding-right:.5em;color:#999}
 .listingblock.terminal pre .command:not([data-prompt]):before{content:"$"}
 table.pyhltable{border-collapse:separate;border:0;margin-bottom:0;background:none}
-table.pyhltable td{vertical-align:top;padding-top:0;padding-bottom:0}
+table.pyhltable td{vertical-align:top;padding-top:0;padding-bottom:0;line-height:1.45}
 table.pyhltable td.code{padding-left:.75em;padding-right:0}
 pre.pygments .lineno,table.pyhltable td:not(.code){color:#999;padding-left:0;padding-right:.5em;border-right:1px solid #ddddd8}
 pre.pygments .lineno{display:inline-block;margin-right:.25em}
@@ -238,13 +247,12 @@ table.pyhltable .linenodiv{background:none!important;padding-right:0!important}
 .verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
 .quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
 .quoteblock .attribution br,.verseblock .attribution br{display:none}
-.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.05em;color:rgba(0,0,0,.6)}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
 .quoteblock.abstract{margin:0 0 1.25em 0;display:block}
 .quoteblock.abstract blockquote,.quoteblock.abstract blockquote p{text-align:left;word-spacing:0}
 .quoteblock.abstract blockquote:before,.quoteblock.abstract blockquote p:first-of-type:before{display:none}
 table.tableblock{max-width:100%;border-collapse:separate}
 table.tableblock td>.paragraph:last-child p>p:last-child,table.tableblock th>p:last-child,table.tableblock td>p:last-child{margin-bottom:0}
-table.spread{width:100%}
 table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
 table.grid-all th.tableblock,table.grid-all td.tableblock{border-width:0 1px 1px 0}
 table.grid-all tfoot>tr>th.tableblock,table.grid-all tfoot>tr>td.tableblock{border-width:1px 1px 0 0}
@@ -290,8 +298,8 @@ ol.upperroman{list-style-type:upper-roman}
 ol.lowergreek{list-style-type:lower-greek}
 .hdlist>table,.colist>table{border:0;background:none}
 .hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
-td.hdlist1{padding-right:.75em;font-weight:bold}
-td.hdlist1,td.hdlist2{vertical-align:top}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
 .literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
 .colist>table tr>td:first-of-type{padding:0 .75em;line-height:1}
 .colist>table tr>td:last-of-type{padding:.25em 0}
@@ -304,13 +312,14 @@ td.hdlist1,td.hdlist2{vertical-align:top}
 .image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
 .image.left{margin-right:.625em}
 .image.right{margin-left:.625em}
-a.image{text-decoration:none}
-span.footnote,span.footnoteref{vertical-align:super;font-size:.875em}
-span.footnote a,span.footnoteref a{text-decoration:none}
-span.footnote a:active,span.footnoteref a:active{text-decoration:underline}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
 #footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
 #footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em 0;border-width:1px 0 0 0}
-#footnotes .footnote{padding:0 .375em;line-height:1.3;font-size:.875em;margin-left:1.2em;text-indent:-1.2em;margin-bottom:.2em}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;text-indent:-1.05em;margin-bottom:.2em}
 #footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none}
 #footnotes .footnote:last-of-type{margin-bottom:0}
 #content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
@@ -368,11 +377,10 @@ span.icon>.fa{cursor:default}
 pre .conum[data-value]{position:relative;top:-.125em}
 b.conum *{color:inherit!important}
 .conum:not([data-value]):empty{display:none}
-h1,h2{letter-spacing:-.01em}
-dt,th.tableblock,td.content{text-rendering:optimizeLegibility}
-p,td.content{letter-spacing:-.01em}
-p strong,td.content strong{letter-spacing:-.005em}
-p,blockquote,dt,td.content{font-size:1.0625rem}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,span.alt{font-size:1.0625rem}
 p{margin-bottom:1.25rem}
 .sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
 .exampleblock>.content{background-color:#fffef7;border-color:#e0e0dc;-webkit-box-shadow:0 1px 4px #e0e0dc;box-shadow:0 1px 4px #e0e0dc}
@@ -383,9 +391,9 @@ a{color:inherit!important;text-decoration:underline!important}
 a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
 a[href^="http:"]:not(.bare):after,a[href^="https:"]:not(.bare):after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
 abbr[title]:after{content:" (" attr(title) ")"}
-pre,blockquote,tr,img{page-break-inside:avoid}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
 thead{display:table-header-group}
-img{max-width:100%!important}
+svg{max-width:100%}
 p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
 h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
 #toc,.sidebarblock,.exampleblock>.content{background:none!important}
@@ -412,7 +420,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>IiU&#8201;&#8212;&#8201;Ruby 2.2.2, rails-4.2.1</h1>
+<h1>IiU&#8201;&#8212;&#8201;Ruby 2.2.4</h1>
 <div class="details">
 <span id="author" class="author">Installation in Ubuntu — khkoether[at]kahweb[dot]de</span><br>
 </div>
@@ -422,11 +430,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_abstract">Abstract</a></li>
 <li><a href="#_vorraussetzung">Vorraussetzung</a></li>
 <li><a href="#_download">Download</a></li>
-<li><a href="#_installation_ruby_2_2_2">Installation: Ruby 2.2.2</a></li>
+<li><a href="#_installation_ruby_2_2_4">Installation: Ruby 2.2.4</a></li>
 <li><a href="#_rubygems">Rubygems</a>
 <ul class="sectlevel2">
 <li><a href="#_update">update</a></li>
-<li><a href="#_installation_rails_4_2_1">Installation: rails-4.2.1</a></li>
 <li><a href="#_asciidoctor">asciidoctor</a></li>
 <li><a href="#_pry">pry</a></li>
 <li><a href="#_sinatra">sinatra</a></li>
@@ -434,7 +441,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#_rubygems_documentation_index">RubyGems Documentation Index</a></li>
-<li><a href="#_ruby_on_rails_4_2_erste_schritte">Ruby on Rails 4.2: Erste Schritte &hellip;</a></li>
 <li><a href="#_anhang">Anhang</a></li>
 </ul>
 </div>
@@ -443,7 +449,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Version 3.2.0, Mai 2015</p>
+<p>Version 4.0.0, Januar 2016</p>
 </div>
 </div>
 </div>
@@ -452,15 +458,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sectionbody">
 <div class="paragraph">
 <p>Dieser Artikel ist eine Schritt-für-Schritt Anleitung zur Installation
-von <a href="https://www.ruby-lang.org/de/">Ruby 2.2.2</a> aus dem QuellCode.</p>
+von <a href="https://www.ruby-lang.org/de/">Ruby 2.2.4</a> aus dem QuellCode.</p>
 </div>
 <div class="paragraph">
 <p>Die Programmiersprache <a href="https://www.ruby-lang.org/de/">Ruby</a> ist die Grundlage für das
 Framework <a href="http://www.rubyonrails.org">Ruby on Rails</a>.</p>
 </div>
 <div class="paragraph">
-<p>Der Artikel ist in <a href="http://asciidoctor.org/docs/">AsciiDoc</a> geschrieben
-und mit <em>Asciidoctor 1.5.2</em> erstellt worden.</p>
+<p>Der Artikel ist in <a href="http://asciidoctor.org/docs/">Asciidoctor</a> geschrieben
+und mit <em>Asciidoctor 1.5.4</em> erstellt worden.</p>
 </div>
 <div class="admonitionblock caution">
 <table>
@@ -515,9 +521,9 @@ andere Debian-basierte GNU/Linux Distributionen übertragbar.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://www.ruby-lang.org/de/downloads/">Ruby 2.2.2</a><br>
-<code>ruby-{ruby-version}.tar.gz</code>  (ca. 16M)<br>
-2015-04-13 (Release date)</p>
+<p><a href="https://www.ruby-lang.org/de/downloads/">Ruby 2.2.4</a><br>
+<code>ruby-2.2.4.tar.gz</code>  (ca. 16M)<br>
+2015-12-16 (Release date)</p>
 </li>
 </ul>
 </div>
@@ -536,7 +542,7 @@ Benutzer <em>root</em> für das System durchgeführt.</p>
 <div class="listingblock">
 <div class="content">
 <pre>$ ls -lh
--rw-rw-r-- 1 sid sid   16M Mai  6 14:55 ruby-2.2.2.tar.gz</pre>
+-rw-rw-r-- 1 sid sid   16M Jan  2 19:22 ruby-2.2.4.tar.gz</pre>
 </div>
 </div>
 </td>
@@ -570,7 +576,7 @@ Programm-Pakete installiert sind.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_installation_ruby_2_2_2">Installation: Ruby 2.2.2</h2>
+<h2 id="_installation_ruby_2_2_4">Installation: Ruby 2.2.4</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Zusätzliche Software-Pakete
@@ -600,8 +606,8 @@ Eine bereits vorhandene Ruby-Installation wird überschrieben.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ tar xvzf ruby-2.2.2.tar.gz
-$ cd ruby-2.2.2</pre>
+<pre>$ tar xvzf ruby-2.2.4.tar.gz
+$ cd ruby-2.2.4</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -609,12 +615,12 @@ $ cd ruby-2.2.2</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ sudo mkdir -p /opt/Ruby/ruby-2.2.2</pre>
+<pre>$ sudo mkdir -p /opt/Ruby/ruby-2.2.4</pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ ./configure --prefix=/opt/Ruby/ruby-2.2.2 | tee ../log.ruby_configure
+<pre>$ ./configure --prefix=/opt/Ruby/ruby-2.2.4 | tee ../log.ruby_configure
 checking build system type... x86_64-unknown-linux-gnu
 checking host system type... x86_64-unknown-linux-gnu
 checking target system type... x86_64-unknown-linux-gnu
@@ -639,6 +645,13 @@ config.status: creating ruby-2.2.pc</pre>
 <div class="listingblock">
 <div class="content">
 <pre class="nowrap">$ make all | tee ../log.ruby_make-all
+Using built-in specs.
+COLLECT_GCC=gcc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.8/lto-wrapper
+Target: x86_64-linux-gnu
+Configured with: ...
+Thread model: posix
+gcc version 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04)
 	CC = gcc
 	LD = ld
 	LDSHARED = gcc -shared
@@ -646,52 +659,34 @@ config.status: creating ruby-2.2.pc</pre>
 	         -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long
 	         -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith
 	         -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration
-	         -ansi -std=iso9899:199409
-	XCFLAGS = -D_FORTIFY_SOURCE=2 -fstack-protector -fno-strict-overflow -fvisibility=hidden
-	          -DRUBY_EXPORT -fPIE
+	         -Wdeprecated-declarations -Wno-packed-bitfield-compat -std=iso9899:1999
+	XCFLAGS = -D_FORTIFY_SOURCE=2 -fstack-protector -fno-strict-overflow -fvisibility=hidden -DRUBY_EXPORT -fPIE
 	CPPFLAGS =   -I. -I.ext/include/x86_64-linux -I./include -I.
 	DLDFLAGS = -fstack-protector -pie
 	SOLIBS =
-Using built-in specs.
-COLLECT_GCC=gcc
-COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.8/lto-wrapper
-Target: x86_64-linux-gnu
-Configured with: ...
-[...]
+...
 src/closures.c:488:17: warning: ignoring return value of 'ftruncate', declared with attribute warn_unused_result [-Wunused-result]   <img src="./images/icons/callouts/1.png" alt="1">
        ftruncate (execfd, offset);
                  ^
 src/closures.c:500:17: warning: ignoring return value of 'ftruncate', declared with attribute warn_unused_result [-Wunused-result]
        ftruncate (execfd, offset);
                  ^
-[...]
-Generating RDoc documentation
-Parsing sources...
-  0% [ 1/967]  /yggdrasil/TrustyTahr/Ruby22/ruby-2.2.2/doc/ChangeLog-1.8.0
-  0% [ 2/967]  /yggdrasil/TrustyTahr/Ruby22/ruby-2.2.2/doc/ChangeLog-1.9.3
-  0% [ 3/967]  /yggdrasil/TrustyTahr/Ruby22/ruby-2.2.2/doc/ChangeLog-2.0.0
-  0% [ 4/967]  /yggdrasil/TrustyTahr/Ruby22/ruby-2.2.2/doc/ChangeLog-2.1.0
-  0% [ 5/967]  /yggdrasil/TrustyTahr/Ruby22/ruby-2.2.2/doc/ChangeLog-YARV
-[...]
- 99% [965/967]  vm_method.c
- 99% [966/967]  vm_trace.c
-100% [967/967]  vsnprintf.c
-
-Generating RI format into /yggdrasil/TrustyTahr/Ruby22/ruby-2.2.2/.ext/rdoc...
+...
+Generating RI format into /opt/TrustyTahr/Ruby22/ruby-2.2.4/.ext/rdoc...
 
 
   Files:        967
 
-  Classes:     1410 ( 581 undocumented)
+  Classes:     1411 ( 581 undocumented)
   Modules:      280 ( 108 undocumented)
-  Constants:   2159 ( 594 undocumented)
-  Attributes:  1154 ( 253 undocumented)
-  Methods:    10483 (2184 undocumented)
+  Constants:   2160 ( 594 undocumented)
+  Attributes:  1156 ( 255 undocumented)
+  Methods:    10488 (2187 undocumented)
 
-  Total:      15486 (3720 undocumented)
-   75.98% documented
+  Total:      15495 (3725 undocumented)
+   75.96% documented
 
-  Elapsed: 137.6s</pre>
+  Elapsed: 144.9s</pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -709,7 +704,7 @@ Generating RI format into /yggdrasil/TrustyTahr/Ruby22/ruby-2.2.2/.ext/rdoc...
 	LD = ld
 	LDSHARED = gcc -shared
   CFLAGS = ...
-[...]
+...
 Generating RDoc documentation
 
 No newer files.
@@ -731,20 +726,20 @@ sample/test.rb:assignment ...................[...viele...]...OK 372   <img src="
 sample/test.rb:condition ..OK 2
 sample/test.rb:if/unless ...OK 3
 sample/test.rb:case .....OK 5
-[...]
+...
 sample/test.rb:gc ....OK 4
 
 test succeeded
-PASS all 1008 tests
+PASS all 1010 tests
 ./miniruby -I./lib -I. -I.ext/common  ./tool/runruby.rb --extout=.ext
                        -- --disable-gems "./bootstraptest/runner.rb"
                           --ruby="ruby --disable-gems"   ./KNOWNBUGS.rb
-2015-05-06 15:17:09 +0200
-Driver is ruby 2.2.2p95 (2015-04-13 revision 50295) [x86_64-linux]
-Target is ruby 2.2.2p95 (2015-04-13 revision 50295) [x86_64-linux]
+2016-01-02 19:35:01 +0100
+Driver is ruby 2.2.4p230 (2015-12-16 revision 53155) [x86_64-linux]
+Target is ruby 2.2.4p230 (2015-12-16 revision 53155) [x86_64-linux]
 
-KNOWNBUGS.rb  PASS 0
-No tests, no problem   <img src="./images/icons/callouts/2.png" alt="2"></pre>
+KNOWNBUGS.rb  PASS 0   <img src="./images/icons/callouts/2.png" alt="2">
+No tests, no problem</pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -819,40 +814,42 @@ No newer files.
 
   Elapsed: 0.0s
 
-./miniruby -I./lib -I. -I.ext/common  ./tool/runruby.rb --extout=.ext  -- --disable-gems
-           -r./x86_64-linux-fake ./tool/rbinstall.rb --make="make" --dest-dir=""
-           --extout=".ext" --mflags="" --make-flags="" --data-mode=0644
-           --prog-mode=0755 --installed-list .installed.list --mantype="doc"
-           --install=all --rdoc-output=".ext/rdoc"
-installing binary commands:   /opt/Ruby/ruby-2.2.2/bin
-installing base libraries:    /opt/Ruby/ruby-2.2.2/lib
-installing arch files:        /opt/Ruby/ruby-2.2.2/lib/ruby/2.2.0/x86_64-linux
-installing pkgconfig data:    /opt/Ruby/ruby-2.2.2/lib/pkgconfig
-installing command scripts:   /opt/Ruby/ruby-2.2.2/bin
-installing library scripts:   /opt/Ruby/ruby-2.2.2/lib/ruby/2.2.0
-installing common headers:    /opt/Ruby/ruby-2.2.2/include/ruby-2.2.0
-installing manpages:          /opt/Ruby/ruby-2.2.2/share/man/man1
-installing extension objects: /opt/Ruby/ruby-2.2.2/lib/ruby/2.2.0/x86_64-linux
-installing extension objects: /opt/Ruby/ruby-2.2.2/lib/ruby/site_ruby/2.2.0/x86_64-linux
-installing extension objects: /opt/Ruby/ruby-2.2.2/lib/ruby/vendor_ruby/2.2.0/x86_64-linux
-installing extension headers: /opt/Ruby/ruby-2.2.2/include/ruby-2.2.0/x86_64-linux
-installing extension scripts: /opt/Ruby/ruby-2.2.2/lib/ruby/2.2.0
-installing extension scripts: /opt/Ruby/ruby-2.2.2/lib/ruby/site_ruby/2.2.0
-installing extension scripts: /opt/Ruby/ruby-2.2.2/lib/ruby/vendor_ruby/2.2.0
-installing extension headers: /opt/Ruby/ruby-2.2.2/include/ruby-2.2.0/ruby
-installing default gems:      /opt/Ruby/ruby-2.2.2/lib/ruby/gems/2.2.0 (build_info, cache, doc, extensions, gems, specifications)
+config.status: creating x86_64-linux-fake.rb
+./miniruby -I./lib -I. -I.ext/common  ./tool/runruby.rb --extout=.ext
+                       -- --disable-gems -r./x86_64-linux-fake ./tool/rbinstall.rb
+                          --make="make" --dest-dir="" --extout=".ext" --mflags=""
+                          --make-flags="" --data-mode=0644 --prog-mode=0755
+                          --installed-list .installed.list --mantype="doc"
+                          --install=all --rdoc-output=".ext/rdoc"
+installing binary commands:   /opt/Ruby/ruby-2.2.4/bin
+installing base libraries:    /opt/Ruby/ruby-2.2.4/lib
+installing arch files:        /opt/Ruby/ruby-2.2.4/lib/ruby/2.2.0/x86_64-linux
+installing pkgconfig data:    /opt/Ruby/ruby-2.2.4/lib/pkgconfig
+installing command scripts:   /opt/Ruby/ruby-2.2.4/bin
+installing library scripts:   /opt/Ruby/ruby-2.2.4/lib/ruby/2.2.0
+installing common headers:    /opt/Ruby/ruby-2.2.4/include/ruby-2.2.0
+installing manpages:          /opt/Ruby/ruby-2.2.4/share/man/man1
+installing extension objects: /opt/Ruby/ruby-2.2.4/lib/ruby/2.2.0/x86_64-linux
+installing extension objects: /opt/Ruby/ruby-2.2.4/lib/ruby/site_ruby/2.2.0/x86_64-linux
+installing extension objects: /opt/Ruby/ruby-2.2.4/lib/ruby/vendor_ruby/2.2.0/x86_64-linux
+installing extension headers: /opt/Ruby/ruby-2.2.4/include/ruby-2.2.0/x86_64-linux
+installing extension scripts: /opt/Ruby/ruby-2.2.4/lib/ruby/2.2.0
+installing extension scripts: /opt/Ruby/ruby-2.2.4/lib/ruby/site_ruby/2.2.0
+installing extension scripts: /opt/Ruby/ruby-2.2.4/lib/ruby/vendor_ruby/2.2.0
+installing extension headers: /opt/Ruby/ruby-2.2.4/include/ruby-2.2.0/ruby
+installing default gems:      /opt/Ruby/ruby-2.2.4/lib/ruby/gems/2.2.0 (build_info, cache, doc, extensions, gems, specifications)
                               bigdecimal 1.2.6
                               io-console 0.4.3
                               json 1.8.1
                               psych 2.0.8
                               rake 10.4.2
                               rdoc 4.2.0
-installing bundle gems:       /opt/Ruby/ruby-2.2.2/lib/ruby/gems/2.2.0 (build_info, cache, doc, extensions, gems, specifications)
+installing bundle gems:       /opt/Ruby/ruby-2.2.4/lib/ruby/gems/2.2.0 (build_info, cache, doc, extensions, gems, specifications)
                               test-unit-3.0.8.gem
                               power_assert-0.2.2.gem
                               minitest-5.4.3.gem
-installing rdoc:              /opt/Ruby/ruby-2.2.2/share/ri/2.2.0/system
-installing capi-docs:         /opt/Ruby/ruby-2.2.2/share/doc/ruby</pre>
+installing rdoc:              /opt/Ruby/ruby-2.2.4/share/ri/2.2.0/system
+installing capi-docs:         /opt/Ruby/ruby-2.2.4/share/doc/ruby</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -860,51 +857,60 @@ installing capi-docs:         /opt/Ruby/ruby-2.2.2/share/doc/ruby</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ cd /opt/Ruby/ruby-2.2.2
+<pre>$ cd /opt/Ruby/ruby-2.2.4
 $ ls -l
-drwxr-xr-x 2 root root 4096 Mai  6 15:21 bin
-drwxr-xr-x 3 root root 4096 Mai  6 15:21 include
-drwxr-xr-x 4 root root 4096 Mai  6 15:21 lib
-drwxr-xr-x 5 root root 4096 Mai  6 15:21 share</pre>
+drwxr-xr-x 2 root root 4096 Jan  4 19:27 bin
+drwxr-xr-x 3 root root 4096 Jan  4 19:27 include
+drwxr-xr-x 4 root root 4096 Jan  4 19:27 lib
+drwxr-xr-x 5 root root 4096 Jan  4 19:27 share</pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre>$ ls -l bin
--rwxr-xr-x 1 root root     4854 Mai  6 15:21 erb
--rwxr-xr-x 1 root root      558 Mai  6 15:21 gem
--rwxr-xr-x 1 root root      202 Mai  6 15:21 irb
--rwxr-xr-x 1 root root     1256 Mai  6 15:21 rake
--rwxr-xr-x 1 root root      950 Mai  6 15:21 rdoc
--rwxr-xr-x 1 root root      200 Mai  6 15:21 ri
--rwxr-xr-x 1 root root 14313384 Mai  6 15:06 ruby</pre>
+-rwxr-xr-x 1 root root     4854 Jan  4 19:27 erb
+-rwxr-xr-x 1 root root      558 Jan  4 19:27 gem
+-rwxr-xr-x 1 root root      202 Jan  4 19:27 irb
+-rwxr-xr-x 1 root root     1256 Jan  4 19:27 rake
+-rwxr-xr-x 1 root root      950 Jan  4 19:27 rdoc
+-rwxr-xr-x 1 root root      200 Jan  4 19:27 ri
+-rwxr-xr-x 1 root root 14318496 Jan  2 19:30 ruby</pre>
 </div>
 </div>
 <div class="paragraph">
-<p><strong>Step 5:</strong> Der Pfad zum Verzeichnis <code>/opt/Ruby/ruby-2.2.2/bin</code> muß gesetzt werden.</p>
+<p><strong>Step 5:</strong> Der Pfad zum Verzeichnis <code>/opt/Ruby/ruby-2.2.4/bin</code> muß gesetzt werden.</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre>$ cd /opt/Ruby/
-$ sudo ln -s ruby-2.2.2 current22
+$ sudo ln -s ruby-2.2.4 current22
 
 $ ls -l
-lrwxrwxrwx 1 root root   15 Dez  3 14:56 current19 -&gt; ruby-1.9.3-p551
+lrwxrwxrwx 1 root root   15 Dez  3  2014 current19 -&gt; ruby-1.9.3-p551
 lrwxrwxrwx 1 root root   15 Mär  3  2014 current20 -&gt; ruby-2.0.0-p451
-lrwxrwxrwx 1 root root   10 Dez  5 10:03 current21 -&gt; ruby-2.1.5
-lrwxrwxrwx 1 root root   10 Mai  6 15:25 current22 -&gt; ruby-2.2.2
-drwxr-xr-x 7 root root 4096 Dez 22 18:22 ruby-1.9.3-p551
+lrwxrwxrwx 1 root root   10 Dez  5  2014 current21 -&gt; ruby-2.1.5
+lrwxrwxrwx 1 root root   10 Jan  4 19:29 current22 -&gt; ruby-2.2.4   <img src="./images/icons/callouts/1.png" alt="1">
+drwxr-xr-x 7 root root 4096 Dez 22  2014 ruby-1.9.3-p551
 -rw-r--r-- 1 root root   47 Mär  3  2014 ruby19.path.sh
 drwxr-xr-x 7 root root 4096 Mär  3  2014 ruby-2.0.0-p451
 -rw-r--r-- 1 root root   47 Mär  3  2014 ruby20.path.sh
-drwxr-xr-x 7 root root 4096 Dez 22 21:47 ruby-2.1.5
--rw-r--r-- 1 root root   47 Dez  5 10:05 ruby21.path.sh
-drwxr-xr-x 6 root root 4096 Mai  6 15:21 ruby-2.2.2</pre>
+drwxr-xr-x 7 root root 4096 Dez 22  2014 ruby-2.1.5
+-rw-r--r-- 1 root root   47 Dez  5  2014 ruby21.path.sh
+drwxr-xr-x 6 root root 4096 Jan  3 11:47 ruby-2.2.4                <img src="./images/icons/callouts/1.png" alt="1">
+-rw-r--r-- 1 root root   47 Jan  4 19:29 ruby22.path.sh</pre>
 </div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Symbolischer <em>Link</em> auf das Installations-Verzeichnis.</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <div class="title">Lokal in der aktuellen Shell (1)</div>
-<p>Erstellen Sie eine Datei <code>ruby22.path.sh</code>.</p>
+<p>Erstellen Sie eine Datei <code>ruby22.path.sh</code></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -932,7 +938,7 @@ export PATH</pre>
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Oder mit dem Bash-Builtin Kommando: <mark>source ruby22.path.sh</mark></td>
+<td>Oder mit dem Bash-Builtin Kommando: &nbsp; <mark>source ruby22.path.sh</mark></td>
 </tr>
 </table>
 </div>
@@ -960,7 +966,7 @@ $ sudo which ruby              <img src="./images/icons/callouts/2.png" alt="2">
 /opt/Ruby/current22/bin/ruby
 
 $ ruby -v                      <img src="./images/icons/callouts/3.png" alt="3">
-ruby 2.2.2p95 (2015-04-13 revision 50295) [x86_64-linux]</pre>
+ruby 2.2.4p230 (2015-12-16 revision 53155) [x86_64-linux]</pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -991,14 +997,14 @@ Happy new Ruby</pre>
 <div class="content">
 <pre>$ irb
 irb(main):001:0&gt; RUBY_VERSION
-=&gt; "2.2.2"
+=&gt; "2.2.4"
 irb(main):002:0&gt; RUBY_PATCHLEVEL
-=&gt; 95
+=&gt; 230
 irb(main):003:0&gt; Time.now.to_s
-=&gt; "2015-05-07 15:41:45 +0200"
-irb(main):004:0&gt; Time.now.sunday?
+=&gt; "2016-01-04 19:31:49 +0100"
+irb(main):004:0&gt; Time.now.friday?
 =&gt; false
-irb(main):005:0&gt; Time.now.thursday?
+irb(main):005:0&gt; Time.now.monday?
 =&gt; true
 irb(main):006:0&gt; exit</pre>
 </div>
@@ -1074,6 +1080,7 @@ auf die Ruby2.2-Installation:</p>
 
 $ sudo su -
 # . /opt/Ruby/ruby22.path.sh
+
 # which gem
 /opt/Ruby/current22/bin/gem</pre>
 </div>
@@ -1084,7 +1091,7 @@ $ sudo su -
 <div class="listingblock">
 <div class="content">
 <pre>$ gem -v
-2.4.5
+2.4.5.1
 
 $ gem list --local
 
@@ -1112,32 +1119,33 @@ test-unit (3.0.8)</pre>
 # . /opt/Ruby/ruby22.path.sh
 # gem update --system
 Updating rubygems-update
-Fetching: rubygems-update-2.4.6.gem (100%)
-Successfully installed rubygems-update-2.4.6
-Parsing documentation for rubygems-update-2.4.6
-Installing ri documentation for rubygems-update-2.4.6
-Installing darkfish documentation for rubygems-update-2.4.6
+Fetching: rubygems-update-2.5.1.gem (100%)
+Successfully installed rubygems-update-2.5.1
+Parsing documentation for rubygems-update-2.5.1
+Installing ri documentation for rubygems-update-2.5.1
+Installing darkfish documentation for rubygems-update-2.5.1
 Done installing documentation for rubygems-update after 2 seconds
-Parsing documentation for rubygems-update-2.4.6
+Parsing documentation for rubygems-update-2.5.1
 Done installing documentation for rubygems-update after 0 seconds
-Installing RubyGems 2.4.6
-RubyGems 2.4.6 installed
-Parsing documentation for rubygems-2.4.6
-Installing ri documentation for rubygems-2.4.6
+Installing RubyGems 2.5.1
+RubyGems 2.5.1 installed
+Parsing documentation for rubygems-2.5.1
+Installing ri documentation for rubygems-2.5.1
 
-=== 2.4.6 / 2014-02-05
+=== 2.5.1 / 2015-12-10
 
 Bug fixes:
 
-* Fixed resolving gems with both upper and lower requirement boundaries.
-  Issue #1141 by Jakub Jirutka.
+* Ensure platform sorting only uses strings. Affected binary installs on Windows.
+  Issue #1369 reported by Ryan Atball (among others).
+  Pull request #1375 by Samuel E. Giddins.
 
 ...
 
  -----------------------------------------------------------------------------
 
 RubyGems installed the following executables:
-	/opt/Ruby/ruby-2.2.2/bin/gem
+	/opt/Ruby/ruby-2.2.4/bin/gem
 
 Ruby Interactive (ri) documentation was installed. ri is kind of like man
 pages for ruby libraries. You may access it like this:
@@ -1196,7 +1204,7 @@ RubyGems system software updated</pre>
 <div class="listingblock">
 <div class="content">
 <pre># gem -v
-2.4.6</pre>
+2.5.1</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1216,66 +1224,101 @@ Installing darkfish documentation for bigdecimal-1.2.7
 Done installing documentation for bigdecimal after 2 seconds
 Parsing documentation for bigdecimal-1.2.7
 Done installing documentation for bigdecimal after 1 seconds
-Updating json
-Fetching: json-1.8.2.gem (100%)
+Updating io-console
+Fetching: io-console-0.4.5.gem (100%)
 Building native extensions.  This could take a while...
-Successfully installed json-1.8.2
-Parsing documentation for json-1.8.2
-Installing ri documentation for json-1.8.2
-Installing darkfish documentation for json-1.8.2
+Successfully installed io-console-0.4.5
+Parsing documentation for io-console-0.4.5
+Installing ri documentation for io-console-0.4.5
+Installing darkfish documentation for io-console-0.4.5
+Done installing documentation for io-console after 0 seconds
+Parsing documentation for io-console-0.4.5
+Done installing documentation for io-console after 0 seconds
+Updating json
+Fetching: json-1.8.3.gem (100%)
+Building native extensions.  This could take a while...
+Successfully installed json-1.8.3
+Parsing documentation for json-1.8.3
+Installing ri documentation for json-1.8.3
+Installing darkfish documentation for json-1.8.3
 (eval):19: warning: circular argument reference - max_nesting
 (eval):41: warning: circular argument reference - quirks_mode
 (eval):72: warning: circular argument reference - match_string
 (eval):72: warning: circular argument reference - match_string
 (eval):92: warning: circular argument reference - source
 Done installing documentation for json after 2 seconds
-Parsing documentation for json-1.8.2
+Parsing documentation for json-1.8.3
 Done installing documentation for json after 1 seconds
 Updating minitest
-Fetching: minitest-5.6.1.gem (100%)
-Successfully installed minitest-5.6.1
-Parsing documentation for minitest-5.6.1
-Installing ri documentation for minitest-5.6.1
-Installing darkfish documentation for minitest-5.6.1
+Fetching: minitest-5.8.3.gem (100%)
+Successfully installed minitest-5.8.3
+Parsing documentation for minitest-5.8.3
+Installing ri documentation for minitest-5.8.3
+Installing darkfish documentation for minitest-5.8.3
 Done installing documentation for minitest after 2 seconds
-Parsing documentation for minitest-5.6.1
+Parsing documentation for minitest-5.8.3
 Done installing documentation for minitest after 0 seconds
 Updating power_assert
-Fetching: power_assert-0.2.3.gem (100%)
-Successfully installed power_assert-0.2.3
-Parsing documentation for power_assert-0.2.3
-Installing ri documentation for power_assert-0.2.3
-Installing darkfish documentation for power_assert-0.2.3
+Fetching: power_assert-0.2.6.gem (100%)
+Successfully installed power_assert-0.2.6
+Parsing documentation for power_assert-0.2.6
+Installing ri documentation for power_assert-0.2.6
+Installing darkfish documentation for power_assert-0.2.6
 Done installing documentation for power_assert after 0 seconds
-Parsing documentation for power_assert-0.2.3
+Parsing documentation for power_assert-0.2.6
 Done installing documentation for power_assert after 0 seconds
 Updating psych
-Fetching: psych-2.0.13.gem (100%)
+Fetching: psych-2.0.17.gem (100%)
 Building native extensions.  This could take a while...
-Successfully installed psych-2.0.13
-Parsing documentation for psych-2.0.13
-Installing ri documentation for psych-2.0.13
-Installing darkfish documentation for psych-2.0.13
+Successfully installed psych-2.0.17
+Parsing documentation for psych-2.0.17
+Installing ri documentation for psych-2.0.17
+Installing darkfish documentation for psych-2.0.17
 Done installing documentation for psych after 2 seconds
-Parsing documentation for psych-2.0.13
+Parsing documentation for psych-2.0.17
 Done installing documentation for psych after 1 seconds
+Updating rdoc
+Fetching: rdoc-4.2.1.gem (100%)
+rdoc's executable "rdoc" conflicts with /opt/Ruby/ruby-2.2.4/bin/rdoc
+Overwrite the executable? [yN]  y   <img src="./images/icons/callouts/1.png" alt="1">
+rdoc's executable "ri" conflicts with /opt/Ruby/ruby-2.2.4/bin/ri
+Overwrite the executable? [yN]  y   <img src="./images/icons/callouts/1.png" alt="1">
+Depending on your version of ruby, you may need to install ruby rdoc/ri data:
+
+&lt;= 1.8.6 : unsupported
+ = 1.8.7 : gem install rdoc-data; rdoc-data --install
+ = 1.9.1 : gem install rdoc-data; rdoc-data --install
+&gt;= 1.9.2 : nothing to do! Yay!
+Successfully installed rdoc-4.2.1
+Parsing documentation for rdoc-4.2.1
+Installing ri documentation for rdoc-4.2.1
+Installing darkfish documentation for rdoc-4.2.1
+(eval):3: warning: string literal in condition
+(eval):2: warning: string literal in condition
+Done installing documentation for rdoc after 17 seconds
+Parsing documentation for rdoc-4.2.1
+Done installing documentation for rdoc after 9 seconds
 Updating test-unit
-Fetching: test-unit-3.0.9.gem (100%)
-Successfully installed test-unit-3.0.9
-Parsing documentation for test-unit-3.0.9
-Installing ri documentation for test-unit-3.0.9
-Installing darkfish documentation for test-unit-3.0.9
+Fetching: test-unit-3.1.5.gem (100%)
+Successfully installed test-unit-3.1.5
+Parsing documentation for test-unit-3.1.5
+Installing ri documentation for test-unit-3.1.5
+Installing darkfish documentation for test-unit-3.1.5
 Done installing documentation for test-unit after 4 seconds
-Parsing documentation for test-unit-3.0.9
+Parsing documentation for test-unit-3.1.5
 Done installing documentation for test-unit after 2 seconds
-Gems updated: bigdecimal json minitest power_assert psych test-unit   <img src="./images/icons/callouts/1.png" alt="1"></pre>
+Gems updated: bigdecimal io-console json minitest power_assert psych rdoc test-unit   <img src="./images/icons/callouts/2.png" alt="2"></pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Sechs <em>Gems</em> aktualisiert!</td>
+<td>Überschreiben&#8201;&#8212;&#8201;aktualisieren!</td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/2.png" alt="2"></td>
+<td>Acht <em>Gems</em> aktualisiert!</td>
 </tr>
 </table>
 </div>
@@ -1286,15 +1329,15 @@ Gems updated: bigdecimal json minitest power_assert psych test-unit   <img src="
 *** LOCAL GEMS ***
 
 bigdecimal (1.2.7, 1.2.6)
-io-console (0.4.3)
-json (1.8.2, 1.8.1)
-minitest (5.6.1, 5.4.3)
-power_assert (0.2.3, 0.2.2)
-psych (2.0.13, 2.0.8)
+io-console (0.4.5, 0.4.3)
+json (1.8.3, 1.8.1)
+minitest (5.8.3, 5.4.3)
+power_assert (0.2.6, 0.2.2)
+psych (2.0.17, 2.0.8)
 rake (10.4.2)
-rdoc (4.2.0)
-rubygems-update (2.4.6)    <img src="./images/icons/callouts/1.png" alt="1">
-test-unit (3.0.9, 3.0.8)</pre>
+rdoc (4.2.1, 4.2.0)
+rubygems-update (2.5.1)    <img src="./images/icons/callouts/1.png" alt="1">
+test-unit (3.1.5, 3.0.8)</pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -1306,7 +1349,7 @@ test-unit (3.0.9, 3.0.8)</pre>
 </table>
 </div>
 <div class="paragraph">
-<p><strong>Step 4:</strong> Dokumentation zu den installierten RubyGems aktualisieren</p>
+<p><strong>Step 3</strong>: Dokumentation <em>lokal</em> erstellen</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1314,10 +1357,10 @@ test-unit (3.0.9, 3.0.8)</pre>
 # rdoc .
 Parsing sources...
 Couldn't find file to include 'README.txt' from lib/ruby/gems/2.2.0/gems/minitest-5.4.3/lib/minitest.rb
-Couldn't find file to include 'README.rdoc' from lib/ruby/gems/2.2.0/gems/minitest-5.6.1/lib/minitest.rb
-100% [5682/5682]  share/man/man1/ruby.1
+Couldn't find file to include 'README.rdoc' from lib/ruby/gems/2.2.0/gems/minitest-5.8.3/lib/minitest.rb
+100% [7687/7687]  share/man/man1/ruby.1
 
-Generating Darkfish format into /opt/Ruby/ruby-2.2.2/doc...
+Generating Darkfish format into /opt/Ruby/ruby-2.2.4/doc...
 (eval):2: warning: regular expression has ']' without escape: /var&gt;] [--output-file=&lt;var&gt;filename&lt;/
 (eval):2: warning: character class has '-' without escape: /var&gt;] [--output-file=&lt;var&gt;filename&lt;/
 (eval):3: warning: regular expression has ']' without escape: /var&gt;] [--embedded=&lt;var&gt;rubypath&lt;/
@@ -1330,26 +1373,28 @@ Generating Darkfish format into /opt/Ruby/ruby-2.2.2/doc...
 (eval):72: warning: circular argument reference - match_string
 (eval):92: warning: circular argument reference - source
 (eval):10: warning: invalid character syntax; use ?\s
+(eval):3: warning: string literal in condition
+(eval):2: warning: string literal in condition
 
-  Files:       5682
+  Files:       7687
 
-  Classes:     1566 ( 860 undocumented)
-  Modules:      344 ( 187 undocumented)
-  Constants:   1001 ( 621 undocumented)
-  Attributes:  1253 ( 373 undocumented)
-  Methods:     8767 (3411 undocumented)
+  Classes:     1586 ( 867 undocumented)
+  Modules:      348 ( 189 undocumented)
+  Constants:   1014 ( 629 undocumented)
+  Attributes:  1278 ( 378 undocumented)
+  Methods:     8920 (3464 undocumented)
 
-  Total:      12931 (5452 undocumented)
-   57.84% documented
+  Total:      13146 (5527 undocumented)
+   57.96% documented
 
-  Elapsed: 364.6s   <img src="./images/icons/callouts/2.png" alt="2"></pre>
+  Elapsed: 511.3s   <img src="./images/icons/callouts/2.png" alt="2"></pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Entspricht: <em>/opt/Ruby/ruby-2.2.2</em></td>
+<td>Entspricht: <em>/opt/Ruby/ruby-2.2.4</em></td>
 </tr>
 <tr>
 <td><img src="./images/icons/callouts/2.png" alt="2"></td>
@@ -1360,11 +1405,11 @@ Generating Darkfish format into /opt/Ruby/ruby-2.2.2/doc...
 <div class="listingblock">
 <div class="content">
 <pre># ls -l
-drwxr-xr-x  2 root root  4096 Mai  8 15:48 bin
-drwxr-xr-x 89 root root 12288 Mai  8 15:59 doc       <img src="./images/icons/callouts/1.png" alt="1">
-drwxr-xr-x  3 root root  4096 Mai  6 15:21 include
-drwxr-xr-x  4 root root  4096 Mai  6 15:21 lib
-drwxr-xr-x  5 root root  4096 Mai  6 15:21 share</pre>
+drwxr-xr-x  2 root root  4096 Jan  4 19:33 bin
+drwxr-xr-x 90 root root 12288 Jan  4 19:42 doc       <img src="./images/icons/callouts/1.png" alt="1">
+drwxr-xr-x  3 root root  4096 Jan  4 19:27 include
+drwxr-xr-x  4 root root  4096 Jan  4 19:27 lib
+drwxr-xr-x  5 root root  4096 Jan  4 19:27 share</pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -1372,7 +1417,7 @@ drwxr-xr-x  5 root root  4096 Mai  6 15:21 share</pre>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
 <td>Das Dokumentations-Verzeichnis enthält die Datei <em>index.html</em>.<br>
-Das neue Verzeichnis belegt ca. 122M Speicherplatz.</td>
+Das neue Verzeichnis belegt ca. 128M Speicherplatz.</td>
 </tr>
 </table>
 </div>
@@ -1380,80 +1425,6 @@ Das neue Verzeichnis belegt ca. 122M Speicherplatz.</td>
 <div class="content">
 <pre>Browser&gt; file:///opt/Ruby/current22/doc/index.html</pre>
 </div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_installation_rails_4_2_1">Installation: rails-4.2.1</h3>
-<div class="paragraph">
-<p><strong>Step 0</strong></p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre># gem search ^rails$ --remote
-
-*** REMOTE GEMS ***
-
-rails (4.2.1)   <img src="./images/icons/callouts/1.png" alt="1"></pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Seit dem 19.03.2015 ist das die neueste Version des RubyGem <em>rails</em>.</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<img src="./images/icons/tip.png" alt="Tip">
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Die Installation der Dokumentation kann ausgelassen werden.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre># gem install rails --no-rdoc --no-ri   <img src="./images/icons/callouts/1.png" alt="1"></pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td><mark>- -no-rdoc - -no-ri</mark> &nbsp; In der Regel wird die offizielle Dokumentation genutzt:<br>
-&#8594; <a href="http://guides.rubyonrails.org/" class="bare">http://guides.rubyonrails.org/</a></td>
-</tr>
-</table>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Mit <mark>gem install &#8230;&#8203;</mark> werden auch alle Abhängigkeiten zu anderen RubyGems aufgelöst.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre># gem install rails --no-rdoc --no-ri
-Fetching: thread_safe-0.3.5.gem (100%)
-Successfully installed thread_safe-0.3.5
-...
-Fetching: rails-4.2.1.gem (100%)
-Successfully installed rails-4.2.1
-33 gems installed   <img src="./images/icons/callouts/1.png" alt="1"></pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Mit dem RubyGem <em>rails-4.2.1</em> wurden insgesamt 33 Gems installiert.<br>
-Hinweis: Weitere RubyGems müssen für das Framework <strong>Ruby on Rails</strong> installiert werden.</td>
-</tr>
-</table>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1463,23 +1434,8 @@ Hinweis: Weitere RubyGems müssen für das Framework <strong>Ruby on Rails</stro
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Alternativ kann <em>Rails</em> mit der Angabe einer Version installiert werden.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre># gem install rails --version 4.1.10
-
-# gem install rails --version '~&gt; 4.1.10'   <img src="./images/icons/callouts/1.png" alt="1"></pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Twiddle Wakka: <em>~&gt; 4.1.10</em> bedeutet, das die höchste Gem-Version von Rails<br>
-im Bereich von &gt;= 4.1.10 und &lt; 4.2 installiert wird.</td>
-</tr>
-</table>
+<p>Auf den Zugriff mit <em>ri</em> auf die Dokumentation von zusätzlichen <em>RubyGems</em>
+wird von <em>mir</em> bewußt verzichtet.</p>
 </div>
 </td>
 </tr>
@@ -1490,15 +1446,12 @@ im Bereich von &gt;= 4.1.10 und &lt; 4.2 installiert wird.</td>
 <h3 id="_asciidoctor">asciidoctor</h3>
 <div class="listingblock">
 <div class="content">
-<pre># gem install asciidoctor --no-rdoc --no-ri   <img src="./images/icons/callouts/1.png" alt="1"> <img src="./images/icons/callouts/2.png" alt="2">
-Fetching: asciidoctor-1.5.2.gem (100%)
-Successfully installed asciidoctor-1.5.2
-1 gem installed
-
-# gem install coderay --no-rdoc --no-ri   <img src="./images/icons/callouts/2.png" alt="2"> <img src="./images/icons/callouts/3.png" alt="3">
+<pre># gem install asciidoctor coderay --no-rdoc --no-ri   <img src="./images/icons/callouts/1.png" alt="1"> <img src="./images/icons/callouts/2.png" alt="2">
+Fetching: asciidoctor-1.5.4.gem (100%)
+Successfully installed asciidoctor-1.5.4
 Fetching: coderay-1.1.0.gem (100%)
 Successfully installed coderay-1.1.0
-1 gem installed</pre>
+2 gems installed</pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -1510,10 +1463,6 @@ into HTML 5, DocBook 4.5 and other formats.</td>
 </tr>
 <tr>
 <td><img src="./images/icons/callouts/2.png" alt="2"></td>
-<td>Dokumentation wurde ebenfalls erstellt.</td>
-</tr>
-<tr>
-<td><img src="./images/icons/callouts/3.png" alt="3"></td>
 <td><strong>CodeRay</strong> is a fast and easy syntax highlighting for selected languages, written in Ruby.<br>
 Comes with RedCloth integration and LOC counter.</td>
 </tr>
@@ -1524,13 +1473,13 @@ Comes with RedCloth integration and LOC counter.</td>
 <h3 id="_pry">pry</h3>
 <div class="listingblock">
 <div class="content">
-<pre>$ gem install pry   <img src="./images/icons/callouts/1.png" alt="1">
+<pre># gem install pry --no-rdoc --no-ri   <img src="./images/icons/callouts/1.png" alt="1">
 Fetching: slop-3.6.0.gem (100%)
 Successfully installed slop-3.6.0
 Fetching: method_source-0.8.2.gem (100%)
 Successfully installed method_source-0.8.2
-Fetching: pry-0.10.1.gem (100%)
-Successfully installed pry-0.10.1
+Fetching: pry-0.10.3.gem (100%)
+Successfully installed pry-0.10.3
 3 gems installed</pre>
 </div>
 </div>
@@ -1548,13 +1497,15 @@ Successfully installed pry-0.10.1
 <div class="listingblock">
 <div class="content">
 <pre># gem install sinatra --no-rdoc --no-ri   <img src="./images/icons/callouts/1.png" alt="1">
-Fetching: rack-protection-1.5.3.gem (100%)
-Successfully installed rack-protection-1.5.3
 Fetching: tilt-2.0.1.gem (100%)
 Successfully installed tilt-2.0.1
+Fetching: rack-1.6.4.gem (100%)
+Successfully installed rack-1.6.4
+Fetching: rack-protection-1.5.3.gem (100%)
+Successfully installed rack-protection-1.5.3
 Fetching: sinatra-1.4.6.gem (100%)
 Successfully installed sinatra-1.4.6
-3 gems installed</pre>
+4 gems installed</pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -1577,104 +1528,53 @@ eine in Ruby geschriebene <em>domänenspezifische</em> Sprache.<br>
 
 *** LOCAL GEMS ***
 
-actionmailer (4.2.1)
-actionpack (4.2.1)
-actionview (4.2.1)
-activejob (4.2.1)
-activemodel (4.2.1)
-activerecord (4.2.1)
-activesupport (4.2.1)
-arel (6.0.0)
-asciidoctor (1.5.2)
+asciidoctor (1.5.4)
 bigdecimal (1.2.7, 1.2.6)
-builder (3.2.2)
-bundler (1.9.6)
 coderay (1.1.0)
-erubis (2.7.0)
-globalid (0.3.5)
-i18n (0.7.0)
-io-console (0.4.3)
-json (1.8.2, 1.8.1)
-loofah (2.0.2)
-mail (2.6.3)
+io-console (0.4.5, 0.4.3)
+json (1.8.3, 1.8.1)
 method_source (0.8.2)
-mime-types (2.5)
-mini_portile (0.6.2)
-minitest (5.6.1, 5.4.3)
-nokogiri (1.6.6.2)
-power_assert (0.2.3, 0.2.2)
-pry (0.10.1)
-psych (2.0.13, 2.0.8)
-rack (1.6.1)
+minitest (5.8.3, 5.4.3)
+power_assert (0.2.6, 0.2.2)
+pry (0.10.3)
+psych (2.0.17, 2.0.8)
+rack (1.6.4)
 rack-protection (1.5.3)
-rack-test (0.6.3)
-rails (4.2.1)
-rails-deprecated_sanitizer (1.0.3)
-rails-dom-testing (1.0.6)
-rails-html-sanitizer (1.0.2)
-railties (4.2.1)
 rake (10.4.2)
-rdoc (4.2.0)
-rubygems-update (2.4.6)
+rdoc (4.2.1, 4.2.0)
+rubygems-update (2.5.1)
 sinatra (1.4.6)
 slop (3.6.0)
-sprockets (3.0.3)
-sprockets-rails (2.3.0)
-test-unit (3.0.9, 3.0.8)
-thor (0.19.1)
-thread_safe (0.3.5)
-tilt (2.0.1)
-tzinfo (1.2.2)</pre>
+test-unit (3.1.5, 3.0.8)
+tilt (2.0.1)</pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre>$ cd /opt/Ruby/current22
 $ ls -lrt bin
--rwxr-xr-x 1 root root 14313384 Mai  6 15:06 ruby
--rwxr-xr-x 1 root root      200 Mai  6 15:21 ri
--rwxr-xr-x 1 root root      950 Mai  6 15:21 rdoc
--rwxr-xr-x 1 root root     1256 Mai  6 15:21 rake
--rwxr-xr-x 1 root root      202 Mai  6 15:21 irb
--rwxr-xr-x 1 root root      558 Mai  6 15:21 gem
--rwxr-xr-x 1 root root     4854 Mai  6 15:21 erb
--rwxr-xr-x 1 root root      541 Mai  8 15:48 update_rubygems
--rwxr-xr-x 1 root root      513 Mai  8 16:16 nokogiri          <img src="./images/icons/callouts/1.png" alt="1">
--rwxr-xr-x 1 root root      505 Mai  8 16:16 erubis
--rwxr-xr-x 1 root root      499 Mai  8 16:16 rackup
--rwxr-xr-x 1 root root      517 Mai  8 16:16 sprockets
--rwxr-xr-x 1 root root      509 Mai  8 16:16 bundler
--rwxr-xr-x 1 root root      508 Mai  8 16:16 bundle
--rwxr-xr-x 1 root root      497 Mai  8 16:16 thor
--rwxr-xr-x 1 root root      510 Mai  8 16:16 rails             <img src="./images/icons/callouts/1.png" alt="1">
--rwxr-xr-x 1 root root      530 Mai  8 16:55 asciidoctor-safe
--rwxr-xr-x 1 root root      525 Mai  8 16:55 asciidoctor
--rwxr-xr-x 1 root root      509 Mai  8 16:55 coderay
--rwxr-xr-x 1 root root      497 Mai  8 16:55 tilt</pre>
+-rwxr-xr-x 1 root root 14318496 Jan  2 19:30 ruby
+-rwxr-xr-x 1 root root     4854 Jan  4 19:27 erb
+-rwxr-xr-x 1 root root     1256 Jan  4 19:27 rake
+-rwxr-xr-x 1 root root      202 Jan  4 19:27 irb
+-rwxr-xr-x 1 root root      558 Jan  4 19:27 gem
+-rwxr-xr-x 1 root root      541 Jan  4 19:32 update_rubygems
+-rwxr-xr-x 1 root root      499 Jan  4 19:33 rdoc
+-rwxr-xr-x 1 root root      497 Jan  4 19:33 ri
+-rwxr-xr-x 1 root root      532 Jan  4 19:44 asciidoctor-safe   <img src="./images/icons/callouts/1.png" alt="1">
+-rwxr-xr-x 1 root root      527 Jan  4 19:44 asciidoctor
+-rwxr-xr-x 1 root root      511 Jan  4 19:44 coderay
+-rwxr-xr-x 1 root root      495 Jan  4 19:45 pry
+-rwxr-xr-x 1 root root      499 Jan  4 19:46 tilt
+-rwxr-xr-x 1 root root      501 Jan  4 19:46 rackup</pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Die Kommandos <mark>nokogiri, &#8230;&#8203;, thor</mark> und natürlich auch <mark>rails</mark> wurden durch<br>
-<mark>gem install rails</mark> installiert.</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="./images/icons/note.png" alt="Note">
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Das Erstellen der Dokumentation müßte/könnte wiederholt werden&#8230;&#8203;
-aber mit Rails (33 Gems) zusätzlich - ist sie für viele Partitionen (mit ca. 12GB)
- - halt zu groß ;-)</p>
-</div>
-</td>
+<td>Die Kommandos <mark>asciidoctor-safe, &#8230;&#8203;, rackup</mark> wurden durch
+die zusätzlich installierten <em>RubyGems</em> eingerichtet.</td>
 </tr>
 </table>
 </div>
@@ -1701,16 +1601,8 @@ Server started at http://0.0.0.0:8808</pre>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ruby/rubygems22_documentation_index.png" alt="RubyGems 2.2 Documentation Index">
+<img src="images/ruby/rubygems22_documentation_index.jpg" alt="RubyGems 2.2 Documentation Index">
 </div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_ruby_on_rails_4_2_erste_schritte">Ruby on Rails 4.2: Erste Schritte &hellip;</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><a href="ruby22_1st.html">Ruby on Rails 4.2: Erste Schritte &hellip;</a></p>
 </div>
 </div>
 </div>
@@ -1718,15 +1610,15 @@ Server started at http://0.0.0.0:8808</pre>
 <h2 id="_anhang">Anhang</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Script zum Installieren von Ruby 2.2.2 (ohne weitere Erläuterung).</p>
+<p>Script zum Installieren von Ruby 2.2.4 (ohne weitere Erläuterung).</p>
 </div>
 <div class="listingblock">
 <div class="title">Datei: <code>ruby22-install.sh</code></div>
 <div class="content">
 <pre>#!/bin/bash
 #
-ME=make_ruby_2.2.2
-NAME=ruby-2.2.2
+ME=make_ruby_2.2.4
+NAME=ruby-2.2.4
 TARGET=/opt/Ruby/${NAME}
 
 if [ ! -e $TARGET ]
@@ -1738,7 +1630,7 @@ fi
 echo "Ziel-Verzeichnis:"
 ls -l $TARGET
 
-echo "Ruby 2.2.2-Installation fortsetzen (j/n)"
+echo "Ruby 2.2.4-Installation fortsetzen (j/n)"
 read dummy
 case $dummy in
   j|J|y|Y) echo "Installation wird fortgesetzt."
@@ -1760,7 +1652,7 @@ make all  | tee ../log.ruby_make-all
 make test | tee ../log.ruby_make-test
 
 echo
-echo "Ruby 2.2.2 installieren"
+echo "Ruby 2.2.4 installieren"
 sudo make install | tee ../log.ruby_make-install
 
 echo
@@ -1777,14 +1669,14 @@ echo "$ME: Ende."</pre>
   <span>&#8679;</span>
 </a>
 
-<span class="small">&middot; Document generated with Asciidoctor 1.5.2.</span></p>
+<span class="small">&middot; Document generated with Asciidoctor 1.5.4.</span></p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-05-23 20:19:03 MESZ
+Last updated 2016-01-09 18:17:59 MEZ
 </div>
 </div>
 </body>

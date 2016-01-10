@@ -47,7 +47,7 @@ des Programms {asciidoc-url}[AsciiDoc] aus dem QuellCode.
 die dazu dient, Texte in verschiedenen Dokumentenformaten zu 
 veröffentlichen.
 
-Der Artikel ist in {asciidoctor-url}[AsciiDoc] geschrieben 
+Der Artikel ist in {asciidoctor-url}[Asciidoctor] geschrieben 
 und mit _Asciidoctor 1.5.0.preview3_ erstellt worden.
 
 [CAUTION]
@@ -292,14 +292,14 @@ Mit dem folgenden Kommando erstellen Sie mit _asciidoc_ aus der Datei
 $ asciidoc -b html5 -a icons -a toc asciidoctor_1st.adoc
 ---- 
 
-link:asciidoctor_1st.html[AsciiDoc: Erste Schritte &hellip; mit Asciidoctor]
+link:asciidoctor.html[Asciidoctor: Erste Schritte &hellip;]
  
 
 Anhang
 ------
 .Text-Datei: `asciidoc_1st.adoc`  
 ----
-= AsciiDoc: Erste Schritte &hellip; mit AsciiDoc
+= Asciidoctor: Erste Schritte &hellip; 
 Opera sine nomine scripta — sid[at]example[dot]org
 
 Version 3.2.0, Mai 2015
@@ -345,5 +345,16 @@ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
 * {mit-url}[MIT-License]
 
 ''''
-link:asciidoc.html#_beispiel[zurück]
+link:asciidoctor.html#_asciidoctor_erste_schritte[zurück]
 ----
+
+
+'''
+ 
++++
+<a href="#top" title="zum Seitenanfang">
+  <span>&#8679;</span> 
+</a>
++++
+[small]#&middot; Document generated with Asciidoctor {asciidoctor-version}.#
+

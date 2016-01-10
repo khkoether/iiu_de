@@ -1,5 +1,5 @@
-IiU -- JRuby on Rails 4.2: Erste Schritte &hellip; 
-==================================================
+IiU -- JRuby on Rails 4.2 
+=========================
 Installation in Ubuntu — khkoether[at]kahweb[dot]de
 
 :icons:
@@ -20,9 +20,11 @@ Installation in Ubuntu — khkoether[at]kahweb[dot]de
 :jruby-download-url:  http://jruby.org/download
 
 :jdk-url:             link:jdk.html
-:jruby-version:       1.7.20.1
+:jruby-version:       1.7.23
+:jruby23-url:            link:jruby.html
+:jruby_on_rails42-url:   link:jruby_on_rails42.html
 
-Version 3.3.0, Juni 2015 
+Version 4.0.0, Januar 2016 
 
 
 Abstract
@@ -30,7 +32,7 @@ Abstract
 Die folgenden Schritte stellen die Funktionsfähigkeit der Installation 
 von {jruby-url}[JRuby] und {rubyonrails-url}[Ruby on Rails] (kurz: _Rails_) sicher. 
 
-Der Artikel ist in {asciidoctordocs-url}[AsciiDoc] geschrieben 
+Der Artikel ist in {asciidoctordocs-url}[Asciidoctor] geschrieben 
 und mit _Asciidoctor {asciidoctor-version}_ erstellt worden.
 
 [CAUTION]
@@ -48,33 +50,118 @@ Vorraussetzungen
 ----------------
 _JRuby_ und _Ruby on Rails_ sind wie in
 
-* {jruby-url}[IiU -- JRuby 1.7.20.1, rails-4.2.1]
+* {jruby23-url}[IiU -- JRuby 1.7.23]
  
 beschrieben durchgeführt worden.
 
-.JRuby 1.7.20.1
+[CAUTION]
+====
+Die hier aufgeführten Schritte werden beispielhaft für *JRuby 1.7.3* ausgeführt.
+
+Gelten aber, auch in dieser Reihenfolge, ebenfalls für die *JRuby-Version >= 9.0.0.0*.
+
+Eine Installation von *Ruby on Rails 5.0* ist nur mit *Ruby-Versionen >= 2.2* (*JRuby 9*) möglich!
+==== 
+
+.JRuby 1.7.23
 [options="nowrap"]
 ----
 $ which jruby
-/opt/JRuby/sid/current201/bin/jruby
+/opt/JRuby/sid/current23/bin/jruby
 
 $ jruby -v 
-jruby 1.7.20.1 (1.9.3p551) 2015-06-10 d7c8c27 on OpenJDK 64-Bit Server VM 1.7.0_79-b14 +jit [linux-amd64]
+jruby 1.7.23 (1.9.3p551) 2015-11-24 f496dd5 on OpenJDK 64-Bit Server VM 1.7.0_91-b02 +jit [linux-amd64]
 
-$ which rails
-/opt/JRuby/sid/current201/bin/rails
-
-$ jruby -S rails -v   <1>
-Rails 4.2.1
-
-$ rails -v     <2>
-Rails 4.2.1
+$ jruby -S gem -v   <1> <2>
+2.4.8
 ----
 <1> Der Schalter #-S# führt dazu, daß für das Script zuerst  
     das Verzeichnis `${JRUBY_HOME}/bin` geprüft wird - und
     dann der +PATH+.
 <2> Solange wie die ausführbaren Programme von _JRuby on Rails_ im +PATH+ vorangestellt
     werden, kann auf #jruby -S# verzichtet werden.       
+
+
+RubyGem: rails-4.2.5
+--------------------
+*Step 0* 
+----
+$ gem search ^rails$ --remote
+
+*** REMOTE GEMS ***
+
+rails (4.2.5)   <1>
+----
+<1> Seit dem 12.11.2015 ist das die neueste Version des RubyGem _rails_. 
+
+[TIP]
+====
+Eine mögliche Installation von zusätzlicher Dokumentation oder aktualisieren 
+der vorhandenen wird nicht durchgeführt. 
+----
+$ gem env
+RubyGems Environment:
+RubyGems Environment:
+  - RUBYGEMS VERSION: 2.4.8
+  - RUBY VERSION: 1.9.3 (2015-11-24 patchlevel 551) [java]
+  - INSTALLATION DIRECTORY: /opt/JRuby/sid/jruby-1.7.23/lib/ruby/gems/shared
+  - RUBY EXECUTABLE: /opt/JRuby/sid/jruby-1.7.23/bin/jruby
+  - EXECUTABLE DIRECTORY: /opt/JRuby/sid/jruby-1.7.23/bin
+  - SPEC CACHE DIRECTORY: /home/sid/.gem/specs
+  - SYSTEM CONFIGURATION DIRECTORY: /opt/JRuby/sid/jruby-1.7.23/etc
+  - RUBYGEMS PLATFORMS:
+    - ruby
+    - universal-java-1.7
+  - GEM PATHS:
+     - /opt/JRuby/sid/jruby-1.7.23/lib/ruby/gems/shared
+     - /home/sid/.gem/jruby/1.9
+  - GEM CONFIGURATION:
+     - :update_sources => true
+     - :verbose => true
+     - :backtrace => false
+     - :bulk_threshold => 1000
+     - "install" => "--no-rdoc --no-ri --env-shebang"   <1>
+     - "update" => "--no-rdoc --no-ri --env-shebang"    <1>
+  - REMOTE SOURCES:
+     - https://rubygems.org/
+  - SHELL PATH:
+     - /opt/JRuby/sid/current23/bin
+     - /usr/local/bin
+     - /usr/bin
+     - /bin
+     - /usr/local/games
+     - /usr/games
+---- 
+<1> In der Regel wird die offizielle Dokumentation im Internet genutzt: +
+    -> http://rubygems.org/ +
+    -> http://guides.rubyonrails.org/ 
+====
+
+Mit #gem install ...# werden auch alle Abhängigkeiten zu anderen RubyGems aufgelöst. 
+
+----
+$ gem install rails   
+Fetching: i18n-0.7.0.gem (100%)
+Successfully installed i18n-0.7.0
+...
+Fetching: rails-4.2.5.gem (100%)
+Successfully installed rails-4.2.5
+30 gems installed   <1>
+----
+<1> Mit dem RubyGem _rails-4.2.5_ wurden insgesamt 30 Gems installiert. +
+    Hinweis: Weitere RubyGems müssen für das Framework *Ruby on Rails* installiert werden.
+
+[NOTE]
+====
+Alternativ kann das RubyGem _rails_ mit der Angabe einer Version installiert werden.
+----
+# gem install rails --version 4.1.14
+
+# gem install rails --version '~> 4.1.14'   <1>
+----
+<1> Twiddle Wakka: '~> 4.1.14' bedeutet, das die höchste Gem-Version von Rails +
+    im Bereich von >= 4.1.14 und < 4.2 installiert wird. 
+====
 
 
 Erste Schritte &hellip;
@@ -121,38 +208,38 @@ Datenbankadapter installieren
 .Datenbankzugriff (via JDBC)
 ----
 $ gem install activerecord-jdbc-adapter
-Fetching: activerecord-jdbc-adapter-1.3.16.gem (100%)
-Successfully installed activerecord-jdbc-adapter-1.3.16
+Fetching: activerecord-jdbc-adapter-1.3.19.gem (100%)
+Successfully installed activerecord-jdbc-adapter-1.3.19
 1 gem installed
 ----
 
 .MySQL
 ----
 $ gem install activerecord-jdbcmysql-adapter
-Fetching: jdbc-mysql-5.1.35.gem (100%)
-Successfully installed jdbc-mysql-5.1.35
-Fetching: activerecord-jdbcmysql-adapter-1.3.16.gem (100%)
-Successfully installed activerecord-jdbcmysql-adapter-1.3.16
+Fetching: jdbc-mysql-5.1.37.gem (100%)
+Successfully installed jdbc-mysql-5.1.37
+Fetching: activerecord-jdbcmysql-adapter-1.3.19.gem (100%)
+Successfully installed activerecord-jdbcmysql-adapter-1.3.19
 2 gems installed
 ----
 
 .SQLite3
 ----
 $ gem install activerecord-jdbcsqlite3-adapter
-Fetching: jdbc-sqlite3-3.8.10.1.gem (100%)
-Successfully installed jdbc-sqlite3-3.8.10.1
-Fetching: activerecord-jdbcsqlite3-adapter-1.3.16.gem (100%)
-Successfully installed activerecord-jdbcsqlite3-adapter-1.3.16
+Fetching: jdbc-sqlite3-3.8.11.2.gem (100%)
+Successfully installed jdbc-sqlite3-3.8.11.2
+Fetching: activerecord-jdbcsqlite3-adapter-1.3.19.gem (100%)
+Successfully installed activerecord-jdbcsqlite3-adapter-1.3.19
 2 gems installed
 ----
 
 ----
 $ gem list --local | grep jdbc
-activerecord-jdbc-adapter (1.3.16)
-activerecord-jdbcmysql-adapter (1.3.16)
-activerecord-jdbcsqlite3-adapter (1.3.16)
-jdbc-mysql (5.1.35)
-jdbc-sqlite3 (3.8.10.1)
+activerecord-jdbc-adapter (1.3.19)
+activerecord-jdbcmysql-adapter (1.3.19)
+activerecord-jdbcsqlite3-adapter (1.3.19)
+jdbc-mysql (5.1.37)
+jdbc-sqlite3 (3.8.11.2)
 ----
 
 
@@ -171,8 +258,8 @@ die Kommandozeile.
 $ mysql -uroot -p
 Enter password: 
 Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 78
-Server version: 5.5.43-0ubuntu0.14.04.1 (Ubuntu)
+Your MySQL connection id is 79
+Server version: 5.5.46-0ubuntu0.14.04.2 (Ubuntu)
 
 Copyright (c) 2000, 2015, Oracle and/or its affiliates. All rights reserved.
 
@@ -198,8 +285,8 @@ Bye
 $ mysql -usid -p
 Enter password: 
 Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 78
-Server version: 5.5.43-0ubuntu0.14.04.1 (Ubuntu)
+Your MySQL connection id is 79
+Server version: 5.5.46-0ubuntu0.14.04.2 (Ubuntu)
 
 Copyright (c) 2000, 2015, Oracle and/or its affiliates. All rights reserved.
 
@@ -209,7 +296,7 @@ owners.
 
 Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
-mysql> CREATE DATABASE jmyapp_develpment;
+mysql> CREATE DATABASE myapp_develpment;
 Query OK, 1 row affected (0.00 sec)
 
 mysql> exit
@@ -224,7 +311,7 @@ $ cd
 $ mkdir RailsDir
 
 $ cd RailsDir
-$ rails _4.2.1_ new jMyApp --database=mysql -B  <1> <2> <3>
+$ rails _4.2.5_ new jMyApp --database=mysql -B  <1> <2> <3>
       create  
       create  README.rdoc
       create  Rakefile
@@ -262,10 +349,10 @@ $ rails _4.2.1_ new jMyApp --database=mysql -B  <1> <2> <3>
       create  vendor/assets/stylesheets
       create  vendor/assets/stylesheets/.keep
 ----
-<1> #_4.2.1_# -- Festlegen, welche Rails-Version verwendet werden soll. +
+<1> #_4.2.5_# -- Festlegen, welche Rails-Version verwendet werden soll. +
     #--database=mysql# -- Festlegen, welches DBMS verwendet werden soll.
 <2> Für das Datenbanksystem _SQLite3_ verkürzt sich der Aufruf: +
-    #rails _4.2.1_ new myapp#
+    #rails _4.2.5_ new myapp#
 <3> #-B# Don't run bundle install +
     Kein automatisches 'install' und 'update' von RubyGems!    
 <4> Die zu diesem Zeitpunkt für _Ruby on Rails_ benötigten RubyGems 
@@ -354,7 +441,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.1'
+gem 'rails', '4.2.5'
 # Use jdbcmysql as the database for Active Record
 gem 'activerecord-jdbcmysql-adapter'                <1>
 # Use SCSS for stylesheets
@@ -383,8 +470,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-group :development, :test do
-end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
@@ -405,56 +490,57 @@ Resolving dependencies..........
 Using rake 10.4.2   <1>
 Using i18n 0.7.0
 Using json 1.8.3
-Using minitest 5.7.0
+Using minitest 5.8.3
 Using thread_safe 0.3.5
-Using tzinfo 1.2.2
-Using activesupport 4.2.1
 Using builder 3.2.2
 Using erubis 2.7.0
-Using nokogiri 1.6.6.2
-Using rails-deprecated_sanitizer 1.0.3
-Using rails-dom-testing 1.0.6
-Using loofah 2.0.2
-Using rails-html-sanitizer 1.0.2
-Using actionview 4.2.1
-Using rack 1.6.1
-Using rack-test 0.6.3
-Using actionpack 4.2.1
-Using globalid 0.3.5
-Using activejob 4.2.1
-Using mime-types 2.6.1
-Using mail 2.6.3
-Using actionmailer 4.2.1
-Using activemodel 4.2.1
-Using arel 6.0.0
-Using activerecord 4.2.1
-Using activerecord-jdbc-adapter 1.3.16
-Using jdbc-mysql 5.1.35
-Using activerecord-jdbcmysql-adapter 1.3.16
-Using bundler 1.10.3
-Installing coffee-script-source 1.9.1.1   <2>
-Installing execjs 2.5.2
-Installing coffee-script 2.4.1
+Using nokogiri 1.6.7.1
+Using rack 1.6.4
+Using mime-types 2.99
+Using arel 6.0.3
+Using jdbc-mysql 5.1.37
+Using bundler 1.11.2
+Installing coffee-script-source 1.10.0   <2>
+Installing execjs 2.6.0
 Using thor 0.19.1
-Using railties 4.2.1
-Installing coffee-rails 4.1.0
-Installing multi_json 1.11.1
-Installing jbuilder 2.2.16
-Installing jquery-rails 4.0.3
-Using sprockets 3.2.0
-Using sprockets-rails 2.3.1
-Using rails 4.2.1
-Using rdoc 4.2.0
-Installing sass 3.4.14
-Installing tilt 1.4.1
-Installing sass-rails 5.0.3
-Installing sdoc 0.4.1
+Using concurrent-ruby 1.0.0
+Installing multi_json 1.11.2
+Installing sass 3.4.20
+Using tilt 2.0.2
 Installing therubyrhino_jar 1.7.6
+Using rdoc 4.2.1
+Using tzinfo 1.2.2
+Using loofah 2.0.3
+Using rack-test 0.6.3
+Using mail 2.6.3
+Installing coffee-script 2.4.1
+Installing uglifier 2.7.2
+Using sprockets 3.5.2
 Installing therubyrhino 2.0.4
+Installing sdoc 0.4.1
+Using activesupport 4.2.5
+Installing tzinfo-data 1.2015.7
+Using rails-html-sanitizer 1.0.2
+Using rails-deprecated_sanitizer 1.0.3
+Using globalid 0.3.6
+Using activemodel 4.2.5
+Installing jbuilder 2.4.0
+Using rails-dom-testing 1.0.7
+Using activejob 4.2.5
+Using activerecord 4.2.5
+Using actionview 4.2.5
+Using activerecord-jdbc-adapter 1.3.19
+Using actionpack 4.2.5
+Using activerecord-jdbcmysql-adapter 1.3.19
+Using actionmailer 4.2.5
+Using railties 4.2.5
+Using sprockets-rails 3.0.0
+Installing coffee-rails 4.1.1
+Installing jquery-rails 4.0.5
+Using rails 4.2.5
+Installing sass-rails 5.0.4
 Installing turbolinks 2.5.3
-Installing tzinfo-data 1.2015.4
-Installing uglifier 2.7.1
-Bundle complete! 11 Gemfile dependencies, 52 gems now installed.
+Bundle complete! 11 Gemfile dependencies, 53 gems now installed.
 Use `bundle show [gemname]` to see where a bundled gem is installed.
 ----
 <1> _Using_: Bereits installierte RubyGems
@@ -466,65 +552,66 @@ $ bundle check
 The Gemfile's dependencies are satisfied
 
 $ ls -l Gemfile*
--rw-rw-r-- 1 sid sid 1262 Jun 12 22:48 Gemfile
--rw-rw-r-- 1 sid sid 3844 Jun 12 22:52 Gemfile.lock
+-rw-rw-r-- 1 sid sid 1229 Jan  8 17:37 Gemfile
+-rw-rw-r-- 1 sid sid 3911 Jan  8 17:41 Gemfile.lock
 ----
 
 ----
 $ bundle list
 Gems included by the bundle:
-  * actionmailer (4.2.1)
-  * actionpack (4.2.1)
-  * actionview (4.2.1)
-  * activejob (4.2.1)
-  * activemodel (4.2.1)
-  * activerecord (4.2.1)
-  * activerecord-jdbc-adapter (1.3.16)
-  * activerecord-jdbcmysql-adapter (1.3.16)
-  * activesupport (4.2.1)
-  * arel (6.0.0)
+  * actionmailer (4.2.5)
+  * actionpack (4.2.5)
+  * actionview (4.2.5)
+  * activejob (4.2.5)
+  * activemodel (4.2.5)
+  * activerecord (4.2.5)
+  * activerecord-jdbc-adapter (1.3.19)
+  * activerecord-jdbcmysql-adapter (1.3.19)
+  * activesupport (4.2.5)
+  * arel (6.0.3)
   * builder (3.2.2)
-  * bundler (1.10.3)
-  * coffee-rails (4.1.0)
+  * bundler (1.11.2)
+  * coffee-rails (4.1.1)
   * coffee-script (2.4.1)
-  * coffee-script-source (1.9.1.1)
+  * coffee-script-source (1.10.0)
+  * concurrent-ruby (1.0.0)
   * erubis (2.7.0)
-  * execjs (2.5.2)
-  * globalid (0.3.5)
+  * execjs (2.6.0)
+  * globalid (0.3.6)
   * i18n (0.7.0)
-  * jbuilder (2.2.16)
-  * jdbc-mysql (5.1.35)
-  * jquery-rails (4.0.3)
+  * jbuilder (2.4.0)
+  * jdbc-mysql (5.1.37)
+  * jquery-rails (4.0.5)
   * json (1.8.3)
-  * loofah (2.0.2)
+  * loofah (2.0.3)
   * mail (2.6.3)
-  * mime-types (2.6.1)
-  * minitest (5.7.0)
-  * multi_json (1.11.1)
-  * nokogiri (1.6.6.2)
-  * rack (1.6.1)
+  * mime-types (2.99)
+  * minitest (5.8.3)
+  * multi_json (1.11.2)
+  * nokogiri (1.6.7.1)
+  * rack (1.6.4)
   * rack-test (0.6.3)
-  * rails (4.2.1)
+  * rails (4.2.5)
   * rails-deprecated_sanitizer (1.0.3)
-  * rails-dom-testing (1.0.6)
+  * rails-dom-testing (1.0.7)
   * rails-html-sanitizer (1.0.2)
-  * railties (4.2.1)
+  * railties (4.2.5)
   * rake (10.4.2)
-  * rdoc (4.2.0)
-  * sass (3.4.14)
-  * sass-rails (5.0.3)
+  * rdoc (4.2.1)
+  * sass (3.4.20)
+  * sass-rails (5.0.4)
   * sdoc (0.4.1)
-  * sprockets (3.2.0)
-  * sprockets-rails (2.3.1)
+  * sprockets (3.5.2)
+  * sprockets-rails (3.0.0)
   * therubyrhino (2.0.4)
   * therubyrhino_jar (1.7.6)
   * thor (0.19.1)
   * thread_safe (0.3.5)
-  * tilt (1.4.1)
+  * tilt (2.0.2)
   * turbolinks (2.5.3)
   * tzinfo (1.2.2)
-  * tzinfo-data (1.2015.4)
-  * uglifier (2.7.1)
+  * tzinfo-data (1.2015.7)
+  * uglifier (2.7.2)
 ----
 
 
@@ -546,19 +633,20 @@ development:
 [...]
 default: &default
   adapter: mysql
-  encoding: utf8
-  pool: 5
+  #encoding: utf8   <2>
+  #pool: 5          <2>
   username: sid                 <---          
   password: g3h3im              <---
-  socket: /var/run/mysqld/mysqld.sock
+  host: localhost
 
 development:   <1>
   <<: *default
-  database: jmyapp_development   <2>
+  database: jmyapp_development   <3>
 [...]  
 ----
 <1> Es werden ausschließlich die zu _default_ geänderten Einträge aufgeführt.
-<2> Der hier vorgeschlagene Datenbank-Name wird von _Ruby on Rails_
+<2> Bei Bedarf das Kommentarzeichen entfernen.
+<3> Der hier vorgeschlagene Datenbank-Name wird von _Ruby on Rails_
     automatisch gebildet: +
     Name der Applikation 'MyApp' und dem Zusatz '_development'
 
@@ -602,17 +690,17 @@ Warbler installieren
 .WAR (WAR ist ein Dateiformat und steht für Web Application Archive) 
 ----
 $ gem install warbler
+Fetching: jruby-jars-1.7.23.gem (100%)     <1>
+Successfully installed jruby-jars-1.7.23
+Fetching: jruby-rack-1.1.19.gem (100%)
+Successfully installed jruby-rack-1.1.19
 Fetching: rubyzip-1.1.7.gem (100%)
 Successfully installed rubyzip-1.1.7
-Fetching: jruby-rack-1.1.18.gem (100%)
-Successfully installed jruby-rack-1.1.18
-Fetching: jruby-jars-1.7.20.1.gem (100%)     <1>
-Successfully installed jruby-jars-1.7.20.1
-Fetching: warbler-1.4.8.gem (100%)
-Successfully installed warbler-1.4.8
+Fetching: warbler-1.4.9.gem (100%)
+Successfully installed warbler-1.4.9
 4 gems installed
 ----
-<1> *jruby-jars-1.7.20.1* includes the core JRuby code and the 
+<1> *jruby-jars-1.7.23* includes the core JRuby code and the 
     JRuby 1.8/1.9 stdlib as jar files. It provides a way to have 
     other gems depend on JRuby without including (and freezing to) 
     a specific jruby-complete jar version.
@@ -626,42 +714,39 @@ Entwicklungs-Umgebung verwendet.
 [options="nowrap"]
 ----
 $ jruby bin/rails s 
-NOTE: ActiveRecord 4.2 is not (yet) fully supported by AR-JDBC, please help us finish 4.2 support - check http://bit.ly/jruby-42 for starters   <1>
 => Booting WEBrick
-=> Rails 4.2.1 application starting in development on http://localhost:3000   <2>
+=> Rails 4.2.5 application starting in development on http://localhost:3000   <1>
 => Run `rails server -h` for more startup options
 => Ctrl-C to shutdown server
-[2015-05-22 23:15:19] INFO  WEBrick 1.3.1
-[2015-05-22 23:15:19] INFO  ruby 1.9.3 (2015-05-04) [java]   <3>
-[2015-05-22 23:15:19] INFO  WEBrick::HTTPServer#start: pid=15678 port=3000
+[2016-01-08 17:53:19] INFO  WEBrick 1.3.1
+[2016-01-08 17:53:19] INFO  ruby 1.9.3 (2015-11-24) [java]   <2>
+[2016-01-08 17:53:19] INFO  WEBrick::HTTPServer#start: pid=11252 port=3000
 ...
 ----
-<1> Bitte um Unterstützung...
-<2> Der Webserver läuft ohne Port-Angabe (_--port_ ...) auf Port 3000.
-<3> Ruby Version 1.9.3
+<1> Der Webserver läuft ohne Port-Angabe (_--port_ ...) auf Port 3000.
+<2> Ruby Version 1.9.3
 
-.Grundsätzlicher Test der Verbindung
--> http://localhost:3000/
-
-.Link zu weiteren Informationen
--> http://localhost:3000/rails/info/properties +
-Ruby-Version, RubyGems, Verzeichnis, Umgebung, Datenbank, Datenbank-Schema
+----
+BROWSER> http://localhost:3000/   <1>
+         About your application’s environment   <2>       
+----
+<1> Grundsätzlicher Test der Verbindung!
+<2> Link zu weiteren Informationen...
 
 .Ausgabe der weiteren Informationen im Terminal 
 [options="nowrap"]
 ----
 $ rake about  
-NOTE: ActiveRecord 4.2 is not (yet) fully supported by AR-JDBC, please help us finish 4.2 support - check http://bit.ly/jruby-42 for starters
 About your application's environment
-Rails version             4.2.1
+Rails version             4.2.5
 Ruby version              1.9.3-p551 (java)   <1>
 RubyGems version          2.4.8
-Rack version              1.6.1
+Rack version              1.6.4
 JavaScript Runtime        therubyrhino (Rhino)
 Middleware                Rack::Sendfile, 
                           ActionDispatch::Static, 
                           Rack::Lock, 
-                          #<ActiveSupport::Cache::Strategy::LocalCache::Middleware:0xf10962e>, 
+                          #<ActiveSupport::Cache::Strategy::LocalCache::Middleware:0x2dc584da>, 
                           Rack::Runtime, 
                           Rack::MethodOverride, 
                           ActionDispatch::RequestId, 
@@ -685,6 +770,7 @@ Application root          /home/sid/RailsDir/jMyApp
 Environment               development
 Database adapter          mysql
 Database schema version   0
+
 ----
 <1> Ruby Version 1.9.3 (java)
 
@@ -698,86 +784,78 @@ $ gem list --local
 
 *** LOCAL GEMS ***
 
-actionmailer (4.2.1)
-actionpack (4.2.1)
-actionview (4.2.1)
-activejob (4.2.1)
-activemodel (4.2.1)
-activerecord (4.2.1)
-activerecord-jdbc-adapter (1.3.16)
-activerecord-jdbcmysql-adapter (1.3.16)
-activerecord-jdbcsqlite3-adapter (1.3.16)
-activesupport (4.2.1)
-arel (6.0.0)
-asciidoctor (1.5.2)
+actionmailer (4.2.5)
+actionpack (4.2.5)
+actionview (4.2.5)
+activejob (4.2.5)
+activemodel (4.2.5)
+activerecord (4.2.5)
+activerecord-jdbc-adapter (1.3.19)
+activerecord-jdbcmysql-adapter (1.3.19)
+activerecord-jdbcsqlite3-adapter (1.3.19)
+activesupport (4.2.5)
+arel (6.0.3)
+asciidoctor (1.5.4)
 awesome_print (1.6.1)
-axiom-types (0.1.1)
 builder (3.2.2)
-bundler (1.10.3)
+bundler (1.11.2)
 coderay (1.1.0)
-coercible (1.0.0)
-coffee-rails (4.1.0)
+coffee-rails (4.1.1)
 coffee-script (2.4.1)
-coffee-script-source (1.9.1.1)
-descendants_tracker (0.0.4)
-equalizer (0.0.11)
+coffee-script-source (1.10.0)
+concurrent-ruby (1.0.0 java)
 erubis (2.7.0)
-execjs (2.5.2)
-ffi (1.9.8 java)
-globalid (0.3.5)
+execjs (2.6.0)
+ffi (1.9.10 java)
+globalid (0.3.6)
 i18n (0.7.0)
-ice_nine (0.11.1)
-jar-dependencies (0.1.14, 0.1.13)
-jbuilder (2.2.16)
-jdbc-mysql (5.1.35)
-jdbc-sqlite3 (3.8.10.1)
-jquery-rails (4.0.3)
-jruby-jars (1.7.20.1)
-jruby-openssl (0.9.7 java)
-jruby-rack (1.1.18)
+jar-dependencies (0.3.1, 0.2.6)
+jbuilder (2.4.0)
+jdbc-mysql (5.1.37)
+jdbc-sqlite3 (3.8.11.2)
+jquery-rails (4.0.5)
+jruby-jars (1.7.23)
+jruby-openssl (0.9.13 java, 0.9.11 java)
+jruby-rack (1.1.19)
 json (1.8.3 java, 1.8.0 java)
-loofah (2.0.2)
+loofah (2.0.3)
 mail (2.6.3)
-maven-tools (1.0.9)
 method_source (0.8.2)
-mime-types (2.6.1)
-minitest (5.7.0)
-multi_json (1.11.1)
-nokogiri (1.6.6.2 java)
-pry (0.10.1 java)
-rack (1.6.1)
+mime-types (2.99)
+minitest (5.8.3)
+multi_json (1.11.2)
+nokogiri (1.6.7.1 java)
+pry (0.10.3 java)
+rack (1.6.4)
 rack-protection (1.5.3)
 rack-test (0.6.3)
-rails (4.2.1)
+rails (4.2.5)
 rails-deprecated_sanitizer (1.0.3)
-rails-dom-testing (1.0.6)
+rails-dom-testing (1.0.7)
 rails-html-sanitizer (1.0.2)
-railties (4.2.1)
+railties (4.2.5)
 rake (10.4.2, 10.1.0)
-rdoc (4.2.0, 4.1.2)
-rdoc-data (4.0.1)
-ruby-maven (3.3.2, 3.1.1.0.8)
-ruby-maven-libs (3.3.3, 3.1.1)
+rdoc (4.2.1, 4.1.2)
+rdoc-data (4.1.0)
 rubyzip (1.1.7)
-sass (3.4.14)
-sass-rails (5.0.3)
+sass (3.4.20)
+sass-rails (5.0.4)
 sdoc (0.4.1)
 sinatra (1.4.6)
 slop (3.6.0)
 spoon (0.0.4)
-sprockets (3.2.0)
-sprockets-rails (2.3.1)
+sprockets (3.5.2)
+sprockets-rails (3.0.0)
 therubyrhino (2.0.4)
 therubyrhino_jar (1.7.6)
 thor (0.19.1)
 thread_safe (0.3.5 java)
-tilt (2.0.1, 1.4.1)
+tilt (2.0.2)
 turbolinks (2.5.3)
 tzinfo (1.2.2)
-tzinfo-data (1.2015.4)
-uglifier (2.7.1)
-virtus (1.0.5)
-warbler (1.4.8)
+tzinfo-data (1.2015.7)
+uglifier (2.7.2)
+warbler (1.4.9)
 ----
 
 

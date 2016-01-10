@@ -1,7 +1,7 @@
 = Asciidoctor: Erste Schritte &hellip; 
 Opera sine nomine scripta — sid[at]example[dot]org
 
-Version 3.2.0, Mai 2015
+Version 4.0.0, Januar 2016
 
 :icons:
 :Author Initials: sid
@@ -46,7 +46,7 @@ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
 * {mit-url}[MIT-License]
 
 '''
-link:asciidoc.html#_beispiel[zurück]
+link:asciidoctor.html#_asciidoctor_erste_schritte[zurück]
 
 
 

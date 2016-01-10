@@ -1,4 +1,4 @@
-IiU -- Git 2.4.0
+IiU -- Git 2.7.0
 ================
 Installation in Ubuntu — khkoether[at]kahweb[dot]de
 
@@ -12,9 +12,9 @@ Installation in Ubuntu — khkoether[at]kahweb[dot]de
 
 :git-url:             http://git-scm.com/
 :git-download-url:    https://www.kernel.org/pub/software/scm/git/
-:git-version: 2.4.0
+:git-version: 2.7.0
 
-Version 3.2.0, Mai 2015
+Version 4.0.0, Januar 2016
 
 
 Abstract
@@ -25,7 +25,7 @@ des Programms {git-url}[Git] aus dem QuellCode.
 {git-url}[Git] ist ein freies verteiltes Versionskontrollsystem 
 (DVCS - Distributed Version Control System).
 
-Der Artikel ist in {asciidoctordocs-url}[AsciiDoc] geschrieben 
+Der Artikel ist in {asciidoctordocs-url}[Asciidoctor] geschrieben 
 und mit _Asciidoctor {asciidoctor-version}_ erstellt worden.
 
 [CAUTION]
@@ -55,10 +55,10 @@ Ubuntu 14.04 LTS (Trusty Tahr) enthält das Paket _git-core_1.9.1-1_all_.
 Download
 --------
 * {git-download-url}[Git] +    
-  `git-2.4.0.tar.gz`  (ca. 5.1M) +
-  `git-htmldocs-2.4.0.tar.gz`  (ca. 2.3M) +
-  `git-manpages-2.4.0.tar.gz`  (ca. 579K) +
-  2015-04-30 (Release date)
+  `git-2.7.0.tar.gz`  (ca. 5.4M) +
+  `git-htmldocs-2.7.0.tar.gz`  (ca. 2.4M) +
+  `git-manpages-2.7.0.tar.gz`  (ca. 598K) +
+  2016-01-04 (Release date)
   
 [NOTE] 
 ====
@@ -68,9 +68,9 @@ Die eigentliche Installation von Git wird vom
 Benutzer 'root' für das System durchgeführt.
 ----
 $ ls -lh
--rw-rw-r--  1 sid sid 5,1M Mai  6 14:21 git-2.4.0.tar.gz
--rw-rw-r--  1 sid sid 2,3M Mai  6 14:21 git-htmldocs-2.4.0.tar.gz
--rw-rw-r--  1 sid sid 580K Mai  6 14:21 git-manpages-2.4.0.tar.gz
+-rw-rw-r-- 1 sid sid 5,4M Jan  8 18:05 git-2.7.0.tar.gz
+-rw-rw-r-- 1 sid sid 2,4M Jan  8 18:04 git-htmldocs-2.7.0.tar.gz
+-rw-rw-r-- 1 sid sid 599K Jan  8 18:05 git-manpages-2.7.0.tar.gz
 ----
 ====
 
@@ -100,14 +100,14 @@ Beispiel für die Änderung des Installations-Verzeichnisses: +
 
 *Step 1:* Auspacken des Source-Code
 ----
-$ tar xvzf git-2.4.0.tar.gz
-$ cd git-2.4.0
+$ tar xvzf git-2.7.0.tar.gz
+$ cd git-2.7.0
 ----
 
 *Step 2:* Konfiguration erstellen und kompilieren
 ----
 $ make configure | tee ../log.git_make-configure
-GIT_VERSION = 2.4.0
+GIT_VERSION = 2.7.0
     GEN configure
 
 $ ./configure | tee ../log.git_configure
@@ -125,7 +125,7 @@ config.status: executing config.mak.autogen commands
 $ make | tee ../log.git_make
     * new build flags
     CC credential-store.o
-    [...]
+    ...
     GEN bin-wrappers/test-wildmatch
     GEN git-remote-testgit
 ----
@@ -135,7 +135,7 @@ $ make | tee ../log.git_make
 $ sudo make install | tee ../log.git_make-install   <1>
     GEN perl/PM.stamp
     SUBDIR perl
-    [...]
+    ...
     ./check_bindir "z$bindir" "z$execdir" "$bindir/git-add"
 ----
 <1> Die Installation wird bei mir im Verzeichnis `/usr/local/bin` ausgeführt.
@@ -146,8 +146,8 @@ $ cd /usr/local/share/doc
 $ sudo mkdir git-doc
 
 $ cd git-doc
-$ sudo tar xvzf git-htmldocs-2.4.0.tar.gz
-[...]
+$ sudo tar xvzf git-htmldocs-2.7.0.tar.gz
+...
 ./git-unpack-file.html
 
 $ cd ..
@@ -155,15 +155,15 @@ $ sudo chown -R root.root git-doc   <1>
 $ sudo chmod -R a+rx git-doc
 
 $ ls -l 
-drwxr-xr-x 5 root root 20480 Dez 18 19:46 git-doc
+drwxr-xr-x 5 root root 20480 Jan  5 00:32 git-doc
 ----
 <1> Unbedingt die Rechte an den Dateien und den Ordnern anpassen!
 
 .Documentation: man-pages
 ----
 $ cd /usr/local/share/man  
-$ sudo tar xvzf git-manpages-2.4.0.tar.gz 
-[...]
+$ sudo tar xvzf git-manpages-2.7.0.tar.gz 
+...
 ./man7/giteveryday.7
 
 $ cd ..
@@ -171,10 +171,10 @@ $ sudo chown -R root.root man   <1>
 $ sudo chmod -R a+rx man
 
 $ ls -l man
-drwxr-xr-x 2 root root 4096 Apr 30 21:15 man1
-drwxrwxr-x 2 root root 4096 Mai  6 14:31 man3
-drwxr-xr-x 2 root root 4096 Apr 30 21:15 man5
-drwxr-xr-x 2 root root 4096 Apr 30 21:15 man7
+drwxr-xr-x 2 root root 4096 Jan  5 00:33 man1
+drwxrwxr-x 2 root root 4096 Jan  8 18:12 man3
+drwxr-xr-x 2 root root 4096 Jan  5 00:33 man5
+drwxr-xr-x 2 root root 4096 Jan  5 00:33 man7
 ----
 <1> Unbedingt die Rechte an den Dateien und den Ordnern anpassen!
 
@@ -182,13 +182,18 @@ drwxr-xr-x 2 root root 4096 Apr 30 21:15 man7
 ----
 $ cd /usr/local/bin
 $ ls -l git*
--rwxr-xr-x 113 root root 9100486 Mai  6 14:31 git
--rwxr-xr-x   2 root root  162423 Mai  6 14:31 git-cvsserver
--rwxr-xr-x   1 root root  346683 Mai  6 14:31 gitk
--rwxr-xr-x 113 root root 9100486 Mai  6 14:31 git-receive-pack
--rwxr-xr-x   2 root root 4382748 Mai  6 14:31 git-shell
--rwxr-xr-x 113 root root 9100486 Mai  6 14:31 git-upload-archive
--rwxr-xr-x   2 root root 4472176 Mai  6 14:31 git-upload-pack
+-rwxr-xr-x 117 root root 9834835 Jan  8 18:12 git
+-rwxr-xr-x   2 root root  162423 Jan  8 18:12 git-cvsserver
+-rwxr-xr-x   1 root root  348785 Jan  8 18:12 gitk
+-rwxr-xr-x 117 root root 9834835 Jan  8 18:12 git-receive-pack
+-rwxr-xr-x   2 root root 4737325 Jan  8 18:12 git-shell
+-rwxr-xr-x 117 root root 9834835 Jan  8 18:12 git-upload-archive
+-rwxr-xr-x   2 root root 5169432 Jan  8 18:12 git-upload-pack
+----
+
+----
+$ git --version
+git version 2.7.0
 ----
 
 ----
@@ -210,9 +215,9 @@ DESCRIPTION
        unusually rich command set that provides both high-level operations and
        full access to internals.
 
-       See gittutorial(7) to get started, then see Everyday Git[1] for a
-       useful minimum set of commands. The Git User’s Manual[2] has a more
-       in-depth introduction.
+       See gittutorial(7) to get started, then see giteveryday(7) for a useful
+       minimum set of commands. The Git User’s Manual[1] has a more in-depth
+       introduction.
 
        After you mastered the basic concepts, you can come back to this page
        to learn what commands Git offers. You can learn more about individual
@@ -222,12 +227,12 @@ DESCRIPTION
        Formatted and hyperlinked version of the latest Git documentation can
        be viewed at http://git-htmldocs.googlecode.com/git/git.html.
 
-[...]
+...
 
 AUTHORS
        Git was started by Linus Torvalds, and is currently maintained by Junio
        C Hamano. Numerous contributions have come from the Git mailing list
-       <git@vger.kernel.org[6]>.
+       <git@vger.kernel.org[5]>.
        http://www.openhub.net/p/git/contributors/summary gives you a more
        complete list of contributors.
 
@@ -236,38 +241,35 @@ AUTHORS
        project.
 
 REPORTING BUGS
-       Report bugs to the Git mailing list <git@vger.kernel.org[6]> where the
+       Report bugs to the Git mailing list <git@vger.kernel.org[5]> where the
        development and maintenance is primarily done. You do not have to be
        subscribed to the list to send a message there.
 
 SEE ALSO
-       gittutorial(7), gittutorial-2(7), Everyday Git[1], gitcvs-migration(7),
+       gittutorial(7), gittutorial-2(7), giteveryday(7), gitcvs-migration(7),
        gitglossary(7), gitcore-tutorial(7), gitcli(7), The Git User’s
-       Manual[2], gitworkflows(7)
+       Manual[1], gitworkflows(7)
 
 GIT
        Part of the git(1) suite
 
 NOTES
-        1. Everyday Git
-           file:///usr/local/share/doc/git-doc/everyday.html
+        1. Git User’s Manual
+           git-htmldocs/user-manual.html
 
-        2. Git User’s Manual
-           file:///usr/local/share/doc/git-doc/user-manual.html
+        2. Git concepts chapter of the user-manual
+           git-htmldocs/user-manual.html#git-concepts
 
-        3. git concepts chapter of the user-manual
-           file:///usr/local/share/doc/git-doc/user-manual.html#git-concepts
+        3. howto
+           git-htmldocs/howto-index.html
 
-        4. howto
-           file:///usr/local/share/doc/git-doc/howto-index.html
+        4. Git API documentation
+           git-htmldocs/technical/api-index.html
 
-        5. GIT API documentation
-           file:///usr/local/share/doc/git-doc/technical/api-index.html
-
-        6. git@vger.kernel.org
+        5. git@vger.kernel.org
            mailto:git@vger.kernel.org
 
-Git 2.4.0                         04/30/2015                            GIT(1)
+Git 2.7.0                         01/04/2016                            GIT(1)
 ----
  
 ----
@@ -307,7 +309,7 @@ SEE ALSO
 GIT
        Part of the git(1) suite
 
-Git 2.4.0                         04/30/2015                           GITK(1)
+Git 2.7.0                         01/04/2016                           GITK(1)
 ----
 
 ----
@@ -341,9 +343,7 @@ $ find /usr/local -type d -cmin -10
 /usr/local/share/locale/bg/LC_MESSAGES
 /usr/local/share/locale/zh_CN
 /usr/local/share/locale/zh_CN/LC_MESSAGES
-/usr/local/share/perl/5.18.2
 /usr/local/share/perl/5.18.2/Git
-/usr/local/share/perl/5.18.2/Git/SVN
 /usr/local/share/git-gui/lib
 /usr/local/share/git-gui/lib/msgs
 /usr/local/share/gitk/lib/msgs
@@ -397,7 +397,7 @@ Browser> file:///usr/local/share/doc/git-doc/git-config.html
 
 Anhang
 ------
-Script zum Installieren von {git-url}[Git] 2.4.0 (ohne weitere Erläuterung). +
+Script zum Installieren von {git-url}[Git] 2.7.0 (ohne weitere Erläuterung). +
 Die Dokumentation zu {git-url}[Git] wird mit diesem Script _nicht_ installiert.
 
 .Datei: `git-install.sh`
@@ -405,7 +405,7 @@ Die Dokumentation zu {git-url}[Git] wird mit diesem Script _nicht_ installiert.
 #!/bin/bash
 #
 ME=make_git
-NAME=git-2.4.0
+NAME=git-2.7.0
 
 ls -l git*.tar.gz
 echo 
