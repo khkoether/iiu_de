@@ -77,7 +77,7 @@ Auswahl
 * {ruby23-url}[Ruby 2.3.0]
 * {ruby_on_rails42-url}[Ruby on Rails 4.2]
 * {jdk-url}[OpenJDK 7, Oracle JDK 8]
-* {jruby-url}[JRuby 1.7.23]
+* {jruby23-url}[JRuby 1.7.23]
 * {jruby_on_rails42-url}[JRuby on Rails 4.2]
 * {netbeans8-url}[NetBeans IDE 8.0]
 * {netbeans8_1st-url}[NetBeans IDE 8.0: Erste Schritte &hellip;]
