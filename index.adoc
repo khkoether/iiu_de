@@ -15,8 +15,6 @@ Installation in Ubuntu — khkoether[at]kahweb[dot]de
 :asciidoctor_1st-url:  link:asciidoctor_1st.html
 :git-url:              link:git.html
 :jdk-url:              link:jdk.html
-:jruby_1st-url:        link:jruby_1st.html
-:jruby-url:            link:jruby.html
 :netbeans7-url:        link:netbeans7.html
 :netbeans7_1st-url:    link:netbeans7_1st.html
 :netbeans8-url:        link:netbeans8.html
@@ -108,8 +106,8 @@ Dateien
 ./images/jruby      <-- Image des RubyGems Documentation Index
 
 NAME = { index asciidoctor asciidoctor_1st asciidoc git
-               ruby19 ruby20 ruby21 ruby21_1st  ruby22 ruby22_1st
-               jdk jruby jruby_1st netbeans netbeans_1st }
+               ruby19 ruby20 ruby21 ruby22 ruby23 ruby_on_rails42
+               jdk jruby jruby_on_rails42 netbeans netbeans_1st }
 ....
 
 ----
