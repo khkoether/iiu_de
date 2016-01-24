@@ -35,7 +35,7 @@ Die Artikel sind in AsciiDoc geschrieben und mit Asciidoctor erstellt worden.
  * Ruby 2.3.0
  * Ruby on Rails 4.2
  * OpenJDK 7, Oracle JDK 8
- * JRuby 1.7.23
+ * JRuby 1.7.24
  * JRuby on Rails 4.2
  * NetBeans IDE 8.0
  * NetBeans IDE 8.0: Erste Schritte ...

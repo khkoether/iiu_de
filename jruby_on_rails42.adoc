@@ -4,27 +4,28 @@ Installation in Ubuntu — khkoether[at]kahweb[dot]de
 
 :icons:
 :Author Initials: KHK
-:creativecommons-url: http://creativecommons.org/licenses/by/4.0/deed.de
-:mit-url:             http://opensource.org/licenses/mit-license.php  
-:ubuntu-url:          http://www.ubuntu.com/
-:asciidoctor-url:     http://asciidoctor.org/
-:asciidoctordocs-url: http://asciidoctor.org/docs/
-:git-url:             http://git-scm.com/
-:git-download-url:    https://www.kernel.org/pub/software/scm/git/
-:ruby-url:            https://www.ruby-lang.org/de/
-:ruby-download-url:   https://www.ruby-lang.org/de/downloads/
-:rubyonrails-url:     http://www.rubyonrails.org
+:creativecommons-url:    http://creativecommons.org/licenses/by/4.0/deed.de
+:mit-url:                http://opensource.org/licenses/mit-license.php  
+:ubuntu-url:             http://www.ubuntu.com/
+:asciidoctor-url:        http://asciidoctor.org/
+:asciidoctordocs-url:    http://asciidoctor.org/docs/
+:git-url:                http://git-scm.com/
+:git-download-url:       https://www.kernel.org/pub/software/scm/git/
 
-:java-url:            http://www.oracle.com/technetwork/java/javase/downloads/index.html
-:jruby-url:           http://jruby.org/
-:jruby-download-url:  http://jruby.org/download
+:ruby-url:               https://www.ruby-lang.org/de/
+:ruby-download-url:      https://www.ruby-lang.org/de/downloads/
+:rubyonrails-url:        http://www.rubyonrails.org
 
-:jdk-url:             link:jdk.html
-:jruby-version:       1.7.23
-:jruby23-url:            link:jruby.html
+:java-url:               http://www.oracle.com/technetwork/java/javase/downloads/index.html
+:jruby-url:              http://jruby.org/
+:jruby-download-url:     http://jruby.org/download
+
+:jdk-url:                link:jdk.html
+:jruby-version:          1.7.24
+:jruby24-url:            link:jruby.html
 :jruby_on_rails42-url:   link:jruby_on_rails42.html
 
-Version 4.0.0, Januar 2016 
+Version 4.1.0, Januar 2016 
 
 
 Abstract
@@ -50,27 +51,27 @@ Vorraussetzungen
 ----------------
 _JRuby_ und _Ruby on Rails_ sind wie in
 
-* {jruby23-url}[IiU -- JRuby 1.7.23]
+* {jruby24-url}[IiU -- JRuby 1.7.24]
  
 beschrieben durchgeführt worden.
 
 [CAUTION]
 ====
-Die hier aufgeführten Schritte werden beispielhaft für *JRuby 1.7.3* ausgeführt.
+Die hier aufgeführten Schritte werden beispielhaft für *JRuby 1.7.24* ausgeführt.
 
 Gelten aber, auch in dieser Reihenfolge, ebenfalls für die *JRuby-Version >= 9.0.0.0*.
 
 Eine Installation von *Ruby on Rails 5.0* ist nur mit *Ruby-Versionen >= 2.2* (*JRuby 9*) möglich!
 ==== 
 
-.JRuby 1.7.23
+.JRuby 1.7.24
 [options="nowrap"]
 ----
 $ which jruby
 /opt/JRuby/sid/current23/bin/jruby
 
 $ jruby -v 
-jruby 1.7.23 (1.9.3p551) 2015-11-24 f496dd5 on OpenJDK 64-Bit Server VM 1.7.0_91-b02 +jit [linux-amd64]
+jruby 1.7.24 (1.9.3p551) 2016-01-20 bd68d85 on OpenJDK 64-Bit Server VM 1.7.0_91-b02 +jit [linux-amd64]
 
 $ jruby -S gem -v   <1> <2>
 2.4.8
@@ -103,17 +104,17 @@ $ gem env
 RubyGems Environment:
 RubyGems Environment:
   - RUBYGEMS VERSION: 2.4.8
-  - RUBY VERSION: 1.9.3 (2015-11-24 patchlevel 551) [java]
-  - INSTALLATION DIRECTORY: /opt/JRuby/sid/jruby-1.7.23/lib/ruby/gems/shared
-  - RUBY EXECUTABLE: /opt/JRuby/sid/jruby-1.7.23/bin/jruby
-  - EXECUTABLE DIRECTORY: /opt/JRuby/sid/jruby-1.7.23/bin
+  - RUBY VERSION: 1.9.3 (2016-01-20 patchlevel 551) [java]
+  - INSTALLATION DIRECTORY: /opt/JRuby/sid/jruby-1.7.24/lib/ruby/gems/shared
+  - RUBY EXECUTABLE: /opt/JRuby/sid/jruby-1.7.24/bin/jruby
+  - EXECUTABLE DIRECTORY: /opt/JRuby/sid/jruby-1.7.24/bin
   - SPEC CACHE DIRECTORY: /home/sid/.gem/specs
-  - SYSTEM CONFIGURATION DIRECTORY: /opt/JRuby/sid/jruby-1.7.23/etc
+  - SYSTEM CONFIGURATION DIRECTORY: /opt/JRuby/sid/jruby-1.7.24/etc
   - RUBYGEMS PLATFORMS:
     - ruby
     - universal-java-1.7
   - GEM PATHS:
-     - /opt/JRuby/sid/jruby-1.7.23/lib/ruby/gems/shared
+     - /opt/JRuby/sid/jruby-1.7.24/lib/ruby/gems/shared
      - /home/sid/.gem/jruby/1.9
   - GEM CONFIGURATION:
      - :update_sources => true
@@ -148,12 +149,16 @@ Fetching: rails-4.2.5.gem (100%)
 Successfully installed rails-4.2.5
 30 gems installed   <1>
 ----
-<1> Mit dem RubyGem _rails-4.2.5_ wurden insgesamt 30 Gems installiert. +
-    Hinweis: Weitere RubyGems müssen für das Framework *Ruby on Rails* installiert werden.
+<1> Mit dem RubyGem _rails-4.2.5_ wurden insgesamt 30 Gems installiert.
+
+[CAUTION]
+====
+Weitere RubyGems müssen für das Framework *Ruby on Rails* installiert werden.
+====
 
 [NOTE]
+.Alternativ kann das RubyGem _rails_ mit der Angabe einer Version installiert werden.
 ====
-Alternativ kann das RubyGem _rails_ mit der Angabe einer Version installiert werden.
 ----
 # gem install rails --version 4.1.14
 
@@ -487,14 +492,14 @@ Fetching gem metadata from https://rubygems.org/............
 Fetching version metadata from https://rubygems.org/...
 Fetching dependency metadata from https://rubygems.org/..
 Resolving dependencies..........
-Using rake 10.4.2   <1>
+Using rake 10.5.0   <1>
 Using i18n 0.7.0
 Using json 1.8.3
-Using minitest 5.8.3
+Using minitest 5.8.4
 Using thread_safe 0.3.5
 Using builder 3.2.2
 Using erubis 2.7.0
-Using nokogiri 1.6.7.1
+Using nokogiri 1.6.7.2
 Using rack 1.6.4
 Using mime-types 2.99
 Using arel 6.0.3
@@ -505,7 +510,7 @@ Installing execjs 2.6.0
 Using thor 0.19.1
 Using concurrent-ruby 1.0.0
 Installing multi_json 1.11.2
-Installing sass 3.4.20
+Installing sass 3.4.21
 Using tilt 2.0.2
 Installing therubyrhino_jar 1.7.6
 Using rdoc 4.2.1
@@ -536,7 +541,7 @@ Using actionmailer 4.2.5
 Using railties 4.2.5
 Using sprockets-rails 3.0.0
 Installing coffee-rails 4.1.1
-Installing jquery-rails 4.0.5
+Installing jquery-rails 4.1.0
 Using rails 4.2.5
 Installing sass-rails 5.0.4
 Installing turbolinks 2.5.3
@@ -546,14 +551,42 @@ Use `bundle show [gemname]` to see where a bundled gem is installed.
 <1> _Using_: Bereits installierte RubyGems
 <2> _Installing_: Neu installierte RubyGems
 
+._Installing_: *13 RubyGems*
+----
+...
+Installing coffee-script-source 1.10.0
+Installing execjs 2.6.0
+...
+Installing multi_json 1.11.2
+Installing sass 3.4.21
+...
+Installing therubyrhino_jar 1.7.6
+...
+Installing coffee-script 2.4.1
+Installing uglifier 2.7.2
+...
+Installing therubyrhino 2.0.4
+Installing sdoc 0.4.1
+...
+Installing tzinfo-data 1.2015.7
+...
+Installing jbuilder 2.4.0
+...
+Installing coffee-rails 4.1.1
+Installing jquery-rails 4.1.0
+...
+Installing sass-rails 5.0.4
+Installing turbolinks 2.5.3
+----
+
 .Prüfen der Abhängigkeiten im `Gemfile` (II)
 ----
 $ bundle check  
 The Gemfile's dependencies are satisfied
 
 $ ls -l Gemfile*
--rw-rw-r-- 1 sid sid 1229 Jan  8 17:37 Gemfile
--rw-rw-r-- 1 sid sid 3911 Jan  8 17:41 Gemfile.lock
+-rw-rw-r-- 1 sid sid 1229 Jan 24 12:55 Gemfile
+-rw-rw-r-- 1 sid sid 3911 Jan 24 13:05 Gemfile.lock
 ----
 
 ----
@@ -581,14 +614,14 @@ Gems included by the bundle:
   * i18n (0.7.0)
   * jbuilder (2.4.0)
   * jdbc-mysql (5.1.37)
-  * jquery-rails (4.0.5)
+  * jquery-rails (4.1.0)
   * json (1.8.3)
   * loofah (2.0.3)
   * mail (2.6.3)
   * mime-types (2.99)
-  * minitest (5.8.3)
+  * minitest (5.8.4)
   * multi_json (1.11.2)
-  * nokogiri (1.6.7.1)
+  * nokogiri (1.6.7.2)
   * rack (1.6.4)
   * rack-test (0.6.3)
   * rails (4.2.5)
@@ -596,9 +629,9 @@ Gems included by the bundle:
   * rails-dom-testing (1.0.7)
   * rails-html-sanitizer (1.0.2)
   * railties (4.2.5)
-  * rake (10.4.2)
+  * rake (10.5.0)
   * rdoc (4.2.1)
-  * sass (3.4.20)
+  * sass (3.4.21)
   * sass-rails (5.0.4)
   * sdoc (0.4.1)
   * sprockets (3.5.2)
@@ -690,17 +723,17 @@ Warbler installieren
 .WAR (WAR ist ein Dateiformat und steht für Web Application Archive) 
 ----
 $ gem install warbler
-Fetching: jruby-jars-1.7.23.gem (100%)     <1>
-Successfully installed jruby-jars-1.7.23
-Fetching: jruby-rack-1.1.19.gem (100%)
-Successfully installed jruby-rack-1.1.19
+Fetching: jruby-jars-1.7.24.gem (100%)     <1>
+Successfully installed jruby-jars-1.7.24
+Fetching: jruby-rack-1.1.20.gem (100%)
+Successfully installed jruby-rack-1.1.20
 Fetching: rubyzip-1.1.7.gem (100%)
 Successfully installed rubyzip-1.1.7
 Fetching: warbler-1.4.9.gem (100%)
 Successfully installed warbler-1.4.9
 4 gems installed
 ----
-<1> *jruby-jars-1.7.23* includes the core JRuby code and the 
+<1> *jruby-jars-1.7.24* includes the core JRuby code and the 
     JRuby 1.8/1.9 stdlib as jar files. It provides a way to have 
     other gems depend on JRuby without including (and freezing to) 
     a specific jruby-complete jar version.
@@ -718,9 +751,9 @@ $ jruby bin/rails s
 => Rails 4.2.5 application starting in development on http://localhost:3000   <1>
 => Run `rails server -h` for more startup options
 => Ctrl-C to shutdown server
-[2016-01-08 17:53:19] INFO  WEBrick 1.3.1
-[2016-01-08 17:53:19] INFO  ruby 1.9.3 (2015-11-24) [java]   <2>
-[2016-01-08 17:53:19] INFO  WEBrick::HTTPServer#start: pid=11252 port=3000
+[2016-01-24 13:14:14] INFO  WEBrick 1.3.1
+[2016-01-24 13:14:14] INFO  ruby 1.9.3 (2016-01-20) [java]   <2>
+[2016-01-24 13:14:14] INFO  WEBrick::HTTPServer#start: pid=22969 port=3000
 ...
 ----
 <1> Der Webserver läuft ohne Port-Angabe (_--port_ ...) auf Port 3000.
@@ -813,18 +846,18 @@ jar-dependencies (0.3.1, 0.2.6)
 jbuilder (2.4.0)
 jdbc-mysql (5.1.37)
 jdbc-sqlite3 (3.8.11.2)
-jquery-rails (4.0.5)
-jruby-jars (1.7.23)
-jruby-openssl (0.9.13 java, 0.9.11 java)
-jruby-rack (1.1.19)
+jquery-rails (4.1.0)
+jruby-jars (1.7.24)
+jruby-openssl (0.9.14 java, 0.9.13 java)
+jruby-rack (1.1.20)
 json (1.8.3 java, 1.8.0 java)
 loofah (2.0.3)
 mail (2.6.3)
 method_source (0.8.2)
 mime-types (2.99)
-minitest (5.8.3)
+minitest (5.8.4)
 multi_json (1.11.2)
-nokogiri (1.6.7.1 java)
+nokogiri (1.6.7.2 java)
 pry (0.10.3 java)
 rack (1.6.4)
 rack-protection (1.5.3)
@@ -834,11 +867,11 @@ rails-deprecated_sanitizer (1.0.3)
 rails-dom-testing (1.0.7)
 rails-html-sanitizer (1.0.2)
 railties (4.2.5)
-rake (10.4.2, 10.1.0)
+rake (10.5.0, 10.1.0)
 rdoc (4.2.1, 4.1.2)
 rdoc-data (4.1.0)
 rubyzip (1.1.7)
-sass (3.4.20)
+sass (3.4.21)
 sass-rails (5.0.4)
 sdoc (0.4.1)
 sinatra (1.4.6)

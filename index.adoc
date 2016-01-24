@@ -26,11 +26,11 @@ Installation in Ubuntu — khkoether[at]kahweb[dot]de
 :ruby22-url:           link:ruby22.html
 :ruby23-url:           link:ruby23.html
 :ruby_on_rails42-url:  link:ruby_on_rails42.html
-:jruby23-url:          link:jruby.html
+:jruby24-url:          link:jruby.html
 :jruby_on_rails42-url: link:jruby_on_rails42.html
 
 
-Version 4.0.0, Januar 2016
+Version 4.1.0, Januar 2016
 
 
 Abstract
@@ -77,7 +77,7 @@ Auswahl
 * {ruby23-url}[Ruby 2.3.0]
 * {ruby_on_rails42-url}[Ruby on Rails 4.2]
 * {jdk-url}[OpenJDK 7, Oracle JDK 8]
-* {jruby23-url}[JRuby 1.7.23]
+* {jruby24-url}[JRuby 1.7.24]
 * {jruby_on_rails42-url}[JRuby on Rails 4.2]
 * {netbeans8-url}[NetBeans IDE 8.0]
 * {netbeans8_1st-url}[NetBeans IDE 8.0: Erste Schritte &hellip;]
