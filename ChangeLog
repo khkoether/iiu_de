@@ -1,12 +1,16 @@
 # ChangeLog für iiu_de (02. Januar 2016)
 
+.Version 4.2.0
+* Neue Programmversion: JRuby (1.7.25)
+  Beispiel zu: Rails (4.2.6) mit JRuby 
+
 .Version 4.1.0
 * Neue Programmversion: JRuby (1.7.24)
-  Beispiel zu: Rails (4.2.5) mit JRuby 
+  Beispiel zu: Rails (4.2.5) mit JRuby
 
 .Version 4.0.0
-* Neue Programmversion: Asciidoctor (1.5.4), Git (2.7.0)), Ruby (2.2.4), Ruby (2.3.0), 
-  Rails (4.2.5), JDK (7/8), JRuby (1.7.23)       
+* Neue Programmversion: Asciidoctor (1.5.4), Git (2.7.0)), Ruby (2.2.4), Ruby (2.3.0),
+  Rails (4.2.5), JDK (7/8), JRuby (1.7.23)
   Beispiele zu: Rails (4.2.5) mit [Ruby/ JRuby]
   Unverändert:  NetBeans (8.0), NetBeans: Erste Schritte... (Rails 4.2.1)
 
@@ -146,4 +150,3 @@ Version 1.8.2
 
 . Version 0.2
 * Erste öffentliche Version
-
