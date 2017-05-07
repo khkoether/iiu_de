@@ -1,38 +1,40 @@
-IiU -- Asciidoctor
-==================
+
+= IiU -- Asciidoctor
 Installation in Ubuntu — khkoether[at]kahweb[dot]de
 
-:icons:
-:Author Initials: khk
-:creativecommons-url: http://creativecommons.org/licenses/by-sa/4.0/deed.de
-:mit-url:             http://opensource.org/licenses/mit-license.php
-:ubuntu-url:          http://www.ubuntu.com/ 
+include::_bp_header.adoc[]
 
-:asciidoctor-url:          http://asciidoctor.org/
-:asciidoctordocs-url:      http://asciidoctor.org/docs/
-:asciidoctordocsquick-url: http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/
+:asciidoctor-home-url:       http://asciidoctor.org/
+:asciidoc-what-is-url:       http://asciidoctor.org/docs/what-is-asciidoc
+:asciidoc-writers-guide-url: http://asciidoctor.org/docs/asciidoc-writers-guide/
+:asciidoc-syntax-quick-url:  http://asciidoctor.org/docs/asciidoc-syntax-quick-reference
 
-:asciidoctor_1st-url:      link:asciidoctor_1st.html
+:asciidoctor-github-url:     https://github.com/asciidoctor/asciidoctor
+:asciidoctor-license-url:    https://github.com/asciidoctor/asciidoctor/blob/master/LICENSE.adoc
 
-Version 4.0.0, Januar 2016 
+:asciidoctor-stylesheet-factory-url: http://asciidoctor.org/docs/produce-custom-themes-using-asciidoctor-stylesheet-factory/
+
+Version {version} {middot} {datum}
 
 
-Abstract
---------
-{asciidoctor-url}[Asciidoctor] ist die Ruby-Implementierung des ursprünglich in 
-_Python_ geschriebenen _AsciiDoc_. 
+== Abstract
+{asciidoctor-home-url}[Asciidoctor] ist die Ruby-Implementierung des ursprünglich in
+_Python_ geschriebenen _AsciiDoc_. +
+_Asciidoctor_ ist ein schneller Textprozesssor &amp;
+Publishing Toolchain für die Umwandlung von _AsciiDoc_ in _HTML5_, _DocBook_ umd mehr.
+{asciidoc-what-is-url}[AsciiDoc] ist eine einfache Auszeichnungssprache (ähnlich _Markdown_).
 
-{asciidoctordocs-url}[AsciiDoc] ist eine einfache Auszeichnungssprache, 
-die dazu dient, +
-Texte in verschiedenen Dokumentenformaten zu veröffentlichen.
+_Asciidoctor_ ist Open Source,
+wird gehostet auf {asciidoctor-github-url}[GitHub]
+und ist freigegeben unter der {asciidoctor-license-url}[MIT-Lizenz].
 
-Der Artikel ist in {asciidoctor-url}[Asciidoctor] geschrieben 
+Der Artikel ist in _AsciiDoc_ geschrieben
 und mit _Asciidoctor {asciidoctor-version}_ erstellt worden.
 
 [CAUTION]
 ====
-Zu beachten ist, dass so ein Dokument zum Einen nie abschließend 
-sein kann, und zum Anderen bestimmte Konfigurationen anders, oder 
+Zu beachten ist, dass so ein Dokument zum Einen nie abschließend
+sein kann, und zum Anderen bestimmte Konfigurationen anders, oder
 auf einem anderem Weg durchgeführt werden können. +
 Gerne nehme ich Verbesserungsvorschläge entgegen.
 
@@ -40,93 +42,157 @@ Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr.
 ====
 
 
-Vorraussetzung
---------------
-Die Installation wird für {ubuntu-url}[Ubuntu 14.04 LTS (Trusty Tahr)] 
-beschrieben. + 
-Gleichwohl sind die einzelnen Schritte auch für 
+== Vorraussetzung
+Die Installation wird für {ubuntu-url}[Ubuntu 16.04 LTS (Xenial Xerus)] beschrieben. +
+Gleichwohl sind die einzelnen Schritte auch für
 andere Debian-basierte GNU/Linux Distributionen übertragbar.
 
+Ubuntu 16.04 LTS (Xenial Xerus) enthält das Paket::
+  _ruby2.3_2.3.1-2~16.04_amd64.deb_.
+  
 
-Installation
-------------
+== Installation
 [CAUTION]
 ====
-Zur Installation von {asciidoctor-url}[Asciidoctor] muß auf dem Rechner *Ruby* installiert sein.
+Zur Installation von *Asciidoctor* muß auf dem Rechner *Ruby* installiert sein.
+
+Vor der eigentlichen Installation müssen die fehlenden
+Programm-Pakete installiert sind.
+----
+$ sudo apt-get install ruby2.3
+----
+
+[options="nowrap"]
+----
+$ COLUMNS=96 dpkg --list | grep ruby2.3   <1> <2>
+ii  libruby2.3:amd64   2.3.1-2~16.04  amd64   Libraries necessary to run Ruby 2.3
+ii  ruby2.3            2.3.1-2~16.04  amd64   Interpreter of object-oriented scripting language Ruby
+----
+<1> COLUMNS=96 ist eine Formatangabe für die Ausgabe von #dpkg#
+<2> *ruby2.3* kann bereits durch _andere_ Abhängigkeiten installiert sein!
 ====
 
-----
-$ sudo gem install asciidoctor
-Successfully installed asciidoctor-1.5.4
-1 gem installed
 
-$ sudo gem install coderay
-Successfully installed coderay-1.1.0
-1 gem installed
+Mithilfe des Befehls _sudo_ wird die System-Installation von *Ruby* ergänzt.
 ----
+$ ruby -v
+ruby 2.3.1p112 (2016-04-26) [x86_64-linux-gnu]
 
+$ sudo gem install asciidoctor coderay
+[sudo] Passwort für sid:
+Fetching: asciidoctor-1.5.5.gem (100%)
+Successfully installed asciidoctor-1.5.5
+Parsing documentation for asciidoctor-1.5.5
+Installing ri documentation for asciidoctor-1.5.5
+Done installing documentation for asciidoctor after 4 seconds
+Fetching: coderay-1.1.1.gem (100%)
+Successfully installed coderay-1.1.1
+invalid options: -SNw2
+(invalid options are ignored)             <1>
+Parsing documentation for coderay-1.1.1
+Installing ri documentation for coderay-1.1.1
+Done installing documentation for coderay after 2 seconds
+2 gems installed
+----
+<1> So isses.
+
+----
+$ gem list --local
+
+*** LOCAL GEMS ***
+
+asciidoctor (1.5.5)    <1>
+bigdecimal (1.2.8)
+coderay (1.1.1)        <1>
+did_you_mean (1.0.0)
+io-console (0.4.5)
+json (1.8.3)
+minitest (5.8.4)
+net-telnet (0.1.1)
+power_assert (0.2.7)
+psych (2.0.17)
+rake (10.5.0)
+rdoc (4.2.1)
+test-unit (3.1.7)
+----
+<1> 2 gems installed
+
+[TIP]
+====
+Bei einer mit {chruby-url}[chruby] verwalteten *Ruby*-Version ist _sudo_ nicht notwendig.
+----
+$ gem install asciidoctor coderay
+...
+2 gems installed
+----
+====
+
+[options="nowrap"]
 ----
 $ asciidoctor -V
-Asciidoctor 1.5.4 [http://asciidoctor.org]
-Runtime Environment (...)
+Asciidoctor 1.5.5 [http://asciidoctor.org]
+Runtime Environment (ruby 2.3.1p112 (2016-04-26) [x86_64-linux-gnu]) (lc:UTF-8 fs:UTF-8 in:- ex:UTF-8)
 ----
 
 
-Asciidoctor: Links
-------------------
-* {asciidoctor-url}[Asciidoctor]
-* {asciidoctordocs-url}[Asciidoctor: Documentation]
-* {asciidoctordocsquick-url}[Asciidoctor: Syntax Quick Reference] 
-* link:asciidoc.html[Installation von _AsciiDoc 8.6.9_]
+== Asciidoctor: Links
+* {asciidoctor-home-url}[Asciidoctor]
+* {asciidoc-what-is-url}[What ist AsciiDoc]
+* {asciidoc-writers-guide-url}[AsciiDoc Writer's Guide]
+* {asciidoc-syntax-quick-url}[AsciiDoc: Syntax Quick Reference]
+* {asciidoctor-stylesheet-factory-url}[Produce Custom Themes+++<br>+++Using the Asciidoctor Stylesheet Factory]
+* {asciidoc-url}[Installation von _AsciiDoc 8.6.9_ &nbsp; (lang ist es her)]
 
 
-Asciidoctor: Erste Schritte &hellip;
-------------------------------------
-Mit dem folgenden Kommando erstellen Sie mit _Asciidoctor_ aus der Datei 
+== Asciidoctor: Erste Schritte &hellip;
+Mit dem folgenden Kommando erstellen Sie mit _Asciidoctor_ aus der Datei
 `asciidoctor_1st.adoc` (siehe <<_anhang,[Anhang]>>) die HTML5-Datei `asciidoctor_1st.html`.
 ----
-$ asciidoctor -a icons -a toc asciidoc_1st.adoc
----- 
+$ asciidoctor -a toc asciidoc_1st.adoc
+----
 
 {asciidoctor_1st-url}[Asciidoctor: Erste Schritte &hellip;]
- 
 
-Anhang
-------
-.Text-Datei: `asciidoctor_1st.adoc` 
+
+== Anhang
+.Text-Datei: `asciidoctor_1st.adoc`
 ----
 = Asciidoctor: Erste Schritte &hellip;
-Sid -- sid[at]example[dot]org
-
-Version 4.0.0, Januar 2016
+Opera sine nomine scripta — sid[at]example[dot]org
 
 :icons:
-:Author Initials: sid
-:creativecommons-url: http://creativecommons.org/licenses/by-sa/4.0/deed.de
-:mit-url:             http://opensource.org/licenses/mit-license.php 
-:ubuntu-url:          http://www.ubuntu.com/
-:asciidoctor-url:     http://asciidoctor.org/
+:Author Initials:       sid
+:asciidoctor-home-url:  http://asciidoctor.org/
+:creativecommons-url:   http://creativecommons.org/licenses/by-sa/4.0/deed.de
+:mit-url:               http://opensource.org/licenses/mit-license.php
+:ubuntu-url:            http://www.ubuntu.com/
+
+:datum:                 April 2017
+:middot:                &middot;
+:version:               5.0.0
+
+Version {version} {middot} {datum}
 
 
 == Abstract
-Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse 
+Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
 molestie consequat, vel illum dolore eu feugiat nulla facilisis.
 
 
 == Opera sine nomine scripta
-Lorem ipsum dolor sit amet, consectetur adipisici elit, 
-sed eiusmod tempor incidunt ut labore et dolore magna aliqua. 
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit 
-in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+Lorem ipsum dolor sit amet, consectetur adipisici elit,
+sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit
+in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 
 
 === Scripta
-Excepteur sint obcaecat cupiditat non proident, sunt in culpa 
+Excepteur sint obcaecat cupiditat non proident, sunt in culpa
 qui officia deserunt mollit anim id est laborum.
 
 
-=== Nomine 
+=== Nomine
 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
 
 .Est laborum
@@ -136,37 +202,15 @@ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
 
 
 == Links
-* {asciidoctor-url}[Asciidoctor]
-* http://la.wikisource.org/wiki/Lorem_ipsum[Lorem ipsum]
+* {asciidoctor-home-url}[Asciidoctor]
 * {creativecommons-url}[Creative Commens]
+* http://la.wikisource.org/wiki/Lorem_ipsum[Lorem ipsum]
 * {mit-url}[MIT-License]
 
 '''
-link:asciidoctor.html[Asciidoctor: Erste Schritte &hellip;]
+link:asciidoctor.html#_asciidoctor_erste_schritte[zurück zu Asciidoctor]
 
 
 
 
-'''
- 
-+++
-<a href="#top" title="zum Seitenanfang">
-  <span>&#8679;</span> 
-</a>
-+++
-[small]#&middot; Document generated with Asciidoctor {asciidoctor-version}.#
-----
-
-
-
-
-'''
- 
-+++
-<a href="#top" title="zum Seitenanfang">
-  <span>&#8679;</span> 
-</a>
-+++
-[small]#&middot; Document generated with Asciidoctor {asciidoctor-version}.#
-
-
+include::_bp_footer.adoc[]

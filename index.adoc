@@ -1,101 +1,91 @@
-IiU -- index
-============
-Installation in Ubuntu — khkoether[at]kahweb[dot]de
 
-:middot: &middot;
-:icons:
-:Author Initials: khk
-:creativecommons-url:  http://creativecommons.org/licenses/by/4.0/deed.de
-:mit-url:              http://opensource.org/licenses/mit-license.php
-:ubuntu-url:           http://www.ubuntu.com/
+= IiU -- index
+Installation in Ubuntu -- khkoether[at]kahweb[dot]de
 
-:index-url:            link:index.html
-:asciidoc-url:         link:asciidoc.html
-:asciidoctor-url:      link:asciidoctor.html
-:asciidoctor_1st-url:  link:asciidoctor_1st.html
-:git-url:              link:git.html
-:jdk-url:              link:jdk.html
-:netbeans7-url:        link:netbeans7.html
-:netbeans7_1st-url:    link:netbeans7_1st.html
-:netbeans8-url:        link:netbeans8.html
-:netbeans8_1st-url:    link:netbeans8_1st.html
-:ruby19-url:           link:ruby19.html
-:ruby20-url:           link:ruby20.html
-:ruby21_1st-url:       link:ruby21_1st.html
-:ruby21-url:           link:ruby21.html
-:ruby22-url:           link:ruby22.html
-:ruby23-url:           link:ruby23.html
-:ruby_on_rails42-url:  link:ruby_on_rails42.html
-:jruby24-url:          link:jruby.html
-:jruby_on_rails42-url: link:jruby_on_rails42.html
+include::_bp_header.adoc[]
+
+Version {version} {middot} {datum}
 
 
-Version 4.2.0, Juni 2016
-
-
-Abstract
---------
+== Abstract
 Eine Sammlung von Schritt-für-Schritt Anleitungen zur Installation
 verschiedener Programme aus dem QuellCode.
 
-Die Installationen werden für {ubuntu-url}[Ubuntu 14.04 LTS (Trusty Tahr)] beschrieben.
+Die Installationen werden für {ubuntu-url}[Ubuntu 16.04 LTS (Xenial Xerus)] beschrieben.
 
 
-Intention
----------
-Die Programme sind entsprechend den eigenen Bedürfnissen, Neigungen
+== Intention
+Die Programme sind entsprechend der eigenen Bedürfnissen, Neigungen
 und Zielen ausgewählt ;-)
 
-- Ich mag Script-Sprachen (Perl, Bash, Ruby),
-- und schätze das Framework Ruby on Rails
-- und auch Git
-- und ... Dokumentation ist notwendig.
+* Ich mag Script-Sprachen (Perl, Bash und Ruby),
+* schätze die _Konventionen_ von Ruby on Rails
+* sowie das _verteilte_ Git &nbsp; --
+* halte Dokumentation für eine _Pflicht_
+* und Präsentation für die _Kür_.
 
-.Beschreibung
+
+== Beschreibung
 * *AsciiDoc* ist eine einfache Auszeichnungssprache, die dazu dient, +
    Texte in verschiedenen Dokumentenformaten zu veröffentlichen. +
 * *Asciidoctor* ist die Neu-Implementation von *AsciiDoc* in Ruby.
+* *Asciidoctor reveal.js* ist ein Konverter der ein _AsciiDoc_-Dokument  +
+  in eine HTML5-Präsentation umwandelt, um mit dem Framework
+  *reveal.js* ausgeführt zu werden.
+* Der Ruby Manager *chruby* wechselt die Ruby-Versionen +
+   (ähnlich wie _RVM_ und _rbenv_).
 * *Git* ist ein freies verteiltes Versionskontrollsystem +
-   (DVCS - Distributed Version Control System).
+   (_DVCS_ - Distributed Version Control System).
 * Die Programmiersprache *Ruby* ist die Grundlage für das Framework
    *Ruby on Rails*.
-* *NetBeans* bietet eine Unterstützung für verschiedene Programmiersprachen
-   und -techniken. +
-   Wobei die *Java*-basierten Lösungen ausgezeichnet unterstützt werden.
 * Die Programmiersprache *JRuby* ist die Implementation von *Ruby* in *Java*, +
    die wiederum die Grundlage für das Framework *Ruby on Rails* bildet.
+* *NetBeans* bietet eine Unterstützung für verschiedene Programmiersprachen und -techniken. +
+  Wobei die *Java*-basierten Lösungen ausgezeichnet unterstützt werden.
 
-Die Artikel sind in http://asciidoctor.org/[Asciidoctor] geschrieben
+[TIP]
+====
+*IDEs* nutze ich inzwischen keine mehr. Weder _NetBeans_ noch
+_Eclipse_. Solange ich nicht in _Java_ programmiere, sondern
+es nur nutze -- kann ich beruhigt darauf verzichten. +
+Sowohl _Git_ als auch _Ruby on Rails_
+sind von der Kommandozeile her gut zu bedienen. +
+Und gute Editoren (-> https://wiki.ubuntuusers.de/Editoren/[ubuntuusers.de: Editoren])
+gibt es zuhauf: +
+*Atom*, *Geany*, *Scite* und nicht zu vergessen *Emacs* und *Vim* ;-)
+====
+
+Die Artikel sind in _AsciiDoc_ geschrieben
 und mit _Asciidoctor {asciidoctor-version}_ erstellt worden.
 
-Auswahl
--------
-* {asciidoctor-url}[Asciidoctor 1.5.4]
+
+== Auswahl
+* {asciidoctor-url}[Asciidoctor 1.5.5]
 * {asciidoctor_1st-url}[Asciidoctor: Erste Schritte &hellip;]
-* {git-url}[Git 2.7.0]
-* {ruby22-url}[Ruby 2.2.4]
-* {ruby23-url}[Ruby 2.3.0]
-* {ruby_on_rails42-url}[Ruby on Rails 4.2]
-* {jdk-url}[OpenJDK 7, Oracle JDK 8]
-* {jruby25-url}[JRuby 1.7.25]
-* {jruby_on_rails42-url}[JRuby on Rails 4.2]
-* {netbeans8-url}[NetBeans IDE 8.0]
-* {netbeans8_1st-url}[NetBeans IDE 8.0: Erste Schritte &hellip;]
+* {asciidoctor_revealjs-url}[Asciidoctor reveal.js]
+* {chruby-url}[chruby 0.3.9]
+* {git-url}[Git 2.12.2]
+* {ruby23-url}[Ruby MRI 2.3]
+* {ruby24-url}[Ruby MRI 2.4]
+* {ruby_on_rails50-url}[Ruby on Rails 5.0]
+* {jdk-url}[OpenJDK 8, Oracle JDK 8]
+* {jruby9k-url}[JRuby 9k]
+* {jruby9k_on_rails50-url}[JRuby 9k on Rails 5.0]
 
 [CAUTION]
 ====
 .Unverändert - diese Seiten werden nicht weiter aktualisiert
 * {asciidoc-url}[AsciiDoc 8.6.9]
-* {ruby19-url}[Ruby 1.9.3, rails-4.2.0]
-* {ruby20-url}[Ruby 2.0.0, rails-4.0.3]
-* {ruby21-url}[Ruby 2.1.5, rails-4.2.0]
-* {netbeans7-url}[NetBeans IDE 7.4]
-* {netbeans7_1st-url}[NetBeans IDE 7.4: Erste Schritte &hellip;]
+* {ruby22-url}[Ruby 2.2.4]
+* {ruby_on_rails42-url}[Ruby on Rails 4.2]
+* {jruby-url}[JRuby 1.7.25]
+* {jruby_on_rails42-url}[JRuby on Rails 4.2]
+* {netbeans8-url}[NetBeans IDE 8.0]
+* {netbeans8_1st-url}[NetBeans IDE 8.0: Erste Schritte &hellip;]
 ====
 
 
-Dateien
--------
+== Dateien
 ....
 ./iiu_de.sh         <-- Script zum Erstellen aller HTML-Dateien
 ./NAME.adoc
@@ -105,9 +95,9 @@ Dateien
 ./images/ruby       <-- Image des RubyGems Documentation Index
 ./images/jruby      <-- Image des RubyGems Documentation Index
 
-NAME = { index asciidoctor asciidoctor_1st asciidoc git
-               ruby19 ruby20 ruby21 ruby22 ruby23 ruby_on_rails42
-               jdk jruby jruby_on_rails42 netbeans netbeans_1st }
+NAME = { index asciidoctor asciidoctor_1st asciidoctor-revealjs
+               chruby git ruby23 ruby24 ruby_on_rails50
+               jdk jruby9k jruby9k_on_rails50 }
 ....
 
 ----
@@ -135,20 +125,13 @@ Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr.
 
 '''
 
-Lizenz
-------
+== Lizenz
 Dieses Werk ist lizenziert unter einer
 {creativecommons-url}[Creative Commons Namensnennung 4.0 International Lizenz], +
-und der Quellcode zum formatieren und anzeigen des Inhaltes steht unter der {mit-url}[MIT-Lizenz].
+und der Quellcode zum Formatieren und Anzeigen des Inhaltes steht unter der {mit-url}[MIT-Lizenz].
 
 
 
 
-'''
 
-+++
-<a href="#top" title="zum Seitenanfang">
-  <span>&#8679;</span>
-</a>
-+++
-[small]#&middot; Document generated with Asciidoctor {asciidoctor-version}.#
+include::_bp_footer.adoc[]

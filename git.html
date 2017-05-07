@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.4">
+<meta name="generator" content="Asciidoctor 1.5.5">
 <meta name="author" content="Installation in Ubuntu — khkoether[at]kahweb[dot]de">
-<title>IiU&#8201;&#8212;&#8201;Git 2.7.0</title>
+<title>IiU&#8201;&#8212;&#8201;Git 2.12.2</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -18,7 +18,6 @@ audio:not([controls]){display:none;height:0}
 [hidden],template{display:none}
 script{display:none!important}
 html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
-body{margin:0}
 a{background:transparent}
 a:focus{outline:thin dotted}
 a:active,a:hover{outline:0}
@@ -53,7 +52,7 @@ textarea{overflow:auto;vertical-align:top}
 table{border-collapse:collapse;border-spacing:0}
 *,*:before,*:after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
 html,body{font-size:100%}
-body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
 a:hover{cursor:pointer}
 img,object,embed{max-width:100%;height:auto}
 object,embed{height:100%}
@@ -65,7 +64,6 @@ img{-ms-interpolation-mode:bicubic}
 .text-center{text-align:center!important}
 .text-justify{text-align:justify!important}
 .hide{display:none}
-body{-webkit-font-smoothing:antialiased}
 img,object,svg{display:inline-block;vertical-align:middle}
 textarea{height:auto;min-height:50px}
 select{width:100%}
@@ -120,13 +118,16 @@ table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:
 table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
 table tr.even,table tr.alt,table tr:nth-of-type(even){background:#f8f8f7}
 table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
-body{tab-size:4}
 h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
 h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
 .clearfix:before,.clearfix:after,.float-group:before,.float-group:after{content:" ";display:table}
 .clearfix:after,.float-group:after{clear:both}
-*:not(pre)>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background-color:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
+*:not(pre)>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background-color:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed;word-wrap:break-word}
+*:not(pre)>code.nobreak{word-wrap:normal}
+*:not(pre)>code.nowrap{white-space:nowrap}
 pre,pre>code{line-height:1.45;color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;text-rendering:optimizeSpeed}
+em em{font-style:normal}
+strong strong{font-weight:400}
 .keyseq{color:rgba(51,51,51,.8)}
 kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background-color:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
 .keyseq kbd:first-child{margin-left:0}
@@ -420,7 +421,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>IiU&#8201;&#8212;&#8201;Git 2.7.0</h1>
+<h1>IiU&#8201;&#8212;&#8201;Git 2.12.2</h1>
 <div class="details">
 <span id="author" class="author">Installation in Ubuntu — khkoether[at]kahweb[dot]de</span><br>
 </div>
@@ -431,6 +432,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_vorraussetzung">Vorraussetzung</a></li>
 <li><a href="#_download">Download</a></li>
 <li><a href="#_installation">Installation</a></li>
+<li><a href="#_installation_verifizieren">Installation verifizieren</a>
+<ul class="sectlevel2">
+<li><a href="#_git_version">git --version</a></li>
+<li><a href="#__usr_local_bin">/usr/local/bin</a></li>
+<li><a href="#_man_git">man git</a></li>
+<li><a href="#_man_gitk">man gitk</a></li>
+<li><a href="#__usr_local">/usr/local</a></li>
+</ul>
+</li>
+<li><a href="#_dokumentation_local">Dokumentation (local)</a></li>
 <li><a href="#_anhang">Anhang</a></li>
 </ul>
 </div>
@@ -439,7 +450,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Version 4.0.0, Januar 2016</p>
+<p>Version 5.0.0 &middot; April 2017</p>
 </div>
 </div>
 </div>
@@ -447,16 +458,20 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_abstract">Abstract</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Der Artikel ist eine Schritt-für-Schritt Anleitung zur Installation
-des Programms <a href="http://git-scm.com/">Git</a> aus dem QuellCode.</p>
-</div>
-<div class="paragraph">
-<p><a href="http://git-scm.com/">Git</a> ist ein freies verteiltes Versionskontrollsystem
+<p><a href="https://git-scm.com/">Git</a> ist ein freies verteiltes Versionskontrollsystem
 (DVCS - Distributed Version Control System).</p>
 </div>
 <div class="paragraph">
-<p>Der Artikel ist in <a href="http://asciidoctor.org/docs/">Asciidoctor</a> geschrieben
-und mit <em>Asciidoctor 1.5.4</em> erstellt worden.</p>
+<p>Der Artikel ist eine Schritt-für-Schritt Anleitung zur Installation
+des Programms <a href="https://git-scm.com/">Git</a> aus dem QuellCode.</p>
+</div>
+<div class="paragraph">
+<p><em>Git</em> ist Open Source und ist freigegeben
+unter der <a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.txt">GPL v2-Lizenz</a>.</p>
+</div>
+<div class="paragraph">
+<p>Der Artikel ist in <em>AsciiDoc</em> geschrieben
+und mit <em>Asciidoctor 1.5.5</em> erstellt worden.</p>
 </div>
 <div class="admonitionblock caution">
 <table>
@@ -484,8 +499,7 @@ Gerne nehme ich Verbesserungsvorschläge entgegen.</p>
 <h2 id="_vorraussetzung">Vorraussetzung</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Die Installation wird für <a href="http://www.ubuntu.com/">Ubuntu 14.04 LTS (Trusty Tahr)</a>
-beschrieben.<br>
+<p>Die Installation wird für <a href="http://www.ubuntu.com/">Ubuntu 16.04 LTS (Xenial Xerus)</a> beschrieben.<br>
 Gleichwohl sind die einzelnen Schritte auch für
 andere Debian-basierte GNU/Linux Distributionen übertragbar.</p>
 </div>
@@ -496,8 +510,13 @@ andere Debian-basierte GNU/Linux Distributionen übertragbar.</p>
 <img src="./images/icons/tip.png" alt="Tip">
 </td>
 <td class="content">
-<div class="paragraph">
-<p>Ubuntu 14.04 LTS (Trusty Tahr) enthält das Paket <em>git-core_1.9.1-1_all</em>.</p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Ubuntu 16.04 LTS (Xenial Xerus) enthält das Paket</dt>
+<dd>
+<p><em>git-core_2.7.4-0ubuntu1_all.deb</em>.</p>
+</dd>
+</dl>
 </div>
 </td>
 </tr>
@@ -512,10 +531,10 @@ andere Debian-basierte GNU/Linux Distributionen übertragbar.</p>
 <ul>
 <li>
 <p><a href="https://www.kernel.org/pub/software/scm/git/">Git</a><br>
-<code>git-2.7.0.tar.gz</code>  (ca. 5.4M)<br>
-<code>git-htmldocs-2.7.0.tar.gz</code>  (ca. 2.4M)<br>
-<code>git-manpages-2.7.0.tar.gz</code>  (ca. 598K)<br>
-2016-01-04 (Release date)</p>
+<code>git-2.12.2.tar.gz</code>  (ca. 6.1M)<br>
+<code>git-htmldocs-2.12.2.tar.gz</code>  (ca. 2.6M)<br>
+<code>git-manpages-2.12.2.tar.gz</code>  (ca. 639K)<br>
+2017-03-24 (Release date)</p>
 </li>
 </ul>
 </div>
@@ -527,40 +546,17 @@ andere Debian-basierte GNU/Linux Distributionen übertragbar.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Das Kompilieren des Versionskontrollsystem wird beispielhaft vom Benutzer <em>sid</em>
-durchgeführt.<br>
+<p>Das Kompilieren des Versionskontrollsystem wird beispielhaft
+vom Benutzer 'sid' durchgeführt.<br>
 Die eigentliche Installation von Git wird vom
-Benutzer <em>root</em> für das System durchgeführt.</p>
+Benutzer 'root' für das System durchgeführt.</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre>$ ls -lh
--rw-rw-r-- 1 sid sid 5,4M Jan  8 18:05 git-2.7.0.tar.gz
--rw-rw-r-- 1 sid sid 2,4M Jan  8 18:04 git-htmldocs-2.7.0.tar.gz
--rw-rw-r-- 1 sid sid 599K Jan  8 18:05 git-manpages-2.7.0.tar.gz</pre>
-</div>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="./images/icons/note.png" alt="Note">
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Vor der eigentlichen Installation müssen die fehlenden
-Programm-Pakete installiert sind.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>$ sudo apt-get install ...
-               build-essential libc6 libcurl3-gnutls libexpat1 libexpat1-dev
-               autoconf zlib1g perl-modules liberror-perl libdigest-sha-perl
-               libcurl4-openssl-dev libssl-dev tcl8.4  tcl8.4-dev xmlto</pre>
+-rw-rw-r-- 1 sid sid 6,1M Apr  9 20:58 git-2.12.2.tar.gz
+-rw-rw-r-- 1 sid sid 2,6M Apr  9 20:59 git-htmldocs-2.12.2.tar.gz
+-rw-rw-r-- 1 sid sid 639K Apr  9 20:59 git-manpages-2.12.2.tar.gz</pre>
 </div>
 </div>
 </td>
@@ -572,6 +568,40 @@ Programm-Pakete installiert sind.</p>
 <div class="sect1">
 <h2 id="_installation">Installation</h2>
 <div class="sectionbody">
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<img src="./images/icons/caution.png" alt="Caution">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Zur Installation von <strong>Git</strong> muß auf dem Rechner <strong>autoconf</strong> und auch
+weitere Pakete installiert sein.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ sudo apt-get install ...   <img src="./images/icons/callouts/1.png" alt="1">
+               autoconf build-essential libc6 libcurl3-gnutls
+               libexpat1 libexpat1-dev
+               perl-modules liberror-perl libdigest-sha-perl
+               libcurl4-openssl-dev libssl-dev
+               tcl8.4  tcl8.4-dev
+               xmlto zlib1g</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Der <strong>GCC</strong> ist standardmäßig bereits vorhanden.</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="admonitionblock important">
 <table>
 <tr>
@@ -580,7 +610,7 @@ Programm-Pakete installiert sind.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Ohne die Angabe eines Verzeichnisses wird <code>/usr/local/...</code> automatisch verwendet.<br>
+<p>Ohne die Angabe eines Verzeichnisses wird <code>/usr/local/&#8230;&#8203;</code> automatisch verwendet.<br>
 Eine bereits vorhandene Git-Installation wird überschrieben.</p>
 </div>
 <div class="paragraph">
@@ -596,8 +626,8 @@ Eine bereits vorhandene Git-Installation wird überschrieben.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ tar xvzf git-2.7.0.tar.gz
-$ cd git-2.7.0</pre>
+<pre>$ tar xvzf git-2.12.2.tar.gz
+$ cd git-2.12.2</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -606,7 +636,7 @@ $ cd git-2.7.0</pre>
 <div class="listingblock">
 <div class="content">
 <pre>$ make configure | tee ../log.git_make-configure
-GIT_VERSION = 2.7.0
+GIT_VERSION = 2.12.2
     GEN configure
 
 $ ./configure | tee ../log.git_configure
@@ -631,7 +661,7 @@ config.status: executing config.mak.autogen commands</pre>
 </div>
 </div>
 <div class="paragraph">
-<p><strong>Step 3:</strong> Installation (als Benutzer <em>root</em>)</p>
+<p><strong>Step 3:</strong> Installation (als Benutzer 'root')</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -657,16 +687,19 @@ config.status: executing config.mak.autogen commands</pre>
 $ sudo mkdir git-doc
 
 $ cd git-doc
-$ sudo tar xvzf git-htmldocs-2.7.0.tar.gz
+$ sudo tar xvzf git-htmldocs-2.12.2.tar.gz
 ...
-./git-unpack-file.html
+./git-filter-branch.txt
+./gitcredentials.html
 
 $ cd ..
 $ sudo chown -R root.root git-doc   <img src="./images/icons/callouts/1.png" alt="1">
-$ sudo chmod -R a+rx git-doc
+$ sudo chmod -R a+r git-doc
+$ sudo chmod a+rx git-doc
 
 $ ls -l
-drwxr-xr-x 5 root root 20480 Jan  5 00:32 git-doc</pre>
+drwxr-xr-x 2 root root  4096 Mär 26 23:04 chruby-0.3.9
+drwxr-xr-x 5 root root 20480 Mär 24 21:51 git-doc        <img src="./images/icons/callouts/2.png" alt="2"></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -674,6 +707,10 @@ drwxr-xr-x 5 root root 20480 Jan  5 00:32 git-doc</pre>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
 <td>Unbedingt die Rechte an den Dateien und den Ordnern anpassen!</td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/2.png" alt="2"></td>
+<td>Release Date: 2017-03-24</td>
 </tr>
 </table>
 </div>
@@ -681,19 +718,22 @@ drwxr-xr-x 5 root root 20480 Jan  5 00:32 git-doc</pre>
 <div class="title">Documentation: man-pages</div>
 <div class="content">
 <pre>$ cd /usr/local/share/man
-$ sudo tar xvzf git-manpages-2.7.0.tar.gz
+$ sudo tar xvzf git-manpages-2.12.2.tar.gz
 ...
-./man7/giteveryday.7
+./man1/git-submodule.1
+./man1/git-show-ref.1
 
 $ cd ..
 $ sudo chown -R root.root man   <img src="./images/icons/callouts/1.png" alt="1">
-$ sudo chmod -R a+rx man
+$ sudo chmod -R a+r man
+$ sudo chmod 755 man man/man1 man/man5 man/man7
+
 
 $ ls -l man
-drwxr-xr-x 2 root root 4096 Jan  5 00:33 man1
-drwxrwxr-x 2 root root 4096 Jan  8 18:12 man3
-drwxr-xr-x 2 root root 4096 Jan  5 00:33 man5
-drwxr-xr-x 2 root root 4096 Jan  5 00:33 man7</pre>
+drwxr-xr-x 2 root root 4096 Mär 24 21:52 man1   <img src="./images/icons/callouts/2.png" alt="2">
+drwxrwxr-x 2 root root 4096 Apr  9 21:23 man3
+drwxr-xr-x 2 root root 4096 Mär 24 21:52 man5   <img src="./images/icons/callouts/2.png" alt="2">
+drwxr-xr-x 2 root root 4096 Mär 24 21:52 man7   <img src="./images/icons/callouts/2.png" alt="2"></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -702,30 +742,44 @@ drwxr-xr-x 2 root root 4096 Jan  5 00:33 man7</pre>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
 <td>Unbedingt die Rechte an den Dateien und den Ordnern anpassen!</td>
 </tr>
+<tr>
+<td><img src="./images/icons/callouts/2.png" alt="2"></td>
+<td>Release Date: 2017-03-24</td>
+</tr>
 </table>
 </div>
-<div class="paragraph">
-<p><strong>Step 4:</strong> Installation verifizieren</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="_installation_verifizieren">Installation verifizieren</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_git_version">git --version</h3>
+<div class="listingblock">
+<div class="content">
+<pre>$ git --version
+git version 2.12.2</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="__usr_local_bin">/usr/local/bin</h3>
 <div class="listingblock">
 <div class="content">
 <pre>$ cd /usr/local/bin
 $ ls -l git*
--rwxr-xr-x 117 root root 9834835 Jan  8 18:12 git
--rwxr-xr-x   2 root root  162423 Jan  8 18:12 git-cvsserver
--rwxr-xr-x   1 root root  348785 Jan  8 18:12 gitk
--rwxr-xr-x 117 root root 9834835 Jan  8 18:12 git-receive-pack
--rwxr-xr-x   2 root root 4737325 Jan  8 18:12 git-shell
--rwxr-xr-x 117 root root 9834835 Jan  8 18:12 git-upload-archive
--rwxr-xr-x   2 root root 5169432 Jan  8 18:12 git-upload-pack</pre>
+-rwxr-xr-x 118 root root 10871352 Apr  9 21:23 git
+-rwxr-xr-x   2 root root   162414 Apr  9 21:23 git-cvsserver
+-rwxr-xr-x   1 root root   351673 Apr  9 21:23 gitk
+-rwxr-xr-x 118 root root 10871352 Apr  9 21:23 git-receive-pack
+-rwxr-xr-x   2 root root  5656112 Apr  9 21:23 git-shell
+-rwxr-xr-x 118 root root 10871352 Apr  9 21:23 git-upload-archive
+-rwxr-xr-x   2 root root  6087320 Apr  9 21:23 git-upload-pack</pre>
 </div>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre>$ git --version
-git version 2.7.0</pre>
 </div>
-</div>
+<div class="sect2">
+<h3 id="_man_git">man git</h3>
 <div class="listingblock">
 <div class="content">
 <pre>$ man git
@@ -735,11 +789,12 @@ NAME
        git - the stupid content tracker
 
 SYNOPSIS
-       git [--version] [--help] [-c &lt;name&gt;=&lt;value&gt;]
+       git [--version] [--help] [-C &lt;path&gt;] [-c &lt;name&gt;=&lt;value&gt;]
            [--exec-path[=&lt;path&gt;]] [--html-path] [--man-path] [--info-path]
            [-p|--paginate|--no-pager] [--no-replace-objects] [--bare]
            [--git-dir=&lt;path&gt;] [--work-tree=&lt;path&gt;] [--namespace=&lt;name&gt;]
-           &lt;command&gt; [&lt;args&gt;]
+           [--super-prefix=&lt;path&gt;]
+          &lt;command&gt; [&lt;args&gt;]
 
 DESCRIPTION
        Git is a fast, scalable, distributed revision control system with an
@@ -755,10 +810,10 @@ DESCRIPTION
        Git commands with "git help command". gitcli(7) manual page gives you
        an overview of the command-line command syntax.
 
-       Formatted and hyperlinked version of the latest Git documentation can
-       be viewed at http://git-htmldocs.googlecode.com/git/git.html.
+       A formatted and hyperlinked copy of the latest Git documentation can be
+       viewed at https://git.github.io/htmldocs/git.html.
 
-...
+[...]
 
 AUTHORS
        Git was started by Linus Torvalds, and is currently maintained by Junio
@@ -800,9 +855,12 @@ NOTES
         5. git@vger.kernel.org
            mailto:git@vger.kernel.org
 
-Git 2.7.0                         01/04/2016                            GIT(1)</pre>
+Git 2.12.2                        03/24/2017                            GIT(1)</pre>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_man_gitk">man gitk</h3>
 <div class="listingblock">
 <div class="content">
 <pre>$ man gitk
@@ -812,7 +870,7 @@ NAME
        gitk - The git repository browser
 
 SYNOPSIS
-       gitk [&lt;option&gt;...] [&lt;revs&gt;] [--] [&lt;path&gt;...]
+       gitk [&lt;options&gt;] [&lt;revision range&gt;] [--] [&lt;path&gt;...]
 
 DESCRIPTION
        Displays changes in a repository or a selected set of commits. This
@@ -841,9 +899,12 @@ SEE ALSO
 GIT
        Part of the git(1) suite
 
-Git 2.7.0                         01/04/2016                           GITK(1)</pre>
+Git 2.12.2                         03/24/2017                           GITK(1)</pre>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="__usr_local">/usr/local</h3>
 <div class="listingblock">
 <div class="content">
 <pre>$ find /usr/local -type d -cmin -10
@@ -856,6 +917,8 @@ Git 2.7.0                         01/04/2016                           GITK(1)</
 /usr/local/share/locale
 /usr/local/share/locale/ru
 /usr/local/share/locale/ru/LC_MESSAGES
+/usr/local/share/locale/ko
+/usr/local/share/locale/ko/LC_MESSAGES
 /usr/local/share/locale/ca
 /usr/local/share/locale/ca/LC_MESSAGES
 /usr/local/share/locale/it
@@ -876,7 +939,6 @@ Git 2.7.0                         01/04/2016                           GITK(1)</
 /usr/local/share/locale/bg/LC_MESSAGES
 /usr/local/share/locale/zh_CN
 /usr/local/share/locale/zh_CN/LC_MESSAGES
-/usr/local/share/perl/5.18.2/Git
 /usr/local/share/git-gui/lib
 /usr/local/share/git-gui/lib/msgs
 /usr/local/share/gitk/lib/msgs
@@ -885,7 +947,6 @@ Git 2.7.0                         01/04/2016                           GITK(1)</
 /usr/local/share/man/man3
 /usr/local/share/man/man5
 /usr/local/share/man/man7
-/usr/local/share/doc
 /usr/local/share/doc/git-doc
 /usr/local/share/doc/git-doc/RelNotes
 /usr/local/share/doc/git-doc/howto
@@ -895,9 +956,12 @@ Git 2.7.0                         01/04/2016                           GITK(1)</
 /usr/local/bin</pre>
 </div>
 </div>
-<div class="paragraph">
-<p><strong>Step 5:</strong> Dokumentation (local)</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_dokumentation_local">Dokumentation (local)</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <div class="title">git(1) Manual Page</div>
 <p>Browser&gt; <a href="file:///usr/local/share/doc/git-doc/index.html" class="bare">file:///usr/local/share/doc/git-doc/index.html</a></p>
@@ -944,8 +1008,8 @@ Git 2.7.0                         01/04/2016                           GITK(1)</
 <h2 id="_anhang">Anhang</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Script zum Installieren von <a href="http://git-scm.com/">Git</a> 2.7.0 (ohne weitere Erläuterung).<br>
-Die Dokumentation zu <a href="http://git-scm.com/">Git</a> wird mit diesem Script <em>nicht</em> installiert.</p>
+<p>Script zum Installieren von <a href="git.html">Git</a> 2.12.2 (ohne weitere Erläuterung).<br>
+Die Dokumentation zu <a href="git.html">Git</a> wird mit diesem Script <em>nicht</em> installiert.</p>
 </div>
 <div class="listingblock">
 <div class="title">Datei: <code>git-install.sh</code></div>
@@ -953,7 +1017,7 @@ Die Dokumentation zu <a href="http://git-scm.com/">Git</a> wird mit diesem Scrip
 <pre>#!/bin/bash
 #
 ME=make_git
-NAME=git-2.7.0
+NAME=git-2.12.2
 
 ls -l git*.tar.gz
 echo
@@ -1000,14 +1064,14 @@ echo "$ME: Ende."</pre>
   <span>&#8679;</span>
 </a>
 
-<span class="small">&middot; Document generated with Asciidoctor 1.5.4.</span></p>
+<span class="small">&middot; Document generated with Asciidoctor 1.5.5.</span></p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-01-08 18:19:10 MEZ
+Last updated 2017-04-24 20:37:43 MESZ
 </div>
 </div>
 </body>

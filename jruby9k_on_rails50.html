@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.5">
 <meta name="author" content="Installation in Ubuntu — khkoether[at]kahweb[dot]de">
-<title>IiU&#8201;&#8212;&#8201;Ruby MRI 2.3</title>
+<title>IiU&#8201;&#8212;&#8201;JRuby 9k on Rails 5.0</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -421,28 +421,34 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>IiU&#8201;&#8212;&#8201;Ruby MRI 2.3</h1>
+<h1>IiU&#8201;&#8212;&#8201;JRuby 9k on Rails 5.0</h1>
 <div class="details">
 <span id="author" class="author">Installation in Ubuntu — khkoether[at]kahweb[dot]de</span><br>
 </div>
 <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
+<li><a href="#__to_be_prepared">&#8230;&#8203;to be prepared&#8230;&#8203;</a></li>
 <li><a href="#_abstract">Abstract</a></li>
-<li><a href="#_vorraussetzung">Vorraussetzung</a></li>
-<li><a href="#_download">Download</a></li>
-<li><a href="#_installation">Installation</a></li>
-<li><a href="#_rubygems">RubyGems</a>
+<li><a href="#_vorraussetzung">Vorraussetzung</a>
 <ul class="sectlevel2">
-<li><a href="#__em_asciidoctor_em"><em>asciidoctor</em></a></li>
-<li><a href="#__em_asciidoctor_revealjs_em"><em>asciidoctor-revealjs</em></a></li>
-<li><a href="#__em_pry_em"><em>pry</em></a></li>
-<li><a href="#__em_sinatra_em"><em>sinatra</em></a></li>
+<li><a href="#_jruby_9_1_8_0">JRuby 9.1.8.0</a></li>
+<li><a href="#_rubygems_installation">RubyGems: Installation</a></li>
 </ul>
 </li>
-<li><a href="#_rubygems_em_list_em">RubyGems: <em>list</em></a></li>
-<li><a href="#_rubygems_em_executable_em">RubyGems: <em>executable</em></a></li>
-<li><a href="#_rubygems_documentation_index">RubyGems Documentation Index</a></li>
+<li><a href="#_rubygem_rails_5_0_2">RubyGem: rails-5.0.2</a></li>
+<li><a href="#_jruby_on_rails_5_0_2">JRuby on Rails 5.0.2</a>
+<ul class="sectlevel2">
+<li><a href="#_datenbanksystem_wählen">Datenbanksystem wählen</a></li>
+<li><a href="#_datenbankadapter_installieren">Datenbankadapter installieren</a></li>
+<li><a href="#_datenbank_erstellen">Datenbank erstellen</a></li>
+<li><a href="#_projektverzeichnis_erstellen">Projektverzeichnis erstellen</a></li>
+<li><a href="#_rubygems_installieren">RubyGems installieren</a></li>
+<li><a href="#_datenbankadapter_konfigurieren">Datenbankadapter konfigurieren</a></li>
+<li><a href="#_javascript_runtime_installieren">JavaScript-Runtime installieren</a></li>
+<li><a href="#_aufruf_der_webanwendung_im_browser">Aufruf der Webanwendung im Browser</a></li>
+</ul>
+</li>
 <li><a href="#_anhang">Anhang</a></li>
 </ul>
 </div>
@@ -456,26 +462,82 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
+<h2 id="__to_be_prepared">&#8230;&#8203;to be prepared&#8230;&#8203;</h2>
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>Zu diesem Zeitpunkt (Ende April) muß ich konstatieren das
+<em>Ruby on Rails 5.0</em> <strong>nicht</strong> mit <em>JRuby 9k</em> läuft.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<img src="./images/icons/warning.png" alt="Warning">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Das RubyGem <em>activerecord-jdbcmysql-adapter</em> unterstützt
+zu diesem Zeitpunkt ausschließlich
+die Versionen <em>Ruby on Rails 3.x/4.x</em>.</p>
+</div>
+<div class="paragraph">
+<p>Aktuell wird die Version <em>5.0.pre1</em> entwickelt,
+wann sie denn verfügbar ist&#8201;&#8212;&#8201;ist unbekannt.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Auf der Webseite &#8594; <a href="https://github.com/jruby/activerecord-jdbc-adapter">jruby/activerecord-jdbc-adapter</a> heißt es</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>The next release <em>1.4</em> aims to concentrate on internal refactoring and optimization.
+We&#8217;re going to be (slowly) dropping support for all of Rails &lt; 3.2,
+unless there is demand for these.
+In which case we kindly hope to receive PRs.</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>Die für die Kombination <strong>JRuby 9k</strong> und <strong>Ruby on Rails 5.0</strong>
+gemeldeten <em>Issues</em> finden sie hier:<br>
+&#8594; <a href="https://github.com/jruby/activerecord-jdbc-adapter/labels/rails-5.x">jruby/activerecord-jdbc-adapter: label rails-5.x</a></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Im folgenden zeige ich die von mir durchgeführte Installation<br>
+von <em>JRuby 9k on Rails 5.0</em> bis zum <em>bitteren</em> Fehler.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_abstract">Abstract</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="https://www.ruby-lang.org/de/">Ruby</a> ist eine dynamische, freie Programmiersprache,
-die sich einfach anwenden und produktiv einsetzen lässt.</p>
+<p><a href="http://rubyonrails.org">Ruby on Rails</a> (kurz: <em>Rails</em>) ist ein Framework zum
+Entwickeln von Webanwendungen.</p>
 </div>
 <div class="paragraph">
-<p>Dieser Artikel ist eine Schritt-für-Schritt Anleitung zur Installation
-von <a href="https://www.ruby-lang.org/de/">Ruby MRI 2.3</a> aus dem QuellCode.<br>
-<em>MRI</em> steht für Matz-Ruby-Installation.</p>
+<p>Die folgenden Schritte stellen die Funktionsfähigkeit der Installation
+von <a href="http://jruby.org/">JRuby</a> und <a href="http://rubyonrails.org">Ruby on Rails</a> sicher.</p>
 </div>
 <div class="paragraph">
-<p>Die Programmiersprache <a href="https://www.ruby-lang.org/de/">Ruby</a> ist die Grundlage für das
-Framework <a href="http://rubyonrails.org">Ruby on Rails</a>.</p>
-</div>
-<div class="paragraph">
-<p><em>Ruby</em> ist Open Source, wird mit <em>Subversion</em>
-auf <a href="https://bugs.ruby-lang.org/">ruby-lang.org</a> entwickelt
-(mit Spiegelung auf <a href="https://github.com/ruby/ruby">GitHub</a>)
-und ist freigegeben unter der <a href="https://en.wikipedia.org/wiki/2-clause_BSD">2-clause BSD license</a>.</p>
+<p><em>Ruby on Rails</em> ist Open Source,
+wird gehostet auf <a href="https://github.com/rails/rails">GitHub</a>
+und ist freigegeben unter der <a href="https://github.com/rails/rails/blob/master/MIT-LICENSE">MIT-Lizenz</a>.</p>
 </div>
 <div class="paragraph">
 <p>Der Artikel ist in <em>AsciiDoc</em> geschrieben
@@ -489,9 +551,9 @@ und mit <em>Asciidoctor 1.5.5</em> erstellt worden.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Zu beachten ist, dass so ein Dokument zum Einen nie abschliessend
+<p>Zu beachten ist, dass so ein Dokument zum Einen nie abschließend
 sein kann, und zum Anderen bestimmte Konfigurationen anders, oder
-auf einem anderem Weg durchgeführt werden können.
+auf einem anderem Weg durchgeführt werden können.<br>
 Gerne nehme ich Verbesserungsvorschläge entgegen.</p>
 </div>
 <div class="paragraph">
@@ -512,44 +574,10 @@ Gleichwohl sind die einzelnen Schritte auch für
 andere Debian-basierte GNU/Linux Distributionen übertragbar.</p>
 </div>
 <div class="paragraph">
-<p>Die System-Installation von <strong>Ruby</strong> ist,
-wie in &nbsp; <a href="asciidoctor.html">IiU&#8201;&#8212;&#8201;Asciidoctor</a> &nbsp; beschrieben,
+<p>Die Installation von <strong>JRuby</strong> ist,
+wie in &nbsp; <a href="jruby9k.html">IiU&#8201;&#8212;&#8201;JRuby 9k</a> &nbsp; beschrieben,
 durchgeführt worden.</p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="nowrap">$ COLUMNS=96 dpkg --list | grep ruby2.3   <img src="./images/icons/callouts/1.png" alt="1">
-ii  libruby2.3:amd64   2.3.1-2~16.04  amd64   Libraries necessary to run Ruby 2.3
-ii  ruby2.3            2.3.1-2~16.04  amd64   Interpreter of object-oriented scripting language Ruby</pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>COLUMNS=96 ist eine Formatangabe für die Ausgabe von <mark>dpkg</mark></td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_download">Download</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://www.ruby-lang.org/de/downloads/">Ruby 2.3.4</a><br>
-<code>ruby-2.3.4.tar.gz</code>  (ca. 17M)<br>
-2017-03-29 (Release date)</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_installation">Installation</h2>
-<div class="sectionbody">
 <div class="admonitionblock caution">
 <table>
 <tr>
@@ -558,606 +586,918 @@ ii  ruby2.3            2.3.1-2~16.04  amd64   Interpreter of object-oriented scr
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Zur Installation von einem weiterem <a href="https://www.ruby-lang.org/de/">Ruby</a> müssen
-weitere Pakete installiert sein.<br>
-Für die Verwaltung der <strong>Ruby</strong>-Installationen verwende ich <a href="chruby.html">Chruby</a>.</p>
+<p>Eine Installation von <strong>Ruby on Rails 5.0</strong> ist nur mit <strong>Ruby-Versionen &gt;= 2.2</strong> möglich!</p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre>$ sudo apt-get install ...   <img src="./images/icons/callouts/1.png" alt="1">
-               build-essential bison
-               libssl-dev libgdbm-dev libreadline-dev libffi-dev libyaml-dev
-               zlib1g-dev</pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Der <strong>GCC</strong> ist standardmäßig bereits vorhanden.</td>
-</tr>
-</table>
+<div class="paragraph">
+<p><strong>JRuby 9k</strong> hat aktuell die Versions-Nummer <strong>9.1.8.0</strong>.<br>
+Sie <em>entspricht</em> dem Entwicklungsstand von &nbsp; <strong>Ruby 2.3.1</strong>.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p><strong>Ruby</strong> sollte im Verzeichnis <code>/opt/rubies</code> oder <code>~/.rubies</code> installiert werden.<br>
-Dann kann <mark>chruby</mark> automatisch die Installation verwalten.</p>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<img src="./images/icons/important.png" alt="Important">
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Ohne die Angabe eines Verzeichnisses wird <code>/usr/local/&#8230;&#8203;</code> &nbsp; automatisch verwendet.<br>
-Eine bereits vorhandene Ruby-Installation wird überschrieben.</p>
-</div>
-<div class="paragraph">
-<p>Beispiel für die Änderung des Installations-Verzeichnisses:<br>
-<mark>./configure --prefix=/opt/wo_auch_immer</mark></p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p><strong>Step 1:</strong> Auspacken des Source-Code</p>
-</div>
+<div class="sect2">
+<h3 id="_jruby_9_1_8_0">JRuby 9.1.8.0</h3>
 <div class="listingblock">
 <div class="content">
-<pre>$ tar xvzf ruby-2.3.4.tar.gz
-$ cd ruby-2.3.4</pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Step 2:</strong> Ziel-Verzeichnis festlegen</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>$ ./configure --prefix=/opt/rubies/ruby-2.3.4 | tee ../log.ruby_configure
-checking for ruby... /usr/bin/ruby
-config.guess already exists
-config.sub already exists
-checking build system type... x86_64-pc-linux-gnu
-checking host system type... x86_64-pc-linux-gnu
-checking target system type... x86_64-pc-linux-gnu
-checking for gcc... gcc
-...
-configure: ruby library version = 2.3.0
-configure: creating ./config.status
-config.status: creating GNUmakefile
-config.status: creating Makefile
-config.status: creating ruby-2.3.pc</pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Step 3:</strong> Kompilieren</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="nowrap">$ make all | tee ../log.ruby_make-all
-CC = gcc
-LD = ld
-LDSHARED = gcc -shared
-CFLAGS = -O3 -fno-fast-math -ggdb3
-         -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long
-         -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith
-         -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration
-         -Wdeprecated-declarations -Wno-packed-bitfield-compat
-         -Wno-maybe-uninitialized -std=iso9899:1999
-XCFLAGS = -D_FORTIFY_SOURCE=2 -fstack-protector -fno-strict-overflow
-          -fvisibility=hidden -DRUBY_EXPORT -fPIE
-CPPFLAGS =   -I. -I.ext/include/x86_64-linux -I./include -I.
-DLDFLAGS = -fstack-protector -pie
-SOLIBS = -lgmp
-Using built-in specs.
-COLLECT_GCC=gcc
-...
-99% [944/946]  vm_method.c
-99% [945/946]  vm_trace.c
-100% [946/946]  vsnprintf.c
-
-Generating RI format into /opt/XenialXerus/Ruby23/ruby-2.3.4/.ext/rdoc...
-
-
- Files:        946
-
- Classes:     1402 ( 577 undocumented)
- Modules:      279 ( 110 undocumented)
- Constants:   2172 ( 603 undocumented)
- Attributes:  1146 ( 256 undocumented)
- Methods:    10497 (2232 undocumented)
-
- Total:      15496 (3778 undocumented)
-  75.62% documented
-
- Elapsed: 119.7s</pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Step 4:</strong> Test</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>$ make test | tee ../log.ruby_make-test
-CC = gcc
-LD = ld
-LDSHARED = gcc -shared
-CFLAGS = ...
-...
-sample/test.rb:gc ....OK 4
-
-test succeeded
-PASS all 1010 tests
-exec ./miniruby -I./lib -I. -I.ext/common  ./tool/runruby.rb
-     --extout=.ext  -- --disable-gems "./bootstraptest/runner.rb"
-     --ruby="ruby --disable-gems"   ./KNOWNBUGS.rb
-2017-04-09 22:19:22 +0200
-Driver is ruby 2.3.4p301 (2017-03-30 revision 58214) [x86_64-linux]
-Target is ruby 2.3.4p301 (2017-03-30 revision 58214) [x86_64-linux]
-
-KNOWNBUGS.rb  PASS 0   <img src="./images/icons/callouts/1.png" alt="1">
-No tests, no problem</pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Wortwörtlich: Das sind <em>known_bugs</em> ;-)&#8201;&#8212;&#8201;aktuell, keiner.</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="./images/icons/note.png" alt="Note">
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Auf die folgenden Teile des Ruby-Interpreters verzichte ich in meiner
-Installation. Sollten Sie sie benötigen,<br>
-müssen die entsprechenden
-Entwickler-Bibliotheken (<code>libNAME-dev</code>) zusätzlich installiert werden.</p>
-</div>
-<div class="paragraph">
-<p>Führen Sie anschließend die obigen Befehle (<mark>make &#8230;&#8203;</mark>) erneut aus.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>$ grep Failed ../log.ruby_make-all
-Failed to configure tk. It will not be installed.
-Failed to configure tk/tkutil. It will not be installed.</pre>
-</div>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p><strong>Step 5:</strong> Installation als <em>normaler</em> Benutzer
-(Dokumentation wird mitinstalliert: install-doc entfällt)</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="nowrap">$ make install | tee ../log.ruby_make-install
-CC = gcc
-LD = ld
-LDSHARED = gcc -shared
-CFLAGS = ...
-...
-installing default gems:      /opt/rubies/ruby-2.3.4/lib/ruby/gems/2.3.0 (build_info, cache, doc, extensions, gems, specifications)
-                              bigdecimal 1.2.8
-                              io-console 0.4.5
-                              json 1.8.3
-                              psych 2.1.0
-                              rdoc 4.2.1
-installing bundle gems:       /opt/rubies/ruby-2.3.4/lib/ruby/gems/2.3.0 (build_info, cache, doc, extensions, gems, specifications)
-                              minitest 5.8.5
-                              rake 10.4.2
-                              power_assert 0.2.6
-                              net-telnet 0.1.1
-                              did_you_mean 1.0.0
-                              test-unit 3.1.5
-installing rdoc:              /opt/rubies/ruby-2.3.4/share/ri/2.3.0/system
-installing capi-docs:         /opt/rubies/ruby-2.3.4/share/doc/ruby</pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Step 6:</strong> Installation verifizieren</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>$ cd /opt/rubies/ruby-2.3.4
-$ ls -l
-drwxr-xr-x 2 sid sid 4096 Apr  9 22:23 bin
-drwxr-xr-x 3 sid sid 4096 Apr  9 22:23 include
-drwxr-xr-x 4 sid sid 4096 Apr  9 22:23 lib
-drwxr-xr-x 5 sid sid 4096 Apr  9 22:23 share</pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>$ ls -l bin
--rwxr-xr-x 1 sid sid     4856 Apr  9 22:23 erb
--rwxr-xr-x 1 sid sid      560 Apr  9 22:23 gem
--rwxr-xr-x 1 sid sid      204 Apr  9 22:23 irb
--rwxr-xr-x 1 sid sid      481 Apr  9 22:23 rake
--rwxr-xr-x 1 sid sid      952 Apr  9 22:23 rdoc
--rwxr-xr-x 1 sid sid      202 Apr  9 22:23 ri
--rwxr-xr-x 1 sid sid 15398800 Apr  9 22:15 ruby</pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Step 7:</strong> <mark>chruby</mark></p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>$ source /usr/local/share/chruby/chruby.sh
-
-$ chruby
+<pre class="nowrap">$ chruby        <img src="./images/icons/callouts/1.png" alt="1">
+   jruby-9.1.8.0
    ruby-2.3.4
+   ruby-2.4.1
 
-$ chruby ruby-2.3.4</pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>$ ruby -v
-ruby 2.3.4p301 (2017-03-30 revision 58214) [x86_64-linux]</pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>$ which gem
-/opt/rubies/ruby-2.3.4/bin/gem
+$ chruby jruby-9.1.8.0
+
+$ which ruby
+/opt/rubies/jruby-9.1.8.0/bin/ruby
+
+$ ruby -v
+jruby 9.1.8.0 (2.3.1) 2017-03-06 90fc7ab OpenJDK 64-Bit Server VM 25.121-b13
+                      on 1.8.0_121-8u121-b13-0ubuntu1.16.04.2-b13 +jit [linux-x86_64]
 
 $ gem -v
-2.5.2
-
-$ gem list
-
-*** LOCAL GEMS ***
-
-bigdecimal (1.2.8)
-did_you_mean (1.0.0)
-io-console (0.4.5)
-json (1.8.3)
-minitest (5.8.5)
-net-telnet (0.1.1)
-power_assert (0.2.6)
-psych (2.1.0)
-rake (10.4.2)
-rdoc (4.2.1)
-test-unit (3.1.5)</pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>$ which rake
-/opt/rubies/ruby-2.3.4/bin/rake
+2.6.8
 
 $ rake -V
 rake, version 10.4.2</pre>
 </div>
 </div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Für die Verwaltung der <strong>Ruby</strong>-Installationen verwende ich <a href="chruby.html">Chruby</a>.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_rubygems_installation">RubyGems: Installation</h3>
 <div class="paragraph">
-<p><strong>Step 8</strong> Vollständigkeit &#8230;&#8203;</p>
+<p>Mit <mark>gem install &#8230;&#8203;</mark> wird in der Regel auch Dokumentation installiert.</p>
+</div>
+<div class="paragraph">
+<p>Für <strong>Rails</strong> wird in der Regel die offizielle Dokumentation im Internet genutzt:<br>
+&#8594; <a href="http://guides.rubyonrails.org/v5.0/">Ruby on Rails Guides (v5.0.2)</a></p>
+</div>
+<div class="paragraph">
+<p>Mit der folgenden Datei kann der Installationsschritt ausgelassen werden.</p>
 </div>
 <div class="listingblock">
+<div class="title">Datei: <code>~/.gemrc</code></div>
 <div class="content">
-<pre>$ ruby -ropenssl -rzlib -rreadline -e "puts 'Happy new Ruby'"
-Happy new Ruby</pre>
+<pre>#install: --no-document
+#update:  --no-document
+
+gem:      --no-document</pre>
 </div>
 </div>
-<div class="listingblock">
-<div class="title">Ruby 2.3.4: <mark>irb</mark></div>
-<div class="content">
-<pre>$ which irb
-/opt/rubies/ruby-2.3.4/bin/irb
-
-$ irb
-irb(main):001:0&gt; RUBY_VERSION
-=&gt; "2.3.4"
-irb(main):002:0&gt; RUBY_PATCHLEVEL
-=&gt; 301
-irb(main):003:0&gt; Time.now.to_s
-=&gt; "2017-04-09 22:38:30 +0200"
-irb(main):004:0&gt; Time.now.sunday?
-=&gt; true
-irb(main):005:0&gt; exit</pre>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Für die <strong>Ruby</strong>-Systeminstallation muß mit dem Benutzer <strong>root</strong>
+die Datei <code>/etc/gemrc</code><br>
+mit dem genannten Inhalt angelegt werden.</p>
 </div>
+</td>
+</tr>
+</table>
 </div>
-<div class="listingblock">
-<div class="title">ri - Ruby Interactive (Test der installierten Dokumentation)</div>
-<div class="content">
-<pre>$ ri Array#each</pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>= Array#each
-
-(from ruby core)
- -----------------------------------------------------------------------------
-  ary.each {|item| block }   -&gt; ary
-  ary.each                   -&gt; an_enumerator
-
-
- -----------------------------------------------------------------------------
-
-Calls block once for each element in self, passing that element as a
-parameter.
-
-If no block is given, an enumerator is returned instead.
-
-  a = [ "a", "b", "c" ]
-  a.each {|x| print x, " -- " }
-
-produces:
-
-  a -- b -- c --</pre>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<img src="./images/icons/caution.png" alt="Caution">
+</td>
+<td class="content">
+Die Optionen für das Programm-Aufruf <mark>gem install &#8230;&#8203; --no-ri --no-rdoc</mark> sind deprecated.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_rubygems">RubyGems</h2>
+<h2 id="_rubygem_rails_5_0_2">RubyGem: rails-5.0.2</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p><em>RubyGems</em> (oder kurz <em>Gems</em>) ist das offizielle Paketsystem für die
-Programmiersprache Ruby. Mit dem Paketsystem hat der Anwender die Möglichkeit,
-mehrere (zum Beispiel ältere oder jüngere) Versionen eines Programmes,
-Programmteiles oder einer Bibliothek gesteuert nach Bedarf einzurichten,
-zu verwalten oder auch wieder zu entfernen.<br>
-&rarr; <a href="http://de.wikipedia.org/wiki/RubyGems">Wikipedia: RubyGems</a></p>
-</div>
-<div class="sect2">
-<h3 id="__em_asciidoctor_em"><em>asciidoctor</em></h3>
 <div class="listingblock">
+<div class="title">Step 0</div>
 <div class="content">
-<pre>$ gem install asciidoctor coderay        <img src="./images/icons/callouts/1.png" alt="1"> <img src="./images/icons/callouts/2.png" alt="2">
-Fetching: asciidoctor-1.5.5.gem (100%)
-Successfully installed asciidoctor-1.5.5
-Parsing documentation for asciidoctor-1.5.5
-Installing ri documentation for asciidoctor-1.5.5
-Done installing documentation for asciidoctor after 4 seconds
-Fetching: coderay-1.1.1.gem (100%)
-Successfully installed coderay-1.1.1
-invalid options: -SNw2
-(invalid options are ignored)
-Parsing documentation for coderay-1.1.1
-Installing ri documentation for coderay-1.1.1
-Done installing documentation for coderay after 2 seconds
-2 gems installed</pre>
+<pre>$ gem search ^rails$ --remote
+
+*** REMOTE GEMS ***
+
+rails (5.0.2)   <img src="./images/icons/callouts/1.png" alt="1"></pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td><strong>Asciidoctor</strong> ist die Neu-Implementation von <strong>AsciiDoc</strong> in Ruby.<br>
-<strong>AsciiDoc</strong> ist eine einfache Auszeichnungssprache, die dazu dient,<br>
-Texte in verschiedenen Dokumentenformaten zu veröffentlichen.</td>
+<td>Seit dem 01.03.2017 ist das die neueste Version des RubyGem <em>rails</em>.</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip">
+</td>
+<td class="content">
+<div class="listingblock">
+<div class="title">Das RubyGem <em>rails</em> kann unterschiedlich installiert werden:</div>
+<div class="content">
+<pre>$ gem install rails   <img src="./images/icons/callouts/1.png" alt="1">
+
+$ gem install rails --version 5.0.0   <img src="./images/icons/callouts/2.png" alt="2">
+
+$ gem install rails --version '~&gt; 5.0.0'   <img src="./images/icons/callouts/3.png" alt="3"></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Die <em>aktuell</em> neueste Version wird installiert&#8201;&#8212;&#8201;zu diesem Moment: 5.0.2!</td>
 </tr>
 <tr>
 <td><img src="./images/icons/callouts/2.png" alt="2"></td>
-<td><strong>CodeRay</strong> is a fast and easy syntax highlighting for selected languages, written in Ruby.<br>
-Comes with RedCloth integration and LOC counter.</td>
+<td>Die <em>angegebene</em> Version wird installiert&#8201;&#8212;&#8201;also: 5.0.0.</td>
 </tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="__em_asciidoctor_revealjs_em"><em>asciidoctor-revealjs</em></h3>
-<div class="listingblock">
-<div class="content">
-<pre>$ gem install asciidoctor-revealjs   <img src="./images/icons/callouts/1.png" alt="1">
-Fetching: temple-0.7.7.gem (100%)
-Successfully installed temple-0.7.7
-Fetching: tilt-2.0.7.gem (100%)
-Successfully installed tilt-2.0.7
-Fetching: slim-3.0.7.gem (100%)
-Successfully installed slim-3.0.7
-Fetching: thread_safe-0.3.6.gem (100%)
-Successfully installed thread_safe-0.3.6
-Fetching: asciidoctor-revealjs-1.0.2.gem (100%)
-Successfully installed asciidoctor-revealjs-1.0.2
-Parsing documentation for temple-0.7.7
-Installing ri documentation for temple-0.7.7
-Parsing documentation for tilt-2.0.7
-Installing ri documentation for tilt-2.0.7
-Parsing documentation for slim-3.0.7
-Installing ri documentation for slim-3.0.7
-Parsing documentation for thread_safe-0.3.6
-Installing ri documentation for thread_safe-0.3.6
-Parsing documentation for asciidoctor-revealjs-1.0.2
-Installing ri documentation for asciidoctor-revealjs-1.0.2
-Done installing documentation for temple, tilt, slim, thread_safe, asciidoctor-revealjs after 2 seconds
-5 gems installed</pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
 <tr>
-<td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Asciidoctor reveal.js ist ein Konverter der ein AsciiDoc-Dokument
-in eine HTML5-Präsentation<br>
-umwandelt, um mit dem Framework <strong>reveal.js</strong> ausgeführt zu werden.</td>
+<td><img src="./images/icons/callouts/3.png" alt="3"></td>
+<td>Twiddle Wakka: '~&gt; 5.0.0' bedeutet, das die höchste Gem-Version von <em>rails</em><br>
+im Bereich von &gt;= 5.0.0 und &lt; 5.1 installiert wird&#8201;&#8212;&#8201;zu diesem Moment: 5.0.2!</td>
 </tr>
 </table>
 </div>
-</div>
-<div class="sect2">
-<h3 id="__em_pry_em"><em>pry</em></h3>
-<div class="listingblock">
-<div class="content">
-<pre>$ gem install pry   <img src="./images/icons/callouts/1.png" alt="1">
-Fetching: slop-3.6.0.gem (100%)
-Successfully installed slop-3.6.0
-Fetching: method_source-0.8.2.gem (100%)
-Successfully installed method_source-0.8.2
-Fetching: pry-0.10.4.gem (100%)
-Successfully installed pry-0.10.4
-Parsing documentation for slop-3.6.0
-Installing ri documentation for slop-3.6.0
-Parsing documentation for method_source-0.8.2
-Installing ri documentation for method_source-0.8.2
-Parsing documentation for pry-0.10.4
-Installing ri documentation for pry-0.10.4
-Done installing documentation for slop, method_source, pry after 3 seconds
-3 gems installed</pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Pry is a powerful alternative to the standard IRB shell for Ruby.</td>
+</td>
 </tr>
 </table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="__em_sinatra_em"><em>sinatra</em></h3>
-<div class="listingblock">
-<div class="content">
-<pre>$ gem install sinatra   <img src="./images/icons/callouts/1.png" alt="1">
-Fetching: rack-1.6.5.gem (100%)
-Successfully installed rack-1.6.5
-Fetching: rack-protection-1.5.3.gem (100%)
-Successfully installed rack-protection-1.5.3
-Fetching: sinatra-1.4.8.gem (100%)
-Successfully installed sinatra-1.4.8
-Parsing documentation for rack-1.6.5
-Installing ri documentation for rack-1.6.5
-Parsing documentation for rack-protection-1.5.3
-Installing ri documentation for rack-protection-1.5.3
-Parsing documentation for sinatra-1.4.8
-Installing ri documentation for sinatra-1.4.8
-Done installing documentation for rack, rack-protection, sinatra after 430 seconds
-3 gems installed</pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td><strong>Sinatra</strong> ist eine <em>freie</em> und <em>open source Webapplikationsbibliothek</em> und<br>
-eine in Ruby geschriebene <em>domänenspezifische</em> Sprache.<br>
-<strong>Sinatra</strong> setzt das Rack Webserver-Interface voraus.<br>
-&rarr; <a href="http://de.wikipedia.org/wiki/Sinatra_%28Software%29">Wikipedia: Sinatra (Software)</a></td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_rubygems_em_list_em">RubyGems: <em>list</em></h2>
-<div class="sectionbody">
-<div class="listingblock">
-<div class="title"><mark>gem list</mark></div>
-<div class="content">
-<pre>$ gem list
-
-*** LOCAL GEMS ***
-
-asciidoctor (1.5.5)
-asciidoctor-revealjs (1.0.2)
-bigdecimal (1.2.8)
-coderay (1.1.1)
-did_you_mean (1.0.0)
-io-console (0.4.5)
-json (1.8.3)
-method_source (0.8.2)
-minitest (5.8.5)
-net-telnet (0.1.1)
-power_assert (0.2.6)
-pry (0.10.4)
-psych (2.1.0)
-rack (1.6.5)
-rack-protection (1.5.3)
-rake (10.4.2)
-rdoc (4.2.1)
-sinatra (1.4.8)
-slim (3.0.7)
-slop (3.6.0)
-temple (0.7.7)
-test-unit (3.1.5)
-thread_safe (0.3.6)
-tilt (2.0.7)</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_rubygems_em_executable_em">RubyGems: <em>executable</em></h2>
-<div class="sectionbody">
-<div class="listingblock">
-<div class="title">/opt/rubies/ruby-2.3.4/bin</div>
-<div class="content">
-<pre>$ ls -l /opt/rubies/ruby-2.3.4/bin
--rwxr-xr-x 1 sid sid     4856 Apr  9 22:23 erb
--rwxr-xr-x 1 sid sid      560 Apr  9 22:23 gem
--rwxr-xr-x 1 sid sid      204 Apr  9 22:23 irb
--rwxr-xr-x 1 sid sid      481 Apr  9 22:23 rake
--rwxr-xr-x 1 sid sid      952 Apr  9 22:23 rdoc
--rwxr-xr-x 1 sid sid      202 Apr  9 22:23 ri
--rwxr-xr-x 1 sid sid 15398800 Apr  9 22:15 ruby</pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">~/.gem/ruby/2.3.4/bin</div>
-<div class="content">
-<pre>$ ls -l ~/.gem/ruby/2.3.4/bin   <img src="./images/icons/callouts/1.png" alt="1">
--rwxr-xr-x 1 sid sid 502 Apr  9 22:33 asciidoctor
--rwxr-xr-x 1 sid sid 529 Apr  9 22:34 asciidoctor-revealjs
--rwxr-xr-x 1 sid sid 507 Apr  9 22:33 asciidoctor-safe
--rwxr-xr-x 1 sid sid 490 Apr  9 22:33 coderay
--rwxr-xr-x 1 sid sid 478 Apr  9 22:53 pry
--rwxr-xr-x 1 sid sid 483 Apr  9 22:55 rackup
--rwxr-xr-x 1 sid sid 483 Apr  9 22:34 slimrb
--rwxr-xr-x 1 sid sid 481 Apr  9 22:34 tilt</pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Mit <strong>chruby</strong> werden die zusätzlichen <em>RubyGems</em> im
-Home-Verzeichnis installiert.</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_rubygems_documentation_index">RubyGems Documentation Index</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Auf die installierte Dokumentation zugreifen.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre># gem server
-Server started at http://0.0.0.0:8808</pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>Browser&gt; http://localhost:8808/
-         RubyGems Documentation Index</pre>
-</div>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="./images/ruby/rubygems23_documentation_index.png" alt="RubyGems 2.3 Documentation Index"></span></p>
+<div class="title">Step 1</div>
+<p>Mit <mark>gem install &#8230;&#8203;</mark> werden auch alle Abhängigkeiten zu anderen RubyGems aufgelöst.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ gem install rails --version '~&gt; 5.0.0'
+Fetching: i18n-0.8.1.gem (100%)
+Successfully installed i18n-0.8.1
+Fetching: tzinfo-1.2.3.gem (100%)
+Successfully installed tzinfo-1.2.3
+Fetching: concurrent-ruby-1.0.5-java.gem (100%)
+Successfully installed concurrent-ruby-1.0.5-java
+Fetching: activesupport-5.0.2.gem (100%)
+Successfully installed activesupport-5.0.2
+Fetching: rack-2.0.1.gem (100%)
+Successfully installed rack-2.0.1
+Fetching: rack-test-0.6.3.gem (100%)
+Successfully installed rack-test-0.6.3
+Fetching: nokogiri-1.7.1-java.gem (100%)
+Successfully installed nokogiri-1.7.1-java
+Fetching: loofah-2.0.3.gem (100%)
+Successfully installed loofah-2.0.3
+Fetching: rails-html-sanitizer-1.0.3.gem (100%)
+Successfully installed rails-html-sanitizer-1.0.3
+Fetching: rails-dom-testing-2.0.2.gem (100%)
+Successfully installed rails-dom-testing-2.0.2
+Fetching: builder-3.2.3.gem (100%)
+Successfully installed builder-3.2.3
+Fetching: erubis-2.7.0.gem (100%)
+Successfully installed erubis-2.7.0
+Fetching: actionview-5.0.2.gem (100%)
+Successfully installed actionview-5.0.2
+Fetching: actionpack-5.0.2.gem (100%)
+Successfully installed actionpack-5.0.2
+Fetching: activemodel-5.0.2.gem (100%)
+Successfully installed activemodel-5.0.2
+Fetching: arel-7.1.4.gem (100%)
+Successfully installed arel-7.1.4
+Fetching: activerecord-5.0.2.gem (100%)
+Successfully installed activerecord-5.0.2
+Fetching: globalid-0.4.0.gem (100%)
+Successfully installed globalid-0.4.0
+Fetching: activejob-5.0.2.gem (100%)
+Successfully installed activejob-5.0.2
+Fetching: mime-types-data-3.2016.0521.gem (100%)
+Successfully installed mime-types-data-3.2016.0521
+Fetching: mime-types-3.1.gem (100%)
+Successfully installed mime-types-3.1
+Fetching: mail-2.6.5.gem (100%)
+Successfully installed mail-2.6.5
+Fetching: actionmailer-5.0.2.gem (100%)
+Successfully installed actionmailer-5.0.2
+Fetching: nio4r-2.0.0-java.gem (100%)
+Successfully installed nio4r-2.0.0-java
+Fetching: websocket-extensions-0.1.2.gem (100%)
+Successfully installed websocket-extensions-0.1.2
+Fetching: websocket-driver-0.6.5-java.gem (100%)
+Successfully installed websocket-driver-0.6.5-java
+Fetching: actioncable-5.0.2.gem (100%)
+Successfully installed actioncable-5.0.2
+Fetching: thor-0.19.4.gem (100%)
+Successfully installed thor-0.19.4
+Fetching: railties-5.0.2.gem (100%)
+Successfully installed railties-5.0.2
+Fetching: bundler-1.14.6.gem (100%)
+Successfully installed bundler-1.14.6
+Fetching: sprockets-3.7.1.gem (100%)
+Successfully installed sprockets-3.7.1
+Fetching: sprockets-rails-3.2.0.gem (100%)
+Successfully installed sprockets-rails-3.2.0
+Fetching: rails-5.0.2.gem (100%)
+Successfully installed rails-5.0.2
+33 gems installed                    <img src="./images/icons/callouts/1.png" alt="1"></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Mit dem RubyGem <em>rails-5.0.2</em> wurden insgesamt 33 Gems installiert.<br>
+Hinweis: Weitere RubyGems müssen für das Framework <strong>Ruby on Rails</strong> installiert werden.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_jruby_on_rails_5_0_2">JRuby on Rails 5.0.2</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Die notwendigen Schritte werden auf der Kommandozeile durchgeführt.</p>
+</div>
+<div class="ulist">
+<div class="title">Vorgehensweise</div>
+<ul>
+<li>
+<p>Datenbanksystem wählen</p>
+</li>
+<li>
+<p>Datenbankadapter installieren</p>
+</li>
+<li>
+<p>Datenbank erstellen</p>
+</li>
+<li>
+<p>Projektverzeichnis erstellen</p>
+</li>
+<li>
+<p>RubyGems installieren</p>
+</li>
+<li>
+<p>Datenbankadapter konfigurieren</p>
+</li>
+<li>
+<p>JavaScript-Runtime installieren</p>
+</li>
+<li>
+<p>Aufruf der Webanwendung im Browser</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_datenbanksystem_wählen">Datenbanksystem wählen</h3>
+<div class="paragraph">
+<p>Für das Framework <strong>Ruby on Rails</strong> sind die folgenden drei Datenbanksysteme zumindest
+für die <em>Entwicklung</em> (aber auch für die <em>Produktion</em>) eines neuen
+<strong>Rails</strong>-Projektes die erste Wahl:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>SqLite3</em><br>
+Klein, kompakt und dateibasiert&#8201;&#8212;&#8201;mit diesen Vorzügen glänzt 'SQLite3'.<br>
+Ist in <em>Ruby on Rails</em> die Default-Datenbank.</p>
+</li>
+<li>
+<p><em>MySQL</em><br>
+Gut und schnell und überhaupt &#8230;&#8203; überall verfügbar.</p>
+</li>
+<li>
+<p><em>PostgreSQL</em><br>
+Lupenreine OpenSource-Datenbanksystem für professionelle Anforderungen.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<img src="./images/icons/caution.png" alt="Caution">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Die einzelnen Schritte für die Datenbank <strong>PostgreSQL</strong> werden
+in diesem Artikel nicht beschrieben.<br>
+In der Vorgehensweise sind sie ähnlich derer für <strong>MySQL</strong></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_datenbankadapter_installieren">Datenbankadapter installieren</h3>
+<div class="listingblock">
+<div class="title">Datenbankzugriff (via JDBC)</div>
+<div class="content">
+<pre>$ gem install activerecord-jdbc-adapter
+Fetching: activerecord-jdbc-adapter-1.3.22.gem (100%)
+Successfully installed activerecord-jdbc-adapter-1.3.22
+1 gem installed</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">MySQL</div>
+<div class="content">
+<pre>$ gem install activerecord-jdbcmysql-adapter
+Fetching: jdbc-mysql-5.1.42.gem (100%)
+Successfully installed jdbc-mysql-5.1.42
+Fetching: activerecord-jdbcmysql-adapter-1.3.22.gem (100%)
+Successfully installed activerecord-jdbcmysql-adapter-1.3.22
+2 gems installed</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">SQLite3</div>
+<div class="content">
+<pre>$ gem install activerecord-jdbcsqlite3-adapter
+Fetching: jdbc-sqlite3-3.8.11.2.gem (100%)
+Successfully installed jdbc-sqlite3-3.8.11.2
+Fetching: activerecord-jdbcsqlite3-adapter-1.3.22.gem (100%)
+Successfully installed activerecord-jdbcsqlite3-adapter-1.3.22
+2 gems installed</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">RubyGems: Datenbankzugriff</div>
+<div class="content">
+<pre>$ gem list --local | grep jdbc
+activerecord-jdbc-adapter (1.3.22)
+activerecord-jdbcmysql-adapter (1.3.22)
+activerecord-jdbcsqlite3-adapter (1.3.22)
+jdbc-mysql (5.1.42)
+jdbc-sqlite3 (3.8.11.2)</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_datenbank_erstellen">Datenbank erstellen</h3>
+<div class="paragraph">
+<p><em>SQLite3</em> ist eine Programmbibliothek, die ein relationales Datenbanksystem enthält.
+Das bedeutet, der notwendige Aufwand an Administration für ein Datenbanksystem, sowie
+für das Anlegen von Benutzern, einer Datenbank und dem Zuweisen von Rechten entfällt.</p>
+</div>
+<div class="paragraph">
+<p><em>MySQL</em> hat für die Administration des Datenbanksystems
+verschiedene Programm-Angebote, unter anderem <em>phpMyAdmin</em> &#8230;&#8203; aber eben auch
+die Kommandozeile.</p>
+</div>
+<div class="listingblock">
+<div class="title">Anlegen eines Benutzer: <em>sid</em> (in MySQL)</div>
+<div class="content">
+<pre>$ mysql -uroot -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 6
+Server version: 5.7.17-0ubuntu0.16.04.2 (Ubuntu)
+
+Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql&gt; GRANT ALL PRIVILEGES ON *.* TO 'sid'@'localhost'
+    -&gt; IDENTIFIED BY 'g3h3im';
+Query OK, 0 rows affected, 1 warning (0,00 sec)
+
+mysql&gt; flush privileges;
+Query OK, 0 rows affected (0,00 sec)
+
+mysql&gt; exit
+Bye</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Erstellen einer Datenbank: <em>jmyapp_development</em> (in MySQL)</div>
+<div class="content">
+<pre>$ mysql -usid -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 7
+Server version: 5.7.17-0ubuntu0.16.04.2 (Ubuntu)
+
+Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql&gt; CREATE DATABASE jmyapp_develpment;
+Query OK, 1 row affected (0.00 sec)
+
+mysql&gt; exit
+Bye</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_projektverzeichnis_erstellen">Projektverzeichnis erstellen</h3>
+<div class="listingblock">
+<div class="content">
+<pre>$ cd
+$ mkdir RailsDir
+
+$ cd RailsDir
+$ rails _5.0.2_ new jMyApp --database=mysql -B  <img src="./images/icons/callouts/1.png" alt="1"> <img src="./images/icons/callouts/2.png" alt="2"> <img src="./images/icons/callouts/3.png" alt="3">
+      create
+      create  README.rdoc
+      create  Rakefile
+      create  config.ru
+      create  .gitignore
+      create  Gemfile      <img src="./images/icons/callouts/4.png" alt="4">
+      create  app
+      create  app/assets/config/manifest.js
+      create  app/assets/javascripts/application.js
+ ...
+      create  bin
+      create  bin/bundle
+      create  bin/rails
+      create  bin/rake
+      create  bin/setup
+      create  bin/update
+...
+      create  config/puma.rb        <img src="./images/icons/callouts/5.png" alt="5">
+...
+      create  config/database.yml   <img src="./images/icons/callouts/6.png" alt="6">
+...
+      create  vendor/assets/javascripts
+      create  vendor/assets/javascripts/.keep
+      create  vendor/assets/stylesheets
+      create  vendor/assets/stylesheets/.keep</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td><mark>_5.0.2_</mark>&#8201;&#8212;&#8201;Festlegen, welche Rails-Version verwendet werden soll.<br>
+<mark>--database=mysql</mark>&#8201;&#8212;&#8201;Festlegen, welches DBMS verwendet werden soll.</td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/2.png" alt="2"></td>
+<td>Für das Datenbanksystem <em>SQLite3</em> verkürzt sich der Aufruf:<br>
+<mark>rails _5.0.2_ new myapp</mark></td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/3.png" alt="3"></td>
+<td><mark>-B</mark> Don&#8217;t run bundle install<br>
+Kein automatisches 'install' und 'update' von RubyGems!</td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/4.png" alt="4"></td>
+<td>Die zu diesem Zeitpunkt benötigten RubyGems und<br>
+deren Abhängigkeiten untereinander entnehmen Sie der Datei <code>Gemfile</code>.</td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/5.png" alt="5"></td>
+<td>Konfigurationsdatei für den neuen HTTP-Server <em>Puma</em> (ersetzt <em>WEBrick</em>).</td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/6.png" alt="6"></td>
+<td>Konfigurationsdatei mit den Einstellungen für den
+Datenbankzugriff (Datenbankadapter).</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ cd jMyApp
+$ tree -LF 2 .
+.
+├── app/
+│   ├── assets/
+│   ├── channels/
+│   ├── controllers/
+│   ├── helpers/
+│   ├── jobs/
+│   ├── mailers/
+│   ├── models/
+│   └── views/
+├── bin/
+│   ├── bundle*
+│   ├── rails*
+│   ├── rake*
+│   ├── setup*
+│   └── update*
+├── config/
+│   ├── application.rb
+│   ├── boot.rb
+│   ├── cable.yml
+│   ├── database.yml     <img src="./images/icons/callouts/1.png" alt="1">
+│   ├── environment.rb
+│   ├── environments/
+│   ├── initializers/
+│   ├── locales/
+│   ├── puma.rb
+│   ├── routes.rb
+│   └── secrets.yml
+├── config.ru
+├── db/
+│   └── seeds.rb
+├── Gemfile        <img src="./images/icons/callouts/2.png" alt="2">
+├── lib/
+│   ├── assets/
+│   └── tasks/
+├── log/
+├── public/
+│   ├── 404.html
+│   ├── 422.html
+│   ├── 500.html
+│   ├── apple-touch-icon.png
+│   ├── apple-touch-icon-precomposed.png
+│   ├── favicon.ico
+│   └── robots.txt
+├── Rakefile
+├── README.md
+├── test/
+│   ├── controllers/
+│   ├── fixtures/
+│   ├── helpers/
+│   ├── integration/
+│   ├── mailers/
+│   ├── models/
+│   └── test_helper.rb
+├── tmp/
+│   └── cache/
+└── vendor/
+    └── assets/
+
+31 directories, 26 files</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Datei: <code>config/database.yml</code></td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/2.png" alt="2"></td>
+<td>Datei: <code>Gemfile</code></td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_rubygems_installieren">RubyGems installieren</h3>
+<div class="listingblock">
+<div class="title">Prüfen der in der Datei <code>Gemfile</code> genannten Abhängigkeiten</div>
+<div class="content">
+<pre class="nowrap">$ bundle check
+Bundler can't satisfy your Gemfile's dependencies.
+Install missing gems with `bundle install`.
+
+$ bundle list   <img src="./images/icons/callouts/1.png" alt="1">
+Could not find gem 'puma (~&gt; 3.0)' in any of the gem sources listed in your Gemfile.</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Der User muß die fehlenden Gems installieren</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ ls -l Gemfile*
+-rw-rw-r-- 1 sid sid 1368 Apr 28 15:01 Gemfile</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Datei: <code>Gemfile</code></div>
+<div class="content">
+<pre>source 'https://rubygems.org'
+
+git_source(:github) do |repo_name|
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  "https://github.com/#{repo_name}.git"
+end
+
+
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '~&gt; 5.0.2'
+# Use jdbcmysql as the database for Active Record
+gem 'activerecord-jdbcmysql-adapter'
+# Use Puma as the app server
+gem 'puma', '~&gt; 3.0'
+# Use SCSS for stylesheets
+gem 'sass-rails', '~&gt; 5.0'
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '&gt;= 1.3.0'
+# Use CoffeeScript for .coffee assets and views
+gem 'coffee-rails', '~&gt; 4.2'   <img src="./images/icons/callouts/1.png" alt="1">
+# See https://github.com/rails/execjs#readme for more supported runtimes
+gem 'therubyrhino'
+# Use jquery as the JavaScript library
+gem 'jquery-rails'
+# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
+gem 'turbolinks', '~&gt; 5'
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jbuilder', '~&gt; 2.5'   <img src="./images/icons/callouts/2.png" alt="2">
+# Use Redis adapter to run Action Cable in production
+# gem 'redis', '~&gt; 3.0'
+# Use ActiveModel has_secure_password
+# gem 'bcrypt', '~&gt; 3.1.7'   <img src="./images/icons/callouts/3.png" alt="3">
+
+# Use Capistrano for deployment
+# gem 'capistrano-rails', group: :development
+
+
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Twiddle Waka '~&gt; 4.2' ist identisch mit
+den Bedingungen '&gt;= 4.2' und '&lt; 5'.</td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/2.png" alt="2"></td>
+<td>Twiddle Waka '~&gt; 2.5' ist identisch mit
+den Bedingungen '&gt;= 2.5' und '&lt; 3'.</td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/3.png" alt="3"></td>
+<td>Twiddle Waka '~&gt; 3.1.7' ist identisch mit
+den Bedingungen '&gt;= 3.1.7' und '&lt; 3.2'.</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Installation der fehlenden RubyGems</div>
+<div class="content">
+<pre class="nowrap">$ bundle install   <img src="./images/icons/callouts/1.png" alt="1">
+Fetching gem metadata from https://rubygems.org/..........
+Fetching version metadata from https://rubygems.org/..
+Fetching dependency metadata from https://rubygems.org/.
+Resolving dependencies............
+Installing rake 12.0.0               <img src="./images/icons/callouts/2.png" alt="2">
+Using concurrent-ruby 1.0.5 (java)   <img src="./images/icons/callouts/3.png" alt="3">
+Using i18n 0.8.1
+Installing minitest 5.10.1
+Using thread_safe 0.3.6 (java)
+Using builder 3.2.3
+Using erubis 2.7.0
+Using nokogiri 1.7.1 (java)
+Using rack 2.0.1
+Using nio4r 2.0.0 (java)
+Using websocket-extensions 0.1.2
+Using mime-types-data 3.2016.0521
+Using arel 7.1.4
+Using jdbc-mysql 5.1.42
+Using bundler 1.14.6
+Installing coffee-script-source 1.12.2
+Installing execjs 2.7.0
+Using method_source 0.8.2
+Using thor 0.19.4
+Installing multi_json 1.12.1
+Installing puma 3.8.2 (java)
+Installing sass 3.4.23
+Using tilt 2.0.7
+Installing therubyrhino_jar 1.7.6
+Installing turbolinks-source 5.0.0
+Using tzinfo 1.2.3
+Using loofah 2.0.3
+Using rack-test 0.6.3
+Using sprockets 3.7.1
+Using websocket-driver 0.6.5 (java)
+Using mime-types 3.1
+Installing coffee-script 2.4.1
+Installing uglifier 3.2.0
+Installing therubyrhino 2.0.4
+Installing turbolinks 5.0.1
+Using activesupport 5.0.2
+Installing tzinfo-data 1.2017.2
+Using rails-html-sanitizer 1.0.3
+Using mail 2.6.5
+Using rails-dom-testing 2.0.2
+Using globalid 0.4.0
+Using activemodel 5.0.2
+Installing jbuilder 2.6.3
+Using actionview 5.0.2
+Using activejob 5.0.2
+Using activerecord 5.0.2
+Using actionpack 5.0.2
+Using activerecord-jdbc-adapter 1.3.22
+Using actioncable 5.0.2
+Using actionmailer 5.0.2
+Using railties 5.0.2
+Using sprockets-rails 3.2.0
+Using activerecord-jdbcmysql-adapter 1.3.22
+Installing coffee-rails 4.2.1
+Installing jquery-rails 4.3.1
+Using rails 5.0.2
+Installing sass-rails 5.0.6
+Bundle complete! 11 Gemfile dependencies, 57 gems now installed.
+Use `bundle show [gemname]` to see where a bundled gem is installed.</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Mit <a href="chruby.html">Chruby</a> besitzt <em>ein</em> einfacher Benutzer <em>RubyGems</em> nachzuinstallieren.<br>
+Die <em>RubyGems</em> werden im Verzeichnis <code>~/.gem/ruby/2.3.4</code> installiert.</td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/2.png" alt="2"></td>
+<td><em>Installing</em>: Neu installierte RubyGems</td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/3.png" alt="3"></td>
+<td><em>Using</em>: Bereits installierte RubyGems</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Prüfen der Abhängigkeiten im <code>Gemfile</code> (2)</div>
+<div class="content">
+<pre>$ bundle check <img src="./images/icons/callouts/1.png" alt="1">
+The Gemfile's dependencies are satisfied
+
+$ ls -l Gemfile*   <img src="./images/icons/callouts/1.png" alt="1">
+-rw-rw-r-- 1 sid sid 1368 Apr 28 15:01 Gemfile
+-rw-rw-r-- 1 sid sid 4023 Apr 28 15:11 Gemfile.lock</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Als Benutzer 'sid'!</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_datenbankadapter_konfigurieren">Datenbankadapter konfigurieren</h3>
+<div class="listingblock">
+<div class="title">Datei: <code>config/database.yml</code>&#8201;&#8212;&#8201;sqlite3</div>
+<div class="content">
+<pre>[...]
+development:
+  adapter: sqlite3
+  database: db/development.sqlite3   <img src="./images/icons/callouts/1.png" alt="1">
+  pool: 5
+  timeout: 5000
+[...]</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Die Datenbank-Datei wird mit dem ersten Aufruf automatisch angelegt.<br>
+Keine Angabe für Benutzer und Passwort!</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Datei: <code>config/database.yml</code>&#8201;&#8212;&#8201;mysql</div>
+<div class="content">
+<pre>[...]
+default: &amp;default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: sid                 &lt;---
+  password: GEHEIM              &lt;---
+  socket: /var/run/mysqld/mysqld.sock
+
+development:   <img src="./images/icons/callouts/1.png" alt="1">
+  &lt;&lt;: *default
+  database: jmyapp_development   <img src="./images/icons/callouts/2.png" alt="2">
+[...]</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Es werden ausschließlich die zu <em>default</em> geänderten Einträge aufgeführt.</td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/2.png" alt="2"></td>
+<td>Der hier vorgeschlagene Datenbank-Name wird von <em>Ruby on Rails</em>
+automatisch gebildet:<br>
+Name der Applikation 'jMyApp' und dem Zusatz '_development'</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_javascript_runtime_installieren">JavaScript-Runtime installieren</h3>
+<div class="paragraph">
+<p>Für die erzeugte <em>Ruby on Rails</em>-Anwendung ist eine JavaScript-Runtime erforderlich.</p>
+</div>
+<div class="paragraph">
+<div class="title">Möglichkeit 1: Das RubyGem <em>therubyrhino</em></div>
+<p>Das RubyGem ist bereits installiert und im Gemfile eingebunden.</p>
+</div>
+<div class="listingblock">
+<div class="title">Datei: <code>Gemfile</code></div>
+<div class="content">
+<pre>...
+# See https://github.com/rails/execjs#readme for more supported runtimes
+gem 'therubyrhino'
+...</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Möglichkeit 2: Das Ubuntu-Paket 'nodejs' installieren</div>
+<div class="content">
+<pre>$ sudo apt-get -s install nodejs       <img src="./images/icons/callouts/1.png" alt="1">
+Paketlisten werden gelesen... Fertig
+Abhängigkeitsbaum wird aufgebaut.
+Statusinformationen werden eingelesen.... Fertig
+Die folgenden zusätzlichen Pakete werden installiert:
+  libc-ares2 libv8-3.14.5
+Die folgenden NEUEN Pakete werden installiert:
+  libc-ares2 libv8-3.14.5 nodejs
+0 aktualisiert, 3 neu installiert, 0 zu entfernen und 1 nicht aktualisiert.
+...</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td><em>apt-get -s &#8230;&#8203; (simulate)</em> ich habe mich dagegen entschieden.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_aufruf_der_webanwendung_im_browser">Aufruf der Webanwendung im Browser</h3>
+<div class="paragraph">
+<p><strong>Puma</strong> wird in <em>Ruby on Rails</em> default-mäßig als HTTP-Server verwendet.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">$ rails s
+DEPRECATION WARNING: alias_method_chain is deprecated. Please, use Module#prepend instead. From module, you can access the original method using super. (called from require at bin/rails:4)   <img src="./images/icons/callouts/1.png" alt="1">
+Bundler::GemRequireError: There was an error while trying to load the gem 'activerecord-jdbcmysql-adapter'.   <img src="./images/icons/callouts/2.png" alt="2">
+Gem Load Error is: uninitialized constant ActiveRecord::ConnectionAdapters::Column::Format                    <img src="./images/icons/callouts/2.png" alt="2">
+Backtrace for gem load error is:
+...</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Zum Einen gibt es eine <em>DEPRECATION WARNING</em>&#8201;&#8212;&#8201;damit könnte ich leben&#8230;&#8203;</td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/2.png" alt="2"></td>
+<td>aber es folgt ein <em>Bundler::GemRequireError</em> mit dem Gem <strong>activerecord-jdbcmysql-adapter</strong><br>
+Gem Load Error is: uninitialized constant ActiveRecord::ConnectionAdapters::Column::Format</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Der gleiche Fehler tritt auch mit der Datenbank <strong>SQLite3</strong> auf.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -1165,65 +1505,104 @@ Server started at http://0.0.0.0:8808</pre>
 <h2 id="_anhang">Anhang</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Script zum Installieren von Ruby {ruby-version} (ohne weitere Erläuterung).</p>
+<p>Abschließend die Liste der aktuell installierten <em>RubyGems</em>.</p>
 </div>
 <div class="listingblock">
-<div class="title">Datei: <code>ruby23-install.sh</code></div>
 <div class="content">
-<pre>#!/bin/bash
-#
-ME=make_ruby_2.3.4
-RUBY=ruby-2.3.4
-TARGET=/opt/rubies
+<pre>$ gem list --local   <img src="./images/icons/callouts/1.png" alt="1">
 
-if [ ! -e $TARGET ]
-then
-  echo "Ziel-Verzeichnis '$TARGET' existiert nicht."
-  echo "Abbruch."
-  exit 1
-fi
-echo "Ziel-Verzeichnis: ${TARGET}/${RUBY}"
+*** LOCAL GEMS ***
 
-touch ${TARGET}/write-test.txt
-if [ $? -ne 0 ]; then
-  echo "Ziel-Verzeichnis '$TARGET' hat keine Schreib-Rechte."
-  echo "Abbruch."
-  exit 1
-fi
-rm ${TARGET}/write-test.txt
-ls -l $TARGET
-
-echo "Ruby 2.3.4-Installation fortsetzen (j/n)"
-read dummy
-case $dummy in
-  j|J|y|Y) echo "Installation fortsetzen..."
-           ;;
-  *) echo "Installation wird abgebrochen."
-     exit 1
-     ;;
-esac
-
-echo
-echo "Source auspacken ..."
-tar xvzf ${RUBY}.tar.gz
-cd ${RUBY}
-
-echo
-echo "Source übersetzen ..."
-./configure --prefix=${TARGET}/${RUBY} | tee ../log.ruby_configure
-make all  | tee ../log.ruby_make-all
-make test | tee ../log.ruby_make-test
-
-echo
-echo "Ruby 2.3.4 installieren"
-sudo make install | tee ../log.ruby_make-install
-
-echo
-ls -l $TARGET
-
-echo
-echo "$ME: Ende."</pre>
+actioncable (5.0.2)
+actionmailer (5.0.2)
+actionpack (5.0.2)
+actionview (5.0.2)
+activejob (5.0.2)
+activemodel (5.0.2)
+activerecord (5.0.2)
+activerecord-jdbc-adapter (1.3.22)
+activerecord-jdbcmysql-adapter (1.3.22)
+activerecord-jdbcsqlite3-adapter (1.3.22)
+activesupport (5.0.2)
+arel (7.1.4)
+asciidoctor (1.5.5)
+asciidoctor-revealjs (1.0.2)
+builder (3.2.3)
+bundler (1.14.6)
+coderay (1.1.1)
+coffee-rails (4.2.1)
+coffee-script (2.4.1)
+coffee-script-source (1.12.2)
+concurrent-ruby (1.0.5 java)
+did_you_mean (default: 1.0.1)
+erubis (2.7.0)
+execjs (2.7.0)
+ffi (1.9.18 java)
+globalid (0.4.0)
+i18n (0.8.1)
+jar-dependencies (default: 0.3.10)
+jbuilder (2.6.3)
+jdbc-mysql (5.1.42)
+jdbc-sqlite3 (3.8.11.2)
+jquery-rails (4.3.1)
+jruby-openssl (0.9.20 java)
+jruby-readline (1.1.1 java)
+json (1.8.3 java)
+loofah (2.0.3)
+mail (2.6.5)
+method_source (0.8.2)
+mime-types (3.1)
+mime-types-data (3.2016.0521)
+minitest (5.10.1, default: 5.4.1)
+multi_json (1.12.1)
+net-telnet (default: 0.1.1)
+nio4r (2.0.0 java)
+nokogiri (1.7.1 java)
+power_assert (default: 0.2.3)
+pry (0.10.4 java)
+psych (2.2.4 java)
+puma (3.8.2 java)
+racc (1.4.14 java)
+rack (2.0.1, 1.6.5)
+rack-protection (1.5.3)
+rack-test (0.6.3)
+rails (5.0.2)
+rails-dom-testing (2.0.2)
+rails-html-sanitizer (1.0.3)
+railties (5.0.2)
+rake (12.0.0, default: 10.4.2)
+rdoc (default: 4.2.0)
+sass (3.4.23)
+sass-rails (5.0.6)
+sinatra (1.4.8)
+slim (3.0.8)
+slop (3.6.0)
+spoon (0.0.6)
+sprockets (3.7.1)
+sprockets-rails (3.2.0)
+temple (0.8.0)
+test-unit (default: 3.1.1)
+therubyrhino (2.0.4)
+therubyrhino_jar (1.7.6)
+thor (0.19.4)
+thread_safe (0.3.6 java)
+tilt (2.0.7)
+turbolinks (5.0.1)
+turbolinks-source (5.0.3)
+tzinfo (1.2.3)
+tzinfo-data (1.2017.2)
+uglifier (3.2.0)
+websocket-driver (0.6.5 java)
+websocket-extensions (0.1.2)</pre>
 </div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Anzahl der installierten RubyGems: <em>81</em></td>
+</tr>
+</table>
 </div>
 <hr>
 <div class="paragraph">
@@ -1239,7 +1618,7 @@ echo "$ME: Ende."</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-04-27 19:54:25 MESZ
+Last updated 2017-05-07 17:58:03 MESZ
 </div>
 </div>
 </body>

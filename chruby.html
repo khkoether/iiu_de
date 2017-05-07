@@ -5,8 +5,8 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.5">
-<meta name="author" content="Installation in Ubuntu -- khkoether[at]kahweb[dot]de">
-<title>IiU&#8201;&#8212;&#8201;index</title>
+<meta name="author" content="Installation in Ubuntu — khkoether[at]kahweb[dot]de">
+<title>IiU&#8201;&#8212;&#8201;Chruby 0.3.9</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -421,19 +421,23 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>IiU&#8201;&#8212;&#8201;index</h1>
+<h1>IiU&#8201;&#8212;&#8201;Chruby 0.3.9</h1>
 <div class="details">
-<span id="author" class="author">Installation in Ubuntu -- khkoether[at]kahweb[dot]de</span><br>
+<span id="author" class="author">Installation in Ubuntu — khkoether[at]kahweb[dot]de</span><br>
 </div>
 <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#_abstract">Abstract</a></li>
-<li><a href="#_intention">Intention</a></li>
-<li><a href="#_beschreibung">Beschreibung</a></li>
-<li><a href="#_auswahl">Auswahl</a></li>
-<li><a href="#_dateien">Dateien</a></li>
-<li><a href="#_lizenz">Lizenz</a></li>
+<li><a href="#_vorraussetzung">Vorraussetzung</a></li>
+<li><a href="#_download">Download</a></li>
+<li><a href="#_installation">Installation</a>
+<ul class="sectlevel2">
+<li><a href="#_datei_code_bashrc_code">Datei: <code>~/.bashrc</code></a></li>
+<li><a href="#_verzeichnis_code_opt_rubies_code">Verzeichnis: <code>/opt/rubies</code></a></li>
+</ul>
+</li>
+<li><a href="#_beispiele">Beispiele</a></li>
 </ul>
 </div>
 </div>
@@ -449,147 +453,20 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_abstract">Abstract</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Eine Sammlung von Schritt-für-Schritt Anleitungen zur Installation
-verschiedener Programme aus dem QuellCode.</p>
+<p><a href="https://github.com/postmodern/chruby/">Chruby</a> händelt auf nachvollziehbare Weise das Wechseln
+zwischen den installierten <em>Ruby</em>-Versionen.</p>
 </div>
 <div class="paragraph">
-<p>Die Installationen werden für <a href="http://www.ubuntu.com/">Ubuntu 16.04 LTS (Xenial Xerus)</a> beschrieben.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_intention">Intention</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Die Programme sind entsprechend der eigenen Bedürfnissen, Neigungen
-und Zielen ausgewählt ;-)</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Ich mag Script-Sprachen (Perl, Bash und Ruby),</p>
-</li>
-<li>
-<p>schätze die <em>Konventionen</em> von Ruby on Rails</p>
-</li>
-<li>
-<p>sowie das <em>verteilte</em> Git &nbsp;&#8201;&#8212;&#8201;</p>
-</li>
-<li>
-<p>halte Dokumentation für eine <em>Pflicht</em></p>
-</li>
-<li>
-<p>und Präsentation für die <em>Kür</em>.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_beschreibung">Beschreibung</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><strong>AsciiDoc</strong> ist eine einfache Auszeichnungssprache, die dazu dient,<br>
-Texte in verschiedenen Dokumentenformaten zu veröffentlichen.<br></p>
-</li>
-<li>
-<p><strong>Asciidoctor</strong> ist die Neu-Implementation von <strong>AsciiDoc</strong> in Ruby.</p>
-</li>
-<li>
-<p><strong>Asciidoctor reveal.js</strong> ist ein Konverter der ein <em>AsciiDoc</em>-Dokument <br>
-in eine HTML5-Präsentation umwandelt, um mit dem Framework
-<strong>reveal.js</strong> ausgeführt zu werden.</p>
-</li>
-<li>
-<p>Der Ruby Manager <strong>chruby</strong> wechselt die Ruby-Versionen<br>
-(ähnlich wie <em>RVM</em> und <em>rbenv</em>).</p>
-</li>
-<li>
-<p><strong>Git</strong> ist ein freies verteiltes Versionskontrollsystem<br>
-(<em>DVCS</em> - Distributed Version Control System).</p>
-</li>
-<li>
-<p>Die Programmiersprache <strong>Ruby</strong> ist die Grundlage für das Framework
-<strong>Ruby on Rails</strong>.</p>
-</li>
-<li>
-<p>Die Programmiersprache <strong>JRuby</strong> ist die Implementation von <strong>Ruby</strong> in <strong>Java</strong>,<br>
-die wiederum die Grundlage für das Framework <strong>Ruby on Rails</strong> bildet.</p>
-</li>
-<li>
-<p><strong>NetBeans</strong> bietet eine Unterstützung für verschiedene Programmiersprachen und -techniken.<br>
-Wobei die <strong>Java</strong>-basierten Lösungen ausgezeichnet unterstützt werden.</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<img src="./images/icons/tip.png" alt="Tip">
-</td>
-<td class="content">
-<div class="paragraph">
-<p><strong>IDEs</strong> nutze ich inzwischen keine mehr. Weder <em>NetBeans</em> noch
-<em>Eclipse</em>. Solange ich nicht in <em>Java</em> programmiere, sondern
-es nur nutze&#8201;&#8212;&#8201;kann ich beruhigt darauf verzichten.<br>
-Sowohl <em>Git</em> als auch <em>Ruby on Rails</em>
-sind von der Kommandozeile her gut zu bedienen.<br>
-Und gute Editoren (&#8594; <a href="https://wiki.ubuntuusers.de/Editoren/">ubuntuusers.de: Editoren</a>)
-gibt es zuhauf:<br>
-<strong>Atom</strong>, <strong>Geany</strong>, <strong>Scite</strong> und nicht zu vergessen <strong>Emacs</strong> und <strong>Vim</strong> ;-)</p>
-</div>
-</td>
-</tr>
-</table>
+<p>Dieser Artikel ist eine Schritt-für-Schritt Anleitung zur Installation
+von <a href="https://github.com/postmodern/chruby/">Chruby</a> aus dem QuellCode.</p>
 </div>
 <div class="paragraph">
-<p>Die Artikel sind in <em>AsciiDoc</em> geschrieben
+<p><em>Chruby</em> ist Open Source und ist freigegeben
+unter der <a href="https://github.com/postmodern/chruby/blob/master/LICENSE.txt">MIT-Lizenz</a>.</p>
+</div>
+<div class="paragraph">
+<p>Der Artikel ist in <em>AsciiDoc</em> geschrieben
 und mit <em>Asciidoctor 1.5.5</em> erstellt worden.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_auswahl">Auswahl</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="asciidoctor.html">Asciidoctor 1.5.5</a></p>
-</li>
-<li>
-<p><a href="asciidoctor_1st.html">Asciidoctor: Erste Schritte &hellip;</a></p>
-</li>
-<li>
-<p><a href="asciidoctor_revealjs.html">Asciidoctor reveal.js</a></p>
-</li>
-<li>
-<p><a href="chruby.html">chruby 0.3.9</a></p>
-</li>
-<li>
-<p><a href="git.html">Git 2.12.2</a></p>
-</li>
-<li>
-<p><a href="ruby23.html">Ruby MRI 2.3</a></p>
-</li>
-<li>
-<p><a href="ruby24.html">Ruby MRI 2.4</a></p>
-</li>
-<li>
-<p><a href="ruby_on_rails50.html">Ruby on Rails 5.0</a></p>
-</li>
-<li>
-<p><a href="jdk.html">OpenJDK 8, Oracle JDK 8</a></p>
-</li>
-<li>
-<p><a href="jruby9k.html">JRuby 9k</a></p>
-</li>
-<li>
-<p><a href="jruby9k_on_rails50.html">JRuby 9k on Rails 5.0</a></p>
-</li>
-</ul>
 </div>
 <div class="admonitionblock caution">
 <table>
@@ -598,82 +475,8 @@ und mit <em>Asciidoctor 1.5.5</em> erstellt worden.</p>
 <img src="./images/icons/caution.png" alt="Caution">
 </td>
 <td class="content">
-<div class="ulist">
-<div class="title">Unverändert - diese Seiten werden nicht weiter aktualisiert</div>
-<ul>
-<li>
-<p><a href="asciidoc.html">AsciiDoc 8.6.9</a></p>
-</li>
-<li>
-<p><a href="ruby22.html">Ruby 2.2.4</a></p>
-</li>
-<li>
-<p><a href="ruby_on_rails42.html">Ruby on Rails 4.2</a></p>
-</li>
-<li>
-<p><a href="jruby.html">JRuby 1.7.25</a></p>
-</li>
-<li>
-<p><a href="jruby_on_rails42.html">JRuby on Rails 4.2</a></p>
-</li>
-<li>
-<p><a href="netbeans8.html">NetBeans IDE 8.0</a></p>
-</li>
-<li>
-<p><a href="netbeans8_1st.html">NetBeans IDE 8.0: Erste Schritte &hellip;</a></p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_dateien">Dateien</h2>
-<div class="sectionbody">
-<div class="literalblock">
-<div class="content">
-<pre>./iiu_de.sh         &lt;-- Script zum Erstellen aller HTML-Dateien
-./NAME.adoc
-./NAME.html
-./images/icons      &lt;-- Images durch Asciidoctor
-./images/netbeans   &lt;-- Images des Installationsdialogs
-./images/ruby       &lt;-- Image des RubyGems Documentation Index
-./images/jruby      &lt;-- Image des RubyGems Documentation Index
-
-NAME = { index asciidoctor asciidoctor_1st asciidoctor-revealjs
-               chruby git ruby23 ruby24 ruby_on_rails50
-               jdk jruby9k jruby9k_on_rails50 }</pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>$ asciidoctor -a toc NAME.adoc   <img src="./images/icons/callouts/1.png" alt="1"></pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Output format backend (default: html5)</td>
-</tr>
-</table>
-</div>
 <div class="paragraph">
-<p>Die erstellten Seiten finden Sie ebenfalls hier:<br>
-<a href="http://www.mygithub.kahweb.de" class="bare">http://www.mygithub.kahweb.de</a></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="./images/icons/note.png" alt="Note">
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Zu beachten ist, dass so ein Dokument zum Einen nie abschliessend
+<p>Zu beachten ist, dass so ein Dokument zum Einen nie abschließend
 sein kann, und zum Anderen bestimmte Konfigurationen anders, oder
 auf einem anderem Weg durchgeführt werden können.<br>
 Gerne nehme ich Verbesserungsvorschläge entgegen.</p>
@@ -685,16 +488,244 @@ Gerne nehme ich Verbesserungsvorschläge entgegen.</p>
 </tr>
 </table>
 </div>
-<hr>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_lizenz">Lizenz</h2>
+<h2 id="_vorraussetzung">Vorraussetzung</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Dieses Werk ist lizenziert unter einer
-<a href="http://creativecommons.org/licenses/by/4.0/deed.de">Creative Commons Namensnennung 4.0 International Lizenz</a>,<br>
-und der Quellcode zum Formatieren und Anzeigen des Inhaltes steht unter der <a href="http://opensource.org/licenses/mit-license.php">MIT-Lizenz</a>.</p>
+<p>Die Installation wird für <a href="http://www.ubuntu.com/">Ubuntu 16.04 LTS (Xenial Xerus)</a> beschrieben.<br>
+Gleichwohl sind die einzelnen Schritte auch für
+andere Debian-basierte GNU/Linux Distributionen übertragbar.</p>
+</div>
+<div class="paragraph">
+<p>Die System-Installation von <strong>Ruby</strong> ist,
+wie in &nbsp; <a href="asciidoctor.html">IiU&#8201;&#8212;&#8201;Asciidoctor</a> &nbsp; beschrieben,
+durchgeführt worden.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">$ COLUMNS=96 dpkg --list | grep ruby2.3   <img src="./images/icons/callouts/1.png" alt="1">
+ii  libruby2.3:amd64   2.3.1-2~16.04  amd64   Libraries necessary to run Ruby 2.3
+ii  ruby2.3            2.3.1-2~16.04  amd64   Interpreter of object-oriented scripting language Ruby</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>COLUMNS=96 ist eine Formatangabe für die Ausgabe von <mark>dpkg</mark></td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_download">Download</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/postmodern/chruby/">chruby 0.3.9</a><br>
+<code>chruby-master.zip</code>  (ca. 37K)<br>
+2017-03-01 (letzte Änderung)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_installation">Installation</h2>
+<div class="sectionbody">
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<img src="./images/icons/caution.png" alt="Caution">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Zur Installation von <a href="https://github.com/postmodern/chruby/">chruby</a> muß die <strong>bash</strong>
+(standardmäßig vorhanden) oder die <strong>zsh</strong> installiert sein.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Chruby</strong> wird mithilfe des Befehls <em>sudo</em> installiert.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ unzip chruby-master.zip
+$ cd chruby-master
+$ sudo make install
+for dir in `find etc lib bin sbin share -type d 2&gt;/dev/null`; do mkdir -p /usr/local/$dir; done
+for file in `find etc lib bin sbin share -type f 2&gt;/dev/null`; do cp $file /usr/local/$file; done
+mkdir -p /doc/chruby-0.3.9            <img src="./images/icons/callouts/1.png" alt="1">
+cp -r *.md *.txt /doc/chruby-0.3.9/</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Falsches Verzeichnis!</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ sudo mv /doc/chruby-0.3.9/ /usr/local/share/doc   <img src="./images/icons/callouts/1.png" alt="1">
+$ sudo rm -rf /doc</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Korrektur der <em>doc</em>-Installation.</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">$ $ sudo find /usr -cmin -10
+/usr/local/share/chruby/auto.sh
+/usr/local/share/chruby/chruby.sh
+/usr/local/share/doc
+/usr/local/share/doc/chruby-0.3.9
+/usr/local/share/doc/chruby-0.3.9/README.md
+/usr/local/share/doc/chruby-0.3.9/ChangeLog.md
+/usr/local/share/doc/chruby-0.3.9/CONTRIBUTING.md
+/usr/local/share/doc/chruby-0.3.9/LICENSE.txt
+/usr/local/bin/chruby-exec</pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_datei_code_bashrc_code">Datei: <code>~/.bashrc</code></h3>
+<div class="listingblock">
+<div class="content">
+<pre>...
+
+# chruby
+echo "== chruby aktivieren: "
+source /usr/local/share/chruby/chruby.sh
+
+# chruby: Ruby version changes automatically   <img src="./images/icons/callouts/1.png" alt="1">
+echo "== Ruby version changes automatically"
+source /usr/local/share/chruby/auto.sh</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Wertet die Datei <code>.ruby-version</code> im Projekt-Verzeichnis aus!</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_verzeichnis_code_opt_rubies_code">Verzeichnis: <code>/opt/rubies</code></h3>
+<div class="paragraph">
+<p><strong>Chruby</strong> erwartet standardmäßig weitere <strong>Ruby</strong>-Installation in den
+Verzeichnissen <code>/opt/rubies</code> und <code>~/.rubies</code> .</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ sudo mkdir /opt/rubies
+
+$ sudo chmod 777 /opt/rubies   <img src="./images/icons/callouts/1.png" alt="1"></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Da die <em>zusätzlich</em> zu installierenden <em>RubyGems</em> im jeweiligen <em>Home</em>-Verzeichnis
+(<code>~/.gem</code>) installiert werden - muß eine spezielle <strong>Ruby</strong>-Version nicht von jedem Benutzer
+erneut installiert werden!</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_beispiele">Beispiele</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="title"><em>chruby</em> Optionen</div>
+<div class="content">
+<pre>$ chruby -h
+usage: chruby [RUBY|VERSION|system] [RUBYOPT...]</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Listet die vorhandenen <em>Ruby</em>-Installationen auf:</div>
+<div class="content">
+<pre>$ source /usr/local/share/chruby/chruby.sh   <img src="./images/icons/callouts/1.png" alt="1">
+
+$ chruby   <img src="./images/icons/callouts/2.png" alt="2"> <img src="./images/icons/callouts/3.png" alt="3"></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Falls <strong>chruby</strong> nicht automatisch aktiviert wird.</td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/2.png" alt="2"></td>
+<td>Verzeichnis: <code>/opt/rubies</code></td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/3.png" alt="3"></td>
+<td>Zu diesem Zeitpunkt gibt es ausschließlich die System-Installation von <em>Ruby</em>!</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Wechsel zur System-Installation von <em>Ruby</em>:</div>
+<div class="content">
+<pre>$ chruby system
+
+$ echo $PATH      <img src="./images/icons/callouts/1.png" alt="1">
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin:/home/sid/bin
+
+$ ruby -v
+ruby 2.3.1p112 (2016-04-26) [x86_64-linux-gnu]</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Von <em>chruby</em> durchgeführte Änderungen an der Variable <em>PATH</em> werden zurückgenommen.</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Ausführen eines Kommandos mit einer bestimmten <em>Ruby</em>-Version:</div>
+<div class="content">
+<pre>$ chruby-exec ruby-2.x.y -- gem update   <img src="./images/icons/callouts/1.png" alt="1">
+...</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Das Verzeichnis <code>ruby-2.x.y</code> liegt in <code>/opt/rubies</code></td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Wechsel zu einer beliebigen <em>Ruby</em>-Version:</div>
+<div class="content">
+<pre>$ chruby_use /path/to/ruby-2.x.y</pre>
+</div>
 </div>
 <hr>
 <div class="paragraph">
@@ -710,7 +741,7 @@ und der Quellcode zum Formatieren und Anzeigen des Inhaltes steht unter der <a h
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-05-07 13:24:53 MESZ
+Last updated 2017-04-23 18:20:45 MESZ
 </div>
 </div>
 </body>

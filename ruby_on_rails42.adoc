@@ -2,43 +2,40 @@ IiU -- Ruby on Rails 4.2
 ========================
 Installation in Ubuntu — khkoether[at]kahweb[dot]de
 
-:icons:
-:Author Initials: KHK
-:creativecommons-url: http://creativecommons.org/licenses/by/4.0/deed.de
-:mit-url:             http://opensource.org/licenses/mit-license.php  
-:ubuntu-url:          http://www.ubuntu.com/
-:asciidoctor-url:     http://asciidoctor.org/
-:asciidoctordocs-url: http://asciidoctor.org/docs/
-:git-url:             http://git-scm.com/
-:git-download-url:    https://www.kernel.org/pub/software/scm/git/
+include::_bp_header.adoc[]
 
-:ruby-url:            https://www.ruby-lang.org/de/
-:ruby-download-url:   https://www.ruby-lang.org/de/downloads/
-:rubyonrails-url:     http://www.rubyonrails.org
+:ruby-home-url:              https://www.ruby-lang.org/de/
+:ruby-home-download-url:     https://www.ruby-lang.org/de/downloads/
+:rubyonrails-home-url:       http://rubyonrails.org
+:rails-github-url:           https://github.com/rails/rails
+:rails-license-url:          https://github.com/rails/rails/blob/master/MIT-LICENSE
 
 :ruby-version:        2.2.4
-:ruby19-url:          link:ruby19.html
-:ruby21-url:          link:ruby21.html
-:ruby22-url:          link:ruby22.html
-:ruby23-url:          link:ruby23.html
 
 Version 4.0.0, Januar 2016
 
 
 Abstract
 --------
-Die folgenden Schritte stellen die Funktionsfähigkeit der Installation 
-von {ruby-url}[Ruby] und {rubyonrails-url}[Ruby on Rails] (kurz: _Rails_) sicher. 
+{rubyonrails-home-url}[Ruby on Rails] (kurz: _Rails_) ist ein Framework zum
+Entwickeln von Webanwendungen.
 
-Der Artikel ist in {asciidoctordocs-url}[Asciidoctor] geschrieben 
+Die folgenden Schritte stellen die Funktionsfähigkeit der Installation
+von {ruby-home-url}[Ruby] und {rubyonrails-home-url}[Ruby on Rails] sicher.
+
+_Ruby on Rails_ ist Open Source,
+wird gehostet auf {rails-github-url}[GitHub]
+und ist freigegeben unter der {rails-license-url}[MIT-Lizenz].
+
+Der Artikel ist in _AsciiDoc_ geschrieben
 und mit _Asciidoctor {asciidoctor-version}_ erstellt worden.
 
 
 [CAUTION]
 ====
-Zu beachten ist, dass so ein Dokument zum Einen nie abschliessend 
-sein kann, und zum Anderen bestimmte Konfigurationen anders, oder 
-auf einem anderem Weg durchgeführt werden können. 
+Zu beachten ist, dass so ein Dokument zum Einen nie abschliessend
+sein kann, und zum Anderen bestimmte Konfigurationen anders, oder
+auf einem anderem Weg durchgeführt werden können.
 Gerne nehme ich Verbesserungsvorschläge entgegen.
 
 Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr.
@@ -47,15 +44,13 @@ Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr.
 
 Vorraussetzung
 --------------
-Die Installation von *Ruby* und ist, wie in
+Die Installation wird für {ubuntu-url}[Ubuntu 14.04 LTS (Trusty Tahr)]
+beschrieben. +
+Gleichwohl sind die einzelnen Schritte auch für
+andere Debian-basierte GNU/Linux Distributionen übertragbar.
 
-* {ruby22-url}[IiU -- Ruby 2.2.4]  
-
-oder
-
-* {ruby23-url}[IiU -- Ruby 2.3.0]
-
-
+Die Installation von *Ruby* ist, wie in
+{ruby22-url}[IiU -- Ruby 2.2.4]
 beschrieben, durchgeführt worden.
 
 [CAUTION]
@@ -65,21 +60,21 @@ Die hier aufgeführten Schritte werden beispielhaft für *Ruby 2.2.4* ausgeführ
 Gelten aber, auch in dieser Reihenfolge, ebenfalls für die *Ruby-Versionen >= 1.9.3*.
 
 Eine Installation von *Ruby on Rails 5.0* ist nur mit *Ruby-Versionen >= 2.2* möglich!
-==== 
+====
 
 .Ruby 2.2.4
 ----
 $ which ruby
 /opt/Ruby/current22/bin/ruby
 
-$ ruby -v 
+$ ruby -v
 ruby 2.2.4p230 (2015-12-16 revision 53155) [x86_64-linux]
 ----
 
 
 RubyGem: rails-4.2.5
 --------------------
-*Step 0* 
+*Step 0*
 ----
 $ gem search ^rails$ --remote
 
@@ -87,7 +82,7 @@ $ gem search ^rails$ --remote
 
 rails (4.2.5)   <1>
 ----
-<1> Seit dem 12.11.2015 ist das die neueste Version des RubyGem _rails_. 
+<1> Seit dem 12.11.2015 ist das die neueste Version des RubyGem _rails_.
 
 [TIP]
 ====
@@ -96,13 +91,14 @@ Die Installation der Dokumentation kann ausgelassen werden.
 $ sudo su -
 # . /opt/Ruby/ruby22.path.sh
 # gem install rails --no-rdoc --no-ri   <1>
----- 
-<1> #- -no-rdoc - -no-ri# &nbsp; In der Regel wird die offizielle Dokumentation genutzt: +
-    -> http://guides.rubyonrails.org/ 
+----
+<1> #- -no-rdoc - -no-ri# +
+    In der Regel wird die offizielle Dokumentation im Internet genutzt: +
+    -> http://guides.rubyonrails.org/v4.2/[Ruby on Rails Guides (v4.2.8)]
 ====
 
 Mit #gem install ...# werden auch alle Abhängigkeiten zu anderen RubyGems aufgelöst.
----- 
+----
 # gem install rails --no-rdoc --no-ri
 Fetching: concurrent-ruby-1.0.0.gem (100%)
 Successfully installed concurrent-ruby-1.0.0
@@ -112,7 +108,7 @@ Successfully installed rails-4.2.5
 30 gems installed   <1>
 ----
 <1> Mit dem RubyGem _rails-4.2.5_ wurden insgesamt 30 Gems installiert. +
-    Hinweis: Weitere RubyGems müssen für das Framework *Ruby on Rails* installiert werden. 
+    Hinweis: Weitere RubyGems müssen für das Framework *Ruby on Rails* installiert werden.
 
 [NOTE]
 ====
@@ -123,7 +119,7 @@ Alternativ kann das RubyGem _rails_ mit der Angabe einer Version installiert wer
 # gem install rails --version '~> 4.1.14'   <1>
 ----
 <1> Twiddle Wakka: '~> 4.1.14' bedeutet, das die höchste Gem-Version von Rails +
-    im Bereich von >= 4.1.14 und < 4.2 installiert wird. 
+    im Bereich von >= 4.1.14 und < 4.2 installiert wird.
 ====
 
 
@@ -131,11 +127,11 @@ Ruby on Rails 4.2.5
 -------------------
 Die notwendigen Schritte werden auf der Kommandozeile durchgeführt.
 
-.Vorgehensweise 
-- Datenbanksystem wählen 
+.Vorgehensweise
+- Datenbanksystem wählen
 - Datenbankadapter installieren
 - Datenbank erstellen
-- Projektverzeichnis erstellen 
+- Projektverzeichnis erstellen
 - Datenbankadapter konfigurieren
 - JavaScript-Runtime installieren
 - Aufruf der Webanwendung im Browser
@@ -143,21 +139,21 @@ Die notwendigen Schritte werden auf der Kommandozeile durchgeführt.
 
 Datenbanksystem wählen
 ~~~~~~~~~~~~~~~~~~~~~~
-Für das Framework *Ruby on Rails* sind die folgenden drei Datenbanksysteme zumindest 
-für die _Entwicklung_ (aber auch für die _Produktion_) eines neuen 
+Für das Framework *Ruby on Rails* sind die folgenden drei Datenbanksysteme zumindest
+für die _Entwicklung_ (aber auch für die _Produktion_) eines neuen
 *Rails*-Projektes die erste Wahl:
 
 - _SqLite3_ +
-  Klein, kompakt und dateibasiert – mit diesen Vorzügen glänzt 'SQLite3'. + 
+  Klein, kompakt und dateibasiert – mit diesen Vorzügen glänzt 'SQLite3'. +
   Ist in _Ruby on Rails_ die Default-Datenbank.
 - _MySQL_ +
   Gut und schnell und überhaupt ... überall verfügbar.
 - _PostgreSQL_ +
-  Lupenreine OpenSource-Datenbanksystem für professionelle Anforderungen. 
-  
+  Lupenreine OpenSource-Datenbanksystem für professionelle Anforderungen.
+
 [CAUTION]
 ====
-Die einzelnen Schritte für die Datenbank *PostgreSQL* werden 
+Die einzelnen Schritte für die Datenbank *PostgreSQL* werden
 in diesem Artikel nicht beschrieben. +
 In der Vorgehensweise sind sie ähnlich derer für *MySQL*
 ====
@@ -165,7 +161,7 @@ In der Vorgehensweise sind sie ähnlich derer für *MySQL*
 
 Datenbankadapter installieren
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
----- 
+----
 # gem install mysql2 --no-rdoc --no-ri
 Fetching: mysql2-0.4.2.gem (100%)
 Building native extensions.  This could take a while...
@@ -174,7 +170,7 @@ Successfully installed mysql2-0.4.2
 ----
 
 ----
-# gem install sqlite3 --no-rdoc --no-ri  
+# gem install sqlite3 --no-rdoc --no-ri
 Fetching: sqlite3-1.3.11.gem (100%)
 Building native extensions.  This could take a while...
 Successfully installed sqlite3-1.3.11
@@ -186,16 +182,16 @@ Datenbank erstellen
 ~~~~~~~~~~~~~~~~~~~
 _SQLite3_ ist eine Programmbibliothek, die ein relationales Datenbanksystem enthält.
 Das bedeutet, der notwendige Aufwand an Administration für ein Datenbanksystem, sowie
-für das Anlegen von Benutzern, einer Datenbank und dem Zuweisen von Rechten entfällt. 
+für das Anlegen von Benutzern, einer Datenbank und dem Zuweisen von Rechten entfällt.
 
-_MySQL_ hat für die Administration des Datenbanksystems 
+_MySQL_ hat für die Administration des Datenbanksystems
 verschiedene Programm-Angebote, unter anderem _phpMyAdmin_ ... aber eben auch
 die Kommandozeile.
 
 .Anlegen eines Benutzer: _sid_ (in MySQL)
 ----
 $ mysql -uroot -p
-Enter password: 
+Enter password:
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 79
 Server version: 5.5.46-0ubuntu0.14.04.2 (Ubuntu)
@@ -222,7 +218,7 @@ Bye
 .Erstellen einer Datenbank: _myapp_development_ (in MySQL)
 ----
 $ mysql -usid -p
-Enter password: 
+Enter password:
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 79
 Server version: 5.5.46-0ubuntu0.14.04.2 (Ubuntu)
@@ -243,7 +239,7 @@ Bye
 ----
 
 
-Projektverzeichnis erstellen 
+Projektverzeichnis erstellen
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ----
 $ cd
@@ -251,7 +247,7 @@ $ mkdir RailsDir
 
 $ cd RailsDir
 $ rails _4.2.5_ new MyApp --database=mysql -B  <1> <2> <3>
-      create  
+      create
       create  README.rdoc
       create  Rakefile
       create  config.ru
@@ -268,7 +264,7 @@ $ rails _4.2.5_ new MyApp --database=mysql -B  <1> <2> <3>
 ...
       create  config/database.yml   <5>
       create  db
-      create  db/seeds.rb      
+      create  db/seeds.rb
 ...
       create  vendor/assets/javascripts
       create  vendor/assets/javascripts/.keep
@@ -280,11 +276,11 @@ $ rails _4.2.5_ new MyApp --database=mysql -B  <1> <2> <3>
 <2> Für das Datenbanksystem _SQLite3_ verkürzt sich der Aufruf: +
     #rails _4.2.5_ new myapp#
 <3> #-B# Don't run bundle install +
-    Kein automatisches 'install' und 'update' von RubyGems!   
+    Kein automatisches 'install' und 'update' von RubyGems!
 <4> Die zu diesem Zeitpunkt benötigten RubyGems und deren Abhängigkeiten
     untereinander entnehmen Sie der Datei `Gemfile`.
-<5> Konfigurationsdatei mit den Einstellungen für den 
-    Datenbankzugriff (Datenbankadapter).        
+<5> Konfigurationsdatei mit den Einstellungen für den
+    Datenbankzugriff (Datenbankadapter).
 
 ----
 $ cd MyApp
@@ -351,7 +347,7 @@ RubyGems installieren
 ~~~~~~~~~~~~~~~~~~~~~
 .Prüfen der in der Datei `Gemfile` genannten Abhängigkeiten
 ----
-$ bundle check  
+$ bundle check
 Bundler can't satisfy your Gemfile's dependencies.
 Install missing gems with `bundle install`.
 
@@ -415,12 +411,12 @@ group :development do
   gem 'spring'
 end
 ----
-<1> Twiddle Waka '~> 4.1.0' ist identisch mit 
-    den Bedingungen '>= 4.1.0' und '< 4.2'.  
-<2> Twiddle Waka '~> 2.0' ist identisch mit 
-    den Bedingungen '>= 2.0' und '< 3'.    
-<3> Twiddle Waka '~> 3.1.7' ist identisch mit 
-    den Bedingungen '>= 3.1.7' und '< 3.2'.    
+<1> Twiddle Waka '~> 4.1.0' ist identisch mit
+    den Bedingungen '>= 4.1.0' und '< 4.2'.
+<2> Twiddle Waka '~> 2.0' ist identisch mit
+    den Bedingungen '>= 2.0' und '< 3'.
+<3> Twiddle Waka '~> 3.1.7' ist identisch mit
+    den Bedingungen '>= 3.1.7' und '< 3.2'.
 
 ----
 $ sudo su -
@@ -434,10 +430,10 @@ ruby 2.2.4p230 (2015-12-16 revision 53155) [x86_64-linux]
 <1> Annahme: Der User 'sid' besitzt das Recht das System zu administrieren...
 <2> Test, das der Benutzer 'root' den entsprechenden Ruby-Pfad gesetzt hat.
 
-.Installation der fehlenden Gems mit dem zur Installation berechtigten User!  
+.Installation der fehlenden Gems mit dem zur Installation berechtigten User!
 [options="nowrap"]
 ----
-$ bundle install   <1>   
+$ bundle install   <1>
 Fetching gem metadata from https://rubygems.org/...........
 Fetching version metadata from https://rubygems.org/...
 Fetching dependency metadata from https://rubygems.org/..
@@ -498,11 +494,11 @@ Installing web-console 2.2.1
 Installing turbolinks 2.5.3
 Bundle complete! 12 Gemfile dependencies, 54 gems now installed.
 Use `bundle show [gemname]` to see where a bundled gem is installed.
-----     
+----
 <1> In *Ubuntu* verfügt der bei der Installation angelegte Benutzer über alle
     Privilegien, um das System zu administrieren, d. h. zu verwalten.
 <2> _Using_: Bereits installierte RubyGems
-<3> _Installing_: Neu installierte RubyGems    
+<3> _Installing_: Neu installierte RubyGems
 
 .Prüfen der Abhängigkeiten im `Gemfile` (2)
 ----
@@ -531,21 +527,21 @@ development:
 <1> Die Datenbank-Datei wird mit dem ersten Aufruf automatisch angelegt. +
     Keine Angabe für Benutzer und Passwort!
 
-.Datei: `config/database.yml` -- mysql 
+.Datei: `config/database.yml` -- mysql
 ----
 [...]
 default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: sid                 <---          
+  username: sid                 <---
   password: GEHEIM              <---
   socket: /var/run/mysqld/mysqld.sock
 
 development:   <1>
   <<: *default
   database: myapp_development   <2>
-[...]  
+[...]
 ----
 <1> Es werden ausschließlich die zu _default_ geänderten Einträge aufgeführt.
 <2> Der hier vorgeschlagene Datenbank-Name wird von _Ruby on Rails_
@@ -625,7 +621,7 @@ Your user account isn't allowed to install to the system Rubygems.
   to install the gems into ./vendor/bundle/, or you can enter your password
   and install the bundled gems to Rubygems using sudo.
 
-  Password: 
+  Password:
 Installing libv8 3.16.14.13   <1>
 Using mysql2 0.4.2
 Installing ref 2.0.0   <1>
@@ -682,7 +678,7 @@ $ ls -l Gemfile*
 ----
 $ sudo apt-get -s install nodejs       <1>
 Paketlisten werden gelesen... Fertig
-Abhängigkeitsbaum wird aufgebaut.       
+Abhängigkeitsbaum wird aufgebaut.
 Statusinformationen werden eingelesen.... Fertig
 Die folgenden zusätzlichen Pakete werden installiert:
   libc-ares2 libv8-3.14.5
@@ -701,7 +697,7 @@ Conf nodejs (0.10.25~dfsg2-2ubuntu1 Ubuntu:14.04/trusty [amd64])
 
 Aufruf der Webanwendung im Browser
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-WEBrick wird in _Ruby on Rails_ default-mäßig als Testserver für die 
+WEBrick wird in _Ruby on Rails_ default-mäßig als Testserver für die
 Entwicklungs-Umgebung verwendet.
 ----
 $ rails s
@@ -719,7 +715,7 @@ $ rails s
 
 ----
 BROWSER> http://localhost:3000/   <1>
-         About your application’s environment   <2>       
+         About your application’s environment   <2>
 ----
 <1> Grundsätzlicher Test der Verbindung!
 <2> Link zu weiteren Informationen...
@@ -727,7 +723,7 @@ BROWSER> http://localhost:3000/   <1>
 ----
 BROWSER> http://localhost:3000/rails/info/properties/   <1>
 ----
-<1> Informationen zur ausgeführten Applikation _MyApp_: + 
+<1> Informationen zur ausgeführten Applikation _MyApp_: +
    (Ruby-Version, RubyGems, Verzeichnis, Umgebung, Datenbank, Datenbank-Schema)
 
 oder
@@ -740,29 +736,29 @@ Ruby version              2.2.4-p230 (x86_64-linux)   <1>
 RubyGems version          2.5.1
 Rack version              1.6.4
 JavaScript Runtime        therubyracer (V8)
-Middleware                Rack::Sendfile, 
-                          ActionDispatch::Static, 
-                          Rack::Lock, 
-                          #<ActiveSupport::Cache::Strategy::LocalCache::Middleware:0x007f88a6d868b0>, 
-                          Rack::Runtime, 
-                          Rack::MethodOverride, 
-                          ActionDispatch::RequestId, 
-                          Rails::Rack::Logger, 
-                          ActionDispatch::ShowExceptions, 
-                          WebConsole::Middleware, 
-                          ActionDispatch::DebugExceptions, 
-                          ActionDispatch::RemoteIp, 
-                          ActionDispatch::Reloader, 
-                          ActionDispatch::Callbacks, 
-                          ActiveRecord::Migration::CheckPending, 
-                          ActiveRecord::ConnectionAdapters::ConnectionManagement, 
-                          ActiveRecord::QueryCache, 
-                          ActionDispatch::Cookies, 
-                          ActionDispatch::Session::CookieStore, 
-                          ActionDispatch::Flash, 
-                          ActionDispatch::ParamsParser, 
-                          Rack::Head, 
-                          Rack::ConditionalGet, 
+Middleware                Rack::Sendfile,
+                          ActionDispatch::Static,
+                          Rack::Lock,
+                          #<ActiveSupport::Cache::Strategy::LocalCache::Middleware:0x007f88a6d868b0>,
+                          Rack::Runtime,
+                          Rack::MethodOverride,
+                          ActionDispatch::RequestId,
+                          Rails::Rack::Logger,
+                          ActionDispatch::ShowExceptions,
+                          WebConsole::Middleware,
+                          ActionDispatch::DebugExceptions,
+                          ActionDispatch::RemoteIp,
+                          ActionDispatch::Reloader,
+                          ActionDispatch::Callbacks,
+                          ActiveRecord::Migration::CheckPending,
+                          ActiveRecord::ConnectionAdapters::ConnectionManagement,
+                          ActiveRecord::QueryCache,
+                          ActionDispatch::Cookies,
+                          ActionDispatch::Session::CookieStore,
+                          ActionDispatch::Flash,
+                          ActionDispatch::ParamsParser,
+                          Rack::Head,
+                          Rack::ConditionalGet,
                           Rack::ETag
 Application root          /home/sid/RailsDir/MyApp
 Environment               development
@@ -859,11 +855,10 @@ web-console (2.2.1)
 
 
 '''
- 
+
 +++
 <a href="#top" title="zum Seitenanfang">
-  <span>&#8679;</span> 
+  <span>&#8679;</span>
 </a>
 +++
 [small]#&middot; Document generated with Asciidoctor {asciidoctor-version}.#
-

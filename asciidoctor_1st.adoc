@@ -1,36 +1,40 @@
-= Asciidoctor: Erste Schritte &hellip; 
+
+= Asciidoctor: Erste Schritte &hellip;
 Opera sine nomine scripta — sid[at]example[dot]org
 
-Version 4.0.0, Januar 2016
-
 :icons:
-:Author Initials: sid
-:creativecommons-url: http://creativecommons.org/licenses/by-sa/4.0/deed.de
-:mit-url:             http://opensource.org/licenses/mit-license.php
-:ubuntu-url:          http://www.ubuntu.com/ 
+:Author Initials:       sid
+:asciidoctor-home-url:  http://asciidoctor.org/
+:creativecommons-url:   http://creativecommons.org/licenses/by-sa/4.0/deed.de
+:mit-url:               http://opensource.org/licenses/mit-license.php
+:ubuntu-url:            http://www.ubuntu.com/
 
-:asciidoctor-url:     http://asciidoctor.org/
+:datum:                 April 2017
+:middot:                &middot;
+:version:               5.0.0
+
+Version {version} {middot} {datum}
 
 
 == Abstract
-Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse 
+Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
 molestie consequat, vel illum dolore eu feugiat nulla facilisis.
 
 
 == Opera sine nomine scripta
-Lorem ipsum dolor sit amet, consectetur adipisici elit, 
-sed eiusmod tempor incidunt ut labore et dolore magna aliqua. 
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit 
-in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+Lorem ipsum dolor sit amet, consectetur adipisici elit,
+sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit
+in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 
 
 === Scripta
-Excepteur sint obcaecat cupiditat non proident, sunt in culpa 
+Excepteur sint obcaecat cupiditat non proident, sunt in culpa
 qui officia deserunt mollit anim id est laborum.
 
 
-=== Nomine 
+=== Nomine
 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
 
 .Est laborum
@@ -40,23 +44,15 @@ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
 
 
 == Links
-* {asciidoctor-url}[Asciidoctor]
-* http://la.wikisource.org/wiki/Lorem_ipsum[Lorem ipsum]
+* {asciidoctor-home-url}[Asciidoctor]
 * {creativecommons-url}[Creative Commens]
+* http://la.wikisource.org/wiki/Lorem_ipsum[Lorem ipsum]
 * {mit-url}[MIT-License]
 
 '''
-link:asciidoctor.html#_asciidoctor_erste_schritte[zurück]
+link:asciidoctor.html#_asciidoctor_erste_schritte[zurück zu Asciidoctor]
 
 
 
 
-'''
- 
-+++
-<a href="#top" title="zum Seitenanfang">
-  <span>&#8679;</span> 
-</a>
-+++
-[small]#&middot; Document generated with Asciidoctor {asciidoctor-version}.#
-
+include::_bp_footer.adoc[]

@@ -1,0 +1,9 @@
+
+'''
+
++++
+<a href="#top" title="zum Seitenanfang">
+  <span>&#8679;</span>
+</a>
++++
+[small]#&middot; Document generated with Asciidoctor {asciidoctor-version}.#

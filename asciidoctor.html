@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.4">
+<meta name="generator" content="Asciidoctor 1.5.5">
 <meta name="author" content="Installation in Ubuntu — khkoether[at]kahweb[dot]de">
 <title>IiU&#8201;&#8212;&#8201;Asciidoctor</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
@@ -18,7 +18,6 @@ audio:not([controls]){display:none;height:0}
 [hidden],template{display:none}
 script{display:none!important}
 html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
-body{margin:0}
 a{background:transparent}
 a:focus{outline:thin dotted}
 a:active,a:hover{outline:0}
@@ -53,7 +52,7 @@ textarea{overflow:auto;vertical-align:top}
 table{border-collapse:collapse;border-spacing:0}
 *,*:before,*:after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
 html,body{font-size:100%}
-body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
 a:hover{cursor:pointer}
 img,object,embed{max-width:100%;height:auto}
 object,embed{height:100%}
@@ -65,7 +64,6 @@ img{-ms-interpolation-mode:bicubic}
 .text-center{text-align:center!important}
 .text-justify{text-align:justify!important}
 .hide{display:none}
-body{-webkit-font-smoothing:antialiased}
 img,object,svg{display:inline-block;vertical-align:middle}
 textarea{height:auto;min-height:50px}
 select{width:100%}
@@ -120,13 +118,16 @@ table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:
 table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
 table tr.even,table tr.alt,table tr:nth-of-type(even){background:#f8f8f7}
 table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
-body{tab-size:4}
 h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
 h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
 .clearfix:before,.clearfix:after,.float-group:before,.float-group:after{content:" ";display:table}
 .clearfix:after,.float-group:after{clear:both}
-*:not(pre)>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background-color:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
+*:not(pre)>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background-color:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed;word-wrap:break-word}
+*:not(pre)>code.nobreak{word-wrap:normal}
+*:not(pre)>code.nowrap{white-space:nowrap}
 pre,pre>code{line-height:1.45;color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;text-rendering:optimizeSpeed}
+em em{font-style:normal}
+strong strong{font-weight:400}
 .keyseq{color:rgba(51,51,51,.8)}
 kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background-color:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
 .keyseq kbd:first-child{margin-left:0}
@@ -440,7 +441,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Version 4.0.0, Januar 2016</p>
+<p>Version 5.0.0 &middot; April 2017</p>
 </div>
 </div>
 </div>
@@ -449,16 +450,19 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sectionbody">
 <div class="paragraph">
 <p><a href="http://asciidoctor.org/">Asciidoctor</a> ist die Ruby-Implementierung des ursprünglich in
-<em>Python</em> geschriebenen <em>AsciiDoc</em>.</p>
+<em>Python</em> geschriebenen <em>AsciiDoc</em>.<br>
+<em>Asciidoctor</em> ist ein schneller Textprozesssor &amp;
+Publishing Toolchain für die Umwandlung von <em>AsciiDoc</em> in <em>HTML5</em>, <em>DocBook</em> umd mehr.
+<a href="http://asciidoctor.org/docs/what-is-asciidoc">AsciiDoc</a> ist eine einfache Auszeichnungssprache (ähnlich <em>Markdown</em>).</p>
 </div>
 <div class="paragraph">
-<p><a href="http://asciidoctor.org/docs/">AsciiDoc</a> ist eine einfache Auszeichnungssprache,
-die dazu dient,<br>
-Texte in verschiedenen Dokumentenformaten zu veröffentlichen.</p>
+<p><em>Asciidoctor</em> ist Open Source,
+wird gehostet auf <a href="https://github.com/asciidoctor/asciidoctor">GitHub</a>
+und ist freigegeben unter der <a href="https://github.com/asciidoctor/asciidoctor/blob/master/LICENSE.adoc">MIT-Lizenz</a>.</p>
 </div>
 <div class="paragraph">
-<p>Der Artikel ist in <a href="http://asciidoctor.org/">Asciidoctor</a> geschrieben
-und mit <em>Asciidoctor 1.5.4</em> erstellt worden.</p>
+<p>Der Artikel ist in <em>AsciiDoc</em> geschrieben
+und mit <em>Asciidoctor 1.5.5</em> erstellt worden.</p>
 </div>
 <div class="admonitionblock caution">
 <table>
@@ -486,10 +490,17 @@ Gerne nehme ich Verbesserungsvorschläge entgegen.</p>
 <h2 id="_vorraussetzung">Vorraussetzung</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Die Installation wird für <a href="http://www.ubuntu.com/">Ubuntu 14.04 LTS (Trusty Tahr)</a>
-beschrieben.<br>
+<p>Die Installation wird für <a href="http://www.ubuntu.com/">Ubuntu 16.04 LTS (Xenial Xerus)</a> beschrieben.<br>
 Gleichwohl sind die einzelnen Schritte auch für
 andere Debian-basierte GNU/Linux Distributionen übertragbar.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Ubuntu 16.04 LTS (Xenial Xerus) enthält das Paket</dt>
+<dd>
+<p><em>ruby2.3_2.3.1-2~16.04_amd64.deb</em>.</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>
@@ -504,7 +515,118 @@ andere Debian-basierte GNU/Linux Distributionen übertragbar.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Zur Installation von <a href="http://asciidoctor.org/">Asciidoctor</a> muß auf dem Rechner <strong>Ruby</strong> installiert sein.</p>
+<p>Zur Installation von <strong>Asciidoctor</strong> muß auf dem Rechner <strong>Ruby</strong> installiert sein.</p>
+</div>
+<div class="paragraph">
+<p>Vor der eigentlichen Installation müssen die fehlenden
+Programm-Pakete installiert sind.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ sudo apt-get install ruby2.3</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">$ COLUMNS=96 dpkg --list | grep ruby2.3   <img src="./images/icons/callouts/1.png" alt="1"> <img src="./images/icons/callouts/2.png" alt="2">
+ii  libruby2.3:amd64   2.3.1-2~16.04  amd64   Libraries necessary to run Ruby 2.3
+ii  ruby2.3            2.3.1-2~16.04  amd64   Interpreter of object-oriented scripting language Ruby</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>COLUMNS=96 ist eine Formatangabe für die Ausgabe von <mark>dpkg</mark></td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/2.png" alt="2"></td>
+<td><strong>ruby2.3</strong> kann bereits durch <em>andere</em> Abhängigkeiten installiert sein!</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Mithilfe des Befehls <em>sudo</em> wird die System-Installation von <strong>Ruby</strong> ergänzt.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ ruby -v
+ruby 2.3.1p112 (2016-04-26) [x86_64-linux-gnu]
+
+$ sudo gem install asciidoctor coderay
+[sudo] Passwort für sid:
+Fetching: asciidoctor-1.5.5.gem (100%)
+Successfully installed asciidoctor-1.5.5
+Parsing documentation for asciidoctor-1.5.5
+Installing ri documentation for asciidoctor-1.5.5
+Done installing documentation for asciidoctor after 4 seconds
+Fetching: coderay-1.1.1.gem (100%)
+Successfully installed coderay-1.1.1
+invalid options: -SNw2
+(invalid options are ignored)             <img src="./images/icons/callouts/1.png" alt="1">
+Parsing documentation for coderay-1.1.1
+Installing ri documentation for coderay-1.1.1
+Done installing documentation for coderay after 2 seconds
+2 gems installed</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>So isses.</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ gem list --local
+
+*** LOCAL GEMS ***
+
+asciidoctor (1.5.5)    <img src="./images/icons/callouts/1.png" alt="1">
+bigdecimal (1.2.8)
+coderay (1.1.1)        <img src="./images/icons/callouts/1.png" alt="1">
+did_you_mean (1.0.0)
+io-console (0.4.5)
+json (1.8.3)
+minitest (5.8.4)
+net-telnet (0.1.1)
+power_assert (0.2.7)
+psych (2.0.17)
+rake (10.5.0)
+rdoc (4.2.1)
+test-unit (3.1.7)</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>2 gems installed</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Bei einer mit <a href="chruby.html">chruby</a> verwalteten <strong>Ruby</strong>-Version ist <em>sudo</em> nicht notwendig.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ gem install asciidoctor coderay
+...
+2 gems installed</pre>
+</div>
 </div>
 </td>
 </tr>
@@ -512,20 +634,9 @@ andere Debian-basierte GNU/Linux Distributionen übertragbar.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ sudo gem install asciidoctor
-Successfully installed asciidoctor-1.5.4
-1 gem installed
-
-$ sudo gem install coderay
-Successfully installed coderay-1.1.0
-1 gem installed</pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>$ asciidoctor -V
-Asciidoctor 1.5.4 [http://asciidoctor.org]
-Runtime Environment (...)</pre>
+<pre class="nowrap">$ asciidoctor -V
+Asciidoctor 1.5.5 [http://asciidoctor.org]
+Runtime Environment (ruby 2.3.1p112 (2016-04-26) [x86_64-linux-gnu]) (lc:UTF-8 fs:UTF-8 in:- ex:UTF-8)</pre>
 </div>
 </div>
 </div>
@@ -539,13 +650,19 @@ Runtime Environment (...)</pre>
 <p><a href="http://asciidoctor.org/">Asciidoctor</a></p>
 </li>
 <li>
-<p><a href="http://asciidoctor.org/docs/">Asciidoctor: Documentation</a></p>
+<p><a href="http://asciidoctor.org/docs/what-is-asciidoc">What ist AsciiDoc</a></p>
 </li>
 <li>
-<p><a href="http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/">Asciidoctor: Syntax Quick Reference</a></p>
+<p><a href="http://asciidoctor.org/docs/asciidoc-writers-guide/">AsciiDoc Writer&#8217;s Guide</a></p>
 </li>
 <li>
-<p><a href="asciidoc.html">Installation von <em>AsciiDoc 8.6.9</em></a></p>
+<p><a href="http://asciidoctor.org/docs/asciidoc-syntax-quick-reference">AsciiDoc: Syntax Quick Reference</a></p>
+</li>
+<li>
+<p><a href="http://asciidoctor.org/docs/produce-custom-themes-using-asciidoctor-stylesheet-factory/">Produce Custom Themes<br>Using the Asciidoctor Stylesheet Factory</a></p>
+</li>
+<li>
+<p><a href="asciidoc.html">Installation von <em>AsciiDoc 8.6.9</em> &nbsp; (lang ist es her)</a></p>
 </li>
 </ul>
 </div>
@@ -560,7 +677,7 @@ Runtime Environment (...)</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ asciidoctor -a icons -a toc asciidoc_1st.adoc</pre>
+<pre>$ asciidoctor -a toc asciidoc_1st.adoc</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -575,16 +692,20 @@ Runtime Environment (...)</pre>
 <div class="title">Text-Datei: <code>asciidoctor_1st.adoc</code></div>
 <div class="content">
 <pre>= Asciidoctor: Erste Schritte &amp;hellip;
-Sid -- sid[at]example[dot]org
-
-Version 4.0.0, Januar 2016
+Opera sine nomine scripta — sid[at]example[dot]org
 
 :icons:
-:Author Initials: sid
-:creativecommons-url: http://creativecommons.org/licenses/by-sa/4.0/deed.de
-:mit-url:             http://opensource.org/licenses/mit-license.php
-:ubuntu-url:          http://www.ubuntu.com/
-:asciidoctor-url:     http://asciidoctor.org/
+:Author Initials:       sid
+:asciidoctor-home-url:  http://asciidoctor.org/
+:creativecommons-url:   http://creativecommons.org/licenses/by-sa/4.0/deed.de
+:mit-url:               http://opensource.org/licenses/mit-license.php
+:ubuntu-url:            http://www.ubuntu.com/
+
+:datum:                 April 2017
+:middot:                &amp;middot;
+:version:               5.0.0
+
+Version {version} {middot} {datum}
 
 
 == Abstract
@@ -615,13 +736,14 @@ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
 
 
 == Links
-* {asciidoctor-url}[Asciidoctor]
-* http://la.wikisource.org/wiki/Lorem_ipsum[Lorem ipsum]
+* {asciidoctor-home-url}[Asciidoctor]
 * {creativecommons-url}[Creative Commens]
+* http://la.wikisource.org/wiki/Lorem_ipsum[Lorem ipsum]
 * {mit-url}[MIT-License]
 
 '''
-link:asciidoctor.html[Asciidoctor: Erste Schritte &amp;hellip;]
+link:asciidoctor.html#_asciidoctor_erste_schritte[zurück zu Asciidoctor]
+
 
 
 
@@ -636,21 +758,12 @@ link:asciidoctor.html[Asciidoctor: Erste Schritte &amp;hellip;]
 [small]#&amp;middot; Document generated with Asciidoctor {asciidoctor-version}.#</pre>
 </div>
 </div>
-<hr>
-<div class="paragraph">
-<p>
-<a href="#top" title="zum Seitenanfang">
-  <span>&#8679;</span>
-</a>
-
-<span class="small">&middot; Document generated with Asciidoctor 1.5.4.</span></p>
-</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-01-09 17:48:25 MEZ
+Last updated 2017-04-24 20:40:05 MESZ
 </div>
 </div>
 </body>

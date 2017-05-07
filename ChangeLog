@@ -1,8 +1,18 @@
 # ChangeLog für iiu_de (02. Januar 2016)
 
+.Version 5.0.0
+* Neue Programmversion:
+  Asciidoctor (1.5.5), Git (2.12.2)), 
+  Ruby (2.3.4), Ruby (2.4.1), Ruby on Rails (5.0),
+  JDK (8), JRuby 9k (9.1.8.0), JRuby 9k on Rails (5.0)
+  Unverändert:
+  AsciiDoc (8.6.9), Ruby (2.2.4), Ruby on Rails (4.2),
+  JRuby (1.7.25), JRuby on Rails (4.2),
+  NetBeans (8.0), NetBeans: Erste Schritte...
+
 .Version 4.2.0
 * Neue Programmversion: JRuby (1.7.25)
-  Beispiel zu: Rails (4.2.6) mit JRuby 
+  Beispiel zu: Rails (4.2.6) mit JRuby
 
 .Version 4.1.0
 * Neue Programmversion: JRuby (1.7.24)

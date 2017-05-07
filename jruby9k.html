@@ -5,8 +5,8 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.5">
-<meta name="author" content="Installation in Ubuntu -- khkoether[at]kahweb[dot]de">
-<title>IiU&#8201;&#8212;&#8201;index</title>
+<meta name="author" content="Installation in Ubuntu — khkoether[at]kahweb[dot]de">
+<title>IiU&#8201;&#8212;&#8201;JRuby 9k</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -421,19 +421,28 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>IiU&#8201;&#8212;&#8201;index</h1>
+<h1>IiU&#8201;&#8212;&#8201;JRuby 9k</h1>
 <div class="details">
-<span id="author" class="author">Installation in Ubuntu -- khkoether[at]kahweb[dot]de</span><br>
+<span id="author" class="author">Installation in Ubuntu — khkoether[at]kahweb[dot]de</span><br>
 </div>
 <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#_abstract">Abstract</a></li>
-<li><a href="#_intention">Intention</a></li>
-<li><a href="#_beschreibung">Beschreibung</a></li>
-<li><a href="#_auswahl">Auswahl</a></li>
-<li><a href="#_dateien">Dateien</a></li>
-<li><a href="#_lizenz">Lizenz</a></li>
+<li><a href="#_vorraussetzungen">Vorraussetzungen</a></li>
+<li><a href="#_download">Download</a></li>
+<li><a href="#_installation">Installation</a></li>
+<li><a href="#_rubygems">RubyGems</a>
+<ul class="sectlevel2">
+<li><a href="#__em_asciidoctor_em"><em>asciidoctor</em></a></li>
+<li><a href="#__em_asciidoctor_revealjs_em"><em>asciidoctor-revealjs</em></a></li>
+<li><a href="#__em_pry_em"><em>pry</em></a></li>
+<li><a href="#__em_sinatra_em"><em>sinatra</em></a></li>
+</ul>
+</li>
+<li><a href="#_rubygems_em_list_em">RubyGems: <em>list</em></a></li>
+<li><a href="#_rubygems_em_executable_em">RubyGems: <em>executable</em></a></li>
+<li><a href="#_rubygems_documentation_index">RubyGems Documentation Index</a></li>
 </ul>
 </div>
 </div>
@@ -449,78 +458,108 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_abstract">Abstract</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Eine Sammlung von Schritt-für-Schritt Anleitungen zur Installation
-verschiedener Programme aus dem QuellCode.</p>
+<p><a href="https://www.ruby-lang.org/de/">Ruby</a> ist eine dynamische, freie Programmiersprache,
+die sich einfach anwenden und produktiv einsetzen lässt.<br>
+<a href="http://jruby.org/">JRuby</a> ist eine hochleistungsfähige, robuste,
+voll-threadfähige Java-Implementierung der <em>Ruby</em>-Programmiersprache.</p>
 </div>
 <div class="paragraph">
-<p>Die Installationen werden für <a href="http://www.ubuntu.com/">Ubuntu 16.04 LTS (Xenial Xerus)</a> beschrieben.</p>
+<p>Dieser Artikel ist eine Schritt-für-Schritt Anleitung zur Installation
+von <a href="http://jruby.org/download">JRuby 9k (9.1.8.0)</a> unter GNU/Linux.</p>
+</div>
+<div class="paragraph">
+<p>Die Programmiersprache <a href="https://www.ruby-lang.org/de/">Ruby</a> ist die Grundlage für das
+Framework <a href="http://rubyonrails.org">Ruby on Rails</a>.</p>
+</div>
+<div class="paragraph">
+<p><em>JRuby</em> ist Open Source, wird gehostet auf <a href="https://github.com/jruby/jruby/">GitHub</a>
+und ist freigegeben unter drei Lizenzen:<br>
+der <a href="http://www.eclipse.org/legal/epl-v10.html">EPL 1.0</a>, der <a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.txt">GPL 2</a> und der <a href="https://www.gnu.org/licenses/lgpl.html">LGPL 2.1</a>.<br>
+Einige Komponenten haben andere Lizenzen/ Copyright (siehe: <a href="https://github.com/jruby/jruby/blob/dcd060d9149b9c8c2beb1f3b1bf46b882f36fcc1/COPYING">COPYING</a>).</p>
+</div>
+<div class="paragraph">
+<p>Der Artikel ist in <em>AsciiDoc</em> geschrieben
+und mit <em>Asciidoctor 1.5.5</em> erstellt worden.</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<img src="./images/icons/caution.png" alt="Caution">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Zu beachten ist, dass so ein Dokument zum Einen nie abschliessend
+sein kann, und zum Anderen bestimmte Konfigurationen anders, oder
+auf einem anderem Weg durchgeführt werden können.
+Gerne nehme ich Verbesserungsvorschläge entgegen.</p>
+</div>
+<div class="paragraph">
+<p>Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_intention">Intention</h2>
+<h2 id="_vorraussetzungen">Vorraussetzungen</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Die Programme sind entsprechend der eigenen Bedürfnissen, Neigungen
-und Zielen ausgewählt ;-)</p>
+<p>Die Installation wird für <a href="http://www.ubuntu.com/">Ubuntu 16.04 LTS (Xenial Xerus)</a> beschrieben.<br>
+Gleichwohl sind die einzelnen Schritte auch für
+andere Debian-basierte GNU/Linux Distributionen übertragbar.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>Ich mag Script-Sprachen (Perl, Bash und Ruby),</p>
-</li>
-<li>
-<p>schätze die <em>Konventionen</em> von Ruby on Rails</p>
-</li>
-<li>
-<p>sowie das <em>verteilte</em> Git &nbsp;&#8201;&#8212;&#8201;</p>
-</li>
-<li>
-<p>halte Dokumentation für eine <em>Pflicht</em></p>
-</li>
-<li>
-<p>und Präsentation für die <em>Kür</em>.</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>Die System-Installation des <strong>OpenJDK</strong> ist, wie in &nbsp; <a href="jdk.html">JDK</a> &nbsp;
+beschrieben, durchgeführt worden.</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<img src="./images/icons/caution.png" alt="Caution">
+</td>
+<td class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Ubuntu 16.04 LTS (Xenial Xerus) enthält das Paket</dt>
+<dd>
+<p><em>jruby_1.7.22-1ubuntu1_all.deb</em>.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p><strong>Nicht installieren!</strong></p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_beschreibung">Beschreibung</h2>
+<h2 id="_download">Download</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><strong>AsciiDoc</strong> ist eine einfache Auszeichnungssprache, die dazu dient,<br>
-Texte in verschiedenen Dokumentenformaten zu veröffentlichen.<br></p>
-</li>
-<li>
-<p><strong>Asciidoctor</strong> ist die Neu-Implementation von <strong>AsciiDoc</strong> in Ruby.</p>
-</li>
-<li>
-<p><strong>Asciidoctor reveal.js</strong> ist ein Konverter der ein <em>AsciiDoc</em>-Dokument <br>
-in eine HTML5-Präsentation umwandelt, um mit dem Framework
-<strong>reveal.js</strong> ausgeführt zu werden.</p>
-</li>
-<li>
-<p>Der Ruby Manager <strong>chruby</strong> wechselt die Ruby-Versionen<br>
-(ähnlich wie <em>RVM</em> und <em>rbenv</em>).</p>
-</li>
-<li>
-<p><strong>Git</strong> ist ein freies verteiltes Versionskontrollsystem<br>
-(<em>DVCS</em> - Distributed Version Control System).</p>
-</li>
-<li>
-<p>Die Programmiersprache <strong>Ruby</strong> ist die Grundlage für das Framework
-<strong>Ruby on Rails</strong>.</p>
-</li>
-<li>
-<p>Die Programmiersprache <strong>JRuby</strong> ist die Implementation von <strong>Ruby</strong> in <strong>Java</strong>,<br>
-die wiederum die Grundlage für das Framework <strong>Ruby on Rails</strong> bildet.</p>
-</li>
-<li>
-<p><strong>NetBeans</strong> bietet eine Unterstützung für verschiedene Programmiersprachen und -techniken.<br>
-Wobei die <strong>Java</strong>-basierten Lösungen ausgezeichnet unterstützt werden.</p>
+<p><a href="http://jruby.org/download">JRuby 9.1.8.0</a><br>
+<code>jruby-bin-9.1.8.0.tar.gz</code>  (ca. 32M)<br>
+<strong>2017-03-06 (Release date)</strong></p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Release-Notes</dt>
+<dd>
+<p>JRuby 9000 is the newest major version of JRuby,
+representing years of effort<br>
+and large-scale reboots of several JRuby subsystems.<br>
+It is expected to be compatible with Ruby 2.x and stay in sync with C Ruby.<br>
+JRuby 9.1.8.0 is our latest release&#8230;&#8203;</p>
+</dd>
+</dl>
+</div>
 </li>
 </ul>
 </div>
@@ -531,65 +570,263 @@ Wobei die <strong>Java</strong>-basierten Lösungen ausgezeichnet unterstützt w
 <img src="./images/icons/tip.png" alt="Tip">
 </td>
 <td class="content">
+<div class="title">Historisches</div>
 <div class="paragraph">
-<p><strong>IDEs</strong> nutze ich inzwischen keine mehr. Weder <em>NetBeans</em> noch
-<em>Eclipse</em>. Solange ich nicht in <em>Java</em> programmiere, sondern
-es nur nutze&#8201;&#8212;&#8201;kann ich beruhigt darauf verzichten.<br>
-Sowohl <em>Git</em> als auch <em>Ruby on Rails</em>
-sind von der Kommandozeile her gut zu bedienen.<br>
-Und gute Editoren (&#8594; <a href="https://wiki.ubuntuusers.de/Editoren/">ubuntuusers.de: Editoren</a>)
-gibt es zuhauf:<br>
-<strong>Atom</strong>, <strong>Geany</strong>, <strong>Scite</strong> und nicht zu vergessen <strong>Emacs</strong> und <strong>Vim</strong> ;-)</p>
+<p>Die neue <em>JRuby-Version 9.0.0.0</em> wurde am 22.07.2015 mit bestimmten Zielen veröffentlicht:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Ruby 2.2 support</p>
+</li>
+<li>
+<p>New optimizing runtime</p>
+</li>
+<li>
+<p>New POSIX-friendly IO an Process</p>
+</li>
+</ol>
 </div>
 </td>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>Die Artikel sind in <em>AsciiDoc</em> geschrieben
-und mit <em>Asciidoctor 1.5.5</em> erstellt worden.</p>
-</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_auswahl">Auswahl</h2>
+<h2 id="_installation">Installation</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="asciidoctor.html">Asciidoctor 1.5.5</a></p>
-</li>
-<li>
-<p><a href="asciidoctor_1st.html">Asciidoctor: Erste Schritte &hellip;</a></p>
-</li>
-<li>
-<p><a href="asciidoctor_revealjs.html">Asciidoctor reveal.js</a></p>
-</li>
-<li>
-<p><a href="chruby.html">chruby 0.3.9</a></p>
-</li>
-<li>
-<p><a href="git.html">Git 2.12.2</a></p>
-</li>
-<li>
-<p><a href="ruby23.html">Ruby MRI 2.3</a></p>
-</li>
-<li>
-<p><a href="ruby24.html">Ruby MRI 2.4</a></p>
-</li>
-<li>
-<p><a href="ruby_on_rails50.html">Ruby on Rails 5.0</a></p>
-</li>
-<li>
-<p><a href="jdk.html">OpenJDK 8, Oracle JDK 8</a></p>
-</li>
-<li>
-<p><a href="jruby9k.html">JRuby 9k</a></p>
-</li>
-<li>
-<p><a href="jruby9k_on_rails50.html">JRuby 9k on Rails 5.0</a></p>
-</li>
-</ul>
+<div class="paragraph">
+<p>Für die Verwaltung der <strong>Ruby</strong>-Installationen verwende ich <a href="chruby.html">Chruby</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Ruby</strong> sollte im Verzeichnis <code>/opt/rubies</code> oder <code>~/.rubies</code> installiert werden.<br>
+Dann kann <mark>chruby</mark> automatisch die Installation verwalten.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1</strong>: Auspacken des Source-Code</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ tar xzvf jruby-bin-9.1.8.0.tar.gz -C /opt/rubies/
+...</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Step 2</strong>: Ziel-Verzeichnis überprüfen, Symbolischen Link erzeugen</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ ls -l /opt/rubies/   <img src="./images/icons/callouts/1.png" alt="1">
+insgesamt 12
+drwxr-xr-x 6 sid sid 4096 Mär  6 15:50 jruby-9.1.8.0
+drwxr-xr-x 6 sid sid 4096 Apr  9 22:23 ruby-2.3.4
+drwxr-xr-x 6 sid sid 4096 Apr 17 20:00 ruby-2.4.1
+
+$ ln -s jruby /opt/rubies/jruby-9.1.8.0/bin/ruby   <img src="./images/icons/callouts/2.png" alt="2"></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Ziel-Verzeichnis.</td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/2.png" alt="2"></td>
+<td>Symbolischen Link erzeugen.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Step 3</strong>: Installation verifizieren</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ ls -l /opt/rubies/jruby-9.1.8.0
+drwxr-xr-x 2 sid sid   4096 Apr 27 18:24 bin       <img src="./images/icons/callouts/1.png" alt="1">
+-rw-r--r-- 1 sid sid   1282 Mär  6 15:40 BSDL      <img src="./images/icons/callouts/2.png" alt="2">
+-rw-r--r-- 1 sid sid 155042 Mär  6 15:40 COPYING
+-rw-r--r-- 1 sid sid    218 Mär  6 15:40 LEGAL
+drwxr-xr-x 4 sid sid   4096 Apr 27 18:21 lib
+-rw-r--r-- 1 sid sid   2581 Mär  6 15:40 LICENSE.RUBY
+drwxrwxr-x 6 sid sid   4096 Apr 27 18:21 samples
+drwxrwxr-x 3 sid sid   4096 Apr 27 18:21 tool</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Datum der Installation.</td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/2.png" alt="2"></td>
+<td>Release Date.</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ ls -l /opt/rubies/jruby-9.1.8.0/bin
+-rwxr-xr-x 1 sid sid   5515 Mär  6 15:47 ast       <img src="./images/icons/callouts/1.png" alt="1">
+-rw-r--r-- 1 sid sid     40 Mär  6 15:47 ast.bat   <img src="./images/icons/callouts/2.png" alt="2">
+-rwxr-xr-x 1 sid sid    123 Mär  6 15:47 gem
+-rw-r--r-- 1 sid sid     40 Mär  6 15:47 gem.bat
+-rwxr-xr-x 1 sid sid    323 Mär  6 15:47 irb
+-rw-r--r-- 1 sid sid     40 Mär  6 15:47 irb.bat
+-rwxr-xr-x 1 sid sid    547 Mär  6 15:47 jgem
+-rw-r--r-- 1 sid sid     41 Mär  6 15:47 jgem.bat
+-rwxr-xr-x 1 sid sid    390 Mär  6 15:47 jirb
+-rw-r--r-- 1 sid sid     41 Mär  6 15:47 jirb.bat
+-rwxr-xr-x 1 sid sid   2263 Mär  6 15:47 jirb_swing
+-rw-r--r-- 1 sid sid     47 Mär  6 15:47 jirb_swing.bat
+-rwxr-xr-x 1 sid sid  12038 Mär  6 15:47 jruby
+-rwxr-xr-x 1 sid sid    172 Mär  6 15:47 jruby200.sh
+-rwxr-xr-x 1 sid sid  12038 Mär  6 15:47 jruby.bash
+-rw-r--r-- 1 sid sid    125 Mär  6 15:47 jruby.bat
+-rwxr-xr-x 1 sid sid    188 Mär  6 15:47 jrubyc
+-rw-r--r-- 1 sid sid     43 Mär  6 15:47 jrubyc.bat
+-rw-r--r-- 1 sid sid    245 Mär  6 15:47 jrubyd.bat
+-rw-r--r-- 1 sid sid 742400 Mär  6 15:47 jruby.dll
+-rw-r--r-- 1 sid sid 680448 Mär  6 15:47 jruby.exe
+-rwxr-xr-x 1 sid sid   9298 Mär  6 15:47 jruby.sh
+-rw-r--r-- 1 sid sid 682496 Mär  6 15:47 jrubyw.exe
+-rwxr-xr-x 1 sid sid    477 Mär  6 15:47 rake
+-rw-r--r-- 1 sid sid     41 Mär  6 15:47 rake.bat
+-rwxr-xr-x 1 sid sid    477 Mär  6 15:47 rdoc
+-rw-r--r-- 1 sid sid     41 Mär  6 15:47 rdoc.bat
+-rwxr-xr-x 1 sid sid    475 Mär  6 15:47 ri
+-rw-r--r-- 1 sid sid     39 Mär  6 15:47 ri.bat
+lrwxrwxrwx 1 sid sid      5 Apr 27 18:24 ruby -&gt; jruby   <img src="./images/icons/callouts/3.png" alt="3">
+-rwxr-xr-x 1 sid sid    152 Mär  6 15:47 testrb
+-rw-r--r-- 1 sid sid     43 Mär  6 15:47 testrb.bat</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Kommando <mark>ast</mark> für ein <em>GNU/Linux-System</em></td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/2.png" alt="2"></td>
+<td>Kommando <mark>ast.bat</mark> für ein <em>MS Windows-System</em></td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/3.png" alt="3"></td>
+<td>Symbolischen Link in <strong>Step 2</strong> erzeugt!</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Step 4:</strong> <mark>chruby</mark></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ source /usr/local/share/chruby/chruby.sh
+
+$ chruby
+   jruby-9.1.8.0
+   ruby-2.3.4
+   ruby-2.4.1
+
+$ chruby jruby-9.1.8.0</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">$ jruby -v   <img src="./images/icons/callouts/1.png" alt="1">
+jruby 9.1.8.0 (2.3.1) 2017-03-06 90fc7ab OpenJDK 64-Bit Server VM 25.121-b13
+                                 on 1.8.0_121-8u121-b13-0ubuntu1.16.04.2-b13 +jit [linux-x86_64]</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Die Version <strong>JRuby 9.1.8.0</strong> &nbsp;
+<em>entspricht dem Entwicklungsstand von</em> &nbsp; <strong>Ruby 2.3.1</strong>.</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ which gem
+/opt/rubies/jruby-9.1.8.0/bin/gem
+
+$ gem -v
+2.6.8
+
+$ gem list
+
+*** LOCAL GEMS ***
+
+did_you_mean (default: 1.0.1)
+jar-dependencies (default: 0.3.10)
+jruby-openssl (0.9.20 java)
+jruby-readline (1.1.1 java)
+json (1.8.3 java)
+minitest (default: 5.4.1)
+net-telnet (default: 0.1.1)
+power_assert (default: 0.2.3)
+psych (2.2.4 java)
+racc (1.4.14 java)
+rake (default: 10.4.2)
+rdoc (default: 4.2.0)
+test-unit (default: 3.1.1)</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ which rake
+/opt/rubies/jruby-9.1.8.0/bin/rake
+
+$ rake -V
+rake, version 10.4.2</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Step 5</strong> Vollständigkeit &#8230;&#8203;</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ jruby -ropenssl -rzlib -rreadline -e "puts 'Happy new Ruby'"
+Happy new Ruby</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">JRuby 9.1.8.0: <mark>irb</mark></div>
+<div class="content">
+<pre>$ which irb
+/opt/rubies/jruby-9.1.8.0/bin/irb
+
+$ irb
+irb(main):001:0&gt; RUBY_VERSION
+=&gt; "2.3.1"
+irb(main):002:0&gt; RUBY_PATCHLEVEL
+=&gt; 0
+irb(main):003:0&gt; Time.now.to_s
+=&gt; "2017-04-27 18:40:44 +0200"
+irb(main):004:0&gt; Time.now.thursday?
+=&gt; true
+irb(main):005:0&gt; exit</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">ri - Ruby Interactive</div>
+<div class="content">
+<pre>$ ri Array#each   <img src="./images/icons/callouts/1.png" alt="1">
+Nothing known about Array</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Dokumentation ist nicht installiert!</td>
+</tr>
+</table>
 </div>
 <div class="admonitionblock caution">
 <table>
@@ -598,32 +835,7 @@ und mit <em>Asciidoctor 1.5.5</em> erstellt worden.</p>
 <img src="./images/icons/caution.png" alt="Caution">
 </td>
 <td class="content">
-<div class="ulist">
-<div class="title">Unverändert - diese Seiten werden nicht weiter aktualisiert</div>
-<ul>
-<li>
-<p><a href="asciidoc.html">AsciiDoc 8.6.9</a></p>
-</li>
-<li>
-<p><a href="ruby22.html">Ruby 2.2.4</a></p>
-</li>
-<li>
-<p><a href="ruby_on_rails42.html">Ruby on Rails 4.2</a></p>
-</li>
-<li>
-<p><a href="jruby.html">JRuby 1.7.25</a></p>
-</li>
-<li>
-<p><a href="jruby_on_rails42.html">JRuby on Rails 4.2</a></p>
-</li>
-<li>
-<p><a href="netbeans8.html">NetBeans IDE 8.0</a></p>
-</li>
-<li>
-<p><a href="netbeans8_1st.html">NetBeans IDE 8.0: Erste Schritte &hellip;</a></p>
-</li>
-</ul>
-</div>
+Ich war nicht in der Lage die <em>Ruby</em>-Dokumentation zu installieren.
 </td>
 </tr>
 </table>
@@ -631,70 +843,274 @@ und mit <em>Asciidoctor 1.5.5</em> erstellt worden.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_dateien">Dateien</h2>
+<h2 id="_rubygems">RubyGems</h2>
 <div class="sectionbody">
-<div class="literalblock">
-<div class="content">
-<pre>./iiu_de.sh         &lt;-- Script zum Erstellen aller HTML-Dateien
-./NAME.adoc
-./NAME.html
-./images/icons      &lt;-- Images durch Asciidoctor
-./images/netbeans   &lt;-- Images des Installationsdialogs
-./images/ruby       &lt;-- Image des RubyGems Documentation Index
-./images/jruby      &lt;-- Image des RubyGems Documentation Index
-
-NAME = { index asciidoctor asciidoctor_1st asciidoctor-revealjs
-               chruby git ruby23 ruby24 ruby_on_rails50
-               jdk jruby9k jruby9k_on_rails50 }</pre>
+<div class="paragraph">
+<p><em>RubyGems</em> (oder kurz <em>Gems</em>) ist das offizielle Paketsystem für die
+Programmiersprache Ruby. Mit dem Paketsystem hat der Anwender die Möglichkeit,
+mehrere (zum Beispiel ältere oder jüngere) Versionen eines Programmes,
+Programmteiles oder einer Bibliothek gesteuert nach Bedarf einzurichten,
+zu verwalten oder auch wieder zu entfernen.<br>
+&rarr; <a href="http://de.wikipedia.org/wiki/RubyGems">Wikipedia: RubyGems</a></p>
 </div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<img src="./images/icons/caution.png" alt="Caution">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Einige <em>Gems</em> (Bibliotheken) sind direkt in der Programmiersprache <em>C</em>
+umgesetzt. Für <em>JRuby</em> muß dann die entsprechende <em>Java</em>-Version
+installiert werden. Das <em>Ruby</em>-Programm <mark>gem</mark> wird sie hierbei unterstützen.</p>
 </div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="__em_asciidoctor_em"><em>asciidoctor</em></h3>
 <div class="listingblock">
 <div class="content">
-<pre>$ asciidoctor -a toc NAME.adoc   <img src="./images/icons/callouts/1.png" alt="1"></pre>
+<pre>$ gem install asciidoctor coderay        <img src="./images/icons/callouts/1.png" alt="1"> <img src="./images/icons/callouts/2.png" alt="2">
+Fetching: asciidoctor-1.5.5.gem (100%)
+Successfully installed asciidoctor-1.5.5
+Fetching: coderay-1.1.1.gem (100%)
+Successfully installed coderay-1.1.1
+2 gems installed</pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Output format backend (default: html5)</td>
+<td><strong>Asciidoctor</strong> ist die Neu-Implementation von <strong>AsciiDoc</strong> in Ruby.<br>
+<strong>AsciiDoc</strong> ist eine einfache Auszeichnungssprache, die dazu dient,<br>
+Texte in verschiedenen Dokumentenformaten zu veröffentlichen.</td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/2.png" alt="2"></td>
+<td><strong>CodeRay</strong> is a fast and easy syntax highlighting for selected languages, written in Ruby.<br>
+Comes with RedCloth integration and LOC counter.</td>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>Die erstellten Seiten finden Sie ebenfalls hier:<br>
-<a href="http://www.mygithub.kahweb.de" class="bare">http://www.mygithub.kahweb.de</a></p>
 </div>
-<div class="admonitionblock note">
+<div class="sect2">
+<h3 id="__em_asciidoctor_revealjs_em"><em>asciidoctor-revealjs</em></h3>
+<div class="listingblock">
+<div class="content">
+<pre>$ gem install asciidoctor-revealjs   <img src="./images/icons/callouts/1.png" alt="1">
+Fetching: temple-0.7.7.gem (100%)
+Successfully installed temple-0.7.7
+Fetching: tilt-2.0.7.gem (100%)
+Successfully installed tilt-2.0.7
+Fetching: slim-3.0.7.gem (100%)
+Successfully installed slim-3.0.7
+Fetching: thread_safe-0.3.6-java.gem (100%)
+Successfully installed thread_safe-0.3.6-java
+Fetching: asciidoctor-revealjs-1.0.2.gem (100%)
+Successfully installed asciidoctor-revealjs-1.0.2
+5 gems installed</pre>
+</div>
+</div>
+<div class="colist arabic">
 <table>
 <tr>
-<td class="icon">
-<img src="./images/icons/note.png" alt="Note">
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Zu beachten ist, dass so ein Dokument zum Einen nie abschliessend
-sein kann, und zum Anderen bestimmte Konfigurationen anders, oder
-auf einem anderem Weg durchgeführt werden können.<br>
-Gerne nehme ich Verbesserungsvorschläge entgegen.</p>
-</div>
-<div class="paragraph">
-<p>Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr.</p>
-</div>
-</td>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td><strong>Asciidoctor-Reveal.js</strong> ist ein Konverter der ein <strong>AsciiDoc</strong>-Dokument
+in eine HTML5-Präsentation<br>
+umwandelt, um mit dem Framework <strong>Reveal.js</strong> ausgeführt zu werden.</td>
 </tr>
 </table>
 </div>
-<hr>
+</div>
+<div class="sect2">
+<h3 id="__em_pry_em"><em>pry</em></h3>
+<div class="listingblock">
+<div class="content">
+<pre>$ gem install pry   <img src="./images/icons/callouts/1.png" alt="1">
+Fetching: slop-3.6.0.gem (100%)
+Successfully installed slop-3.6.0
+Fetching: method_source-0.8.2.gem (100%)
+Successfully installed method_source-0.8.2
+Fetching: ffi-1.9.18-java.gem (100%)
+Successfully installed ffi-1.9.18-java
+Fetching: spoon-0.0.6.gem (100%)
+Successfully installed spoon-0.0.6
+Fetching: pry-0.10.4-java.gem (100%)
+Successfully installed pry-0.10.4-java   <img src="./images/icons/callouts/2.png" alt="2">
+5 gems installed</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td><strong>Pry</strong> is a powerful alternative to the standard <strong>IRB</strong> (Interactive Ruby) shell for Ruby.</td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/2.png" alt="2"></td>
+<td>Es wurde automatisch die <em>Java</em>-Version von <em>pry</em> installiert.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="__em_sinatra_em"><em>sinatra</em></h3>
+<div class="listingblock">
+<div class="content">
+<pre>$ gem install sinatra   <img src="./images/icons/callouts/1.png" alt="1">
+Fetching: rack-1.6.5.gem (100%)
+Successfully installed rack-1.6.5
+Fetching: rack-protection-1.5.3.gem (100%)
+Successfully installed rack-protection-1.5.3
+Fetching: sinatra-1.4.8.gem (100%)
+Successfully installed sinatra-1.4.8
+3 gems installed</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td><strong>Sinatra</strong> ist eine <em>freie</em> und <em>open source Webapplikationsbibliothek</em> und<br>
+eine in Ruby geschriebene <em>domänenspezifische</em> Sprache.<br>
+<strong>Sinatra</strong> setzt das Rack Webserver-Interface voraus.<br>
+&rarr; <a href="http://de.wikipedia.org/wiki/Sinatra_%28Software%29">Wikipedia: Sinatra (Software)</a></td>
+</tr>
+</table>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_lizenz">Lizenz</h2>
+<h2 id="_rubygems_em_list_em">RubyGems: <em>list</em></h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="title"><mark>gem list</mark></div>
+<div class="content">
+<pre>$ gem list
+
+*** LOCAL GEMS ***
+
+asciidoctor (1.5.5)
+asciidoctor-revealjs (1.0.2)
+coderay (1.1.1)
+did_you_mean (default: 1.0.1)
+ffi (1.9.18 java)
+jar-dependencies (default: 0.3.10)
+jruby-openssl (0.9.20 java)
+jruby-readline (1.1.1 java)
+json (1.8.3 java)
+method_source (0.8.2)
+minitest (default: 5.4.1)
+net-telnet (default: 0.1.1)
+power_assert (default: 0.2.3)
+pry (0.10.4 java)
+psych (2.2.4 java)
+racc (1.4.14 java)
+rack (1.6.5)
+rack-protection (1.5.3)
+rake (default: 10.4.2)
+rdoc (default: 4.2.0)
+sinatra (1.4.8)
+slim (3.0.8)
+slop (3.6.0)
+spoon (0.0.6)
+temple (0.8.0)
+test-unit (default: 3.1.1)
+thread_safe (0.3.6 java)
+tilt (2.0.7)</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_rubygems_em_executable_em">RubyGems: <em>executable</em></h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="title">/opt/rubies/ruby-2.3.4/bin</div>
+<div class="content">
+<pre>$ ls -l /opt/rubies/jruby-9.1.8.0/bin   <img src="./images/icons/callouts/1.png" alt="1">
+-rwxr-xr-x 1 sid sid   5515 Mär  6 15:47 ast
+-rw-r--r-- 1 sid sid     40 Mär  6 15:47 ast.bat
+-rwxr-xr-x 1 sid sid    123 Mär  6 15:47 gem
+-rw-r--r-- 1 sid sid     40 Mär  6 15:47 gem.bat
+...
+-rwxr-xr-x 1 sid sid    475 Mär  6 15:47 ri
+-rw-r--r-- 1 sid sid     39 Mär  6 15:47 ri.bat
+lrwxrwxrwx 1 sid sid      5 Apr 27 18:24 ruby -&gt; jruby
+-rwxr-xr-x 1 sid sid    152 Mär  6 15:47 testrb
+-rw-r--r-- 1 sid sid     43 Mär  6 15:47 testrb.bat</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Keine Veränderung im Installations-Verzeichnis!</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">~/.gem/jruby/2.3.1/bin</div>
+<div class="content">
+<pre>$ ls -l /home/sid/.gem/jruby/2.3.1/bin   <img src="./images/icons/callouts/1.png" alt="1">
+-rwxr-xr-x 1 sid sid 498 Apr 27 18:57 asciidoctor
+-rwxr-xr-x 1 sid sid 525 Apr 27 18:58 asciidoctor-revealjs
+-rwxr-xr-x 1 sid sid 503 Apr 27 18:57 asciidoctor-safe
+-rwxr-xr-x 1 sid sid 486 Apr 27 18:57 coderay
+-rwxr-xr-x 1 sid sid 474 Apr 27 18:59 pry
+-rwxr-xr-x 1 sid sid 479 Apr 27 19:00 rackup
+-rwxr-xr-x 1 sid sid 479 Apr 27 18:58 slimrb
+-rwxr-xr-x 1 sid sid 477 Apr 27 18:58 tilt</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Mit <strong>chruby</strong> werden die zusätzlichen <em>RubyGems</em> im
+Home-Verzeichnis installiert.<br></td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<img src="./images/icons/caution.png" alt="Caution">
+</td>
+<td class="content">
+Das Verzeichnis <code>~/.gem/jruby-2.3.1/&#8230;&#8203;</code>&#8201;&#8212;&#8201;entspricht der <em>Ruby</em>-Version&#8201;&#8212;&#8201;nicht der <em>JRuby</em>-Version!
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_rubygems_documentation_index">RubyGems Documentation Index</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Dieses Werk ist lizenziert unter einer
-<a href="http://creativecommons.org/licenses/by/4.0/deed.de">Creative Commons Namensnennung 4.0 International Lizenz</a>,<br>
-und der Quellcode zum Formatieren und Anzeigen des Inhaltes steht unter der <a href="http://opensource.org/licenses/mit-license.php">MIT-Lizenz</a>.</p>
+<p>Auf die installierte Dokumentation zugreifen.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre># gem server
+Server started at http://0.0.0.0:8808</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Browser&gt; http://localhost:8808/
+         RubyGems Documentation Index</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./images/jruby/rubygems_documentation_index_9.png" alt="RubyGems Documentation Index"></span></p>
 </div>
 <hr>
 <div class="paragraph">
@@ -710,7 +1126,7 @@ und der Quellcode zum Formatieren und Anzeigen des Inhaltes steht unter der <a h
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-05-07 13:24:53 MESZ
+Last updated 2017-05-07 12:26:17 MESZ
 </div>
 </div>
 </body>

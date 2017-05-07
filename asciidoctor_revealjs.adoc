@@ -1,0 +1,250 @@
+
+= IiU -- Asciidoctor reveal.js
+Installation in Ubuntu — khkoether[at]kahweb[dot]de
+
+include::_bp_header.adoc[]
+
+:asciidoctor-revealjs-home-url: https://github.com/asciidoctor/asciidoctor-reveal.js/
+:revealjs-home-url:             https://github.com/hakimel/reveal.js
+:revealjs-download-url:         https://github.com/hakimel/reveal.js/releases/tag/3.3.0
+:asciidoctor-github-url:        https://github.com/asciidoctor/asciidoctor
+:asciidoctor-license-url:       https://github.com/asciidoctor/asciidoctor/blob/master/LICENSE.adoc
+
+Version {version} {middot} {datum}
+
+
+== Abstract
+{asciidoctor-revealjs-home-url}[Asciidoctor reveal.js] ist ein Konverter der ein
+_AsciiDoc_-Dokument in eine HTML5-Präsentation umwandelt, um mit dem Framework
+_reveal.js_ ausgeführt zu werden.
+
+_Asciidoctor_ ist Open Source,
+wird gehostet auf {asciidoctor-github-url}[GitHub]
+und ist freigegeben unter der {asciidoctor-license-url}[MIT-Lizenz].
+
+Der Artikel ist in _AsciiDoc_ geschrieben
+und mit _Asciidoctor {asciidoctor-version}_ erstellt worden.
+
+[CAUTION]
+====
+Zu beachten ist, dass so ein Dokument zum Einen nie abschließend
+sein kann, und zum Anderen bestimmte Konfigurationen anders, oder
+auf einem anderem Weg durchgeführt werden können. +
+Gerne nehme ich Verbesserungsvorschläge entgegen.
+
+Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr.
+====
+
+
+== Vorraussetzung
+Die Installation wird für {ubuntu-url}[Ubuntu 16.04 LTS (Xenial Xerus)] beschrieben. +
+Gleichwohl sind die einzelnen Schritte auch für
+andere Debian-basierte GNU/Linux Distributionen übertragbar.
+
+Die System-Installation von *Ruby* ist,
+wie in &nbsp; {asciidoctor-url}[IiU -- Asciidoctor] &nbsp; beschrieben,
+durchgeführt worden.
+
+[options="nowrap"]
+----
+$ COLUMNS=96 dpkg --list | grep ruby2.3   <1>
+ii  libruby2.3:amd64   2.3.1-2~16.04   amd64   Libraries necessary to run Ruby 2.3
+ii  ruby2.3            2.3.1-2~16.04   amd64   Interpreter of object-oriented scripting language Ruby
+----
+<1> COLUMNS=96 ist eine Formatangabe für die Ausgabe von #dpkg#
+
+
+== Download
+* {revealjs-download-url}[reveal.js v3.3.0] +
+  `reveal.js-3.3.0.tar.gz`  (ca. 1.6M) +
+  2016-04-18 (Release date)
+
+
+== Installation
+Mithilfe des Befehls _sudo_ wird die System-Installation von *Ruby* ergänzt.
+----
+$ ruby -v
+ruby 2.3.1p112 (2016-04-26) [x86_64-linux-gnu]
+
+$ sudo gem install asciidoctor-revealjs   <1>
+[sudo] Passwort für khk:
+Fetching: temple-0.7.7.gem (100%)
+Successfully installed temple-0.7.7
+Fetching: tilt-2.0.7.gem (100%)
+Successfully installed tilt-2.0.7
+Fetching: slim-3.0.7.gem (100%)
+Successfully installed slim-3.0.7
+Fetching: thread_safe-0.3.6.gem (100%)
+Successfully installed thread_safe-0.3.6
+Fetching: asciidoctor-revealjs-1.0.2.gem (100%)
+Successfully installed asciidoctor-revealjs-1.0.2
+Parsing documentation for temple-0.7.7
+Installing ri documentation for temple-0.7.7
+Parsing documentation for tilt-2.0.7
+Installing ri documentation for tilt-2.0.7
+Parsing documentation for slim-3.0.7
+Installing ri documentation for slim-3.0.7
+Parsing documentation for thread_safe-0.3.6
+Installing ri documentation for thread_safe-0.3.6
+Parsing documentation for asciidoctor-revealjs-1.0.2
+Installing ri documentation for asciidoctor-revealjs-1.0.2
+Done installing documentation for temple, tilt, slim, thread_safe, asciidoctor-revealjs after 2 seconds
+5 gems installed
+----
+<1> *Asciidoctor* ist bereits zuvor installiert worden.
+
+----
+$ gem list --local
+
+*** LOCAL GEMS ***
+
+asciidoctor (1.5.5)
+asciidoctor-revealjs (1.0.2)   <1>
+bigdecimal (1.2.8)
+coderay (1.1.1)
+did_you_mean (1.0.0)
+io-console (0.4.5)
+json (1.8.3)
+minitest (5.8.4)
+net-telnet (0.1.1)
+power_assert (0.2.7)
+psych (2.0.17)
+rake (10.5.0)
+rdoc (4.2.1)
+slim (3.0.7)                   <1>
+temple (0.7.7)                 <1>
+test-unit (3.1.7)
+thread_safe (0.3.6)            <1>
+tilt (2.0.7)                   <1>
+----
+<1> 5 gems installed
+
+[TIP]
+====
+Bei einer mit {chruby-url}[chruby] verwalteten *Ruby*-Version ist _sudo_ nicht notwendig.
+----
+$ gem install asciidoctor-revealjs
+...
+5 gems installed
+----
+====
+
+[options="nowrap"]
+----
+$ asciidoctor-revealjs -V
+Asciidoctor 1.5.5 [http://asciidoctor.org]
+Runtime Environment (ruby 2.3.1p112 (2016-04-26) [x86_64-linux-gnu]) (lc:UTF-8 fs:UTF-8 in:- ex:UTF-8)
+----
+
+
+== Asciidoctor reveal.js: Links
+* {asciidoctor-revealjs-home-url}[Asciidoctor reveal.js]
+* {revealjs-home-url}[reveal.js]
+* {revealjs-home-url}#syntax-examples[Asciidoctor reveal.js: Syntax Examples]
+
+
+== Asciidoctor reveal.js: Erste Schritte &hellip;
+Eine Präsentation erstellen Sie mit _asciidoctor-revealjs_ auf dem folgendenden Weg:
+
+.Framework: `reveal.js`
+----
+$ mkdir MyPresentation
+$ cd MyPresentation
+
+$ tar xvzf reveal.js-3.3.0.tar.gz
+$ mv reveal.js-3.3.0 reveal.js
+----
+
+.Datei: `presentation.adoc`
+----
+= Title Slide
+
+
+== Slide One
+* Foo
+* Bar
+* World
+
+
+== Slide Two
+Hello World - Good Bye Cruel World
+
+[NOTE.speaker]
+--
+Actually things aren't that bad
+--
+
+
+[background-color="yellow"]
+== Slide Three
+Here come's the sun...
+----
+
+
+
+.#asciidoctor-revealjs ...#
+----
+$ asciidoctor-revealjs presentation.adoc
+----
+
+.Browser: `presentation.html`
+----
+$ firefox presentation.html
+----
+
+
+== Asciidoctor reveal.js: Projektstruktur
+----
+$ tree -L 2 MyPresentation/
+MyPresentation/
+├── presentation.adoc   <1>
+├── presentation.html
+└── reveal.js
+    ├── bower.json
+    ├── CONTRIBUTING.md
+    ├── css
+    ├── demo.html
+    ├── Gruntfile.js
+    ├── index.html
+    ├── js
+    ├── lib
+    ├── LICENSE
+    ├── package.json
+    ├── plugin
+    ├── README.md
+    └── test
+
+6 directories, 10 files
+----
+<1> Eigene Präsentation
+
+
+== Asciidoctor reveal.js: Variablen
+Sie können die Ausgabe durch setzen von _reveal.js Variablen_ ändern!
+
+.Datei: `presentation.adoc`
+[source,asciidoc]
+----
+= Title Slide
+Sid ~ Großstadt ~ 26.03.2017
+:revealjs_theme: sky
+:revealjs_slideNumber: true
+:source-highlighter: coderay
+
+[...]
+----
+
+.#asciidoctor-revealjs ...#
+----
+$ asciidoctor-revealjs presentation.adoc
+----
+
+.Browser: `presentation.html`
+----
+$ firefox presentation.html
+----
+
+
+
+
+include::_bp_footer.adoc[]

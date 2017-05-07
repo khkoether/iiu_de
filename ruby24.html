@@ -5,8 +5,8 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.5">
-<meta name="author" content="Installation in Ubuntu -- khkoether[at]kahweb[dot]de">
-<title>IiU&#8201;&#8212;&#8201;index</title>
+<meta name="author" content="Installation in Ubuntu — khkoether[at]kahweb[dot]de">
+<title>IiU&#8201;&#8212;&#8201;Ruby MRI 2.4</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -421,19 +421,29 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>IiU&#8201;&#8212;&#8201;index</h1>
+<h1>IiU&#8201;&#8212;&#8201;Ruby MRI 2.4</h1>
 <div class="details">
-<span id="author" class="author">Installation in Ubuntu -- khkoether[at]kahweb[dot]de</span><br>
+<span id="author" class="author">Installation in Ubuntu — khkoether[at]kahweb[dot]de</span><br>
 </div>
 <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#_abstract">Abstract</a></li>
-<li><a href="#_intention">Intention</a></li>
-<li><a href="#_beschreibung">Beschreibung</a></li>
-<li><a href="#_auswahl">Auswahl</a></li>
-<li><a href="#_dateien">Dateien</a></li>
-<li><a href="#_lizenz">Lizenz</a></li>
+<li><a href="#_vorraussetzung">Vorraussetzung</a></li>
+<li><a href="#_download">Download</a></li>
+<li><a href="#_installation">Installation</a></li>
+<li><a href="#_rubygems">Rubygems</a>
+<ul class="sectlevel2">
+<li><a href="#__em_asciidoctor_em"><em>asciidoctor</em></a></li>
+<li><a href="#__em_asciidoctor_revealjs_em"><em>asciidoctor-revealjs</em></a></li>
+<li><a href="#__em_pry_em"><em>pry</em></a></li>
+<li><a href="#__em_sinatra_em"><em>sinatra</em></a></li>
+</ul>
+</li>
+<li><a href="#_rubygems_em_list_em">RubyGems: <em>list</em></a></li>
+<li><a href="#_rubygems_em_executable_em">RubyGems: <em>executable</em></a></li>
+<li><a href="#_rubygems_documentation_index">RubyGems Documentation Index</a></li>
+<li><a href="#_anhang">Anhang</a></li>
 </ul>
 </div>
 </div>
@@ -449,147 +459,27 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_abstract">Abstract</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Eine Sammlung von Schritt-für-Schritt Anleitungen zur Installation
-verschiedener Programme aus dem QuellCode.</p>
+<p><a href="https://www.ruby-lang.org/de/">Ruby</a> ist eine dynamische, freie Programmiersprache,
+die sich einfach anwenden und produktiv einsetzen lässt.</p>
 </div>
 <div class="paragraph">
-<p>Die Installationen werden für <a href="http://www.ubuntu.com/">Ubuntu 16.04 LTS (Xenial Xerus)</a> beschrieben.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_intention">Intention</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Die Programme sind entsprechend der eigenen Bedürfnissen, Neigungen
-und Zielen ausgewählt ;-)</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Ich mag Script-Sprachen (Perl, Bash und Ruby),</p>
-</li>
-<li>
-<p>schätze die <em>Konventionen</em> von Ruby on Rails</p>
-</li>
-<li>
-<p>sowie das <em>verteilte</em> Git &nbsp;&#8201;&#8212;&#8201;</p>
-</li>
-<li>
-<p>halte Dokumentation für eine <em>Pflicht</em></p>
-</li>
-<li>
-<p>und Präsentation für die <em>Kür</em>.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_beschreibung">Beschreibung</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><strong>AsciiDoc</strong> ist eine einfache Auszeichnungssprache, die dazu dient,<br>
-Texte in verschiedenen Dokumentenformaten zu veröffentlichen.<br></p>
-</li>
-<li>
-<p><strong>Asciidoctor</strong> ist die Neu-Implementation von <strong>AsciiDoc</strong> in Ruby.</p>
-</li>
-<li>
-<p><strong>Asciidoctor reveal.js</strong> ist ein Konverter der ein <em>AsciiDoc</em>-Dokument <br>
-in eine HTML5-Präsentation umwandelt, um mit dem Framework
-<strong>reveal.js</strong> ausgeführt zu werden.</p>
-</li>
-<li>
-<p>Der Ruby Manager <strong>chruby</strong> wechselt die Ruby-Versionen<br>
-(ähnlich wie <em>RVM</em> und <em>rbenv</em>).</p>
-</li>
-<li>
-<p><strong>Git</strong> ist ein freies verteiltes Versionskontrollsystem<br>
-(<em>DVCS</em> - Distributed Version Control System).</p>
-</li>
-<li>
-<p>Die Programmiersprache <strong>Ruby</strong> ist die Grundlage für das Framework
-<strong>Ruby on Rails</strong>.</p>
-</li>
-<li>
-<p>Die Programmiersprache <strong>JRuby</strong> ist die Implementation von <strong>Ruby</strong> in <strong>Java</strong>,<br>
-die wiederum die Grundlage für das Framework <strong>Ruby on Rails</strong> bildet.</p>
-</li>
-<li>
-<p><strong>NetBeans</strong> bietet eine Unterstützung für verschiedene Programmiersprachen und -techniken.<br>
-Wobei die <strong>Java</strong>-basierten Lösungen ausgezeichnet unterstützt werden.</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<img src="./images/icons/tip.png" alt="Tip">
-</td>
-<td class="content">
-<div class="paragraph">
-<p><strong>IDEs</strong> nutze ich inzwischen keine mehr. Weder <em>NetBeans</em> noch
-<em>Eclipse</em>. Solange ich nicht in <em>Java</em> programmiere, sondern
-es nur nutze&#8201;&#8212;&#8201;kann ich beruhigt darauf verzichten.<br>
-Sowohl <em>Git</em> als auch <em>Ruby on Rails</em>
-sind von der Kommandozeile her gut zu bedienen.<br>
-Und gute Editoren (&#8594; <a href="https://wiki.ubuntuusers.de/Editoren/">ubuntuusers.de: Editoren</a>)
-gibt es zuhauf:<br>
-<strong>Atom</strong>, <strong>Geany</strong>, <strong>Scite</strong> und nicht zu vergessen <strong>Emacs</strong> und <strong>Vim</strong> ;-)</p>
-</div>
-</td>
-</tr>
-</table>
+<p>Dieser Artikel ist eine Schritt-für-Schritt Anleitung zur Installation
+von <a href="https://www.ruby-lang.org/de/">Ruby MRI 2.4</a> aus dem QuellCode.<br>
+<em>MRI</em> steht für Matz-Ruby-Installation.</p>
 </div>
 <div class="paragraph">
-<p>Die Artikel sind in <em>AsciiDoc</em> geschrieben
+<p>Die Programmiersprache <a href="https://www.ruby-lang.org/de/">Ruby</a> ist die Grundlage für das
+Framework <a href="http://rubyonrails.org">Ruby on Rails</a>.</p>
+</div>
+<div class="paragraph">
+<p><em>Ruby</em> ist Open Source, wird mit <em>Subversion</em>
+auf <a href="https://bugs.ruby-lang.org/">ruby-lang.org</a> entwickelt
+(mit Spiegelung auf <a href="https://github.com/ruby/ruby">GitHub</a>)
+und ist freigegeben unter der <a href="https://en.wikipedia.org/wiki/2-clause_BSD">2-clause BSD license</a>.</p>
+</div>
+<div class="paragraph">
+<p>Der Artikel ist in <em>AsciiDoc</em> geschrieben
 und mit <em>Asciidoctor 1.5.5</em> erstellt worden.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_auswahl">Auswahl</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="asciidoctor.html">Asciidoctor 1.5.5</a></p>
-</li>
-<li>
-<p><a href="asciidoctor_1st.html">Asciidoctor: Erste Schritte &hellip;</a></p>
-</li>
-<li>
-<p><a href="asciidoctor_revealjs.html">Asciidoctor reveal.js</a></p>
-</li>
-<li>
-<p><a href="chruby.html">chruby 0.3.9</a></p>
-</li>
-<li>
-<p><a href="git.html">Git 2.12.2</a></p>
-</li>
-<li>
-<p><a href="ruby23.html">Ruby MRI 2.3</a></p>
-</li>
-<li>
-<p><a href="ruby24.html">Ruby MRI 2.4</a></p>
-</li>
-<li>
-<p><a href="ruby_on_rails50.html">Ruby on Rails 5.0</a></p>
-</li>
-<li>
-<p><a href="jdk.html">OpenJDK 8, Oracle JDK 8</a></p>
-</li>
-<li>
-<p><a href="jruby9k.html">JRuby 9k</a></p>
-</li>
-<li>
-<p><a href="jruby9k_on_rails50.html">JRuby 9k on Rails 5.0</a></p>
-</li>
-</ul>
 </div>
 <div class="admonitionblock caution">
 <table>
@@ -598,84 +488,10 @@ und mit <em>Asciidoctor 1.5.5</em> erstellt worden.</p>
 <img src="./images/icons/caution.png" alt="Caution">
 </td>
 <td class="content">
-<div class="ulist">
-<div class="title">Unverändert - diese Seiten werden nicht weiter aktualisiert</div>
-<ul>
-<li>
-<p><a href="asciidoc.html">AsciiDoc 8.6.9</a></p>
-</li>
-<li>
-<p><a href="ruby22.html">Ruby 2.2.4</a></p>
-</li>
-<li>
-<p><a href="ruby_on_rails42.html">Ruby on Rails 4.2</a></p>
-</li>
-<li>
-<p><a href="jruby.html">JRuby 1.7.25</a></p>
-</li>
-<li>
-<p><a href="jruby_on_rails42.html">JRuby on Rails 4.2</a></p>
-</li>
-<li>
-<p><a href="netbeans8.html">NetBeans IDE 8.0</a></p>
-</li>
-<li>
-<p><a href="netbeans8_1st.html">NetBeans IDE 8.0: Erste Schritte &hellip;</a></p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_dateien">Dateien</h2>
-<div class="sectionbody">
-<div class="literalblock">
-<div class="content">
-<pre>./iiu_de.sh         &lt;-- Script zum Erstellen aller HTML-Dateien
-./NAME.adoc
-./NAME.html
-./images/icons      &lt;-- Images durch Asciidoctor
-./images/netbeans   &lt;-- Images des Installationsdialogs
-./images/ruby       &lt;-- Image des RubyGems Documentation Index
-./images/jruby      &lt;-- Image des RubyGems Documentation Index
-
-NAME = { index asciidoctor asciidoctor_1st asciidoctor-revealjs
-               chruby git ruby23 ruby24 ruby_on_rails50
-               jdk jruby9k jruby9k_on_rails50 }</pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>$ asciidoctor -a toc NAME.adoc   <img src="./images/icons/callouts/1.png" alt="1"></pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Output format backend (default: html5)</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Die erstellten Seiten finden Sie ebenfalls hier:<br>
-<a href="http://www.mygithub.kahweb.de" class="bare">http://www.mygithub.kahweb.de</a></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="./images/icons/note.png" alt="Note">
-</td>
-<td class="content">
 <div class="paragraph">
 <p>Zu beachten ist, dass so ein Dokument zum Einen nie abschliessend
 sein kann, und zum Anderen bestimmte Konfigurationen anders, oder
-auf einem anderem Weg durchgeführt werden können.<br>
+auf einem anderem Weg durchgeführt werden können.
 Gerne nehme ich Verbesserungsvorschläge entgegen.</p>
 </div>
 <div class="paragraph">
@@ -685,16 +501,805 @@ Gerne nehme ich Verbesserungsvorschläge entgegen.</p>
 </tr>
 </table>
 </div>
-<hr>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_lizenz">Lizenz</h2>
+<h2 id="_vorraussetzung">Vorraussetzung</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Dieses Werk ist lizenziert unter einer
-<a href="http://creativecommons.org/licenses/by/4.0/deed.de">Creative Commons Namensnennung 4.0 International Lizenz</a>,<br>
-und der Quellcode zum Formatieren und Anzeigen des Inhaltes steht unter der <a href="http://opensource.org/licenses/mit-license.php">MIT-Lizenz</a>.</p>
+<p>Die Installation wird für <a href="http://www.ubuntu.com/">Ubuntu 16.04 LTS (Xenial Xerus)</a> beschrieben.<br>
+Gleichwohl sind die einzelnen Schritte auch für
+andere Debian-basierte GNU/Linux Distributionen übertragbar.</p>
+</div>
+<div class="paragraph">
+<p>Die System-Installation von <strong>Ruby</strong> ist,
+wie in &nbsp; <a href="asciidoctor.html">IiU&#8201;&#8212;&#8201;Asciidoctor</a> &nbsp; beschrieben,
+durchgeführt worden.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">$ COLUMNS=96 dpkg --list | grep ruby2.3   <img src="./images/icons/callouts/1.png" alt="1">
+ii  libruby2.3:amd64   2.3.1-2~16.04  amd64   Libraries necessary to run Ruby 2.3
+ii  ruby2.3            2.3.1-2~16.04  amd64   Interpreter of object-oriented scripting language Ruby</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>COLUMNS=96 ist eine Formatangabe für die Ausgabe von <mark>dpkg</mark></td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_download">Download</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.ruby-lang.org/de/downloads/">Ruby 2.4.1</a><br>
+<code>ruby-2.4.1.tar.gz</code>  (ca. 14M)<br>
+2017-03-22 (Release date)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_installation">Installation</h2>
+<div class="sectionbody">
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<img src="./images/icons/caution.png" alt="Caution">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Zur Installation von einem weiterem <a href="https://www.ruby-lang.org/de/">Ruby</a> müssen
+weitere Pakete installiert sein.<br>
+Für die Verwaltung der <strong>Ruby</strong>-Installationen verwende ich <a href="chruby.html">Chruby</a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ sudo apt-get install ...   <img src="./images/icons/callouts/1.png" alt="1">
+               build-essential bison
+               libssl-dev libgdbm-dev libreadline-dev libffi-dev libyaml-dev
+               zlib1g-dev</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Der <strong>GCC</strong> ist standardmäßig bereits vorhanden.</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Ruby</strong> sollte im Verzeichnis <code>/opt/rubies</code> oder <code>~/.rubies</code> installiert werden.<br>
+Dann kann <mark>chruby</mark> automatisch die Installation verwalten.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<img src="./images/icons/important.png" alt="Important">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Ohne die Angabe eines Verzeichnisses wird <code>/usr/local/&#8230;&#8203;</code> &nbsp; automatisch verwendet.<br>
+Eine bereits vorhandene Ruby-Installation wird überschrieben.</p>
+</div>
+<div class="paragraph">
+<p>Beispiel für die Änderung des Installations-Verzeichnisses:<br>
+<mark>./configure --prefix=/opt/wo_auch_immer</mark></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Step 1:</strong> Auspacken des Source-Code</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ tar xvzf ruby-2.4.1.tar.gz
+$ cd ruby-2.4.1</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Step 2:</strong> Ziel-Verzeichnis festlegen</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ ./configure --prefix=/opt/rubies/ruby-2.4.1 | tee ../log.ruby_configure
+checking for ruby... /usr/bin/ruby
+config.guess already exists
+config.sub already exists
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking target system type... x86_64-pc-linux-gnu
+checking for gcc... gcc
+...
+configure: ruby library version = 2.4.0
+configure: creating ./config.status
+config.status: creating GNUmakefile
+config.status: creating Makefile
+config.status: creating ruby-2.4.pc
+---
+Configuration summary for ruby version 2.4.1
+
+   * Installation prefix: /opt/rubies/ruby-2.4.1
+   * exec prefix:         ${prefix}
+   * arch:                x86_64-linux
+   * site arch:           ${arch}
+   * RUBY_BASE_NAME:      ruby
+   * ruby lib prefix:     ${libdir}/${RUBY_BASE_NAME}
+   * site libraries path: ${rubylibprefix}/${sitearch}
+   * vendor path:         ${rubylibprefix}/vendor_ruby
+   * target OS:           linux
+   * compiler:            gcc
+   * with pthread:        yes
+   * enable shared libs:  no
+   * dynamic library ext: so
+   * CFLAGS:              ${optflags} ${debugflags} ${warnflags}
+   * LDFLAGS:             -L. -fstack-protector -rdynamic \
+                          -Wl,-export-dynamic
+   * optflags:            -O3 -fno-fast-math
+   * debugflags:          -ggdb3
+   * warnflags:           -Wall -Wextra -Wno-unused-parameter \
+                          -Wno-parentheses -Wno-long-long \
+                          -Wno-missing-field-initializers \
+                          -Wno-tautological-compare \
+                          -Wno-parentheses-equality \
+                          -Wno-constant-logical-operand -Wno-self-assign \
+                          -Wunused-variable -Wimplicit-int -Wpointer-arith \
+                          -Wwrite-strings -Wdeclaration-after-statement \
+                          -Wimplicit-function-declaration \
+                          -Wdeprecated-declarations \
+                          -Wno-packed-bitfield-compat \
+                          -Wsuggest-attribute=noreturn \
+                          -Wsuggest-attribute=format \
+                          -Wno-maybe-uninitialized
+   * strip command:       strip -S -x
+   * install doc:         yes
+   * man page type:       doc
+
+---</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Step 3:</strong> Kompilieren</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">$ make all | tee ../log.ruby_make-all
+CC = gcc
+LD = ld
+LDSHARED = gcc -shared
+
+LDSHARED = gcc -shared
+	CFLAGS = -O3 -fno-fast-math -ggdb3
+           -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long
+           -Wno-missing-field-initializers -Wno-tautological-compare
+           -Wno-parentheses-equality -Wno-constant-logical-operand -Wno-self-assign
+           -Wunused-variable -Wimplicit-int -Wpointer-arith -Wwrite-strings
+           -Wdeclaration-after-statement -Wimplicit-function-declaration
+           -Wdeprecated-declarations -Wno-packed-bitfield-compat
+           -Wsuggest-attribute=noreturn -Wsuggest-attribute=format
+           -Wno-maybe-uninitialized -std=gnu99
+	XCFLAGS = -D_FORTIFY_SOURCE=2 -fstack-protector -fno-strict-overflow
+            -fvisibility=hidden -fexcess-precision=standard -DRUBY_EXPORT -fPIE
+	CPPFLAGS =   -I. -I.ext/include/x86_64-linux -I./include -I. -I./enc/unicode/9.0.0
+	DLDFLAGS = -Wl,--compress-debug-sections=zlib -fstack-protector -pie
+	SOLIBS = -lgmp
+gcc (Ubuntu 5.4.0-6ubuntu1~16.04.4) 5.4.0 20160609
+Copyright (C) 2015 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+...
+99% [887/889]  vm_method.c
+99% [888/889]  vm_trace.c
+100% [889/889]  vsnprintf.c
+
+Generating RI format into /opt/XenialXerus/Ruby24/ruby-2.4.1/.ext/rdoc...
+
+
+ Files:        889
+
+ Classes:     1311 ( 548 undocumented)
+ Modules:      274 ( 110 undocumented)
+ Constants:   2140 ( 558 undocumented)
+ Attributes:  1053 ( 247 undocumented)
+ Methods:     9862 (2101 undocumented)
+
+ Total:      14640 (3564 undocumented)
+  75.66% documented
+
+ Elapsed: 74.1s</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Step 4:</strong> Test</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ make test | tee ../log.ruby_make-test
+CC = gcc
+LD = ld
+LDSHARED = gcc -shared
+CFLAGS = ...
+...
+sample/test.rb:gc ....OK 4
+
+test succeeded
+PASS all 1010 tests
+exec ./miniruby -I./lib -I. -I.ext/common  ./tool/runruby.rb
+     --extout=.ext  -- --disable-gems "./bootstraptest/runner.rb"
+     --ruby="ruby --disable-gems"   ./KNOWNBUGS.rb
+2017-04-17 19:45:55 +0200
+Driver is ruby 2.4.1p111 (2017-03-22 revision 58053) [x86_64-linux]
+Target is ruby 2.4.1p111 (2017-03-22 revision 58053) [x86_64-linux]
+
+KNOWNBUGS.rb  PASS 0   <img src="./images/icons/callouts/1.png" alt="1">
+No tests, no problem
+...
+
+test succeeded</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Wortwörtlich: Das sind <em>known_bugs</em> ;-)&#8201;&#8212;&#8201;aktuell, keiner.</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="./images/icons/note.png" alt="Note">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Auf die folgenden Teile des Ruby-Interpreters verzichte ich in meiner
+Installation. Sollten Sie sie benötigen,<br>
+müssen die entsprechenden
+Entwickler-Bibliotheken (<code>libNAME-dev</code>) zusätzlich installiert werden.</p>
+</div>
+<div class="paragraph">
+<p>Führen Sie anschließend die obigen Befehle (<mark>make &#8230;&#8203;</mark>) erneut aus.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ grep Failed ../log.ruby_make-all <img src="./images/icons/callouts/1.png" alt="1"></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Leer! Es wird nicht mehr versucht TK direkt zu installiere.</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Step 5:</strong> Installation als <em>normaler</em> Benutzer
+(Dokumentation wird mitinstalliert: install-doc entfällt)</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">$ make install | tee ../log.ruby_make-install
+CC = gcc
+LD = ld
+LDSHARED = gcc -shared
+CFLAGS = ...
+...
+installing default gems:      /opt/rubies/ruby-2.4.1/lib/ruby/gems/2.4.0 (build_info, cache, doc, extensions, gems, specifications)
+                              bigdecimal 1.3.0
+                              io-console 0.4.6
+                              json 2.0.2
+                              openssl 2.0.3
+                              psych 2.2.2
+                              rdoc 5.0.0
+installing bundle gems:       /opt/rubies/ruby-2.4.1/lib/ruby/gems/2.4.0 (build_info, cache, doc, extensions, gems, specifications)
+                              xmlrpc 0.2.1
+                              rake 12.0.0
+                              net-telnet 0.1.1
+                              test-unit 3.2.3
+                              did_you_mean 1.1.0
+                              power_assert 0.4.1
+                              minitest 5.10.1
+installing rdoc:              /opt/rubies/ruby-2.4.1/share/ri/2.4.0/system
+installing capi-docs:         /opt/rubies/ruby-2.4.1/share/doc/ruby</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Step 6:</strong> Installation verifizieren</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ cd /opt/rubies/ruby-2.4.1
+$ ls -l
+drwxr-xr-x 2 sid sid 4096 Apr 17 20:00 bin
+drwxr-xr-x 3 sid sid 4096 Apr 17 20:00 include
+drwxr-xr-x 4 sid sid 4096 Apr 17 20:00 lib
+drwxr-xr-x 5 sid sid 4096 Apr 17 20:00 share</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ ls -l bin
+-rwxr-xr-x 1 sid sid     4856 Apr 17 20:00 erb
+-rwxr-xr-x 1 sid sid      560 Apr 17 20:00 gem
+-rwxr-xr-x 1 sid sid      204 Apr 17 20:00 irb
+-rwxr-xr-x 1 sid sid      490 Apr 17 20:00 rake
+-rwxr-xr-x 1 sid sid      952 Apr 17 20:00 rdoc
+-rwxr-xr-x 1 sid sid      202 Apr 17 20:00 ri
+-rwxr-xr-x 1 sid sid 16333128 Apr 17 19:40 ruby</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Step 7:</strong> <mark>chruby</mark></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ source /usr/local/share/chruby/chruby.sh
+
+$ chruby
+ * ruby-2.3.4         <img src="./images/icons/callouts/1.png" alt="1">
+   ruby-2.4.1
+
+$ chruby ruby-2.4.1   <img src="./images/icons/callouts/2.png" alt="2"></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Aktuell gültige Version.</td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/2.png" alt="2"></td>
+<td>Wechsel der Ruby-Version.</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ ruby -v
+ruby 2.4.1p111 (2017-03-22 revision 58053) [x86_64-linux]</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ which gem
+/opt/rubies/ruby-2.4.1/bin/gem
+
+$ gem -v
+2.6.11
+
+$ gem list
+
+*** LOCAL GEMS ***
+
+bigdecimal (default: 1.3.0)
+did_you_mean (1.1.0)
+io-console (default: 0.4.6)
+json (default: 2.0.2)
+minitest (5.10.1)
+net-telnet (0.1.1)
+openssl (default: 2.0.3)
+power_assert (0.4.1)
+psych (default: 2.2.2)
+rake (12.0.0)
+rdoc (default: 5.0.0)
+test-unit (3.2.3)
+xmlrpc (0.2.1)</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ which rake
+/opt/rubies/ruby-2.4.1/bin/rake
+
+$ rake -V
+rake, version 12.0.0</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Step 8</strong> Vollständigkeit &#8230;&#8203;</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ ruby -ropenssl -rzlib -rreadline -e "puts 'Happy new Ruby'"
+Happy new Ruby</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Ruby 2.4.1: <mark>irb</mark></div>
+<div class="content">
+<pre>$ which irb
+/opt/rubies/ruby-2.4.1/bin/irb
+
+$ irb
+irb(main):001:0&gt; RUBY_VERSION
+=&gt; "2.4.1"
+irb(main):002:0&gt; RUBY_PATCHLEVEL
+=&gt; 111
+irb(main):003:0&gt; Time.now.to_s
+=&gt; "2017-04-17 20:07:17 +0200"
+irb(main):004:0&gt; Time.now.sunday?
+=&gt; false
+irb(main):005:0&gt; exit</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">ri - Ruby Interactive (Test der installierten Dokumentation)</div>
+<div class="content">
+<pre>$ ri Array#each</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>= Array#each
+
+(from ruby core)
+ -----------------------------------------------------------------------------
+  ary.each {|item| block }   -&gt; ary
+  ary.each                   -&gt; an_enumerator
+
+
+ -----------------------------------------------------------------------------
+
+Calls block once for each element in self, passing that element as a
+parameter.
+
+If no block is given, an enumerator is returned instead.
+
+  a = [ "a", "b", "c" ]
+  a.each {|x| print x, " -- " }
+
+produces:
+
+  a -- b -- c --</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_rubygems">Rubygems</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><em>RubyGems</em> (oder kurz Gems) ist das offizielle Paketsystem für die
+Programmiersprache Ruby. Mit dem Paketsystem hat der Anwender die Möglichkeit,
+mehrere (zum Beispiel ältere oder jüngere) Versionen eines Programmes,
+Programmteiles oder einer Bibliothek gesteuert nach Bedarf einzurichten,
+zu verwalten oder auch wieder zu entfernen.<br>
+&rarr; <a href="http://de.wikipedia.org/wiki/RubyGems">Wikipedia: RubyGems</a></p>
+</div>
+<div class="sect2">
+<h3 id="__em_asciidoctor_em"><em>asciidoctor</em></h3>
+<div class="listingblock">
+<div class="content">
+<pre>$ gem install asciidoctor coderay        <img src="./images/icons/callouts/1.png" alt="1"> <img src="./images/icons/callouts/2.png" alt="2">
+Fetching: asciidoctor-1.5.5.gem (100%)
+Successfully installed asciidoctor-1.5.5
+Parsing documentation for asciidoctor-1.5.5
+Installing ri documentation for asciidoctor-1.5.5
+Done installing documentation for asciidoctor after 4 seconds
+Fetching: coderay-1.1.1.gem (100%)
+Successfully installed coderay-1.1.1
+invalid options: -SNw2
+(invalid options are ignored)
+Parsing documentation for coderay-1.1.1
+Installing ri documentation for coderay-1.1.1
+Done installing documentation for coderay after 2 seconds
+2 gems installed</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td><strong>Asciidoctor</strong> ist die Neu-Implementation von <strong>AsciiDoc</strong> in Ruby.<br>
+<strong>AsciiDoc</strong> ist eine einfache Auszeichnungssprache, die dazu dient,<br>
+Texte in verschiedenen Dokumentenformaten zu veröffentlichen.</td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/2.png" alt="2"></td>
+<td><strong>CodeRay</strong> is a fast and easy syntax highlighting for selected languages, written in Ruby.<br>
+Comes with RedCloth integration and LOC counter.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="__em_asciidoctor_revealjs_em"><em>asciidoctor-revealjs</em></h3>
+<div class="listingblock">
+<div class="content">
+<pre>$ gem install asciidoctor-revealjs   <img src="./images/icons/callouts/1.png" alt="1">
+Fetching: temple-0.7.7.gem (100%)
+Successfully installed temple-0.7.7
+Fetching: tilt-2.0.7.gem (100%)
+Successfully installed tilt-2.0.7
+Fetching: slim-3.0.7.gem (100%)
+Successfully installed slim-3.0.7
+Fetching: thread_safe-0.3.6.gem (100%)
+Successfully installed thread_safe-0.3.6
+Fetching: asciidoctor-revealjs-1.0.2.gem (100%)
+Successfully installed asciidoctor-revealjs-1.0.2
+Parsing documentation for temple-0.7.7
+Installing ri documentation for temple-0.7.7
+Parsing documentation for tilt-2.0.7
+Installing ri documentation for tilt-2.0.7
+Parsing documentation for slim-3.0.7
+Installing ri documentation for slim-3.0.7
+Parsing documentation for thread_safe-0.3.6
+Installing ri documentation for thread_safe-0.3.6
+Parsing documentation for asciidoctor-revealjs-1.0.2
+Installing ri documentation for asciidoctor-revealjs-1.0.2
+Done installing documentation for temple, tilt, slim, thread_safe, asciidoctor-revealjs after 2 seconds
+5 gems installed</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Asciidoctor reveal.js ist ein Konverter der ein AsciiDoc-Dokument
+in eine HTML5-Präsentation<br>
+umwandelt, um mit dem Framework <strong>reveal.js</strong> ausgeführt zu werden.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="__em_pry_em"><em>pry</em></h3>
+<div class="listingblock">
+<div class="content">
+<pre>$ gem install pry   <img src="./images/icons/callouts/1.png" alt="1">
+Fetching: slop-3.6.0.gem (100%)
+Successfully installed slop-3.6.0
+Fetching: method_source-0.8.2.gem (100%)
+Successfully installed method_source-0.8.2
+Fetching: pry-0.10.4.gem (100%)
+Successfully installed pry-0.10.4
+Parsing documentation for slop-3.6.0
+Installing ri documentation for slop-3.6.0
+Parsing documentation for method_source-0.8.2
+Installing ri documentation for method_source-0.8.2
+Parsing documentation for pry-0.10.4
+Installing ri documentation for pry-0.10.4
+Done installing documentation for slop, method_source, pry after 3 seconds
+3 gems installed</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Pry is a powerful alternative to the standard IRB shell for Ruby.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="__em_sinatra_em"><em>sinatra</em></h3>
+<div class="listingblock">
+<div class="content">
+<pre>$ gem install sinatra   <img src="./images/icons/callouts/1.png" alt="1">
+Fetching: rack-1.6.5.gem (100%)
+Successfully installed rack-1.6.5
+Fetching: rack-protection-1.5.3.gem (100%)
+Successfully installed rack-protection-1.5.3
+Fetching: sinatra-1.4.8.gem (100%)
+Successfully installed sinatra-1.4.8
+Parsing documentation for rack-1.6.5
+Installing ri documentation for rack-1.6.5
+Parsing documentation for rack-protection-1.5.3
+Installing ri documentation for rack-protection-1.5.3
+Parsing documentation for sinatra-1.4.8
+Installing ri documentation for sinatra-1.4.8
+Done installing documentation for rack, rack-protection, sinatra after 430 seconds
+3 gems installed</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td><strong>Sinatra</strong> ist eine <em>freie</em> und <em>open source Webapplikationsbibliothek</em> und<br>
+eine in Ruby geschriebene <em>domänenspezifische</em> Sprache.<br>
+<strong>Sinatra</strong> setzt das Rack Webserver-Interface voraus.<br>
+&rarr; <a href="http://de.wikipedia.org/wiki/Sinatra_%28Software%29">Wikipedia: Sinatra (Software)</a></td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_rubygems_em_list_em">RubyGems: <em>list</em></h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="title"><mark>gem list</mark></div>
+<div class="content">
+<pre>$ gem list
+
+*** LOCAL GEMS ***
+
+asciidoctor (1.5.5)
+asciidoctor-revealjs (1.0.2)
+bigdecimal (default: 1.3.0)
+coderay (1.1.1)
+did_you_mean (1.1.0)
+io-console (default: 0.4.6)
+json (default: 2.0.2)
+method_source (0.8.2)
+minitest (5.10.1)
+net-telnet (0.1.1)
+openssl (default: 2.0.3)
+power_assert (0.4.1)
+pry (0.10.4)
+psych (default: 2.2.2)
+rack (1.6.5)
+rack-protection (1.5.3)
+rake (12.0.0)
+rdoc (default: 5.0.0)
+sinatra (1.4.8)
+slim (3.0.7)
+slop (3.6.0)
+temple (0.7.7)
+test-unit (3.2.3)
+thread_safe (0.3.6)
+tilt (2.0.7)
+xmlrpc (0.2.1)</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_rubygems_em_executable_em">RubyGems: <em>executable</em></h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="title">/opt/rubies/ruby-2.4.1/bin</div>
+<div class="content">
+<pre>$ ls -l /opt/rubies/ruby-2.4.1/bin
+-rwxr-xr-x 1 sid sid     4856 Apr 17 20:00 erb
+-rwxr-xr-x 1 sid sid      560 Apr 17 20:00 gem
+-rwxr-xr-x 1 sid sid      204 Apr 17 20:00 irb
+-rwxr-xr-x 1 sid sid      490 Apr 17 20:00 rake
+-rwxr-xr-x 1 sid sid      952 Apr 17 20:00 rdoc
+-rwxr-xr-x 1 sid sid      202 Apr 17 20:00 ri
+-rwxr-xr-x 1 sid sid 16333128 Apr 17 19:40 ruby</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">~/.gem/ruby/2.3.4/bin</div>
+<div class="content">
+<pre>$ ls -l ~/.gem/ruby/2.4.1/bin   <img src="./images/icons/callouts/1.png" alt="1">
+-rwxr-xr-x 1 sid sid 511 Apr 17 20:24 asciidoctor
+-rwxr-xr-x 1 sid sid 538 Apr 17 20:25 asciidoctor-revealjs
+-rwxr-xr-x 1 sid sid 516 Apr 17 20:24 asciidoctor-safe
+-rwxr-xr-x 1 sid sid 499 Apr 17 20:24 coderay
+-rwxr-xr-x 1 sid sid 487 Apr 17 20:25 pry
+-rwxr-xr-x 1 sid sid 492 Apr 17 20:25 rackup
+-rwxr-xr-x 1 sid sid 492 Apr 17 20:25 slimrb
+-rwxr-xr-x 1 sid sid 490 Apr 17 20:25 tilt</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Mit <strong>chruby</strong> werden die zusätzlichen <em>RubyGems</em> im
+Home-Verzeichnis installiert.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_rubygems_documentation_index">RubyGems Documentation Index</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Auf die installierte Dokumentation zugreifen.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre># gem server
+Server started at http://0.0.0.0:8808</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Browser&gt; http://localhost:8808/
+         RubyGems Documentation Index</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./images/ruby/rubygems24_documentation_index.png" alt="RubyGems 2.4 Documentation Index"></span></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_anhang">Anhang</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Script zum Installieren von Ruby {ruby-version} (ohne weitere Erläuterung).</p>
+</div>
+<div class="listingblock">
+<div class="title">Datei: <code>ruby23-install.sh</code></div>
+<div class="content">
+<pre>#!/bin/bash
+#
+ME=make_ruby_2.4.1
+RUBY=ruby-2.4.1
+TARGET=/opt/rubies
+
+if [ ! -e $TARGET ]
+then
+  echo "Ziel-Verzeichnis '$TARGET' existiert nicht."
+  echo "Abbruch."
+  exit 1
+fi
+echo "Ziel-Verzeichnis: ${TARGET}/${RUBY}"
+
+touch ${TARGET}/write-test.txt
+if [ $? -ne 0 ]; then
+  echo "Ziel-Verzeichnis '$TARGET' hat keine Schreib-Rechte."
+  echo "Abbruch."
+  exit 1
+fi
+rm ${TARGET}/write-test.txt
+ls -l $TARGET
+
+echo "Ruby 2.4.1-Installation fortsetzen (j/n)"
+read dummy
+case $dummy in
+  j|J|y|Y) echo "Installation fortsetzen..."
+           ;;
+  *) echo "Installation wird abgebrochen."
+     exit 1
+     ;;
+esac
+
+echo
+echo "Source auspacken ..."
+tar xvzf ${RUBY}.tar.gz
+cd ${RUBY}
+
+echo
+echo "Source übersetzen ..."
+./configure --prefix=${TARGET}/${RUBY} | tee ../log.ruby_configure
+make all  | tee ../log.ruby_make-all
+make test | tee ../log.ruby_make-test
+
+echo
+echo "Ruby 2.4.1 installieren"
+sudo make install | tee ../log.ruby_make-install
+
+echo
+ls -l $TARGET
+
+echo
+echo "$ME: Ende."</pre>
+</div>
 </div>
 <hr>
 <div class="paragraph">
@@ -710,7 +1315,7 @@ und der Quellcode zum Formatieren und Anzeigen des Inhaltes steht unter der <a h
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-05-07 13:24:53 MESZ
+Last updated 2017-05-07 12:29:06 MESZ
 </div>
 </div>
 </body>

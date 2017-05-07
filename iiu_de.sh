@@ -4,24 +4,30 @@
 #
 ME=iiu_de.sh
 
-echo "== HTML-Seiten werden erstellt:" 
-for seite in index asciidoctor asciidoctor_1st git 
+echo "== HTML-Seiten werden erstellt:"
+for seite in index asciidoctor asciidoctor_1st asciidoctor_revealjs
 do
   echo "${seite}.html"
   #asciidoc (python)
   #asciidoc -b html5 -a icons -a toc ${seite}.adoc
-  
+
   #asciidoctor (ruby): html5 is default
   asciidoctor -a toc ${seite}.adoc
 done
 
-for seite in ruby22 ruby_on_rails42 ruby23 
+for seite in chruby git
 do
   echo "${seite}.html"
   asciidoctor -a toc ${seite}.adoc
 done
 
-for seite in jdk jruby jruby_on_rails42 netbeans8 netbeans8_1st
+for seite in ruby23 ruby24 ruby_on_rails42 ruby_on_rails50
+do
+  echo "${seite}.html"
+  asciidoctor -a toc ${seite}.adoc
+done
+
+for seite in jdk jruby9k jruby9k_on_rails50
 do
   echo "${seite}.html"
   asciidoctor -a toc ${seite}.adoc
@@ -32,13 +38,14 @@ done
 #
 echo
 echo "== Die folgenden Seiten werden nicht weiter von mir gepflegt:"
-echo "asciidoc ruby19 ruby20 ruby21 netbeans7 netbeans7_1st"
-#for seite in asciidoc ruby19 ruby20 ruby21 netbeans7 netbeans7_1st   
+echo "asciidoc ruby22 ruby_on_rails42 jruby jruby_on_rails42 netbeans8 netbeans8_1st"
+
+echo "...auskommentiert..."
+#for seite in asciidoc ruby ruby_on_rails42 jruby jruby_on_rails42 netbeans8 netbeans8_1st
 #do
 #  echo "${seite}.html"
 #  asciidoctor -a toc ${seite}.adoc
 #done
 
-echo 
+echo
 echo "Ende: ${ME}"
-

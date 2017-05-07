@@ -1,113 +1,110 @@
-IiU -- Git 2.7.0
-================
+
+= IiU -- Git 2.12.2
 Installation in Ubuntu — khkoether[at]kahweb[dot]de
 
-:icons:
-:Author Initials: khk
-:creativecommons-url: http://creativecommons.org/licenses/by/4.0/deed.de
-:mit-url:             http://opensource.org/licenses/mit-license.php  
-:ubuntu-url:          http://www.ubuntu.com/
-:asciidoctor-url:     http://asciidoctor.org/
-:asciidoctordocs-url: http://asciidoctor.org/docs/
+include::_bp_header.adoc[]
 
-:git-url:             http://git-scm.com/
-:git-download-url:    https://www.kernel.org/pub/software/scm/git/
-:git-version: 2.7.0
+:git-home-url:       https://git-scm.com/
+:git-download-url:   https://www.kernel.org/pub/software/scm/git/
 
-Version 4.0.0, Januar 2016
+Version {version} {middot} {datum}
 
 
-Abstract
---------
-Der Artikel ist eine Schritt-für-Schritt Anleitung zur Installation 
-des Programms {git-url}[Git] aus dem QuellCode.
- 
-{git-url}[Git] ist ein freies verteiltes Versionskontrollsystem 
+== Abstract
+{git-home-url}[Git] ist ein freies verteiltes Versionskontrollsystem
 (DVCS - Distributed Version Control System).
 
-Der Artikel ist in {asciidoctordocs-url}[Asciidoctor] geschrieben 
+Der Artikel ist eine Schritt-für-Schritt Anleitung zur Installation
+des Programms {git-home-url}[Git] aus dem QuellCode.
+
+_Git_ ist Open Source und ist freigegeben
+unter der {gpl-url}[GPL v2-Lizenz].
+
+
+Der Artikel ist in _AsciiDoc_ geschrieben
 und mit _Asciidoctor {asciidoctor-version}_ erstellt worden.
 
 [CAUTION]
 ====
-Zu beachten ist, dass so ein Dokument zum Einen nie abschliessend 
-sein kann, und zum Anderen bestimmte Konfigurationen anders, oder 
-auf einem anderem Weg durchgeführt werden können. 
+Zu beachten ist, dass so ein Dokument zum Einen nie abschliessend
+sein kann, und zum Anderen bestimmte Konfigurationen anders, oder
+auf einem anderem Weg durchgeführt werden können.
 Gerne nehme ich Verbesserungsvorschläge entgegen.
 
 Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr.
 ====
 
 
-Vorraussetzung
---------------
-Die Installation wird für {ubuntu-url}[Ubuntu 14.04 LTS (Trusty Tahr)] 
-beschrieben. +
-Gleichwohl sind die einzelnen Schritte auch für 
+== Vorraussetzung
+Die Installation wird für {ubuntu-url}[Ubuntu 16.04 LTS (Xenial Xerus)] beschrieben. +
+Gleichwohl sind die einzelnen Schritte auch für
 andere Debian-basierte GNU/Linux Distributionen übertragbar.
 
 [TIP]
 ====
-Ubuntu 14.04 LTS (Trusty Tahr) enthält das Paket _git-core_1.9.1-1_all_.
+Ubuntu 16.04 LTS (Xenial Xerus) enthält das Paket::
+  _git-core_2.7.4-0ubuntu1_all.deb_.
 ====
 
 
-Download
---------
-* {git-download-url}[Git] +    
-  `git-2.7.0.tar.gz`  (ca. 5.4M) +
-  `git-htmldocs-2.7.0.tar.gz`  (ca. 2.4M) +
-  `git-manpages-2.7.0.tar.gz`  (ca. 598K) +
-  2016-01-04 (Release date)
-  
-[NOTE] 
+== Download
+* {git-download-url}[Git] +
+  `git-2.12.2.tar.gz`  (ca. 6.1M) +
+  `git-htmldocs-2.12.2.tar.gz`  (ca. 2.6M) +
+  `git-manpages-2.12.2.tar.gz`  (ca. 639K) +
+  2017-03-24 (Release date)
+
+[NOTE]
 ====
-Das Kompilieren des Versionskontrollsystem wird beispielhaft vom Benutzer 'sid' 
-durchgeführt. +
-Die eigentliche Installation von Git wird vom  
+Das Kompilieren des Versionskontrollsystem wird beispielhaft
+vom Benutzer 'sid' durchgeführt. +
+Die eigentliche Installation von Git wird vom
 Benutzer 'root' für das System durchgeführt.
 ----
 $ ls -lh
--rw-rw-r-- 1 sid sid 5,4M Jan  8 18:05 git-2.7.0.tar.gz
--rw-rw-r-- 1 sid sid 2,4M Jan  8 18:04 git-htmldocs-2.7.0.tar.gz
--rw-rw-r-- 1 sid sid 599K Jan  8 18:05 git-manpages-2.7.0.tar.gz
-----
-====
-
-[NOTE] 
-====
-Vor der eigentlichen Installation müssen die fehlenden 
-Programm-Pakete installiert sind.
-----
-$ sudo apt-get install ... 
-               build-essential libc6 libcurl3-gnutls libexpat1 libexpat1-dev 
-               autoconf zlib1g perl-modules liberror-perl libdigest-sha-perl 
-               libcurl4-openssl-dev libssl-dev tcl8.4  tcl8.4-dev xmlto
+-rw-rw-r-- 1 sid sid 6,1M Apr  9 20:58 git-2.12.2.tar.gz
+-rw-rw-r-- 1 sid sid 2,6M Apr  9 20:59 git-htmldocs-2.12.2.tar.gz
+-rw-rw-r-- 1 sid sid 639K Apr  9 20:59 git-manpages-2.12.2.tar.gz
 ----
 ====
 
 
-Installation
-------------
+== Installation
+[CAUTION]
+====
+Zur Installation von *Git* muß auf dem Rechner *autoconf* und auch
+weitere Pakete installiert sein.
+----
+$ sudo apt-get install ...   <1>
+               autoconf build-essential libc6 libcurl3-gnutls
+               libexpat1 libexpat1-dev
+               perl-modules liberror-perl libdigest-sha-perl
+               libcurl4-openssl-dev libssl-dev
+               tcl8.4  tcl8.4-dev
+               xmlto zlib1g
+----
+<1> Der *GCC* ist standardmäßig bereits vorhanden.
+====
+
 [IMPORTANT]
 ====
 Ohne die Angabe eines Verzeichnisses wird `/usr/local/...` automatisch verwendet. +
-Eine bereits vorhandene Git-Installation wird überschrieben. 
- 
+Eine bereits vorhandene Git-Installation wird überschrieben.
+
 Beispiel für die Änderung des Installations-Verzeichnisses: +
 #./configure --prefix=/opt/wo_auch_immer#
 ====
 
 *Step 1:* Auspacken des Source-Code
 ----
-$ tar xvzf git-2.7.0.tar.gz
-$ cd git-2.7.0
+$ tar xvzf git-2.12.2.tar.gz
+$ cd git-2.12.2
 ----
 
 *Step 2:* Konfiguration erstellen und kompilieren
 ----
 $ make configure | tee ../log.git_make-configure
-GIT_VERSION = 2.7.0
+GIT_VERSION = 2.12.2
     GEN configure
 
 $ ./configure | tee ../log.git_configure
@@ -146,69 +143,86 @@ $ cd /usr/local/share/doc
 $ sudo mkdir git-doc
 
 $ cd git-doc
-$ sudo tar xvzf git-htmldocs-2.7.0.tar.gz
+$ sudo tar xvzf git-htmldocs-2.12.2.tar.gz
 ...
-./git-unpack-file.html
+./git-filter-branch.txt
+./gitcredentials.html
 
 $ cd ..
 $ sudo chown -R root.root git-doc   <1>
-$ sudo chmod -R a+rx git-doc
+$ sudo chmod -R a+r git-doc
+$ sudo chmod a+rx git-doc
 
-$ ls -l 
-drwxr-xr-x 5 root root 20480 Jan  5 00:32 git-doc
+$ ls -l
+drwxr-xr-x 2 root root  4096 Mär 26 23:04 chruby-0.3.9
+drwxr-xr-x 5 root root 20480 Mär 24 21:51 git-doc        <2>
 ----
 <1> Unbedingt die Rechte an den Dateien und den Ordnern anpassen!
+<2> Release Date: 2017-03-24
 
 .Documentation: man-pages
 ----
-$ cd /usr/local/share/man  
-$ sudo tar xvzf git-manpages-2.7.0.tar.gz 
+$ cd /usr/local/share/man
+$ sudo tar xvzf git-manpages-2.12.2.tar.gz
 ...
-./man7/giteveryday.7
+./man1/git-submodule.1
+./man1/git-show-ref.1
 
 $ cd ..
 $ sudo chown -R root.root man   <1>
-$ sudo chmod -R a+rx man
+$ sudo chmod -R a+r man
+$ sudo chmod 755 man man/man1 man/man5 man/man7
+
 
 $ ls -l man
-drwxr-xr-x 2 root root 4096 Jan  5 00:33 man1
-drwxrwxr-x 2 root root 4096 Jan  8 18:12 man3
-drwxr-xr-x 2 root root 4096 Jan  5 00:33 man5
-drwxr-xr-x 2 root root 4096 Jan  5 00:33 man7
+drwxr-xr-x 2 root root 4096 Mär 24 21:52 man1   <2>
+drwxrwxr-x 2 root root 4096 Apr  9 21:23 man3
+drwxr-xr-x 2 root root 4096 Mär 24 21:52 man5   <2>
+drwxr-xr-x 2 root root 4096 Mär 24 21:52 man7   <2>
 ----
 <1> Unbedingt die Rechte an den Dateien und den Ordnern anpassen!
+<2> Release Date: 2017-03-24
 
-*Step 4:* Installation verifizieren
+
+== Installation verifizieren
+
+
+=== git --version
+----
+$ git --version
+git version 2.12.2
+----
+
+
+=== /usr/local/bin
 ----
 $ cd /usr/local/bin
 $ ls -l git*
--rwxr-xr-x 117 root root 9834835 Jan  8 18:12 git
--rwxr-xr-x   2 root root  162423 Jan  8 18:12 git-cvsserver
--rwxr-xr-x   1 root root  348785 Jan  8 18:12 gitk
--rwxr-xr-x 117 root root 9834835 Jan  8 18:12 git-receive-pack
--rwxr-xr-x   2 root root 4737325 Jan  8 18:12 git-shell
--rwxr-xr-x 117 root root 9834835 Jan  8 18:12 git-upload-archive
--rwxr-xr-x   2 root root 5169432 Jan  8 18:12 git-upload-pack
+-rwxr-xr-x 118 root root 10871352 Apr  9 21:23 git
+-rwxr-xr-x   2 root root   162414 Apr  9 21:23 git-cvsserver
+-rwxr-xr-x   1 root root   351673 Apr  9 21:23 gitk
+-rwxr-xr-x 118 root root 10871352 Apr  9 21:23 git-receive-pack
+-rwxr-xr-x   2 root root  5656112 Apr  9 21:23 git-shell
+-rwxr-xr-x 118 root root 10871352 Apr  9 21:23 git-upload-archive
+-rwxr-xr-x   2 root root  6087320 Apr  9 21:23 git-upload-pack
 ----
 
-----
-$ git --version
-git version 2.7.0
-----
 
+=== man git
 ----
-$ man git 
+$ man git
 GIT(1)                            Git Manual                            GIT(1)
 
 NAME
        git - the stupid content tracker
 
 SYNOPSIS
-       git [--version] [--help] [-c <name>=<value>]
+       git [--version] [--help] [-C <path>] [-c <name>=<value>]
            [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
            [-p|--paginate|--no-pager] [--no-replace-objects] [--bare]
            [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
-           <command> [<args>]
+           [--super-prefix=<path>]
+          <command> [<args>]
 
 DESCRIPTION
        Git is a fast, scalable, distributed revision control system with an
@@ -224,10 +238,10 @@ DESCRIPTION
        Git commands with "git help command". gitcli(7) manual page gives you
        an overview of the command-line command syntax.
 
-       Formatted and hyperlinked version of the latest Git documentation can
-       be viewed at http://git-htmldocs.googlecode.com/git/git.html.
+       A formatted and hyperlinked copy of the latest Git documentation can be
+       viewed at https://git.github.io/htmldocs/git.html.
 
-...
+[...]
 
 AUTHORS
        Git was started by Linus Torvalds, and is currently maintained by Junio
@@ -269,18 +283,20 @@ NOTES
         5. git@vger.kernel.org
            mailto:git@vger.kernel.org
 
-Git 2.7.0                         01/04/2016                            GIT(1)
+Git 2.12.2                        03/24/2017                            GIT(1)
 ----
- 
+
+
+=== man gitk
 ----
-$ man gitk 
+$ man gitk
 GITK(1)                           Git Manual                           GITK(1)
 
 NAME
        gitk - The git repository browser
 
 SYNOPSIS
-       gitk [<option>...] [<revs>] [--] [<path>...]
+       gitk [<options>] [<revision range>] [--] [<path>...]
 
 DESCRIPTION
        Displays changes in a repository or a selected set of commits. This
@@ -309,9 +325,11 @@ SEE ALSO
 GIT
        Part of the git(1) suite
 
-Git 2.7.0                         01/04/2016                           GITK(1)
+Git 2.12.2                         03/24/2017                           GITK(1)
 ----
 
+
+=== /usr/local
 ----
 $ find /usr/local -type d -cmin -10
 /usr/local/share/gitweb
@@ -323,6 +341,8 @@ $ find /usr/local -type d -cmin -10
 /usr/local/share/locale
 /usr/local/share/locale/ru
 /usr/local/share/locale/ru/LC_MESSAGES
+/usr/local/share/locale/ko
+/usr/local/share/locale/ko/LC_MESSAGES
 /usr/local/share/locale/ca
 /usr/local/share/locale/ca/LC_MESSAGES
 /usr/local/share/locale/it
@@ -343,7 +363,6 @@ $ find /usr/local -type d -cmin -10
 /usr/local/share/locale/bg/LC_MESSAGES
 /usr/local/share/locale/zh_CN
 /usr/local/share/locale/zh_CN/LC_MESSAGES
-/usr/local/share/perl/5.18.2/Git
 /usr/local/share/git-gui/lib
 /usr/local/share/git-gui/lib/msgs
 /usr/local/share/gitk/lib/msgs
@@ -352,7 +371,6 @@ $ find /usr/local -type d -cmin -10
 /usr/local/share/man/man3
 /usr/local/share/man/man5
 /usr/local/share/man/man7
-/usr/local/share/doc
 /usr/local/share/doc/git-doc
 /usr/local/share/doc/git-doc/RelNotes
 /usr/local/share/doc/git-doc/howto
@@ -362,42 +380,41 @@ $ find /usr/local -type d -cmin -10
 /usr/local/bin
 ----
 
-*Step 5:* Dokumentation (local)
 
-.git(1) Manual Page 
+== Dokumentation (local)
+.git(1) Manual Page
 Browser> file:///usr/local/share/doc/git-doc/index.html
 
-.gittutorial(7) Manual Page 
+.gittutorial(7) Manual Page
 Browser> file:///usr/local/share/doc/git-doc/gittutorial.html
 
-.gittutorial-2(7) Manual Page 
+.gittutorial-2(7) Manual Page
 Browser> file:///usr/local/share/doc/git-doc/gittutorial-2.html
 
 .Everyday GIT With 20 Commands Or So
 Browser> file:///usr/local/share/doc/git-doc/everyday.html
 
-.gitglossary(7) Manual Page 
+.gitglossary(7) Manual Page
 Browser> file:///usr/local/share/doc/git-doc/gitglossary.html
 
-.gitcore-tutorial(7) Manual Page 
+.gitcore-tutorial(7) Manual Page
 Browser> file:///usr/local/share/doc/git-doc/gitcore-tutorial.html
 
-.gitcli(7) Manual Page 
+.gitcli(7) Manual Page
 Browser> file:///usr/local/share/doc/git-doc/gitcli.html
 
 .Git User’s Manual (for version 1.5.3 or newer)
 Browser> file:///usr/local/share/doc/git-doc/user-manual.html
 
-.gitworkflows(7) Manual Page 
+.gitworkflows(7) Manual Page
 Browser> file:///usr/local/share/doc/git-doc/gitworkflows.html
 
-.git-config(1) Manual Page 
+.git-config(1) Manual Page
 Browser> file:///usr/local/share/doc/git-doc/git-config.html
 
 
-Anhang
-------
-Script zum Installieren von {git-url}[Git] 2.7.0 (ohne weitere Erläuterung). +
+== Anhang
+Script zum Installieren von {git-url}[Git] 2.12.2 (ohne weitere Erläuterung). +
 Die Dokumentation zu {git-url}[Git] wird mit diesem Script _nicht_ installiert.
 
 .Datei: `git-install.sh`
@@ -405,10 +422,10 @@ Die Dokumentation zu {git-url}[Git] wird mit diesem Script _nicht_ installiert.
 #!/bin/bash
 #
 ME=make_git
-NAME=git-2.7.0
+NAME=git-2.12.2
 
 ls -l git*.tar.gz
-echo 
+echo
 
 echo "Git-Installation fortsetzen (j/n)"
 read dummy
@@ -420,12 +437,12 @@ case $dummy in
      ;;
 esac
 
-echo 
+echo
 echo "Source auspacken ..."
 tar xvzf ${NAME}.tar.gz
 cd ${NAME}
 
-echo 
+echo
 echo "Source übersetzen ..."
 make configure | tee ../log.git_make-configure
 ./configure | tee ../log.git_configure
@@ -435,26 +452,17 @@ echo
 echo "Git installieren"
 sudo make install | tee ../log.git_make-install
 
-echo "Dokumentation fehlt!" 
+echo "Dokumentation fehlt!"
 
 echo
 cd /usr/local/bin
 ls -l git*
 
-echo 
+echo
 echo "$ME: Ende."
 ----
 
 
 
 
-'''
- 
-+++
-<a href="#top" title="zum Seitenanfang">
-  <span>&#8679;</span> 
-</a>
-+++
-[small]#&middot; Document generated with Asciidoctor {asciidoctor-version}.#
-
-
+include::_bp_footer.adoc[]

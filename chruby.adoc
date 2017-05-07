@@ -1,0 +1,177 @@
+
+= IiU -- Chruby 0.3.9
+Installation in Ubuntu — khkoether[at]kahweb[dot]de
+
+include::_bp_header.adoc[]
+
+:chruby-home-url: https://github.com/postmodern/chruby/
+:chruby-github-url: https://github.com/postmodern/chruby/
+:chruby-license-url: https://github.com/postmodern/chruby/blob/master/LICENSE.txt
+
+Version {version} {middot} {datum}
+
+
+== Abstract
+{chruby-home-url}[Chruby] händelt auf nachvollziehbare Weise das Wechseln
+zwischen den installierten _Ruby_-Versionen.
+
+Dieser Artikel ist eine Schritt-für-Schritt Anleitung zur Installation
+von {chruby-home-url}[Chruby] aus dem QuellCode.
+
+_Chruby_ ist Open Source und ist freigegeben
+unter der {chruby-license-url}[MIT-Lizenz].
+
+Der Artikel ist in _AsciiDoc_ geschrieben
+und mit _Asciidoctor {asciidoctor-version}_ erstellt worden.
+
+[CAUTION]
+====
+Zu beachten ist, dass so ein Dokument zum Einen nie abschließend
+sein kann, und zum Anderen bestimmte Konfigurationen anders, oder
+auf einem anderem Weg durchgeführt werden können. +
+Gerne nehme ich Verbesserungsvorschläge entgegen.
+
+Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr.
+====
+
+
+== Vorraussetzung
+Die Installation wird für {ubuntu-url}[Ubuntu 16.04 LTS (Xenial Xerus)] beschrieben. +
+Gleichwohl sind die einzelnen Schritte auch für
+andere Debian-basierte GNU/Linux Distributionen übertragbar.
+
+Die System-Installation von *Ruby* ist,
+wie in &nbsp; {asciidoctor-url}[IiU -- Asciidoctor] &nbsp; beschrieben,
+durchgeführt worden.
+
+[options="nowrap"]
+----
+$ COLUMNS=96 dpkg --list | grep ruby2.3   <1>
+ii  libruby2.3:amd64   2.3.1-2~16.04  amd64   Libraries necessary to run Ruby 2.3
+ii  ruby2.3            2.3.1-2~16.04  amd64   Interpreter of object-oriented scripting language Ruby
+----
+<1> COLUMNS=96 ist eine Formatangabe für die Ausgabe von #dpkg#
+
+
+== Download
+* {chruby-home-url}[chruby 0.3.9] +
+  `chruby-master.zip`  (ca. 37K) +
+  2017-03-01 (letzte Änderung)
+
+
+== Installation
+[CAUTION]
+====
+Zur Installation von {chruby-home-url}[chruby] muß die *bash*
+(standardmäßig vorhanden) oder die *zsh* installiert sein.
+====
+
+*Chruby* wird mithilfe des Befehls _sudo_ installiert.
+----
+$ unzip chruby-master.zip
+$ cd chruby-master
+$ sudo make install
+for dir in `find etc lib bin sbin share -type d 2>/dev/null`; do mkdir -p /usr/local/$dir; done
+for file in `find etc lib bin sbin share -type f 2>/dev/null`; do cp $file /usr/local/$file; done
+mkdir -p /doc/chruby-0.3.9            <1>
+cp -r *.md *.txt /doc/chruby-0.3.9/
+----
+<1> Falsches Verzeichnis!
+
+----
+$ sudo mv /doc/chruby-0.3.9/ /usr/local/share/doc   <1>
+$ sudo rm -rf /doc
+----
+<1> Korrektur der _doc_-Installation.
+
+
+[options="nowrap"]
+----
+$ $ sudo find /usr -cmin -10
+/usr/local/share/chruby/auto.sh
+/usr/local/share/chruby/chruby.sh
+/usr/local/share/doc
+/usr/local/share/doc/chruby-0.3.9
+/usr/local/share/doc/chruby-0.3.9/README.md
+/usr/local/share/doc/chruby-0.3.9/ChangeLog.md
+/usr/local/share/doc/chruby-0.3.9/CONTRIBUTING.md
+/usr/local/share/doc/chruby-0.3.9/LICENSE.txt
+/usr/local/bin/chruby-exec
+----
+
+=== Datei: `~/.bashrc`
+----
+...
+
+# chruby
+echo "== chruby aktivieren: "
+source /usr/local/share/chruby/chruby.sh
+
+# chruby: Ruby version changes automatically   <1>
+echo "== Ruby version changes automatically"
+source /usr/local/share/chruby/auto.sh
+----
+<1> Wertet die Datei `.ruby-version` im Projekt-Verzeichnis aus!
+
+
+=== Verzeichnis: `/opt/rubies`
+*Chruby* erwartet standardmäßig weitere *Ruby*-Installation in den
+Verzeichnissen `/opt/rubies` und `~/.rubies` .
+----
+$ sudo mkdir /opt/rubies
+
+$ sudo chmod 777 /opt/rubies   <1>
+----
+<1> Da die _zusätzlich_ zu installierenden _RubyGems_ im jeweiligen _Home_-Verzeichnis
+    (`~/.gem`) installiert werden - muß eine spezielle *Ruby*-Version nicht von jedem Benutzer
+    erneut installiert werden!
+
+
+== Beispiele
+._chruby_ Optionen
+----
+$ chruby -h
+usage: chruby [RUBY|VERSION|system] [RUBYOPT...]
+----
+
+.Listet die vorhandenen _Ruby_-Installationen auf:
+----
+$ source /usr/local/share/chruby/chruby.sh   <1>
+
+$ chruby   <2> <3>
+----
+<1> Falls *chruby* nicht automatisch aktiviert wird.
+<2> Verzeichnis: `/opt/rubies`
+<3> Zu diesem Zeitpunkt gibt es ausschließlich die System-Installation von _Ruby_!
+
+
+.Wechsel zur System-Installation von _Ruby_:
+----
+$ chruby system
+
+$ echo $PATH      <1>
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin:/home/sid/bin
+
+$ ruby -v
+ruby 2.3.1p112 (2016-04-26) [x86_64-linux-gnu]
+----
+<1> Von _chruby_ durchgeführte Änderungen an der Variable _PATH_ werden zurückgenommen.
+
+
+.Ausführen eines Kommandos mit einer bestimmten _Ruby_-Version:
+----
+$ chruby-exec ruby-2.x.y -- gem update   <1>
+...
+----
+<1> Das Verzeichnis `ruby-2.x.y` liegt in `/opt/rubies`
+
+
+.Wechsel zu einer beliebigen _Ruby_-Version:
+----
+$ chruby_use /path/to/ruby-2.x.y
+----
+
+
+
+
+include::_bp_footer.adoc[]

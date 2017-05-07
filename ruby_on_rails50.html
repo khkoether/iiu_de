@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.5">
 <meta name="author" content="Installation in Ubuntu — khkoether[at]kahweb[dot]de">
-<title>IiU&#8201;&#8212;&#8201;Ruby on Rails 4.2</title>
+<title>IiU&#8201;&#8212;&#8201;Ruby on Rails 5.0</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -421,7 +421,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>IiU&#8201;&#8212;&#8201;Ruby on Rails 4.2</h1>
+<h1>IiU&#8201;&#8212;&#8201;Ruby on Rails 5.0</h1>
 <div class="details">
 <span id="author" class="author">Installation in Ubuntu — khkoether[at]kahweb[dot]de</span><br>
 </div>
@@ -429,9 +429,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#_abstract">Abstract</a></li>
-<li><a href="#_vorraussetzung">Vorraussetzung</a></li>
-<li><a href="#_rubygem_rails_4_2_5">RubyGem: rails-4.2.5</a></li>
-<li><a href="#_ruby_on_rails_4_2_5">Ruby on Rails 4.2.5</a>
+<li><a href="#_vorraussetzung">Vorraussetzung</a>
+<ul class="sectlevel2">
+<li><a href="#_ruby_2_3_4">Ruby 2.3.4</a></li>
+<li><a href="#_rubygems_installation">RubyGems: Installation</a></li>
+</ul>
+</li>
+<li><a href="#_rubygem_rails_5_0_2">RubyGem: rails-5.0.2</a></li>
+<li><a href="#_ruby_on_rails_5_0_2">Ruby on Rails 5.0.2</a>
 <ul class="sectlevel2">
 <li><a href="#_datenbanksystem_wählen">Datenbanksystem wählen</a></li>
 <li><a href="#_datenbankadapter_installieren">Datenbankadapter installieren</a></li>
@@ -451,7 +456,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Version 4.0.0, Januar 2016</p>
+<p>Version 5.0.0 &middot; April 2017</p>
 </div>
 </div>
 </div>
@@ -483,9 +488,9 @@ und mit <em>Asciidoctor 1.5.5</em> erstellt worden.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Zu beachten ist, dass so ein Dokument zum Einen nie abschliessend
+<p>Zu beachten ist, dass so ein Dokument zum Einen nie abschließend
 sein kann, und zum Anderen bestimmte Konfigurationen anders, oder
-auf einem anderem Weg durchgeführt werden können.
+auf einem anderem Weg durchgeführt werden können.<br>
 Gerne nehme ich Verbesserungsvorschläge entgegen.</p>
 </div>
 <div class="paragraph">
@@ -501,15 +506,14 @@ Gerne nehme ich Verbesserungsvorschläge entgegen.</p>
 <h2 id="_vorraussetzung">Vorraussetzung</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Die Installation wird für <a href="http://www.ubuntu.com/">Ubuntu 14.04 LTS (Trusty Tahr)</a>
-beschrieben.<br>
+<p>Die Installation wird für <a href="http://www.ubuntu.com/">Ubuntu 16.04 LTS (Xenial Xerus)</a> beschrieben.<br>
 Gleichwohl sind die einzelnen Schritte auch für
 andere Debian-basierte GNU/Linux Distributionen übertragbar.</p>
 </div>
 <div class="paragraph">
-<p>Die Installation von <strong>Ruby</strong> ist, wie in
-<a href="ruby22.html">IiU&#8201;&#8212;&#8201;Ruby 2.2.4</a>
-beschrieben, durchgeführt worden.</p>
+<p>Die Installation von <strong>Ruby</strong> ist,
+wie in &nbsp; <a href="ruby23.html">IiU&#8201;&#8212;&#8201;Ruby MRI 2.3</a> &nbsp; beschrieben,
+durchgeführt worden.</p>
 </div>
 <div class="admonitionblock caution">
 <table>
@@ -519,10 +523,10 @@ beschrieben, durchgeführt worden.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Die hier aufgeführten Schritte werden beispielhaft für <strong>Ruby 2.2.4</strong> ausgeführt.</p>
+<p>Die hier aufgeführten Schritte werden beispielhaft für <strong>Ruby 2.3.4</strong> ausgeführt.</p>
 </div>
 <div class="paragraph">
-<p>Gelten aber, auch in dieser Reihenfolge, ebenfalls für die <strong>Ruby-Versionen &gt;= 1.9.3</strong>.</p>
+<p>Gelten aber, auch in dieser Reihenfolge, ebenfalls für die <strong>Ruby-Versionen &gt;= 2.2</strong>.</p>
 </div>
 <div class="paragraph">
 <p>Eine Installation von <strong>Ruby on Rails 5.0</strong> ist nur mit <strong>Ruby-Versionen &gt;= 2.2</strong> möglich!</p>
@@ -531,38 +535,108 @@ beschrieben, durchgeführt worden.</p>
 </tr>
 </table>
 </div>
+<div class="sect2">
+<h3 id="_ruby_2_3_4">Ruby 2.3.4</h3>
 <div class="listingblock">
-<div class="title">Ruby 2.2.4</div>
 <div class="content">
-<pre>$ which ruby
-/opt/Ruby/current22/bin/ruby
+<pre>$ chruby        <img src="./images/icons/callouts/1.png" alt="1">
+   ruby-2.3.4
+   ruby-2.4.1
+
+$ chruby ruby-2.3.4
+
+$ which ruby
+/opt/rubies/ruby-2.3.4/bin/ruby
 
 $ ruby -v
-ruby 2.2.4p230 (2015-12-16 revision 53155) [x86_64-linux]</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_rubygem_rails_4_2_5">RubyGem: rails-4.2.5</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Step 0</strong></p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>$ gem search ^rails$ --remote
+ruby 2.3.4p301 (2017-03-30 revision 58214) [x86_64-linux]
 
-*** REMOTE GEMS ***
+$ gem -v
+2.5.2
 
-rails (4.2.5)   <img src="./images/icons/callouts/1.png" alt="1"></pre>
+$ rake -V
+rake, version 12.0.0</pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Seit dem 12.11.2015 ist das die neueste Version des RubyGem <em>rails</em>.</td>
+<td>Für die Verwaltung der <strong>Ruby</strong>-Installationen verwende ich <a href="chruby.html">Chruby</a>.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_rubygems_installation">RubyGems: Installation</h3>
+<div class="paragraph">
+<p>Mit <mark>gem install &#8230;&#8203;</mark> wird in der Regel auch Dokumentation installiert.</p>
+</div>
+<div class="paragraph">
+<p>Für <strong>Rails</strong> wird in der Regel die offizielle Dokumentation im Internet genutzt:<br>
+&#8594; <a href="http://guides.rubyonrails.org/v5.0/">Ruby on Rails Guides (v5.0.2)</a></p>
+</div>
+<div class="paragraph">
+<p>Mit der folgenden Datei kann der Installationsschritt ausgelassen werden.</p>
+</div>
+<div class="listingblock">
+<div class="title">Datei: <code>~/.gemrc</code></div>
+<div class="content">
+<pre>#install: --no-document
+#update:  --no-document
+
+gem:      --no-document</pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Für die <strong>Ruby</strong>-Systeminstallation muß mit dem Benutzer <strong>root</strong>
+die Datei <code>/etc/gemrc</code><br>
+mit dem genannten Inhalt angelegt werden.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<img src="./images/icons/caution.png" alt="Caution">
+</td>
+<td class="content">
+Die Optionen für das Programm-Aufruf <mark>gem install &#8230;&#8203; --no-ri --no-rdoc</mark> sind deprecated.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_rubygem_rails_5_0_2">RubyGem: rails-5.0.2</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="title">Step 0</div>
+<div class="content">
+<pre>$ gem search ^rails$ --remote
+
+*** REMOTE GEMS ***
+
+rails (5.0.2)   <img src="./images/icons/callouts/1.png" alt="1"></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Seit dem 01.03.2017 ist das die neueste Version des RubyGem <em>rails</em>.</td>
 </tr>
 </table>
 </div>
@@ -573,23 +647,30 @@ rails (4.2.5)   <img src="./images/icons/callouts/1.png" alt="1"></pre>
 <img src="./images/icons/tip.png" alt="Tip">
 </td>
 <td class="content">
-<div class="paragraph">
-<p>Die Installation der Dokumentation kann ausgelassen werden.</p>
-</div>
 <div class="listingblock">
+<div class="title">Das RubyGem <em>rails</em> kann unterschiedlich installiert werden:</div>
 <div class="content">
-<pre>$ sudo su -
-# . /opt/Ruby/ruby22.path.sh
-# gem install rails --no-rdoc --no-ri   <img src="./images/icons/callouts/1.png" alt="1"></pre>
+<pre>$ gem install rails   <img src="./images/icons/callouts/1.png" alt="1">
+
+$ gem install rails --version 5.0.0   <img src="./images/icons/callouts/2.png" alt="2">
+
+$ gem install rails --version '~&gt; 5.0.0'   <img src="./images/icons/callouts/3.png" alt="3"></pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td><mark>- -no-rdoc - -no-ri</mark><br>
-In der Regel wird die offizielle Dokumentation im Internet genutzt:<br>
-&#8594; <a href="http://guides.rubyonrails.org/v4.2/">Ruby on Rails Guides (v4.2.8)</a></td>
+<td>Die <em>aktuell</em> neueste Version wird installiert&#8201;&#8212;&#8201;zu diesem Moment: 5.0.2!</td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/2.png" alt="2"></td>
+<td>Die <em>angegebene</em> Version wird installiert&#8201;&#8212;&#8201;also: 5.0.0.</td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/3.png" alt="3"></td>
+<td>Twiddle Wakka: '~&gt; 5.0.0' bedeutet, das die höchste Gem-Version von <em>ails</em><br>
+im Bereich von &gt;= 5.0.0 und &lt; 5.1 installiert wird&#8201;&#8212;&#8201;zu diesem Moment: 5.0.2!</td>
 </tr>
 </table>
 </div>
@@ -598,62 +679,99 @@ In der Regel wird die offizielle Dokumentation im Internet genutzt:<br>
 </table>
 </div>
 <div class="paragraph">
+<div class="title">Step 1</div>
 <p>Mit <mark>gem install &#8230;&#8203;</mark> werden auch alle Abhängigkeiten zu anderen RubyGems aufgelöst.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre># gem install rails --no-rdoc --no-ri
-Fetching: concurrent-ruby-1.0.0.gem (100%)
-Successfully installed concurrent-ruby-1.0.0
-...
-Fetching: rails-4.2.5.gem (100%)
-Successfully installed rails-4.2.5
-30 gems installed   <img src="./images/icons/callouts/1.png" alt="1"></pre>
+<pre>$ gem install rails
+Fetching: i18n-0.8.1.gem (100%)
+Successfully installed i18n-0.8.1
+Fetching: tzinfo-1.2.3.gem (100%)
+Successfully installed tzinfo-1.2.3
+Fetching: concurrent-ruby-1.0.5.gem (100%)
+Successfully installed concurrent-ruby-1.0.5
+Fetching: activesupport-5.0.2.gem (100%)
+Successfully installed activesupport-5.0.2
+Fetching: rack-2.0.1.gem (100%)
+Successfully installed rack-2.0.1
+Fetching: rack-test-0.6.3.gem (100%)
+Successfully installed rack-test-0.6.3
+Fetching: mini_portile2-2.1.0.gem (100%)
+Successfully installed mini_portile2-2.1.0
+Fetching: nokogiri-1.7.1.gem (100%)
+Building native extensions.  This could take a while...
+Successfully installed nokogiri-1.7.1
+Fetching: loofah-2.0.3.gem (100%)
+Successfully installed loofah-2.0.3
+Fetching: rails-html-sanitizer-1.0.3.gem (100%)
+Successfully installed rails-html-sanitizer-1.0.3
+Fetching: rails-dom-testing-2.0.2.gem (100%)
+Successfully installed rails-dom-testing-2.0.2
+Fetching: builder-3.2.3.gem (100%)
+Successfully installed builder-3.2.3
+Fetching: erubis-2.7.0.gem (100%)
+Successfully installed erubis-2.7.0
+Fetching: actionview-5.0.2.gem (100%)
+Successfully installed actionview-5.0.2
+Fetching: actionpack-5.0.2.gem (100%)
+Successfully installed actionpack-5.0.2
+Fetching: activemodel-5.0.2.gem (100%)
+Successfully installed activemodel-5.0.2
+Fetching: arel-7.1.4.gem (100%)
+Successfully installed arel-7.1.4
+Fetching: activerecord-5.0.2.gem (100%)
+Successfully installed activerecord-5.0.2
+Fetching: globalid-0.4.0.gem (100%)
+Successfully installed globalid-0.4.0
+Fetching: activejob-5.0.2.gem (100%)
+Successfully installed activejob-5.0.2
+Fetching: mime-types-data-3.2016.0521.gem (100%)
+Successfully installed mime-types-data-3.2016.0521
+Fetching: mime-types-3.1.gem (100%)
+Successfully installed mime-types-3.1
+Fetching: mail-2.6.4.gem (100%)
+Successfully installed mail-2.6.4
+Fetching: actionmailer-5.0.2.gem (100%)
+Successfully installed actionmailer-5.0.2
+Fetching: nio4r-2.0.0.gem (100%)
+Building native extensions.  This could take a while...
+Successfully installed nio4r-2.0.0
+Fetching: websocket-extensions-0.1.2.gem (100%)
+Successfully installed websocket-extensions-0.1.2
+Fetching: websocket-driver-0.6.5.gem (100%)
+Building native extensions.  This could take a while...
+Successfully installed websocket-driver-0.6.5
+Fetching: actioncable-5.0.2.gem (100%)
+Successfully installed actioncable-5.0.2
+Fetching: thor-0.19.4.gem (100%)
+Successfully installed thor-0.19.4
+Fetching: railties-5.0.2.gem (100%)
+Successfully installed railties-5.0.2
+Fetching: bundler-1.14.6.gem (100%)
+Successfully installed bundler-1.14.6
+Fetching: sprockets-3.7.1.gem (100%)
+Successfully installed sprockets-3.7.1
+Fetching: sprockets-rails-3.2.0.gem (100%)
+Successfully installed sprockets-rails-3.2.0
+Fetching: rails-5.0.2.gem (100%)
+Successfully installed rails-5.0.2
+34 gems installed                    <img src="./images/icons/callouts/1.png" alt="1"></pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Mit dem RubyGem <em>rails-4.2.5</em> wurden insgesamt 30 Gems installiert.<br>
+<td>Mit dem RubyGem <em>rails-5.0.2</em> wurden insgesamt 34 Gems installiert.<br>
 Hinweis: Weitere RubyGems müssen für das Framework <strong>Ruby on Rails</strong> installiert werden.</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="./images/icons/note.png" alt="Note">
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Alternativ kann das RubyGem <em>rails</em> mit der Angabe einer Version installiert werden.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre># gem install rails --version 4.1.14
-
-# gem install rails --version '~&gt; 4.1.14'   <img src="./images/icons/callouts/1.png" alt="1"></pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Twiddle Wakka: <em>~&gt; 4.1.14</em> bedeutet, das die höchste Gem-Version von Rails<br>
-im Bereich von &gt;= 4.1.14 und &lt; 4.2 installiert wird.</td>
-</tr>
-</table>
-</div>
-</td>
 </tr>
 </table>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_ruby_on_rails_4_2_5">Ruby on Rails 4.2.5</h2>
+<h2 id="_ruby_on_rails_5_0_2">Ruby on Rails 5.0.2</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Die notwendigen Schritte werden auf der Kommandozeile durchgeführt.</p>
@@ -672,6 +790,9 @@ im Bereich von &gt;= 4.1.14 und &lt; 4.2 installiert wird.</td>
 </li>
 <li>
 <p>Projektverzeichnis erstellen</p>
+</li>
+<li>
+<p>RubyGems installieren</p>
 </li>
 <li>
 <p>Datenbankadapter konfigurieren</p>
@@ -695,7 +816,7 @@ für die <em>Entwicklung</em> (aber auch für die <em>Produktion</em>) eines neu
 <ul>
 <li>
 <p><em>SqLite3</em><br>
-Klein, kompakt und dateibasiert – mit diesen Vorzügen glänzt <em>SQLite3</em>.<br>
+Klein, kompakt und dateibasiert&#8201;&#8212;&#8201;mit diesen Vorzügen glänzt 'SQLite3'.<br>
 Ist in <em>Ruby on Rails</em> die Default-Datenbank.</p>
 </li>
 <li>
@@ -728,21 +849,32 @@ In der Vorgehensweise sind sie ähnlich derer für <strong>MySQL</strong></p>
 <div class="sect2">
 <h3 id="_datenbankadapter_installieren">Datenbankadapter installieren</h3>
 <div class="listingblock">
+<div class="title">MySQL</div>
 <div class="content">
-<pre># gem install mysql2 --no-rdoc --no-ri
-Fetching: mysql2-0.4.2.gem (100%)
+<pre># gem install mysql2
+Fetching: mysql2-0.4.5.gem (100%)
 Building native extensions.  This could take a while...
-Successfully installed mysql2-0.4.2
+Successfully installed mysql2-0.4.5
 1 gem installed</pre>
 </div>
 </div>
 <div class="listingblock">
+<div class="title">SQLite3</div>
 <div class="content">
-<pre># gem install sqlite3 --no-rdoc --no-ri
-Fetching: sqlite3-1.3.11.gem (100%)
+<pre># gem install sqlite3
+Fetching: sqlite3-1.3.13.gem (100%)
 Building native extensions.  This could take a while...
-Successfully installed sqlite3-1.3.11
+Successfully installed sqlite3-1.3.13
 1 gem installed</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">RubyGems: Datenbankzugriff</div>
+<div class="content">
+<pre>$ gem list --local | grep 'activerecord\|mysql\|sqlite3'
+activerecord (5.0.2)
+mysql2 (0.4.5)
+sqlite3 (1.3.13)</pre>
 </div>
 </div>
 </div>
@@ -764,10 +896,10 @@ die Kommandozeile.</p>
 <pre>$ mysql -uroot -p
 Enter password:
 Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 79
-Server version: 5.5.46-0ubuntu0.14.04.2 (Ubuntu)
+Your MySQL connection id is 6
+Server version: 5.7.17-0ubuntu0.16.04.2 (Ubuntu)
 
-Copyright (c) 2000, 2015, Oracle and/or its affiliates. All rights reserved.
+Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.
 
 Oracle is a registered trademark of Oracle Corporation and/or its
 affiliates. Other names may be trademarks of their respective
@@ -775,12 +907,12 @@ owners.
 
 Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
-mysql&gt; GRANT ALL PRIVILEGES ON *.* to 'sid'@'localhost'
+mysql&gt; GRANT ALL PRIVILEGES ON *.* TO 'sid'@'localhost'
     -&gt; IDENTIFIED BY 'g3h3im';
-Query OK, 0 rows affected (0.00 sec)
+Query OK, 0 rows affected, 1 warning (0,00 sec)
 
 mysql&gt; flush privileges;
-Query OK, 0 rows affected (0.00 sec)
+Query OK, 0 rows affected (0,00 sec)
 
 mysql&gt; exit
 Bye</pre>
@@ -792,10 +924,10 @@ Bye</pre>
 <pre>$ mysql -usid -p
 Enter password:
 Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 79
-Server version: 5.5.46-0ubuntu0.14.04.2 (Ubuntu)
+Your MySQL connection id is 7
+Server version: 5.7.17-0ubuntu0.16.04.2 (Ubuntu)
 
-Copyright (c) 2000, 2015, Oracle and/or its affiliates. All rights reserved.
+Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.
 
 Oracle is a registered trademark of Oracle Corporation and/or its
 affiliates. Other names may be trademarks of their respective
@@ -819,7 +951,7 @@ Bye</pre>
 $ mkdir RailsDir
 
 $ cd RailsDir
-$ rails _4.2.5_ new MyApp --database=mysql -B  <img src="./images/icons/callouts/1.png" alt="1"> <img src="./images/icons/callouts/2.png" alt="2"> <img src="./images/icons/callouts/3.png" alt="3">
+$ rails _5.0.2_ new MyApp --database=mysql -B  <img src="./images/icons/callouts/1.png" alt="1"> <img src="./images/icons/callouts/2.png" alt="2"> <img src="./images/icons/callouts/3.png" alt="3">
       create
       create  README.rdoc
       create  Rakefile
@@ -827,6 +959,7 @@ $ rails _4.2.5_ new MyApp --database=mysql -B  <img src="./images/icons/callouts
       create  .gitignore
       create  Gemfile      <img src="./images/icons/callouts/4.png" alt="4">
       create  app
+      create  app/assets/config/manifest.js
       create  app/assets/javascripts/application.js
  ...
       create  bin
@@ -834,10 +967,11 @@ $ rails _4.2.5_ new MyApp --database=mysql -B  <img src="./images/icons/callouts
       create  bin/rails
       create  bin/rake
       create  bin/setup
+      create  bin/update
 ...
-      create  config/database.yml   <img src="./images/icons/callouts/5.png" alt="5">
-      create  db
-      create  db/seeds.rb
+      create  config/puma.rb        <img src="./images/icons/callouts/5.png" alt="5">
+...
+      create  config/database.yml   <img src="./images/icons/callouts/6.png" alt="6">
 ...
       create  vendor/assets/javascripts
       create  vendor/assets/javascripts/.keep
@@ -849,26 +983,30 @@ $ rails _4.2.5_ new MyApp --database=mysql -B  <img src="./images/icons/callouts
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td><mark><em>4.2.5</em></mark>&#8201;&#8212;&#8201;Festlegen, welche Rails-Version verwendet werden soll.<br>
+<td><mark>_5.0.2_</mark>&#8201;&#8212;&#8201;Festlegen, welche Rails-Version verwendet werden soll.<br>
 <mark>--database=mysql</mark>&#8201;&#8212;&#8201;Festlegen, welches DBMS verwendet werden soll.</td>
 </tr>
 <tr>
 <td><img src="./images/icons/callouts/2.png" alt="2"></td>
 <td>Für das Datenbanksystem <em>SQLite3</em> verkürzt sich der Aufruf:<br>
-<mark>rails <em>4.2.5</em> new myapp</mark></td>
+<mark>rails _5.0.2_ new myapp</mark></td>
 </tr>
 <tr>
 <td><img src="./images/icons/callouts/3.png" alt="3"></td>
 <td><mark>-B</mark> Don&#8217;t run bundle install<br>
-Kein automatisches <em>install</em> und <em>update</em> von RubyGems!</td>
+Kein automatisches 'install' und 'update' von RubyGems!</td>
 </tr>
 <tr>
 <td><img src="./images/icons/callouts/4.png" alt="4"></td>
-<td>Die zu diesem Zeitpunkt benötigten RubyGems und deren Abhängigkeiten
-untereinander entnehmen Sie der Datei <code>Gemfile</code>.</td>
+<td>Die zu diesem Zeitpunkt benötigten RubyGems und<br>
+deren Abhängigkeiten untereinander entnehmen Sie der Datei <code>Gemfile</code>.</td>
 </tr>
 <tr>
 <td><img src="./images/icons/callouts/5.png" alt="5"></td>
+<td>Konfigurationsdatei für den neuen HTTP-Server <em>Puma</em> (ersetzt <em>WEBrick</em>).</td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/6.png" alt="6"></td>
 <td>Konfigurationsdatei mit den Einstellungen für den
 Datenbankzugriff (Datenbankadapter).</td>
 </tr>
@@ -881,8 +1019,10 @@ $ tree -LF 2 .
 .
 ├── app/
 │   ├── assets/
+│   ├── channels/
 │   ├── controllers/
 │   ├── helpers/
+│   ├── jobs/
 │   ├── mailers/
 │   ├── models/
 │   └── views/
@@ -890,17 +1030,21 @@ $ tree -LF 2 .
 │   ├── bundle*
 │   ├── rails*
 │   ├── rake*
-│   └── setup*
+│   ├── setup*
+│   └── update*
 ├── config/
 │   ├── application.rb
 │   ├── boot.rb
+│   ├── cable.yml
 │   ├── database.yml     <img src="./images/icons/callouts/1.png" alt="1">
 │   ├── environment.rb
 │   ├── environments/
 │   ├── initializers/
 │   ├── locales/
+│   ├── puma.rb
 │   ├── routes.rb
-│   └── secrets.yml
+│   ├── secrets.yml
+│   └── spring.rb
 ├── config.ru
 ├── db/
 │   └── seeds.rb
@@ -913,10 +1057,12 @@ $ tree -LF 2 .
 │   ├── 404.html
 │   ├── 422.html
 │   ├── 500.html
+│   ├── apple-touch-icon.png
+│   ├── apple-touch-icon-precomposed.png
 │   ├── favicon.ico
 │   └── robots.txt
 ├── Rakefile
-├── README.rdoc
+├── README.md
 ├── test/
 │   ├── controllers/
 │   ├── fixtures/
@@ -930,7 +1076,7 @@ $ tree -LF 2 .
 └── vendor/
     └── assets/
 
-29 directories, 21 files</pre>
+31 directories, 27 files</pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -951,27 +1097,26 @@ $ tree -LF 2 .
 <div class="listingblock">
 <div class="title">Prüfen der in der Datei <code>Gemfile</code> genannten Abhängigkeiten</div>
 <div class="content">
-<pre>$ bundle check
+<pre class="nowrap">$ bundle check
 Bundler can't satisfy your Gemfile's dependencies.
 Install missing gems with `bundle install`.
 
 $ bundle list   <img src="./images/icons/callouts/1.png" alt="1">
-Could not find gem 'sass-rails (~&gt; 5.0) java' in any of the gem sources listed
-in your Gemfile or installed on this machine.</pre>
+Could not find gem 'puma (~&gt; 3.0)' in any of the gem sources listed in your Gemfile.</pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Der User <em>root</em> muß die fehlenden Gems installieren</td>
+<td>Der User muß die fehlenden Gems installieren</td>
 </tr>
 </table>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre>$ ls -l Gemfile*
--rw-rw-r-- 1 sid sid 1521 Jan  4 19:56 Gemfile</pre>
+-rw-rw-r-- 1 sid sid 1899 Apr 21 19:25 Gemfile</pre>
 </div>
 </div>
 <div class="listingblock">
@@ -979,157 +1124,152 @@ in your Gemfile or installed on this machine.</pre>
 <div class="content">
 <pre>source 'https://rubygems.org'
 
+git_source(:github) do |repo_name|
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  "https://github.com/#{repo_name}.git"
+end
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.5'
+gem 'rails', '~&gt; 5.0.2'
 # Use mysql as the database for Active Record
-gem 'mysql2', '&gt;= 0.3.13', '&lt; 0.5'
+gem 'mysql2', '&gt;= 0.3.18', '&lt; 0.5'
+# Use Puma as the app server
+gem 'puma', '~&gt; 3.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~&gt; 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '&gt;= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~&gt; 4.1.0'   <img src="./images/icons/callouts/1.png" alt="1">
+gem 'coffee-rails', '~&gt; 4.2'   <img src="./images/icons/callouts/1.png" alt="1">
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
+gem 'turbolinks', '~&gt; 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~&gt; 2.0'   <img src="./images/icons/callouts/2.png" alt="2">
-# bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~&gt; 0.4.0', group: :doc
-
+gem 'jbuilder', '~&gt; 2.5'   <img src="./images/icons/callouts/2.png" alt="2">
+# Use Redis adapter to run Action Cable in production
+# gem 'redis', '~&gt; 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~&gt; 3.1.7'   <img src="./images/icons/callouts/3.png" alt="3">
-
-# Use Unicorn as the app server
-# gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+  gem 'byebug', platform: :mri
 end
 
 group :development do
-  # Access an IRB console on exception pages or by using &lt;%= console %&gt; in views
-  gem 'web-console', '~&gt; 2.0'
-
+  # Access an IRB console on exception pages or by using &lt;%= console %&gt; anywhere in the code.
+  gem 'web-console', '&gt;= 3.3.0'
+  gem 'listen', '~&gt; 3.0.5'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-end</pre>
+  gem 'spring-watcher-listen', '~&gt; 2.0.0'
+end
+
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]</pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Twiddle Waka <em>~&gt; 4.1.0</em> ist identisch mit
-den Bedingungen <em>&gt;= 4.1.0</em> und <em>&lt; 4.2</em>.</td>
+<td>Twiddle Waka '~&gt; 4.2' ist identisch mit
+den Bedingungen '&gt;= 4.2' und '&lt; 5'.</td>
 </tr>
 <tr>
 <td><img src="./images/icons/callouts/2.png" alt="2"></td>
-<td>Twiddle Waka <em>~&gt; 2.0</em> ist identisch mit
-den Bedingungen <em>&gt;= 2.0</em> und <em>&lt; 3</em>.</td>
+<td>Twiddle Waka '~&gt; 2.5' ist identisch mit
+den Bedingungen '&gt;= 2.5' und '&lt; 3'.</td>
 </tr>
 <tr>
 <td><img src="./images/icons/callouts/3.png" alt="3"></td>
-<td>Twiddle Waka <em>~&gt; 3.1.7</em> ist identisch mit
-den Bedingungen <em>&gt;= 3.1.7</em> und <em>&lt; 3.2</em>.</td>
+<td>Twiddle Waka '~&gt; 3.1.7' ist identisch mit
+den Bedingungen '&gt;= 3.1.7' und '&lt; 3.2'.</td>
 </tr>
 </table>
 </div>
 <div class="listingblock">
-<div class="content">
-<pre>$ sudo su -
-[sudo] password for sid:   <img src="./images/icons/callouts/1.png" alt="1">
-
-# ruby -v                  <img src="./images/icons/callouts/2.png" alt="2">
-ruby 2.2.4p230 (2015-12-16 revision 53155) [x86_64-linux]
-
-# exit</pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Annahme: Der User <em>sid</em> besitzt das Recht das System zu administrieren&#8230;&#8203;</td>
-</tr>
-<tr>
-<td><img src="./images/icons/callouts/2.png" alt="2"></td>
-<td>Test, das der Benutzer <em>root</em> den entsprechenden Ruby-Pfad gesetzt hat.</td>
-</tr>
-</table>
-</div>
-<div class="listingblock">
-<div class="title">Installation der fehlenden Gems mit dem zur Installation berechtigten User!</div>
+<div class="title">Installation der fehlenden RubyGems</div>
 <div class="content">
 <pre class="nowrap">$ bundle install   <img src="./images/icons/callouts/1.png" alt="1">
-Fetching gem metadata from https://rubygems.org/...........
-Fetching version metadata from https://rubygems.org/...
-Fetching dependency metadata from https://rubygems.org/..
-Resolving dependencies......
-Using rake 10.4.2   <img src="./images/icons/callouts/2.png" alt="2">
-Using i18n 0.7.0
-Using json 1.8.3
-Using minitest 5.8.3
-Using thread_safe 0.3.5
-Using builder 3.2.2
+The dependency tzinfo-data (&gt;= 0) will be unused by any of the platforms Bundler is installing for.
+Bundler is installing for ruby but the dependency is only for x86-mingw32, x86-mswin32, x64-mingw32, java.
+To add those platforms to the bundle, run `bundle lock --add-platform x86-mingw32 x86-mswin32 x64-mingw32 java`.
+Fetching gem metadata from https://rubygems.org/..........
+Fetching version metadata from https://rubygems.org/..
+Fetching dependency metadata from https://rubygems.org/.
+Resolving dependencies...
+Installing rake 12.0.0        <img src="./images/icons/callouts/2.png" alt="2">
+Using concurrent-ruby 1.0.5   <img src="./images/icons/callouts/3.png" alt="3">
+Using i18n 0.8.1
+Installing minitest 5.10.1
+Using thread_safe 0.3.6
+Using builder 3.2.3
 Using erubis 2.7.0
-Using mini_portile2 2.0.0
-Using rack 1.6.4
-Using mime-types 2.99
-Using arel 6.0.3
-Installing debug_inspector 0.0.2 with native extensions   <img src="./images/icons/callouts/3.png" alt="3">
-Using bundler 1.11.2
-Installing byebug 8.2.1 with native extensions
-Installing coffee-script-source 1.10.0
-Installing execjs 2.6.0
-Using thor 0.19.1
-Using concurrent-ruby 1.0.0
-Installing multi_json 1.11.2
-Using mysql2 0.4.2
-Installing sass 3.4.20
-Using tilt 2.0.1
-Installing spring 1.6.1
-Using rdoc 4.2.1
-Using tzinfo 1.2.2
-Using nokogiri 1.6.7.1
+Using mini_portile2 2.1.0
+Using rack 2.0.1
+Using nio4r 2.0.0
+Using websocket-extensions 0.1.2
+Using mime-types-data 3.2016.0521
+Using arel 7.1.4
+Installing bindex 0.5.0 with native extensions
+Using bundler 1.14.6
+Installing byebug 9.0.6 with native extensions
+Installing coffee-script-source 1.12.2
+Installing execjs 2.7.0
+Using method_source 0.8.2
+Using thor 0.19.4
+Installing ffi 1.9.18 with native extensions
+Installing multi_json 1.12.1
+Installing rb-fsevent 0.9.8
+Using mysql2 0.4.5
+Installing puma 3.8.2 with native extensions
+Installing sass 3.4.23
+Using tilt 2.0.7
+Installing turbolinks-source 5.0.0
+Using tzinfo 1.2.3
+Using nokogiri 1.7.1
 Using rack-test 0.6.3
-Using mail 2.6.3
-Installing binding_of_caller 0.7.2 with native extensions
+Using sprockets 3.7.1
+Using websocket-driver 0.6.5
+Using mime-types 3.1
 Installing coffee-script 2.4.1
-Installing uglifier 2.7.2
-Using sprockets 3.5.2
-Installing sdoc 0.4.1
-Using activesupport 4.2.5
+Installing uglifier 3.2.0
+Installing rb-inotify 0.9.8
+Installing turbolinks 5.0.1
+Using activesupport 5.0.2
 Using loofah 2.0.3
-Using rails-deprecated_sanitizer 1.0.3
-Using globalid 0.3.6
-Using activemodel 4.2.5
-Installing jbuilder 2.4.0
-Using rails-html-sanitizer 1.0.2
-Using rails-dom-testing 1.0.7
-Using activejob 4.2.5
-Using activerecord 4.2.5
-Using actionview 4.2.5
-Using actionpack 4.2.5
-Using actionmailer 4.2.5
-Using railties 4.2.5
-Using sprockets-rails 3.0.0
-Installing coffee-rails 4.1.1
-Installing jquery-rails 4.0.5
-Using rails 4.2.5
-Installing sass-rails 5.0.4
-Installing web-console 2.2.1
-Installing turbolinks 2.5.3
-Bundle complete! 12 Gemfile dependencies, 54 gems now installed.
+Using mail 2.6.4
+Installing listen 3.0.8
+Using rails-dom-testing 2.0.2
+Using globalid 0.4.0
+Using activemodel 5.0.2
+Installing jbuilder 2.6.3
+Installing spring 2.0.1
+Using rails-html-sanitizer 1.0.3
+Using activejob 5.0.2
+Using activerecord 5.0.2
+Installing spring-watcher-listen 2.0.1
+Using actionview 5.0.2
+Using actionpack 5.0.2
+Using actioncable 5.0.2
+Using actionmailer 5.0.2
+Using railties 5.0.2
+Using sprockets-rails 3.2.0
+Installing coffee-rails 4.2.1
+Installing jquery-rails 4.3.1
+Installing web-console 3.5.0
+Using rails 5.0.2
+Installing sass-rails 5.0.6
+Bundle complete! 15 Gemfile dependencies, 62 gems now installed.
 Use `bundle show [gemname]` to see where a bundled gem is installed.</pre>
 </div>
 </div>
@@ -1137,16 +1277,16 @@ Use `bundle show [gemname]` to see where a bundled gem is installed.</pre>
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>In <strong>Ubuntu</strong> verfügt der bei der Installation angelegte Benutzer über alle
-Privilegien, um das System zu administrieren, d. h. zu verwalten.</td>
+<td>Mit <a href="chruby.html">Chruby</a> besitzt <em>ein</em> einfacher Benutzer <em>RubyGems</em> nachzuinstallieren.<br>
+Die <em>RubyGems</em> werden im Verzeichnis <code>~/.gem/ruby/2.3.4</code> installiert.</td>
 </tr>
 <tr>
 <td><img src="./images/icons/callouts/2.png" alt="2"></td>
-<td><em>Using</em>: Bereits installierte RubyGems</td>
+<td><em>Installing</em>: Neu installierte RubyGems</td>
 </tr>
 <tr>
 <td><img src="./images/icons/callouts/3.png" alt="3"></td>
-<td><em>Installing</em>: Neu installierte RubyGems</td>
+<td><em>Using</em>: Bereits installierte RubyGems</td>
 </tr>
 </table>
 </div>
@@ -1157,15 +1297,15 @@ Privilegien, um das System zu administrieren, d. h. zu verwalten.</td>
 The Gemfile's dependencies are satisfied
 
 $ ls -l Gemfile*   <img src="./images/icons/callouts/1.png" alt="1">
--rw-rw-r-- 1 sid sid 1521 Jan  4 19:56 Gemfile
--rw-rw-r-- 1 sid sid 3908 Jan  4 20:05 Gemfile.lock</pre>
+-rw-rw-r-- 1 sid sid 1899 Apr 21 19:25 Gemfile
+-rw-rw-r-- 1 sid sid 4278 Apr 21 21:58 Gemfile.lock</pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Als Benutzer <em>sid</em>!</td>
+<td>Als Benutzer 'sid'!</td>
 </tr>
 </table>
 </div>
@@ -1221,7 +1361,7 @@ development:   <img src="./images/icons/callouts/1.png" alt="1">
 <td><img src="./images/icons/callouts/2.png" alt="2"></td>
 <td>Der hier vorgeschlagene Datenbank-Name wird von <em>Ruby on Rails</em>
 automatisch gebildet:<br>
-Name der Applikation <em>MyApp</em> und dem Zusatz <em>_development</em></td>
+Name der Applikation 'MyApp' und dem Zusatz '_development'</td>
 </tr>
 </table>
 </div>
@@ -1236,17 +1376,24 @@ Name der Applikation <em>MyApp</em> und dem Zusatz <em>_development</em></td>
 <div class="content">
 <pre>source 'https://rubygems.org'
 
+git_source(:github) do |repo_name|
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  "https://github.com/#{repo_name}.git"
+end
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.5'
+gem 'rails', '~&gt; 5.0.2'
 # Use mysql as the database for Active Record
-gem 'mysql2', '&gt;= 0.3.13', '&lt; 0.5'
+gem 'mysql2', '&gt;= 0.3.18', '&lt; 0.5'
+# Use Puma as the app server
+gem 'puma', '~&gt; 3.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~&gt; 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '&gt;= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~&gt; 4.1.0'
+gem 'coffee-rails', '~&gt; 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby   <img src="./images/icons/callouts/1.png" alt="1">
 [...]</pre>
@@ -1256,7 +1403,7 @@ gem 'therubyracer', platforms: :ruby   <img src="./images/icons/callouts/1.png" 
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Entfernen Sie das Kommentar-Zeichen am Zeilen-Anfang: <em>#</em>.</td>
+<td>Entfernen Sie das Kommentar-Zeichen am Zeilen-Anfang: '#'.</td>
 </tr>
 </table>
 </div>
@@ -1267,85 +1414,85 @@ Bundler can't satisfy your Gemfile's dependencies.
 Install missing gems with `bundle install`.
 
 $ bundle show
-Could not find gem 'therubyracer' in any of the gem sources listed in your Gemfile or available on this machine.</pre>
+Could not find gem 'therubyracer' in any of the gem sources listed in your Gemfile.</pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre>$ bundle install
-Fetching gem metadata from https://rubygems.org/...........
-Fetching version metadata from https://rubygems.org/...
-Fetching dependency metadata from https://rubygems.org/..
+The dependency tzinfo-data (&gt;= 0) will be unused by any of the platforms Bundler is installing for.
+Bundler is installing for ruby but the dependency is only for x86-mingw32, x86-mswin32, x64-mingw32, java.
+To add those platforms to the bundle, run `bundle lock --add-platform x86-mingw32 x86-mswin32 x64-mingw32 java`.
+Fetching gem metadata from https://rubygems.org/..........
+Fetching version metadata from https://rubygems.org/..
+Fetching dependency metadata from https://rubygems.org/.
 Resolving dependencies...
-Using rake 10.4.2
-Using i18n 0.7.0
-Using json 1.8.3
-Using minitest 5.8.3
-Using thread_safe 0.3.5
-Using builder 3.2.2
+Using rake 12.0.0
+Using concurrent-ruby 1.0.5
+Using i18n 0.8.1
+Using minitest 5.10.1
+Using thread_safe 0.3.6
+Using builder 3.2.3
 Using erubis 2.7.0
-Using mini_portile2 2.0.0
-Using rack 1.6.4
-Using mime-types 2.99
-Using arel 6.0.3
-Using debug_inspector 0.0.2
-Using bundler 1.11.2
-Using byebug 8.2.1
-Using coffee-script-source 1.10.0
-Using execjs 2.6.0
-Using thor 0.19.1
-Using concurrent-ruby 1.0.0
-Using multi_json 1.11.2
-
-
-Your user account isn't allowed to install to the system Rubygems.
-  You can cancel this installation and run:
-
-      bundle install --path vendor/bundle
-
-  to install the gems into ./vendor/bundle/, or you can enter your password
-  and install the bundled gems to Rubygems using sudo.
-
-  Password:
-Installing libv8 3.16.14.13   <img src="./images/icons/callouts/1.png" alt="1">
-Using mysql2 0.4.2
+Using mini_portile2 2.1.0
+Using rack 2.0.1
+Using nio4r 2.0.0
+Using websocket-extensions 0.1.2
+Using mime-types-data 3.2016.0521
+Using arel 7.1.4
+Using bindex 0.5.0
+Using bundler 1.14.6
+Using byebug 9.0.6
+Using coffee-script-source 1.12.2
+Using execjs 2.7.0
+Using method_source 0.8.2
+Using thor 0.19.4
+Using ffi 1.9.18
+Using multi_json 1.12.1
+Installing libv8 3.16.14.19 (x86_64-linux)   <img src="./images/icons/callouts/1.png" alt="1">
+Using rb-fsevent 0.9.8
+Using mysql2 0.4.5
+Using puma 3.8.2
 Installing ref 2.0.0   <img src="./images/icons/callouts/1.png" alt="1">
-Using sass 3.4.20
-Using tilt 2.0.1
-Using spring 1.6.1
-Using rdoc 4.2.1
-Using tzinfo 1.2.2
-Using nokogiri 1.6.7.1
+Using sass 3.4.23
+Using tilt 2.0.7
+Using turbolinks-source 5.0.0
+Using tzinfo 1.2.3
+Using nokogiri 1.7.1
 Using rack-test 0.6.3
-Using mail 2.6.3
-Using binding_of_caller 0.7.2
+Using sprockets 3.7.1
+Using websocket-driver 0.6.5
+Using mime-types 3.1
 Using coffee-script 2.4.1
-Using uglifier 2.7.2
-Using sprockets 3.5.2
-Installing therubyracer 0.12.2 with native extensions   <img src="./images/icons/callouts/1.png" alt="1">
-Using sdoc 0.4.1
-Using activesupport 4.2.5
+Using uglifier 3.2.0
+Using rb-inotify 0.9.8
+Installing therubyracer 0.12.3 with native extensions   <img src="./images/icons/callouts/1.png" alt="1">
+Using turbolinks 5.0.1
+Using activesupport 5.0.2
 Using loofah 2.0.3
-Using rails-deprecated_sanitizer 1.0.3
-Using globalid 0.3.6
-Using activemodel 4.2.5
-Using jbuilder 2.4.0
-Using rails-html-sanitizer 1.0.2
-Using rails-dom-testing 1.0.7
-Using activejob 4.2.5
-Using activerecord 4.2.5
-Using actionview 4.2.5
-Using actionpack 4.2.5
-Using actionmailer 4.2.5
-Using railties 4.2.5
-Using sprockets-rails 3.0.0
-Using coffee-rails 4.1.1
-Using jquery-rails 4.0.5
-Using rails 4.2.5
-Using sass-rails 5.0.4
-Using web-console 2.2.1
-Using turbolinks 2.5.3
-Bundle complete! 13 Gemfile dependencies, 57 gems now installed.
+Using mail 2.6.4
+Using listen 3.0.8
+Using rails-dom-testing 2.0.2
+Using globalid 0.4.0
+Using activemodel 5.0.2
+Using jbuilder 2.6.3
+Using spring 2.0.1
+Using rails-html-sanitizer 1.0.3
+Using activejob 5.0.2
+Using activerecord 5.0.2
+Using spring-watcher-listen 2.0.1
+Using actionview 5.0.2
+Using actionpack 5.0.2
+Using actioncable 5.0.2
+Using actionmailer 5.0.2
+Using railties 5.0.2
+Using sprockets-rails 3.2.0
+Using coffee-rails 4.2.1
+Using jquery-rails 4.3.1
+Using web-console 3.5.0
+Using rails 5.0.2
+Using sass-rails 5.0.6
+Bundle complete! 16 Gemfile dependencies, 65 gems now installed.
 Use `bundle show [gemname]` to see where a bundled gem is installed.</pre>
 </div>
 </div>
@@ -1363,12 +1510,12 @@ Use `bundle show [gemname]` to see where a bundled gem is installed.</pre>
 The Gemfile's dependencies are satisfied
 
 $ ls -l Gemfile*
--rw-rw-r-- 1 sid sid 1519 Jan  4 21:11 Gemfile
--rw-rw-r-- 1 sid sid 4025 Jan  4 21:14 Gemfile.lock</pre>
+-rw-rw-r-- 1 sid sid 1897 Apr 21 22:11 Gemfile
+-rw-rw-r-- 1 sid sid 4396 Apr 21 22:13 Gemfile.lock</pre>
 </div>
 </div>
 <div class="listingblock">
-<div class="title">Möglichkeit 2: Das Ubuntu-Paket <em>nodejs</em> installieren</div>
+<div class="title">Möglichkeit 2: Das Ubuntu-Paket 'nodejs' installieren</div>
 <div class="content">
 <pre>$ sudo apt-get -s install nodejs       <img src="./images/icons/callouts/1.png" alt="1">
 Paketlisten werden gelesen... Fertig
@@ -1379,12 +1526,7 @@ Die folgenden zusätzlichen Pakete werden installiert:
 Die folgenden NEUEN Pakete werden installiert:
   libc-ares2 libv8-3.14.5 nodejs
 0 aktualisiert, 3 neu installiert, 0 zu entfernen und 1 nicht aktualisiert.
-Inst libc-ares2 (1.10.0-2 Ubuntu:14.04/trusty [amd64])
-Inst libv8-3.14.5 (3.14.5.8-5ubuntu2 Ubuntu:14.04/trusty [amd64])
-Inst nodejs (0.10.25~dfsg2-2ubuntu1 Ubuntu:14.04/trusty [amd64])
-Conf libc-ares2 (1.10.0-2 Ubuntu:14.04/trusty [amd64])
-Conf libv8-3.14.5 (3.14.5.8-5ubuntu2 Ubuntu:14.04/trusty [amd64])
-Conf nodejs (0.10.25~dfsg2-2ubuntu1 Ubuntu:14.04/trusty [amd64])</pre>
+...</pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -1399,20 +1541,20 @@ Conf nodejs (0.10.25~dfsg2-2ubuntu1 Ubuntu:14.04/trusty [amd64])</pre>
 <div class="sect2">
 <h3 id="_aufruf_der_webanwendung_im_browser">Aufruf der Webanwendung im Browser</h3>
 <div class="paragraph">
-<p>WEBrick wird in <em>Ruby on Rails</em> default-mäßig als Testserver für die
-Entwicklungs-Umgebung verwendet.</p>
+<p><strong>Puma</strong> wird in <em>Ruby on Rails</em> default-mäßig als HTTP-Server verwendet.</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre>$ rails s
-=&gt; Booting WEBrick
-=&gt; Rails 4.2.1 application starting in development on http://localhost:3000   <img src="./images/icons/callouts/1.png" alt="1">
+=&gt; Booting Puma
+=&gt; Rails 5.0.2 application starting in development on http://localhost:3000   <img src="./images/icons/callouts/1.png" alt="1">
 =&gt; Run `rails server -h` for more startup options
-=&gt; Ctrl-C to shutdown server
-[2016-01-04 21:17:22] INFO  WEBrick 1.3.1
-[2016-01-04 21:17:22] INFO  ruby 2.2.4 (2015-12-16) [x86_64-linux]   <img src="./images/icons/callouts/2.png" alt="2">
-[2016-01-04 21:17:22] INFO  WEBrick::HTTPServer#start: pid=25444 port=3000
-...</pre>
+Puma starting in single mode...
+* Version 3.8.2 (ruby 2.3.4-p301), codename: Sassy Salamander   <img src="./images/icons/callouts/2.png" alt="2">
+* Min threads: 5, max threads: 5
+* Environment: development
+* Listening on tcp://localhost:3000
+Use Ctrl-C to stop</pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -1423,14 +1565,13 @@ Entwicklungs-Umgebung verwendet.</p>
 </tr>
 <tr>
 <td><img src="./images/icons/callouts/2.png" alt="2"></td>
-<td>Ruby Version 2.2.4</td>
+<td>Ruby Version 2.3.4</td>
 </tr>
 </table>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>BROWSER&gt; http://localhost:3000/   <img src="./images/icons/callouts/1.png" alt="1">
-         About your application’s environment   <img src="./images/icons/callouts/2.png" alt="2"></pre>
+<pre>BROWSER&gt; http://localhost:3000/   <img src="./images/icons/callouts/1.png" alt="1"></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -1439,45 +1580,28 @@ Entwicklungs-Umgebung verwendet.</p>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
 <td>Grundsätzlicher Test der Verbindung!</td>
 </tr>
-<tr>
-<td><img src="./images/icons/callouts/2.png" alt="2"></td>
-<td>Link zu weiteren Informationen&#8230;&#8203;</td>
-</tr>
-</table>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>BROWSER&gt; http://localhost:3000/rails/info/properties/   <img src="./images/icons/callouts/1.png" alt="1"></pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Informationen zur ausgeführten Applikation <em>MyApp</em>:<br>
-(Ruby-Version, RubyGems, Verzeichnis, Umgebung, Datenbank, Datenbank-Schema)</td>
-</tr>
 </table>
 </div>
 <div class="paragraph">
-<p>oder</p>
+<p><span class="image"><img src="./images/ruby/ruby_on_rails50.png" alt="Ruby on Rails 5.0"></span></p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ rake about
+<pre>$ rails about
 About your application's environment
-Rails version             4.2.5
-Ruby version              2.2.4-p230 (x86_64-linux)   <img src="./images/icons/callouts/1.png" alt="1">
-RubyGems version          2.5.1
-Rack version              1.6.4
+Rails version             5.0.2
+Ruby version              2.3.4-p301 (x86_64-linux)   <img src="./images/icons/callouts/1.png" alt="1">
+RubyGems version          2.5.2
+Rack version              2.0.1
 JavaScript Runtime        therubyracer (V8)
 Middleware                Rack::Sendfile,
                           ActionDispatch::Static,
-                          Rack::Lock,
-                          #&lt;ActiveSupport::Cache::Strategy::LocalCache::Middleware:0x007f88a6d868b0&gt;,
+                          ActionDispatch::Executor,
+                          ActiveSupport::Cache::Strategy::LocalCache::Middleware,
                           Rack::Runtime,
                           Rack::MethodOverride,
                           ActionDispatch::RequestId,
+                          Sprockets::Rails::QuietAssets,
                           Rails::Rack::Logger,
                           ActionDispatch::ShowExceptions,
                           WebConsole::Middleware,
@@ -1486,12 +1610,9 @@ Middleware                Rack::Sendfile,
                           ActionDispatch::Reloader,
                           ActionDispatch::Callbacks,
                           ActiveRecord::Migration::CheckPending,
-                          ActiveRecord::ConnectionAdapters::ConnectionManagement,
-                          ActiveRecord::QueryCache,
                           ActionDispatch::Cookies,
                           ActionDispatch::Session::CookieStore,
                           ActionDispatch::Flash,
-                          ActionDispatch::ParamsParser,
                           Rack::Head,
                           Rack::ConditionalGet,
                           Rack::ETag
@@ -1505,7 +1626,7 @@ Database schema version   0</pre>
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Ruby Version 2.2.4</td>
+<td>Ruby Version 2.3.4</td>
 </tr>
 </table>
 </div>
@@ -1524,84 +1645,97 @@ Database schema version   0</pre>
 
 *** LOCAL GEMS ***
 
-actionmailer (4.2.5)
-actionpack (4.2.5)
-actionview (4.2.5)
-activejob (4.2.5)
-activemodel (4.2.5)
-activerecord (4.2.5)
-activesupport (4.2.5)
-arel (6.0.3)
-asciidoctor (1.5.3)
-bigdecimal (1.2.7, 1.2.6)
-binding_of_caller (0.7.2)
-builder (3.2.2)
-bundler (1.11.2)
-byebug (8.2.1)
-coderay (1.1.0)
-coffee-rails (4.1.1)
+actioncable (5.0.2)
+actionmailer (5.0.2)
+actionpack (5.0.2)
+actionview (5.0.2)
+activejob (5.0.2)
+activemodel (5.0.2)
+activerecord (5.0.2)
+activesupport (5.0.2)
+arel (7.1.4)
+asciidoctor (1.5.5)
+asciidoctor-revealjs (1.0.2)
+bigdecimal (1.2.8)
+bindex (0.5.0)
+builder (3.2.3)
+bundler (1.14.6)
+byebug (9.0.6)
+coderay (1.1.1)
+coffee-rails (4.2.1)
 coffee-script (2.4.1)
-coffee-script-source (1.10.0)
-concurrent-ruby (1.0.0)
-debug_inspector (0.0.2)
+coffee-script-source (1.12.2)
+concurrent-ruby (1.0.5)
+did_you_mean (1.0.0)
 erubis (2.7.0)
-execjs (2.6.0)
-globalid (0.3.6)
-i18n (0.7.0)
-io-console (0.4.5, 0.4.3)
-jbuilder (2.4.0)
-jquery-rails (4.0.5)
-json (1.8.3, 1.8.1)
-libv8 (3.16.14.13 x86_64-linux)
+execjs (2.7.0)
+ffi (1.9.18)
+globalid (0.4.0)
+i18n (0.8.1)
+io-console (0.4.5)
+jbuilder (2.6.3)
+jquery-rails (4.3.1)
+json (1.8.3)
+libv8 (3.16.14.19 x86_64-linux)
+listen (3.0.8)
 loofah (2.0.3)
-mail (2.6.3)
+mail (2.6.4)
 method_source (0.8.2)
-mime-types (2.99)
-mini_portile2 (2.0.0)
-minitest (5.8.3, 5.4.3)
-multi_json (1.11.2)
-mysql2 (0.4.2)
-nokogiri (1.6.7.1)
-power_assert (0.2.6, 0.2.2)
-pry (0.10.3)
-psych (2.0.17, 2.0.8)
-rack (1.6.4)
+mime-types (3.1)
+mime-types-data (3.2016.0521)
+mini_portile2 (2.1.0)
+minitest (5.10.1, 5.8.5)
+multi_json (1.12.1)
+mysql2 (0.4.5)
+net-telnet (0.1.1)
+nio4r (2.0.0)
+nokogiri (1.7.1)
+power_assert (0.2.6)
+pry (0.10.4)
+psych (2.1.0)
+puma (3.8.2)
+rack (2.0.1, 1.6.5)
 rack-protection (1.5.3)
 rack-test (0.6.3)
-rails (4.2.5)
-rails-deprecated_sanitizer (1.0.3)
-rails-dom-testing (1.0.7)
-rails-html-sanitizer (1.0.2)
-railties (4.2.5)
-rake (10.4.2)
-rdoc (4.2.1, 4.2.0)
+rails (5.0.2)
+rails-dom-testing (2.0.2)
+rails-html-sanitizer (1.0.3)
+railties (5.0.2)
+rake (12.0.0, 10.4.2)
+rb-fsevent (0.9.8)
+rb-inotify (0.9.8)
+rdoc (4.2.1)
 ref (2.0.0)
-rubygems-update (2.5.1)
-sass (3.4.20)
-sass-rails (5.0.4)
-sdoc (0.4.1)
-sinatra (1.4.6)
+sass (3.4.23)
+sass-rails (5.0.6)
+sinatra (1.4.8)
+slim (3.0.7)
 slop (3.6.0)
-spring (1.6.1)
-sprockets (3.5.2)
-sprockets-rails (3.0.0)
-sqlite3 (1.3.11)
-test-unit (3.1.5, 3.0.8)
-therubyracer (0.12.2)
-thor (0.19.1)
-thread_safe (0.3.5)
-tilt (2.0.1)
-turbolinks (2.5.3)
-tzinfo (1.2.2)
-uglifier (2.7.2)
-web-console (2.2.1)</pre>
+spring (2.0.1)
+spring-watcher-listen (2.0.1)
+sprockets (3.7.1)
+sprockets-rails (3.2.0)
+sqlite3 (1.3.13)
+temple (0.7.7)
+test-unit (3.1.5)
+therubyracer (0.12.3)
+thor (0.19.4)
+thread_safe (0.3.6)
+tilt (2.0.7)
+turbolinks (5.0.1)
+turbolinks-source (5.0.0)
+tzinfo (1.2.3)
+uglifier (3.2.0)
+web-console (3.5.0)
+websocket-driver (0.6.5)
+websocket-extensions (0.1.2)</pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Anzahl der installierten RubyGems: <em>71</em></td>
+<td>Anzahl der installierten RubyGems: <em>84</em></td>
 </tr>
 </table>
 </div>
@@ -1619,7 +1753,7 @@ web-console (2.2.1)</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-04-21 16:53:26 MESZ
+Last updated 2017-05-07 12:26:33 MESZ
 </div>
 </div>
 </body>

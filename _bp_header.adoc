@@ -1,0 +1,48 @@
+:linkcss:
+:imagesdir:  ./images
+:icons:
+:stylesdir:  ./stylesheets
+:stylesheet:
+
+:source-highlighter: coderay
+
+:author:          karl-heinz köther
+:authorinitials:  khk
+:datum:           April 2017
+:version:         5.0.0
+
+:top-url:         #top[&#8679;]
+:middot:          &middot;
+
+:bsd-url:                   https://en.wikipedia.org/wiki/2-clause_BSD
+:creativecommons-url:       http://creativecommons.org/licenses/by/4.0/deed.de
+:epl-url:                   http://www.eclipse.org/legal/epl-v10.html
+:gpl-url:                   https://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
+:lgpl-url:                  https://www.gnu.org/licenses/lgpl.html
+:mit-url:                   http://opensource.org/licenses/mit-license.php
+:ubuntu-url:                http://www.ubuntu.com/
+
+:index-url:                 link:index.html
+
+:asciidoc-url:              link:asciidoc.html
+:asciidoctor-url:           link:asciidoctor.html
+:asciidoctor_1st-url:       link:asciidoctor_1st.html
+:asciidoctor_revealjs-url:  link:asciidoctor_revealjs.html
+
+:chruby-url:                link:chruby.html
+:git-url:                   link:git.html
+:jdk-url:                   link:jdk.html
+
+:jruby-url:                 link:jruby.html
+:jruby_on_rails42-url:      link:jruby_on_rails42.html
+:jruby9k-url:               link:jruby9k.html
+:jruby9k_on_rails50-url:    link:jruby9k_on_rails50.html
+
+:netbeans8-url:             link:netbeans8.html
+:netbeans8_1st-url:         link:netbeans8_1st.html
+
+:ruby22-url:                link:ruby22.html
+:ruby_on_rails42-url:       link:ruby_on_rails42.html
+:ruby23-url:                link:ruby23.html
+:ruby24-url:                link:ruby24.html
+:ruby_on_rails50-url:       link:ruby_on_rails50.html
