@@ -27,8 +27,10 @@ Das RubyGem _activerecord-jdbcmysql-adapter_ unterstützt
 zu diesem Zeitpunkt ausschließlich
 die Versionen _Ruby on Rails 3.x/4.x_.
 
-Aktuell wird die Version _5.0.pre1_ entwickelt,
-wann sie denn verfügbar ist -- ist unbekannt.
+Aktuell wird die Version _5.0.pre1_ von
+https://rubygems.org/gems/activerecord-jdbcmysql-adapter[activerecord-jdbcmysql-adapter]
+auf https://rubygems.org[RubyGems.org] zur Verfügung gestellt.
+Wann sie denn verfügbar ist -- ist unbekannt.
 ====
 
 Auf der Webseite -> https://github.com/jruby/activerecord-jdbc-adapter[jruby/activerecord-jdbc-adapter] heißt es
