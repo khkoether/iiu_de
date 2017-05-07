@@ -125,4 +125,12 @@ und der Quellcode zum Formatieren und Anzeigen des Inhaltes steht unter der {mit
 
 
 
-include::_bp_footer.adoc[]
+
+'''
+
++++
+<a href="#top" title="zum Seitenanfang">
+  <span>&#8679;</span>
+</a>
++++
+[small]#&middot; Document generated with Asciidoctor {asciidoctor-version}.#
