@@ -21,7 +21,7 @@ do
   asciidoctor -a toc ${seite}.adoc
 done
 
-for seite in ruby23 ruby24 ruby_on_rails42 ruby_on_rails50
+for seite in ruby23 ruby24 ruby_on_rails50
 do
   echo "${seite}.html"
   asciidoctor -a toc ${seite}.adoc
