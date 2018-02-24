@@ -21,13 +21,13 @@ do
   asciidoctor -a toc ${seite}.adoc
 done
 
-for seite in ruby23 ruby24 ruby_on_rails50
+for seite in ruby23 ruby24 ruby25 ruby_on_rails51
 do
   echo "${seite}.html"
   asciidoctor -a toc ${seite}.adoc
 done
 
-for seite in jdk jruby9k jruby9k_on_rails50
+for seite in jdk jruby9k jruby9k_on_rails51
 do
   echo "${seite}.html"
   asciidoctor -a toc ${seite}.adoc

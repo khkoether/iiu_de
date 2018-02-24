@@ -1,5 +1,5 @@
 
-= IiU -- Asciidoctor reveal.js
+= IiU -- Asciidoctor Reveal.JS
 Installation in Ubuntu — khkoether[at]kahweb[dot]de
 
 include::_bp_header.adoc[]
@@ -10,7 +10,7 @@ include::_bp_header.adoc[]
 :asciidoctor-github-url:        https://github.com/asciidoctor/asciidoctor
 :asciidoctor-license-url:       https://github.com/asciidoctor/asciidoctor/blob/master/LICENSE.adoc
 
-Version {version} {middot} {datum}
+Version 5.0.0 {middot} April 2017
 
 
 == Abstract

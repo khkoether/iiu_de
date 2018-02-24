@@ -55,13 +55,14 @@ und mit _Asciidoctor {asciidoctor-version}_ erstellt worden.
 * Asciidoctor: Erste Schritte &hellip;
 * Asciidoctor reveal.js
 * chruby 0.3.9
-* Git 2.12.2
+* Git 2.16.2
 * Ruby MRI 2.3
 * Ruby MRI 2.4
-* Ruby on Rails 5.0
+* Ruby MRI 2.5
+* Ruby on Rails 5.1
 * OpenJDK 8, Oracle JDK 8
 * JRuby 9k
-* JRuby 9k on Rails 5.0
+* JRuby 9k on Rails 5.1
 
 [CAUTION]
 ====
@@ -87,8 +88,8 @@ und mit _Asciidoctor {asciidoctor-version}_ erstellt worden.
 ./images/jruby      <-- Image des RubyGems Documentation Index
 
 NAME = { index asciidoctor asciidoctor_1st asciidoctor-revealjs
-               chruby git ruby23 ruby24 ruby_on_rails50
-               jdk jruby9k jruby9k_on_rails50 }
+               chruby git ruby23 ruby24 ruby25 ruby_on_rails51
+               jdk jruby9k jruby9k_on_rails51 }
 ....
 
 ----

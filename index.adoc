@@ -64,13 +64,14 @@ und mit _Asciidoctor {asciidoctor-version}_ erstellt worden.
 * {asciidoctor_1st-url}[Asciidoctor: Erste Schritte &hellip;]
 * {asciidoctor_revealjs-url}[Asciidoctor reveal.js]
 * {chruby-url}[chruby 0.3.9]
-* {git-url}[Git 2.12.2]
+* {git-url}[Git 2.16.2]
 * {ruby23-url}[Ruby MRI 2.3]
 * {ruby24-url}[Ruby MRI 2.4]
-* {ruby_on_rails50-url}[Ruby on Rails 5.0]
+* {ruby25-url}[Ruby MRI 2.5]
+* {ruby_on_rails51-url}[Ruby on Rails 5.1]
 * {jdk-url}[OpenJDK 8, Oracle JDK 8]
 * {jruby9k-url}[JRuby 9k]
-* {jruby9k_on_rails50-url}[JRuby 9k on Rails 5.0]
+* {jruby9k_on_rails51-url}[JRuby 9k on Rails 5.1]
 
 [CAUTION]
 ====
@@ -96,8 +97,8 @@ und mit _Asciidoctor {asciidoctor-version}_ erstellt worden.
 ./images/jruby      <-- Image des RubyGems Documentation Index
 
 NAME = { index asciidoctor asciidoctor_1st asciidoctor-revealjs
-               chruby git ruby23 ruby24 ruby_on_rails50
-               jdk jruby9k jruby9k_on_rails50 }
+               chruby git ruby23 ruby24 ruby25 ruby_on_rails51
+               jdk jruby9k jruby9k_on_rails51 }
 ....
 
 ----

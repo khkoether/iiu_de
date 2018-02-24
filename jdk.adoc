@@ -6,7 +6,7 @@ include::_bp_header.adoc[]
 
 :java-home-url:            http://www.oracle.com/technetwork/java/javase/downloads/index.html
 
-Version {version} {middot} {datum}
+Version 5.0.0 {middot} April 2017
 
 
 == Abstract

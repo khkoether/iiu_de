@@ -451,7 +451,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Version 5.0.0 &middot; April 2017</p>
+<p>Version 5.1.0 &middot; Februar 2018</p>
 </div>
 </div>
 </div>
@@ -539,9 +539,9 @@ ii  ruby2.3            2.3.1-2~16.04  amd64   Interpreter of object-oriented scr
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://www.ruby-lang.org/de/downloads/">Ruby 2.4.1</a><br>
-<code>ruby-2.4.1.tar.gz</code>  (ca. 14M)<br>
-2017-03-22 (Release date)</p>
+<p><a href="https://www.ruby-lang.org/de/downloads/">Ruby 2.4.3</a><br>
+<code>ruby-2.4.3.tar.gz</code>  (ca. 14M)<br>
+2017-12-14 (Release date)</p>
 </li>
 </ul>
 </div>
@@ -610,8 +610,8 @@ Eine bereits vorhandene Ruby-Installation wird überschrieben.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ tar xvzf ruby-2.4.1.tar.gz
-$ cd ruby-2.4.1</pre>
+<pre>$ tar xvzf ruby-2.4.3.tar.gz
+$ cd ruby-2.4.3</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -619,7 +619,7 @@ $ cd ruby-2.4.1</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ ./configure --prefix=/opt/rubies/ruby-2.4.1 | tee ../log.ruby_configure
+<pre>$ ./configure --prefix=/opt/rubies/ruby-2.4.3 | tee ../log.ruby_configure
 checking for ruby... /usr/bin/ruby
 config.guess already exists
 config.sub already exists
@@ -634,9 +634,9 @@ config.status: creating GNUmakefile
 config.status: creating Makefile
 config.status: creating ruby-2.4.pc
 ---
-Configuration summary for ruby version 2.4.1
+Configuration summary for ruby version 2.4.3
 
-   * Installation prefix: /opt/rubies/ruby-2.4.1
+   * Installation prefix: /opt/rubies/ruby-2.4.3
    * exec prefix:         ${prefix}
    * arch:                x86_64-linux
    * site arch:           ${arch}
@@ -684,47 +684,26 @@ Configuration summary for ruby version 2.4.1
 CC = gcc
 LD = ld
 LDSHARED = gcc -shared
-
-LDSHARED = gcc -shared
-	CFLAGS = -O3 -fno-fast-math -ggdb3
-           -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long
-           -Wno-missing-field-initializers -Wno-tautological-compare
-           -Wno-parentheses-equality -Wno-constant-logical-operand -Wno-self-assign
-           -Wunused-variable -Wimplicit-int -Wpointer-arith -Wwrite-strings
-           -Wdeclaration-after-statement -Wimplicit-function-declaration
-           -Wdeprecated-declarations -Wno-packed-bitfield-compat
-           -Wsuggest-attribute=noreturn -Wsuggest-attribute=format
-           -Wno-maybe-uninitialized -std=gnu99
-	XCFLAGS = -D_FORTIFY_SOURCE=2 -fstack-protector -fno-strict-overflow
-            -fvisibility=hidden -fexcess-precision=standard -DRUBY_EXPORT -fPIE
-	CPPFLAGS =   -I. -I.ext/include/x86_64-linux -I./include -I. -I./enc/unicode/9.0.0
-	DLDFLAGS = -Wl,--compress-debug-sections=zlib -fstack-protector -pie
-	SOLIBS = -lgmp
-gcc (Ubuntu 5.4.0-6ubuntu1~16.04.4) 5.4.0 20160609
-Copyright (C) 2015 Free Software Foundation, Inc.
-This is free software; see the source for copying conditions.  There is NO
-warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-
 ...
-99% [887/889]  vm_method.c
-99% [888/889]  vm_trace.c
-100% [889/889]  vsnprintf.c
+99% [888/890]  vm_method.c
+99% [889/890]  vm_trace.c
+100% [890/890]  vsnprintf.c
 
-Generating RI format into /opt/XenialXerus/Ruby24/ruby-2.4.1/.ext/rdoc...
+Generating RI format into /opt/XenialXerus/Ruby24/ruby-2.4.3/.ext/rdoc...
 
 
- Files:        889
+ Files:        890
 
  Classes:     1311 ( 548 undocumented)
- Modules:      274 ( 110 undocumented)
- Constants:   2140 ( 558 undocumented)
+ Modules:      275 ( 110 undocumented)
+ Constants:   2143 ( 561 undocumented)
  Attributes:  1053 ( 247 undocumented)
- Methods:     9862 (2101 undocumented)
+ Methods:     9832 (2101 undocumented)
 
- Total:      14640 (3564 undocumented)
-  75.66% documented
+ Total:      14614 (3567 undocumented)
+  75.59% documented
 
- Elapsed: 74.1s</pre>
+ Elapsed: 77.6s</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -736,18 +715,14 @@ Generating RI format into /opt/XenialXerus/Ruby24/ruby-2.4.1/.ext/rdoc...
 CC = gcc
 LD = ld
 LDSHARED = gcc -shared
-CFLAGS = ...
 ...
-sample/test.rb:gc ....OK 4
-
-test succeeded
 PASS all 1010 tests
 exec ./miniruby -I./lib -I. -I.ext/common  ./tool/runruby.rb
      --extout=.ext  -- --disable-gems "./bootstraptest/runner.rb"
      --ruby="ruby --disable-gems"   ./KNOWNBUGS.rb
-2017-04-17 19:45:55 +0200
-Driver is ruby 2.4.1p111 (2017-03-22 revision 58053) [x86_64-linux]
-Target is ruby 2.4.1p111 (2017-03-22 revision 58053) [x86_64-linux]
+2018-02-23 13:08:19 +0100
+Driver is ruby 2.4.3p205 (2017-12-14 revision 61247) [x86_64-linux]
+Target is ruby 2.4.3p205 (2017-12-14 revision 61247) [x86_64-linux]
 
 KNOWNBUGS.rb  PASS 0   <img src="./images/icons/callouts/1.png" alt="1">
 No tests, no problem
@@ -807,16 +782,15 @@ Entwickler-Bibliotheken (<code>libNAME-dev</code>) zusätzlich installiert werde
 CC = gcc
 LD = ld
 LDSHARED = gcc -shared
-CFLAGS = ...
 ...
-installing default gems:      /opt/rubies/ruby-2.4.1/lib/ruby/gems/2.4.0 (build_info, cache, doc, extensions, gems, specifications)
+installing default gems:      /opt/rubies/ruby-2.4.3/lib/ruby/gems/2.4.0 (build_info, cache, doc, extensions, gems, specifications)
                               bigdecimal 1.3.0
                               io-console 0.4.6
-                              json 2.0.2
-                              openssl 2.0.3
+                              json 2.0.4
+                              openssl 2.0.5
                               psych 2.2.2
                               rdoc 5.0.0
-installing bundle gems:       /opt/rubies/ruby-2.4.1/lib/ruby/gems/2.4.0 (build_info, cache, doc, extensions, gems, specifications)
+installing bundle gems:       /opt/rubies/ruby-2.4.3/lib/ruby/gems/2.4.0 (build_info, cache, doc, extensions, gems, specifications)
                               xmlrpc 0.2.1
                               rake 12.0.0
                               net-telnet 0.1.1
@@ -824,8 +798,8 @@ installing bundle gems:       /opt/rubies/ruby-2.4.1/lib/ruby/gems/2.4.0 (build_
                               did_you_mean 1.1.0
                               power_assert 0.4.1
                               minitest 5.10.1
-installing rdoc:              /opt/rubies/ruby-2.4.1/share/ri/2.4.0/system
-installing capi-docs:         /opt/rubies/ruby-2.4.1/share/doc/ruby</pre>
+installing rdoc:              /opt/rubies/ruby-2.4.3/share/ri/2.4.0/system
+installing capi-docs:         /opt/rubies/ruby-2.4.3/share/doc/ruby</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -833,24 +807,24 @@ installing capi-docs:         /opt/rubies/ruby-2.4.1/share/doc/ruby</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ cd /opt/rubies/ruby-2.4.1
+<pre>$ cd /opt/rubies/ruby-2.4.3
 $ ls -l
-drwxr-xr-x 2 sid sid 4096 Apr 17 20:00 bin
-drwxr-xr-x 3 sid sid 4096 Apr 17 20:00 include
-drwxr-xr-x 4 sid sid 4096 Apr 17 20:00 lib
-drwxr-xr-x 5 sid sid 4096 Apr 17 20:00 share</pre>
+drwxr-xr-x 2 sid sid 4096 Feb 23 13:28 bin
+drwxr-xr-x 3 sid sid 4096 Feb 23 13:28 include
+drwxr-xr-x 4 sid sid 4096 Feb 23 13:28 lib
+drwxr-xr-x 5 sid sid 4096 Feb 23 13:28 share</pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre>$ ls -l bin
--rwxr-xr-x 1 sid sid     4856 Apr 17 20:00 erb
--rwxr-xr-x 1 sid sid      560 Apr 17 20:00 gem
--rwxr-xr-x 1 sid sid      204 Apr 17 20:00 irb
--rwxr-xr-x 1 sid sid      490 Apr 17 20:00 rake
--rwxr-xr-x 1 sid sid      952 Apr 17 20:00 rdoc
--rwxr-xr-x 1 sid sid      202 Apr 17 20:00 ri
--rwxr-xr-x 1 sid sid 16333128 Apr 17 19:40 ruby</pre>
+-rwxr-xr-x 1 sid sid     4856 Feb 23 13:28 erb
+-rwxr-xr-x 1 sid sid      560 Feb 23 13:28 gem
+-rwxr-xr-x 1 sid sid      204 Feb 23 13:28 irb
+-rwxr-xr-x 1 sid sid      601 Feb 23 13:28 rake
+-rwxr-xr-x 1 sid sid      952 Feb 23 13:28 rdoc
+-rwxr-xr-x 1 sid sid      202 Feb 23 13:28 ri
+-rwxr-xr-x 1 sid sid 16421864 Feb 23 13:05 ruby</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -861,10 +835,10 @@ drwxr-xr-x 5 sid sid 4096 Apr 17 20:00 share</pre>
 <pre>$ source /usr/local/share/chruby/chruby.sh
 
 $ chruby
- * ruby-2.3.4         <img src="./images/icons/callouts/1.png" alt="1">
-   ruby-2.4.1
+ * ruby-2.3.6         <img src="./images/icons/callouts/1.png" alt="1">
+   ruby-2.4.3
 
-$ chruby ruby-2.4.1   <img src="./images/icons/callouts/2.png" alt="2"></pre>
+$ chruby ruby-2.4.3   <img src="./images/icons/callouts/2.png" alt="2"></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -882,16 +856,16 @@ $ chruby ruby-2.4.1   <img src="./images/icons/callouts/2.png" alt="2"></pre>
 <div class="listingblock">
 <div class="content">
 <pre>$ ruby -v
-ruby 2.4.1p111 (2017-03-22 revision 58053) [x86_64-linux]</pre>
+ruby 2.4.3p205 (2017-12-14 revision 61247) [x86_64-linux]</pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre>$ which gem
-/opt/rubies/ruby-2.4.1/bin/gem
+/opt/rubies/ruby-2.4.3/bin/gem
 
 $ gem -v
-2.6.11
+2.6.14
 
 $ gem list
 
@@ -900,10 +874,10 @@ $ gem list
 bigdecimal (default: 1.3.0)
 did_you_mean (1.1.0)
 io-console (default: 0.4.6)
-json (default: 2.0.2)
+json (default: 2.0.4)
 minitest (5.10.1)
 net-telnet (0.1.1)
-openssl (default: 2.0.3)
+openssl (default: 2.0.5)
 power_assert (0.4.1)
 psych (default: 2.2.2)
 rake (12.0.0)
@@ -915,7 +889,7 @@ xmlrpc (0.2.1)</pre>
 <div class="listingblock">
 <div class="content">
 <pre>$ which rake
-/opt/rubies/ruby-2.4.1/bin/rake
+/opt/rubies/ruby-2.4.3/bin/rake
 
 $ rake -V
 rake, version 12.0.0</pre>
@@ -931,18 +905,18 @@ Happy new Ruby</pre>
 </div>
 </div>
 <div class="listingblock">
-<div class="title">Ruby 2.4.1: <mark>irb</mark></div>
+<div class="title">Ruby 2.4.3: <mark>irb</mark></div>
 <div class="content">
 <pre>$ which irb
-/opt/rubies/ruby-2.4.1/bin/irb
+/opt/rubies/ruby-2.4.3/bin/irb
 
 $ irb
 irb(main):001:0&gt; RUBY_VERSION
-=&gt; "2.4.1"
+=&gt; "2.4.3"
 irb(main):002:0&gt; RUBY_PATCHLEVEL
-=&gt; 111
+=&gt; 205
 irb(main):003:0&gt; Time.now.to_s
-=&gt; "2017-04-17 20:07:17 +0200"
+=&gt; "2018-02-23 13:33:18 +0100"
 irb(main):004:0&gt; Time.now.sunday?
 =&gt; false
 irb(main):005:0&gt; exit</pre>
@@ -997,18 +971,10 @@ zu verwalten oder auch wieder zu entfernen.<br>
 <div class="listingblock">
 <div class="content">
 <pre>$ gem install asciidoctor coderay        <img src="./images/icons/callouts/1.png" alt="1"> <img src="./images/icons/callouts/2.png" alt="2">
-Fetching: asciidoctor-1.5.5.gem (100%)
-Successfully installed asciidoctor-1.5.5
-Parsing documentation for asciidoctor-1.5.5
-Installing ri documentation for asciidoctor-1.5.5
-Done installing documentation for asciidoctor after 4 seconds
-Fetching: coderay-1.1.1.gem (100%)
-Successfully installed coderay-1.1.1
-invalid options: -SNw2
-(invalid options are ignored)
-Parsing documentation for coderay-1.1.1
-Installing ri documentation for coderay-1.1.1
-Done installing documentation for coderay after 2 seconds
+Fetching: asciidoctor-1.5.6.1.gem (100%)
+Successfully installed asciidoctor-1.5.6.1
+Fetching: coderay-1.1.2.gem (100%)
+Successfully installed coderay-1.1.2
 2 gems installed</pre>
 </div>
 </div>
@@ -1033,28 +999,11 @@ Comes with RedCloth integration and LOC counter.</td>
 <div class="listingblock">
 <div class="content">
 <pre>$ gem install asciidoctor-revealjs   <img src="./images/icons/callouts/1.png" alt="1">
-Fetching: temple-0.7.7.gem (100%)
-Successfully installed temple-0.7.7
-Fetching: tilt-2.0.7.gem (100%)
-Successfully installed tilt-2.0.7
-Fetching: slim-3.0.7.gem (100%)
-Successfully installed slim-3.0.7
 Fetching: thread_safe-0.3.6.gem (100%)
 Successfully installed thread_safe-0.3.6
-Fetching: asciidoctor-revealjs-1.0.2.gem (100%)
-Successfully installed asciidoctor-revealjs-1.0.2
-Parsing documentation for temple-0.7.7
-Installing ri documentation for temple-0.7.7
-Parsing documentation for tilt-2.0.7
-Installing ri documentation for tilt-2.0.7
-Parsing documentation for slim-3.0.7
-Installing ri documentation for slim-3.0.7
-Parsing documentation for thread_safe-0.3.6
-Installing ri documentation for thread_safe-0.3.6
-Parsing documentation for asciidoctor-revealjs-1.0.2
-Installing ri documentation for asciidoctor-revealjs-1.0.2
-Done installing documentation for temple, tilt, slim, thread_safe, asciidoctor-revealjs after 2 seconds
-5 gems installed</pre>
+Fetching: asciidoctor-revealjs-1.1.3.gem (100%)
+Successfully installed asciidoctor-revealjs-1.1.3
+2 gems installed</pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -1073,20 +1022,11 @@ umwandelt, um mit dem Framework <strong>reveal.js</strong> ausgeführt zu werden
 <div class="listingblock">
 <div class="content">
 <pre>$ gem install pry   <img src="./images/icons/callouts/1.png" alt="1">
-Fetching: slop-3.6.0.gem (100%)
-Successfully installed slop-3.6.0
-Fetching: method_source-0.8.2.gem (100%)
-Successfully installed method_source-0.8.2
-Fetching: pry-0.10.4.gem (100%)
-Successfully installed pry-0.10.4
-Parsing documentation for slop-3.6.0
-Installing ri documentation for slop-3.6.0
-Parsing documentation for method_source-0.8.2
-Installing ri documentation for method_source-0.8.2
-Parsing documentation for pry-0.10.4
-Installing ri documentation for pry-0.10.4
-Done installing documentation for slop, method_source, pry after 3 seconds
-3 gems installed</pre>
+Fetching: method_source-0.9.0.gem (100%)
+Successfully installed method_source-0.9.0
+Fetching: pry-0.11.3.gem (100%)
+Successfully installed pry-0.11.3
+2 gems installed</pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -1103,20 +1043,17 @@ Done installing documentation for slop, method_source, pry after 3 seconds
 <div class="listingblock">
 <div class="content">
 <pre>$ gem install sinatra   <img src="./images/icons/callouts/1.png" alt="1">
-Fetching: rack-1.6.5.gem (100%)
-Successfully installed rack-1.6.5
-Fetching: rack-protection-1.5.3.gem (100%)
-Successfully installed rack-protection-1.5.3
-Fetching: sinatra-1.4.8.gem (100%)
-Successfully installed sinatra-1.4.8
-Parsing documentation for rack-1.6.5
-Installing ri documentation for rack-1.6.5
-Parsing documentation for rack-protection-1.5.3
-Installing ri documentation for rack-protection-1.5.3
-Parsing documentation for sinatra-1.4.8
-Installing ri documentation for sinatra-1.4.8
-Done installing documentation for rack, rack-protection, sinatra after 430 seconds
-3 gems installed</pre>
+Fetching: rack-2.0.4.gem (100%)
+Successfully installed rack-2.0.4
+Fetching: tilt-2.0.8.gem (100%)
+Successfully installed tilt-2.0.8
+Fetching: rack-protection-2.0.1.gem (100%)
+Successfully installed rack-protection-2.0.1
+Fetching: mustermann-1.0.2.gem (100%)
+Successfully installed mustermann-1.0.2
+Fetching: sinatra-2.0.1.gem (100%)
+Successfully installed sinatra-2.0.1
+5 gems installed</pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -1143,31 +1080,29 @@ eine in Ruby geschriebene <em>domänenspezifische</em> Sprache.<br>
 
 *** LOCAL GEMS ***
 
-asciidoctor (1.5.5)
-asciidoctor-revealjs (1.0.2)
+asciidoctor (1.5.6.1)
+asciidoctor-revealjs (1.1.3)
 bigdecimal (default: 1.3.0)
-coderay (1.1.1)
+coderay (1.1.2)
 did_you_mean (1.1.0)
 io-console (default: 0.4.6)
-json (default: 2.0.2)
-method_source (0.8.2)
+json (default: 2.0.4)
+method_source (0.9.0)
 minitest (5.10.1)
+mustermann (1.0.2)
 net-telnet (0.1.1)
-openssl (default: 2.0.3)
+openssl (default: 2.0.5)
 power_assert (0.4.1)
-pry (0.10.4)
+pry (0.11.3)
 psych (default: 2.2.2)
-rack (1.6.5)
-rack-protection (1.5.3)
+rack (2.0.4)
+rack-protection (2.0.1)
 rake (12.0.0)
 rdoc (default: 5.0.0)
-sinatra (1.4.8)
-slim (3.0.7)
-slop (3.6.0)
-temple (0.7.7)
+sinatra (2.0.1)
 test-unit (3.2.3)
 thread_safe (0.3.6)
-tilt (2.0.7)
+tilt (2.0.8)
 xmlrpc (0.2.1)</pre>
 </div>
 </div>
@@ -1177,30 +1112,29 @@ xmlrpc (0.2.1)</pre>
 <h2 id="_rubygems_em_executable_em">RubyGems: <em>executable</em></h2>
 <div class="sectionbody">
 <div class="listingblock">
-<div class="title">/opt/rubies/ruby-2.4.1/bin</div>
+<div class="title">/opt/rubies/ruby-2.4.3/bin</div>
 <div class="content">
-<pre>$ ls -l /opt/rubies/ruby-2.4.1/bin
--rwxr-xr-x 1 sid sid     4856 Apr 17 20:00 erb
--rwxr-xr-x 1 sid sid      560 Apr 17 20:00 gem
--rwxr-xr-x 1 sid sid      204 Apr 17 20:00 irb
--rwxr-xr-x 1 sid sid      490 Apr 17 20:00 rake
--rwxr-xr-x 1 sid sid      952 Apr 17 20:00 rdoc
--rwxr-xr-x 1 sid sid      202 Apr 17 20:00 ri
--rwxr-xr-x 1 sid sid 16333128 Apr 17 19:40 ruby</pre>
+<pre>$ ls -l /opt/rubies/ruby-2.4.3/bin
+-rwxr-xr-x 1 sid sid     4856 Feb 23 13:28 erb
+-rwxr-xr-x 1 sid sid      560 Feb 23 13:28 gem
+-rwxr-xr-x 1 sid sid      204 Feb 23 13:28 irb
+-rwxr-xr-x 1 sid sid      601 Feb 23 13:28 rake
+-rwxr-xr-x 1 sid sid      952 Feb 23 13:28 rdoc
+-rwxr-xr-x 1 sid sid      202 Feb 23 13:28 ri
+-rwxr-xr-x 1 sid sid 16421864 Feb 23 13:05 ruby</pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">~/.gem/ruby/2.3.4/bin</div>
 <div class="content">
-<pre>$ ls -l ~/.gem/ruby/2.4.1/bin   <img src="./images/icons/callouts/1.png" alt="1">
--rwxr-xr-x 1 sid sid 511 Apr 17 20:24 asciidoctor
--rwxr-xr-x 1 sid sid 538 Apr 17 20:25 asciidoctor-revealjs
--rwxr-xr-x 1 sid sid 516 Apr 17 20:24 asciidoctor-safe
--rwxr-xr-x 1 sid sid 499 Apr 17 20:24 coderay
--rwxr-xr-x 1 sid sid 487 Apr 17 20:25 pry
--rwxr-xr-x 1 sid sid 492 Apr 17 20:25 rackup
--rwxr-xr-x 1 sid sid 492 Apr 17 20:25 slimrb
--rwxr-xr-x 1 sid sid 490 Apr 17 20:25 tilt</pre>
+<pre>$ ls -l ~/.gem/ruby/2.4.3/bin   <img src="./images/icons/callouts/1.png" alt="1">
+-rwxr-xr-x 1 sid sid 643 Feb 23 13:34 asciidoctor
+-rwxr-xr-x 1 sid sid 697 Feb 23 13:34 asciidoctor-revealjs
+-rwxr-xr-x 1 sid sid 653 Feb 23 13:34 asciidoctor-safe
+-rwxr-xr-x 1 sid sid 619 Feb 23 13:34 coderay
+-rwxr-xr-x 1 sid sid 595 Feb 23 13:35 pry
+-rwxr-xr-x 1 sid sid 605 Feb 23 13:35 rackup
+-rwxr-xr-x 1 sid sid 601 Feb 23 13:35 tilt</pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -1244,12 +1178,12 @@ Server started at http://0.0.0.0:8808</pre>
 <p>Script zum Installieren von Ruby {ruby-version} (ohne weitere Erläuterung).</p>
 </div>
 <div class="listingblock">
-<div class="title">Datei: <code>ruby23-install.sh</code></div>
+<div class="title">Datei: <code>ruby24-install.sh</code></div>
 <div class="content">
 <pre>#!/bin/bash
 #
-ME=make_ruby_2.4.1
-RUBY=ruby-2.4.1
+ME=make_ruby_2.4.3
+RUBY=ruby-2.4.3
 TARGET=/opt/rubies
 
 if [ ! -e $TARGET ]
@@ -1269,7 +1203,7 @@ fi
 rm ${TARGET}/write-test.txt
 ls -l $TARGET
 
-echo "Ruby 2.4.1-Installation fortsetzen (j/n)"
+echo "Ruby 2.4.3-Installation fortsetzen (j/n)"
 read dummy
 case $dummy in
   j|J|y|Y) echo "Installation fortsetzen..."
@@ -1291,7 +1225,7 @@ make all  | tee ../log.ruby_make-all
 make test | tee ../log.ruby_make-test
 
 echo
-echo "Ruby 2.4.1 installieren"
+echo "Ruby 2.4.3 installieren"
 sudo make install | tee ../log.ruby_make-install
 
 echo
@@ -1315,7 +1249,7 @@ echo "$ME: Ende."</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-05-07 12:29:06 MESZ
+Last updated 2018-02-23 15:11:39 CET
 </div>
 </div>
 </body>

@@ -10,8 +10,9 @@ include::_bp_header.adoc[]
 :ruby-github-url:            https://github.com/ruby/ruby
 :rubyonrails-home-url:       http://rubyonrails.org
 
-:ruby-version-23:            2.3.4
-:ruby-version-24:            2.4.1
+:ruby-version-23:            2.3.6
+:ruby-version-24:            2.4.3
+:ruby-version-25:            2.5.0
 
 Version {version} {middot} {datum}
 
@@ -66,9 +67,9 @@ ii  ruby2.3            2.3.1-2~16.04  amd64   Interpreter of object-oriented scr
 
 
 == Download
-* {ruby-home-download-url}[Ruby 2.3.4] +
-  `ruby-2.3.4.tar.gz`  (ca. 17M) +
-  2017-03-29 (Release date)
+* {ruby-home-download-url}[Ruby 2.3.6] +
+  `ruby-2.3.6.tar.gz`  (ca. 18M) +
+  2017-12-14 (Release date)
 
 
 == Installation
@@ -100,13 +101,13 @@ Beispiel für die Änderung des Installations-Verzeichnisses: +
 
 *Step 1:* Auspacken des Source-Code
 ----
-$ tar xvzf ruby-2.3.4.tar.gz
-$ cd ruby-2.3.4
+$ tar xvzf ruby-2.3.6.tar.gz
+$ cd ruby-2.3.6
 ----
 
 *Step 2:* Ziel-Verzeichnis festlegen
 ----
-$ ./configure --prefix=/opt/rubies/ruby-2.3.4 | tee ../log.ruby_configure
+$ ./configure --prefix=/opt/rubies/ruby-2.3.6 | tee ../log.ruby_configure
 checking for ruby... /usr/bin/ruby
 config.guess already exists
 config.sub already exists
@@ -126,42 +127,30 @@ config.status: creating ruby-2.3.pc
 [options="nowrap"]
 ----
 $ make all | tee ../log.ruby_make-all
-CC = gcc
-LD = ld
-LDSHARED = gcc -shared
-CFLAGS = -O3 -fno-fast-math -ggdb3
-         -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long
-         -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith
-         -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration
-         -Wdeprecated-declarations -Wno-packed-bitfield-compat
-         -Wno-maybe-uninitialized -std=iso9899:1999
-XCFLAGS = -D_FORTIFY_SOURCE=2 -fstack-protector -fno-strict-overflow
-          -fvisibility=hidden -DRUBY_EXPORT -fPIE
-CPPFLAGS =   -I. -I.ext/include/x86_64-linux -I./include -I.
-DLDFLAGS = -fstack-protector -pie
-SOLIBS = -lgmp
 Using built-in specs.
 COLLECT_GCC=gcc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper
+Target: x86_64-linux-gnu
 ...
-99% [944/946]  vm_method.c
-99% [945/946]  vm_trace.c
-100% [946/946]  vsnprintf.c
+99% [945/947]  vm_method.c
+99% [946/947]  vm_trace.c
+100% [947/947]  vsnprintf.c
 
-Generating RI format into /opt/XenialXerus/Ruby23/ruby-2.3.4/.ext/rdoc...
+Generating RI format into /opt/XenialXerus/Ruby23/ruby-2.3.6/.ext/rdoc...
 
 
- Files:        946
+ Files:        947
 
  Classes:     1402 ( 577 undocumented)
- Modules:      279 ( 110 undocumented)
- Constants:   2172 ( 603 undocumented)
+ Modules:      280 ( 110 undocumented)
+ Constants:   2175 ( 606 undocumented)
  Attributes:  1146 ( 256 undocumented)
- Methods:    10497 (2232 undocumented)
+ Methods:    10467 (2232 undocumented)
 
- Total:      15496 (3778 undocumented)
-  75.62% documented
+ Total:      15470 (3781 undocumented)
+  75.56% documented
 
- Elapsed: 119.7s
+ Elapsed: 133.8s
 ----
 
 *Step 4:* Test
@@ -170,18 +159,15 @@ $ make test | tee ../log.ruby_make-test
 CC = gcc
 LD = ld
 LDSHARED = gcc -shared
-CFLAGS = ...
 ...
 sample/test.rb:gc ....OK 4
 
 test succeeded
 PASS all 1010 tests
-exec ./miniruby -I./lib -I. -I.ext/common  ./tool/runruby.rb
-     --extout=.ext  -- --disable-gems "./bootstraptest/runner.rb"
-     --ruby="ruby --disable-gems"   ./KNOWNBUGS.rb
-2017-04-09 22:19:22 +0200
-Driver is ruby 2.3.4p301 (2017-03-30 revision 58214) [x86_64-linux]
-Target is ruby 2.3.4p301 (2017-03-30 revision 58214) [x86_64-linux]
+exec ./miniruby -I./lib -I. -I.ext/common  ./tool/runruby.rb --extout=.ext  -- --disable-gems "./bootstraptest/runner.rb" --ruby="ruby --disable-gems"   ./KNOWNBUGS.rb
+2018-02-23 13:08:14 +0100
+Driver is ruby 2.3.6p384 (2017-12-14 revision 61254) [x86_64-linux]
+Target is ruby 2.3.6p384 (2017-12-14 revision 61254) [x86_64-linux]
 
 KNOWNBUGS.rb  PASS 0   <1>
 No tests, no problem
@@ -211,44 +197,43 @@ $ make install | tee ../log.ruby_make-install
 CC = gcc
 LD = ld
 LDSHARED = gcc -shared
-CFLAGS = ...
 ...
-installing default gems:      /opt/rubies/ruby-2.3.4/lib/ruby/gems/2.3.0 (build_info, cache, doc, extensions, gems, specifications)
+installing default gems:      /opt/rubies/ruby-2.3.6/lib/ruby/gems/2.3.0 (build_info, cache, doc, extensions, gems, specifications)
                               bigdecimal 1.2.8
                               io-console 0.4.5
-                              json 1.8.3
-                              psych 2.1.0
+                              json 1.8.3.1
+                              psych 2.1.0.1
                               rdoc 4.2.1
-installing bundle gems:       /opt/rubies/ruby-2.3.4/lib/ruby/gems/2.3.0 (build_info, cache, doc, extensions, gems, specifications)
+installing bundle gems:       /opt/rubies/ruby-2.3.6/lib/ruby/gems/2.3.0 (build_info, cache, doc, extensions, gems, specifications)
                               minitest 5.8.5
                               rake 10.4.2
                               power_assert 0.2.6
                               net-telnet 0.1.1
                               did_you_mean 1.0.0
                               test-unit 3.1.5
-installing rdoc:              /opt/rubies/ruby-2.3.4/share/ri/2.3.0/system
-installing capi-docs:         /opt/rubies/ruby-2.3.4/share/doc/ruby
+installing rdoc:              /opt/rubies/ruby-2.3.6/share/ri/2.3.0/system
+installing capi-docs:         /opt/rubies/ruby-2.3.6/share/doc/ruby
 ----
 
 *Step 6:* Installation verifizieren
 ----
-$ cd /opt/rubies/ruby-2.3.4
+$ cd /opt/rubies/ruby-2.3.6
 $ ls -l
-drwxr-xr-x 2 sid sid 4096 Apr  9 22:23 bin
-drwxr-xr-x 3 sid sid 4096 Apr  9 22:23 include
-drwxr-xr-x 4 sid sid 4096 Apr  9 22:23 lib
-drwxr-xr-x 5 sid sid 4096 Apr  9 22:23 share
+drwxr-xr-x 2 sid sid 4096 Feb 23 13:10 bin
+drwxr-xr-x 3 sid sid 4096 Feb 23 13:10 include
+drwxr-xr-x 4 sid sid 4096 Feb 23 13:10 lib
+drwxr-xr-x 5 sid sid 4096 Feb 23 13:10 share
 ----
 
 ----
 $ ls -l bin
--rwxr-xr-x 1 sid sid     4856 Apr  9 22:23 erb
--rwxr-xr-x 1 sid sid      560 Apr  9 22:23 gem
--rwxr-xr-x 1 sid sid      204 Apr  9 22:23 irb
--rwxr-xr-x 1 sid sid      481 Apr  9 22:23 rake
--rwxr-xr-x 1 sid sid      952 Apr  9 22:23 rdoc
--rwxr-xr-x 1 sid sid      202 Apr  9 22:23 ri
--rwxr-xr-x 1 sid sid 15398800 Apr  9 22:15 ruby
+-rwxr-xr-x 1 sid sid     4856 Feb 23 13:10 erb
+-rwxr-xr-x 1 sid sid      560 Feb 23 13:10 gem
+-rwxr-xr-x 1 sid sid      204 Feb 23 13:10 irb
+-rwxr-xr-x 1 sid sid      481 Feb 23 13:10 rake
+-rwxr-xr-x 1 sid sid      952 Feb 23 13:10 rdoc
+-rwxr-xr-x 1 sid sid      202 Feb 23 13:10 ri
+-rwxr-xr-x 1 sid sid 15451968 Feb 23 12:58 ruby
 ----
 
 *Step 7:* #chruby#
@@ -256,22 +241,22 @@ $ ls -l bin
 $ source /usr/local/share/chruby/chruby.sh
 
 $ chruby
-   ruby-2.3.4
+   ruby-2.3.6
 
-$ chruby ruby-2.3.4
+$ chruby ruby-2.3.6
 ----
 
 ----
 $ ruby -v
-ruby 2.3.4p301 (2017-03-30 revision 58214) [x86_64-linux]
+ruby 2.3.6p384 (2017-12-14 revision 61254) [x86_64-linux]
 ----
 
 ----
 $ which gem
-/opt/rubies/ruby-2.3.4/bin/gem
+/opt/rubies/ruby-2.3.6/bin/gem
 
 $ gem -v
-2.5.2
+2.5.2.2
 
 $ gem list
 
@@ -280,11 +265,11 @@ $ gem list
 bigdecimal (1.2.8)
 did_you_mean (1.0.0)
 io-console (0.4.5)
-json (1.8.3)
+json (1.8.3.1)
 minitest (5.8.5)
 net-telnet (0.1.1)
 power_assert (0.2.6)
-psych (2.1.0)
+psych (2.1.0.1)
 rake (10.4.2)
 rdoc (4.2.1)
 test-unit (3.1.5)
@@ -292,7 +277,7 @@ test-unit (3.1.5)
 
 ----
 $ which rake
-/opt/rubies/ruby-2.3.4/bin/rake
+/opt/rubies/ruby-2.3.6/bin/rake
 
 $ rake -V
 rake, version 10.4.2
@@ -304,20 +289,20 @@ $ ruby -ropenssl -rzlib -rreadline -e "puts 'Happy new Ruby'"
 Happy new Ruby
 ----
 
-.Ruby 2.3.4: #irb#
+.Ruby 2.3.6: #irb#
 ----
 $ which irb
-/opt/rubies/ruby-2.3.4/bin/irb
+/opt/rubies/ruby-2.3.6/bin/irb
 
 $ irb
 irb(main):001:0> RUBY_VERSION
-=> "2.3.4"
+=> "2.3.6"
 irb(main):002:0> RUBY_PATCHLEVEL
-=> 301
+=> 384
 irb(main):003:0> Time.now.to_s
-=> "2017-04-09 22:38:30 +0200"
+=> "2018-02-23 13:15:01 +0100"
 irb(main):004:0> Time.now.sunday?
-=> true
+=> false
 irb(main):005:0> exit
 ----
 
@@ -363,18 +348,10 @@ zu verwalten oder auch wieder zu entfernen. +
 === _asciidoctor_
 ----
 $ gem install asciidoctor coderay        <1> <2>
-Fetching: asciidoctor-1.5.5.gem (100%)
-Successfully installed asciidoctor-1.5.5
-Parsing documentation for asciidoctor-1.5.5
-Installing ri documentation for asciidoctor-1.5.5
-Done installing documentation for asciidoctor after 4 seconds
-Fetching: coderay-1.1.1.gem (100%)
-Successfully installed coderay-1.1.1
-invalid options: -SNw2
-(invalid options are ignored)
-Parsing documentation for coderay-1.1.1
-Installing ri documentation for coderay-1.1.1
-Done installing documentation for coderay after 2 seconds
+Fetching: asciidoctor-1.5.6.1.gem (100%)
+Successfully installed asciidoctor-1.5.6.1
+Fetching: coderay-1.1.2.gem (100%)
+Successfully installed coderay-1.1.2
 2 gems installed
 ----
 <1> *Asciidoctor* ist die Neu-Implementation von *AsciiDoc* in Ruby. +
@@ -387,28 +364,11 @@ Done installing documentation for coderay after 2 seconds
 === _asciidoctor-revealjs_
 ----
 $ gem install asciidoctor-revealjs   <1>
-Fetching: temple-0.7.7.gem (100%)
-Successfully installed temple-0.7.7
-Fetching: tilt-2.0.7.gem (100%)
-Successfully installed tilt-2.0.7
-Fetching: slim-3.0.7.gem (100%)
-Successfully installed slim-3.0.7
 Fetching: thread_safe-0.3.6.gem (100%)
 Successfully installed thread_safe-0.3.6
-Fetching: asciidoctor-revealjs-1.0.2.gem (100%)
-Successfully installed asciidoctor-revealjs-1.0.2
-Parsing documentation for temple-0.7.7
-Installing ri documentation for temple-0.7.7
-Parsing documentation for tilt-2.0.7
-Installing ri documentation for tilt-2.0.7
-Parsing documentation for slim-3.0.7
-Installing ri documentation for slim-3.0.7
-Parsing documentation for thread_safe-0.3.6
-Installing ri documentation for thread_safe-0.3.6
-Parsing documentation for asciidoctor-revealjs-1.0.2
-Installing ri documentation for asciidoctor-revealjs-1.0.2
-Done installing documentation for temple, tilt, slim, thread_safe, asciidoctor-revealjs after 2 seconds
-5 gems installed
+Fetching: asciidoctor-revealjs-1.1.3.gem (100%)
+Successfully installed asciidoctor-revealjs-1.1.3
+2 gems installed
 ----
 <1> Asciidoctor reveal.js ist ein Konverter der ein AsciiDoc-Dokument
     in eine HTML5-Präsentation +
@@ -418,20 +378,11 @@ Done installing documentation for temple, tilt, slim, thread_safe, asciidoctor-r
 === _pry_
 ----
 $ gem install pry   <1>
-Fetching: slop-3.6.0.gem (100%)
-Successfully installed slop-3.6.0
-Fetching: method_source-0.8.2.gem (100%)
-Successfully installed method_source-0.8.2
-Fetching: pry-0.10.4.gem (100%)
-Successfully installed pry-0.10.4
-Parsing documentation for slop-3.6.0
-Installing ri documentation for slop-3.6.0
-Parsing documentation for method_source-0.8.2
-Installing ri documentation for method_source-0.8.2
-Parsing documentation for pry-0.10.4
-Installing ri documentation for pry-0.10.4
-Done installing documentation for slop, method_source, pry after 3 seconds
-3 gems installed
+Fetching: method_source-0.9.0.gem (100%)
+Successfully installed method_source-0.9.0
+Fetching: pry-0.11.3.gem (100%)
+Successfully installed pry-0.11.3
+2 gems installed
 ----
 <1> Pry is a powerful alternative to the standard IRB shell for Ruby.
 
@@ -439,20 +390,17 @@ Done installing documentation for slop, method_source, pry after 3 seconds
 === _sinatra_
 ----
 $ gem install sinatra   <1>
-Fetching: rack-1.6.5.gem (100%)
-Successfully installed rack-1.6.5
-Fetching: rack-protection-1.5.3.gem (100%)
-Successfully installed rack-protection-1.5.3
-Fetching: sinatra-1.4.8.gem (100%)
-Successfully installed sinatra-1.4.8
-Parsing documentation for rack-1.6.5
-Installing ri documentation for rack-1.6.5
-Parsing documentation for rack-protection-1.5.3
-Installing ri documentation for rack-protection-1.5.3
-Parsing documentation for sinatra-1.4.8
-Installing ri documentation for sinatra-1.4.8
-Done installing documentation for rack, rack-protection, sinatra after 430 seconds
-3 gems installed
+Fetching: rack-2.0.4.gem (100%)
+Successfully installed rack-2.0.4
+Fetching: tilt-2.0.8.gem (100%)
+Successfully installed tilt-2.0.8
+Fetching: rack-protection-2.0.1.gem (100%)
+Successfully installed rack-protection-2.0.1
+Fetching: mustermann-1.0.2.gem (100%)
+Successfully installed mustermann-1.0.2
+Fetching: sinatra-2.0.1.gem (100%)
+Successfully installed sinatra-2.0.1
+5 gems installed
 ----
 <1> *Sinatra* ist eine _freie_ und _open source Webapplikationsbibliothek_ und +
     eine in Ruby geschriebene _domänenspezifische_ Sprache. +
@@ -467,56 +415,53 @@ $ gem list
 
 *** LOCAL GEMS ***
 
-asciidoctor (1.5.5)
-asciidoctor-revealjs (1.0.2)
+asciidoctor (1.5.6.1)
+asciidoctor-revealjs (1.1.3)
 bigdecimal (1.2.8)
-coderay (1.1.1)
+coderay (1.1.2)
 did_you_mean (1.0.0)
 io-console (0.4.5)
-json (1.8.3)
-method_source (0.8.2)
+json (1.8.3.1)
+method_source (0.9.0)
 minitest (5.8.5)
+mustermann (1.0.2)
 net-telnet (0.1.1)
 power_assert (0.2.6)
-pry (0.10.4)
-psych (2.1.0)
-rack (1.6.5)
-rack-protection (1.5.3)
+pry (0.11.3)
+psych (2.1.0.1)
+rack (2.0.4)
+rack-protection (2.0.1)
 rake (10.4.2)
 rdoc (4.2.1)
-sinatra (1.4.8)
-slim (3.0.7)
-slop (3.6.0)
-temple (0.7.7)
+sinatra (2.0.1)
 test-unit (3.1.5)
 thread_safe (0.3.6)
-tilt (2.0.7)
+tilt (2.0.8)
 ----
 
 == RubyGems: _executable_
-./opt/rubies/ruby-2.3.4/bin
+./opt/rubies/ruby-2.3.6/bin
 ----
-$ ls -l /opt/rubies/ruby-2.3.4/bin
--rwxr-xr-x 1 sid sid     4856 Apr  9 22:23 erb
--rwxr-xr-x 1 sid sid      560 Apr  9 22:23 gem
--rwxr-xr-x 1 sid sid      204 Apr  9 22:23 irb
--rwxr-xr-x 1 sid sid      481 Apr  9 22:23 rake
--rwxr-xr-x 1 sid sid      952 Apr  9 22:23 rdoc
--rwxr-xr-x 1 sid sid      202 Apr  9 22:23 ri
--rwxr-xr-x 1 sid sid 15398800 Apr  9 22:15 ruby
+$ ls -l /opt/rubies/ruby-2.3.6/bin
+-rwxr-xr-x 1 sid sid     4856 Feb 23 13:10 erb
+-rwxr-xr-x 1 sid sid      560 Feb 23 13:10 gem
+-rwxr-xr-x 1 sid sid      204 Feb 23 13:10 irb
+-rwxr-xr-x 1 sid sid      481 Feb 23 13:10 rake
+-rwxr-xr-x 1 sid sid      952 Feb 23 13:10 rdoc
+-rwxr-xr-x 1 sid sid      202 Feb 23 13:10 ri
+-rwxr-xr-x 1 sid sid 15451968 Feb 23 12:58 ruby
 ----
 
-.~/.gem/ruby/2.3.4/bin
+.~/.gem/ruby/2.3.6/bin
 ----
-$ ls -l ~/.gem/ruby/2.3.4/bin   <1>
--rwxr-xr-x 1 sid sid 502 Apr  9 22:33 asciidoctor
--rwxr-xr-x 1 sid sid 529 Apr  9 22:34 asciidoctor-revealjs
--rwxr-xr-x 1 sid sid 507 Apr  9 22:33 asciidoctor-safe
--rwxr-xr-x 1 sid sid 490 Apr  9 22:33 coderay
--rwxr-xr-x 1 sid sid 478 Apr  9 22:53 pry
--rwxr-xr-x 1 sid sid 483 Apr  9 22:55 rackup
--rwxr-xr-x 1 sid sid 483 Apr  9 22:34 slimrb
--rwxr-xr-x 1 sid sid 481 Apr  9 22:34 tilt
+$ ls -l ~/.gem/ruby/2.3.6/bin   <1>
+-rwxr-xr-x 1 sid sid 502 Feb 23 13:16 asciidoctor
+-rwxr-xr-x 1 sid sid 529 Feb 23 13:16 asciidoctor-revealjs
+-rwxr-xr-x 1 sid sid 507 Feb 23 13:16 asciidoctor-safe
+-rwxr-xr-x 1 sid sid 490 Feb 23 13:16 coderay
+-rwxr-xr-x 1 sid sid 478 Feb 23 13:17 pry
+-rwxr-xr-x 1 sid sid 483 Feb 23 13:18 rackup
+-rwxr-xr-x 1 sid sid 481 Feb 23 13:18 tilt
 ----
 <1> Mit *chruby* werden die zusätzlichen _RubyGems_ im
     Home-Verzeichnis installiert.
@@ -544,8 +489,8 @@ Script zum Installieren von Ruby {ruby-version} (ohne weitere Erläuterung).
 ----
 #!/bin/bash
 #
-ME=make_ruby_2.3.4
-RUBY=ruby-2.3.4
+ME=make_ruby_2.3.6
+RUBY=ruby-2.3.6
 TARGET=/opt/rubies
 
 if [ ! -e $TARGET ]
@@ -565,7 +510,7 @@ fi
 rm ${TARGET}/write-test.txt
 ls -l $TARGET
 
-echo "Ruby 2.3.4-Installation fortsetzen (j/n)"
+echo "Ruby 2.3.6-Installation fortsetzen (j/n)"
 read dummy
 case $dummy in
   j|J|y|Y) echo "Installation fortsetzen..."
@@ -587,7 +532,7 @@ make all  | tee ../log.ruby_make-all
 make test | tee ../log.ruby_make-test
 
 echo
-echo "Ruby 2.3.4 installieren"
+echo "Ruby 2.3.6 installieren"
 sudo make install | tee ../log.ruby_make-install
 
 echo

@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.5">
 <meta name="author" content="Installation in Ubuntu — khkoether[at]kahweb[dot]de">
-<title>IiU&#8201;&#8212;&#8201;Git 2.12.2</title>
+<title>IiU&#8201;&#8212;&#8201;Git 2.16.2</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -421,7 +421,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>IiU&#8201;&#8212;&#8201;Git 2.12.2</h1>
+<h1>IiU&#8201;&#8212;&#8201;Git 2.16.2</h1>
 <div class="details">
 <span id="author" class="author">Installation in Ubuntu — khkoether[at]kahweb[dot]de</span><br>
 </div>
@@ -450,7 +450,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Version 5.0.0 &middot; April 2017</p>
+<p>Version 5.1.0 &middot; Februar 2018</p>
 </div>
 </div>
 </div>
@@ -514,7 +514,7 @@ andere Debian-basierte GNU/Linux Distributionen übertragbar.</p>
 <dl>
 <dt class="hdlist1">Ubuntu 16.04 LTS (Xenial Xerus) enthält das Paket</dt>
 <dd>
-<p><em>git-core_2.7.4-0ubuntu1_all.deb</em>.</p>
+<p><em>git-core_2.7.4-0ubuntu1.3_all.deb</em>.</p>
 </dd>
 </dl>
 </div>
@@ -531,10 +531,10 @@ andere Debian-basierte GNU/Linux Distributionen übertragbar.</p>
 <ul>
 <li>
 <p><a href="https://www.kernel.org/pub/software/scm/git/">Git</a><br>
-<code>git-2.12.2.tar.gz</code>  (ca. 6.1M)<br>
-<code>git-htmldocs-2.12.2.tar.gz</code>  (ca. 2.6M)<br>
-<code>git-manpages-2.12.2.tar.gz</code>  (ca. 639K)<br>
-2017-03-24 (Release date)</p>
+<code>git-2.16.2.tar.gz</code>  (ca. 7.0M)<br>
+<code>git-htmldocs-2.16.2.tar.gz</code>  (ca. 2.8M)<br>
+<code>git-manpages-2.16.2.tar.gz</code>  (ca. 662K)<br>
+2018-02-16 (Release date)</p>
 </li>
 </ul>
 </div>
@@ -554,9 +554,9 @@ Benutzer 'root' für das System durchgeführt.</p>
 <div class="listingblock">
 <div class="content">
 <pre>$ ls -lh
--rw-rw-r-- 1 sid sid 6,1M Apr  9 20:58 git-2.12.2.tar.gz
--rw-rw-r-- 1 sid sid 2,6M Apr  9 20:59 git-htmldocs-2.12.2.tar.gz
--rw-rw-r-- 1 sid sid 639K Apr  9 20:59 git-manpages-2.12.2.tar.gz</pre>
+-rw-rw-r-- 1 sid sid khk 7,0M Feb 23 12:12 git-2.16.2.tar.gz
+-rw-rw-r-- 1 sid sid 2,8M Feb 23 12:12 git-htmldocs-2.16.2.tar.gz
+-rw-rw-r-- 1 sid sid 662K Feb 23 12:13 git-manpages-2.16.2.tar.gz</pre>
 </div>
 </div>
 </td>
@@ -626,8 +626,8 @@ Eine bereits vorhandene Git-Installation wird überschrieben.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ tar xvzf git-2.12.2.tar.gz
-$ cd git-2.12.2</pre>
+<pre>$ tar xvzf git-2.16.2.tar.gz
+$ cd git-2.16.2</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -636,7 +636,7 @@ $ cd git-2.12.2</pre>
 <div class="listingblock">
 <div class="content">
 <pre>$ make configure | tee ../log.git_make-configure
-GIT_VERSION = 2.12.2
+GIT_VERSION = 2.16.2
     GEN configure
 
 $ ./configure | tee ../log.git_configure
@@ -687,10 +687,11 @@ config.status: executing config.mak.autogen commands</pre>
 $ sudo mkdir git-doc
 
 $ cd git-doc
-$ sudo tar xvzf git-htmldocs-2.12.2.tar.gz
+$ sudo tar xvzf git-htmldocs-2.16.2.tar.gz
 ...
-./git-filter-branch.txt
-./gitcredentials.html
+./git-credential-cache.html
+./user-manual.html
+./git-pull.html
 
 $ cd ..
 $ sudo chown -R root.root git-doc   <img src="./images/icons/callouts/1.png" alt="1">
@@ -699,7 +700,7 @@ $ sudo chmod a+rx git-doc
 
 $ ls -l
 drwxr-xr-x 2 root root  4096 Mär 26 23:04 chruby-0.3.9
-drwxr-xr-x 5 root root 20480 Mär 24 21:51 git-doc        <img src="./images/icons/callouts/2.png" alt="2"></pre>
+drwxr-xr-x 5 root root 20480 Feb 16 00:33 git-doc        <img src="./images/icons/callouts/2.png" alt="2"></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -710,7 +711,7 @@ drwxr-xr-x 5 root root 20480 Mär 24 21:51 git-doc        <img src="./images/ico
 </tr>
 <tr>
 <td><img src="./images/icons/callouts/2.png" alt="2"></td>
-<td>Release Date: 2017-03-24</td>
+<td>Release Date: 2018-02-16</td>
 </tr>
 </table>
 </div>
@@ -718,10 +719,10 @@ drwxr-xr-x 5 root root 20480 Mär 24 21:51 git-doc        <img src="./images/ico
 <div class="title">Documentation: man-pages</div>
 <div class="content">
 <pre>$ cd /usr/local/share/man
-$ sudo tar xvzf git-manpages-2.12.2.tar.gz
+$ sudo tar xvzf git-manpages-2.16.2.tar.gz
 ...
-./man1/git-submodule.1
-./man1/git-show-ref.1
+./man1/git-credential-store.1
+./man1/git-imap-send.1
 
 $ cd ..
 $ sudo chown -R root.root man   <img src="./images/icons/callouts/1.png" alt="1">
@@ -730,10 +731,10 @@ $ sudo chmod 755 man man/man1 man/man5 man/man7
 
 
 $ ls -l man
-drwxr-xr-x 2 root root 4096 Mär 24 21:52 man1   <img src="./images/icons/callouts/2.png" alt="2">
+drwxr-xr-x 2 root root 4096 Feb 16 00:34 man1   <img src="./images/icons/callouts/2.png" alt="2">
 drwxrwxr-x 2 root root 4096 Apr  9 21:23 man3
-drwxr-xr-x 2 root root 4096 Mär 24 21:52 man5   <img src="./images/icons/callouts/2.png" alt="2">
-drwxr-xr-x 2 root root 4096 Mär 24 21:52 man7   <img src="./images/icons/callouts/2.png" alt="2"></pre>
+drwxr-xr-x 2 root root 4096 Feb 16 00:34 man5   <img src="./images/icons/callouts/2.png" alt="2">
+drwxr-xr-x 2 root root 4096 Feb 16 00:34 man7   <img src="./images/icons/callouts/2.png" alt="2"></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -744,7 +745,7 @@ drwxr-xr-x 2 root root 4096 Mär 24 21:52 man7   <img src="./images/icons/callou
 </tr>
 <tr>
 <td><img src="./images/icons/callouts/2.png" alt="2"></td>
-<td>Release Date: 2017-03-24</td>
+<td>Release Date: 2017-02-16</td>
 </tr>
 </table>
 </div>
@@ -758,7 +759,7 @@ drwxr-xr-x 2 root root 4096 Mär 24 21:52 man7   <img src="./images/icons/callou
 <div class="listingblock">
 <div class="content">
 <pre>$ git --version
-git version 2.12.2</pre>
+git version 2.16.2</pre>
 </div>
 </div>
 </div>
@@ -768,13 +769,13 @@ git version 2.12.2</pre>
 <div class="content">
 <pre>$ cd /usr/local/bin
 $ ls -l git*
--rwxr-xr-x 118 root root 10871352 Apr  9 21:23 git
--rwxr-xr-x   2 root root   162414 Apr  9 21:23 git-cvsserver
--rwxr-xr-x   1 root root   351673 Apr  9 21:23 gitk
--rwxr-xr-x 118 root root 10871352 Apr  9 21:23 git-receive-pack
--rwxr-xr-x   2 root root  5656112 Apr  9 21:23 git-shell
--rwxr-xr-x 118 root root 10871352 Apr  9 21:23 git-upload-archive
--rwxr-xr-x   2 root root  6087320 Apr  9 21:23 git-upload-pack</pre>
+-rwxr-xr-x 119 root root 12206808 Feb 23 12:23 git
+-rwxr-xr-x   2 root root   162742 Feb 23 12:23 git-cvsserver
+-rwxr-xr-x   1 root root   351673 Feb 23 12:23 gitk
+-rwxr-xr-x 119 root root 12206808 Feb 23 12:23 git-receive-pack
+-rwxr-xr-x   2 root root  6494768 Feb 23 12:23 git-shell
+-rwxr-xr-x 119 root root 12206808 Feb 23 12:23 git-upload-archive
+-rwxr-xr-x   2 root root  6972312 Feb 23 12:23 git-upload-pack</pre>
 </div>
 </div>
 </div>
@@ -855,7 +856,7 @@ NOTES
         5. git@vger.kernel.org
            mailto:git@vger.kernel.org
 
-Git 2.12.2                        03/24/2017                            GIT(1)</pre>
+Git 2.16.2                        02/15/2018                            GIT(1)</pre>
 </div>
 </div>
 </div>
@@ -880,17 +881,20 @@ DESCRIPTION
 [...]
 
 HISTORY
-       Gitk was the first graphical repository browser. It’s written in tcl/tk
-       and started off in a separate repository but was later merged into the
-       main Git repository.
+       Gitk was the first graphical repository browser. It’s written in
+       tcl/tk.
+
+       gitk is actually maintained as an independent project, but stable
+       versions are distributed as part of the Git suite for the convenience
+       of end users.
+
+       gitk-git/ comes from Paul Mackerras’s gitk project:
+
+           git://ozlabs.org/~paulus/gitk
 
 SEE ALSO
        qgit(1)
            A repository browser written in C++ using Qt.
-
-       gitview(1)
-           A repository browser written in Python using Gtk. It’s based on
-           bzrk(1) and distributed in the contrib area of the Git repository.
 
        tig(1)
            A minimal repository browser and Git tool output highlighter
@@ -899,7 +903,7 @@ SEE ALSO
 GIT
        Part of the git(1) suite
 
-Git 2.12.2                         03/24/2017                           GITK(1)</pre>
+Git 2.16.2                        02/15/2018                           GITK(1)</pre>
 </div>
 </div>
 </div>
@@ -907,7 +911,8 @@ Git 2.12.2                         03/24/2017                           GITK(1)<
 <h3 id="__usr_local">/usr/local</h3>
 <div class="listingblock">
 <div class="content">
-<pre>$ find /usr/local -type d -cmin -10
+<pre>$ sudo find /usr/local -type d -cmin -30
+/usr/local/share
 /usr/local/share/gitweb
 /usr/local/share/gitweb/static
 /usr/local/share/git-core/templates
@@ -915,6 +920,8 @@ Git 2.12.2                         03/24/2017                           GITK(1)<
 /usr/local/share/git-core/templates/info
 /usr/local/share/git-core/templates/branches
 /usr/local/share/locale
+/usr/local/share/locale/es
+/usr/local/share/locale/es/LC_MESSAGES
 /usr/local/share/locale/ru
 /usr/local/share/locale/ru/LC_MESSAGES
 /usr/local/share/locale/ko
@@ -939,6 +946,8 @@ Git 2.12.2                         03/24/2017                           GITK(1)<
 /usr/local/share/locale/bg/LC_MESSAGES
 /usr/local/share/locale/zh_CN
 /usr/local/share/locale/zh_CN/LC_MESSAGES
+/usr/local/share/perl/5.22.1
+/usr/local/share/perl/5.22.1/Git
 /usr/local/share/git-gui/lib
 /usr/local/share/git-gui/lib/msgs
 /usr/local/share/gitk/lib/msgs
@@ -947,6 +956,8 @@ Git 2.12.2                         03/24/2017                           GITK(1)<
 /usr/local/share/man/man3
 /usr/local/share/man/man5
 /usr/local/share/man/man7
+/usr/local/share/doc
+/usr/local/share/doc/chruby-0.3.9
 /usr/local/share/doc/git-doc
 /usr/local/share/doc/git-doc/RelNotes
 /usr/local/share/doc/git-doc/howto
@@ -1008,7 +1019,7 @@ Git 2.12.2                         03/24/2017                           GITK(1)<
 <h2 id="_anhang">Anhang</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Script zum Installieren von <a href="git.html">Git</a> 2.12.2 (ohne weitere Erläuterung).<br>
+<p>Script zum Installieren von <a href="git.html">Git</a> 2.16.2 (ohne weitere Erläuterung).<br>
 Die Dokumentation zu <a href="git.html">Git</a> wird mit diesem Script <em>nicht</em> installiert.</p>
 </div>
 <div class="listingblock">
@@ -1017,7 +1028,7 @@ Die Dokumentation zu <a href="git.html">Git</a> wird mit diesem Script <em>nicht
 <pre>#!/bin/bash
 #
 ME=make_git
-NAME=git-2.12.2
+NAME=git-2.16.2
 
 ls -l git*.tar.gz
 echo
@@ -1071,7 +1082,7 @@ echo "$ME: Ende."</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-04-24 20:37:43 MESZ
+Last updated 2018-02-23 12:43:39 CET
 </div>
 </div>
 </body>

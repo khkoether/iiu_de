@@ -1,5 +1,5 @@
 
-= IiU -- Ruby MRI 2.4
+= IiU -- Ruby MRI 2.5
 Installation in Ubuntu — khkoether[at]kahweb[dot]de
 
 include::_bp_header.adoc[]
@@ -11,7 +11,7 @@ include::_bp_header.adoc[]
 :rubyonrails-home-url:       http://rubyonrails.org
 
 :ruby-version-23:            2.3.6
-:ruby-version-24:            2.4.3
+:ruby-version-24:            2.5.0
 :ruby-version-25:            2.5.0
 
 Version {version} {middot} {datum}
@@ -23,7 +23,7 @@ Abstract
 die sich einfach anwenden und produktiv einsetzen lässt.
 
 Dieser Artikel ist eine Schritt-für-Schritt Anleitung zur Installation
-von {ruby-home-url}[Ruby MRI 2.4] aus dem QuellCode. +
+von {ruby-home-url}[Ruby MRI 2.5] aus dem QuellCode. +
 _MRI_ steht für Matz-Ruby-Installation.
 
 Die Programmiersprache {ruby-home-url}[Ruby] ist die Grundlage für das
@@ -67,9 +67,9 @@ ii  ruby2.3            2.3.1-2~16.04  amd64   Interpreter of object-oriented scr
 
 
 == Download
-* {ruby-home-download-url}[Ruby 2.4.3] +
-  `ruby-2.4.3.tar.gz`  (ca. 14M) +
-  2017-12-14 (Release date)
+* {ruby-home-download-url}[Ruby 2.5.0] +
+  `ruby-2.5.0.tar.gz`  (ca. 14M) +
+  2017-12-25 (Release date)
 
 
 == Installation
@@ -101,30 +101,26 @@ Beispiel für die Änderung des Installations-Verzeichnisses: +
 
 *Step 1:* Auspacken des Source-Code
 ----
-$ tar xvzf ruby-2.4.3.tar.gz
-$ cd ruby-2.4.3
+$ tar xvzf ruby-2.5.0.tar.gz
+$ cd ruby-2.5.0
 ----
 
 *Step 2:* Ziel-Verzeichnis festlegen
 ----
-$ ./configure --prefix=/opt/rubies/ruby-2.4.3 | tee ../log.ruby_configure
+$ ./configure --prefix=/opt/rubies/ruby-2.5.0 | tee ../log.ruby_configure
 checking for ruby... /usr/bin/ruby
-config.guess already exists
-config.sub already exists
-checking build system type... x86_64-pc-linux-gnu
-checking host system type... x86_64-pc-linux-gnu
-checking target system type... x86_64-pc-linux-gnu
-checking for gcc... gcc
+tool/config.guess already exists
+tool/config.sub already exists
 ...
-configure: ruby library version = 2.4.0
+configure: ruby library version = 2.5.0
 configure: creating ./config.status
 config.status: creating GNUmakefile
 config.status: creating Makefile
-config.status: creating ruby-2.4.pc
+config.status: creating ruby-2.5.pc
 ---
-Configuration summary for ruby version 2.4.3
+Configuration summary for ruby version 2.5.0
 
-   * Installation prefix: /opt/rubies/ruby-2.4.3
+   * Installation prefix: /opt/rubies/ruby-2.5.0
    * exec prefix:         ${prefix}
    * arch:                x86_64-linux
    * site arch:           ${arch}
@@ -140,7 +136,7 @@ Configuration summary for ruby version 2.4.3
    * CFLAGS:              ${optflags} ${debugflags} ${warnflags}
    * LDFLAGS:             -L. -fstack-protector -rdynamic \
                           -Wl,-export-dynamic
-   * optflags:            -O3 -fno-fast-math
+   * optflags:            -O3
    * debugflags:          -ggdb3
    * warnflags:           -Wall -Wextra -Wno-unused-parameter \
                           -Wno-parentheses -Wno-long-long \
@@ -171,25 +167,25 @@ CC = gcc
 LD = ld
 LDSHARED = gcc -shared
 ...
-99% [888/890]  vm_method.c
-99% [889/890]  vm_trace.c
-100% [890/890]  vsnprintf.c
+99% [869/871]  vm_method.c
+99% [870/871]  vm_trace.c
+100% [871/871]  vsnprintf.c
 
-Generating RI format into /opt/XenialXerus/Ruby24/ruby-2.4.3/.ext/rdoc...
+Generating RI format into /opt/XenialXerus/Ruby25/ruby-2.5.0/.ext/rdoc...
 
 
- Files:        890
+ Files:        871
 
- Classes:     1311 ( 548 undocumented)
- Modules:      275 ( 110 undocumented)
- Constants:   2143 ( 561 undocumented)
- Attributes:  1053 ( 247 undocumented)
- Methods:     9832 (2101 undocumented)
+ Classes:     1323 ( 564 undocumented)
+ Modules:      286 ( 121 undocumented)
+ Constants:   2181 ( 555 undocumented)
+ Attributes:  1066 ( 251 undocumented)
+ Methods:    10076 (2158 undocumented)
 
- Total:      14614 (3567 undocumented)
-  75.59% documented
+ Total:      14932 (3649 undocumented)
+  75.56% documented
 
- Elapsed: 77.6s
+ Elapsed: 58.0s
 ----
 
 *Step 4:* Test
@@ -199,13 +195,11 @@ CC = gcc
 LD = ld
 LDSHARED = gcc -shared
 ...
-PASS all 1010 tests
-exec ./miniruby -I./lib -I. -I.ext/common  ./tool/runruby.rb
-     --extout=.ext  -- --disable-gems "./bootstraptest/runner.rb"
-     --ruby="ruby --disable-gems"   ./KNOWNBUGS.rb
-2018-02-23 13:08:19 +0100
-Driver is ruby 2.4.3p205 (2017-12-14 revision 61247) [x86_64-linux]
-Target is ruby 2.4.3p205 (2017-12-14 revision 61247) [x86_64-linux]
+PASS all 1197 tests
+exec ./miniruby -I./lib -I. -I.ext/common  ./tool/runruby.rb --extout=.ext  -- --disable-gems "./bootstraptest/runner.rb" --ruby="ruby --disable-gems"   ./KNOWNBUGS.rb
+2018-02-23 14:58:23 +0100
+Driver is ruby 2.5.0p0 (2017-12-25 revision 61468) [x86_64-linux]
+Target is ruby 2.5.0p0 (2017-12-25 revision 61468) [x86_64-linux]
 
 KNOWNBUGS.rb  PASS 0   <1>
 No tests, no problem
@@ -238,44 +232,53 @@ CC = gcc
 LD = ld
 LDSHARED = gcc -shared
 ...
-installing default gems:      /opt/rubies/ruby-2.4.3/lib/ruby/gems/2.4.0 (build_info, cache, doc, extensions, gems, specifications)
-                              bigdecimal 1.3.0
-                              io-console 0.4.6
-                              json 2.0.4
-                              openssl 2.0.5
-                              psych 2.2.2
-                              rdoc 5.0.0
-installing bundle gems:       /opt/rubies/ruby-2.4.3/lib/ruby/gems/2.4.0 (build_info, cache, doc, extensions, gems, specifications)
-                              xmlrpc 0.2.1
-                              rake 12.0.0
-                              net-telnet 0.1.1
-                              test-unit 3.2.3
-                              did_you_mean 1.1.0
-                              power_assert 0.4.1
-                              minitest 5.10.1
-installing rdoc:              /opt/rubies/ruby-2.4.3/share/ri/2.4.0/system
-installing capi-docs:         /opt/rubies/ruby-2.4.3/share/doc/ruby
+installing default gems from ext:   /opt/rubies/ruby-2.5.0/lib/ruby/gems/2.5.0 (build_info, cache, doc, extensions, gems, specifications)
+                                    bigdecimal 1.3.4
+                                    date 1.0.0
+                                    dbm 1.0.0
+                                    etc 1.0.0
+                                    fcntl 1.0.0
+                                    fiddle 1.0.0
+                                    gdbm 2.0.0
+                                    io-console 0.4.6
+                                    json 2.1.0
+                                    openssl 2.1.0
+                                    psych 3.0.2
+                                    sdbm 1.0.0
+                                    stringio 0.0.1
+                                    strscan 1.0.0
+                                    zlib 1.0.0
+installing bundled gems:            /opt/rubies/ruby-2.5.0/lib/ruby/gems/2.5.0 (build_info, cache, doc, extensions, gems, specifications)
+                                    test-unit 3.2.7
+                                    did_you_mean 1.2.0
+                                    power_assert 1.1.1
+                                    xmlrpc 0.3.0
+                                    minitest 5.10.3
+                                    net-telnet 0.1.1
+                                    rake 12.3.0
+installing rdoc:                    /opt/rubies/ruby-2.5.0/share/ri/2.5.0/system
+installing capi-docs:               /opt/rubies/ruby-2.5.0/share/doc/ruby
 ----
 
 *Step 6:* Installation verifizieren
 ----
-$ cd /opt/rubies/ruby-2.4.3
+$ cd /opt/rubies/ruby-2.5.0
 $ ls -l
-drwxr-xr-x 2 sid sid 4096 Feb 23 13:28 bin
-drwxr-xr-x 3 sid sid 4096 Feb 23 13:28 include
-drwxr-xr-x 4 sid sid 4096 Feb 23 13:28 lib
-drwxr-xr-x 5 sid sid 4096 Feb 23 13:28 share
+drwxr-xr-x 2 sid sid 4096 Feb 23 15:01 bin
+drwxr-xr-x 3 sid sid 4096 Feb 23 15:01 include
+drwxr-xr-x 4 sid sid 4096 Feb 23 15:01 lib
+drwxr-xr-x 5 sid sid 4096 Feb 23 15:01 share
 ----
 
 ----
 $ ls -l bin
--rwxr-xr-x 1 sid sid     4856 Feb 23 13:28 erb
--rwxr-xr-x 1 sid sid      560 Feb 23 13:28 gem
--rwxr-xr-x 1 sid sid      204 Feb 23 13:28 irb
--rwxr-xr-x 1 sid sid      601 Feb 23 13:28 rake
--rwxr-xr-x 1 sid sid      952 Feb 23 13:28 rdoc
--rwxr-xr-x 1 sid sid      202 Feb 23 13:28 ri
--rwxr-xr-x 1 sid sid 16421864 Feb 23 13:05 ruby
+-rwxr-xr-x 1 sid sid     4851 Feb 23 15:01 erb
+-rwxr-xr-x 1 sid sid      560 Feb 23 15:01 gem
+-rwxr-xr-x 1 sid sid      204 Feb 23 15:01 irb
+-rwxr-xr-x 1 sid sid      601 Feb 23 15:01 rake
+-rwxr-xr-x 1 sid sid      952 Feb 23 15:01 rdoc
+-rwxr-xr-x 1 sid sid      202 Feb 23 15:01 ri
+-rwxr-xr-x 1 sid sid 17156992 Feb 23 13:47 ruby
 ----
 
 *Step 7:* #chruby#
@@ -284,50 +287,66 @@ $ source /usr/local/share/chruby/chruby.sh
 
 $ chruby
  * ruby-2.3.6         <1>
-   ruby-2.4.3
+   ruby-2.5.0
 
-$ chruby ruby-2.4.3   <2>
+$ chruby ruby-2.5.0   <2>
 ----
 <1> Aktuell gültige Version.
 <2> Wechsel der Ruby-Version.
 
 ----
 $ ruby -v
-ruby 2.4.3p205 (2017-12-14 revision 61247) [x86_64-linux]
+ruby 2.5.0p0 (2017-12-25 revision 61468) [x86_64-linux]
 ----
 
 ----
 $ which gem
-/opt/rubies/ruby-2.4.3/bin/gem
+/opt/rubies/ruby-2.5.0/bin/gem
 
 $ gem -v
-2.6.14
+2.7.3
 
 $ gem list
 
 *** LOCAL GEMS ***
 
-bigdecimal (default: 1.3.0)
-did_you_mean (1.1.0)
+bigdecimal (default: 1.3.4)
+cmath (default: 1.0.0)
+csv (default: 1.0.0)
+date (default: 1.0.0)
+dbm (default: 1.0.0)
+did_you_mean (1.2.0)
+etc (default: 1.0.0)
+fcntl (default: 1.0.0)
+fiddle (default: 1.0.0)
+fileutils (default: 1.0.2)
+gdbm (default: 2.0.0)
 io-console (default: 0.4.6)
-json (default: 2.0.4)
-minitest (5.10.1)
+ipaddr (default: 1.2.0)
+json (default: 2.1.0)
+minitest (5.10.3)
 net-telnet (0.1.1)
-openssl (default: 2.0.5)
-power_assert (0.4.1)
-psych (default: 2.2.2)
-rake (12.0.0)
-rdoc (default: 5.0.0)
-test-unit (3.2.3)
-xmlrpc (0.2.1)
+openssl (default: 2.1.0)
+power_assert (1.1.1)
+psych (default: 3.0.2)
+rake (12.3.0)
+rdoc (default: 6.0.1)
+scanf (default: 1.0.0)
+sdbm (default: 1.0.0)
+stringio (default: 0.0.1)
+strscan (default: 1.0.0)
+test-unit (3.2.7)
+webrick (default: 1.4.2)
+xmlrpc (0.3.0)
+zlib (default: 1.0.0)
 ----
 
 ----
 $ which rake
-/opt/rubies/ruby-2.4.3/bin/rake
+/opt/rubies/ruby-2.5.0/bin/rake
 
 $ rake -V
-rake, version 12.0.0
+rake, version 12.3.0
 ----
 
 *Step 8* Vollständigkeit ...
@@ -336,18 +355,18 @@ $ ruby -ropenssl -rzlib -rreadline -e "puts 'Happy new Ruby'"
 Happy new Ruby
 ----
 
-.Ruby 2.4.3: #irb#
+.Ruby 2.5.0: #irb#
 ----
 $ which irb
-/opt/rubies/ruby-2.4.3/bin/irb
+/opt/rubies/ruby-2.5.0/bin/irb
 
 $ irb
 irb(main):001:0> RUBY_VERSION
-=> "2.4.3"
+=> "2.5.0"
 irb(main):002:0> RUBY_PATCHLEVEL
-=> 205
+=> 0
 irb(main):003:0> Time.now.to_s
-=> "2018-02-23 13:33:18 +0100"
+=> "2018-02-23 15:05:02 +0100"
 irb(main):004:0> Time.now.sunday?
 => false
 irb(main):005:0> exit
@@ -464,53 +483,69 @@ $ gem list
 
 asciidoctor (1.5.6.1)
 asciidoctor-revealjs (1.1.3)
-bigdecimal (default: 1.3.0)
+bigdecimal (default: 1.3.4)
+cmath (default: 1.0.0)
 coderay (1.1.2)
-did_you_mean (1.1.0)
+csv (default: 1.0.0)
+date (default: 1.0.0)
+dbm (default: 1.0.0)
+did_you_mean (1.2.0)
+etc (default: 1.0.0)
+fcntl (default: 1.0.0)
+fiddle (default: 1.0.0)
+fileutils (default: 1.0.2)
+gdbm (default: 2.0.0)
 io-console (default: 0.4.6)
-json (default: 2.0.4)
+ipaddr (default: 1.2.0)
+json (default: 2.1.0)
 method_source (0.9.0)
-minitest (5.10.1)
+minitest (5.10.3)
 mustermann (1.0.2)
 net-telnet (0.1.1)
-openssl (default: 2.0.5)
-power_assert (0.4.1)
+openssl (default: 2.1.0)
+power_assert (1.1.1)
 pry (0.11.3)
-psych (default: 2.2.2)
+psych (default: 3.0.2)
 rack (2.0.4)
 rack-protection (2.0.1)
-rake (12.0.0)
-rdoc (default: 5.0.0)
+rake (12.3.0)
+rdoc (default: 6.0.1)
+scanf (default: 1.0.0)
+sdbm (default: 1.0.0)
 sinatra (2.0.1)
-test-unit (3.2.3)
+stringio (default: 0.0.1)
+strscan (default: 1.0.0)
+test-unit (3.2.7)
 thread_safe (0.3.6)
 tilt (2.0.8)
-xmlrpc (0.2.1)
+webrick (default: 1.4.2)
+xmlrpc (0.3.0)
+zlib (default: 1.0.0)
 ----
 
 == RubyGems: _executable_
-./opt/rubies/ruby-2.4.3/bin
+./opt/rubies/ruby-2.5.0/bin
 ----
-$ ls -l /opt/rubies/ruby-2.4.3/bin
--rwxr-xr-x 1 sid sid     4856 Feb 23 13:28 erb
--rwxr-xr-x 1 sid sid      560 Feb 23 13:28 gem
--rwxr-xr-x 1 sid sid      204 Feb 23 13:28 irb
--rwxr-xr-x 1 sid sid      601 Feb 23 13:28 rake
--rwxr-xr-x 1 sid sid      952 Feb 23 13:28 rdoc
--rwxr-xr-x 1 sid sid      202 Feb 23 13:28 ri
--rwxr-xr-x 1 sid sid 16421864 Feb 23 13:05 ruby
+$ ls -l /opt/rubies/ruby-2.5.0/bin
+-rwxr-xr-x 1 sid sid     4851 Feb 23 15:01 erb
+-rwxr-xr-x 1 sid sid      560 Feb 23 15:01 gem
+-rwxr-xr-x 1 sid sid      204 Feb 23 15:01 irb
+-rwxr-xr-x 1 sid sid      601 Feb 23 15:01 rake
+-rwxr-xr-x 1 sid sid      952 Feb 23 15:01 rdoc
+-rwxr-xr-x 1 sid sid      202 Feb 23 15:01 ri
+-rwxr-xr-x 1 sid sid 17156992 Feb 23 13:47 ruby
 ----
 
 .~/.gem/ruby/2.3.4/bin
 ----
-$ ls -l ~/.gem/ruby/2.4.3/bin   <1>
--rwxr-xr-x 1 sid sid 643 Feb 23 13:34 asciidoctor
--rwxr-xr-x 1 sid sid 697 Feb 23 13:34 asciidoctor-revealjs
--rwxr-xr-x 1 sid sid 653 Feb 23 13:34 asciidoctor-safe
--rwxr-xr-x 1 sid sid 619 Feb 23 13:34 coderay
--rwxr-xr-x 1 sid sid 595 Feb 23 13:35 pry
--rwxr-xr-x 1 sid sid 605 Feb 23 13:35 rackup
--rwxr-xr-x 1 sid sid 601 Feb 23 13:35 tilt
+$ ls -l ~/.gem/ruby/2.5.0/bin   <1>
+-rwxr-xr-x 1 sid sid 643 Feb 23 15:05 asciidoctor
+-rwxr-xr-x 1 sid sid 697 Feb 23 15:06 asciidoctor-revealjs
+-rwxr-xr-x 1 sid sid 653 Feb 23 15:05 asciidoctor-safe
+-rwxr-xr-x 1 sid sid 619 Feb 23 15:05 coderay
+-rwxr-xr-x 1 sid sid 595 Feb 23 15:06 pry
+-rwxr-xr-x 1 sid sid 605 Feb 23 15:06 rackup
+-rwxr-xr-x 1 sid sid 601 Feb 23 15:06 tilt
 ----
 <1> Mit *chruby* werden die zusätzlichen _RubyGems_ im
     Home-Verzeichnis installiert.
@@ -528,18 +563,18 @@ Browser> http://localhost:8808/
          RubyGems Documentation Index
 ----
 
-image:ruby/rubygems24_documentation_index.png[RubyGems 2.4 Documentation Index]
+image:ruby/rubygems25_documentation_index.png[RubyGems 2.5 Documentation Index]
 
 
 == Anhang
 Script zum Installieren von Ruby {ruby-version} (ohne weitere Erläuterung).
 
-.Datei: `ruby24-install.sh`
+.Datei: `ruby25-install.sh`
 ----
 #!/bin/bash
 #
-ME=make_ruby_2.4.3
-RUBY=ruby-2.4.3
+ME=make_ruby_2.5.0
+RUBY=ruby-2.5.0
 TARGET=/opt/rubies
 
 if [ ! -e $TARGET ]
@@ -559,7 +594,7 @@ fi
 rm ${TARGET}/write-test.txt
 ls -l $TARGET
 
-echo "Ruby 2.4.3-Installation fortsetzen (j/n)"
+echo "Ruby 2.5.0-Installation fortsetzen (j/n)"
 read dummy
 case $dummy in
   j|J|y|Y) echo "Installation fortsetzen..."
@@ -581,7 +616,7 @@ make all  | tee ../log.ruby_make-all
 make test | tee ../log.ruby_make-test
 
 echo
-echo "Ruby 2.4.3 installieren"
+echo "Ruby 2.5.0 installieren"
 sudo make install | tee ../log.ruby_make-install
 
 echo

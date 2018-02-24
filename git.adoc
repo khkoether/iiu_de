@@ -1,5 +1,5 @@
 
-= IiU -- Git 2.12.2
+= IiU -- Git 2.16.2
 Installation in Ubuntu — khkoether[at]kahweb[dot]de
 
 include::_bp_header.adoc[]
@@ -43,16 +43,16 @@ andere Debian-basierte GNU/Linux Distributionen übertragbar.
 [TIP]
 ====
 Ubuntu 16.04 LTS (Xenial Xerus) enthält das Paket::
-  _git-core_2.7.4-0ubuntu1_all.deb_.
+  _git-core_2.7.4-0ubuntu1.3_all.deb_.
 ====
 
 
 == Download
 * {git-download-url}[Git] +
-  `git-2.12.2.tar.gz`  (ca. 6.1M) +
-  `git-htmldocs-2.12.2.tar.gz`  (ca. 2.6M) +
-  `git-manpages-2.12.2.tar.gz`  (ca. 639K) +
-  2017-03-24 (Release date)
+  `git-2.16.2.tar.gz`  (ca. 7.0M) +
+  `git-htmldocs-2.16.2.tar.gz`  (ca. 2.8M) +
+  `git-manpages-2.16.2.tar.gz`  (ca. 662K) +
+  2018-02-16 (Release date)
 
 [NOTE]
 ====
@@ -62,9 +62,9 @@ Die eigentliche Installation von Git wird vom
 Benutzer 'root' für das System durchgeführt.
 ----
 $ ls -lh
--rw-rw-r-- 1 sid sid 6,1M Apr  9 20:58 git-2.12.2.tar.gz
--rw-rw-r-- 1 sid sid 2,6M Apr  9 20:59 git-htmldocs-2.12.2.tar.gz
--rw-rw-r-- 1 sid sid 639K Apr  9 20:59 git-manpages-2.12.2.tar.gz
+-rw-rw-r-- 1 sid sid khk 7,0M Feb 23 12:12 git-2.16.2.tar.gz
+-rw-rw-r-- 1 sid sid 2,8M Feb 23 12:12 git-htmldocs-2.16.2.tar.gz
+-rw-rw-r-- 1 sid sid 662K Feb 23 12:13 git-manpages-2.16.2.tar.gz
 ----
 ====
 
@@ -97,14 +97,14 @@ Beispiel für die Änderung des Installations-Verzeichnisses: +
 
 *Step 1:* Auspacken des Source-Code
 ----
-$ tar xvzf git-2.12.2.tar.gz
-$ cd git-2.12.2
+$ tar xvzf git-2.16.2.tar.gz
+$ cd git-2.16.2
 ----
 
 *Step 2:* Konfiguration erstellen und kompilieren
 ----
 $ make configure | tee ../log.git_make-configure
-GIT_VERSION = 2.12.2
+GIT_VERSION = 2.16.2
     GEN configure
 
 $ ./configure | tee ../log.git_configure
@@ -143,10 +143,11 @@ $ cd /usr/local/share/doc
 $ sudo mkdir git-doc
 
 $ cd git-doc
-$ sudo tar xvzf git-htmldocs-2.12.2.tar.gz
+$ sudo tar xvzf git-htmldocs-2.16.2.tar.gz
 ...
-./git-filter-branch.txt
-./gitcredentials.html
+./git-credential-cache.html
+./user-manual.html
+./git-pull.html
 
 $ cd ..
 $ sudo chown -R root.root git-doc   <1>
@@ -155,18 +156,18 @@ $ sudo chmod a+rx git-doc
 
 $ ls -l
 drwxr-xr-x 2 root root  4096 Mär 26 23:04 chruby-0.3.9
-drwxr-xr-x 5 root root 20480 Mär 24 21:51 git-doc        <2>
+drwxr-xr-x 5 root root 20480 Feb 16 00:33 git-doc        <2>
 ----
 <1> Unbedingt die Rechte an den Dateien und den Ordnern anpassen!
-<2> Release Date: 2017-03-24
+<2> Release Date: 2018-02-16
 
 .Documentation: man-pages
 ----
 $ cd /usr/local/share/man
-$ sudo tar xvzf git-manpages-2.12.2.tar.gz
+$ sudo tar xvzf git-manpages-2.16.2.tar.gz
 ...
-./man1/git-submodule.1
-./man1/git-show-ref.1
+./man1/git-credential-store.1
+./man1/git-imap-send.1
 
 $ cd ..
 $ sudo chown -R root.root man   <1>
@@ -175,13 +176,13 @@ $ sudo chmod 755 man man/man1 man/man5 man/man7
 
 
 $ ls -l man
-drwxr-xr-x 2 root root 4096 Mär 24 21:52 man1   <2>
+drwxr-xr-x 2 root root 4096 Feb 16 00:34 man1   <2>
 drwxrwxr-x 2 root root 4096 Apr  9 21:23 man3
-drwxr-xr-x 2 root root 4096 Mär 24 21:52 man5   <2>
-drwxr-xr-x 2 root root 4096 Mär 24 21:52 man7   <2>
+drwxr-xr-x 2 root root 4096 Feb 16 00:34 man5   <2>
+drwxr-xr-x 2 root root 4096 Feb 16 00:34 man7   <2>
 ----
 <1> Unbedingt die Rechte an den Dateien und den Ordnern anpassen!
-<2> Release Date: 2017-03-24
+<2> Release Date: 2017-02-16
 
 
 == Installation verifizieren
@@ -190,7 +191,7 @@ drwxr-xr-x 2 root root 4096 Mär 24 21:52 man7   <2>
 === git --version
 ----
 $ git --version
-git version 2.12.2
+git version 2.16.2
 ----
 
 
@@ -198,13 +199,13 @@ git version 2.12.2
 ----
 $ cd /usr/local/bin
 $ ls -l git*
--rwxr-xr-x 118 root root 10871352 Apr  9 21:23 git
--rwxr-xr-x   2 root root   162414 Apr  9 21:23 git-cvsserver
--rwxr-xr-x   1 root root   351673 Apr  9 21:23 gitk
--rwxr-xr-x 118 root root 10871352 Apr  9 21:23 git-receive-pack
--rwxr-xr-x   2 root root  5656112 Apr  9 21:23 git-shell
--rwxr-xr-x 118 root root 10871352 Apr  9 21:23 git-upload-archive
--rwxr-xr-x   2 root root  6087320 Apr  9 21:23 git-upload-pack
+-rwxr-xr-x 119 root root 12206808 Feb 23 12:23 git
+-rwxr-xr-x   2 root root   162742 Feb 23 12:23 git-cvsserver
+-rwxr-xr-x   1 root root   351673 Feb 23 12:23 gitk
+-rwxr-xr-x 119 root root 12206808 Feb 23 12:23 git-receive-pack
+-rwxr-xr-x   2 root root  6494768 Feb 23 12:23 git-shell
+-rwxr-xr-x 119 root root 12206808 Feb 23 12:23 git-upload-archive
+-rwxr-xr-x   2 root root  6972312 Feb 23 12:23 git-upload-pack
 ----
 
 
@@ -283,7 +284,7 @@ NOTES
         5. git@vger.kernel.org
            mailto:git@vger.kernel.org
 
-Git 2.12.2                        03/24/2017                            GIT(1)
+Git 2.16.2                        02/15/2018                            GIT(1)
 ----
 
 
@@ -306,17 +307,20 @@ DESCRIPTION
 [...]
 
 HISTORY
-       Gitk was the first graphical repository browser. It’s written in tcl/tk
-       and started off in a separate repository but was later merged into the
-       main Git repository.
+       Gitk was the first graphical repository browser. It’s written in
+       tcl/tk.
+
+       gitk is actually maintained as an independent project, but stable
+       versions are distributed as part of the Git suite for the convenience
+       of end users.
+
+       gitk-git/ comes from Paul Mackerras’s gitk project:
+
+           git://ozlabs.org/~paulus/gitk
 
 SEE ALSO
        qgit(1)
            A repository browser written in C++ using Qt.
-
-       gitview(1)
-           A repository browser written in Python using Gtk. It’s based on
-           bzrk(1) and distributed in the contrib area of the Git repository.
 
        tig(1)
            A minimal repository browser and Git tool output highlighter
@@ -325,13 +329,14 @@ SEE ALSO
 GIT
        Part of the git(1) suite
 
-Git 2.12.2                         03/24/2017                           GITK(1)
+Git 2.16.2                        02/15/2018                           GITK(1)
 ----
 
 
 === /usr/local
 ----
-$ find /usr/local -type d -cmin -10
+$ sudo find /usr/local -type d -cmin -30
+/usr/local/share
 /usr/local/share/gitweb
 /usr/local/share/gitweb/static
 /usr/local/share/git-core/templates
@@ -339,6 +344,8 @@ $ find /usr/local -type d -cmin -10
 /usr/local/share/git-core/templates/info
 /usr/local/share/git-core/templates/branches
 /usr/local/share/locale
+/usr/local/share/locale/es
+/usr/local/share/locale/es/LC_MESSAGES
 /usr/local/share/locale/ru
 /usr/local/share/locale/ru/LC_MESSAGES
 /usr/local/share/locale/ko
@@ -363,6 +370,8 @@ $ find /usr/local -type d -cmin -10
 /usr/local/share/locale/bg/LC_MESSAGES
 /usr/local/share/locale/zh_CN
 /usr/local/share/locale/zh_CN/LC_MESSAGES
+/usr/local/share/perl/5.22.1
+/usr/local/share/perl/5.22.1/Git
 /usr/local/share/git-gui/lib
 /usr/local/share/git-gui/lib/msgs
 /usr/local/share/gitk/lib/msgs
@@ -371,6 +380,8 @@ $ find /usr/local -type d -cmin -10
 /usr/local/share/man/man3
 /usr/local/share/man/man5
 /usr/local/share/man/man7
+/usr/local/share/doc
+/usr/local/share/doc/chruby-0.3.9
 /usr/local/share/doc/git-doc
 /usr/local/share/doc/git-doc/RelNotes
 /usr/local/share/doc/git-doc/howto
@@ -414,7 +425,7 @@ Browser> file:///usr/local/share/doc/git-doc/git-config.html
 
 
 == Anhang
-Script zum Installieren von {git-url}[Git] 2.12.2 (ohne weitere Erläuterung). +
+Script zum Installieren von {git-url}[Git] 2.16.2 (ohne weitere Erläuterung). +
 Die Dokumentation zu {git-url}[Git] wird mit diesem Script _nicht_ installiert.
 
 .Datei: `git-install.sh`
@@ -422,7 +433,7 @@ Die Dokumentation zu {git-url}[Git] wird mit diesem Script _nicht_ installiert.
 #!/bin/bash
 #
 ME=make_git
-NAME=git-2.12.2
+NAME=git-2.16.2
 
 ls -l git*.tar.gz
 echo

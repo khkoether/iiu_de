@@ -1,8 +1,15 @@
-# ChangeLog für iiu_de (07. Mai 2017)
+# ChangeLog für iiu_de (24. Februar 2018)
+
+.Version 5.1.0
+* Neue Programmversion:
+  Git (2.16.2),
+  Ruby (2.3.6), Ruby (2.4.3), Ruby (2.5.0),
+  Ruby on Rails (5.1),
+  JRuby 9k (9.1.16.0), JRuby 9k on Rails (5.1)
 
 .Version 5.0.0
 * Neue Programmversion:
-  Asciidoctor (1.5.5), Git (2.12.2)), 
+  Asciidoctor (1.5.5), Git (2.12.2)),
   Ruby (2.3.4), Ruby (2.4.1), Ruby on Rails (5.0),
   JDK (8), JRuby 9k (9.1.8.0), JRuby 9k on Rails (5.0)
   Unverändert:
