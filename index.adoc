@@ -11,7 +11,7 @@ Version {version} {middot} {datum}
 Eine Sammlung von Schritt-für-Schritt Anleitungen zur Installation
 verschiedener Programme aus dem QuellCode.
 
-Die Installationen werden für {ubuntu-url}[Ubuntu 16.04 LTS (Xenial Xerus)] beschrieben.
+Die Installationen werden für {ubuntu-url}[Ubuntu 18.04 LTS (Bionic Beaver)] beschrieben.
 
 
 == Intention
