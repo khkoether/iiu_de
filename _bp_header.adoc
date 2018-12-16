@@ -8,8 +8,8 @@
 
 :author:          karl-heinz köther
 :authorinitials:  khk
-:datum:           Februar 2018
-:version:         5.1.0
+:datum:           Dezember 2018
+:version:         5.2.0
 
 :top-url:         #top[&#8679;]
 :middot:          &middot;
@@ -37,6 +37,7 @@
 :jruby_on_rails42-url:      link:jruby_on_rails42.html
 :jruby9k-url:               link:jruby9k.html
 :jruby9k_on_rails51-url:    link:jruby9k_on_rails51.html
+:jruby9k_on_rails52-url:    link:jruby9k_on_rails52.html
 
 :netbeans8-url:             link:netbeans8.html
 :netbeans8_1st-url:         link:netbeans8_1st.html
@@ -47,3 +48,4 @@
 :ruby24-url:                link:ruby24.html
 :ruby25-url:                link:ruby25.html
 :ruby_on_rails51-url:       link:ruby_on_rails51.html
+:ruby_on_rails52-url:       link:ruby_on_rails52.html

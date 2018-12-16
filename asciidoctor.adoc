@@ -14,7 +14,7 @@ include::_bp_header.adoc[]
 
 :asciidoctor-stylesheet-factory-url: http://asciidoctor.org/docs/produce-custom-themes-using-asciidoctor-stylesheet-factory/
 
-Version 5.0.0 {middot} April 2017
+Version {version} {middot} {datum}
 
 
 == Abstract
@@ -41,14 +41,28 @@ Gerne nehme ich Verbesserungsvorschläge entgegen.
 Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr.
 ====
 
+'''
+
+.Asciidoctor: Links
+****
+====
+* {asciidoctor-home-url}[Asciidoctor]
+* {asciidoc-what-is-url}[Asciidoctor: What is AsciiDoc]
+* {asciidoc-writers-guide-url}[Asciidoctor: AsciiDoc Writer's Guide]
+* {asciidoc-syntax-quick-url}[Asciidoctor: Syntax Quick Reference]
+* {asciidoctor-stylesheet-factory-url}[Asciidoctor: Produce Custom Themes+++<br>+++Using the Asciidoctor Stylesheet Factory]
+* {asciidoc-url}[Installation von _AsciiDoc 8.6.9_ &nbsp; (lang ist es her)]
+====
+****
+
 
 == Vorraussetzung
-Die Installation wird für {ubuntu-url}[Ubuntu 16.04 LTS (Xenial Xerus)] beschrieben. +
+Die Installation wird für {ubuntu-url}[Ubuntu 18.04 LTS (Bionic Beaver)] beschrieben. +
 Gleichwohl sind die einzelnen Schritte auch für
 andere Debian-basierte GNU/Linux Distributionen übertragbar.
 
-Ubuntu 16.04 LTS (Xenial Xerus) enthält das Paket::
-  _ruby2.3_2.3.1-2~16.04_amd64.deb_.
+Ubuntu 18.04 LTS (Bionic Beaver) enthält das Paket::
+  *ruby2.5* &nbsp; _2.5.1-1ubuntu1_.
 
 
 == Installation
@@ -59,38 +73,40 @@ Zur Installation von *Asciidoctor* muß auf dem Rechner *Ruby* installiert sein.
 Vor der eigentlichen Installation müssen die fehlenden
 Programm-Pakete installiert sind.
 ----
-$ sudo apt-get install ruby2.3
+$ sudo apt-get install ruby2.5
 ----
 
 [options="nowrap"]
 ----
-$ COLUMNS=96 dpkg --list | grep ruby2.3   <1> <2>
-ii  libruby2.3:amd64   2.3.1-2~16.04  amd64   Libraries necessary to run Ruby 2.3
-ii  ruby2.3            2.3.1-2~16.04  amd64   Interpreter of object-oriented scripting language Ruby
+$ COLUMNS=96 dpkg --list | grep ruby2.5   <1> <2>
+ii  libruby2.5:amd64   2.5.1-1ubuntu1 amd64          Libraries necessary to run Ruby 2.5
+ii  ruby2.5            2.5.1-1ubuntu1 amd64          Interpreter of object-oriented scripting
+ii  ruby2.5-dev:amd64  2.5.1-1ubuntu1 amd64          Header files for compiling extension modu
+ii  ruby2.5-doc        2.5.1-1ubuntu1 all            Documentation for Ruby 2.5
 ----
 <1> COLUMNS=96 ist eine Formatangabe für die Ausgabe von #dpkg#
-<2> *ruby2.3* kann bereits durch _andere_ Abhängigkeiten installiert sein!
+<2> *ruby2.5* kann bereits durch _andere_ Abhängigkeiten installiert sein!
 ====
 
 
 Mithilfe des Befehls _sudo_ wird die System-Installation von *Ruby* ergänzt.
 ----
 $ ruby -v
-ruby 2.3.1p112 (2016-04-26) [x86_64-linux-gnu]
+ruby 2.5.1p57 (2018-03-29 revision 63029) [x86_64-linux-gnu]
 
 $ sudo gem install asciidoctor coderay
 [sudo] Passwort für sid:
-Fetching: asciidoctor-1.5.5.gem (100%)
-Successfully installed asciidoctor-1.5.5
-Parsing documentation for asciidoctor-1.5.5
-Installing ri documentation for asciidoctor-1.5.5
+Fetching: asciidoctor-1.5.8.gem (100%)
+Successfully installed asciidoctor-1.5.8
+Parsing documentation for asciidoctor-1.5.8
+Installing ri documentation for asciidoctor-1.5.8
 Done installing documentation for asciidoctor after 4 seconds
-Fetching: coderay-1.1.1.gem (100%)
-Successfully installed coderay-1.1.1
+Fetching: coderay-1.1.2.gem (100%)
+Successfully installed coderay-1.1.2
 invalid options: -SNw2
 (invalid options are ignored)             <1>
-Parsing documentation for coderay-1.1.1
-Installing ri documentation for coderay-1.1.1
+Parsing documentation for coderay-1.1.2
+Installing ri documentation for coderay-1.1.2
 Done installing documentation for coderay after 2 seconds
 2 gems installed
 ----
@@ -101,19 +117,40 @@ $ gem list --local
 
 *** LOCAL GEMS ***
 
-asciidoctor (1.5.5)    <1>
-bigdecimal (1.2.8)
-coderay (1.1.1)        <1>
-did_you_mean (1.0.0)
-io-console (0.4.5)
-json (1.8.3)
-minitest (5.8.4)
+asciidoctor (1.5.8)           <1>
+bigdecimal (default: 1.3.4)
+cmath (default: 1.0.0)
+coderay (1.1.2)               <1>
+csv (default: 1.0.0)
+date (default: 1.0.0)
+dbm (default: 1.0.0)
+did_you_mean (1.2.0)
+etc (default: 1.0.0)
+fcntl (default: 1.0.0)
+fiddle (default: 1.0.0)
+fileutils (default: 1.0.2)
+gdbm (default: 2.0.0)
+io-console (default: 0.4.6)
+ipaddr (default: 1.2.0)
+json (default: 2.1.0)
+minitest (5.10.3)
 net-telnet (0.1.1)
+openssl (default: 2.1.0)
 power_assert (0.2.7)
-psych (2.0.17)
-rake (10.5.0)
-rdoc (4.2.1)
-test-unit (3.1.7)
+psych (default: 3.0.2)
+rake (12.3.1)
+rdoc (default: 6.0.1)
+scanf (default: 1.0.0)
+sdbm (default: 1.0.0)
+slim (3.0.9)
+stringio (default: 0.0.1)
+strscan (default: 1.0.0)
+temple (0.8.0)
+test-unit (3.2.5)
+thread_safe (0.3.6)
+tilt (2.0.8)
+webrick (default: 1.4.2)
+zlib (default: 1.0.0)
 ----
 <1> 2 gems installed
 
@@ -130,18 +167,10 @@ $ gem install asciidoctor coderay
 [options="nowrap"]
 ----
 $ asciidoctor -V
-Asciidoctor 1.5.5 [http://asciidoctor.org]
-Runtime Environment (ruby 2.3.1p112 (2016-04-26) [x86_64-linux-gnu]) (lc:UTF-8 fs:UTF-8 in:- ex:UTF-8)
+Asciidoctor 1.5.8 [https://asciidoctor.org]
+Runtime Environment (ruby 2.5.1p57 (2018-03-29 revision 63029) [x86_64-linux-gnu])
+                                   (lc:UTF-8 fs:UTF-8 in:UTF-8 ex:UTF-8)
 ----
-
-
-== Asciidoctor: Links
-* {asciidoctor-home-url}[Asciidoctor]
-* {asciidoc-what-is-url}[What ist AsciiDoc]
-* {asciidoc-writers-guide-url}[AsciiDoc Writer's Guide]
-* {asciidoc-syntax-quick-url}[AsciiDoc: Syntax Quick Reference]
-* {asciidoctor-stylesheet-factory-url}[Produce Custom Themes+++<br>+++Using the Asciidoctor Stylesheet Factory]
-* {asciidoc-url}[Installation von _AsciiDoc 8.6.9_ &nbsp; (lang ist es her)]
 
 
 == Asciidoctor: Erste Schritte &hellip;
@@ -167,9 +196,9 @@ Opera sine nomine scripta — sid[at]example[dot]org
 :mit-url:               http://opensource.org/licenses/mit-license.php
 :ubuntu-url:            http://www.ubuntu.com/
 
-:datum:                 April 2017
+:datum:                 November 2018
 :middot:                &middot;
-:version:               5.0.0
+:version:               5.2.0
 
 Version {version} {middot} {datum}
 
@@ -209,7 +238,7 @@ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
 
 '''
 link:asciidoctor.html#_asciidoctor_erste_schritte[zurück zu Asciidoctor]
-
+----
 
 
 

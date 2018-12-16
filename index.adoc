@@ -60,25 +60,26 @@ und mit _Asciidoctor {asciidoctor-version}_ erstellt worden.
 
 
 == Auswahl
-* {asciidoctor-url}[Asciidoctor 1.5.5]
+* {asciidoctor-url}[Asciidoctor 1.5.8]
 * {asciidoctor_1st-url}[Asciidoctor: Erste Schritte &hellip;]
 * {asciidoctor_revealjs-url}[Asciidoctor reveal.js]
 * {chruby-url}[chruby 0.3.9]
-* {git-url}[Git 2.16.2]
-* {ruby23-url}[Ruby MRI 2.3]
-* {ruby24-url}[Ruby MRI 2.4]
+* {git-url}[Git 2.20.0]
 * {ruby25-url}[Ruby MRI 2.5]
-* {ruby_on_rails51-url}[Ruby on Rails 5.1]
-* {jdk-url}[OpenJDK 8, Oracle JDK 8]
+* {ruby_on_rails52-url}[Ruby on Rails 5.2]
+* {jdk-url}[OpenJDK 8/11]
 * {jruby9k-url}[JRuby 9k]
-* {jruby9k_on_rails51-url}[JRuby 9k on Rails 5.1]
+* {jruby9k_on_rails52-url}[JRuby 9k on Rails 5.2]
 
 [CAUTION]
 ====
 .Unverändert - diese Seiten werden nicht weiter aktualisiert
 * {asciidoc-url}[AsciiDoc 8.6.9]
 * {ruby22-url}[Ruby 2.2.4]
+* {ruby23-url}[Ruby MRI 2.3]
+* {ruby24-url}[Ruby MRI 2.4]
 * {ruby_on_rails42-url}[Ruby on Rails 4.2]
+* {ruby_on_rails51-url}[Ruby on Rails 5.1]
 * {jruby-url}[JRuby 1.7.25]
 * {jruby_on_rails42-url}[JRuby on Rails 4.2]
 * {netbeans8-url}[NetBeans IDE 8.0]

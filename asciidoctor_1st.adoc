@@ -9,10 +9,6 @@ Opera sine nomine scripta — sid[at]example[dot]org
 :mit-url:               http://opensource.org/licenses/mit-license.php
 :ubuntu-url:            http://www.ubuntu.com/
 
-:datum:                 April 2017
-:middot:                &middot;
-:version:               5.0.0
-
 Version {version} {middot} {datum}
 
 

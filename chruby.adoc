@@ -8,7 +8,7 @@ include::_bp_header.adoc[]
 :chruby-github-url: https://github.com/postmodern/chruby/
 :chruby-license-url: https://github.com/postmodern/chruby/blob/master/LICENSE.txt
 
-Version 5.0.0 {middot} April 2017
+Version {version} {middot} {datum}
 
 
 == Abstract
@@ -36,7 +36,7 @@ Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr.
 
 
 == Vorraussetzung
-Die Installation wird für {ubuntu-url}[Ubuntu 16.04 LTS (Xenial Xerus)] beschrieben. +
+Die Installation wird für {ubuntu-url}[Ubuntu 18.04 LTS (Bionic Beaver)] beschrieben. +
 Gleichwohl sind die einzelnen Schritte auch für
 andere Debian-basierte GNU/Linux Distributionen übertragbar.
 
@@ -46,9 +46,11 @@ durchgeführt worden.
 
 [options="nowrap"]
 ----
-$ COLUMNS=96 dpkg --list | grep ruby2.3   <1>
-ii  libruby2.3:amd64   2.3.1-2~16.04  amd64   Libraries necessary to run Ruby 2.3
-ii  ruby2.3            2.3.1-2~16.04  amd64   Interpreter of object-oriented scripting language Ruby
+$ COLUMNS=96 dpkg --list | grep ruby2.5   <1>
+ii  libruby2.5:amd64   2.5.1-1ubuntu1 amd64          Libraries necessary to run Ruby 2.5
+ii  ruby2.5            2.5.1-1ubuntu1 amd64          Interpreter of object-oriented scripting
+ii  ruby2.5-dev:amd64  2.5.1-1ubuntu1 amd64          Header files for compiling extension modu
+ii  ruby2.5-doc        2.5.1-1ubuntu1 all            Documentation for Ruby 2.5
 ----
 <1> COLUMNS=96 ist eine Formatangabe für die Ausgabe von #dpkg#
 
@@ -56,7 +58,7 @@ ii  ruby2.3            2.3.1-2~16.04  amd64   Interpreter of object-oriented scr
 == Download
 * {chruby-home-url}[chruby 0.3.9] +
   `chruby-master.zip`  (ca. 37K) +
-  2017-03-01 (letzte Änderung)
+  2017-07-18 (letzte Änderung)
 
 
 == Installation
@@ -73,30 +75,25 @@ $ cd chruby-master
 $ sudo make install
 for dir in `find etc lib bin sbin share -type d 2>/dev/null`; do mkdir -p /usr/local/$dir; done
 for file in `find etc lib bin sbin share -type f 2>/dev/null`; do cp $file /usr/local/$file; done
-mkdir -p /doc/chruby-0.3.9            <1>
-cp -r *.md *.txt /doc/chruby-0.3.9/
+mkdir -p /usr/local/share/doc/chruby-0.3.9
+cp -r *.md *.txt /usr/local/share/doc/chruby-0.3.9/
 ----
-<1> Falsches Verzeichnis!
-
-----
-$ sudo mv /doc/chruby-0.3.9/ /usr/local/share/doc   <1>
-$ sudo rm -rf /doc
-----
-<1> Korrektur der _doc_-Installation.
-
 
 [options="nowrap"]
 ----
-$ $ sudo find /usr -cmin -10
-/usr/local/share/chruby/auto.sh
+$ sudo find /usr -cmin -10
+/usr/local/bin
+/usr/local/bin/chruby-exec
+/usr/local/share
+/usr/local/share/chruby
 /usr/local/share/chruby/chruby.sh
+/usr/local/share/chruby/auto.sh
 /usr/local/share/doc
 /usr/local/share/doc/chruby-0.3.9
-/usr/local/share/doc/chruby-0.3.9/README.md
-/usr/local/share/doc/chruby-0.3.9/ChangeLog.md
 /usr/local/share/doc/chruby-0.3.9/CONTRIBUTING.md
+/usr/local/share/doc/chruby-0.3.9/ChangeLog.md
 /usr/local/share/doc/chruby-0.3.9/LICENSE.txt
-/usr/local/bin/chruby-exec
+/usr/local/share/doc/chruby-0.3.9/README.md
 ----
 
 === Datei: `~/.bashrc`
@@ -105,11 +102,11 @@ $ $ sudo find /usr -cmin -10
 
 # chruby
 echo "== chruby aktivieren: "
-source /usr/local/share/chruby/chruby.sh
+echo "source /usr/local/share/chruby/chruby.sh"
 
 # chruby: Ruby version changes automatically   <1>
 echo "== Ruby version changes automatically"
-source /usr/local/share/chruby/auto.sh
+echo "source /usr/local/share/chruby/auto.sh"
 ----
 <1> Wertet die Datei `.ruby-version` im Projekt-Verzeichnis aus!
 
@@ -128,13 +125,19 @@ $ sudo chmod 777 /opt/rubies   <1>
 
 
 == Beispiele
-._chruby_ Optionen
+
+
+=== _chruby_ Optionen
 ----
+$ source /usr/local/share/chruby/chruby.sh   <1>
+
 $ chruby -h
 usage: chruby [RUBY|VERSION|system] [RUBYOPT...]
 ----
+<1> Falls *chruby* nicht automatisch aktiviert wird.
 
-.Listet die vorhandenen _Ruby_-Installationen auf:
+
+=== Listet die vorhandenen _Ruby_-Installationen auf:
 ----
 $ source /usr/local/share/chruby/chruby.sh   <1>
 
@@ -145,20 +148,20 @@ $ chruby   <2> <3>
 <3> Zu diesem Zeitpunkt gibt es ausschließlich die System-Installation von _Ruby_!
 
 
-.Wechsel zur System-Installation von _Ruby_:
+=== Wechsel zur System-Installation von _Ruby_:
 ----
 $ chruby system
 
 $ echo $PATH      <1>
-/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin:/home/sid/bin
+/home/sid/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 
 $ ruby -v
-ruby 2.3.1p112 (2016-04-26) [x86_64-linux-gnu]
+ruby 2.5.1p57 (2018-03-29 revision 63029) [x86_64-linux-gnu]
 ----
 <1> Von _chruby_ durchgeführte Änderungen an der Variable _PATH_ werden zurückgenommen.
 
 
-.Ausführen eines Kommandos mit einer bestimmten _Ruby_-Version:
+=== Ausführen eines Kommandos mit einer bestimmten _Ruby_-Version:
 ----
 $ chruby-exec ruby-2.x.y -- gem update   <1>
 ...
@@ -166,7 +169,7 @@ $ chruby-exec ruby-2.x.y -- gem update   <1>
 <1> Das Verzeichnis `ruby-2.x.y` liegt in `/opt/rubies`
 
 
-.Wechsel zu einer beliebigen _Ruby_-Version:
+=== Wechsel zu einer beliebigen _Ruby_-Version:
 ----
 $ chruby_use /path/to/ruby-2.x.y
 ----

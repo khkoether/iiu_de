@@ -1,12 +1,12 @@
 
-= IiU -- OpenJDK 8, Oracle JDK 8
+= IiU -- OpenJDK 8/11
 Installation in Ubuntu — khkoether[at]kahweb[dot]de
 
 include::_bp_header.adoc[]
 
 :java-home-url:            http://www.oracle.com/technetwork/java/javase/downloads/index.html
 
-Version 5.0.0 {middot} April 2017
+Version 5.2.0 {middot} Dezember 2018
 
 
 == Abstract
@@ -31,7 +31,7 @@ und mit _Asciidoctor {asciidoctor-version}_ erstellt worden.
 ====
 Zu beachten ist, dass so ein Dokument zum Einen nie abschliessend
 sein kann, und zum Anderen bestimmte Konfigurationen anders, oder
-auf einem anderem Weg durchgeführt werden können.
+auf einem anderem Weg durchgeführt werden können. +
 Gerne nehme ich Verbesserungsvorschläge entgegen.
 
 Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr.
@@ -39,225 +39,88 @@ Es gilt wie immer: Verwendung der Anleitung auf eigene Gefahr.
 
 
 == Vorraussetzungen
-Die Installation wird für {ubuntu-url}[Ubuntu 16.04 LTS (Xenial Xerus)] beschrieben. +
+Die Installation wird für {ubuntu-url}[Ubuntu 18.04 LTS (Bionic Beaver)] beschrieben. +
 Gleichwohl sind die einzelnen Schritte auch für
 andere Debian-basierte GNU/Linux Distributionen übertragbar.
 
 [TIP]
 ====
-Ubuntu 16.04 LTS (Xenial Xerus) enthält die Pakete::
-  _openjdk-8-jdk_8u121-b13-0ubuntu1.16.04.2_amd64.deb_ +
-  _openjdk-8-jre_8u77-b03-3ubuntu3_amd64.deb_
+Ubuntu 18.04 LTS (Bionic Beaver) enthält die Pakete::
+  _openjdk-8-jdk_8u191-b12-0ubuntu0.18.04.1_amd64.deb_ +
+  _openjdk-11-jdk-10.0.2+13-1ubuntu0.18.04.1.deb_
 
 Wenn Sie keine eigenen Programme in _Java_ entwickeln wollen,
 reicht die Installation +
-des Pakets _openjdk-8-jre_ (_Java Runtime Environment_) vollkommen aus.
+des Pakets _openjdk-11-jre_ (_Java Runtime Environment_) vollkommen aus.
 
 [options="nowrap"]
 ----
-$ COLUMNS=96 dpkg --list | grep openjdk-8-jre   <1> <2>
-ii  openjdk-8-jre:amd6 8u121-b13-0ubu amd64          OpenJDK Java runtime, using Hotspot JIT
-ii  openjdk-8-jre-head 8u121-b13-0ubu amd64          OpenJDK Java runtime, using Hotspot JIT
+$ COLUMNS=132 dpkg --list | grep openjdk-   <1> <2>
+ii  openjdk-11-jdk:amd64        10.0.2+13-1ubuntu0 amd64   OpenJDK Development Kit (JDK)
+ii  openjdk-11-jdk-headless:amd 10.0.2+13-1ubuntu0 amd64   OpenJDK Development Kit (JDK) (headless)
+ii  openjdk-11-jre:amd64        10.0.2+13-1ubuntu0 amd64   OpenJDK Java runtime, using Hotspot JIT
+ii  openjdk-11-jre-headless:amd 10.0.2+13-1ubuntu0 amd64   OpenJDK Java runtime, using Hotspot JIT (headless)
+ii  openjdk-8-jre:amd64         8u191-b12-0ubuntu0 amd64   OpenJDK Java runtime, using Hotspot JIT
+ii  openjdk-8-jre-headless:amd6 8u191-b12-0ubuntu0 amd64   OpenJDK Java runtime, using Hotspot JIT (headless)
 ----
 <1> COLUMNS=96 ist eine Formatangabe für die Ausgabe von #dpkg#
-<2> *openjdk-8-jre* kann bereits durch _andere_ Abhängigkeiten installiert sein!
+<2> *openjdk-8-...* und *openjdk-11-...* kann bereits durch _andere_ Abhängigkeiten installiert sein!
 ====
 
 
 == Wahlmöglichkeiten
-.OpenJDK 8 .vs Oracle JDK 8
-Für Java steht eine gute OpenSource-Anwendung zur Verfügung: das _OpenJDK 8_ und
-das _IcedTea-Plugin_ für den Browser. Sie sind erhältlich in den regulären
+.OpenJDK 8/11 .vs Oracle JDK 8/11
+Öffentliche Updates für Oracle Java SE 8 (SE -- Standard Edition)
+enden in 2020 für Privatnutzer -- wobei die Versionen 9 sowie 10
+bereits ausgelaufen sind bzw. aus dem Support herausfallen. +
+Das kommende Java SE 11 wird erst gar nicht im öffentlichen Support
+verfügbar sein. Für Firmen ist ab Januar 2019 eine kommerzielle Nutzerlizenz
+(für Oracle Java SE 8) erforderlich, um Updates einsetzen zu dürfen. +
+
+Für Java steht eine gute OpenSource-Anwendung zur Verfügung: das _OpenJDK 8/11_.
+Sie sind erhältlich in den regulären
 Ubuntu-Repositories und erhalten regelmäßig Sicherheits-Updates.
 Für viele Menschen ist dieses Java ausreichend.
 
-Das ist mit ein Grund warum das ClosedSource Oracle Java von den offiziellen
-Software-Repositories entfernt wurde.
-
-Ein weiterer Grund war natürlich auch, das Oracle die
-_Operating System Distributor License for Java (DLJ)_ zurückgezog.
-
-&rarr; http://sites.google.com/site/easylinuxtipsproject/java#TOC-Primary-choice:-OpenJDK-6-and-not-Oracle-Sun-Java[Oracle (Sun) Java JRE for Ubuntu, Linux Mint and Debian]
+Für *JRuby* ist ein Java 8-compatibles (oder höher) Java development kit (JDK)
+Vorraussetzung.
 
 [NOTE]
 ====
 Unabhängig davon, das die Firma _Oracle_ das freie _OpenJDK_ unterstützt und auch
-vorantreibt ... gibt es durchaus Bugs, die in den propietären Paketen nicht
+vorantreibt ... gibt es durchaus Bugs, die in den proprietären Paketen nicht
 vorhanden sind. +
 Es gilt, Bugs zu melden, damit _OpenJDK_ ebenso gut wird.
 ====
 
 [NOTE]
 ====
-OpenJDK 8 ist aktuell und für alle Ubuntu-Versionen verfügbar.
-Wer kann, sollte sich für OpenJDK 8 entscheiden -
-solange ein spezieller Anwendungszweck wie beispielsweise _ElsterOnline_ nicht
-dagegen spricht.
+OpenJDK 8/11 ist aktuell und für alle Ubuntu-Versionen verfügbar.
+Wer kann, sollte sich für OpenJDK 11 entscheiden -
+Java 11 ist (wie zuletzt Java 8) eine Long-Term-Support (LTS) Version.
+Das Ende des Supports für Java 11 ist noch nicht bekannt.
 
 &rarr; http://wiki.ubuntuusers.de/Java[ubunutusers.de: Java]
 ====
 
 
-== Installation: OpenJDK 8
-
-----
-$ sudo apt-get -s install icedtea-8-plugin  <1>
-Paketlisten werden gelesen... Fertig
-Abhängigkeitsbaum wird aufgebaut.
-Statusinformationen werden eingelesen.... Fertig
-Die folgenden zusätzlichen Pakete werden Installiert
-  icedtea-netx icedtea-netx-common
-Die folgenden NEUEN Pakete werden installiert:
-  icedtea-8-plugin icedtea-netx icedtea-netx-common
-0 aktualisiert, 3 neu installiert, 0 zu entfernen und 7 nicht aktualisiert.
-[...]
-----
-<1> Sie müssen entscheiden ob Sie das Java-Plugin für den Browser installieren,
-    oder aus Sicherheitsgründen darauf verzichten...!?
-
+== Installation: OpenJDK 11
 [options="nowrap"]
 ----
-$ sudo apt-get install openjdk-8-jdk  <1>
+$ sudo apt install openjdk-11-jdk  <1>
 Paketlisten werden gelesen... Fertig
 Abhängigkeitsbaum wird aufgebaut.
 Statusinformationen werden eingelesen.... Fertig
-Die folgenden zusätzlichen Pakete werden Installiert
-  libice-dev libpthread-stubs0-dev libsm-dev libx11-dev libx11-doc libxau-dev libxcb1-dev libxdmcp-dev libxt-dev
-  openjdk-8-jdk-headless x11proto-core-dev x11proto-input-dev x11proto-kb-dev xorg-sgml-doctools xtrans-dev
-Vorgeschlagene Pakete:
-  libice-doc libsm-doc libxcb-doc libxt-doc openjdk-8-demo openjdk-8-source visualvm
-Die folgenden NEUEN Pakete werden installiert:
-  libice-dev libpthread-stubs0-dev libsm-dev libx11-dev libx11-doc libxau-dev libxcb1-dev libxdmcp-dev libxt-dev
-  openjdk-8-jdk openjdk-8-jdk-headless x11proto-core-dev x11proto-input-dev x11proto-kb-dev xorg-sgml-doctools
-  xtrans-dev
-0 aktualisiert, 16 neu installiert, 0 zu entfernen und 2 nicht aktualisiert.
-Es müssen 12,0 MB an Archiven heruntergeladen werden.
-Nach dieser Operation werden 58,2 MB Plattenplatz zusätzlich benutzt.
-Möchten Sie fortfahren? [J/n]
+openjdk-11-jdk ist schon die neueste Version (10.0.2+13-1ubuntu0.18.04.4).
+0 aktualisiert, 0 neu installiert, 0 zu entfernen und 0 nicht aktualisiert.
 ----
 <1> Vielleicht ist das Paket bei Ihnen wie bei mir bereits installiert ;-)
 
 ----
 $ java -version
-openjdk version "1.8.0_121"
-OpenJDK Runtime Environment (build 1.8.0_121-8u121-b13-0ubuntu1.16.04.2-b13)
-OpenJDK 64-Bit Server VM (build 25.121-b13, mixed mode)
-----
-
-
-== Installation: Oracle JDK 8
-Wie auch immer, einige Ubuntu-Anwender benötigen das Oracle JDK. +
-Empfohlen wird die jeweils neueste Version - zu diesem Zeitpunkt ist das:
-_Java SE Development Kit 8u131_.
-
-Zusätzliche Software-Pakete
-sollten im Verzeichnis `/opt` &nbsp; (Optional) installiert werden.
-
-*Step 0:* Download JDK 8u131
-
-&rarr; {java-home-url}[Oracle: Java SE Downloads]
-
-[NOTE]
-====
-You must accept the Oracle Binary Code License Agreement
-for Java SE to download this software.
-====
-
-*Step 1:* Installation im Verzeichnis `/opt/Java` &nbsp; (mit Benutzer 'root')
-----
-$ sudo mkdir /opt/Java
-$ sudo mv jdk-8u131-linux-x64.tar.gz /opt/Java
-$ cd /opt/Java
-
-$ ls -l
--rw-rw-r-- 1 sid  sid  185540433 Apr 24 21:16 jdk-8u131-linux-x64.tar.gz
-
-$ sudo tar xvzf jdk-8u131-linux-x64.tar.gz
-...
-----
-
-Ein Vorteil bei der gezeigten Lösung ist, daß für das Einspielen einer neuen Version
-weder die Konfigurations-Datei noch die `PATH`-Variable angepasst werden müssen.
-----
-$ sudo chown -R root.root jdk1.8.0_131
-
-$ sudo ln -s jdk1.8.0_131 current
-$ ls -l
-lrwxrwxrwx 1 root root        13 Apr 24 21:18 current -> jdk1.8.0_131/
--rw-r--r-- 1 root root       328 Apr 24 21:19 java.path.sh
-drwxr-xr-x 8 root root      4096 Mär 15 09:35 jdk1.8.0_131
--rw-rw-r-- 1 sid  sid  185540433 Apr 24 21:16 jdk-8u131-linux-x64.tar.gz
-----
-
-*Step 2:* Java-Pfad setzen (von au&szlig;en) +
-Erstellen Sie eine Datei `java.path.sh` (siehe <<_anhang,[Anhang]>>).
-[NOTE]
-=========================================================
-Achtung: Ausführen der Datei mit dem Punkt-Operator!
-----
-$ . java.path.sh
-----
-=========================================================
-
-*Step 3:* Installation verifizieren
-----
-$ which java
-/opt/Java/current/bin/java
-
-$ java -version
-java version "1.8.0_131"
-Java(TM) SE Runtime Environment (build 1.8.0_131-b11)
-Java HotSpot(TM) 64-Bit Server VM (build 25.131-b11, mixed mode)   <1>
-----
-<1> _b_ steht für _build_
-
-
-== Java im Browser
-.Überprüfen Sie die im Browser installierten _Plugins_:
-* Mozilla Firefox +
-  `about:plugins`
-* Chromium +
-  `chrome://plugins/`
-
-.Beide Browser greifen auf das _IcedTea-Web Plugin_ zu:
-_IcedTea-Web Plugin using IcedTea-Web 1.6.2-3ubuntu1_ +
-(Bei mir _nicht_ installiert -- ich verzichte auf _Java_ im Browser.) +
-
-.By the way... Web browsers are starting to block Java plug-ins, because of security concerns.
--> https://sites.google.com/site/easylinuxtipsproject/java[How to install Java for Ubuntu, Linux Mint and Debian]
-
-*Hinweise zur Sicherheit* von Browsern überhaupt
-und die mit _Java_ im Besonderen sollten Sie immer im Blick haben.
-Mit den folgenden Links können Sie zum Einen die im Browser verwendete
-Java-Version bestimmen, zum Anderem die Funktionsfähigkeit des Plugin
-überprüfen -- falls es denn installiert ist...
-
-* http://javatester.org/[Java Tester] +
-  Test the version of Java your browser is using...
-* https://www.heise.de/security/dienste/Browsercheck-2107.html[heise Security: Browsercheck-2107] +
-  *Browsercheck*: Java, JavaScript/JScript, Visual Basic Script, ActiveX,
-  Cookies, XPI-Erweiterungen, Phishing +
-
-
-
-Anhang
-------
-Script zum Setzen der Umgebung für das Oracle JDK (ohne weitere Erläuterung).
-
-.Datei: `java.path.sh`
-----
-JAVA_BINDIR=/opt/Java/current/bin
-JAVA_HOME=/opt/Java/current
-JDK_HOME=/opt/Java/current
-JRE_HOME=/opt/Java/current
-
-PATH=$JAVA_BINDIR:$PATH
-
-export JAVA_BINDIR
-export JAVA_HOME
-export JDK_HOME
-export JRE_HOME
-export PATH
+openjdk version "10.0.2" 2018-07-17
+OpenJDK Runtime Environment (build 10.0.2+13-Ubuntu-1ubuntu0.18.04.4)
+OpenJDK 64-Bit Server VM (build 10.0.2+13-Ubuntu-1ubuntu0.18.04.4, mixed mode)
 ----
 
 
