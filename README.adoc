@@ -2,7 +2,7 @@
 Eine Sammlung von Schritt-für-Schritt Anleitungen zur Installation
 verschiedener Programme aus dem QuellCode.
 
-Die Installationen werden für Ubuntu 16.04 LTS (Xenial Xerus) beschrieben.
+Die Installationen werden für Ubuntu 18.04 LTS (Bionic Beaver) beschrieben.
 
 
 == Intention
@@ -51,24 +51,24 @@ und mit _Asciidoctor {asciidoctor-version}_ erstellt worden.
 
 
 == Auswahl
-* Asciidoctor 1.5.5
+* Asciidoctor 1.5.8
 * Asciidoctor: Erste Schritte &hellip;
 * Asciidoctor reveal.js
 * chruby 0.3.9
-* Git 2.16.2
-* Ruby MRI 2.3
-* Ruby MRI 2.4
+* Git 2.20.0
 * Ruby MRI 2.5
-* Ruby on Rails 5.1
-* OpenJDK 8, Oracle JDK 8
+* Ruby on Rails 5.2
+* OpenJDK 8/11
 * JRuby 9k
-* JRuby 9k on Rails 5.1
+* JRuby 9k on Rails 5.2
 
 [CAUTION]
 ====
 .Unverändert - diese Seiten werden nicht weiter aktualisiert
 * AsciiDoc 8.6.9
 * Ruby 2.2.4
+* Ruby MRI 2.3
+* Ruby MRI 2.4
 * Ruby on Rails 4.2
 * JRuby 1.7.25
 * JRuby on Rails 4.2
