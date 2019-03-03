@@ -1,5 +1,9 @@
 # ChangeLog für iiu_de (16. Dezember 2018)
 
+.Version 5.2.1
+* Neue Programmversion:
+  JRuby 9k (9.2.6.0), JRuby 9k on Rails (5.2)
+
 .Version 5.2.0
 * Neue Programmversion:
   Asciidoctor (1.5.8), Git (2.20.0),

@@ -453,7 +453,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#_rubygems_list">RubyGems: <em>list</em></a></li>
-<li><a href="#_rubygems_executable">RubyGems: <em>executable</em></a></li>
+<li><a href="#_rubygemsmit_chruby">RubyGems&#8201;&#8212;&#8201;mit <em>chruby</em></a>
+<ul class="sectlevel2">
+<li><a href="#_list"><em>list</em></a></li>
+<li><a href="#_executable"><em>executable</em></a></li>
+</ul>
+</li>
 <li><a href="#_rubygems_documentation_index">RubyGems Documentation Index</a></li>
 </ul>
 </div>
@@ -462,7 +467,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Version 5.2.0 &middot; Dezember 2018</p>
+<p>Version 5.2.1 &middot; März 2019</p>
 </div>
 </div>
 </div>
@@ -477,7 +482,7 @@ voll-threadfähige Java-Implementierung der <em>Ruby</em>-Programmiersprache.</p
 </div>
 <div class="paragraph">
 <p>Dieser Artikel ist eine Schritt-für-Schritt Anleitung zur Installation
-von <a href="http://jruby.org/download">JRuby 9k (9.2.5.0)</a> unter GNU/Linux.</p>
+von <a href="http://jruby.org/download">JRuby 9k (9.2.6.0)</a> unter GNU/Linux.</p>
 </div>
 <div class="paragraph">
 <p>Die Programmiersprache <a href="https://www.ruby-lang.org/de/">Ruby</a> ist die Grundlage für das
@@ -557,9 +562,9 @@ beschrieben, durchgeführt worden.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="http://jruby.org/download">JRuby 9.2.5.0</a><br>
-<code>jruby-dist-9.2.5.0-bin.tar.gz</code>  (ca. 23M)<br>
-<strong>2018-12-06 (Release date)</strong></p>
+<p><a href="http://jruby.org/download">JRuby 9.2.6.0</a><br>
+<code>jruby-dist-9.2.6.0-bin.tar.gz</code>  (ca. 23M)<br>
+<strong>2019-02-11 (Release date)</strong></p>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Release-Notes</dt>
@@ -618,7 +623,7 @@ Dann kann <mark>chruby</mark> automatisch die Installation verwalten.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ tar xzvf jruby-dist-9.2.5.0-bin.tar.gz -C /opt/rubies/
+<pre>$ tar xzvf jruby-dist-9.2.6.0-bin.tar.gz -C /opt/rubies/
 ...</pre>
 </div>
 </div>
@@ -629,10 +634,10 @@ Dann kann <mark>chruby</mark> automatisch die Installation verwalten.</p>
 <div class="content">
 <pre>$ ls -l /opt/rubies/   <img src="./images/icons/callouts/1.png" alt="1">
 insgesamt 12
-drwxr-sr-x 6 sid medien 4096 Dez  6 20:24 jruby-9.2.5.0
+drwxr-sr-x 6 sid medien 4096 Feb 11 21:28 jruby-9.2.6.0
 drwxr-xr-x 6 sid medien 4096 Dez 12 12:14 ruby-2.5.3
 
-$ ln -s jruby /opt/rubies/jruby-9.2.5.0/bin/ruby   <img src="./images/icons/callouts/2.png" alt="2"></pre>
+$ ln -s jruby /opt/rubies/jruby-9.2.6.0/bin/ruby   <img src="./images/icons/callouts/2.png" alt="2"></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -652,15 +657,15 @@ $ ln -s jruby /opt/rubies/jruby-9.2.5.0/bin/ruby   <img src="./images/icons/call
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ ls -l /opt/rubies/jruby-9.2.5.0
-drwxr-sr-x 2 sid medien   4096 Dez 15 22:18 bin       <img src="./images/icons/callouts/1.png" alt="1">
--rw-r--r-- 1 sid medien   1282 Dez  6 20:21 BSDL      <img src="./images/icons/callouts/2.png" alt="2">
--rw-r--r-- 1 sid medien 132268 Dez  6 20:21 COPYING
--rw-r--r-- 1 sid medien    218 Dez  6 20:21 LEGAL
-drwxr-sr-x 4 sid medien   4096 Dez 15 22:17 lib
--rw-r--r-- 1 sid medien   2581 Dez  6 20:21 LICENSE.RUBY
-drwxr-sr-x 6 sid medien   4096 Dez 15 22:17 samples
-drwxr-sr-x 3 sid medien   4096 Dez 15 22:17 tool</pre>
+<pre>$ ls -l /opt/rubies/jruby-9.2.6.0
+drwxr-sr-x 2 sid medien   4096 Mär  2 09:36 bin       <img src="./images/icons/callouts/1.png" alt="1">
+-rw-r--r-- 1 sid medien   1282 Feb 11 21:23 BSDL      <img src="./images/icons/callouts/2.png" alt="2">
+-rw-r--r-- 1 sid medien 132268 Feb 11 21:23 COPYING
+-rw-r--r-- 1 sid medien    218 Feb 11 21:23 LEGAL
+drwxr-sr-x 4 sid medien   4096 Mär  2 09:33 lib
+-rw-r--r-- 1 sid medien   2581 Feb 11 21:23 LICENSE.RUBY
+drwxr-sr-x 6 sid medien   4096 Mär  2 09:33 samples
+drwxr-sr-x 3 sid medien   4096 Mär  2 09:33 tool</pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -677,39 +682,39 @@ drwxr-sr-x 3 sid medien   4096 Dez 15 22:17 tool</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ ls -l /opt/rubies/jruby-9.2.5.0/bin
--rwxr-xr-x 1 sid medien    5515 Dez  6 20:24 ast       <img src="./images/icons/callouts/1.png" alt="1">
--rw-r--r-- 1 sid medien      40 Dez  6 20:24 ast.bat   <img src="./images/icons/callouts/2.png" alt="2">
--rwxr-xr-x 1 sid medien     123 Dez  6 20:24 gem
--rw-r--r-- 1 sid medien      40 Dez  6 20:24 gem.bat
--rwxr-xr-x 1 sid medien     323 Dez  6 20:24 irb
--rw-r--r-- 1 sid medien      40 Dez  6 20:24 irb.bat
--rwxr-xr-x 1 sid medien     547 Dez  6 20:24 jgem
--rw-r--r-- 1 sid medien      41 Dez  6 20:24 jgem.bat
--rwxr-xr-x 1 sid medien     390 Dez  6 20:24 jirb
--rw-r--r-- 1 sid medien      41 Dez  6 20:24 jirb.bat
--rwxr-xr-x 1 sid medien    2263 Dez  6 20:24 jirb_swing
--rw-r--r-- 1 sid medien      47 Dez  6 20:24 jirb_swing.bat
--rwxr-xr-x 1 sid medien   13603 Dez  6 20:24 jruby
--rwxr-xr-x 1 sid medien     172 Dez  6 20:24 jruby200.sh
--rwxr-xr-x 1 sid medien   13603 Dez  6 20:24 jruby.bash
--rw-r--r-- 1 sid medien     125 Dez  6 20:24 jruby.bat
--rwxr-xr-x 1 sid medien     188 Dez  6 20:24 jrubyc
--rw-r--r-- 1 sid medien      43 Dez  6 20:24 jrubyc.bat
--rw-r--r-- 1 sid medien     245 Dez  6 20:24 jrubyd.bat
--rw-r--r-- 1 sid medien 1024512 Dez  6 20:24 jruby.dll
--rw-r--r-- 1 sid medien  959488 Dez  6 20:24 jruby.exe
--rwxr-xr-x 1 sid medien    9391 Dez  6 20:24 jruby.sh
--rw-r--r-- 1 sid medien  961536 Dez  6 20:24 jrubyw.exe
--rwxr-xr-x 1 sid medien     588 Dez  6 20:24 rake
--rw-r--r-- 1 sid medien      41 Dez  6 20:24 rake.bat
--rwxr-xr-x 1 sid medien     477 Dez  6 20:24 rdoc
--rw-r--r-- 1 sid medien      41 Dez  6 20:24 rdoc.bat
--rwxr-xr-x 1 sid medien     475 Dez  6 20:24 ri
--rw-r--r-- 1 sid medien      39 Dez  6 20:24 ri.bat
-lrwxrwxrwx 1 sid medien       5 Dez 15 22:18 ruby -&gt; jruby   <img src="./images/icons/callouts/3.png" alt="3">
--rwxr-xr-x 1 sid medien     152 Dez  6 20:24 testrb
--rw-r--r-- 1 sid medien      43 Dez  6 20:24 testrb.bat</pre>
+<pre>$ ls -l /opt/rubies/jruby-9.2.6.0/bin
+-rwxr-xr-x 1 khk medien    5515 Feb 11 21:26 ast       <img src="./images/icons/callouts/1.png" alt="1">
+-rw-r--r-- 1 khk medien      40 Feb 11 21:26 ast.bat   <img src="./images/icons/callouts/2.png" alt="2">
+-rwxr-xr-x 1 khk medien     123 Feb 11 21:26 gem
+-rw-r--r-- 1 khk medien      40 Feb 11 21:26 gem.bat
+-rwxr-xr-x 1 khk medien     323 Feb 11 21:26 irb
+-rw-r--r-- 1 khk medien      40 Feb 11 21:26 irb.bat
+-rwxr-xr-x 1 khk medien     547 Feb 11 21:26 jgem
+-rw-r--r-- 1 khk medien      41 Feb 11 21:26 jgem.bat
+-rwxr-xr-x 1 khk medien     390 Feb 11 21:26 jirb
+-rw-r--r-- 1 khk medien      41 Feb 11 21:26 jirb.bat
+-rwxr-xr-x 1 khk medien    2263 Feb 11 21:26 jirb_swing
+-rw-r--r-- 1 khk medien      47 Feb 11 21:26 jirb_swing.bat
+-rwxr-xr-x 1 khk medien   13724 Feb 11 21:26 jruby
+-rwxr-xr-x 1 khk medien     172 Feb 11 21:26 jruby200.sh
+-rwxr-xr-x 1 khk medien   13724 Feb 11 21:26 jruby.bash
+-rw-r--r-- 1 khk medien     125 Feb 11 21:26 jruby.bat
+-rwxr-xr-x 1 khk medien     188 Feb 11 21:26 jrubyc
+-rw-r--r-- 1 khk medien      43 Feb 11 21:26 jrubyc.bat
+-rw-r--r-- 1 khk medien     245 Feb 11 21:26 jrubyd.bat
+-rw-r--r-- 1 khk medien 1024512 Feb 11 21:26 jruby.dll
+-rw-r--r-- 1 khk medien  959488 Feb 11 21:26 jruby.exe
+-rwxr-xr-x 1 khk medien    9391 Feb 11 21:26 jruby.sh
+-rw-r--r-- 1 khk medien  961536 Feb 11 21:26 jrubyw.exe
+-rwxr-xr-x 1 khk medien     588 Feb 11 21:26 rake
+-rw-r--r-- 1 khk medien      41 Feb 11 21:26 rake.bat
+-rwxr-xr-x 1 khk medien     477 Feb 11 21:26 rdoc
+-rw-r--r-- 1 khk medien      41 Feb 11 21:26 rdoc.bat
+-rwxr-xr-x 1 khk medien     475 Feb 11 21:26 ri
+-rw-r--r-- 1 khk medien      39 Feb 11 21:26 ri.bat
+lrwxrwxrwx 1 khk medien       5 Mär  2 09:36 ruby -&gt; jruby   <img src="./images/icons/callouts/3.png" alt="3">
+-rwxr-xr-x 1 khk medien     152 Feb 11 21:26 testrb
+-rw-r--r-- 1 khk medien      43 Feb 11 21:26 testrb.bat</pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -736,16 +741,55 @@ lrwxrwxrwx 1 sid medien       5 Dez 15 22:18 ruby -&gt; jruby   <img src="./imag
 <pre>$ source /usr/local/share/chruby/chruby.sh
 
 $ chruby
-   jruby-9.2.5.0
+   jruby-9.2.6.0
    ruby-2.5.3
 
-$ chruby jruby-9.2.5.0</pre>
+$ chruby jruby-9.2.6.0
+...                      <img src="./images/icons/callouts/1.png" alt="1"></pre>
 </div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><img src="./images/icons/callouts/1.png" alt="1"></td>
+<td>Siehe Tipp!</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="./images/icons/tip.png" alt="Tip">
+</td>
+<td class="content">
+<div class="listingblock">
+<div class="title">Zusätzliche Ausgaben: <strong>WARNING</strong></div>
+<div class="content">
+<pre>...
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.jruby.util.SecurityHelper to field java.lang.reflect.Field.modifiers
+WARNING: Please consider reporting this to the maintainers of org.jruby.util.SecurityHelper
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/jruby/jruby/issues/4834">Eliminate or configure invasive JDK class accesses for Java 9</a></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">export JAVA_OPTS="$(echo --add-opens=java.base/{java.lang,java.security,java.util,java.security.cert,java.util.zip,java.lang.reflect,java.util.regex,java.net,java.io,java.lang,javax.crypto}=ALL-UNNAMED) --illegal-access=warn"</pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="nowrap">$ jruby -v   <img src="./images/icons/callouts/1.png" alt="1">
-jruby 9.2.5.0 (2.5.0) 2018-12-06 6d5a228 OpenJDK 64-Bit Server VM
+jruby 9.2.6.0 (2.5.3) 2019-02-11 15ba00b OpenJDK 64-Bit Server VM
                       10.0.2+13-Ubuntu-1ubuntu0.18.04.4
                       on 10.0.2+13-Ubuntu-1ubuntu0.18.04.4 +jit [linux-x86_64]</pre>
 </div>
@@ -754,15 +798,15 @@ jruby 9.2.5.0 (2.5.0) 2018-12-06 6d5a228 OpenJDK 64-Bit Server VM
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Die Version <strong>JRuby 9.2.5.0</strong> &nbsp;
-<em>entspricht dem Entwicklungsstand von</em> &nbsp; <strong>Ruby 2.5.0</strong>.</td>
+<td>Die Version <strong>JRuby 9.2.6.0</strong> &nbsp;
+<em>entspricht dem Entwicklungsstand von</em> &nbsp; <strong>Ruby 2.5.3</strong>.</td>
 </tr>
 </table>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre>$ which gem
-/opt/rubies/jruby-9.2.5.0/bin/gem
+/opt/rubies/jruby-9.2.6.0/bin/gem
 
 $ gem -v
 2.7.6
@@ -783,7 +827,7 @@ json (default: 2.1.0 java)
 minitest (5.10.3)
 net-telnet (0.1.1)
 power_assert (1.1.3)
-psych (default: 3.0.3 java)
+psych (default: 3.1.0 java)
 rake (12.3.0)
 rake-ant (default: 1.0.4)
 rdoc (default: 6.0.1)
@@ -796,7 +840,7 @@ xmlrpc (0.3.0)</pre>
 <div class="listingblock">
 <div class="content">
 <pre>$ which rake
-/opt/rubies/jruby-9.2.5.0/bin/rake
+/opt/rubies/jruby-9.2.6.0/bin/rake
 
 $ rake -V
 rake, version 12.3.0</pre>
@@ -808,53 +852,24 @@ rake, version 12.3.0</pre>
 <div class="listingblock">
 <div class="content">
 <pre>$ jruby -ropenssl -rzlib -rreadline -e "puts 'Happy new Ruby'"
-WARNING: An illegal reflective access operation has occurred     <img src="./images/icons/callouts/1.png" alt="1">
-WARNING: Illegal reflective access by org.jruby.ext.openssl.SecurityHelper (file:/opt/rubies/jruby-9.2.5.0/lib/ruby/stdlib/jopenssl.jar) to constructor java.security.cert.CertificateFactory(java.security.cert.CertificateFactorySpi,java.security.Provider,java.lang.String)
-WARNING: Please consider reporting this to the maintainers of org.jruby.ext.openssl.SecurityHelper
-WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
-WARNING: All illegal access operations will be denied in a future release
 Happy new Ruby</pre>
 </div>
 </div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Siehe Tipp.</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<img src="./images/icons/tip.png" alt="Tip">
-</td>
-<td class="content">
 <div class="listingblock">
-<div class="content">
-<pre class="nowrap">export JAVA_OPTS="--add-opens java.base/java.security.cert=ALL-UNNAMED --add-opens java.base/java.security=ALL-UNNAMED --add-opens java.base/java.util.zip=ALL-UNNAMED"</pre>
-</div>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="listingblock">
-<div class="title">JRuby 9.2.5.0: <mark>irb</mark></div>
+<div class="title">JRuby 9.2.6.0: <mark>irb</mark></div>
 <div class="content">
 <pre>$ which irb
-/opt/rubies/jruby-9.2.5.0/bin/irb
+/opt/rubies/jruby-9.2.6.0/bin/irb
 
 $ irb
 irb(main):001:0&gt; RUBY_VERSION
-=&gt; "2.5.0"
+=&gt; "2.5.3"
 irb(main):002:0&gt; RUBY_PATCHLEVEL
 =&gt; 0
 irb(main):003:0&gt; Time.now.to_s
-=&gt; "2018-12-15 22:44:55 +0100"
-irb(main):004:0&gt; Time.now.sunday?
-=&gt; false
+=&gt; "2019-03-02 10:12:59 +0100"
+irb(main):004:0&gt; Time.now.saturday?
+=&gt; true
 irb(main):005:0&gt; exit</pre>
 </div>
 </div>
@@ -949,9 +964,11 @@ Comes with RedCloth integration and LOC counter.</td>
 <pre>$ gem install asciidoctor-revealjs   <img src="./images/icons/callouts/1.png" alt="1">
 Fetching: thread_safe-0.3.6-java.gem (100%)
 Successfully installed thread_safe-0.3.6-java
-Fetching: asciidoctor-revealjs-1.1.3.gem (100%)
-Successfully installed asciidoctor-revealjs-1.1.3
-2 gems installed</pre>
+Fetching: concurrent-ruby-1.1.4.gem (100%)
+Successfully installed concurrent-ruby-1.1.4
+Fetching: asciidoctor-revealjs-2.0.0.gem (100%)
+Successfully installed asciidoctor-revealjs-2.0.0
+3 gems installed</pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -972,8 +989,8 @@ umwandelt, um mit dem Framework <strong>Reveal.js</strong> ausgeführt zu werden
 <pre>$ gem install pry   <img src="./images/icons/callouts/1.png" alt="1">
 Fetching: method_source-0.9.2.gem (100%)
 Successfully installed method_source-0.9.2
-Fetching: ffi-1.9.25-java.gem (100%)
-Successfully installed ffi-1.9.25-java
+Fetching: ffi-1.10.0-java.gem (100%)
+Successfully installed ffi-1.10.0-java
 Fetching: spoon-0.0.6.gem (100%)
 Successfully installed spoon-0.0.6
 Fetching: pry-0.12.2-java.gem (100%)
@@ -1037,12 +1054,13 @@ eine in Ruby geschriebene <em>domänenspezifische</em> Sprache.<br>
 *** LOCAL GEMS ***
 
 asciidoctor (1.5.8)            <img src="./images/icons/callouts/1.png" alt="1">
-asciidoctor-revealjs (1.1.3)   <img src="./images/icons/callouts/1.png" alt="1">
+asciidoctor-revealjs (2.0.0)   <img src="./images/icons/callouts/1.png" alt="1">
 cmath (default: 1.0.0)
 coderay (1.1.2)                <img src="./images/icons/callouts/1.png" alt="1">
+concurrent-ruby (1.1.4)        <img src="./images/icons/callouts/1.png" alt="1">
 csv (default: 1.0.0)
 did_you_mean (1.2.0)
-ffi (1.9.25 java)              <img src="./images/icons/callouts/1.png" alt="1">
+ffi (1.10.0 java)              <img src="./images/icons/callouts/1.png" alt="1">
 fileutils (default: 1.1.0)
 ipaddr (default: 1.2.0)
 jar-dependencies (default: 0.4.0)
@@ -1055,14 +1073,14 @@ mustermann (1.0.3)             <img src="./images/icons/callouts/1.png" alt="1">
 net-telnet (0.1.1)
 power_assert (1.1.3)
 pry (0.12.2 java)              <img src="./images/icons/callouts/1.png" alt="1">
-psych (default: 3.0.3 java)
+psych (default: 3.1.0 java)
 rack (2.0.6)                   <img src="./images/icons/callouts/1.png" alt="1">
-rack-protection (2.0.4)        <img src="./images/icons/callouts/1.png" alt="1">
+rack-protection (2.0.5)        <img src="./images/icons/callouts/1.png" alt="1">
 rake (12.3.0)
 rake-ant (default: 1.0.4)
 rdoc (default: 6.0.1)
 scanf (default: 1.0.0)
-sinatra (2.0.4)                <img src="./images/icons/callouts/1.png" alt="1">
+sinatra (2.0.5)                <img src="./images/icons/callouts/1.png" alt="1">
 spoon (0.0.6)                  <img src="./images/icons/callouts/1.png" alt="1">
 test-unit (3.2.8)
 thread_safe (0.3.6 java)       <img src="./images/icons/callouts/1.png" alt="1">
@@ -1082,22 +1100,58 @@ xmlrpc (0.3.0)</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_rubygems_executable">RubyGems: <em>executable</em></h2>
+<h2 id="_rubygemsmit_chruby">RubyGems&#8201;&#8212;&#8201;mit <em>chruby</em></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>Das Verzeichnis <code>~/.gem/jruby/2.5.3/&#8230;&#8203;</code>&#8201;&#8212;&#8201;entspricht der <em>Ruby</em>-Version&#8201;&#8212;&#8201;nicht der <em>JRuby</em>-Version!</p>
+</div>
+<div class="sect2">
+<h3 id="_list"><em>list</em></h3>
+<div class="paragraph">
+<p>Mit <strong>chruby</strong> werden die zusätzlichen <em>RubyGems</em> im
+Home-Verzeichnis installiert: <mark>~/.gem/jruby/</mark></p>
+</div>
 <div class="listingblock">
-<div class="title">/opt/rubies/jruby-9.1.16.0/bin</div>
+<div class="title">~/.gem/jruby/2.5.3/gems</div>
 <div class="content">
-<pre>$ ls -l /opt/rubies/jruby-9.2.5.0/bin   <img src="./images/icons/callouts/1.png" alt="1">
--rwxr-xr-x 1 sid medien    5515 Dez  6 20:24 ast
--rw-r--r-- 1 sid medien      40 Dez  6 20:24 ast.bat
--rwxr-xr-x 1 sid medien     123 Dez  6 20:24 gem
--rw-r--r-- 1 sid medien      40 Dez  6 20:24 gem.bat
+<pre>ls -l ~/.gem/jruby/2.5.3/gems
+drwxr-xr-x 8 sid sid 4096 Mär  2 10:16 asciidoctor-1.5.8
+drwxr-xr-x 6 sid sid 4096 Mär  2 10:19 asciidoctor-revealjs-2.0.0
+drwxr-xr-x 4 sid sid 4096 Mär  2 10:17 coderay-1.1.2
+drwxr-xr-x 4 sid sid 4096 Mär  2 10:19 concurrent-ruby-1.1.4
+drwxr-xr-x 2 sid sid 4096 Mär  2 10:22 ffi-1.10.0-java
+drwxr-xr-x 4 sid sid 4096 Mär  2 10:22 method_source-0.9.2
+drwxr-xr-x 5 sid sid 4096 Mär  2 10:24 mustermann-1.0.3
+drwxr-xr-x 4 sid sid 4096 Mär  2 10:22 pry-0.12.2-java
+drwxr-xr-x 7 sid sid 4096 Mär  2 10:24 rack-2.0.6
+drwxr-xr-x 3 sid sid 4096 Mär  2 10:24 rack-protection-2.0.5
+drwxr-xr-x 4 sid sid 4096 Mär  2 10:24 sinatra-2.0.5
+drwxr-xr-x 4 sid sid 4096 Mär  2 10:22 spoon-0.0.6
+drwxr-xr-x 8 sid sid 4096 Mär  2 10:19 thread_safe-0.3.6-java
+drwxr-xr-x 7 sid sid 4096 Mär  2 10:24 tilt-2.0.9</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_executable"><em>executable</em></h3>
+<div class="paragraph">
+<p>Mit <strong>chruby</strong> werden die zusätzlichen <em>Kommandos</em> ebenfalls im
+Home-Verzeichnis installiert: <mark>~/.gem/jruby/</mark></p>
+</div>
+<div class="listingblock">
+<div class="title">/opt/rubies/jruby-9.2.6.0/bin</div>
+<div class="content">
+<pre>$ ls -l /opt/rubies/jruby-9.2.6.0/bin   <img src="./images/icons/callouts/1.png" alt="1">
+-rwxr-xr-x 1 khk medien    5515 Feb 11 21:26 ast
+-rw-r--r-- 1 khk medien      40 Feb 11 21:26 ast.bat
+-rwxr-xr-x 1 khk medien     123 Feb 11 21:26 gem
+-rw-r--r-- 1 khk medien      40 Feb 11 21:26 gem.bat
 ...
--rwxr-xr-x 1 sid medien     475 Dez  6 20:24 ri
--rw-r--r-- 1 sid medien      39 Dez  6 20:24 ri.bat
-lrwxrwxrwx 1 sid medien       5 Dez 15 22:18 ruby -&gt; jruby
--rwxr-xr-x 1 sid medien     152 Dez  6 20:24 testrb
--rw-r--r-- 1 sid medien      43 Dez  6 20:24 testrb.bat</pre>
+-rwxr-xr-x 1 khk medien     475 Feb 11 21:26 ri
+-rw-r--r-- 1 khk medien      39 Feb 11 21:26 ri.bat
+lrwxrwxrwx 1 khk medien       5 Mär  2 09:36 ruby -&gt; jruby
+-rwxr-xr-x 1 khk medien     152 Feb 11 21:26 testrb
+-rw-r--r-- 1 khk medien      43 Feb 11 21:26 testrb.bat</pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -1109,38 +1163,21 @@ lrwxrwxrwx 1 sid medien       5 Dez 15 22:18 ruby -&gt; jruby
 </table>
 </div>
 <div class="listingblock">
-<div class="title">~/.gem/jruby/2.5.0/bin</div>
+<div class="title">~/.gem/jruby/2.5.3/bin</div>
 <div class="content">
-<pre>$ ls -l ~/.gem/jruby/2.5.0/bin   <img src="./images/icons/callouts/1.png" alt="1">
--rwxr-xr-x 1 sid sid 630 Dez 15 22:54 asciidoctor
--rwxr-xr-x 1 sid sid 684 Dez 15 22:58 asciidoctor-revealjs
--rwxr-xr-x 1 sid sid 640 Dez 15 22:54 asciidoctor-safe
--rwxr-xr-x 1 sid sid 606 Dez 15 22:55 coderay
--rwxr-xr-x 1 sid sid 582 Dez 15 23:00 pry
--rwxr-xr-x 1 sid sid 592 Dez 15 23:02 rackup
--rwxr-xr-x 1 sid sid 588 Dez 15 23:02 tilt</pre>
+<pre>$ ls -l ~/.gem/jruby/2.5.3/bin   <img src="./images/icons/callouts/1.png" alt="1">
+-rwxr-xr-x 1 sid sid 630 Mär  2 10:16 asciidoctor
+-rwxr-xr-x 1 sid sid 684 Mär  2 10:19 asciidoctor-revealjs
+-rwxr-xr-x 1 sid sid 640 Mär  2 10:16 asciidoctor-safe
+-rwxr-xr-x 1 sid sid 606 Mär  2 10:17 coderay
+-rwxr-xr-x 1 sid sid 582 Mär  2 10:22 pry
+-rwxr-xr-x 1 sid sid 592 Mär  2 10:24 rackup
+-rwxr-xr-x 1 sid sid 588 Mär  2 10:24 tilt</pre>
 </div>
 </div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Mit <strong>chruby</strong> werden die zusätzlichen <em>RubyGems</em> im
-Home-Verzeichnis installiert.<br></td>
-</tr>
-</table>
+<div class="paragraph">
+<p>CAUTION:</p>
 </div>
-<div class="admonitionblock caution">
-<table>
-<tr>
-<td class="icon">
-<img src="./images/icons/caution.png" alt="Caution">
-</td>
-<td class="content">
-Das Verzeichnis <code>~/.gem/jruby/2.5.0/&#8230;&#8203;</code>&#8201;&#8212;&#8201;entspricht der <em>Ruby</em>-Version&#8201;&#8212;&#8201;nicht der <em>JRuby</em>-Version!
-</td>
-</tr>
-</table>
 </div>
 </div>
 </div>
@@ -1179,7 +1216,7 @@ Server started at http://0.0.0.0:8808</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-12-15 23:19:15 +0100
+Last updated 2019-03-02 17:04:07 +0100
 </div>
 </div>
 </body>

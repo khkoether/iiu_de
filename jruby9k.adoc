@@ -11,7 +11,7 @@ include::_bp_header.adoc[]
 
 :rubyonrails-home-url:   http://rubyonrails.org
 
-:jruby-version:          9.2.5.0
+:jruby-version:          9.2.6.0
 
 Version {version} {middot} {datum}
 
@@ -65,9 +65,9 @@ Ubuntu 18.04 LTS (Bionic Beaver) enthält die Pakete::
 
 
 == Download
-* {jruby-download-url}[JRuby 9.2.5.0] +
-  `jruby-dist-9.2.5.0-bin.tar.gz`  (ca. 23M) +
-  *2018-12-06 (Release date)*
+* {jruby-download-url}[JRuby 9.2.6.0] +
+  `jruby-dist-9.2.6.0-bin.tar.gz`  (ca. 23M) +
+  *2019-02-11 (Release date)*
 
 Release-Notes::
   JRuby 9.2.x is our new major version of JRuby. +
@@ -93,7 +93,7 @@ Dann kann #chruby# automatisch die Installation verwalten.
 
 *Step 1*: Auspacken des Source-Code
 ----
-$ tar xzvf jruby-dist-9.2.5.0-bin.tar.gz -C /opt/rubies/
+$ tar xzvf jruby-dist-9.2.6.0-bin.tar.gz -C /opt/rubies/
 ...
 ----
 
@@ -101,63 +101,63 @@ $ tar xzvf jruby-dist-9.2.5.0-bin.tar.gz -C /opt/rubies/
 ----
 $ ls -l /opt/rubies/   <1>
 insgesamt 12
-drwxr-sr-x 6 sid medien 4096 Dez  6 20:24 jruby-9.2.5.0
+drwxr-sr-x 6 sid medien 4096 Feb 11 21:28 jruby-9.2.6.0
 drwxr-xr-x 6 sid medien 4096 Dez 12 12:14 ruby-2.5.3
 
-$ ln -s jruby /opt/rubies/jruby-9.2.5.0/bin/ruby   <2>
+$ ln -s jruby /opt/rubies/jruby-9.2.6.0/bin/ruby   <2>
 ----
 <1> Ziel-Verzeichnis.
 <2> Symbolischen Link erzeugen.
 
 *Step 3*: Installation verifizieren
 ----
-$ ls -l /opt/rubies/jruby-9.2.5.0
-drwxr-sr-x 2 sid medien   4096 Dez 15 22:18 bin       <1>
--rw-r--r-- 1 sid medien   1282 Dez  6 20:21 BSDL      <2>
--rw-r--r-- 1 sid medien 132268 Dez  6 20:21 COPYING
--rw-r--r-- 1 sid medien    218 Dez  6 20:21 LEGAL
-drwxr-sr-x 4 sid medien   4096 Dez 15 22:17 lib
--rw-r--r-- 1 sid medien   2581 Dez  6 20:21 LICENSE.RUBY
-drwxr-sr-x 6 sid medien   4096 Dez 15 22:17 samples
-drwxr-sr-x 3 sid medien   4096 Dez 15 22:17 tool
+$ ls -l /opt/rubies/jruby-9.2.6.0
+drwxr-sr-x 2 sid medien   4096 Mär  2 09:36 bin       <1>
+-rw-r--r-- 1 sid medien   1282 Feb 11 21:23 BSDL      <2>
+-rw-r--r-- 1 sid medien 132268 Feb 11 21:23 COPYING
+-rw-r--r-- 1 sid medien    218 Feb 11 21:23 LEGAL
+drwxr-sr-x 4 sid medien   4096 Mär  2 09:33 lib
+-rw-r--r-- 1 sid medien   2581 Feb 11 21:23 LICENSE.RUBY
+drwxr-sr-x 6 sid medien   4096 Mär  2 09:33 samples
+drwxr-sr-x 3 sid medien   4096 Mär  2 09:33 tool
 ----
 <1> Datum der Installation.
 <2> Release Date.
 
 ----
-$ ls -l /opt/rubies/jruby-9.2.5.0/bin
--rwxr-xr-x 1 sid medien    5515 Dez  6 20:24 ast       <1>
--rw-r--r-- 1 sid medien      40 Dez  6 20:24 ast.bat   <2>
--rwxr-xr-x 1 sid medien     123 Dez  6 20:24 gem
--rw-r--r-- 1 sid medien      40 Dez  6 20:24 gem.bat
--rwxr-xr-x 1 sid medien     323 Dez  6 20:24 irb
--rw-r--r-- 1 sid medien      40 Dez  6 20:24 irb.bat
--rwxr-xr-x 1 sid medien     547 Dez  6 20:24 jgem
--rw-r--r-- 1 sid medien      41 Dez  6 20:24 jgem.bat
--rwxr-xr-x 1 sid medien     390 Dez  6 20:24 jirb
--rw-r--r-- 1 sid medien      41 Dez  6 20:24 jirb.bat
--rwxr-xr-x 1 sid medien    2263 Dez  6 20:24 jirb_swing
--rw-r--r-- 1 sid medien      47 Dez  6 20:24 jirb_swing.bat
--rwxr-xr-x 1 sid medien   13603 Dez  6 20:24 jruby
--rwxr-xr-x 1 sid medien     172 Dez  6 20:24 jruby200.sh
--rwxr-xr-x 1 sid medien   13603 Dez  6 20:24 jruby.bash
--rw-r--r-- 1 sid medien     125 Dez  6 20:24 jruby.bat
--rwxr-xr-x 1 sid medien     188 Dez  6 20:24 jrubyc
--rw-r--r-- 1 sid medien      43 Dez  6 20:24 jrubyc.bat
--rw-r--r-- 1 sid medien     245 Dez  6 20:24 jrubyd.bat
--rw-r--r-- 1 sid medien 1024512 Dez  6 20:24 jruby.dll
--rw-r--r-- 1 sid medien  959488 Dez  6 20:24 jruby.exe
--rwxr-xr-x 1 sid medien    9391 Dez  6 20:24 jruby.sh
--rw-r--r-- 1 sid medien  961536 Dez  6 20:24 jrubyw.exe
--rwxr-xr-x 1 sid medien     588 Dez  6 20:24 rake
--rw-r--r-- 1 sid medien      41 Dez  6 20:24 rake.bat
--rwxr-xr-x 1 sid medien     477 Dez  6 20:24 rdoc
--rw-r--r-- 1 sid medien      41 Dez  6 20:24 rdoc.bat
--rwxr-xr-x 1 sid medien     475 Dez  6 20:24 ri
--rw-r--r-- 1 sid medien      39 Dez  6 20:24 ri.bat
-lrwxrwxrwx 1 sid medien       5 Dez 15 22:18 ruby -> jruby   <3>
--rwxr-xr-x 1 sid medien     152 Dez  6 20:24 testrb
--rw-r--r-- 1 sid medien      43 Dez  6 20:24 testrb.bat
+$ ls -l /opt/rubies/jruby-9.2.6.0/bin
+-rwxr-xr-x 1 khk medien    5515 Feb 11 21:26 ast       <1>
+-rw-r--r-- 1 khk medien      40 Feb 11 21:26 ast.bat   <2>
+-rwxr-xr-x 1 khk medien     123 Feb 11 21:26 gem
+-rw-r--r-- 1 khk medien      40 Feb 11 21:26 gem.bat
+-rwxr-xr-x 1 khk medien     323 Feb 11 21:26 irb
+-rw-r--r-- 1 khk medien      40 Feb 11 21:26 irb.bat
+-rwxr-xr-x 1 khk medien     547 Feb 11 21:26 jgem
+-rw-r--r-- 1 khk medien      41 Feb 11 21:26 jgem.bat
+-rwxr-xr-x 1 khk medien     390 Feb 11 21:26 jirb
+-rw-r--r-- 1 khk medien      41 Feb 11 21:26 jirb.bat
+-rwxr-xr-x 1 khk medien    2263 Feb 11 21:26 jirb_swing
+-rw-r--r-- 1 khk medien      47 Feb 11 21:26 jirb_swing.bat
+-rwxr-xr-x 1 khk medien   13724 Feb 11 21:26 jruby
+-rwxr-xr-x 1 khk medien     172 Feb 11 21:26 jruby200.sh
+-rwxr-xr-x 1 khk medien   13724 Feb 11 21:26 jruby.bash
+-rw-r--r-- 1 khk medien     125 Feb 11 21:26 jruby.bat
+-rwxr-xr-x 1 khk medien     188 Feb 11 21:26 jrubyc
+-rw-r--r-- 1 khk medien      43 Feb 11 21:26 jrubyc.bat
+-rw-r--r-- 1 khk medien     245 Feb 11 21:26 jrubyd.bat
+-rw-r--r-- 1 khk medien 1024512 Feb 11 21:26 jruby.dll
+-rw-r--r-- 1 khk medien  959488 Feb 11 21:26 jruby.exe
+-rwxr-xr-x 1 khk medien    9391 Feb 11 21:26 jruby.sh
+-rw-r--r-- 1 khk medien  961536 Feb 11 21:26 jrubyw.exe
+-rwxr-xr-x 1 khk medien     588 Feb 11 21:26 rake
+-rw-r--r-- 1 khk medien      41 Feb 11 21:26 rake.bat
+-rwxr-xr-x 1 khk medien     477 Feb 11 21:26 rdoc
+-rw-r--r-- 1 khk medien      41 Feb 11 21:26 rdoc.bat
+-rwxr-xr-x 1 khk medien     475 Feb 11 21:26 ri
+-rw-r--r-- 1 khk medien      39 Feb 11 21:26 ri.bat
+lrwxrwxrwx 1 khk medien       5 Mär  2 09:36 ruby -> jruby   <3>
+-rwxr-xr-x 1 khk medien     152 Feb 11 21:26 testrb
+-rw-r--r-- 1 khk medien      43 Feb 11 21:26 testrb.bat
 ----
 <1> Kommando #ast# für ein _GNU/Linux-System_
 <2> Kommando #ast.bat# für ein _MS Windows-System_
@@ -168,25 +168,46 @@ lrwxrwxrwx 1 sid medien       5 Dez 15 22:18 ruby -> jruby   <3>
 $ source /usr/local/share/chruby/chruby.sh
 
 $ chruby
-   jruby-9.2.5.0
+   jruby-9.2.6.0
    ruby-2.5.3
 
-$ chruby jruby-9.2.5.0
+$ chruby jruby-9.2.6.0
+...                      <1>
 ----
+<1> Siehe Tipp!
+
+[TIP]
+====
+.Zusätzliche Ausgaben: *WARNING*
+----
+...
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.jruby.util.SecurityHelper to field java.lang.reflect.Field.modifiers
+WARNING: Please consider reporting this to the maintainers of org.jruby.util.SecurityHelper
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+----
+
+https://github.com/jruby/jruby/issues/4834[Eliminate or configure invasive JDK class accesses for Java 9]
+[options="nowrap"]
+----
+export JAVA_OPTS="$(echo --add-opens=java.base/{java.lang,java.security,java.util,java.security.cert,java.util.zip,java.lang.reflect,java.util.regex,java.net,java.io,java.lang,javax.crypto}=ALL-UNNAMED) --illegal-access=warn"
+----
+====
 
 [options="nowrap"]
 ----
 $ jruby -v   <1>
-jruby 9.2.5.0 (2.5.0) 2018-12-06 6d5a228 OpenJDK 64-Bit Server VM
+jruby 9.2.6.0 (2.5.3) 2019-02-11 15ba00b OpenJDK 64-Bit Server VM
                       10.0.2+13-Ubuntu-1ubuntu0.18.04.4
                       on 10.0.2+13-Ubuntu-1ubuntu0.18.04.4 +jit [linux-x86_64]
 ----
-<1> Die Version *JRuby 9.2.5.0* &nbsp;
-    _entspricht dem Entwicklungsstand von_ &nbsp; *Ruby 2.5.0*.
+<1> Die Version *JRuby 9.2.6.0* &nbsp;
+    _entspricht dem Entwicklungsstand von_ &nbsp; *Ruby 2.5.3*.
 
 ----
 $ which gem
-/opt/rubies/jruby-9.2.5.0/bin/gem
+/opt/rubies/jruby-9.2.6.0/bin/gem
 
 $ gem -v
 2.7.6
@@ -207,7 +228,7 @@ json (default: 2.1.0 java)
 minitest (5.10.3)
 net-telnet (0.1.1)
 power_assert (1.1.3)
-psych (default: 3.0.3 java)
+psych (default: 3.1.0 java)
 rake (12.3.0)
 rake-ant (default: 1.0.4)
 rdoc (default: 6.0.1)
@@ -219,7 +240,7 @@ xmlrpc (0.3.0)
 
 ----
 $ which rake
-/opt/rubies/jruby-9.2.5.0/bin/rake
+/opt/rubies/jruby-9.2.6.0/bin/rake
 
 $ rake -V
 rake, version 12.3.0
@@ -228,38 +249,24 @@ rake, version 12.3.0
 *Step 5* Vollständigkeit ...
 ----
 $ jruby -ropenssl -rzlib -rreadline -e "puts 'Happy new Ruby'"
-WARNING: An illegal reflective access operation has occurred     <1>
-WARNING: Illegal reflective access by org.jruby.ext.openssl.SecurityHelper (file:/opt/rubies/jruby-9.2.5.0/lib/ruby/stdlib/jopenssl.jar) to constructor java.security.cert.CertificateFactory(java.security.cert.CertificateFactorySpi,java.security.Provider,java.lang.String)
-WARNING: Please consider reporting this to the maintainers of org.jruby.ext.openssl.SecurityHelper
-WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
-WARNING: All illegal access operations will be denied in a future release
 Happy new Ruby
 ----
-<1> Siehe Tipp.
-
-[TIP]
-====
-[options="nowrap"]
-----
-export JAVA_OPTS="--add-opens java.base/java.security.cert=ALL-UNNAMED --add-opens java.base/java.security=ALL-UNNAMED --add-opens java.base/java.util.zip=ALL-UNNAMED"
-----
-====
 
 
-.JRuby 9.2.5.0: #irb#
+.JRuby 9.2.6.0: #irb#
 ----
 $ which irb
-/opt/rubies/jruby-9.2.5.0/bin/irb
+/opt/rubies/jruby-9.2.6.0/bin/irb
 
 $ irb
 irb(main):001:0> RUBY_VERSION
-=> "2.5.0"
+=> "2.5.3"
 irb(main):002:0> RUBY_PATCHLEVEL
 => 0
 irb(main):003:0> Time.now.to_s
-=> "2018-12-15 22:44:55 +0100"
-irb(main):004:0> Time.now.sunday?
-=> false
+=> "2019-03-02 10:12:59 +0100"
+irb(main):004:0> Time.now.saturday?
+=> true
 irb(main):005:0> exit
 ----
 
@@ -310,9 +317,11 @@ Successfully installed coderay-1.1.2
 $ gem install asciidoctor-revealjs   <1>
 Fetching: thread_safe-0.3.6-java.gem (100%)
 Successfully installed thread_safe-0.3.6-java
-Fetching: asciidoctor-revealjs-1.1.3.gem (100%)
-Successfully installed asciidoctor-revealjs-1.1.3
-2 gems installed
+Fetching: concurrent-ruby-1.1.4.gem (100%)
+Successfully installed concurrent-ruby-1.1.4
+Fetching: asciidoctor-revealjs-2.0.0.gem (100%)
+Successfully installed asciidoctor-revealjs-2.0.0
+3 gems installed
 ----
 <1> *Asciidoctor-Reveal.js* ist ein Konverter der ein *AsciiDoc*-Dokument
     in eine HTML5-Präsentation +
@@ -324,8 +333,8 @@ Successfully installed asciidoctor-revealjs-1.1.3
 $ gem install pry   <1>
 Fetching: method_source-0.9.2.gem (100%)
 Successfully installed method_source-0.9.2
-Fetching: ffi-1.9.25-java.gem (100%)
-Successfully installed ffi-1.9.25-java
+Fetching: ffi-1.10.0-java.gem (100%)
+Successfully installed ffi-1.10.0-java
 Fetching: spoon-0.0.6.gem (100%)
 Successfully installed spoon-0.0.6
 Fetching: pry-0.12.2-java.gem (100%)
@@ -365,12 +374,13 @@ $ gem list
 *** LOCAL GEMS ***
 
 asciidoctor (1.5.8)            <1>
-asciidoctor-revealjs (1.1.3)   <1>
+asciidoctor-revealjs (2.0.0)   <1>
 cmath (default: 1.0.0)
 coderay (1.1.2)                <1>
+concurrent-ruby (1.1.4)        <1>
 csv (default: 1.0.0)
 did_you_mean (1.2.0)
-ffi (1.9.25 java)              <1>
+ffi (1.10.0 java)              <1>
 fileutils (default: 1.1.0)
 ipaddr (default: 1.2.0)
 jar-dependencies (default: 0.4.0)
@@ -383,14 +393,14 @@ mustermann (1.0.3)             <1>
 net-telnet (0.1.1)
 power_assert (1.1.3)
 pry (0.12.2 java)              <1>
-psych (default: 3.0.3 java)
+psych (default: 3.1.0 java)
 rack (2.0.6)                   <1>
-rack-protection (2.0.4)        <1>
+rack-protection (2.0.5)        <1>
 rake (12.3.0)
 rake-ant (default: 1.0.4)
 rdoc (default: 6.0.1)
 scanf (default: 1.0.0)
-sinatra (2.0.4)                <1>
+sinatra (2.0.5)                <1>
 spoon (0.0.6)                  <1>
 test-unit (3.2.8)
 thread_safe (0.3.6 java)       <1>
@@ -401,38 +411,67 @@ xmlrpc (0.3.0)
 <1> 13 Gems zusätzlich installiert.
 
 
-== RubyGems: _executable_
-./opt/rubies/jruby-9.1.16.0/bin
+== RubyGems -- mit _chruby_
+Das Verzeichnis `~/.gem/jruby/2.5.3/...` -- entspricht der _Ruby_-Version -- nicht der _JRuby_-Version!
+
+=== _list_
+Mit *chruby* werden die zusätzlichen _RubyGems_ im
+Home-Verzeichnis installiert: #~/.gem/jruby/#
+
+.~/.gem/jruby/2.5.3/gems
 ----
-$ ls -l /opt/rubies/jruby-9.2.5.0/bin   <1>
--rwxr-xr-x 1 sid medien    5515 Dez  6 20:24 ast
--rw-r--r-- 1 sid medien      40 Dez  6 20:24 ast.bat
--rwxr-xr-x 1 sid medien     123 Dez  6 20:24 gem
--rw-r--r-- 1 sid medien      40 Dez  6 20:24 gem.bat
+ls -l ~/.gem/jruby/2.5.3/gems
+drwxr-xr-x 8 sid sid 4096 Mär  2 10:16 asciidoctor-1.5.8
+drwxr-xr-x 6 sid sid 4096 Mär  2 10:19 asciidoctor-revealjs-2.0.0
+drwxr-xr-x 4 sid sid 4096 Mär  2 10:17 coderay-1.1.2
+drwxr-xr-x 4 sid sid 4096 Mär  2 10:19 concurrent-ruby-1.1.4
+drwxr-xr-x 2 sid sid 4096 Mär  2 10:22 ffi-1.10.0-java
+drwxr-xr-x 4 sid sid 4096 Mär  2 10:22 method_source-0.9.2
+drwxr-xr-x 5 sid sid 4096 Mär  2 10:24 mustermann-1.0.3
+drwxr-xr-x 4 sid sid 4096 Mär  2 10:22 pry-0.12.2-java
+drwxr-xr-x 7 sid sid 4096 Mär  2 10:24 rack-2.0.6
+drwxr-xr-x 3 sid sid 4096 Mär  2 10:24 rack-protection-2.0.5
+drwxr-xr-x 4 sid sid 4096 Mär  2 10:24 sinatra-2.0.5
+drwxr-xr-x 4 sid sid 4096 Mär  2 10:22 spoon-0.0.6
+drwxr-xr-x 8 sid sid 4096 Mär  2 10:19 thread_safe-0.3.6-java
+drwxr-xr-x 7 sid sid 4096 Mär  2 10:24 tilt-2.0.9
+----
+
+
+=== _executable_
+Mit *chruby* werden die zusätzlichen _Kommandos_ ebenfalls im
+Home-Verzeichnis installiert: #~/.gem/jruby/#
+
+./opt/rubies/jruby-9.2.6.0/bin
+----
+$ ls -l /opt/rubies/jruby-9.2.6.0/bin   <1>
+-rwxr-xr-x 1 khk medien    5515 Feb 11 21:26 ast
+-rw-r--r-- 1 khk medien      40 Feb 11 21:26 ast.bat
+-rwxr-xr-x 1 khk medien     123 Feb 11 21:26 gem
+-rw-r--r-- 1 khk medien      40 Feb 11 21:26 gem.bat
 ...
--rwxr-xr-x 1 sid medien     475 Dez  6 20:24 ri
--rw-r--r-- 1 sid medien      39 Dez  6 20:24 ri.bat
-lrwxrwxrwx 1 sid medien       5 Dez 15 22:18 ruby -> jruby
--rwxr-xr-x 1 sid medien     152 Dez  6 20:24 testrb
--rw-r--r-- 1 sid medien      43 Dez  6 20:24 testrb.bat
+-rwxr-xr-x 1 khk medien     475 Feb 11 21:26 ri
+-rw-r--r-- 1 khk medien      39 Feb 11 21:26 ri.bat
+lrwxrwxrwx 1 khk medien       5 Mär  2 09:36 ruby -> jruby
+-rwxr-xr-x 1 khk medien     152 Feb 11 21:26 testrb
+-rw-r--r-- 1 khk medien      43 Feb 11 21:26 testrb.bat
 ----
 <1> Keine Veränderung im Installations-Verzeichnis!
 
-.~/.gem/jruby/2.5.0/bin
-----
-$ ls -l ~/.gem/jruby/2.5.0/bin   <1>
--rwxr-xr-x 1 sid sid 630 Dez 15 22:54 asciidoctor
--rwxr-xr-x 1 sid sid 684 Dez 15 22:58 asciidoctor-revealjs
--rwxr-xr-x 1 sid sid 640 Dez 15 22:54 asciidoctor-safe
--rwxr-xr-x 1 sid sid 606 Dez 15 22:55 coderay
--rwxr-xr-x 1 sid sid 582 Dez 15 23:00 pry
--rwxr-xr-x 1 sid sid 592 Dez 15 23:02 rackup
--rwxr-xr-x 1 sid sid 588 Dez 15 23:02 tilt
-----
-<1> Mit *chruby* werden die zusätzlichen _RubyGems_ im
-    Home-Verzeichnis installiert. +
 
-CAUTION: Das Verzeichnis `~/.gem/jruby/2.5.0/...` -- entspricht der _Ruby_-Version -- nicht der _JRuby_-Version!
+.~/.gem/jruby/2.5.3/bin
+----
+$ ls -l ~/.gem/jruby/2.5.3/bin   <1>
+-rwxr-xr-x 1 sid sid 630 Mär  2 10:16 asciidoctor
+-rwxr-xr-x 1 sid sid 684 Mär  2 10:19 asciidoctor-revealjs
+-rwxr-xr-x 1 sid sid 640 Mär  2 10:16 asciidoctor-safe
+-rwxr-xr-x 1 sid sid 606 Mär  2 10:17 coderay
+-rwxr-xr-x 1 sid sid 582 Mär  2 10:22 pry
+-rwxr-xr-x 1 sid sid 592 Mär  2 10:24 rackup
+-rwxr-xr-x 1 sid sid 588 Mär  2 10:24 tilt
+----
+
+CAUTION:
 
 
 == RubyGems Documentation Index

@@ -713,8 +713,8 @@ Ruby Sass is deprecated and will be unmaintained as of 26 March 2019.
   http://sass.logdown.com/posts/7081811
 
 ----
-<1> Mit {chruby-url}[Chruby] besitzt _ein_ einfacher Benutzer _RubyGems_ nachzuinstallieren. +
-    Die _RubyGems_ werden im Verzeichnis `~/.gem/ruby/2.3.6` installiert.
+<1> Mit {chruby-url}[Chruby] besitzt _ein_ einfacher Benutzer die Möglichkeit _RubyGems_ nachzuinstallieren. +
+    Die _RubyGems_ werden im Verzeichnis `~/.gem/ruby/2.5.3` installiert.
 <2> _Installing_: Neu installierte RubyGems
 <3> _Using_: Bereits installierte RubyGems
 
@@ -753,20 +753,26 @@ development:
 default: &default
   adapter: mysql2
   encoding: utf8
-  pool: 5
-  username: sid                 <---
-  password: g3h3im              <---
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: sid                    <1>
+  password: g3h3im                 <1>
   socket: /var/run/mysqld/mysqld.sock
+  properties:                      <2>
+    useLegacyDatetimeCode: false
+    serverTimezone: Europe/Amsterdam
 
-development:   <1>
+development:   <3>
   <<: *default
-  database: myapp_development   <2>
+  database: myapp_development   <4>
 [...]
 ----
-<1> Es werden ausschließlich die zu _default_ geänderten Einträge aufgeführt.
-<2> Der hier vorgeschlagene Datenbank-Name wird von _Ruby on Rails_
+<1> Entsprechend ändern.
+<2> Von *MySQL* erwartete Einstellungen zu _Datetime_/_Timezone_
+<3> Es werden ausschließlich die zu _default_ geänderten Einträge aufgeführt.
+<4> Der hier vorgeschlagene Datenbank-Name wird von _Ruby on Rails_
     automatisch gebildet: +
     Name der Applikation 'MyApp' und dem Zusatz '_development'
+
 
 
 === JavaScript-Runtime installieren

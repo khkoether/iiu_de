@@ -9,6 +9,10 @@ Opera sine nomine scripta — sid[at]example[dot]org
 :mit-url:               http://opensource.org/licenses/mit-license.php
 :ubuntu-url:            http://www.ubuntu.com/
 
+:datum:                 März 2019
+:middot:                &middot;
+:version:               5.2.1
+
 Version {version} {middot} {datum}
 
 

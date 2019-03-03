@@ -468,7 +468,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Version 5.2.0 &middot; Dezember 2018</p>
+<p>Version 5.2.1 &middot; März 2019</p>
 </div>
 </div>
 </div>
@@ -1393,8 +1393,8 @@ Ruby Sass is deprecated and will be unmaintained as of 26 March 2019.
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Mit <a href="chruby.html">Chruby</a> besitzt <em>ein</em> einfacher Benutzer <em>RubyGems</em> nachzuinstallieren.<br>
-Die <em>RubyGems</em> werden im Verzeichnis <code>~/.gem/ruby/2.3.6</code> installiert.</td>
+<td>Mit <a href="chruby.html">Chruby</a> besitzt <em>ein</em> einfacher Benutzer die Möglichkeit <em>RubyGems</em> nachzuinstallieren.<br>
+Die <em>RubyGems</em> werden im Verzeichnis <code>~/.gem/ruby/2.5.3</code> installiert.</td>
 </tr>
 <tr>
 <td><img src="./images/icons/callouts/2.png" alt="2"></td>
@@ -1457,14 +1457,17 @@ Keine Angabe für Benutzer und Passwort!</td>
 default: &amp;default
   adapter: mysql2
   encoding: utf8
-  pool: 5
-  username: sid                 &lt;---
-  password: g3h3im              &lt;---
+  pool: &lt;%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %&gt;
+  username: sid                    <img src="./images/icons/callouts/1.png" alt="1">
+  password: g3h3im                 <img src="./images/icons/callouts/1.png" alt="1">
   socket: /var/run/mysqld/mysqld.sock
+  properties:                      <img src="./images/icons/callouts/2.png" alt="2">
+    useLegacyDatetimeCode: false
+    serverTimezone: Europe/Amsterdam
 
-development:   <img src="./images/icons/callouts/1.png" alt="1">
+development:   <img src="./images/icons/callouts/3.png" alt="3">
   &lt;&lt;: *default
-  database: myapp_development   <img src="./images/icons/callouts/2.png" alt="2">
+  database: myapp_development   <img src="./images/icons/callouts/4.png" alt="4">
 [...]</pre>
 </div>
 </div>
@@ -1472,10 +1475,18 @@ development:   <img src="./images/icons/callouts/1.png" alt="1">
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Es werden ausschließlich die zu <em>default</em> geänderten Einträge aufgeführt.</td>
+<td>Entsprechend ändern.</td>
 </tr>
 <tr>
 <td><img src="./images/icons/callouts/2.png" alt="2"></td>
+<td>Von <strong>MySQL</strong> erwartete Einstellungen zu <em>Datetime</em>/<em>Timezone</em></td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/3.png" alt="3"></td>
+<td>Es werden ausschließlich die zu <em>default</em> geänderten Einträge aufgeführt.</td>
+</tr>
+<tr>
+<td><img src="./images/icons/callouts/4.png" alt="4"></td>
 <td>Der hier vorgeschlagene Datenbank-Name wird von <em>Ruby on Rails</em>
 automatisch gebildet:<br>
 Name der Applikation 'MyApp' und dem Zusatz '_development'</td>
@@ -1915,7 +1926,7 @@ zlib (default: 1.0.0)</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-12-16 16:06:20 +0100
+Last updated 2019-03-03 10:11:57 +0100
 </div>
 </div>
 </body>
