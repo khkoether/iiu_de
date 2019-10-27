@@ -8,8 +8,8 @@
 
 :author:          karl-heinz köther
 :authorinitials:  khk
-:datum:           März 2019
-:version:         5.2.1
+:datum:           Oktober 2019
+:version:         5.2.2
 
 :top-url:         #top[&#8679;]
 :middot:          &middot;
