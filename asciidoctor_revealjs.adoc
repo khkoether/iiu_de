@@ -6,7 +6,7 @@ include::_bp_header.adoc[]
 
 :asciidoctor-revealjs-home-url: https://github.com/asciidoctor/asciidoctor-reveal.js/
 :revealjs-home-url:             https://github.com/hakimel/reveal.js
-:revealjs-download-url:         https://github.com/hakimel/reveal.js/releases/tag/3.7.0
+:revealjs-download-url:         https://github.com/hakimel/reveal.js/releases/tag/3.8.0
 :asciidoctor-github-url:        https://github.com/asciidoctor/asciidoctor
 :asciidoctor-license-url:       https://github.com/asciidoctor/asciidoctor/blob/master/LICENSE.adoc
 
@@ -66,25 +66,31 @@ ii  ruby2.5-doc        2.5.1-1ubuntu1 all            Documentation for Ruby 2.5
 
 
 == Download
-* {revealjs-download-url}[reveal.js v3.7.0] +
-  `reveal.js-3.7.0.tar.gz`  (ca. 1.6M) +
-  2018-08-01 (Release date)
+* {revealjs-download-url}[reveal.js v3.8.0] +
+  `reveal.js-3.8.0.tar.gz`  (ca. 1.8M) +
+  2019-04-01 (Release date)
 
 
 == Installation
 Mithilfe des Befehls _sudo_ wird die System-Installation von *Ruby* ergänzt.
+
+.RubyGems
+* *asciidoctor-revealjs* +
+  Reveal.JS back-end for Asciidoctor and Asciidoctor.js. Write slides in AsciiDoc!
+
 ----
 $ ruby -v
 ruby 2.5.1p57 (2018-03-29 revision 63029) [x86_64-linux-gnu]
 
 $ sudo gem install asciidoctor-revealjs   <1>
 [sudo] Passwort für sid:
-Fetching: asciidoctor-revealjs-1.1.3.gem (100%)
-Successfully installed asciidoctor-revealjs-1.1.3
-Parsing documentation for asciidoctor-revealjs-1.1.3
-Installing ri documentation for asciidoctor-revealjs-1.1.3
-Done installing documentation for asciidoctor-revealjs after 1 seconds
-1 gem installed
+Fetching: thread_safe-0.3.6.gem (100%)
+Successfully installed thread_safe-0.3.6
+Fetching: concurrent-ruby-1.1.5.gem (100%)
+Successfully installed concurrent-ruby-1.1.5
+Fetching: asciidoctor-revealjs-2.0.0.gem (100%)
+Successfully installed asciidoctor-revealjs-2.0.0
+3 gems installed
 ----
 <1> *Asciidoctor* ist bereits zuvor installiert worden.
 
@@ -93,14 +99,15 @@ $ gem list --local
 
 *** LOCAL GEMS ***
 
-asciidoctor (1.5.8)
-asciidoctor-revealjs (1.1.3)   <1>
-bigdecimal (default: 1.3.4)
-cmath (default: 1.0.0)
-coderay (1.1.2)
+asciidoctor (2.0.10)
+asciidoctor-revealjs (2.0.0)   <1>
 ...
+coderay (1.1.2)
+concurrent-ruby (1.1.5)        <1>
+...
+thread_safe (0.3.6)            <1>
 ----
-<1> 1 gem installed
+<1> 3 gems installed
 
 [TIP]
 ====
@@ -108,43 +115,17 @@ Bei einer mit {chruby-url}[chruby] verwalteten *Ruby*-Version ist _sudo_ nicht n
 ----
 $ gem install asciidoctor-revealjs
 ...
+3 gems installed
 ----
 ====
 
 [options="nowrap"]
 ----
 $ asciidoctor-revealjs -V
-asciidoctor: WARNING: gem 'concurrent-ruby' is not installed.
-             This gem is recommended when registering custom converters.
-Asciidoctor 1.5.8 [https://asciidoctor.org]
-Runtime Environment (ruby 2.5.1p57 (2018-03-29 revision 63029)
-                    [x86_64-linux-gnu]) (lc:UTF-8 fs:UTF-8 in:UTF-8 ex:UTF-8)
+Asciidoctor 2.0.10 [https://asciidoctor.org]
+Runtime Environment (ruby 2.5.1p57 (2018-03-29 revision 63029) [x86_64-linux-gnu])
+                                   (lc:UTF-8 fs:UTF-8 in:UTF-8 ex:UTF-8)
 ----
-
-----
-$ sudo gem install concurrent-ruby
-Fetching: concurrent-ruby-1.1.1.gem (100%)
-Successfully installed concurrent-ruby-1.1.1
-Parsing documentation for concurrent-ruby-1.1.1
-Installing ri documentation for concurrent-ruby-1.1.1
-Done installing documentation for concurrent-ruby after 8 seconds
-1 gem installed
-----
-
-----
-gem list --local
-
-*** LOCAL GEMS ***
-
-asciidoctor (1.5.8)
-asciidoctor-revealjs (1.1.3)   <1>
-bigdecimal (default: 1.3.4)
-cmath (default: 1.0.0)
-coderay (1.1.2)
-concurrent-ruby (1.1.1)        <1>
-...
-----
-<1> 2 gems installed
 
 
 == Asciidoctor reveal.js: Erste Schritte &hellip;
@@ -155,8 +136,8 @@ Eine Präsentation erstellen Sie mit _asciidoctor-revealjs_ auf dem folgendenden
 $ mkdir MyPresentation
 $ cd MyPresentation
 
-$ tar xvzf reveal.js-3.7.0.tar.gz
-$ mv reveal.js-3.7.0 reveal.js
+$ tar xvzf reveal.js-3.8.0.tar.gz
+$ mv reveal.js-3.8.0 reveal.js
 ----
 
 .Datei: `presentation.adoc`
@@ -199,26 +180,27 @@ $ firefox presentation.html
 
 == Asciidoctor reveal.js: Projektstruktur
 ----
-$ tree -L 2 MyPresentation/
+$ tree -L 2 .
 .
 ├── presentation.adoc   <1>
 ├── presentation.html
-└── reveal.js/
+└── reveal.js
     ├── bower.json
     ├── CONTRIBUTING.md
-    ├── css/
+    ├── css
     ├── demo.html
-    ├── Gruntfile.js
+    ├── gruntfile.js
     ├── index.html
-    ├── js/
-    ├── lib/
+    ├── js
+    ├── lib
     ├── LICENSE
     ├── package.json
-    ├── plugin/
+    ├── package-lock.json
+    ├── plugin
     ├── README.md
-    └── test/
+    └── test
 
-6 directories, 10 files
+6 directories, 11 files
 ----
 <1> Eigene Präsentation
 
@@ -230,7 +212,7 @@ Sie können die Ausgabe durch setzen von _reveal.js Variablen_ ändern!
 [source,asciidoc]
 ----
 = Title Slide
-Sid ~ Großstadt ~ 04.12.2018
+Sid ~ Großstadt ~ 02.11.2019
 :revealjs_theme: sky
 :revealjs_slideNumber: true
 :source-highlighter: coderay

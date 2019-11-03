@@ -1,5 +1,10 @@
 # ChangeLog für iiu_de (27. Oktober 2019)
 
+.Version 5.2.3
+* Neue Programmversion:
+  Asciidoctor (2.0.10), Asciidoctor-RevealJS (2.0.0)
+  JRuby 9k (9.2.9.0), JRuby 9k on Rails (5.2)
+
 .Version 5.2.2
 * Neue Programmversion:
   Git (2.23.0)

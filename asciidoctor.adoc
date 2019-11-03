@@ -90,37 +90,37 @@ ii  ruby2.5-doc        2.5.1-1ubuntu1 all            Documentation for Ruby 2.5
 
 
 Mithilfe des Befehls _sudo_ wird die System-Installation von *Ruby* ergänzt.
+
+.RubyGems
+* *asciidoctor* +
+  A fast, open source text processor and publishing toolchain for converting
+  AsciiDoc content to HTML 5, DocBook 5, and other formats.
+* *coderay* +
+  Fast and easy syntax highlighting for selected languages, written in Ruby.
+  Comes with RedCloth integration and LOC counter.
+
 ----
 $ ruby -v
 ruby 2.5.1p57 (2018-03-29 revision 63029) [x86_64-linux-gnu]
 
 $ sudo gem install asciidoctor coderay
 [sudo] Passwort für sid:
-Fetching: asciidoctor-1.5.8.gem (100%)
-Successfully installed asciidoctor-1.5.8
-Parsing documentation for asciidoctor-1.5.8
-Installing ri documentation for asciidoctor-1.5.8
-Done installing documentation for asciidoctor after 4 seconds
+Fetching: asciidoctor-2.0.10.gem (100%)
+Successfully installed asciidoctor-2.0.10
 Fetching: coderay-1.1.2.gem (100%)
 Successfully installed coderay-1.1.2
-invalid options: -SNw2
-(invalid options are ignored)             <1>
-Parsing documentation for coderay-1.1.2
-Installing ri documentation for coderay-1.1.2
-Done installing documentation for coderay after 2 seconds
 2 gems installed
 ----
-<1> So isses.
 
 ----
 $ gem list --local
 
 *** LOCAL GEMS ***
 
-asciidoctor (1.5.8)           <1>
+asciidoctor (2.0.10)           <1>
 bigdecimal (default: 1.3.4)
 cmath (default: 1.0.0)
-coderay (1.1.2)               <1>
+coderay (1.1.2)                <1>
 csv (default: 1.0.0)
 date (default: 1.0.0)
 dbm (default: 1.0.0)
@@ -135,7 +135,7 @@ ipaddr (default: 1.2.0)
 json (default: 2.1.0)
 minitest (5.10.3)
 net-telnet (0.1.1)
-openssl (default: 2.1.0)
+openssl (default: 2.1.1)
 power_assert (0.2.7)
 psych (default: 3.0.2)
 rake (12.3.1)
@@ -147,8 +147,8 @@ stringio (default: 0.0.1)
 strscan (default: 1.0.0)
 temple (0.8.0)
 test-unit (3.2.5)
-thread_safe (0.3.6)
 tilt (2.0.8)
+vim-addon-manager (0.5.7)
 webrick (default: 1.4.2)
 zlib (default: 1.0.0)
 ----
@@ -167,7 +167,7 @@ $ gem install asciidoctor coderay
 [options="nowrap"]
 ----
 $ asciidoctor -V
-Asciidoctor 1.5.8 [https://asciidoctor.org]
+Asciidoctor 2.0.10 [https://asciidoctor.org]
 Runtime Environment (ruby 2.5.1p57 (2018-03-29 revision 63029) [x86_64-linux-gnu])
                                    (lc:UTF-8 fs:UTF-8 in:UTF-8 ex:UTF-8)
 ----
@@ -196,9 +196,9 @@ Opera sine nomine scripta — sid[at]example[dot]org
 :mit-url:               http://opensource.org/licenses/mit-license.php
 :ubuntu-url:            http://www.ubuntu.com/
 
-:datum:                 März 2019
+:datum:                 November 2019
 :middot:                &middot;
-:version:               5.2.1
+:version:               5.2.3
 
 Version {version} {middot} {datum}
 

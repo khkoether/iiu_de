@@ -51,15 +51,15 @@ und mit _Asciidoctor {asciidoctor-version}_ erstellt worden.
 
 
 == Auswahl
-* Asciidoctor 1.5.8
+* Asciidoctor 2.0.10
 * Asciidoctor: Erste Schritte &hellip;
 * Asciidoctor reveal.js
 * chruby 0.3.9
-* Git 2.20.0
+* Git 2.23.0
 * Ruby MRI 2.5
 * Ruby on Rails 5.2
 * OpenJDK 8/11
-* JRuby 9k
+* JRuby 9k -- 9.2.9.0
 * JRuby 9k on Rails 5.2
 
 [CAUTION]
