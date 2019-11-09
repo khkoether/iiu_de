@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
 <meta name="author" content="Installation in Ubuntu — khkoether[at]kahweb[dot]de">
-<title>IiU&#8201;&#8212;&#8201;Git 2.23.0</title>
+<title>IiU&#8201;&#8212;&#8201;Git 2.24.0</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -439,7 +439,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>IiU&#8201;&#8212;&#8201;Git 2.23.0</h1>
+<h1>IiU&#8201;&#8212;&#8201;Git 2.24.0</h1>
 <div class="details">
 <span id="author" class="author">Installation in Ubuntu — khkoether[at]kahweb[dot]de</span><br>
 </div>
@@ -467,7 +467,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Version 5.2.2 &middot; Oktober 2019</p>
+<p>Version 5.2.4 &middot; November 2019</p>
 </div>
 </div>
 </div>
@@ -554,10 +554,10 @@ git version 2.17.1</pre>
 <ul>
 <li>
 <p><a href="https://www.kernel.org/pub/software/scm/git/">Git</a><br>
-<code>git-2.23.0.tar.gz</code>  &nbsp;&#8201;&#8212;&#8201;&nbsp; ca. 8,3M<br>
-<code>git-htmldocs-2.23.0.tar.gz</code> &nbsp;&#8201;&#8212;&#8201;&nbsp; ca. 3,0M<br>
-<code>git-manpages-2.23.0.tar.gz</code> &nbsp;&#8201;&#8212;&#8201;&nbsp; ca. 721K<br>
-2018-12-09 (Release date)&#8201;&#8212;&#8201;<a href="https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.23.0.txt">Git 2.20 Release Notes</a></p>
+<code>git-2.24.0.tar.gz</code>  &nbsp;&#8201;&#8212;&#8201;&nbsp; ca. 8,4M<br>
+<code>git-htmldocs-2.24.0.tar.gz</code> &nbsp;&#8201;&#8212;&#8201;&nbsp; ca. 3,0M<br>
+<code>git-manpages-2.24.0.tar.gz</code> &nbsp;&#8201;&#8212;&#8201;&nbsp; ca. 729K<br>
+2019-11-04 (Release date)&#8201;&#8212;&#8201;<a href="https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.24.0.txt">Git 2.24 Release Notes</a></p>
 </li>
 </ul>
 </div>
@@ -577,9 +577,9 @@ Benutzer 'root' für das System durchgeführt.</p>
 <div class="listingblock">
 <div class="content">
 <pre>$ ls -lh
--rw-rw-r--  1 khk  khk    8,3M Okt 27 18:06 git-2.23.0.tar.gz
--rw-rw-r--  1 khk  khk    3,0M Okt 27 18:06 git-htmldocs-2.23.0.tar.gz
--rw-rw-r--  1 khk  khk    721K Okt 27 18:06 git-manpages-2.23.0.tar.gz</pre>
+-rw-rw-r-- 1 sid sid 8,4M Nov  9 10:59 git-2.24.0.tar.gz
+-rw-rw-r-- 1 sid sid 3,0M Nov  9 11:00 git-htmldocs-2.24.0.tar.gz
+-rw-rw-r-- 1 sid sid 729K Nov  9 11:00 git-manpages-2.24.0.tar.gz</pre>
 </div>
 </div>
 </td>
@@ -604,7 +604,9 @@ Benutzer 'root' für das System durchgeführt.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="nowrap">$ sudo apt update
+
 $ sudo apt upgrade
+
 $ sudo apt install make libssl-dev libghc-zlib-dev libcurl4-gnutls-dev libexpat1-dev gettext unzip   <img src="./images/icons/callouts/1.png" alt="1">
 Paketlisten werden gelesen... Fertig
 Abhängigkeitsbaum wird aufgebaut.
@@ -663,8 +665,8 @@ Eine bereits vorhandene Git-Installation wird überschrieben.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ tar xvzf git-2.23.0.tar.gz
-$ cd git-2.23.0</pre>
+<pre>$ tar xvzf git-2.24.0.tar.gz
+$ cd git-2.24.0</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -673,10 +675,13 @@ $ cd git-2.23.0</pre>
 <div class="listingblock">
 <div class="content">
 <pre>$ make configure | tee ../log.git_make-configure
-GIT_VERSION = 2.23.0
-    GEN configure
-
-$ ./configure | tee ../log.git_configure
+GIT_VERSION = 2.24.0
+    GEN configure</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ ./configure | tee ../log.git_configure
 configure: Setting lib to 'lib' (the default)
 configure: Will try -pthread then -lpthread to enable POSIX Threads.
 configure: CHECKS for site configuration
@@ -723,13 +728,13 @@ install -d -m 755 '/usr/local/libexec/git-core'
 <div class="listingblock">
 <div class="content">
 <pre>$ ls -l /usr/local/bin | grep git
--rwxr-xr-x 129 root root 16962992 Okt 27 18:19 git
--rwxr-xr-x   2 root root   162737 Okt 27 18:19 git-cvsserver
--rwxr-xr-x   1 root root   351673 Okt 27 18:19 gitk
--rwxr-xr-x 129 root root 16962992 Okt 27 18:19 git-receive-pack
--rwxr-xr-x   2 root root 10141872 Okt 27 18:19 git-shell
--rwxr-xr-x 129 root root 16962992 Okt 27 18:19 git-upload-archive
--rwxr-xr-x 129 root root 16962992 Okt 27 18:19 git-upload-pack</pre>
+-rwxr-xr-x 129 root root 17093928 Nov  9 15:34 git
+-rwxr-xr-x   2 root root   162737 Nov  9 15:34 git-cvsserver
+-rwxr-xr-x   1 root root   353477 Nov  9 15:34 gitk
+-rwxr-xr-x 129 root root 17093928 Nov  9 15:34 git-receive-pack
+-rwxr-xr-x   2 root root 10246384 Nov  9 15:34 git-shell
+-rwxr-xr-x 129 root root 17093928 Nov  9 15:34 git-upload-archive
+-rwxr-xr-x 129 root root 17093928 Nov  9 15:34 git-upload-pack</pre>
 </div>
 </div>
 <div class="listingblock">
@@ -739,7 +744,7 @@ install -d -m 755 '/usr/local/libexec/git-core'
 $ sudo mkdir git-doc
 
 $ cd git-doc
-$ sudo tar xvzf git-htmldocs-2.23.0.tar.gz
+$ sudo tar xvzf git-htmldocs-2.24.0.tar.gz
 ...
 ./git-credential-cache.html
 ./user-manual.html
@@ -752,7 +757,7 @@ $ sudo chmod a+rx git-doc
 
 $ ls -l
 drwxr-xr-x 2 root root  4096 Nov  5 21:34 chruby-0.3.9
-drwxr-sr-x 5 root root 20480 Aug 16 22:04 git-doc        <img src="./images/icons/callouts/2.png" alt="2"></pre>
+drwxr-sr-x 5 root root 20480 Nov  4 06:08 git-doc        <img src="./images/icons/callouts/2.png" alt="2"></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -763,7 +768,7 @@ drwxr-sr-x 5 root root 20480 Aug 16 22:04 git-doc        <img src="./images/icon
 </tr>
 <tr>
 <td><img src="./images/icons/callouts/2.png" alt="2"></td>
-<td>Release Date: 2019-08-16</td>
+<td>Release Date: 2019-11-04</td>
 </tr>
 </table>
 </div>
@@ -771,7 +776,7 @@ drwxr-sr-x 5 root root 20480 Aug 16 22:04 git-doc        <img src="./images/icon
 <div class="title">Documentation: man-pages</div>
 <div class="content">
 <pre>$ cd /usr/local/share/man
-$ sudo tar xvzf git-manpages-2.23.0.tar.gz
+$ sudo tar xvzf git-manpages-2.24.0.tar.gz
 ...
 ./man1/git-credential-store.1
 ./man1/git-imap-send.1
@@ -783,9 +788,9 @@ $ sudo chmod 755 man man/man1 man/man5 man/man7
 
 
 $ ls -l man
-drwxr-sr-x 2 root root 4096 Aug 16 22:05 man1   <img src="./images/icons/callouts/2.png" alt="2">
-drwxr-sr-x 2 root root 4096 Aug 16 22:05 man5   <img src="./images/icons/callouts/2.png" alt="2">
-drwxr-sr-x 2 root root 4096 Aug 16 22:05 man7   <img src="./images/icons/callouts/2.png" alt="2"></pre>
+drwxr-sr-x 2 root root 4096 Nov  4 22:05 man1   <img src="./images/icons/callouts/2.png" alt="2">
+drwxr-sr-x 2 root root 4096 Nov  4 22:05 man5   <img src="./images/icons/callouts/2.png" alt="2">
+drwxr-sr-x 2 root root 4096 Nov  4 22:05 man7   <img src="./images/icons/callouts/2.png" alt="2"></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -796,7 +801,7 @@ drwxr-sr-x 2 root root 4096 Aug 16 22:05 man7   <img src="./images/icons/callout
 </tr>
 <tr>
 <td><img src="./images/icons/callouts/2.png" alt="2"></td>
-<td>Release Date: 2019-08-16</td>
+<td>Release Date: 2019-11-04</td>
 </tr>
 </table>
 </div>
@@ -810,7 +815,7 @@ drwxr-sr-x 2 root root 4096 Aug 16 22:05 man7   <img src="./images/icons/callout
 <div class="listingblock">
 <div class="content">
 <pre>$ git --version
-git version 2.23.0</pre>
+git version 2.24.0</pre>
 </div>
 </div>
 </div>
@@ -879,23 +884,28 @@ NOTES
         1. Git User’s Manual
            git-htmldocs/user-manual.html
 
-        2. Git concepts chapter of the user-manual
+        1. Git User’s Manual
+           git-htmldocs/user-manual.html
+
+        2. Trace2 documentation
+           git-htmldocs/technical/api-trace2.html
+
+        3. Git concepts chapter of the user-manual
            git-htmldocs/user-manual.html#git-concepts
 
-        3. howto
+        4. howto
            git-htmldocs/howto-index.html
 
-        4. Git API documentation
+        5. Git API documentation
            git-htmldocs/technical/api-index.html
 
-        5. git@vger.kernel.org
+        6. git@vger.kernel.org
            mailto:git@vger.kernel.org
 
-        6. git-security@googlegroups.com
+        7. git-security@googlegroups.com
            mailto:git-security@googlegroups.com
 
-
-Git 2.23.0                        08/16/2019                            GIT(1)</pre>
+Git 2.24.0                        11/04/2019                            GIT(1)</pre>
 </div>
 </div>
 </div>
@@ -942,7 +952,7 @@ SEE ALSO
 GIT
        Part of the git(1) suite
 
-Git 2.23.0                        08/16/2019                           GITK(1)</pre>
+Git 2.24.0                        11/04/2019                           GITK(1)</pre>
 </div>
 </div>
 </div>
@@ -1031,7 +1041,7 @@ Git 2.23.0                        08/16/2019                           GITK(1)</
 </div>
 <div class="paragraph">
 <div class="title">Everyday GIT With 20 Commands Or So</div>
-<p>Browser&gt; <a href="file:///usr/local/share/doc/git-doc/everyday.html" class="bare">file:///usr/local/share/doc/git-doc/everyday.html</a></p>
+<p>Browser&gt; <a href="file:///usr/local/share/doc/git-doc/giteveryday.html" class="bare">file:///usr/local/share/doc/git-doc/giteveryday.html</a></p>
 </div>
 <div class="paragraph">
 <div class="title">gitglossary(7) Manual Page</div>
@@ -1063,7 +1073,7 @@ Git 2.23.0                        08/16/2019                           GITK(1)</
 <h2 id="_anhang">Anhang</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Script zum Installieren von <a href="git.html">Git</a> 2.23.0 (ohne weitere Erläuterung).<br>
+<p>Script zum Installieren von <a href="git.html">Git</a> 2.24.0 (ohne weitere Erläuterung).<br>
 Die Dokumentation zu <a href="git.html">Git</a> wird mit diesem Script <em>nicht</em> installiert.</p>
 </div>
 <div class="listingblock">
@@ -1072,7 +1082,7 @@ Die Dokumentation zu <a href="git.html">Git</a> wird mit diesem Script <em>nicht
 <pre>#!/bin/bash
 #
 ME=make_git
-NAME=git-2.23.0
+NAME=git-2.24.0
 
 ls -l git*.tar.gz
 echo
@@ -1126,7 +1136,7 @@ echo "$ME: Ende."</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-10-27 18:39:26 +0100
+Last updated 2019-11-09 16:02:33 +0100
 </div>
 </div>
 </body>

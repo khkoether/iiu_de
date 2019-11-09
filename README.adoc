@@ -55,7 +55,7 @@ und mit _Asciidoctor {asciidoctor-version}_ erstellt worden.
 * Asciidoctor: Erste Schritte &hellip;
 * Asciidoctor reveal.js
 * chruby 0.3.9
-* Git 2.23.0
+* Git 2.24.0
 * Ruby MRI 2.5
 * Ruby on Rails 5.2
 * OpenJDK 8/11
