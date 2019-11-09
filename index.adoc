@@ -4,7 +4,7 @@ Installation in Ubuntu -- khkoether[at]kahweb[dot]de
 
 include::_bp_header.adoc[]
 
-Version {version} {middot} {datum}
+Version 5.2.4 {middot} {datum}
 
 
 == Abstract
