@@ -4,7 +4,7 @@ Installation in Ubuntu -- khkoether[at]kahweb[dot]de
 
 include::_bp_header.adoc[]
 
-Version 5.2.5 {middot} {datum}
+Version 5.2.5 {middot} Januar 2020
 
 
 == Abstract
