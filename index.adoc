@@ -4,7 +4,7 @@ Installation in Ubuntu -- khkoether[at]kahweb[dot]de
 
 include::_bp_header.adoc[]
 
-Version 5.2.4 {middot} {datum}
+Version 5.2.5 {middot} {datum}
 
 
 == Abstract
@@ -64,7 +64,7 @@ und mit _Asciidoctor {asciidoctor-version}_ erstellt worden.
 * {asciidoctor_1st-url}[Asciidoctor: Erste Schritte &hellip;]
 * {asciidoctor_revealjs-url}[Asciidoctor reveal.js]
 * {chruby-url}[chruby 0.3.9]
-* {git-url}[Git 2.24.0]
+* {git-url}[Git 2.25.0]
 * {ruby25-url}[Ruby MRI 2.5]
 * {ruby_on_rails52-url}[Ruby on Rails 5.2]
 * {jdk-url}[OpenJDK 8/11]

@@ -1,5 +1,9 @@
 # ChangeLog für iiu_de (09. November 2019)
 
+.Version 5.2.5
+* Neue Programmversion:
+  Git (2.25.0)
+
 .Version 5.2.4
 * Neue Programmversion:
   Git (2.24.0)

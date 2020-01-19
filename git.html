@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
 <meta name="author" content="Installation in Ubuntu — khkoether[at]kahweb[dot]de">
-<title>IiU&#8201;&#8212;&#8201;Git 2.24.0</title>
+<title>IiU&#8201;&#8212;&#8201;Git 2.25.0</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -439,7 +439,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>IiU&#8201;&#8212;&#8201;Git 2.24.0</h1>
+<h1>IiU&#8201;&#8212;&#8201;Git 2.25.0</h1>
 <div class="details">
 <span id="author" class="author">Installation in Ubuntu — khkoether[at]kahweb[dot]de</span><br>
 </div>
@@ -458,7 +458,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_usrlocal">/usr/local</a></li>
 </ul>
 </li>
-<li><a href="#_dokumentation_local">Dokumentation (local)</a></li>
+<li><a href="#_dokumentation_local">Dokumentation (local)</a>
+<ul class="sectlevel2">
+<li><a href="#_manual_pages_usrlocalsharedocgit_doc">Manual Pages: <code>/usr/local/share/doc/git-doc/</code></a></li>
+</ul>
+</li>
 <li><a href="#_anhang">Anhang</a></li>
 </ul>
 </div>
@@ -467,7 +471,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Version 5.2.4 &middot; November 2019</p>
+<p>Version 5.2.5 &middot; Januar 2020</p>
 </div>
 </div>
 </div>
@@ -554,10 +558,10 @@ git version 2.17.1</pre>
 <ul>
 <li>
 <p><a href="https://www.kernel.org/pub/software/scm/git/">Git</a><br>
-<code>git-2.24.0.tar.gz</code>  &nbsp;&#8201;&#8212;&#8201;&nbsp; ca. 8,4M<br>
-<code>git-htmldocs-2.24.0.tar.gz</code> &nbsp;&#8201;&#8212;&#8201;&nbsp; ca. 3,0M<br>
-<code>git-manpages-2.24.0.tar.gz</code> &nbsp;&#8201;&#8212;&#8201;&nbsp; ca. 729K<br>
-2019-11-04 (Release date)&#8201;&#8212;&#8201;<a href="https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.24.0.txt">Git 2.24 Release Notes</a></p>
+<code>git-2.25.0.tar.gz</code>  &nbsp;&#8201;&#8212;&#8201;&nbsp; ca. 8,7M<br>
+<code>git-htmldocs-2.25.0.tar.gz</code> &nbsp;&#8201;&#8212;&#8201;&nbsp; ca. 3,0M<br>
+<code>git-manpages-2.25.0.tar.gz</code> &nbsp;&#8201;&#8212;&#8201;&nbsp; ca. 741K<br>
+2020-01-13 (Release date)&#8201;&#8212;&#8201;<a href="https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.25.0.txt">Git 2.25 Release Notes</a></p>
 </li>
 </ul>
 </div>
@@ -577,9 +581,9 @@ Benutzer 'root' für das System durchgeführt.</p>
 <div class="listingblock">
 <div class="content">
 <pre>$ ls -lh
--rw-rw-r-- 1 sid sid 8,4M Nov  9 10:59 git-2.24.0.tar.gz
--rw-rw-r-- 1 sid sid 3,0M Nov  9 11:00 git-htmldocs-2.24.0.tar.gz
--rw-rw-r-- 1 sid sid 729K Nov  9 11:00 git-manpages-2.24.0.tar.gz</pre>
+-rw-rw-r--  1 khk  khk    8,7M Jan 17 15:25 git-2.25.0.tar.gz
+-rw-rw-r--  1 khk  khk    3,0M Jan 17 15:25 git-htmldocs-2.25.0.tar.gz
+-rw-rw-r--  1 khk  khk    741K Jan 17 15:26 git-manpages-2.25.0.tar.gz</pre>
 </div>
 </div>
 </td>
@@ -665,8 +669,8 @@ Eine bereits vorhandene Git-Installation wird überschrieben.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ tar xvzf git-2.24.0.tar.gz
-$ cd git-2.24.0</pre>
+<pre>$ tar xvzf git-2.25.0.tar.gz
+$ cd git-2.25.0</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -675,7 +679,7 @@ $ cd git-2.24.0</pre>
 <div class="listingblock">
 <div class="content">
 <pre>$ make configure | tee ../log.git_make-configure
-GIT_VERSION = 2.24.0
+GIT_VERSION = 2.25.0
     GEN configure</pre>
 </div>
 </div>
@@ -728,13 +732,13 @@ install -d -m 755 '/usr/local/libexec/git-core'
 <div class="listingblock">
 <div class="content">
 <pre>$ ls -l /usr/local/bin | grep git
--rwxr-xr-x 129 root root 17093928 Nov  9 15:34 git
--rwxr-xr-x   2 root root   162737 Nov  9 15:34 git-cvsserver
--rwxr-xr-x   1 root root   353477 Nov  9 15:34 gitk
--rwxr-xr-x 129 root root 17093928 Nov  9 15:34 git-receive-pack
--rwxr-xr-x   2 root root 10246384 Nov  9 15:34 git-shell
--rwxr-xr-x 129 root root 17093928 Nov  9 15:34 git-upload-archive
--rwxr-xr-x 129 root root 17093928 Nov  9 15:34 git-upload-pack</pre>
+-rwxr-xr-x 130 root root 17460736 Jan 17 15:36 git
+-rwxr-xr-x   2 root root   162737 Jan 17 15:36 git-cvsserver
+-rwxr-xr-x   1 root root   353477 Jan 17 15:36 gitk
+-rwxr-xr-x 130 root root 17460736 Jan 17 15:36 git-receive-pack
+-rwxr-xr-x   2 root root 10340208 Jan 17 15:36 git-shell
+-rwxr-xr-x 130 root root 17460736 Jan 17 15:36 git-upload-archive
+-rwxr-xr-x 130 root root 17460736 Jan 17 15:36 git-upload-pack</pre>
 </div>
 </div>
 <div class="listingblock">
@@ -744,7 +748,7 @@ install -d -m 755 '/usr/local/libexec/git-core'
 $ sudo mkdir git-doc
 
 $ cd git-doc
-$ sudo tar xvzf git-htmldocs-2.24.0.tar.gz
+$ sudo tar xvzf git-htmldocs-2.25.0.tar.gz
 ...
 ./git-credential-cache.html
 ./user-manual.html
@@ -757,7 +761,7 @@ $ sudo chmod a+rx git-doc
 
 $ ls -l
 drwxr-xr-x 2 root root  4096 Nov  5 21:34 chruby-0.3.9
-drwxr-sr-x 5 root root 20480 Nov  4 06:08 git-doc        <img src="./images/icons/callouts/2.png" alt="2"></pre>
+drwxr-sr-x 5 root root 20480 Jan 13 19:47 git-doc        <img src="./images/icons/callouts/2.png" alt="2"></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -768,7 +772,7 @@ drwxr-sr-x 5 root root 20480 Nov  4 06:08 git-doc        <img src="./images/icon
 </tr>
 <tr>
 <td><img src="./images/icons/callouts/2.png" alt="2"></td>
-<td>Release Date: 2019-11-04</td>
+<td>Release Date: 2020-01-13</td>
 </tr>
 </table>
 </div>
@@ -776,7 +780,7 @@ drwxr-sr-x 5 root root 20480 Nov  4 06:08 git-doc        <img src="./images/icon
 <div class="title">Documentation: man-pages</div>
 <div class="content">
 <pre>$ cd /usr/local/share/man
-$ sudo tar xvzf git-manpages-2.24.0.tar.gz
+$ sudo tar xvzf git-manpages-2.25.0.tar.gz
 ...
 ./man1/git-credential-store.1
 ./man1/git-imap-send.1
@@ -788,9 +792,9 @@ $ sudo chmod 755 man man/man1 man/man5 man/man7
 
 
 $ ls -l man
-drwxr-sr-x 2 root root 4096 Nov  4 22:05 man1   <img src="./images/icons/callouts/2.png" alt="2">
-drwxr-sr-x 2 root root 4096 Nov  4 22:05 man5   <img src="./images/icons/callouts/2.png" alt="2">
-drwxr-sr-x 2 root root 4096 Nov  4 22:05 man7   <img src="./images/icons/callouts/2.png" alt="2"></pre>
+drwxr-sr-x 2 root root 4096 Jan 13 19:49 man1   <img src="./images/icons/callouts/2.png" alt="2">
+drwxr-sr-x 2 root root 4096 Jan 13 19:49 man5   <img src="./images/icons/callouts/2.png" alt="2">
+drwxr-sr-x 2 root root 4096 Jan 13 19:49 man7   <img src="./images/icons/callouts/2.png" alt="2"></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -801,7 +805,7 @@ drwxr-sr-x 2 root root 4096 Nov  4 22:05 man7   <img src="./images/icons/callout
 </tr>
 <tr>
 <td><img src="./images/icons/callouts/2.png" alt="2"></td>
-<td>Release Date: 2019-11-04</td>
+<td>Release Date: 2020-01-13</td>
 </tr>
 </table>
 </div>
@@ -815,7 +819,7 @@ drwxr-sr-x 2 root root 4096 Nov  4 22:05 man7   <img src="./images/icons/callout
 <div class="listingblock">
 <div class="content">
 <pre>$ git --version
-git version 2.24.0</pre>
+git version 2.25.0</pre>
 </div>
 </div>
 </div>
@@ -859,7 +863,7 @@ DESCRIPTION
 AUTHORS
        Git was started by Linus Torvalds, and is currently maintained by Junio
        C Hamano. Numerous contributions have come from the Git mailing list
-       &lt;git@vger.kernel.org[5]&gt;.
+       &lt;git@vger.kernel.org[6]&gt;.
        http://www.openhub.net/p/git/contributors/summary gives you a more
        complete list of contributors.
 
@@ -868,9 +872,14 @@ AUTHORS
        project.
 
 REPORTING BUGS
-       Report bugs to the Git mailing list &lt;git@vger.kernel.org[5]&gt; where the
+       Report bugs to the Git mailing list &lt;git@vger.kernel.org[6]&gt; where the
        development and maintenance is primarily done. You do not have to be
-       subscribed to the list to send a message there.
+       subscribed to the list to send a message there. See the list archive at
+       https://lore.kernel.org/git for previous bug reports and other
+       discussions.
+
+       Issues which are security relevant should be disclosed privately to the
+       Git Security mailing list &lt;git-security@googlegroups.com[7]&gt;.
 
 SEE ALSO
        gittutorial(7), gittutorial-2(7), giteveryday(7), gitcvs-migration(7),
@@ -881,9 +890,6 @@ GIT
        Part of the git(1) suite
 
 NOTES
-        1. Git User’s Manual
-           git-htmldocs/user-manual.html
-
         1. Git User’s Manual
            git-htmldocs/user-manual.html
 
@@ -905,7 +911,7 @@ NOTES
         7. git-security@googlegroups.com
            mailto:git-security@googlegroups.com
 
-Git 2.24.0                        11/04/2019                            GIT(1)</pre>
+Git 2.25.0                        01/13/2020                            GIT(1)</pre>
 </div>
 </div>
 </div>
@@ -952,7 +958,7 @@ SEE ALSO
 GIT
        Part of the git(1) suite
 
-Git 2.24.0                        11/04/2019                           GITK(1)</pre>
+Git 2.25.0                        01/13/2020                           GITK(1)</pre>
 </div>
 </div>
 </div>
@@ -979,6 +985,8 @@ Git 2.24.0                        11/04/2019                           GITK(1)</
 /usr/local/share/locale/ru/LC_MESSAGES
 /usr/local/share/locale/sv
 /usr/local/share/locale/sv/LC_MESSAGES
+/usr/local/share/locale/zh_TW
+/usr/local/share/locale/zh_TW/LC_MESSAGES
 /usr/local/share/locale/bg
 /usr/local/share/locale/bg/LC_MESSAGES
 /usr/local/share/locale/is
@@ -1011,11 +1019,11 @@ Git 2.24.0                        11/04/2019                           GITK(1)</
 /usr/local/share/perl5/Git/SVN/Memoize
 /usr/local/share/perl5/Git/LoadCPAN
 /usr/local/share/perl5/Git/LoadCPAN/Mail
-/usr/local/share/doc
 /usr/local/share/doc/git-doc
 /usr/local/share/doc/git-doc/howto
 /usr/local/share/doc/git-doc/technical
 /usr/local/share/doc/git-doc/RelNotes
+/usr/local/share/applications
 /usr/local/share/gitk/lib/msgs
 /usr/local/libexec/git-core
 /usr/local/libexec/git-core/mergetools</pre>
@@ -1027,45 +1035,52 @@ Git 2.24.0                        11/04/2019                           GITK(1)</
 <div class="sect1">
 <h2 id="_dokumentation_local">Dokumentation (local)</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_manual_pages_usrlocalsharedocgit_doc">Manual Pages: <code>/usr/local/share/doc/git-doc/</code></h3>
 <div class="paragraph">
-<div class="title">git(1) Manual Page</div>
-<p>Browser&gt; <a href="file:///usr/local/share/doc/git-doc/index.html" class="bare">file:///usr/local/share/doc/git-doc/index.html</a></p>
+<div class="title">git&#8201;&#8212;&#8201;the stupid content tracke</div>
+<p>Browser&gt; <a href="file:///usr/local/share/doc/git-doc/index.html" class="bare">file:///usr/local/share/doc/git-doc/index.html</a><br>
+Browser&gt; <a href="file:///usr/local/share/doc/git-doc/git.html" class="bare">file:///usr/local/share/doc/git-doc/git.html</a></p>
 </div>
+<hr>
 <div class="paragraph">
-<div class="title">gittutorial(7) Manual Page</div>
-<p>Browser&gt; <a href="file:///usr/local/share/doc/git-doc/gittutorial.html" class="bare">file:///usr/local/share/doc/git-doc/gittutorial.html</a></p>
-</div>
-<div class="paragraph">
-<div class="title">gittutorial-2(7) Manual Page</div>
-<p>Browser&gt; <a href="file:///usr/local/share/doc/git-doc/gittutorial-2.html" class="bare">file:///usr/local/share/doc/git-doc/gittutorial-2.html</a></p>
-</div>
-<div class="paragraph">
-<div class="title">Everyday GIT With 20 Commands Or So</div>
-<p>Browser&gt; <a href="file:///usr/local/share/doc/git-doc/giteveryday.html" class="bare">file:///usr/local/share/doc/git-doc/giteveryday.html</a></p>
-</div>
-<div class="paragraph">
-<div class="title">gitglossary(7) Manual Page</div>
-<p>Browser&gt; <a href="file:///usr/local/share/doc/git-doc/gitglossary.html" class="bare">file:///usr/local/share/doc/git-doc/gitglossary.html</a></p>
-</div>
-<div class="paragraph">
-<div class="title">gitcore-tutorial(7) Manual Page</div>
-<p>Browser&gt; <a href="file:///usr/local/share/doc/git-doc/gitcore-tutorial.html" class="bare">file:///usr/local/share/doc/git-doc/gitcore-tutorial.html</a></p>
-</div>
-<div class="paragraph">
-<div class="title">gitcli(7) Manual Page</div>
-<p>Browser&gt; <a href="file:///usr/local/share/doc/git-doc/gitcli.html" class="bare">file:///usr/local/share/doc/git-doc/gitcli.html</a></p>
-</div>
-<div class="paragraph">
-<div class="title">Git User’s Manual</div>
+<div class="title">Git User Manual</div>
 <p>Browser&gt; <a href="file:///usr/local/share/doc/git-doc/user-manual.html" class="bare">file:///usr/local/share/doc/git-doc/user-manual.html</a></p>
 </div>
 <div class="paragraph">
-<div class="title">gitworkflows(7) Manual Page</div>
+<div class="title">gitworkflows&#8201;&#8212;&#8201;An overview of recommended workflows with Git</div>
 <p>Browser&gt; <a href="file:///usr/local/share/doc/git-doc/gitworkflows.html" class="bare">file:///usr/local/share/doc/git-doc/gitworkflows.html</a></p>
 </div>
+<hr>
 <div class="paragraph">
-<div class="title">git-config(1) Manual Page</div>
+<div class="title">gittutorial&#8201;&#8212;&#8201;A tutorial introduction to Git</div>
+<p>Browser&gt; <a href="file:///usr/local/share/doc/git-doc/gittutorial.html" class="bare">file:///usr/local/share/doc/git-doc/gittutorial.html</a></p>
+</div>
+<div class="paragraph">
+<div class="title">gittutorial-2&#8201;&#8212;&#8201;A tutorial introduction to Git: part two</div>
+<p>Browser&gt; <a href="file:///usr/local/share/doc/git-doc/gittutorial-2.html" class="bare">file:///usr/local/share/doc/git-doc/gittutorial-2.html</a></p>
+</div>
+<div class="paragraph">
+<div class="title">giteveryday&#8201;&#8212;&#8201;A useful minimum set of commands for Everyday Git</div>
+<p>Browser&gt; <a href="file:///usr/local/share/doc/git-doc/giteveryday.html" class="bare">file:///usr/local/share/doc/git-doc/giteveryday.html</a></p>
+</div>
+<hr>
+<div class="paragraph">
+<div class="title">git-config&#8201;&#8212;&#8201;Get and set repository or global options</div>
 <p>Browser&gt; <a href="file:///usr/local/share/doc/git-doc/git-config.html" class="bare">file:///usr/local/share/doc/git-doc/git-config.html</a></p>
+</div>
+<div class="paragraph">
+<div class="title">gitcore-tutorial&#8201;&#8212;&#8201;A Git core tutorial for developers</div>
+<p>Browser&gt; <a href="file:///usr/local/share/doc/git-doc/gitcore-tutorial.html" class="bare">file:///usr/local/share/doc/git-doc/gitcore-tutorial.html</a></p>
+</div>
+<div class="paragraph">
+<div class="title">gitcli&#8201;&#8212;&#8201;Git command-line interface and conventions</div>
+<p>Browser&gt; <a href="file:///usr/local/share/doc/git-doc/gitcli.html" class="bare">file:///usr/local/share/doc/git-doc/gitcli.html</a></p>
+</div>
+<div class="paragraph">
+<div class="title">gitglossary&#8201;&#8212;&#8201;A Git Glossary</div>
+<p>Browser&gt; <a href="file:///usr/local/share/doc/git-doc/gitglossary.html" class="bare">file:///usr/local/share/doc/git-doc/gitglossary.html</a></p>
+</div>
 </div>
 </div>
 </div>
@@ -1073,7 +1088,7 @@ Git 2.24.0                        11/04/2019                           GITK(1)</
 <h2 id="_anhang">Anhang</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Script zum Installieren von <a href="git.html">Git</a> 2.24.0 (ohne weitere Erläuterung).<br>
+<p>Script zum Installieren von <a href="git.html">Git</a> 2.25.0 (ohne weitere Erläuterung).<br>
 Die Dokumentation zu <a href="git.html">Git</a> wird mit diesem Script <em>nicht</em> installiert.</p>
 </div>
 <div class="listingblock">
@@ -1082,7 +1097,7 @@ Die Dokumentation zu <a href="git.html">Git</a> wird mit diesem Script <em>nicht
 <pre>#!/bin/bash
 #
 ME=make_git
-NAME=git-2.24.0
+NAME=git-2.25.0
 
 ls -l git*.tar.gz
 echo
@@ -1136,7 +1151,7 @@ echo "$ME: Ende."</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-11-09 16:02:33 +0100
+Last updated 2020-01-19 12:53:50 +0100
 </div>
 </div>
 </body>
