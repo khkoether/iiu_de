@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
 <meta name="author" content="Installation in Ubuntu — khkoether[at]kahweb[dot]de">
-<title>IiU&#8201;&#8212;&#8201;JRuby 9k&#8201;&#8212;&#8201;9.2.9.0</title>
+<title>IiU&#8201;&#8212;&#8201;JRuby 9k&#8201;&#8212;&#8201;9.2.11.0</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -439,7 +439,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>IiU&#8201;&#8212;&#8201;JRuby 9k&#8201;&#8212;&#8201;9.2.9.0</h1>
+<h1>IiU&#8201;&#8212;&#8201;JRuby 9k&#8201;&#8212;&#8201;9.2.11.0</h1>
 <div class="details">
 <span id="author" class="author">Installation in Ubuntu — khkoether[at]kahweb[dot]de</span><br>
 </div>
@@ -473,7 +473,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Version 5.3.0 &middot; November 2019</p>
+<p>Version 5.2.6 &middot; März 2020</p>
 </div>
 </div>
 </div>
@@ -488,7 +488,7 @@ voll-threadfähige Java-Implementierung der <em>Ruby</em>-Programmiersprache.</p
 </div>
 <div class="paragraph">
 <p>Dieser Artikel ist eine Schritt-für-Schritt Anleitung zur Installation
-von <a href="http://jruby.org/download">JRuby 9k (9.2.9.0)</a> unter GNU/Linux.</p>
+von <a href="http://jruby.org/download">JRuby 9k (9.2.11.0)</a> unter GNU/Linux.</p>
 </div>
 <div class="paragraph">
 <p>Die Programmiersprache <a href="https://www.ruby-lang.org/de/">Ruby</a> ist die Grundlage für das
@@ -549,7 +549,7 @@ beschrieben, durchgeführt worden.</p>
 <dl>
 <dt class="hdlist1">Ubuntu 18.04 LTS (Bionic Beaver) enthält die Pakete</dt>
 <dd>
-<p><em>jruby/bionic,bionic 9.1.17.0-18.04_all.deb</em>.</p>
+<p><em>jruby/bionic,bionic 9.1.17.0-1~18.04_all.deb</em>.</p>
 </dd>
 </dl>
 </div>
@@ -568,9 +568,9 @@ beschrieben, durchgeführt worden.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="http://jruby.org/download">JRuby 9.2.9.0</a><br>
-<code>jruby-dist-9.2.9.0-bin.tar.gz</code>  (ca. 24M)<br>
-<strong>2019-10-30 (Release date)</strong></p>
+<p><a href="http://jruby.org/download">JRuby 9.2.11.0</a><br>
+<code>jruby-dist-9.2.11.0-bin.tar.gz</code>  (ca. 24,4 MB)<br>
+<strong>2020-03-02 (Release date)</strong></p>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Release-Notes</dt>
@@ -612,6 +612,20 @@ JRuby 9.2.0.0 is our first release for 2.5 support.</p>
 </tr>
 </table>
 </div>
+<div class="exampleblock">
+<div class="title">Example 1. Historisches II</div>
+<div class="content">
+<div class="paragraph">
+<p><strong>JRuby Dev Team @jruby</strong></p>
+</div>
+<div class="paragraph">
+<p>Quick releases are the best releases! <strong>JRuby 9.2.11.0</strong> is out,
+fixing regressions in deploying gems inside jar files and a
+performance issue with Kernel#caller and friends.<br>
+<strong>Probably the last 9.2.x release before 9.3!</strong></p>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -629,7 +643,7 @@ Dann kann <mark>chruby</mark> automatisch die Installation verwalten.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ tar xzvf jruby-dist-9.2.9.0-bin.tar.gz -C /opt/rubies/
+<pre>$ tar xzvf jruby-dist-9.2.11.0-bin.tar.gz -C /opt/rubies/
 ...</pre>
 </div>
 </div>
@@ -639,10 +653,10 @@ Dann kann <mark>chruby</mark> automatisch die Installation verwalten.</p>
 <div class="listingblock">
 <div class="content">
 <pre>$ ls -l /opt/rubies/   <img src="./images/icons/callouts/1.png" alt="1">
-drwxr-sr-x 6 sid medien 4096 Okt 30 19:07 jruby-9.2.9.0
-drwxr-xr-x 6 sid medien 4096 Dez 12  2018 ruby-2.5.3
+drwxr-sr-x 6 sid sid    4096 Mär  2 20:28 jruby-9.2.11.0
+drwxr-xr-x 6 sid sid    4096 Dez 12  2018 ruby-2.5.3
 
-$ ln -s jruby /opt/rubies/jruby-9.2.9.0/bin/ruby   <img src="./images/icons/callouts/2.png" alt="2"></pre>
+$ ln -s jruby /opt/rubies/jruby-9.2.11.0/bin/ruby   <img src="./images/icons/callouts/2.png" alt="2"></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -662,15 +676,15 @@ $ ln -s jruby /opt/rubies/jruby-9.2.9.0/bin/ruby   <img src="./images/icons/call
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ ls -l /opt/rubies/jruby-9.2.9.0
-drwxr-sr-x 2 sid sid   4096 Nov  3 11:25 bin            <img src="./images/icons/callouts/1.png" alt="1">
--rw-r--r-- 1 sid sid   1282 Okt 30 19:03 BSDL           <img src="./images/icons/callouts/2.png" alt="2">
--rw-r--r-- 1 sid sid 131622 Okt 30 19:03 COPYING
--rw-r--r-- 1 sid sid    218 Okt 30 19:03 LEGAL
-drwxr-sr-x 4 sid sid   4096 Nov  3 11:21 lib
--rw-r--r-- 1 sid sid   2581 Okt 30 19:03 LICENSE.RUBY
-drwxr-sr-x 6 sid sid   4096 Nov  3 11:21 samples
-drwxr-sr-x 3 sid sid   4096 Nov  3 11:21 tool</pre>
+<pre>$ ls -l /opt/rubies/jruby-9.2.11.0
+drwxr-sr-x 2 sid sid      4096 Mär  6 09:14 bin       <img src="./images/icons/callouts/1.png" alt="1">
+-rw-r--r-- 1 sid sid      1282 Mär  2 20:21 BSDL      <img src="./images/icons/callouts/2.png" alt="2">
+-rw-r--r-- 1 sid sid    131622 Mär  2 20:21 COPYING
+-rw-r--r-- 1 sid sid       218 Mär  2 20:21 LEGAL
+drwxr-sr-x 4 sid sid      4096 Mär  6 09:13 lib
+-rw-r--r-- 1 sid sid      2581 Mär  2 20:21 LICENSE.RUBY
+drwxr-sr-x 6 sid sid      4096 Mär  6 09:13 samples
+drwxr-sr-x 3 sid sid      4096 Mär  6 09:13 tool</pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -687,39 +701,39 @@ drwxr-sr-x 3 sid sid   4096 Nov  3 11:21 tool</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ ls -l /opt/rubies/jruby-9.2.9.0/bin
--rwxr-xr-x 1 sid sid    5515 Okt 30 19:07 ast       <img src="./images/icons/callouts/1.png" alt="1">
--rw-r--r-- 1 sid sid      40 Okt 30 19:07 ast.bat   <img src="./images/icons/callouts/2.png" alt="2">
--rwxr-xr-x 1 sid sid     123 Okt 30 19:07 gem
--rw-r--r-- 1 sid sid      40 Okt 30 19:07 gem.bat
--rwxr-xr-x 1 sid sid     323 Okt 30 19:07 irb
--rw-r--r-- 1 sid sid      40 Okt 30 19:07 irb.bat
--rwxr-xr-x 1 sid sid     547 Okt 30 19:07 jgem
--rw-r--r-- 1 sid sid      41 Okt 30 19:07 jgem.bat
--rwxr-xr-x 1 sid sid     390 Okt 30 19:07 jirb
--rw-r--r-- 1 sid sid      41 Okt 30 19:07 jirb.bat
--rwxr-xr-x 1 sid sid    2263 Okt 30 19:07 jirb_swing
--rw-r--r-- 1 sid sid      47 Okt 30 19:07 jirb_swing.bat
--rwxr-xr-x 1 sid sid   16272 Okt 30 19:07 jruby
--rwxr-xr-x 1 sid sid     172 Okt 30 19:07 jruby200.sh
--rwxr-xr-x 1 sid sid   16272 Okt 30 19:07 jruby.bash
--rw-r--r-- 1 sid sid     125 Okt 30 19:07 jruby.bat
--rwxr-xr-x 1 sid sid     188 Okt 30 19:07 jrubyc
--rw-r--r-- 1 sid sid      43 Okt 30 19:07 jrubyc.bat
--rw-r--r-- 1 sid sid     245 Okt 30 19:07 jrubyd.bat
--rw-r--r-- 1 sid sid 1024512 Okt 30 19:07 jruby.dll
--rw-r--r-- 1 sid sid  959488 Okt 30 19:07 jruby.exe
--rwxr-xr-x 1 sid sid    9397 Okt 30 19:07 jruby.sh
--rw-r--r-- 1 sid sid  961536 Okt 30 19:07 jrubyw.exe
--rwxr-xr-x 1 sid sid     588 Okt 30 19:07 rake
--rw-r--r-- 1 sid sid      41 Okt 30 19:07 rake.bat
--rwxr-xr-x 1 sid sid     588 Okt 30 19:07 rdoc
--rw-r--r-- 1 sid sid      41 Okt 30 19:07 rdoc.bat
--rwxr-xr-x 1 sid sid     584 Okt 30 19:07 ri
--rw-r--r-- 1 sid sid      39 Okt 30 19:07 ri.bat
-lrwxrwxrwx 1 sid sid       5 Nov  3 11:25 ruby -&gt; jruby   <img src="./images/icons/callouts/3.png" alt="3">
--rwxr-xr-x 1 sid sid     152 Okt 30 19:07 testrb
--rw-r--r-- 1 sid sid      43 Okt 30 19:07 testrb.bat</pre>
+<pre>$ ls -l /opt/rubies/jruby-9.2.11.0/bin
+-rwxr-xr-x 1 sid sid       5515 Mär  2 20:25 ast       <img src="./images/icons/callouts/1.png" alt="1">
+-rw-r--r-- 1 sid sid         40 Mär  2 20:25 ast.bat   <img src="./images/icons/callouts/2.png" alt="2">
+-rwxr-xr-x 1 sid sid        123 Mär  2 20:25 gem
+-rw-r--r-- 1 sid sid         40 Mär  2 20:25 gem.bat
+-rwxr-xr-x 1 sid sid        323 Mär  2 20:25 irb
+-rw-r--r-- 1 sid sid         40 Mär  2 20:25 irb.bat
+-rwxr-xr-x 1 sid sid        547 Mär  2 20:25 jgem
+-rw-r--r-- 1 sid sid         41 Mär  2 20:25 jgem.bat
+-rwxr-xr-x 1 sid sid        390 Mär  2 20:25 jirb
+-rw-r--r-- 1 sid sid         41 Mär  2 20:25 jirb.bat
+-rwxr-xr-x 1 sid sid       2263 Mär  2 20:25 jirb_swing
+-rw-r--r-- 1 sid sid         47 Mär  2 20:25 jirb_swing.bat
+-rwxr-xr-x 1 sid sid      13137 Mär  2 20:25 jruby
+-rwxr-xr-x 1 sid sid        172 Mär  2 20:25 jruby200.sh
+-rwxr-xr-x 1 sid sid      13137 Mär  2 20:25 jruby.bash
+-rw-r--r-- 1 sid sid        125 Mär  2 20:25 jruby.bat
+-rwxr-xr-x 1 sid sid        188 Mär  2 20:25 jrubyc
+-rw-r--r-- 1 sid sid         43 Mär  2 20:25 jrubyc.bat
+-rw-r--r-- 1 sid sid        245 Mär  2 20:25 jrubyd.bat
+-rw-r--r-- 1 sid sid    1024512 Mär  2 20:25 jruby.dll
+-rw-r--r-- 1 sid sid     959488 Mär  2 20:25 jruby.exe
+-rwxr-xr-x 1 sid sid       9397 Mär  2 20:25 jruby.sh
+-rw-r--r-- 1 sid sid     961536 Mär  2 20:25 jrubyw.exe
+-rwxr-xr-x 1 sid sid        588 Mär  2 20:25 rake
+-rw-r--r-- 1 sid sid         41 Mär  2 20:25 rake.bat
+-rwxr-xr-x 1 sid sid        588 Mär  2 20:25 rdoc
+-rw-r--r-- 1 sid sid         41 Mär  2 20:25 rdoc.bat
+-rwxr-xr-x 1 sid sid        584 Mär  2 20:25 ri
+-rw-r--r-- 1 sid sid         39 Mär  2 20:25 ri.bat
+lrwxrwxrwx 1 sid sid          5 Mär  6 09:14 ruby -&gt; jruby   <img src="./images/icons/callouts/3.png" alt="3">
+-rwxr-xr-x 1 sid sid        152 Mär  2 20:25 testrb
+-rw-r--r-- 1 sid sid         43 Mär  2 20:25 testrb.bat</pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -746,10 +760,10 @@ lrwxrwxrwx 1 sid sid       5 Nov  3 11:25 ruby -&gt; jruby   <img src="./images/
 <pre>$ source /usr/local/share/chruby/chruby.sh
 
 $ chruby
-   jruby-9.2.9.0
+   jruby-9.2.11.0
    ruby-2.5.3
 
-$ chruby jruby-9.2.9.0
+$ chruby jruby-9.2.11.0
 ...                      <img src="./images/icons/callouts/1.png" alt="1"></pre>
 </div>
 </div>
@@ -794,16 +808,16 @@ WARNING: All illegal access operations will be denied in a future release</pre>
 <div class="listingblock">
 <div class="content">
 <pre class="nowrap">$ jruby -v   <img src="./images/icons/callouts/1.png" alt="1">
-jruby 9.2.9.0 (2.5.7) 2019-10-30 458ad3e OpenJDK 64-Bit Server VM
-                      11.0.4+11-post-Ubuntu-1ubuntu218.04.3
-                      on 11.0.4+11-post-Ubuntu-1ubuntu218.04.3 +jit [linux-x86_64]</pre>
+jruby 9.2.11.0 (2.5.7) 2020-03-02 612d7a05a6 OpenJDK 64-Bit Server VM
+                       11.0.6+10-post-Ubuntu-1ubuntu118.04.1
+                       on 11.0.6+10-post-Ubuntu-1ubuntu118.04.1 +jit [linux-x86_64]</pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>Die Version <strong>JRuby 9.2.9.0</strong> &nbsp;
+<td>Die Version <strong>JRuby 9.2.11.0</strong> &nbsp;
 <em>entspricht dem Entwicklungsstand von</em> &nbsp; <strong>Ruby 2.5.7</strong>.</td>
 </tr>
 </table>
@@ -811,10 +825,10 @@ jruby 9.2.9.0 (2.5.7) 2019-10-30 458ad3e OpenJDK 64-Bit Server VM
 <div class="listingblock">
 <div class="content">
 <pre>$ which gem
-/opt/rubies/jruby-9.2.9.0/bin/gem
+/opt/rubies/jruby-9.2.11.0/bin/gem
 
 $ gem -v
-2.7.10
+3.0.6
 
 $ gem list
 
@@ -826,7 +840,7 @@ did_you_mean (1.2.0)
 fileutils (default: 1.1.0)
 ipaddr (default: 1.2.0)
 jar-dependencies (default: 0.4.0)
-jruby-openssl (default: 0.10.2 java)
+jruby-openssl (default: 0.10.4 java)
 jruby-readline (default: 1.3.7 java)
 json (default: 2.2.0 java)
 minitest (5.10.3)
@@ -845,7 +859,7 @@ xmlrpc (0.3.0)</pre>
 <div class="listingblock">
 <div class="content">
 <pre>$ which rake
-/opt/rubies/jruby-9.2.9.0/bin/rake
+/opt/rubies/jruby-9.2.11.0/bin/rake
 
 $ rake -V
 rake, version 12.3.2</pre>
@@ -861,10 +875,10 @@ Happy new Ruby</pre>
 </div>
 </div>
 <div class="listingblock">
-<div class="title">JRuby 9.2.9.0: <mark>irb</mark></div>
+<div class="title">JRuby 9.2.11.0: <mark>irb</mark></div>
 <div class="content">
 <pre>$ which irb
-/opt/rubies/jruby-9.2.9.0/bin/irb
+/opt/rubies/jruby-9.2.11.0/bin/irb
 
 $ irb
 irb(main):001:0&gt; RUBY_VERSION
@@ -872,8 +886,8 @@ irb(main):001:0&gt; RUBY_VERSION
 irb(main):002:0&gt; RUBY_PATCHLEVEL
 =&gt; 0
 irb(main):003:0&gt; Time.now.to_s
-=&gt; "2019-11-03 11:48:53 +0100"
-irb(main):004:0&gt; Time.now.sunday?
+=&gt; "2020-03-06 09:26:44 +0100"
+irb(main):004:0&gt; Time.now.friday?
 =&gt; true
 irb(main):005:0&gt; exit</pre>
 </div>
@@ -956,8 +970,8 @@ Texte in verschiedenen Dokumentenformaten zu veröffentlichen.</td>
 </tr>
 <tr>
 <td><img src="./images/icons/callouts/2.png" alt="2"></td>
-<td><strong>CodeRay</strong> is a fast and easy syntax highlighting for selected languages, written in Ruby.<br>
-Comes with RedCloth integration and LOC counter.</td>
+<td><strong>CodeRay</strong> is a fast and easy syntax highlighting for selected languages,<br>
+written in Ruby. Comes with RedCloth integration and LOC counter.</td>
 </tr>
 </table>
 </div>
@@ -966,21 +980,20 @@ Comes with RedCloth integration and LOC counter.</td>
 <h3 id="_asciidoctor_revealjs"><em>asciidoctor-revealjs</em></h3>
 <div class="listingblock">
 <div class="content">
-<pre>$ gem install asciidoctor-revealjs   <img src="./images/icons/callouts/1.png" alt="1">
-Fetching: thread_safe-0.3.6-java.gem (100%)
+<pre>$ gem install asciidoctor-revealjs        <img src="./images/icons/callouts/1.png" alt="1">
+Fetching asciidoctor-revealjs-4.0.1.gem
+Fetching thread_safe-0.3.6-java.gem
+Fetching concurrent-ruby-1.1.6.gem
 Successfully installed thread_safe-0.3.6-java
-Fetching: concurrent-ruby-1.1.5.gem (100%)
-Successfully installed concurrent-ruby-1.1.5
-Fetching: asciidoctor-revealjs-2.0.0.gem (100%)
-Successfully installed asciidoctor-revealjs-2.0.0
-3 gems installed</pre>
+Successfully installed concurrent-ruby-1.1.6
+Successfully installed asciidoctor-revealjs-4.0.1</pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td><strong>Asciidoctor-Reveal.js</strong> ist ein Konverter der ein <strong>AsciiDoc</strong>-Dokument
+<td><strong>Asciidoctor-Reveal.js</strong> ist ein Konverter der ein <strong>AsciiDoc</strong>-Dokument<br>
 in eine HTML5-Präsentation<br>
 umwandelt, um mit dem Framework <strong>Reveal.js</strong> ausgeführt zu werden.</td>
 </tr>
@@ -992,14 +1005,14 @@ umwandelt, um mit dem Framework <strong>Reveal.js</strong> ausgeführt zu werden
 <div class="listingblock">
 <div class="content">
 <pre>$ gem install pry   <img src="./images/icons/callouts/1.png" alt="1">
-Fetching: ffi-1.11.1-java.gem (100%)
-Successfully installed ffi-1.11.1-java
-Fetching: spoon-0.0.6.gem (100%)
+Fetching ffi-1.12.2-java.gem
+Fetching method_source-0.9.2.gem
+Fetching pry-0.12.2-java.gem
+Fetching spoon-0.0.6.gem
+Successfully installed ffi-1.12.2-java
 Successfully installed spoon-0.0.6
-Fetching: method_source-0.9.2.gem (100%)
 Successfully installed method_source-0.9.2
-Fetching: pry-0.12.2-java.gem (100%)
-Successfully installed pry-0.12.2-java   <img src="./images/icons/callouts/2.png" alt="2">
+Successfully installed pry-0.12.2-java       <img src="./images/icons/callouts/2.png" alt="2">
 4 gems installed</pre>
 </div>
 </div>
@@ -1021,17 +1034,19 @@ Successfully installed pry-0.12.2-java   <img src="./images/icons/callouts/2.png
 <div class="listingblock">
 <div class="content">
 <pre>$ gem install sinatra   <img src="./images/icons/callouts/1.png" alt="1">
-Fetching: rack-2.0.7.gem (100%)
-Successfully installed rack-2.0.7
-Fetching: tilt-2.0.10.gem (100%)
+Fetching rack-protection-2.0.8.1.gem
+Fetching ruby2_keywords-0.0.2.gem
+Fetching mustermann-1.1.1.gem
+Fetching tilt-2.0.10.gem
+Fetching rack-2.2.2.gem
+Fetching sinatra-2.0.8.1.gem
+Successfully installed rack-2.2.2
 Successfully installed tilt-2.0.10
-Fetching: rack-protection-2.0.7.gem (100%)
-Successfully installed rack-protection-2.0.7
-Fetching: mustermann-1.0.3.gem (100%)
-Successfully installed mustermann-1.0.3
-Fetching: sinatra-2.0.7.gem (100%)
-Successfully installed sinatra-2.0.7
-5 gems installed</pre>
+Successfully installed rack-protection-2.0.8.1
+Successfully installed ruby2_keywords-0.0.2
+Successfully installed mustermann-1.1.1
+Successfully installed sinatra-2.0.8.1
+6 gems installed</pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -1059,33 +1074,34 @@ eine in Ruby geschriebene <em>domänenspezifische</em> Sprache.<br>
 *** LOCAL GEMS ***
 
 asciidoctor (2.0.10)           <img src="./images/icons/callouts/1.png" alt="1">
-asciidoctor-revealjs (2.0.0)   <img src="./images/icons/callouts/1.png" alt="1">
+asciidoctor-revealjs (4.0.1)   <img src="./images/icons/callouts/1.png" alt="1">
 cmath (default: 1.0.0)
 coderay (1.1.2)                <img src="./images/icons/callouts/1.png" alt="1">
-concurrent-ruby (1.1.5)        <img src="./images/icons/callouts/1.png" alt="1">
+concurrent-ruby (1.1.6)        <img src="./images/icons/callouts/1.png" alt="1">
 csv (default: 1.0.0)
 did_you_mean (1.2.0)
-ffi (1.11.1 java)              <img src="./images/icons/callouts/1.png" alt="1">
+ffi (1.12.2 java)              <img src="./images/icons/callouts/1.png" alt="1">
 fileutils (default: 1.1.0)
 ipaddr (default: 1.2.0)
 jar-dependencies (default: 0.4.0)
-jruby-openssl (default: 0.10.2 java)
+jruby-openssl (default: 0.10.4 java)
 jruby-readline (default: 1.3.7 java)
 json (default: 2.2.0 java)
 method_source (0.9.2)          <img src="./images/icons/callouts/1.png" alt="1">
 minitest (5.10.3)
-mustermann (1.0.3)             <img src="./images/icons/callouts/1.png" alt="1">
+mustermann (1.1.1)             <img src="./images/icons/callouts/1.png" alt="1">
 net-telnet (0.1.1)
 power_assert (1.1.3)
 pry (0.12.2 java)              <img src="./images/icons/callouts/1.png" alt="1">
 psych (default: 3.1.0 java)
-rack (2.0.7)                   <img src="./images/icons/callouts/1.png" alt="1">
-rack-protection (2.0.7)        <img src="./images/icons/callouts/1.png" alt="1">
+rack (2.2.2)                   <img src="./images/icons/callouts/1.png" alt="1">
+rack-protection (2.0.8.1)      <img src="./images/icons/callouts/1.png" alt="1">
 rake (12.3.2)
 rake-ant (default: 1.0.4)
 rdoc (default: 6.1.2)
+ruby2_keywords (0.0.2)         <img src="./images/icons/callouts/1.png" alt="1">
 scanf (default: 1.0.0)
-sinatra (2.0.7)                <img src="./images/icons/callouts/1.png" alt="1">
+sinatra (2.0.8.1)              <img src="./images/icons/callouts/1.png" alt="1">
 spoon (0.0.6)                  <img src="./images/icons/callouts/1.png" alt="1">
 test-unit (3.2.8)
 thread_safe (0.3.6 java)       <img src="./images/icons/callouts/1.png" alt="1">
@@ -1098,7 +1114,7 @@ xmlrpc (0.3.0)</pre>
 <table>
 <tr>
 <td><img src="./images/icons/callouts/1.png" alt="1"></td>
-<td>14 Gems zusätzlich installiert.</td>
+<td>15 Gems zusätzlich installiert.</td>
 </tr>
 </table>
 </div>
@@ -1119,21 +1135,22 @@ Home-Verzeichnis installiert: <mark>~/.gem/jruby/</mark></p>
 <div class="listingblock">
 <div class="title">~/.gem/jruby/2.5.7/gems</div>
 <div class="content">
-<pre>ls -l ~/.gem/jruby/2.5.7/gems
-drwxr-xr-x 6 sid sid 4096 Nov  3 11:51 asciidoctor-2.0.10
-drwxr-xr-x 6 sid sid 4096 Nov  3 11:54 asciidoctor-revealjs-2.0.0
-drwxr-xr-x 4 sid sid 4096 Nov  3 11:53 coderay-1.1.2
-drwxr-xr-x 4 sid sid 4096 Nov  3 11:54 concurrent-ruby-1.1.5
-drwxr-xr-x 2 sid sid 4096 Nov  3 11:57 ffi-1.11.1-java
-drwxr-xr-x 4 sid sid 4096 Nov  3 11:57 method_source-0.9.2
-drwxr-xr-x 5 sid sid 4096 Nov  3 12:00 mustermann-1.0.3
-drwxr-xr-x 4 sid sid 4096 Nov  3 11:57 pry-0.12.2-java
-drwxr-xr-x 7 sid sid 4096 Nov  3 12:00 rack-2.0.7
-drwxr-xr-x 3 sid sid 4096 Nov  3 12:00 rack-protection-2.0.7
-drwxr-xr-x 4 sid sid 4096 Nov  3 12:00 sinatra-2.0.7
-drwxr-xr-x 4 sid sid 4096 Nov  3 11:57 spoon-0.0.6
-drwxr-xr-x 8 sid sid 4096 Nov  3 11:54 thread_safe-0.3.6-java
-drwxr-xr-x 4 sid sid 4096 Nov  3 12:00 tilt-2.0.10</pre>
+<pre>$ ls -l ~/.gem/jruby/2.5.7/gems
+drwxr-xr-x 6 sid sid 4096 Mär  6 09:29 asciidoctor-2.0.10
+drwxr-xr-x 6 sid sid 4096 Mär  6 09:30 asciidoctor-revealjs-4.0.1
+drwxr-xr-x 4 sid sid 4096 Mär  6 09:29 coderay-1.1.2
+drwxr-xr-x 4 sid sid 4096 Mär  6 09:30 concurrent-ruby-1.1.6
+drwxr-xr-x 2 sid sid 4096 Mär  6 09:32 ffi-1.12.2-java
+drwxr-xr-x 4 sid sid 4096 Mär  6 09:32 method_source-0.9.2
+drwxr-xr-x 5 sid sid 4096 Mär  6 09:34 mustermann-1.1.1
+drwxr-xr-x 4 sid sid 4096 Mär  6 09:32 pry-0.12.2-java
+drwxr-xr-x 6 sid sid 4096 Mär  6 09:34 rack-2.2.2
+drwxr-xr-x 3 sid sid 4096 Mär  6 09:34 rack-protection-2.0.8.1
+drwxr-xr-x 3 sid sid 4096 Mär  6 09:34 ruby2_keywords-0.0.2
+drwxr-xr-x 4 sid sid 4096 Mär  6 09:34 sinatra-2.0.8.1
+drwxr-xr-x 4 sid sid 4096 Mär  6 09:32 spoon-0.0.6
+drwxr-xr-x 8 sid sid 4096 Mär  6 09:30 thread_safe-0.3.6-java
+drwxr-xr-x 4 sid sid 4096 Mär  6 09:34 tilt-2.0.10</pre>
 </div>
 </div>
 </div>
@@ -1144,19 +1161,19 @@ drwxr-xr-x 4 sid sid 4096 Nov  3 12:00 tilt-2.0.10</pre>
 Home-Verzeichnis installiert: <mark>~/.gem/jruby/</mark></p>
 </div>
 <div class="listingblock">
-<div class="title">/opt/rubies/jruby-9.2.9.0/bin</div>
+<div class="title">/opt/rubies/jruby-9.2.11.0/bin</div>
 <div class="content">
-<pre>$ ls -l /opt/rubies/jruby-9.2.9.0/bin   <img src="./images/icons/callouts/1.png" alt="1">
--rwxr-xr-x 1 sid sid    5515 Okt 30 19:07 ast
--rw-r--r-- 1 sid sid      40 Okt 30 19:07 ast.bat
--rwxr-xr-x 1 sid sid     123 Okt 30 19:07 gem
--rw-r--r-- 1 sid sid      40 Okt 30 19:07 gem.bat
+<pre>$ ls -l /opt/rubies/jruby-9.2.11.0/bin   <img src="./images/icons/callouts/1.png" alt="1">
+-rwxr-xr-x 1 sid sid       5515 Mär  2 20:25 ast
+-rw-r--r-- 1 sid sid         40 Mär  2 20:25 ast.bat
+-rwxr-xr-x 1 sid sid        123 Mär  2 20:25 gem
+-rw-r--r-- 1 sid sid         40 Mär  2 20:25 gem.bat
 ...
--rwxr-xr-x 1 sid sid     584 Okt 30 19:07 ri
--rw-r--r-- 1 sid sid      39 Okt 30 19:07 ri.bat
-lrwxrwxrwx 1 sid sid       5 Nov  3 11:25 ruby -&gt; jruby
--rwxr-xr-x 1 sid sid     152 Okt 30 19:07 testrb
--rw-r--r-- 1 sid sid      43 Okt 30 19:07 testrb.bat</pre>
+-rwxr-xr-x 1 sid sid        584 Mär  2 20:25 ri
+-rw-r--r-- 1 sid sid         39 Mär  2 20:25 ri.bat
+lrwxrwxrwx 1 sid sid          5 Mär  6 09:14 ruby -&gt; jruby
+-rwxr-xr-x 1 sid sid        152 Mär  2 20:25 testrb
+-rw-r--r-- 1 sid sid         43 Mär  2 20:25 testrb.bat</pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -1171,12 +1188,12 @@ lrwxrwxrwx 1 sid sid       5 Nov  3 11:25 ruby -&gt; jruby
 <div class="title">~/.gem/jruby/2.5.7/bin</div>
 <div class="content">
 <pre>$ ls -l ~/.gem/jruby/2.5.7/bin   <img src="./images/icons/callouts/1.png" alt="1">
--rwxr-xr-x 1 sid sid 630 Nov  3 11:51 asciidoctor
--rwxr-xr-x 1 sid sid 684 Nov  3 11:55 asciidoctor-revealjs
--rwxr-xr-x 1 sid sid 606 Nov  3 11:53 coderay
--rwxr-xr-x 1 sid sid 582 Nov  3 11:57 pry
--rwxr-xr-x 1 sid sid 592 Nov  3 12:00 rackup
--rwxr-xr-x 1 sid sid 588 Nov  3 12:00 tilt</pre>
+-rwxr-xr-x 1 sid sid 557 Mär  6 09:29 asciidoctor
+-rwxr-xr-x 1 sid sid 611 Mär  6 09:30 asciidoctor-revealjs
+-rwxr-xr-x 1 sid sid 533 Mär  6 09:29 coderay
+-rwxr-xr-x 1 sid sid 509 Mär  6 09:32 pry
+-rwxr-xr-x 1 sid sid 519 Mär  6 09:34 rackup
+-rwxr-xr-x 1 sid sid 515 Mär  6 09:34 tilt</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1220,7 +1237,7 @@ Server started at http://0.0.0.0:8808</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-11-03 14:30:55 +0100
+Last updated 2020-03-06 09:56:18 +0100
 </div>
 </div>
 </body>

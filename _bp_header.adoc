@@ -49,3 +49,4 @@
 :ruby25-url:                link:ruby25.html
 :ruby_on_rails51-url:       link:ruby_on_rails51.html
 :ruby_on_rails52-url:       link:ruby_on_rails52.html
+:ruby_on_rails60-url:       link:ruby_on_rails60.html

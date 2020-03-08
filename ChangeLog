@@ -1,4 +1,9 @@
-# ChangeLog für iiu_de (19. Januar 2020)
+# ChangeLog für iiu_de (06. März 2020)
+
+.Version 5.2.6
+* Neue Programmversion:
+  JRuby 9k (9.2.11.0), JRuby 9k on Rails (5.2),
+  Ruby (2.5.7), Ruby on Rails (6.0)
 
 .Version 5.2.5
 * Neue Programmversion:

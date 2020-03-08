@@ -11,9 +11,9 @@ include::_bp_header.adoc[]
 :rails-github-url:       https://github.com/rails/rails
 :rails-license-url:      https://github.com/rails/rails/blob/master/MIT-LICENSE
 
-:jruby-version:          9.2.9.0
+:jruby-version:          9.2.11.0
 
-Version {version} {middot} {datum}
+Version 5.2.6 {middot} März 2020
 
 
 == ...to be prepared...
@@ -61,30 +61,30 @@ durchgeführt worden.
 ====
 Eine Installation von *Ruby on Rails 5.2* ist nur mit *Ruby-Versionen >= 2.2* möglich!
 
-*JRuby 9k* hat aktuell die Versions-Nummer *9.2.9.0*. +
+*JRuby 9k* hat aktuell die Versions-Nummer *9.2.11.0*. +
 Sie _entspricht_ dem Entwicklungsstand von &nbsp; *Ruby 2.5.7*.
 ====
 
-=== JRuby 9.2.9.0
+=== JRuby 9.2.11.0
 [options="nowrap"]
 ----
 $ chruby        <1> <2>
-  jruby-9.2.9.0
+  jruby-9.2.11.0
   ruby-2.5.3
 
 
-$ chruby jruby-9.2.9.0
+$ chruby jruby-9.2.11.0
 
 $ which ruby
-/opt/rubies/jruby-9.2.9.0/bin/ruby
+/opt/rubies/jruby-9.2.11.0/bin/ruby
 
 $ ruby -v
-jruby 9.2.9.0 (2.5.7) 2019-10-30 458ad3e OpenJDK 64-Bit Server VM
-                      11.0.4+11-post-Ubuntu-1ubuntu218.04.3
-                      on 11.0.4+11-post-Ubuntu-1ubuntu218.04.3 +jit [linux-x86_64]
+jruby 9.2.11.0 (2.5.7) 2020-03-02 612d7a05a6 OpenJDK 64-Bit Server VM
+                       11.0.6+10-post-Ubuntu-1ubuntu118.04.1
+                       on 11.0.6+10-post-Ubuntu-1ubuntu118.04.1 +jit [linux-x86_64]
 
 $ gem -v
-2.7.10
+3.0.6
 
 $ rake -V
 rake, version 12.3.2
@@ -141,17 +141,17 @@ CAUTION: Die Optionen für den Programm-Aufruf +
          sind deprecated.
 
 
-== RubyGem: rails-5.2.3
+== RubyGem: rails-5.2.4.1
 .Step 0
 ----
 $ gem search ^rails$ --remote
 
 *** REMOTE GEMS ***
 
-rails (6.0.0)   <1>
+rails (6.0.2.1)   <1>
 ----
-<1> Seit dem 15.08.2019 ist das die neueste Version des RubyGem _rails_. +
-    Ich installiere die - für *mich* relevante - Version *5.2.3* vom 28.03.2019! +
+<1> Seit dem 18.12.2019 ist *6.0.2.1* die neueste Version des RubyGem _rails_. +
+    Ich installiere die - für *mich* relevante - Version *5.2.4.1* vom 18.12.2019! +
     Entsprechend der
     https://guides.rubyonrails.org/maintenance_policy.html[Maintenance Policy for Ruby on Rails]
     erhält *Rails 5.2.Z* weiterhin alle Sicherheitsaktualisierungen!
@@ -162,130 +162,111 @@ rails (6.0.0)   <1>
 ----
 $ gem install rails   <1>
 
-$ gem install rails --version 5.2.3   <2>
+$ gem install rails --version 5.2.4.1   <2>
 
-$ gem install rails --version '~> 5.2.3'   <3>
+$ gem install rails --version '~> 5.2.4'   <3>
 ----
-<1> Die _aktuell_ neueste Version wird installiert -- zu diesem Moment: 6.0.0!
-<2> Die _angegebene_ Version wird installiert -- also: 5.2.3.
+<1> Die _aktuell_ neueste Version wird installiert -- zu diesem Moment: 6.0.2.1!
+<2> Die _angegebene_ Version wird installiert -- also: 5.2.4.1.
 <3> Twiddle Wakka: '~> 5.2.3' bedeutet, das die höchste Gem-Version von _rails_ +
-    im Bereich von >= 5.2.3 und < 5.3 installiert wird -- zu diesem Moment: 5.2.3!
+    im Bereich von >= 5.2.4 und < 5.3 installiert wird -- zu diesem Moment: 5.2.4.1!
 ====
 
 .Step 1
 Mit #gem install ...# werden auch alle Abhängigkeiten zu anderen RubyGems aufgelöst.
 ----
-$ gem install rails --version '~> 5.2.3'
-Fetching: i18n-1.7.0.gem (100%)
+$ gem install rails --version '~> 5.2.4'
+Fetching tzinfo-1.2.6.gem
+Fetching rack-test-1.1.0.gem
+Fetching activesupport-5.2.4.1.gem
+Fetching i18n-1.8.2.gem
+Fetching loofah-2.4.0.gem
+Fetching nokogiri-1.10.9-java.gem
+Fetching crass-1.0.6.gem
+Fetching rails-html-sanitizer-1.3.0.gem
+Fetching actionpack-5.2.4.1.gem
+Fetching builder-3.2.4.gem
+Fetching erubi-1.9.0.gem
+Fetching actionview-5.2.4.1.gem
+Fetching activemodel-5.2.4.1.gem
+Fetching rails-dom-testing-2.0.3.gem
+Fetching activerecord-5.2.4.1.gem
+Fetching arel-9.0.0.gem
+Fetching globalid-0.4.2.gem
+Fetching mini_mime-1.0.2.gem
+Fetching activejob-5.2.4.1.gem
+Fetching mail-2.7.1.gem
+Fetching actionmailer-5.2.4.1.gem
+Fetching nio4r-2.5.2-java.gem
+Fetching websocket-extensions-0.1.4.gem
+Fetching websocket-driver-0.7.1-java.gem
+Fetching actioncable-5.2.4.1.gem
+Fetching mimemagic-0.3.4.gem
+Fetching marcel-0.3.3.gem
+Fetching activestorage-5.2.4.1.gem
+Fetching thor-1.0.1.gem
+Fetching railties-5.2.4.1.gem
+Fetching bundler-2.1.4.gem
+Fetching sprockets-4.0.0.gem
+Fetching rails-5.2.4.1.gem
+Fetching sprockets-rails-3.2.1.gem
 
 HEADS UP! i18n 1.1 changed fallbacks to exclude default locale.
 But that may break your application.
+
+If you are upgrading your Rails application from an older version of Rails:
 
 Please check your Rails app for 'config.i18n.fallbacks = true'.
 If you're using I18n (>= 1.1.0) and Rails (< 5.2.2), this should be
 'config.i18n.fallbacks = [I18n.default_locale]'.
 If not, fallbacks will be broken in your app by I18n 1.1.x.
 
+If you are starting a NEW Rails application, you can ignore this notice.
+
 For more info see:
 https://github.com/svenfuchs/i18n/releases/tag/v1.1.0
 
-Successfully installed i18n-1.7.0
-Fetching: tzinfo-1.2.5.gem (100%)
-Successfully installed tzinfo-1.2.5
-Fetching: activesupport-5.2.3.gem (100%)
-Successfully installed activesupport-5.2.3
-Fetching: rack-test-1.1.0.gem (100%)
+Successfully installed i18n-1.8.2
+Successfully installed tzinfo-1.2.6
+Successfully installed activesupport-5.2.4.1
 Successfully installed rack-test-1.1.0
-Fetching: nokogiri-1.10.5-java.gem (100%)
-Successfully installed nokogiri-1.10.5-java
-Fetching: crass-1.0.5.gem (100%)
-Successfully installed crass-1.0.5
-Fetching: loofah-2.3.1.gem (100%)
-Successfully installed loofah-2.3.1
-Fetching: rails-html-sanitizer-1.3.0.gem (100%)
+Successfully installed nokogiri-1.10.9-java
+Successfully installed crass-1.0.6
+Successfully installed loofah-2.4.0
 Successfully installed rails-html-sanitizer-1.3.0
-Fetching: rails-dom-testing-2.0.3.gem (100%)
 Successfully installed rails-dom-testing-2.0.3
-Fetching: builder-3.2.3.gem (100%)
-Successfully installed builder-3.2.3
-Fetching: erubi-1.9.0.gem (100%)
+Successfully installed builder-3.2.4
 Successfully installed erubi-1.9.0
-Fetching: actionview-5.2.3.gem (100%)
-Successfully installed actionview-5.2.3
-Fetching: actionpack-5.2.3.gem (100%)
-Successfully installed actionpack-5.2.3
-Fetching: activemodel-5.2.3.gem (100%)
-Successfully installed activemodel-5.2.3
-Fetching: arel-9.0.0.gem (100%)
+Successfully installed actionview-5.2.4.1
+Successfully installed actionpack-5.2.4.1
+Successfully installed activemodel-5.2.4.1
 Successfully installed arel-9.0.0
-Fetching: activerecord-5.2.3.gem (100%)
-Successfully installed activerecord-5.2.3
-Fetching: globalid-0.4.2.gem (100%)
+Successfully installed activerecord-5.2.4.1
 Successfully installed globalid-0.4.2
-Fetching: activejob-5.2.3.gem (100%)
-Successfully installed activejob-5.2.3
-Fetching: mini_mime-1.0.2.gem (100%)
+Successfully installed activejob-5.2.4.1
 Successfully installed mini_mime-1.0.2
-Fetching: mail-2.7.1.gem (100%)
 Successfully installed mail-2.7.1
-Fetching: actionmailer-5.2.3.gem (100%)
-Successfully installed actionmailer-5.2.3
-Fetching: nio4r-2.5.2-java.gem (100%)
+Successfully installed actionmailer-5.2.4.1
 Successfully installed nio4r-2.5.2-java
-Fetching: websocket-extensions-0.1.4.gem (100%)
 Successfully installed websocket-extensions-0.1.4
-Fetching: websocket-driver-0.7.1-java.gem (100%)
 Successfully installed websocket-driver-0.7.1-java
-Fetching: actioncable-5.2.3.gem (100%)
-Successfully installed actioncable-5.2.3
-Fetching: mimemagic-0.3.3.gem (100%)
-Successfully installed mimemagic-0.3.3
-Fetching: marcel-0.3.3.gem (100%)
+Successfully installed actioncable-5.2.4.1
+Successfully installed mimemagic-0.3.4
 Successfully installed marcel-0.3.3
-Fetching: activestorage-5.2.3.gem (100%)
-Successfully installed activestorage-5.2.3
-Fetching: thor-0.20.3.gem (100%)
-Successfully installed thor-0.20.3
-Fetching: railties-5.2.3.gem (100%)
-Successfully installed railties-5.2.3
-Fetching: bundler-2.0.2.gem (100%)
-Successfully installed bundler-2.0.2
-Fetching: sprockets-4.0.0.gem (100%)
+Successfully installed activestorage-5.2.4.1
+Successfully installed thor-1.0.1
+Successfully installed railties-5.2.4.1
+Successfully installed bundler-2.1.4
 Successfully installed sprockets-4.0.0
-Fetching: sprockets-rails-3.2.1.gem (100%)
 Successfully installed sprockets-rails-3.2.1
-Fetching: rails-5.2.3.gem (100%)
-Successfully installed rails-5.2.3
-34 gems installed                    <1>
+Successfully installed rails-5.2.4.1
+34 gems installed                      <1>
 ----
-<1> Mit dem RubyGem _rails-5.2.3_ wurden insgesamt 34 Gems installiert. +
+<1> Mit dem RubyGem _rails-5.2.4.1_ wurden insgesamt 34 Gems installiert. +
     Hinweis: Weitere RubyGems müssen für das Framework *Ruby on Rails* installiert werden.
 
 
-[CAUTION]
-====
-.Korrektur: bundler-2.0.2 -- zu neu!
-----
-$ gem install bundler --version 1.17.3
-Fetching: bundler-1.17.3.gem (100%)
-Successfully installed bundler-1.17.3
-1 gem installed
-----
-
-----
-$ gem uninstall bundler
-
-Select gem to uninstall:
- 1. bundler-1.17.3
- 2. bundler-2.0.2
- 3. All versions
-> 2
-Successfully uninstalled bundler-2.0.2
-----
-====
-
-
-== JRuby on Rails 5.2.3
+== JRuby on Rails 5.2.4.1
 Die notwendigen Schritte werden auf der Kommandozeile durchgeführt.
 
 .Vorgehensweise
@@ -323,38 +304,38 @@ In der Vorgehensweise sind sie ähnlich derer für *MySQL*
 === Datenbankadapter installieren
 .Datenbankzugriff (via JDBC)
 ----
-$ gem install activerecord-jdbc-adapter -v 52.4
-Fetching: activerecord-jdbc-adapter-52.4-java.gem (100%)
-Successfully installed activerecord-jdbc-adapter-52.4-java
+$ gem install activerecord-jdbc-adapter -v 52.5
+Fetching: activerecord-jdbc-adapter-52.5-java.gem (100%)
+Successfully installed activerecord-jdbc-adapter-52.5-java
 1 gem installed
 ----
 
 .MySQL
 ----
-$ gem install activerecord-jdbcmysql-adapter -v 52.4
-Fetching: jdbc-mysql-5.1.47.gem (100%)
+$ gem install activerecord-jdbcmysql-adapter -v 52.5
+Fetching activerecord-jdbcmysql-adapter-52.5-java.gem
+Fetching jdbc-mysql-5.1.47.gem
 Successfully installed jdbc-mysql-5.1.47
-Fetching: activerecord-jdbcmysql-adapter-52.4-java.gem (100%)
-Successfully installed activerecord-jdbcmysql-adapter-52.4-java
+Successfully installed activerecord-jdbcmysql-adapter-52.5-java
 2 gems installed
 ----
 
 .SQLite3
 ----
-$ gem install activerecord-jdbcsqlite3-adapter -v 52.4
-Fetching: jdbc-sqlite3-3.28.0.gem (100%)
+$ gem install activerecord-jdbcsqlite3-adapter -v 52.5
+Fetching activerecord-jdbcsqlite3-adapter-52.5-java.gem
+Fetching jdbc-sqlite3-3.28.0.gem
 Successfully installed jdbc-sqlite3-3.28.0
-Fetching: activerecord-jdbcsqlite3-adapter-52.4-java.gem (100%)
-Successfully installed activerecord-jdbcsqlite3-adapter-52.4-java
+Successfully installed activerecord-jdbcsqlite3-adapter-52.5-java
 2 gems installed
 ----
 
 .RubyGems: Datenbankzugriff
 ----
 $ gem list --local | grep jdbc
-activerecord-jdbc-adapter (52.4 java)
-activerecord-jdbcmysql-adapter (52.4 java)
-activerecord-jdbcsqlite3-adapter (52.4 java)
+activerecord-jdbc-adapter (52.5 java)
+activerecord-jdbcmysql-adapter (52.5 java)
+activerecord-jdbcsqlite3-adapter (52.5 java)
 jdbc-mysql (5.1.47)
 jdbc-sqlite3 (3.28.0)
 ----
@@ -374,10 +355,10 @@ die Kommandozeile.
 $ mysql -uroot -p
 Enter password:
 Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 7
-Server version: 5.7.24-0ubuntu0.18.04.1 (Ubuntu)
+Your MySQL connection id is 11
+Server version: 5.7.29-0ubuntu0.18.04.1 (Ubuntu)
 
-Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
 
 Oracle is a registered trademark of Oracle Corporation and/or its
 affiliates. Other names may be trademarks of their respective
@@ -401,10 +382,10 @@ Bye
 $ mysql -usid -p
 Enter password:
 Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 8
-Server version: 5.7.24-0ubuntu0.18.04.1 (Ubuntu)
+Your MySQL connection id is 12
+Server version: 5.7.29-0ubuntu0.18.04.1 (Ubuntu)
 
-Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
 
 Oracle is a registered trademark of Oracle Corporation and/or its
 affiliates. Other names may be trademarks of their respective
@@ -426,48 +407,127 @@ $ cd
 $ mkdir RailsDir
 
 $ cd RailsDir
-$ rails _5.2.3_ new jMyApp --database=mysql -B  <1> <2> <3>
-      create
-      create  README.md
-      create  Rakefile
-      create  .ruby-version
-      create  config.ru
-      create  .gitignore
-      create  Gemfile             <4>
-         run  git init from "."
+$ rails _5.2.4.1_ new jMyApp --database=mysql -B  <1> <2> <3>
+create
+create  README.md
+create  Rakefile
+create  .ruby-version
+create  config.ru
+create  .gitignore
+create  Gemfile             <4>
+   run  git init from "."
 Leeres Git-Repository in /yard/80/RailsDir/jMyApp/.git/ initialisiert
-      create  package.json
-      create  app
-      create  app/assets/config/manifest.js
-      create  app/assets/javascripts/application.js
-...
-      create  bin
-      create  bin/bundle
-      create  bin/rails
-      create  bin/rake
-      create  bin/setup
-      create  bin/update
-      create  bin/yarn
-...
-      create  config/puma.rb        <5>
-...
-      create  config/initializers/cors.rb   <6>
-...
-      create  config/initializers/new_framework_defaults_5_2.rb   <6>
-...
-      create  config/database.yml   <7>
-...
-      create  storage
-      create  storage/.keep
-      create  tmp/storage
-      create  tmp/storage/.keep
-      remove  config/initializers/cors.rb                         <6>
-      remove  config/initializers/new_framework_defaults_5_2.rb   <6>
+create  package.json
+create  app
+create  app/assets/config/manifest.js
+create  app/assets/javascripts/application.js
+create  app/assets/javascripts/cable.js
+create  app/assets/stylesheets/application.css
+create  app/channels/application_cable/channel.rb
+create  app/channels/application_cable/connection.rb
+create  app/controllers/application_controller.rb
+create  app/helpers/application_helper.rb
+create  app/jobs/application_job.rb
+create  app/mailers/application_mailer.rb
+create  app/models/application_record.rb
+create  app/views/layouts/application.html.erb
+create  app/views/layouts/mailer.html.erb
+create  app/views/layouts/mailer.text.erb
+create  app/assets/images/.keep
+create  app/assets/javascripts/channels
+create  app/assets/javascripts/channels/.keep
+create  app/controllers/concerns/.keep
+create  app/models/concerns/.keep
+create  bin
+create  bin/bundle
+create  bin/rails
+create  bin/rake
+create  bin/setup
+create  bin/update
+create  bin/yarn
+create  config
+create  config/routes.rb
+create  config/application.rb
+create  config/environment.rb
+create  config/cable.yml
+create  config/puma.rb       <5>
+create  config/storage.yml
+create  config/environments
+create  config/environments/development.rb
+create  config/environments/production.rb
+create  config/environments/test.rb
+create  config/initializers
+create  config/initializers/application_controller_renderer.rb
+create  config/initializers/assets.rb
+create  config/initializers/backtrace_silencers.rb
+create  config/initializers/content_security_policy.rb
+create  config/initializers/cookies_serializer.rb
+create  config/initializers/cors.rb                       <6>
+create  config/initializers/filter_parameter_logging.rb
+create  config/initializers/inflections.rb
+create  config/initializers/mime_types.rb
+create  config/initializers/new_framework_defaults_5_2.rb   <6>
+create  config/initializers/wrap_parameters.rb
+create  config/locales
+create  config/locales/en.yml
+create  config/master.key
+append  .gitignore
+create  config/boot.rb
+create  config/database.yml   <7>
+create  db
+create  db/seeds.rb
+create  lib
+create  lib/tasks
+create  lib/tasks/.keep
+create  lib/assets
+create  lib/assets/.keep
+create  log
+create  log/.keep
+create  public
+create  public/404.html
+create  public/422.html
+create  public/500.html
+create  public/apple-touch-icon-precomposed.png
+create  public/apple-touch-icon.png
+create  public/favicon.ico
+create  public/robots.txt
+create  tmp
+create  tmp/.keep
+create  tmp/pids
+create  tmp/pids/.keep
+create  tmp/cache
+create  tmp/cache/assets
+create  vendor
+create  vendor/.keep
+create  test/fixtures
+create  test/fixtures/.keep
+create  test/fixtures/files
+create  test/fixtures/files/.keep
+create  test/controllers
+create  test/controllers/.keep
+create  test/mailers
+create  test/mailers/.keep
+create  test/models
+create  test/models/.keep
+create  test/helpers
+create  test/helpers/.keep
+create  test/integration
+create  test/integration/.keep
+create  test/test_helper.rb
+create  test/system
+create  test/system/.keep
+create  test/application_system_test_case.rb
+create  storage
+create  storage/.keep
+create  tmp/storage
+create  tmp/storage/.keep
+remove  config/initializers/cors.rb                         <6>
+remove  config/initializers/new_framework_defaults_5_2.rb   <6>
 ----
-<1> #+++_5.2.3_+++# -- Festlegen, welche Rails-Version verwendet werden soll. +
+<1> #+++_5.2.4.1_+++# -- Festlegen, welche Rails-Version verwendet werden soll. +
     #--database=mysql# -- Festlegen, welches DBMS verwendet werden soll.
 <2> Für das Datenbanksystem _SQLite3_ verkürzt sich der Aufruf: +
-    #rails +++_5.2.3_+++ new myapp#
+    #rails +++_5.2.4.1_+++ new myapp#
 <3> #-B# -- Don't run bundle install +
     Kein automatisches _install_ und _update_ von RubyGems!
 <4> Die zu diesem Zeitpunkt benötigten RubyGems und +
@@ -543,10 +603,11 @@ $ tree -LF 2 .
 │   └── test_helper.rb
 ├── tmp/
 │   ├── cache/
+│   ├── pids/
 │   └── storage/
 └── vendor/
 
-33 directories, 31 files
+34 directories, 31 files
 ----
 <1> Datei: `config/database.yml`
 <2> Datei: `Gemfile`
@@ -567,7 +628,7 @@ Could not find gem 'puma (~> 3.11)' in any of the gem sources listed in your Gem
 
 ----
 $ ls -l Gemfile*
--rw-r--r--  1 sid medien 1733 Nov  3 13:21 Gemfile
+-rw-r--r-- 1 sid sid    1747 Mär  6 12:37 Gemfile
 ----
 
 .Datei: `Gemfile`
@@ -578,7 +639,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.7'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.3'
+gem 'rails', '~> 5.2.4', '>= 5.2.4.1'
 # Use jdbcmysql as the database for Active Record
 gem 'activerecord-jdbcmysql-adapter'
 # Use Puma as the app server
@@ -634,64 +695,64 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 [options="nowrap"]
 ----
 $ bundle install   <1>
-Fetching gem metadata from https://rubygems.org/.............
+Fetching gem metadata from https://rubygems.org/............
 Fetching gem metadata from https://rubygems.org/.
-Resolving dependencies.........................
-Fetching rake 13.0.0          <2>
-Installing rake 13.0.0
-Using concurrent-ruby 1.1.5   <3>
-Using i18n 1.7.0
-Fetching minitest 5.13.0
-Installing minitest 5.13.0
+Resolving dependencies............................................................
+Fetching rake 13.0.1          <2>
+Installing rake 13.0.1
+Using concurrent-ruby 1.1.6   <3>
+Using i18n 1.8.2
+Fetching minitest 5.14.0
+Installing minitest 5.14.0
 Using thread_safe 0.3.6 (java)
-Using tzinfo 1.2.5
-Using activesupport 5.2.3
-Using builder 3.2.3
+Using tzinfo 1.2.6
+Using activesupport 5.2.4.1
+Using builder 3.2.4
 Using erubi 1.9.0
-Using nokogiri 1.10.5 (java)
+Using nokogiri 1.10.9 (java)
 Using rails-dom-testing 2.0.3
-Using crass 1.0.5
-Using loofah 2.3.1
+Using crass 1.0.6
+Using loofah 2.4.0
 Using rails-html-sanitizer 1.3.0
-Using actionview 5.2.3
-Using rack 2.0.7
+Using actionview 5.2.4.1
+Using rack 2.2.2
 Using rack-test 1.1.0
-Using actionpack 5.2.3
+Using actionpack 5.2.4.1
 Using nio4r 2.5.2 (java)
 Using websocket-extensions 0.1.4
 Using websocket-driver 0.7.1 (java)
-Using actioncable 5.2.3
+Using actioncable 5.2.4.1
 Using globalid 0.4.2
-Using activejob 5.2.3
+Using activejob 5.2.4.1
 Using mini_mime 1.0.2
 Using mail 2.7.1
-Using actionmailer 5.2.3
-Using activemodel 5.2.3
+Using actionmailer 5.2.4.1
+Using activemodel 5.2.4.1
 Using arel 9.0.0
-Using activerecord 5.2.3
-Using activerecord-jdbc-adapter 52.4 (java)
+Using activerecord 5.2.4.1
+Using activerecord-jdbc-adapter 52.5 (java)
 Using jdbc-mysql 5.1.47
-Using activerecord-jdbcmysql-adapter 52.4 (java)
-Using mimemagic 0.3.3
+Using activerecord-jdbcmysql-adapter 52.5 (java)
+Using mimemagic 0.3.4
 Using marcel 0.3.3
-Using activestorage 5.2.3
-Fetching public_suffix 4.0.1
-Installing public_suffix 4.0.1
+Using activestorage 5.2.4.1
+Fetching public_suffix 4.0.3
+Installing public_suffix 4.0.3
 Fetching addressable 2.7.0
 Installing addressable 2.7.0
-Fetching io-like 0.3.0
-Installing io-like 0.3.0
+Fetching io-like 0.3.1
+Installing io-like 0.3.1
 Fetching archive-zip 0.12.0
 Installing archive-zip 0.12.0
 Fetching bindex 0.8.1
 Installing bindex 0.8.1 with native extensions
-Using bundler 1.17.3
-Fetching regexp_parser 1.6.0
-Installing regexp_parser 1.6.0
+Using bundler 2.1.4
+Fetching regexp_parser 1.7.0
+Installing regexp_parser 1.7.0
 Fetching xpath 3.2.0
 Installing xpath 3.2.0
-Fetching capybara 3.29.0
-Installing capybara 3.29.0
+Fetching capybara 3.31.0
+Installing capybara 3.31.0
 Fetching childprocess 3.0.0
 Installing childprocess 3.0.0
 Fetching chromedriver-helper 2.1.1
@@ -703,29 +764,29 @@ Installing execjs 2.7.0
 Fetching coffee-script 2.4.1
 Installing coffee-script 2.4.1
 Using method_source 0.9.2
-Using thor 0.20.3
-Using railties 5.2.3
+Using thor 1.0.1
+Using railties 5.2.4.1
 Fetching coffee-rails 4.2.2
 Installing coffee-rails 4.2.2
-Using ffi 1.11.1 (java)
-Fetching jbuilder 2.9.1
-Installing jbuilder 2.9.1
+Using ffi 1.12.2 (java)
+Fetching jbuilder 2.10.0
+Installing jbuilder 2.10.0
 Fetching rb-fsevent 0.10.3
 Installing rb-fsevent 0.10.3
-Fetching rb-inotify 0.10.0
-Installing rb-inotify 0.10.0
+Fetching rb-inotify 0.10.1
+Installing rb-inotify 0.10.1
 Fetching ruby_dep 1.5.0
 Installing ruby_dep 1.5.0
 Fetching listen 3.1.5
 Installing listen 3.1.5
-Fetching puma 3.12.1 (java)
-Installing puma 3.12.1 (java)
+Fetching puma 3.12.4 (java)
+Installing puma 3.12.4 (java)
 Fetching sprockets 3.7.2
 Installing sprockets 3.7.2
 Using sprockets-rails 3.2.1
-Using rails 5.2.3
-Fetching rubyzip 2.0.0
-Installing rubyzip 2.0.0
+Using rails 5.2.4.1
+Fetching rubyzip 2.2.0
+Installing rubyzip 2.2.0
 Fetching sass-listen 4.0.0
 Installing sass-listen 4.0.0
 Fetching sass 3.7.4
@@ -733,8 +794,8 @@ Installing sass 3.7.4
 Using tilt 2.0.10
 Fetching sass-rails 5.1.0
 Installing sass-rails 5.1.0
-Fetching selenium-webdriver 3.142.6
-Installing selenium-webdriver 3.142.6
+Fetching selenium-webdriver 3.142.7
+Installing selenium-webdriver 3.142.7
 Fetching therubyrhino_jar 1.7.8
 Installing therubyrhino_jar 1.7.8
 Fetching therubyrhino 2.1.2
@@ -776,7 +837,7 @@ Ruby Sass has reached end-of-life and should no longer be used.
   https://sass-lang.com/blog/posts/7828841
 ----
 <1> Mit {chruby-url}[Chruby] besitzt _ein_ einfacher Benutzer die Möglichkeit _RubyGems_ nachzuinstallieren. +
-    Die _RubyGems_ werden im Verzeichnis `~/.gem/jruby/2.5.3` installiert.
+    Die _RubyGems_ werden im Verzeichnis `~/.gem/jruby/2.5.7` installiert.
 <2> _Installing_: Neu installierte RubyGems
 <3> _Using_: Bereits installierte RubyGems
 
@@ -791,9 +852,9 @@ Removing chromedriver-helper
 Removing chromedriver-update
 Successfully uninstalled chromedriver-helper-2.1.1
 
-$ gem install webdriver
-Fetching: webdrivers-4.1.3.gem (100%)
-Successfully installed webdrivers-4.1.3
+$ gem install webdrivers
+Fetching webdrivers-4.2.0.gem
+Successfully installed webdrivers-4.2.0
 1 gem installed
 ----
 
@@ -807,11 +868,12 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   # gem 'chromedriver-helper'   <1>
-  gem 'webdrivers'
+  gem 'webdrivers'              <2>
 end
 ...
 ----
 <1> RubyGem: *chromedriver-helper* -- deaktiviert
+<2> RubyGem: *webdrivers* -- aktiviert
 
 
 .Prüfen der Abhängigkeiten im `Gemfile` (2)
@@ -820,8 +882,8 @@ $ bundle check <1>
 The Gemfile's dependencies are satisfied
 
 $ ls -l Gemfile*   <1>
--rw-r--r-- 1 sid medien 1754 Nov  3 13:58 Gemfile
--rw-r--r-- 1 sid medien 5274 Nov  3 13:58 Gemfile.lock
+-rw-r--r-- 1 sid sid    1767 Mär  6 12:57 Gemfile
+-rw-r--r-- 1 sid sid    5368 Mär  6 12:58 Gemfile.lock
 ----
 <1> Als Benutzer _sid_!
 
@@ -844,11 +906,12 @@ development:
 ----
 [...]
 default: &default
-  adapter: mysql2
+  adapter: mysql
   encoding: utf8
   pool: 5
   username: sid                    <1>
   password: g3h3im                 <1>
+  host: localhost
   properties:                      <2>
     useLegacyDatetimeCode: false
     serverTimezone: Europe/Amsterdam
@@ -863,7 +926,8 @@ development:   <3>
 <3> Es werden ausschließlich die zu _default_ geänderten Einträge aufgeführt.
 <4> Der hier vorgeschlagene Datenbank-Name wird von _Ruby on Rails_
     automatisch gebildet: +
-    Name der Applikation 'jMyApp' und dem Zusatz '_development'
+    Name der Applikation 'jMyApp' und dem Zusatz '_development' +
+    Alles Kleinbuchstaben.
 
 
 === JavaScript-Runtime installieren
@@ -876,9 +940,19 @@ Das RubyGem ist bereits installiert und im Gemfile eingebunden.
 ----
 ...
 # See https://github.com/rails/execjs#readme for more supported runtimes
-gem 'therubyrhino'
+#gem 'therubyrhino'   <1>
 ...
 ----
+<1> *Auskommentieren!* Das Paket wird nicht weiterentwickelt!
+
+----
+$ rm Gemfile.lock   <1>
+
+$ bundle check
+Resolving dependencies......................................................
+The Gemfile's dependencies are satisfied
+----
+<1> Muß vor dem ausführen von #bundle check# gelöscht werden.
 
 .Möglichkeit 2: Das Ubuntu-Paket 'nodejs' installieren
 ----
@@ -904,10 +978,10 @@ Die folgenden NEUEN Pakete werden installiert:
 ----
 $ rails s
 => Booting Puma
-=> Rails 5.2.3 application starting in development
+=> Rails 5.2.4.1 application starting in development
 => Run `rails server -h` for more startup options
 Puma starting in single mode...
-* Version 3.12.1 (jruby 9.2.9.0 - ruby 2.5.7), codename: Llamas in Pajamas   <1>
+* Version 3.12.4 (jruby 9.2.11.0 - ruby 2.5.7), codename: Llamas in Pajamas   <1>
 * Min threads: 5, max threads: 5
 * Environment: development
 * Listening on tcp://localhost:3000   <2>
@@ -921,16 +995,16 @@ BROWSER> http://localhost:3000/   <1>
 ----
 <1> Grundsätzlicher Test der Verbindung!
 
-image:jruby/jruby_on_rails52.png[JRuby on Rails 5.2]
+image:jruby/jruby_on_rails52.png[JRuby on Rails 5.2.4.1]
 
 ----
 $ rails about
 About your application's environment
-Rails version             5.2.3
+Rails version             5.2.4.1
 Ruby version              2.5.7-p0 (java)   <1>
-RubyGems version          2.7.10
-Rack version              2.0.7
-JavaScript Runtime        therubyrhino (Rhino)
+RubyGems version          3.0.6
+Rack version              2.2.2
+JavaScript Runtime        Node.js (V8)
 Middleware                Rack::Sendfile,
                           ActionDispatch::Static,
                           ActionDispatch::Executor,
@@ -971,113 +1045,114 @@ $ gem list --local   <1>
 
 *** LOCAL GEMS ***
 
-actioncable (5.2.3)
-actionmailer (5.2.3)
-actionpack (5.2.3)
-actionview (5.2.3)
-activejob (5.2.3)
-activemodel (5.2.3)
-activerecord (5.2.3)
-activerecord-jdbc-adapter (52.4 java)
-activerecord-jdbcmysql-adapter (52.4 java)
-activerecord-jdbcsqlite3-adapter (52.4 java)
-activestorage (5.2.3)
-activesupport (5.2.3)
+actioncable (5.2.4.1)
+actionmailer (5.2.4.1)
+actionpack (5.2.4.1)
+actionview (5.2.4.1)
+activejob (5.2.4.1)
+activemodel (5.2.4.1)
+activerecord (5.2.4.1)
+activerecord-jdbc-adapter (52.5 java)
+activerecord-jdbcmysql-adapter (52.5 java)
+activerecord-jdbcsqlite3-adapter (52.5 java)
+activestorage (5.2.4.1)
+activesupport (5.2.4.1)
 addressable (2.7.0)
 archive-zip (0.12.0)
 arel (9.0.0)
 asciidoctor (2.0.10)
-asciidoctor-revealjs (2.0.0)
+asciidoctor-revealjs (4.0.1)
 bindex (0.8.1)
-builder (3.2.3)
-bundler (1.17.3)
-capybara (3.29.0)
+builder (3.2.4)
+bundler (2.1.4)
+capybara (3.31.0)
 childprocess (3.0.0)
 cmath (default: 1.0.0)
 coderay (1.1.2)
 coffee-rails (4.2.2)
 coffee-script (2.4.1)
 coffee-script-source (1.12.2)
-concurrent-ruby (1.1.5)
-crass (1.0.5)
+concurrent-ruby (1.1.6)
+crass (1.0.6)
 csv (default: 1.0.0)
 did_you_mean (1.2.0)
 erubi (1.9.0)
 execjs (2.7.0)
-ffi (1.11.1 java)
+ffi (1.12.2 java)
 fileutils (default: 1.1.0)
 globalid (0.4.2)
-i18n (1.7.0)
-io-like (0.3.0)
+i18n (1.8.2)
+io-like (0.3.1)
 ipaddr (default: 1.2.0)
 jar-dependencies (default: 0.4.0)
-jbuilder (2.9.1)
+jbuilder (2.10.0)
 jdbc-mysql (5.1.47)
 jdbc-sqlite3 (3.28.0)
-jruby-openssl (default: 0.10.2 java)
+jruby-openssl (default: 0.10.4 java)
 jruby-readline (default: 1.3.7 java)
 json (default: 2.2.0 java)
 listen (3.1.5)
-loofah (2.3.1)
+loofah (2.4.0)
 mail (2.7.1)
 marcel (0.3.3)
 method_source (0.9.2)
-mimemagic (0.3.3)
+mimemagic (0.3.4)
 mini_mime (1.0.2)
-minitest (5.13.0, 5.10.3)
-mustermann (1.0.3)
+minitest (5.14.0, 5.10.3)
+mustermann (1.1.1)
 net-telnet (0.1.1)
 nio4r (2.5.2 java)
-nokogiri (1.10.5 java)
+nokogiri (1.10.9 java)
 power_assert (1.1.3)
 pry (0.12.2 java)
 psych (default: 3.1.0 java)
-public_suffix (4.0.1)
-puma (3.12.1 java)
-rack (2.0.7)
-rack-protection (2.0.7)
+public_suffix (4.0.3)
+puma (3.12.4 java)
+rack (2.2.2)
+rack-protection (2.0.8.1)
 rack-test (1.1.0)
-rails (5.2.3)
+rails (5.2.4.1)
 rails-dom-testing (2.0.3)
 rails-html-sanitizer (1.3.0)
-railties (5.2.3)
-rake (13.0.0, 12.3.2)
+railties (5.2.4.1)
+rake (13.0.1, 12.3.2)
 rake-ant (default: 1.0.4)
 rb-fsevent (0.10.3)
-rb-inotify (0.10.0)
+rb-inotify (0.10.1)
 rdoc (default: 6.1.2)
-regexp_parser (1.6.0)
+regexp_parser (1.7.0)
+ruby2_keywords (0.0.2)
 ruby_dep (1.5.0)
-rubyzip (2.0.0)
+rubyzip (2.2.0)
 sass (3.7.4)
 sass-listen (4.0.0)
 sass-rails (5.1.0)
 scanf (default: 1.0.0)
-selenium-webdriver (3.142.6)
-sinatra (2.0.7)
+selenium-webdriver (3.142.7)
+sinatra (2.0.8.1)
 spoon (0.0.6)
 sprockets (4.0.0, 3.7.2)
 sprockets-rails (3.2.1)
 test-unit (3.2.8)
 therubyrhino (2.1.2)
 therubyrhino_jar (1.7.8)
-thor (0.20.3)
+thor (1.0.1)
 thread_safe (0.3.6 java)
 tilt (2.0.10)
 turbolinks (5.2.1)
 turbolinks-source (5.2.0)
-tzinfo (1.2.5)
+tzinfo (1.2.6)
 tzinfo-data (1.2019.3)
 uglifier (4.2.0)
 web-console (3.7.0)
-webdrivers (4.1.3)
+webdrivers (4.2.0)
 webrick (default: 1.4.2)
 websocket-driver (0.7.1 java)
 websocket-extensions (0.1.4)
 xmlrpc (0.3.0)
 xpath (3.2.0)
 ----
-<1> Anzahl der installierten RubyGems: _105_
+<1> Anzahl der installierten RubyGems: _106_
 
 
 
